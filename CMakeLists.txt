@@ -45,6 +45,6 @@ add_library(anduril-sdk-cpp ${anduril-sdk-sources})
 # Add Protobuf
 find_package(Protobuf REQUIRED)
 
-target_include_directories(anduril-sdk-cpp PUBLIC src)
+target_include_directories(anduril-sdk-cpp PUBLIC src ${Protobuf_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR}/include)
 target_link_libraries(anduril-sdk-cpp PUBLIC gRPC::grpc++ gRPC::grpcpp gRPC::grpc++_reflection ${Protobuf_LIBRARIES})
 
