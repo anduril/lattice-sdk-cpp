@@ -17,12 +17,6 @@ if(USE_SYSTEM_GRPC)
     add_library(grpc ALIAS gRPC::grpc)
     add_library(grpc++ ALIAS gRPC::grpc++)
 else()
-    # Make sure we build gRPC as a static library, regardless of
-    # whether Diatheke is built as a shared library.
-    cmake_policy(SET CMP0077 NEW)
-    set(OLD_BUILD_SHARED ${BUILD_SHARED_LIBS})
-    set(BUILD_SHARED_LIBS FALSE)
-
     # Download gRPC from github and add it as part of the project
     include(FetchContent)
     FetchContent_Declare(
@@ -44,9 +38,6 @@ else()
 
     # Add gRPC to the project
     FetchContent_MakeAvailable(gRPC)
-
-    # Restore the BUILD_SHARED_LIBS flag
-    set(BUILD_SHARED_LIBS ${OLD_BUILD_SHARED})
 endif()
 
 message(STATUS "Using gRPC ${gRPC_VERSION}")
