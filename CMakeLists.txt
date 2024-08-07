@@ -12,10 +12,6 @@ set(CMAKE_POSITION_INDEPENDENT_CODE True)
 option(USE_SYSTEM_GRPC "Use system installed gRPC" OFF)
 if(USE_SYSTEM_GRPC)
     find_package(gRPC CONFIG REQUIRED)
-
-    # Create aliases for the imported libraries
-    add_library(grpc ALIAS gRPC::grpc)
-    add_library(grpc++ ALIAS gRPC::grpc++)
 else()
     # Download gRPC from github and add it as part of the project
     include(FetchContent)
@@ -46,6 +42,9 @@ message(STATUS "Using gRPC ${gRPC_VERSION}")
 file(GLOB_RECURSE anduril-sdk-sources ${PROJECT_SOURCE_DIR}/*.cc)
 add_library(anduril-sdk-cpp ${anduril-sdk-sources})
 
+# Add Protobuf
+find_package(Protobuf REQUIRED)
+
 target_include_directories(anduril-sdk-cpp PUBLIC src)
-target_link_libraries(anduril-sdk-cpp PUBLIC grpc grpc++)
+target_link_libraries(anduril-sdk-cpp PUBLIC gRPC::grpc++ gRPC::grpcpp gRPC::grpc++_reflection ${Protobuf_LIBRARIES})
 
