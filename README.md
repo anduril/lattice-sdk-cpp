@@ -11,6 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Download the SDK from github and add it as part of the project
 include(FetchContent)
+set(ABSL_ENABLE_INSTALL ON)
 FetchContent_Declare(
   anduril-sdk-cpp
   GIT_REPOSITORY https://github.com/anduril/anduril-cpp.git
