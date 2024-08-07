@@ -28,7 +28,7 @@ else()
     FetchContent_Declare(
         gRPC
         GIT_REPOSITORY https://github.com/grpc/grpc
-        GIT_TAG        v1.54.3
+        GIT_TAG        v1.54.2
     )
     set(FETCHCONTENT_QUIET OFF)
 
