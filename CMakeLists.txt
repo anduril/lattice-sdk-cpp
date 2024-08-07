@@ -47,5 +47,5 @@ file(GLOB_RECURSE anduril-sdk-sources ${PROJECT_SOURCE_DIR}/*.cc)
 add_library(anduril-sdk-cpp ${anduril-sdk-sources})
 
 target_include_directories(anduril-sdk-cpp PUBLIC src)
-target_link_libraries(anduril-sdk-cpp PUBLIC grpc grpc++)
+target_link_libraries(anduril-sdk-cpp PUBLIC grpc grpc++ libprotobuf)
 
