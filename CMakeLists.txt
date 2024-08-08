@@ -9,8 +9,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED on)
 set(CMAKE_POSITION_INDEPENDENT_CODE True)
 
 # Specify the dependencies
-find_package(protobuf CONFIG REQUIRED)
 find_package(gRPC CONFIG REQUIRED)
+
+add_library(grpc ALIAS gRPC::grpc)
+add_library(grpc++ ALIAS gRPC::grpc++)
 
 ## Get all the Proto generated files
 file(GLOB_RECURSE anduril-sdk-sources ${PROJECT_SOURCE_DIR}/*.cc)
