@@ -10,7 +10,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE True)
 
 # Specify the dependencies
 find_package(protobuf 27.3.0 REQUIRED)
-find_package(gRPC 1.65.4 REQUIRED)
+find_package(gRPC 1.62.2 REQUIRED)
 
 ## Get all the Proto generated files
 file(GLOB_RECURSE anduril-sdk-sources ${PROJECT_SOURCE_DIR}/*.cc)
