@@ -1,9 +1,13 @@
 # anduril-cpp
 
+### Pre-Requisites
+
+* gRPC 1.62.4. This can be installed with Homebrew on OSX `brew install grpc`
+
 ### CMakeLists.txt
 
 ```cmake
-cmake_minimum_required(VERSION 3.14.0)
+cmake_minimum_required(VERSION 3.25.0)
 project(anduril-sdk-example)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -11,7 +15,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Download the SDK from github and add it as part of the project
 include(FetchContent)
-set(ABSL_ENABLE_INSTALL ON)
 FetchContent_Declare(
   anduril-sdk-cpp
   GIT_REPOSITORY https://github.com/anduril/anduril-cpp.git
@@ -19,9 +22,9 @@ FetchContent_Declare(
 set(FETCHCONTENT_QUIET OFF)
 FetchContent_MakeAvailable(anduril-sdk-cpp)
 
-# Build the text-only CLI and link against the Diatheke SDK.
+# Build the text-only CLI and link against the Anduril SDK.
 add_executable(cli_client main.cpp)
-target_link_libraries(cli_client PRIVATE anduril-sdk-cpp)
+target_link_libraries(cli_client anduril-sdk-cpp)
 ```
 
 ### Main.cpp
