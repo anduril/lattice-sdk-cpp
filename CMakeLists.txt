@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED on)
 set(CMAKE_POSITION_INDEPENDENT_CODE True)
 
 # Specify the dependencies
-find_package(protobuf 27.3 CONFIG REQUIRED)
+find_package(protobuf 27.3.0 CONFIG REQUIRED)
 find_package(gRPC 1.65.4 CONFIG REQUIRED)
 
 ## Get all the Proto generated files
