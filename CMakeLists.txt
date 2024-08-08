@@ -17,12 +17,6 @@ if(USE_SYSTEM_GRPC)
     add_library(grpc ALIAS gRPC::grpc)
     add_library(grpc++ ALIAS gRPC::grpc++)
 else()
-    # Make sure we build gRPC as a static library, regardless of
-    # whether Diatheke is built as a shared library.
-    cmake_policy(SET CMP0077 NEW)
-    set(OLD_BUILD_SHARED ${BUILD_SHARED_LIBS})
-    set(BUILD_SHARED_LIBS FALSE)
-
     # Download gRPC from github and add it as part of the project
     include(FetchContent)
     FetchContent_Declare(
@@ -44,19 +38,14 @@ else()
 
     # Add gRPC to the project
     FetchContent_MakeAvailable(gRPC)
-
-    # Restore the BUILD_SHARED_LIBS flag
-    set(BUILD_SHARED_LIBS ${OLD_BUILD_SHARED})
 endif()
 
 # Find Protobuf
-include(FindProtobuf)
-find_package(Protobuf REQUIRED)
-include_directories(${PROTOBUF_INCLUDE_DIR})
+set(_PROTOBUF_LIBPROTOBUF libprotobuf)
 
 ## Get all the Proto generated files
 file(GLOB_RECURSE anduril-sdk-sources ${PROJECT_SOURCE_DIR}/*.cc)
 add_library(anduril-sdk-cpp ${anduril-sdk-sources})
 
 target_include_directories(anduril-sdk-cpp PUBLIC src)
-target_link_libraries(anduril-sdk-cpp PUBLIC grpc grpc++ ${PROTOBUF_LIBRARY})
+target_link_libraries(anduril-sdk-cpp PUBLIC grpc grpc++ ${_PROTOBUF_LIBPROTOBUF})
