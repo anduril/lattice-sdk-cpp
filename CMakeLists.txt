@@ -17,8 +17,7 @@ FetchContent_Declare(
     protobuf
     GIT_REPOSITORY https://github.com/protocolbuffers/protobuf
     GIT_TAG        v27.3
-    GIT_SHALLOW TRUE
-    FIND_PACKAGE_ARGS
+    OVERRIDE_FIND_PACKAGE
 )
 FetchContent_MakeAvailable(protobuf)
 
