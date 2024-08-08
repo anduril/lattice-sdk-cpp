@@ -76,6 +76,7 @@ class TaskManagerAPI final {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::taskmanager::v1::UpdateStatusResponse>>(PrepareAsyncUpdateStatusRaw(context, request, cq));
     }
     // Stream all existing live (not yet done) Tasks and any new updates.
+    // Intended for clients to gain visibility into real time updates for live Tasks.
     std::unique_ptr< ::grpc::ClientReaderInterface< ::anduril::taskmanager::v1::StreamTasksResponse>> StreamTasks(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::StreamTasksRequest& request) {
       return std::unique_ptr< ::grpc::ClientReaderInterface< ::anduril::taskmanager::v1::StreamTasksResponse>>(StreamTasksRaw(context, request));
     }
@@ -84,6 +85,17 @@ class TaskManagerAPI final {
     }
     std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::anduril::taskmanager::v1::StreamTasksResponse>> PrepareAsyncStreamTasks(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::StreamTasksRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::anduril::taskmanager::v1::StreamTasksResponse>>(PrepareAsyncStreamTasksRaw(context, request, cq));
+    }
+    // Stream Tasks ready for RPC Agent execution that match agent selector (ex: entity_ids).
+    // Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC (no Flux access)
+    std::unique_ptr< ::grpc::ClientReaderInterface< ::anduril::taskmanager::v1::ListenAsAgentResponse>> ListenAsAgent(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::ListenAsAgentRequest& request) {
+      return std::unique_ptr< ::grpc::ClientReaderInterface< ::anduril::taskmanager::v1::ListenAsAgentResponse>>(ListenAsAgentRaw(context, request));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::anduril::taskmanager::v1::ListenAsAgentResponse>> AsyncListenAsAgent(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::ListenAsAgentRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::anduril::taskmanager::v1::ListenAsAgentResponse>>(AsyncListenAsAgentRaw(context, request, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::anduril::taskmanager::v1::ListenAsAgentResponse>> PrepareAsyncListenAsAgent(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::ListenAsAgentRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::anduril::taskmanager::v1::ListenAsAgentResponse>>(PrepareAsyncListenAsAgentRaw(context, request, cq));
     }
     class async_interface {
      public:
@@ -105,7 +117,11 @@ class TaskManagerAPI final {
       virtual void UpdateStatus(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::UpdateStatusRequest* request, ::anduril::taskmanager::v1::UpdateStatusResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void UpdateStatus(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::UpdateStatusRequest* request, ::anduril::taskmanager::v1::UpdateStatusResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // Stream all existing live (not yet done) Tasks and any new updates.
+      // Intended for clients to gain visibility into real time updates for live Tasks.
       virtual void StreamTasks(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::StreamTasksRequest* request, ::grpc::ClientReadReactor< ::anduril::taskmanager::v1::StreamTasksResponse>* reactor) = 0;
+      // Stream Tasks ready for RPC Agent execution that match agent selector (ex: entity_ids).
+      // Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC (no Flux access)
+      virtual void ListenAsAgent(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::ListenAsAgentRequest* request, ::grpc::ClientReadReactor< ::anduril::taskmanager::v1::ListenAsAgentResponse>* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -122,6 +138,9 @@ class TaskManagerAPI final {
     virtual ::grpc::ClientReaderInterface< ::anduril::taskmanager::v1::StreamTasksResponse>* StreamTasksRaw(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::StreamTasksRequest& request) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::anduril::taskmanager::v1::StreamTasksResponse>* AsyncStreamTasksRaw(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::StreamTasksRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::anduril::taskmanager::v1::StreamTasksResponse>* PrepareAsyncStreamTasksRaw(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::StreamTasksRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderInterface< ::anduril::taskmanager::v1::ListenAsAgentResponse>* ListenAsAgentRaw(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::ListenAsAgentRequest& request) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::anduril::taskmanager::v1::ListenAsAgentResponse>* AsyncListenAsAgentRaw(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::ListenAsAgentRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::anduril::taskmanager::v1::ListenAsAgentResponse>* PrepareAsyncListenAsAgentRaw(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::ListenAsAgentRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -163,6 +182,15 @@ class TaskManagerAPI final {
     std::unique_ptr< ::grpc::ClientAsyncReader< ::anduril::taskmanager::v1::StreamTasksResponse>> PrepareAsyncStreamTasks(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::StreamTasksRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncReader< ::anduril::taskmanager::v1::StreamTasksResponse>>(PrepareAsyncStreamTasksRaw(context, request, cq));
     }
+    std::unique_ptr< ::grpc::ClientReader< ::anduril::taskmanager::v1::ListenAsAgentResponse>> ListenAsAgent(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::ListenAsAgentRequest& request) {
+      return std::unique_ptr< ::grpc::ClientReader< ::anduril::taskmanager::v1::ListenAsAgentResponse>>(ListenAsAgentRaw(context, request));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::anduril::taskmanager::v1::ListenAsAgentResponse>> AsyncListenAsAgent(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::ListenAsAgentRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::anduril::taskmanager::v1::ListenAsAgentResponse>>(AsyncListenAsAgentRaw(context, request, cq, tag));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::anduril::taskmanager::v1::ListenAsAgentResponse>> PrepareAsyncListenAsAgent(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::ListenAsAgentRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::anduril::taskmanager::v1::ListenAsAgentResponse>>(PrepareAsyncListenAsAgentRaw(context, request, cq));
+    }
     class async final :
       public StubInterface::async_interface {
      public:
@@ -175,6 +203,7 @@ class TaskManagerAPI final {
       void UpdateStatus(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::UpdateStatusRequest* request, ::anduril::taskmanager::v1::UpdateStatusResponse* response, std::function<void(::grpc::Status)>) override;
       void UpdateStatus(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::UpdateStatusRequest* request, ::anduril::taskmanager::v1::UpdateStatusResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       void StreamTasks(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::StreamTasksRequest* request, ::grpc::ClientReadReactor< ::anduril::taskmanager::v1::StreamTasksResponse>* reactor) override;
+      void ListenAsAgent(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::ListenAsAgentRequest* request, ::grpc::ClientReadReactor< ::anduril::taskmanager::v1::ListenAsAgentResponse>* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -197,11 +226,15 @@ class TaskManagerAPI final {
     ::grpc::ClientReader< ::anduril::taskmanager::v1::StreamTasksResponse>* StreamTasksRaw(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::StreamTasksRequest& request) override;
     ::grpc::ClientAsyncReader< ::anduril::taskmanager::v1::StreamTasksResponse>* AsyncStreamTasksRaw(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::StreamTasksRequest& request, ::grpc::CompletionQueue* cq, void* tag) override;
     ::grpc::ClientAsyncReader< ::anduril::taskmanager::v1::StreamTasksResponse>* PrepareAsyncStreamTasksRaw(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::StreamTasksRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientReader< ::anduril::taskmanager::v1::ListenAsAgentResponse>* ListenAsAgentRaw(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::ListenAsAgentRequest& request) override;
+    ::grpc::ClientAsyncReader< ::anduril::taskmanager::v1::ListenAsAgentResponse>* AsyncListenAsAgentRaw(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::ListenAsAgentRequest& request, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReader< ::anduril::taskmanager::v1::ListenAsAgentResponse>* PrepareAsyncListenAsAgentRaw(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::ListenAsAgentRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_CreateTask_;
     const ::grpc::internal::RpcMethod rpcmethod_GetTask_;
     const ::grpc::internal::RpcMethod rpcmethod_UpdateTask_;
     const ::grpc::internal::RpcMethod rpcmethod_UpdateStatus_;
     const ::grpc::internal::RpcMethod rpcmethod_StreamTasks_;
+    const ::grpc::internal::RpcMethod rpcmethod_ListenAsAgent_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -222,7 +255,11 @@ class TaskManagerAPI final {
     // Update the status of a Task.
     virtual ::grpc::Status UpdateStatus(::grpc::ServerContext* context, const ::anduril::taskmanager::v1::UpdateStatusRequest* request, ::anduril::taskmanager::v1::UpdateStatusResponse* response);
     // Stream all existing live (not yet done) Tasks and any new updates.
+    // Intended for clients to gain visibility into real time updates for live Tasks.
     virtual ::grpc::Status StreamTasks(::grpc::ServerContext* context, const ::anduril::taskmanager::v1::StreamTasksRequest* request, ::grpc::ServerWriter< ::anduril::taskmanager::v1::StreamTasksResponse>* writer);
+    // Stream Tasks ready for RPC Agent execution that match agent selector (ex: entity_ids).
+    // Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC (no Flux access)
+    virtual ::grpc::Status ListenAsAgent(::grpc::ServerContext* context, const ::anduril::taskmanager::v1::ListenAsAgentRequest* request, ::grpc::ServerWriter< ::anduril::taskmanager::v1::ListenAsAgentResponse>* writer);
   };
   template <class BaseClass>
   class WithAsyncMethod_CreateTask : public BaseClass {
@@ -324,7 +361,27 @@ class TaskManagerAPI final {
       ::grpc::Service::RequestAsyncServerStreaming(4, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_CreateTask<WithAsyncMethod_GetTask<WithAsyncMethod_UpdateTask<WithAsyncMethod_UpdateStatus<WithAsyncMethod_StreamTasks<Service > > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_ListenAsAgent : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_ListenAsAgent() {
+      ::grpc::Service::MarkMethodAsync(5);
+    }
+    ~WithAsyncMethod_ListenAsAgent() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ListenAsAgent(::grpc::ServerContext* /*context*/, const ::anduril::taskmanager::v1::ListenAsAgentRequest* /*request*/, ::grpc::ServerWriter< ::anduril::taskmanager::v1::ListenAsAgentResponse>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestListenAsAgent(::grpc::ServerContext* context, ::anduril::taskmanager::v1::ListenAsAgentRequest* request, ::grpc::ServerAsyncWriter< ::anduril::taskmanager::v1::ListenAsAgentResponse>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncServerStreaming(5, context, request, writer, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_CreateTask<WithAsyncMethod_GetTask<WithAsyncMethod_UpdateTask<WithAsyncMethod_UpdateStatus<WithAsyncMethod_StreamTasks<WithAsyncMethod_ListenAsAgent<Service > > > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_CreateTask : public BaseClass {
    private:
@@ -455,7 +512,29 @@ class TaskManagerAPI final {
     virtual ::grpc::ServerWriteReactor< ::anduril::taskmanager::v1::StreamTasksResponse>* StreamTasks(
       ::grpc::CallbackServerContext* /*context*/, const ::anduril::taskmanager::v1::StreamTasksRequest* /*request*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_CreateTask<WithCallbackMethod_GetTask<WithCallbackMethod_UpdateTask<WithCallbackMethod_UpdateStatus<WithCallbackMethod_StreamTasks<Service > > > > > CallbackService;
+  template <class BaseClass>
+  class WithCallbackMethod_ListenAsAgent : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_ListenAsAgent() {
+      ::grpc::Service::MarkMethodCallback(5,
+          new ::grpc::internal::CallbackServerStreamingHandler< ::anduril::taskmanager::v1::ListenAsAgentRequest, ::anduril::taskmanager::v1::ListenAsAgentResponse>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::anduril::taskmanager::v1::ListenAsAgentRequest* request) { return this->ListenAsAgent(context, request); }));
+    }
+    ~WithCallbackMethod_ListenAsAgent() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ListenAsAgent(::grpc::ServerContext* /*context*/, const ::anduril::taskmanager::v1::ListenAsAgentRequest* /*request*/, ::grpc::ServerWriter< ::anduril::taskmanager::v1::ListenAsAgentResponse>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerWriteReactor< ::anduril::taskmanager::v1::ListenAsAgentResponse>* ListenAsAgent(
+      ::grpc::CallbackServerContext* /*context*/, const ::anduril::taskmanager::v1::ListenAsAgentRequest* /*request*/)  { return nullptr; }
+  };
+  typedef WithCallbackMethod_CreateTask<WithCallbackMethod_GetTask<WithCallbackMethod_UpdateTask<WithCallbackMethod_UpdateStatus<WithCallbackMethod_StreamTasks<WithCallbackMethod_ListenAsAgent<Service > > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_CreateTask : public BaseClass {
@@ -538,6 +617,23 @@ class TaskManagerAPI final {
     }
     // disable synchronous version of this method
     ::grpc::Status StreamTasks(::grpc::ServerContext* /*context*/, const ::anduril::taskmanager::v1::StreamTasksRequest* /*request*/, ::grpc::ServerWriter< ::anduril::taskmanager::v1::StreamTasksResponse>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_ListenAsAgent : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_ListenAsAgent() {
+      ::grpc::Service::MarkMethodGeneric(5);
+    }
+    ~WithGenericMethod_ListenAsAgent() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ListenAsAgent(::grpc::ServerContext* /*context*/, const ::anduril::taskmanager::v1::ListenAsAgentRequest* /*request*/, ::grpc::ServerWriter< ::anduril::taskmanager::v1::ListenAsAgentResponse>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -640,6 +736,26 @@ class TaskManagerAPI final {
     }
     void RequestStreamTasks(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncWriter< ::grpc::ByteBuffer>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncServerStreaming(4, context, request, writer, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_ListenAsAgent : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_ListenAsAgent() {
+      ::grpc::Service::MarkMethodRaw(5);
+    }
+    ~WithRawMethod_ListenAsAgent() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ListenAsAgent(::grpc::ServerContext* /*context*/, const ::anduril::taskmanager::v1::ListenAsAgentRequest* /*request*/, ::grpc::ServerWriter< ::anduril::taskmanager::v1::ListenAsAgentResponse>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestListenAsAgent(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncWriter< ::grpc::ByteBuffer>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncServerStreaming(5, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -750,6 +866,28 @@ class TaskManagerAPI final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerWriteReactor< ::grpc::ByteBuffer>* StreamTasks(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_ListenAsAgent : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_ListenAsAgent() {
+      ::grpc::Service::MarkMethodRawCallback(5,
+          new ::grpc::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const::grpc::ByteBuffer* request) { return this->ListenAsAgent(context, request); }));
+    }
+    ~WithRawCallbackMethod_ListenAsAgent() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ListenAsAgent(::grpc::ServerContext* /*context*/, const ::anduril::taskmanager::v1::ListenAsAgentRequest* /*request*/, ::grpc::ServerWriter< ::anduril::taskmanager::v1::ListenAsAgentResponse>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerWriteReactor< ::grpc::ByteBuffer>* ListenAsAgent(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -888,8 +1026,35 @@ class TaskManagerAPI final {
     // replace default version of method with split streamed
     virtual ::grpc::Status StreamedStreamTasks(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::anduril::taskmanager::v1::StreamTasksRequest,::anduril::taskmanager::v1::StreamTasksResponse>* server_split_streamer) = 0;
   };
-  typedef WithSplitStreamingMethod_StreamTasks<Service > SplitStreamedService;
-  typedef WithStreamedUnaryMethod_CreateTask<WithStreamedUnaryMethod_GetTask<WithStreamedUnaryMethod_UpdateTask<WithStreamedUnaryMethod_UpdateStatus<WithSplitStreamingMethod_StreamTasks<Service > > > > > StreamedService;
+  template <class BaseClass>
+  class WithSplitStreamingMethod_ListenAsAgent : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithSplitStreamingMethod_ListenAsAgent() {
+      ::grpc::Service::MarkMethodStreamed(5,
+        new ::grpc::internal::SplitServerStreamingHandler<
+          ::anduril::taskmanager::v1::ListenAsAgentRequest, ::anduril::taskmanager::v1::ListenAsAgentResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerSplitStreamer<
+                     ::anduril::taskmanager::v1::ListenAsAgentRequest, ::anduril::taskmanager::v1::ListenAsAgentResponse>* streamer) {
+                       return this->StreamedListenAsAgent(context,
+                         streamer);
+                  }));
+    }
+    ~WithSplitStreamingMethod_ListenAsAgent() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status ListenAsAgent(::grpc::ServerContext* /*context*/, const ::anduril::taskmanager::v1::ListenAsAgentRequest* /*request*/, ::grpc::ServerWriter< ::anduril::taskmanager::v1::ListenAsAgentResponse>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with split streamed
+    virtual ::grpc::Status StreamedListenAsAgent(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::anduril::taskmanager::v1::ListenAsAgentRequest,::anduril::taskmanager::v1::ListenAsAgentResponse>* server_split_streamer) = 0;
+  };
+  typedef WithSplitStreamingMethod_StreamTasks<WithSplitStreamingMethod_ListenAsAgent<Service > > SplitStreamedService;
+  typedef WithStreamedUnaryMethod_CreateTask<WithStreamedUnaryMethod_GetTask<WithStreamedUnaryMethod_UpdateTask<WithStreamedUnaryMethod_UpdateStatus<WithSplitStreamingMethod_StreamTasks<WithSplitStreamingMethod_ListenAsAgent<Service > > > > > > StreamedService;
 };
 
 }  // namespace v1

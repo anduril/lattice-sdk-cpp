@@ -29,6 +29,7 @@
 #include "google/protobuf/extension_set.h"  // IWYU pragma: export
 #include "google/protobuf/unknown_field_set.h"
 #include "anduril/taskmanager/v1/task.pub.pb.h"
+#include "anduril/taskmanager/v1/task_api.pub.pb.h"
 #include "google/protobuf/any.pb.h"
 #include "google/protobuf/timestamp.pb.h"
 // @@protoc_insertion_point(includes)
@@ -61,6 +62,9 @@ extern CreateTaskRequestDefaultTypeInternal _CreateTaskRequest_default_instance_
 class CreateTaskResponse;
 struct CreateTaskResponseDefaultTypeInternal;
 extern CreateTaskResponseDefaultTypeInternal _CreateTaskResponse_default_instance_;
+class EntityIds;
+struct EntityIdsDefaultTypeInternal;
+extern EntityIdsDefaultTypeInternal _EntityIds_default_instance_;
 class GetTaskRequest;
 struct GetTaskRequestDefaultTypeInternal;
 extern GetTaskRequestDefaultTypeInternal _GetTaskRequest_default_instance_;
@@ -70,6 +74,12 @@ extern GetTaskResponseDefaultTypeInternal _GetTaskResponse_default_instance_;
 class Heartbeat;
 struct HeartbeatDefaultTypeInternal;
 extern HeartbeatDefaultTypeInternal _Heartbeat_default_instance_;
+class ListenAsAgentRequest;
+struct ListenAsAgentRequestDefaultTypeInternal;
+extern ListenAsAgentRequestDefaultTypeInternal _ListenAsAgentRequest_default_instance_;
+class ListenAsAgentResponse;
+struct ListenAsAgentResponseDefaultTypeInternal;
+extern ListenAsAgentResponseDefaultTypeInternal _ListenAsAgentResponse_default_instance_;
 class RateLimit;
 struct RateLimitDefaultTypeInternal;
 extern RateLimitDefaultTypeInternal _RateLimit_default_instance_;
@@ -163,7 +173,7 @@ class RateLimit final : public ::google::protobuf::Message
     return reinterpret_cast<const RateLimit*>(
         &_RateLimit_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 10;
+  static constexpr int kIndexInFileMessages = 12;
   friend void swap(RateLimit& a, RateLimit& b) { a.Swap(&b); }
   inline void Swap(RateLimit* other) {
     if (other == this) return;
@@ -480,6 +490,195 @@ class GetTaskRequest final : public ::google::protobuf::Message
 };
 // -------------------------------------------------------------------
 
+class EntityIds final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:anduril.taskmanager.v1.EntityIds) */ {
+ public:
+  inline EntityIds() : EntityIds(nullptr) {}
+  ~EntityIds() override;
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR EntityIds(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline EntityIds(const EntityIds& from) : EntityIds(nullptr, from) {}
+  inline EntityIds(EntityIds&& from) noexcept
+      : EntityIds(nullptr, std::move(from)) {}
+  inline EntityIds& operator=(const EntityIds& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline EntityIds& operator=(EntityIds&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const EntityIds& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const EntityIds* internal_default_instance() {
+    return reinterpret_cast<const EntityIds*>(
+        &_EntityIds_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 14;
+  friend void swap(EntityIds& a, EntityIds& b) { a.Swap(&b); }
+  inline void Swap(EntityIds* other) {
+    if (other == this) return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
+#else   // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(EntityIds* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  EntityIds* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return ::google::protobuf::Message::DefaultConstruct<EntityIds>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const EntityIds& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const EntityIds& from) { EntityIds::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() final;
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(EntityIds* other);
+ private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() { return "anduril.taskmanager.v1.EntityIds"; }
+
+ protected:
+  explicit EntityIds(::google::protobuf::Arena* arena);
+  EntityIds(::google::protobuf::Arena* arena, const EntityIds& from);
+  EntityIds(::google::protobuf::Arena* arena, EntityIds&& from) noexcept
+      : EntityIds(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::Message::ClassData* GetClassData() const final;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kEntityIdsFieldNumber = 1,
+  };
+  // repeated string entity_ids = 1 [json_name = "entityIds"];
+  int entity_ids_size() const;
+  private:
+  int _internal_entity_ids_size() const;
+
+  public:
+  void clear_entity_ids() ;
+  const std::string& entity_ids(int index) const;
+  std::string* mutable_entity_ids(int index);
+  void set_entity_ids(int index, const std::string& value);
+  void set_entity_ids(int index, std::string&& value);
+  void set_entity_ids(int index, const char* value);
+  void set_entity_ids(int index, const char* value, std::size_t size);
+  void set_entity_ids(int index, absl::string_view value);
+  std::string* add_entity_ids();
+  void add_entity_ids(const std::string& value);
+  void add_entity_ids(std::string&& value);
+  void add_entity_ids(const char* value);
+  void add_entity_ids(const char* value, std::size_t size);
+  void add_entity_ids(absl::string_view value);
+  const ::google::protobuf::RepeatedPtrField<std::string>& entity_ids() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* mutable_entity_ids();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<std::string>& _internal_entity_ids() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* _internal_mutable_entity_ids();
+
+  public:
+  // @@protoc_insertion_point(class_scope:anduril.taskmanager.v1.EntityIds)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 1, 0,
+      51, 2>
+      _table_;
+
+  static constexpr const void* _raw_default_instance_ =
+      &_EntityIds_default_instance_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const EntityIds& from_msg);
+    ::google::protobuf::RepeatedPtrField<std::string> entity_ids_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto;
+};
+// -------------------------------------------------------------------
+
 class StreamTasksRequest final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:anduril.taskmanager.v1.StreamTasksRequest) */ {
  public:
@@ -607,6 +806,7 @@ class StreamTasksRequest final : public ::google::protobuf::Message
     kViewsFieldNumber = 2,
     kRateLimitFieldNumber = 1,
     kHeartbeatPeriodMillisFieldNumber = 3,
+    kExcludePreexistingTasksFieldNumber = 4,
   };
   // repeated .anduril.taskmanager.v1.TaskView views = 2 [json_name = "views"];
   int views_size() const;
@@ -652,12 +852,22 @@ class StreamTasksRequest final : public ::google::protobuf::Message
   void _internal_set_heartbeat_period_millis(::uint32_t value);
 
   public:
+  // bool exclude_preexisting_tasks = 4 [json_name = "excludePreexistingTasks"];
+  void clear_exclude_preexisting_tasks() ;
+  bool exclude_preexisting_tasks() const;
+  void set_exclude_preexisting_tasks(bool value);
+
+  private:
+  bool _internal_exclude_preexisting_tasks() const;
+  void _internal_set_exclude_preexisting_tasks(bool value);
+
+  public:
   // @@protoc_insertion_point(class_scope:anduril.taskmanager.v1.StreamTasksRequest)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      2, 3, 1,
+      2, 4, 1,
       0, 2>
       _table_;
 
@@ -684,6 +894,201 @@ class StreamTasksRequest final : public ::google::protobuf::Message
     mutable ::google::protobuf::internal::CachedSize _views_cached_byte_size_;
     ::anduril::taskmanager::v1::RateLimit* rate_limit_;
     ::uint32_t heartbeat_period_millis_;
+    bool exclude_preexisting_tasks_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ListenAsAgentRequest final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:anduril.taskmanager.v1.ListenAsAgentRequest) */ {
+ public:
+  inline ListenAsAgentRequest() : ListenAsAgentRequest(nullptr) {}
+  ~ListenAsAgentRequest() override;
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR ListenAsAgentRequest(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline ListenAsAgentRequest(const ListenAsAgentRequest& from) : ListenAsAgentRequest(nullptr, from) {}
+  inline ListenAsAgentRequest(ListenAsAgentRequest&& from) noexcept
+      : ListenAsAgentRequest(nullptr, std::move(from)) {}
+  inline ListenAsAgentRequest& operator=(const ListenAsAgentRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ListenAsAgentRequest& operator=(ListenAsAgentRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ListenAsAgentRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  enum AgentSelectorCase {
+    kEntityIds = 1,
+    AGENT_SELECTOR_NOT_SET = 0,
+  };
+  static inline const ListenAsAgentRequest* internal_default_instance() {
+    return reinterpret_cast<const ListenAsAgentRequest*>(
+        &_ListenAsAgentRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 10;
+  friend void swap(ListenAsAgentRequest& a, ListenAsAgentRequest& b) { a.Swap(&b); }
+  inline void Swap(ListenAsAgentRequest* other) {
+    if (other == this) return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
+#else   // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ListenAsAgentRequest* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ListenAsAgentRequest* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return ::google::protobuf::Message::DefaultConstruct<ListenAsAgentRequest>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const ListenAsAgentRequest& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const ListenAsAgentRequest& from) { ListenAsAgentRequest::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() final;
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(ListenAsAgentRequest* other);
+ private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() { return "anduril.taskmanager.v1.ListenAsAgentRequest"; }
+
+ protected:
+  explicit ListenAsAgentRequest(::google::protobuf::Arena* arena);
+  ListenAsAgentRequest(::google::protobuf::Arena* arena, const ListenAsAgentRequest& from);
+  ListenAsAgentRequest(::google::protobuf::Arena* arena, ListenAsAgentRequest&& from) noexcept
+      : ListenAsAgentRequest(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::Message::ClassData* GetClassData() const final;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kEntityIdsFieldNumber = 1,
+  };
+  // .anduril.taskmanager.v1.EntityIds entity_ids = 1 [json_name = "entityIds"];
+  bool has_entity_ids() const;
+  private:
+  bool _internal_has_entity_ids() const;
+
+  public:
+  void clear_entity_ids() ;
+  const ::anduril::taskmanager::v1::EntityIds& entity_ids() const;
+  PROTOBUF_NODISCARD ::anduril::taskmanager::v1::EntityIds* release_entity_ids();
+  ::anduril::taskmanager::v1::EntityIds* mutable_entity_ids();
+  void set_allocated_entity_ids(::anduril::taskmanager::v1::EntityIds* value);
+  void unsafe_arena_set_allocated_entity_ids(::anduril::taskmanager::v1::EntityIds* value);
+  ::anduril::taskmanager::v1::EntityIds* unsafe_arena_release_entity_ids();
+
+  private:
+  const ::anduril::taskmanager::v1::EntityIds& _internal_entity_ids() const;
+  ::anduril::taskmanager::v1::EntityIds* _internal_mutable_entity_ids();
+
+  public:
+  void clear_agent_selector();
+  AgentSelectorCase agent_selector_case() const;
+  // @@protoc_insertion_point(class_scope:anduril.taskmanager.v1.ListenAsAgentRequest)
+ private:
+  class _Internal;
+  void set_has_entity_ids();
+  inline bool has_agent_selector() const;
+  inline void clear_has_agent_selector();
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 1, 1,
+      0, 2>
+      _table_;
+
+  static constexpr const void* _raw_default_instance_ =
+      &_ListenAsAgentRequest_default_instance_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const ListenAsAgentRequest& from_msg);
+    union AgentSelectorUnion {
+      constexpr AgentSelectorUnion() : _constinit_{} {}
+      ::google::protobuf::internal::ConstantInitialized _constinit_;
+      ::anduril::taskmanager::v1::EntityIds* entity_ids_;
+    } agent_selector_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::uint32_t _oneof_case_[1];
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -746,7 +1151,7 @@ class Heartbeat final : public ::google::protobuf::Message
     return reinterpret_cast<const Heartbeat*>(
         &_Heartbeat_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 11;
+  static constexpr int kIndexInFileMessages = 13;
   friend void swap(Heartbeat& a, Heartbeat& b) { a.Swap(&b); }
   inline void Swap(Heartbeat* other) {
     if (other == this) return;
@@ -2430,6 +2835,246 @@ class StreamTasksResponse final : public ::google::protobuf::Message
   union { Impl_ _impl_; };
   friend struct ::TableStruct_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto;
 };
+// -------------------------------------------------------------------
+
+class ListenAsAgentResponse final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:anduril.taskmanager.v1.ListenAsAgentResponse) */ {
+ public:
+  inline ListenAsAgentResponse() : ListenAsAgentResponse(nullptr) {}
+  ~ListenAsAgentResponse() override;
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR ListenAsAgentResponse(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline ListenAsAgentResponse(const ListenAsAgentResponse& from) : ListenAsAgentResponse(nullptr, from) {}
+  inline ListenAsAgentResponse(ListenAsAgentResponse&& from) noexcept
+      : ListenAsAgentResponse(nullptr, std::move(from)) {}
+  inline ListenAsAgentResponse& operator=(const ListenAsAgentResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ListenAsAgentResponse& operator=(ListenAsAgentResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ListenAsAgentResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  enum RequestCase {
+    kExecuteRequest = 1,
+    kCancelRequest = 2,
+    kCompleteRequest = 3,
+    REQUEST_NOT_SET = 0,
+  };
+  static inline const ListenAsAgentResponse* internal_default_instance() {
+    return reinterpret_cast<const ListenAsAgentResponse*>(
+        &_ListenAsAgentResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 11;
+  friend void swap(ListenAsAgentResponse& a, ListenAsAgentResponse& b) { a.Swap(&b); }
+  inline void Swap(ListenAsAgentResponse* other) {
+    if (other == this) return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
+#else   // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ListenAsAgentResponse* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ListenAsAgentResponse* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return ::google::protobuf::Message::DefaultConstruct<ListenAsAgentResponse>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const ListenAsAgentResponse& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const ListenAsAgentResponse& from) { ListenAsAgentResponse::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() final;
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(ListenAsAgentResponse* other);
+ private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() { return "anduril.taskmanager.v1.ListenAsAgentResponse"; }
+
+ protected:
+  explicit ListenAsAgentResponse(::google::protobuf::Arena* arena);
+  ListenAsAgentResponse(::google::protobuf::Arena* arena, const ListenAsAgentResponse& from);
+  ListenAsAgentResponse(::google::protobuf::Arena* arena, ListenAsAgentResponse&& from) noexcept
+      : ListenAsAgentResponse(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::Message::ClassData* GetClassData() const final;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kExecuteRequestFieldNumber = 1,
+    kCancelRequestFieldNumber = 2,
+    kCompleteRequestFieldNumber = 3,
+  };
+  // .anduril.taskmanager.v1.ExecuteRequest execute_request = 1 [json_name = "executeRequest"];
+  bool has_execute_request() const;
+  private:
+  bool _internal_has_execute_request() const;
+
+  public:
+  void clear_execute_request() ;
+  const ::anduril::taskmanager::v1::ExecuteRequest& execute_request() const;
+  PROTOBUF_NODISCARD ::anduril::taskmanager::v1::ExecuteRequest* release_execute_request();
+  ::anduril::taskmanager::v1::ExecuteRequest* mutable_execute_request();
+  void set_allocated_execute_request(::anduril::taskmanager::v1::ExecuteRequest* value);
+  void unsafe_arena_set_allocated_execute_request(::anduril::taskmanager::v1::ExecuteRequest* value);
+  ::anduril::taskmanager::v1::ExecuteRequest* unsafe_arena_release_execute_request();
+
+  private:
+  const ::anduril::taskmanager::v1::ExecuteRequest& _internal_execute_request() const;
+  ::anduril::taskmanager::v1::ExecuteRequest* _internal_mutable_execute_request();
+
+  public:
+  // .anduril.taskmanager.v1.CancelRequest cancel_request = 2 [json_name = "cancelRequest"];
+  bool has_cancel_request() const;
+  private:
+  bool _internal_has_cancel_request() const;
+
+  public:
+  void clear_cancel_request() ;
+  const ::anduril::taskmanager::v1::CancelRequest& cancel_request() const;
+  PROTOBUF_NODISCARD ::anduril::taskmanager::v1::CancelRequest* release_cancel_request();
+  ::anduril::taskmanager::v1::CancelRequest* mutable_cancel_request();
+  void set_allocated_cancel_request(::anduril::taskmanager::v1::CancelRequest* value);
+  void unsafe_arena_set_allocated_cancel_request(::anduril::taskmanager::v1::CancelRequest* value);
+  ::anduril::taskmanager::v1::CancelRequest* unsafe_arena_release_cancel_request();
+
+  private:
+  const ::anduril::taskmanager::v1::CancelRequest& _internal_cancel_request() const;
+  ::anduril::taskmanager::v1::CancelRequest* _internal_mutable_cancel_request();
+
+  public:
+  // .anduril.taskmanager.v1.CompleteRequest complete_request = 3 [json_name = "completeRequest"];
+  bool has_complete_request() const;
+  private:
+  bool _internal_has_complete_request() const;
+
+  public:
+  void clear_complete_request() ;
+  const ::anduril::taskmanager::v1::CompleteRequest& complete_request() const;
+  PROTOBUF_NODISCARD ::anduril::taskmanager::v1::CompleteRequest* release_complete_request();
+  ::anduril::taskmanager::v1::CompleteRequest* mutable_complete_request();
+  void set_allocated_complete_request(::anduril::taskmanager::v1::CompleteRequest* value);
+  void unsafe_arena_set_allocated_complete_request(::anduril::taskmanager::v1::CompleteRequest* value);
+  ::anduril::taskmanager::v1::CompleteRequest* unsafe_arena_release_complete_request();
+
+  private:
+  const ::anduril::taskmanager::v1::CompleteRequest& _internal_complete_request() const;
+  ::anduril::taskmanager::v1::CompleteRequest* _internal_mutable_complete_request();
+
+  public:
+  void clear_request();
+  RequestCase request_case() const;
+  // @@protoc_insertion_point(class_scope:anduril.taskmanager.v1.ListenAsAgentResponse)
+ private:
+  class _Internal;
+  void set_has_execute_request();
+  void set_has_cancel_request();
+  void set_has_complete_request();
+  inline bool has_request() const;
+  inline void clear_has_request();
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 3, 3,
+      0, 2>
+      _table_;
+
+  static constexpr const void* _raw_default_instance_ =
+      &_ListenAsAgentResponse_default_instance_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const ListenAsAgentResponse& from_msg);
+    union RequestUnion {
+      constexpr RequestUnion() : _constinit_{} {}
+      ::google::protobuf::internal::ConstantInitialized _constinit_;
+      ::anduril::taskmanager::v1::ExecuteRequest* execute_request_;
+      ::anduril::taskmanager::v1::CancelRequest* cancel_request_;
+      ::anduril::taskmanager::v1::CompleteRequest* complete_request_;
+    } request_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::uint32_t _oneof_case_[1];
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto;
+};
 
 // ===================================================================
 
@@ -3794,6 +4439,28 @@ inline void StreamTasksRequest::_internal_set_heartbeat_period_millis(::uint32_t
   _impl_.heartbeat_period_millis_ = value;
 }
 
+// bool exclude_preexisting_tasks = 4 [json_name = "excludePreexistingTasks"];
+inline void StreamTasksRequest::clear_exclude_preexisting_tasks() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.exclude_preexisting_tasks_ = false;
+}
+inline bool StreamTasksRequest::exclude_preexisting_tasks() const {
+  // @@protoc_insertion_point(field_get:anduril.taskmanager.v1.StreamTasksRequest.exclude_preexisting_tasks)
+  return _internal_exclude_preexisting_tasks();
+}
+inline void StreamTasksRequest::set_exclude_preexisting_tasks(bool value) {
+  _internal_set_exclude_preexisting_tasks(value);
+  // @@protoc_insertion_point(field_set:anduril.taskmanager.v1.StreamTasksRequest.exclude_preexisting_tasks)
+}
+inline bool StreamTasksRequest::_internal_exclude_preexisting_tasks() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.exclude_preexisting_tasks_;
+}
+inline void StreamTasksRequest::_internal_set_exclude_preexisting_tasks(bool value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.exclude_preexisting_tasks_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // StreamTasksResponse
@@ -3987,6 +4654,315 @@ inline void StreamTasksResponse::set_allocated_heartbeat(::anduril::taskmanager:
 
 // -------------------------------------------------------------------
 
+// ListenAsAgentRequest
+
+// .anduril.taskmanager.v1.EntityIds entity_ids = 1 [json_name = "entityIds"];
+inline bool ListenAsAgentRequest::has_entity_ids() const {
+  return agent_selector_case() == kEntityIds;
+}
+inline bool ListenAsAgentRequest::_internal_has_entity_ids() const {
+  return agent_selector_case() == kEntityIds;
+}
+inline void ListenAsAgentRequest::set_has_entity_ids() {
+  _impl_._oneof_case_[0] = kEntityIds;
+}
+inline void ListenAsAgentRequest::clear_entity_ids() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (agent_selector_case() == kEntityIds) {
+    if (GetArena() == nullptr) {
+      delete _impl_.agent_selector_.entity_ids_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.agent_selector_.entity_ids_);
+    }
+    clear_has_agent_selector();
+  }
+}
+inline ::anduril::taskmanager::v1::EntityIds* ListenAsAgentRequest::release_entity_ids() {
+  // @@protoc_insertion_point(field_release:anduril.taskmanager.v1.ListenAsAgentRequest.entity_ids)
+  if (agent_selector_case() == kEntityIds) {
+    clear_has_agent_selector();
+    auto* temp = _impl_.agent_selector_.entity_ids_;
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.agent_selector_.entity_ids_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::anduril::taskmanager::v1::EntityIds& ListenAsAgentRequest::_internal_entity_ids() const {
+  return agent_selector_case() == kEntityIds ? *_impl_.agent_selector_.entity_ids_ : reinterpret_cast<::anduril::taskmanager::v1::EntityIds&>(::anduril::taskmanager::v1::_EntityIds_default_instance_);
+}
+inline const ::anduril::taskmanager::v1::EntityIds& ListenAsAgentRequest::entity_ids() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.taskmanager.v1.ListenAsAgentRequest.entity_ids)
+  return _internal_entity_ids();
+}
+inline ::anduril::taskmanager::v1::EntityIds* ListenAsAgentRequest::unsafe_arena_release_entity_ids() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:anduril.taskmanager.v1.ListenAsAgentRequest.entity_ids)
+  if (agent_selector_case() == kEntityIds) {
+    clear_has_agent_selector();
+    auto* temp = _impl_.agent_selector_.entity_ids_;
+    _impl_.agent_selector_.entity_ids_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ListenAsAgentRequest::unsafe_arena_set_allocated_entity_ids(::anduril::taskmanager::v1::EntityIds* value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_agent_selector();
+  if (value) {
+    set_has_entity_ids();
+    _impl_.agent_selector_.entity_ids_ = value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.taskmanager.v1.ListenAsAgentRequest.entity_ids)
+}
+inline ::anduril::taskmanager::v1::EntityIds* ListenAsAgentRequest::_internal_mutable_entity_ids() {
+  if (agent_selector_case() != kEntityIds) {
+    clear_agent_selector();
+    set_has_entity_ids();
+    _impl_.agent_selector_.entity_ids_ =
+        ::google::protobuf::Message::DefaultConstruct<::anduril::taskmanager::v1::EntityIds>(GetArena());
+  }
+  return _impl_.agent_selector_.entity_ids_;
+}
+inline ::anduril::taskmanager::v1::EntityIds* ListenAsAgentRequest::mutable_entity_ids() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::anduril::taskmanager::v1::EntityIds* _msg = _internal_mutable_entity_ids();
+  // @@protoc_insertion_point(field_mutable:anduril.taskmanager.v1.ListenAsAgentRequest.entity_ids)
+  return _msg;
+}
+
+inline bool ListenAsAgentRequest::has_agent_selector() const {
+  return agent_selector_case() != AGENT_SELECTOR_NOT_SET;
+}
+inline void ListenAsAgentRequest::clear_has_agent_selector() {
+  _impl_._oneof_case_[0] = AGENT_SELECTOR_NOT_SET;
+}
+inline ListenAsAgentRequest::AgentSelectorCase ListenAsAgentRequest::agent_selector_case() const {
+  return ListenAsAgentRequest::AgentSelectorCase(_impl_._oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// ListenAsAgentResponse
+
+// .anduril.taskmanager.v1.ExecuteRequest execute_request = 1 [json_name = "executeRequest"];
+inline bool ListenAsAgentResponse::has_execute_request() const {
+  return request_case() == kExecuteRequest;
+}
+inline bool ListenAsAgentResponse::_internal_has_execute_request() const {
+  return request_case() == kExecuteRequest;
+}
+inline void ListenAsAgentResponse::set_has_execute_request() {
+  _impl_._oneof_case_[0] = kExecuteRequest;
+}
+inline ::anduril::taskmanager::v1::ExecuteRequest* ListenAsAgentResponse::release_execute_request() {
+  // @@protoc_insertion_point(field_release:anduril.taskmanager.v1.ListenAsAgentResponse.execute_request)
+  if (request_case() == kExecuteRequest) {
+    clear_has_request();
+    auto* temp = _impl_.request_.execute_request_;
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.request_.execute_request_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::anduril::taskmanager::v1::ExecuteRequest& ListenAsAgentResponse::_internal_execute_request() const {
+  return request_case() == kExecuteRequest ? *_impl_.request_.execute_request_ : reinterpret_cast<::anduril::taskmanager::v1::ExecuteRequest&>(::anduril::taskmanager::v1::_ExecuteRequest_default_instance_);
+}
+inline const ::anduril::taskmanager::v1::ExecuteRequest& ListenAsAgentResponse::execute_request() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.taskmanager.v1.ListenAsAgentResponse.execute_request)
+  return _internal_execute_request();
+}
+inline ::anduril::taskmanager::v1::ExecuteRequest* ListenAsAgentResponse::unsafe_arena_release_execute_request() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:anduril.taskmanager.v1.ListenAsAgentResponse.execute_request)
+  if (request_case() == kExecuteRequest) {
+    clear_has_request();
+    auto* temp = _impl_.request_.execute_request_;
+    _impl_.request_.execute_request_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ListenAsAgentResponse::unsafe_arena_set_allocated_execute_request(::anduril::taskmanager::v1::ExecuteRequest* value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_request();
+  if (value) {
+    set_has_execute_request();
+    _impl_.request_.execute_request_ = value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.taskmanager.v1.ListenAsAgentResponse.execute_request)
+}
+inline ::anduril::taskmanager::v1::ExecuteRequest* ListenAsAgentResponse::_internal_mutable_execute_request() {
+  if (request_case() != kExecuteRequest) {
+    clear_request();
+    set_has_execute_request();
+    _impl_.request_.execute_request_ =
+        ::google::protobuf::Message::DefaultConstruct<::anduril::taskmanager::v1::ExecuteRequest>(GetArena());
+  }
+  return _impl_.request_.execute_request_;
+}
+inline ::anduril::taskmanager::v1::ExecuteRequest* ListenAsAgentResponse::mutable_execute_request() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::anduril::taskmanager::v1::ExecuteRequest* _msg = _internal_mutable_execute_request();
+  // @@protoc_insertion_point(field_mutable:anduril.taskmanager.v1.ListenAsAgentResponse.execute_request)
+  return _msg;
+}
+
+// .anduril.taskmanager.v1.CancelRequest cancel_request = 2 [json_name = "cancelRequest"];
+inline bool ListenAsAgentResponse::has_cancel_request() const {
+  return request_case() == kCancelRequest;
+}
+inline bool ListenAsAgentResponse::_internal_has_cancel_request() const {
+  return request_case() == kCancelRequest;
+}
+inline void ListenAsAgentResponse::set_has_cancel_request() {
+  _impl_._oneof_case_[0] = kCancelRequest;
+}
+inline ::anduril::taskmanager::v1::CancelRequest* ListenAsAgentResponse::release_cancel_request() {
+  // @@protoc_insertion_point(field_release:anduril.taskmanager.v1.ListenAsAgentResponse.cancel_request)
+  if (request_case() == kCancelRequest) {
+    clear_has_request();
+    auto* temp = _impl_.request_.cancel_request_;
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.request_.cancel_request_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::anduril::taskmanager::v1::CancelRequest& ListenAsAgentResponse::_internal_cancel_request() const {
+  return request_case() == kCancelRequest ? *_impl_.request_.cancel_request_ : reinterpret_cast<::anduril::taskmanager::v1::CancelRequest&>(::anduril::taskmanager::v1::_CancelRequest_default_instance_);
+}
+inline const ::anduril::taskmanager::v1::CancelRequest& ListenAsAgentResponse::cancel_request() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.taskmanager.v1.ListenAsAgentResponse.cancel_request)
+  return _internal_cancel_request();
+}
+inline ::anduril::taskmanager::v1::CancelRequest* ListenAsAgentResponse::unsafe_arena_release_cancel_request() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:anduril.taskmanager.v1.ListenAsAgentResponse.cancel_request)
+  if (request_case() == kCancelRequest) {
+    clear_has_request();
+    auto* temp = _impl_.request_.cancel_request_;
+    _impl_.request_.cancel_request_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ListenAsAgentResponse::unsafe_arena_set_allocated_cancel_request(::anduril::taskmanager::v1::CancelRequest* value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_request();
+  if (value) {
+    set_has_cancel_request();
+    _impl_.request_.cancel_request_ = value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.taskmanager.v1.ListenAsAgentResponse.cancel_request)
+}
+inline ::anduril::taskmanager::v1::CancelRequest* ListenAsAgentResponse::_internal_mutable_cancel_request() {
+  if (request_case() != kCancelRequest) {
+    clear_request();
+    set_has_cancel_request();
+    _impl_.request_.cancel_request_ =
+        ::google::protobuf::Message::DefaultConstruct<::anduril::taskmanager::v1::CancelRequest>(GetArena());
+  }
+  return _impl_.request_.cancel_request_;
+}
+inline ::anduril::taskmanager::v1::CancelRequest* ListenAsAgentResponse::mutable_cancel_request() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::anduril::taskmanager::v1::CancelRequest* _msg = _internal_mutable_cancel_request();
+  // @@protoc_insertion_point(field_mutable:anduril.taskmanager.v1.ListenAsAgentResponse.cancel_request)
+  return _msg;
+}
+
+// .anduril.taskmanager.v1.CompleteRequest complete_request = 3 [json_name = "completeRequest"];
+inline bool ListenAsAgentResponse::has_complete_request() const {
+  return request_case() == kCompleteRequest;
+}
+inline bool ListenAsAgentResponse::_internal_has_complete_request() const {
+  return request_case() == kCompleteRequest;
+}
+inline void ListenAsAgentResponse::set_has_complete_request() {
+  _impl_._oneof_case_[0] = kCompleteRequest;
+}
+inline ::anduril::taskmanager::v1::CompleteRequest* ListenAsAgentResponse::release_complete_request() {
+  // @@protoc_insertion_point(field_release:anduril.taskmanager.v1.ListenAsAgentResponse.complete_request)
+  if (request_case() == kCompleteRequest) {
+    clear_has_request();
+    auto* temp = _impl_.request_.complete_request_;
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.request_.complete_request_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::anduril::taskmanager::v1::CompleteRequest& ListenAsAgentResponse::_internal_complete_request() const {
+  return request_case() == kCompleteRequest ? *_impl_.request_.complete_request_ : reinterpret_cast<::anduril::taskmanager::v1::CompleteRequest&>(::anduril::taskmanager::v1::_CompleteRequest_default_instance_);
+}
+inline const ::anduril::taskmanager::v1::CompleteRequest& ListenAsAgentResponse::complete_request() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.taskmanager.v1.ListenAsAgentResponse.complete_request)
+  return _internal_complete_request();
+}
+inline ::anduril::taskmanager::v1::CompleteRequest* ListenAsAgentResponse::unsafe_arena_release_complete_request() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:anduril.taskmanager.v1.ListenAsAgentResponse.complete_request)
+  if (request_case() == kCompleteRequest) {
+    clear_has_request();
+    auto* temp = _impl_.request_.complete_request_;
+    _impl_.request_.complete_request_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ListenAsAgentResponse::unsafe_arena_set_allocated_complete_request(::anduril::taskmanager::v1::CompleteRequest* value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_request();
+  if (value) {
+    set_has_complete_request();
+    _impl_.request_.complete_request_ = value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.taskmanager.v1.ListenAsAgentResponse.complete_request)
+}
+inline ::anduril::taskmanager::v1::CompleteRequest* ListenAsAgentResponse::_internal_mutable_complete_request() {
+  if (request_case() != kCompleteRequest) {
+    clear_request();
+    set_has_complete_request();
+    _impl_.request_.complete_request_ =
+        ::google::protobuf::Message::DefaultConstruct<::anduril::taskmanager::v1::CompleteRequest>(GetArena());
+  }
+  return _impl_.request_.complete_request_;
+}
+inline ::anduril::taskmanager::v1::CompleteRequest* ListenAsAgentResponse::mutable_complete_request() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::anduril::taskmanager::v1::CompleteRequest* _msg = _internal_mutable_complete_request();
+  // @@protoc_insertion_point(field_mutable:anduril.taskmanager.v1.ListenAsAgentResponse.complete_request)
+  return _msg;
+}
+
+inline bool ListenAsAgentResponse::has_request() const {
+  return request_case() != REQUEST_NOT_SET;
+}
+inline void ListenAsAgentResponse::clear_has_request() {
+  _impl_._oneof_case_[0] = REQUEST_NOT_SET;
+}
+inline ListenAsAgentResponse::RequestCase ListenAsAgentResponse::request_case() const {
+  return ListenAsAgentResponse::RequestCase(_impl_._oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
 // RateLimit
 
 // uint32 update_per_task_limit_ms = 1 [json_name = "updatePerTaskLimitMs"];
@@ -4104,6 +5080,112 @@ inline void Heartbeat::set_allocated_timestamp(::google::protobuf::Timestamp* va
 
   _impl_.timestamp_ = reinterpret_cast<::google::protobuf::Timestamp*>(value);
   // @@protoc_insertion_point(field_set_allocated:anduril.taskmanager.v1.Heartbeat.timestamp)
+}
+
+// -------------------------------------------------------------------
+
+// EntityIds
+
+// repeated string entity_ids = 1 [json_name = "entityIds"];
+inline int EntityIds::_internal_entity_ids_size() const {
+  return _internal_entity_ids().size();
+}
+inline int EntityIds::entity_ids_size() const {
+  return _internal_entity_ids_size();
+}
+inline void EntityIds::clear_entity_ids() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.entity_ids_.Clear();
+}
+inline std::string* EntityIds::add_entity_ids()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  std::string* _s = _internal_mutable_entity_ids()->Add();
+  // @@protoc_insertion_point(field_add_mutable:anduril.taskmanager.v1.EntityIds.entity_ids)
+  return _s;
+}
+inline const std::string& EntityIds::entity_ids(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.taskmanager.v1.EntityIds.entity_ids)
+  return _internal_entity_ids().Get(index);
+}
+inline std::string* EntityIds::mutable_entity_ids(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:anduril.taskmanager.v1.EntityIds.entity_ids)
+  return _internal_mutable_entity_ids()->Mutable(index);
+}
+inline void EntityIds::set_entity_ids(int index, const std::string& value) {
+  _internal_mutable_entity_ids()->Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:anduril.taskmanager.v1.EntityIds.entity_ids)
+}
+inline void EntityIds::set_entity_ids(int index, std::string&& value) {
+  _internal_mutable_entity_ids()->Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:anduril.taskmanager.v1.EntityIds.entity_ids)
+}
+inline void EntityIds::set_entity_ids(int index, const char* value) {
+  ABSL_DCHECK(value != nullptr);
+  _internal_mutable_entity_ids()->Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:anduril.taskmanager.v1.EntityIds.entity_ids)
+}
+inline void EntityIds::set_entity_ids(int index, const char* value,
+                              std::size_t size) {
+  _internal_mutable_entity_ids()->Mutable(index)->assign(
+      reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:anduril.taskmanager.v1.EntityIds.entity_ids)
+}
+inline void EntityIds::set_entity_ids(int index, absl::string_view value) {
+  _internal_mutable_entity_ids()->Mutable(index)->assign(
+      value.data(), value.size());
+  // @@protoc_insertion_point(field_set_string_piece:anduril.taskmanager.v1.EntityIds.entity_ids)
+}
+inline void EntityIds::add_entity_ids(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _internal_mutable_entity_ids()->Add()->assign(value);
+  // @@protoc_insertion_point(field_add:anduril.taskmanager.v1.EntityIds.entity_ids)
+}
+inline void EntityIds::add_entity_ids(std::string&& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _internal_mutable_entity_ids()->Add(std::move(value));
+  // @@protoc_insertion_point(field_add:anduril.taskmanager.v1.EntityIds.entity_ids)
+}
+inline void EntityIds::add_entity_ids(const char* value) {
+  ABSL_DCHECK(value != nullptr);
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _internal_mutable_entity_ids()->Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:anduril.taskmanager.v1.EntityIds.entity_ids)
+}
+inline void EntityIds::add_entity_ids(const char* value, std::size_t size) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _internal_mutable_entity_ids()->Add()->assign(
+      reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:anduril.taskmanager.v1.EntityIds.entity_ids)
+}
+inline void EntityIds::add_entity_ids(absl::string_view value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _internal_mutable_entity_ids()->Add()->assign(value.data(),
+                                                     value.size());
+  // @@protoc_insertion_point(field_add_string_piece:anduril.taskmanager.v1.EntityIds.entity_ids)
+}
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
+EntityIds::entity_ids() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:anduril.taskmanager.v1.EntityIds.entity_ids)
+  return _internal_entity_ids();
+}
+inline ::google::protobuf::RepeatedPtrField<std::string>*
+EntityIds::mutable_entity_ids() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:anduril.taskmanager.v1.EntityIds.entity_ids)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_entity_ids();
+}
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
+EntityIds::_internal_entity_ids() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.entity_ids_;
+}
+inline ::google::protobuf::RepeatedPtrField<std::string>*
+EntityIds::_internal_mutable_entity_ids() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.entity_ids_;
 }
 
 #ifdef __GNUC__
