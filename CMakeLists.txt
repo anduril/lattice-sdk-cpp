@@ -37,12 +37,13 @@ set(gRPC_BUILD_GRPC_OBJECTIVE_C_PLUGIN OFF CACHE INTERNAL "")
 set(gRPC_BUILD_GRPC_PHP_PLUGIN OFF CACHE INTERNAL "")
 set(gRPC_BUILD_GRPC_PYTHON_PLUGIN OFF CACHE INTERNAL "")
 set(gRPC_BUILD_GRPC_RUBY_PLUGIN OFF CACHE INTERNAL "")
+set(ABSL_ENABLE_INSTALL ON)
 
 FetchContent_MakeAvailable(gRPC)
 
 ## Get all the Proto generated files
 file(GLOB_RECURSE anduril-sdk-sources ${PROJECT_SOURCE_DIR}/*.cc)
-add_library(anduril-sdk-cpp ${anduril-sdk-sources})
+add_library(anduril-sdk-cpp STATIC ${anduril-sdk-sources})
 
 target_include_directories(anduril-sdk-cpp PUBLIC src)
 target_link_libraries(anduril-sdk-cpp PUBLIC grpc++ protobuf::libprotobuf)
