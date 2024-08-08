@@ -69,13 +69,33 @@ struct GetTaskRequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GetTaskRequestDefaultTypeInternal _GetTaskRequest_default_instance_;
 
+inline constexpr EntityIds::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : entity_ids_{},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR EntityIds::EntityIds(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct EntityIdsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR EntityIdsDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~EntityIdsDefaultTypeInternal() {}
+  union {
+    EntityIds _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 EntityIdsDefaultTypeInternal _EntityIds_default_instance_;
+
 inline constexpr StreamTasksRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
         views_{},
         _views_cached_byte_size_{0},
         rate_limit_{nullptr},
-        heartbeat_period_millis_{0u} {}
+        heartbeat_period_millis_{0u},
+        exclude_preexisting_tasks_{false} {}
 
 template <typename>
 PROTOBUF_CONSTEXPR StreamTasksRequest::StreamTasksRequest(::_pbi::ConstantInitialized)
@@ -90,6 +110,26 @@ struct StreamTasksRequestDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StreamTasksRequestDefaultTypeInternal _StreamTasksRequest_default_instance_;
+
+inline constexpr ListenAsAgentRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : agent_selector_{},
+        _cached_size_{0},
+        _oneof_case_{} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ListenAsAgentRequest::ListenAsAgentRequest(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct ListenAsAgentRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ListenAsAgentRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ListenAsAgentRequestDefaultTypeInternal() {}
+  union {
+    ListenAsAgentRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ListenAsAgentRequestDefaultTypeInternal _ListenAsAgentRequest_default_instance_;
 
 inline constexpr Heartbeat::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -276,6 +316,26 @@ struct StreamTasksResponseDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StreamTasksResponseDefaultTypeInternal _StreamTasksResponse_default_instance_;
+
+inline constexpr ListenAsAgentResponse::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : request_{},
+        _cached_size_{0},
+        _oneof_case_{} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ListenAsAgentResponse::ListenAsAgentResponse(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct ListenAsAgentResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ListenAsAgentResponseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ListenAsAgentResponseDefaultTypeInternal() {}
+  union {
+    ListenAsAgentResponse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ListenAsAgentResponseDefaultTypeInternal _ListenAsAgentResponse_default_instance_;
 }  // namespace v1
 }  // namespace taskmanager
 }  // namespace anduril
@@ -394,7 +454,9 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::StreamTasksRequest, _impl_.rate_limit_),
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::StreamTasksRequest, _impl_.views_),
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::StreamTasksRequest, _impl_.heartbeat_period_millis_),
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::StreamTasksRequest, _impl_.exclude_preexisting_tasks_),
         0,
+        ~0u,
         ~0u,
         ~0u,
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::StreamTasksResponse, _impl_._has_bits_),
@@ -409,6 +471,28 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::StreamTasksResponse, _impl_.heartbeat_),
         0,
         1,
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::ListenAsAgentRequest, _internal_metadata_),
+        ~0u,  // no _extensions_
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::ListenAsAgentRequest, _impl_._oneof_case_[0]),
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        ::_pbi::kInvalidFieldOffsetTag,
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::ListenAsAgentRequest, _impl_.agent_selector_),
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::ListenAsAgentResponse, _internal_metadata_),
+        ~0u,  // no _extensions_
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::ListenAsAgentResponse, _impl_._oneof_case_[0]),
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        ::_pbi::kInvalidFieldOffsetTag,
+        ::_pbi::kInvalidFieldOffsetTag,
+        ::_pbi::kInvalidFieldOffsetTag,
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::ListenAsAgentResponse, _impl_.request_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::RateLimit, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -428,6 +512,15 @@ const ::uint32_t
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::Heartbeat, _impl_.timestamp_),
         0,
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::EntityIds, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::EntityIds, _impl_.entity_ids_),
 };
 
 static const ::_pbi::MigrationSchema
@@ -440,10 +533,13 @@ static const ::_pbi::MigrationSchema
         {67, 76, -1, sizeof(::anduril::taskmanager::v1::UpdateTaskResponse)},
         {77, 86, -1, sizeof(::anduril::taskmanager::v1::UpdateStatusRequest)},
         {87, 96, -1, sizeof(::anduril::taskmanager::v1::UpdateStatusResponse)},
-        {97, 108, -1, sizeof(::anduril::taskmanager::v1::StreamTasksRequest)},
-        {111, 121, -1, sizeof(::anduril::taskmanager::v1::StreamTasksResponse)},
-        {123, -1, -1, sizeof(::anduril::taskmanager::v1::RateLimit)},
-        {132, 141, -1, sizeof(::anduril::taskmanager::v1::Heartbeat)},
+        {97, 109, -1, sizeof(::anduril::taskmanager::v1::StreamTasksRequest)},
+        {113, 123, -1, sizeof(::anduril::taskmanager::v1::StreamTasksResponse)},
+        {125, -1, -1, sizeof(::anduril::taskmanager::v1::ListenAsAgentRequest)},
+        {135, -1, -1, sizeof(::anduril::taskmanager::v1::ListenAsAgentResponse)},
+        {147, -1, -1, sizeof(::anduril::taskmanager::v1::RateLimit)},
+        {156, 165, -1, sizeof(::anduril::taskmanager::v1::Heartbeat)},
+        {166, -1, -1, sizeof(::anduril::taskmanager::v1::EntityIds)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::taskmanager::v1::_CreateTaskRequest_default_instance_._instance,
@@ -456,80 +552,100 @@ static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::taskmanager::v1::_UpdateStatusResponse_default_instance_._instance,
     &::anduril::taskmanager::v1::_StreamTasksRequest_default_instance_._instance,
     &::anduril::taskmanager::v1::_StreamTasksResponse_default_instance_._instance,
+    &::anduril::taskmanager::v1::_ListenAsAgentRequest_default_instance_._instance,
+    &::anduril::taskmanager::v1::_ListenAsAgentResponse_default_instance_._instance,
     &::anduril::taskmanager::v1::_RateLimit_default_instance_._instance,
     &::anduril::taskmanager::v1::_Heartbeat_default_instance_._instance,
+    &::anduril::taskmanager::v1::_EntityIds_default_instance_._instance,
 };
 const char descriptor_table_protodef_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
     "\n1anduril/taskmanager/v1/task_manager_ap"
     "i.pub.proto\022\026anduril.taskmanager.v1\032%and"
-    "uril/taskmanager/v1/task.pub.proto\032\031goog"
-    "le/protobuf/any.proto\032\037google/protobuf/t"
-    "imestamp.proto\"\270\003\n\021CreateTaskRequest\022!\n\014"
-    "display_name\030\001 \001(\tR\013displayName\022:\n\rspeci"
-    "fication\030\002 \001(\0132\024.google.protobuf.AnyR\rsp"
-    "ecification\0229\n\006author\030\003 \001(\0132!.anduril.ta"
-    "skmanager.v1.PrincipalR\006author\022\?\n\trelati"
-    "ons\030\005 \001(\0132!.anduril.taskmanager.v1.Relat"
-    "ionsR\trelations\022 \n\013description\030\006 \001(\tR\013de"
-    "scription\0222\n\025is_executed_elsewhere\030\007 \001(\010"
-    "R\023isExecutedElsewhere\022\027\n\007task_id\030\010 \001(\tR\006"
-    "taskId\022M\n\020initial_entities\030\t \003(\0132\".andur"
-    "il.taskmanager.v1.TaskEntityR\017initialEnt"
-    "itiesJ\004\010\004\020\005J\004\010\n\020\013\"F\n\022CreateTaskResponse\022"
-    "0\n\004task\030\001 \001(\0132\034.anduril.taskmanager.v1.T"
-    "askR\004task\"\227\001\n\016GetTaskRequest\022\027\n\007task_id\030"
-    "\001 \001(\tR\006taskId\022-\n\022definition_version\030\002 \001("
-    "\rR\021definitionVersion\022=\n\ttask_view\030\003 \001(\0162"
-    " .anduril.taskmanager.v1.TaskViewR\010taskV"
-    "iew\"C\n\017GetTaskResponse\0220\n\004task\030\001 \001(\0132\034.a"
-    "nduril.taskmanager.v1.TaskR\004task\"y\n\021Upda"
-    "teTaskRequest\0220\n\004task\030\001 \001(\0132\034.anduril.ta"
-    "skmanager.v1.TaskR\004task\0222\n\025is_executed_e"
-    "lsewhere\030\007 \001(\010R\023isExecutedElsewhere\"F\n\022U"
-    "pdateTaskResponse\0220\n\004task\030\001 \001(\0132\034.anduri"
-    "l.taskmanager.v1.TaskR\004task\"`\n\023UpdateSta"
-    "tusRequest\022I\n\rstatus_update\030\001 \001(\0132$.andu"
-    "ril.taskmanager.v1.StatusUpdateR\014statusU"
-    "pdate\"H\n\024UpdateStatusResponse\0220\n\004task\030\001 "
-    "\001(\0132\034.anduril.taskmanager.v1.TaskR\004task\""
-    "\306\001\n\022StreamTasksRequest\022@\n\nrate_limit\030\001 \001"
-    "(\0132!.anduril.taskmanager.v1.RateLimitR\tr"
-    "ateLimit\0226\n\005views\030\002 \003(\0162 .anduril.taskma"
-    "nager.v1.TaskViewR\005views\0226\n\027heartbeat_pe"
-    "riod_millis\030\003 \001(\rR\025heartbeatPeriodMillis"
-    "\"\230\001\n\023StreamTasksResponse\022@\n\ntask_event\030\001"
-    " \001(\0132!.anduril.taskmanager.v1.TaskEventR"
-    "\ttaskEvent\022\?\n\theartbeat\030\002 \001(\0132!.anduril."
-    "taskmanager.v1.HeartbeatR\theartbeat\"C\n\tR"
-    "ateLimit\0226\n\030update_per_task_limit_ms\030\001 \001"
-    "(\rR\024updatePerTaskLimitMs\"E\n\tHeartbeat\0228\n"
-    "\ttimestamp\030\001 \001(\0132\032.google.protobuf.Times"
-    "tampR\ttimestamp2\213\004\n\016TaskManagerAPI\022c\n\nCr"
-    "eateTask\022).anduril.taskmanager.v1.Create"
-    "TaskRequest\032*.anduril.taskmanager.v1.Cre"
-    "ateTaskResponse\022Z\n\007GetTask\022&.anduril.tas"
-    "kmanager.v1.GetTaskRequest\032\'.anduril.tas"
-    "kmanager.v1.GetTaskResponse\022c\n\nUpdateTas"
-    "k\022).anduril.taskmanager.v1.UpdateTaskReq"
-    "uest\032*.anduril.taskmanager.v1.UpdateTask"
-    "Response\022i\n\014UpdateStatus\022+.anduril.taskm"
-    "anager.v1.UpdateStatusRequest\032,.anduril."
-    "taskmanager.v1.UpdateStatusResponse\022h\n\013S"
-    "treamTasks\022*.anduril.taskmanager.v1.Stre"
-    "amTasksRequest\032+.anduril.taskmanager.v1."
-    "StreamTasksResponse0\001B\371\001\n\032com.anduril.ta"
-    "skmanager.v1B\026TaskManagerApiPubProtoP\001ZI"
-    "ghe.anduril.dev/anduril/andurilapis-go/a"
-    "nduril/taskmanager/v1;taskmanager\242\002\003ATX\252"
-    "\002\026Anduril.Taskmanager.V1\312\002\026Anduril\\Taskm"
-    "anager\\V1\342\002\"Anduril\\Taskmanager\\V1\\GPBMe"
-    "tadata\352\002\030Anduril::Taskmanager::V1b\006proto"
-    "3"
+    "uril/taskmanager/v1/task.pub.proto\032)andu"
+    "ril/taskmanager/v1/task_api.pub.proto\032\031g"
+    "oogle/protobuf/any.proto\032\037google/protobu"
+    "f/timestamp.proto\"\270\003\n\021CreateTaskRequest\022"
+    "!\n\014display_name\030\001 \001(\tR\013displayName\022:\n\rsp"
+    "ecification\030\002 \001(\0132\024.google.protobuf.AnyR"
+    "\rspecification\0229\n\006author\030\003 \001(\0132!.anduril"
+    ".taskmanager.v1.PrincipalR\006author\022\?\n\trel"
+    "ations\030\005 \001(\0132!.anduril.taskmanager.v1.Re"
+    "lationsR\trelations\022 \n\013description\030\006 \001(\tR"
+    "\013description\0222\n\025is_executed_elsewhere\030\007 "
+    "\001(\010R\023isExecutedElsewhere\022\027\n\007task_id\030\010 \001("
+    "\tR\006taskId\022M\n\020initial_entities\030\t \003(\0132\".an"
+    "duril.taskmanager.v1.TaskEntityR\017initial"
+    "EntitiesJ\004\010\004\020\005J\004\010\n\020\013\"F\n\022CreateTaskRespon"
+    "se\0220\n\004task\030\001 \001(\0132\034.anduril.taskmanager.v"
+    "1.TaskR\004task\"\227\001\n\016GetTaskRequest\022\027\n\007task_"
+    "id\030\001 \001(\tR\006taskId\022-\n\022definition_version\030\002"
+    " \001(\rR\021definitionVersion\022=\n\ttask_view\030\003 \001"
+    "(\0162 .anduril.taskmanager.v1.TaskViewR\010ta"
+    "skView\"C\n\017GetTaskResponse\0220\n\004task\030\001 \001(\0132"
+    "\034.anduril.taskmanager.v1.TaskR\004task\"y\n\021U"
+    "pdateTaskRequest\0220\n\004task\030\001 \001(\0132\034.anduril"
+    ".taskmanager.v1.TaskR\004task\0222\n\025is_execute"
+    "d_elsewhere\030\007 \001(\010R\023isExecutedElsewhere\"F"
+    "\n\022UpdateTaskResponse\0220\n\004task\030\001 \001(\0132\034.and"
+    "uril.taskmanager.v1.TaskR\004task\"`\n\023Update"
+    "StatusRequest\022I\n\rstatus_update\030\001 \001(\0132$.a"
+    "nduril.taskmanager.v1.StatusUpdateR\014stat"
+    "usUpdate\"H\n\024UpdateStatusResponse\0220\n\004task"
+    "\030\001 \001(\0132\034.anduril.taskmanager.v1.TaskR\004ta"
+    "sk\"\202\002\n\022StreamTasksRequest\022@\n\nrate_limit\030"
+    "\001 \001(\0132!.anduril.taskmanager.v1.RateLimit"
+    "R\trateLimit\0226\n\005views\030\002 \003(\0162 .anduril.tas"
+    "kmanager.v1.TaskViewR\005views\0226\n\027heartbeat"
+    "_period_millis\030\003 \001(\rR\025heartbeatPeriodMil"
+    "lis\022:\n\031exclude_preexisting_tasks\030\004 \001(\010R\027"
+    "excludePreexistingTasks\"\230\001\n\023StreamTasksR"
+    "esponse\022@\n\ntask_event\030\001 \001(\0132!.anduril.ta"
+    "skmanager.v1.TaskEventR\ttaskEvent\022\?\n\thea"
+    "rtbeat\030\002 \001(\0132!.anduril.taskmanager.v1.He"
+    "artbeatR\theartbeat\"l\n\024ListenAsAgentReque"
+    "st\022B\n\nentity_ids\030\001 \001(\0132!.anduril.taskman"
+    "ager.v1.EntityIdsH\000R\tentityIdsB\020\n\016agent_"
+    "selector\"\233\002\n\025ListenAsAgentResponse\022Q\n\017ex"
+    "ecute_request\030\001 \001(\0132&.anduril.taskmanage"
+    "r.v1.ExecuteRequestH\000R\016executeRequest\022N\n"
+    "\016cancel_request\030\002 \001(\0132%.anduril.taskmana"
+    "ger.v1.CancelRequestH\000R\rcancelRequest\022T\n"
+    "\020complete_request\030\003 \001(\0132\'.anduril.taskma"
+    "nager.v1.CompleteRequestH\000R\017completeRequ"
+    "estB\t\n\007request\"C\n\tRateLimit\0226\n\030update_pe"
+    "r_task_limit_ms\030\001 \001(\rR\024updatePerTaskLimi"
+    "tMs\"E\n\tHeartbeat\0228\n\ttimestamp\030\001 \001(\0132\032.go"
+    "ogle.protobuf.TimestampR\ttimestamp\"*\n\tEn"
+    "tityIds\022\035\n\nentity_ids\030\001 \003(\tR\tentityIds2\373"
+    "\004\n\016TaskManagerAPI\022c\n\nCreateTask\022).anduri"
+    "l.taskmanager.v1.CreateTaskRequest\032*.and"
+    "uril.taskmanager.v1.CreateTaskResponse\022Z"
+    "\n\007GetTask\022&.anduril.taskmanager.v1.GetTa"
+    "skRequest\032\'.anduril.taskmanager.v1.GetTa"
+    "skResponse\022c\n\nUpdateTask\022).anduril.taskm"
+    "anager.v1.UpdateTaskRequest\032*.anduril.ta"
+    "skmanager.v1.UpdateTaskResponse\022i\n\014Updat"
+    "eStatus\022+.anduril.taskmanager.v1.UpdateS"
+    "tatusRequest\032,.anduril.taskmanager.v1.Up"
+    "dateStatusResponse\022h\n\013StreamTasks\022*.andu"
+    "ril.taskmanager.v1.StreamTasksRequest\032+."
+    "anduril.taskmanager.v1.StreamTasksRespon"
+    "se0\001\022n\n\rListenAsAgent\022,.anduril.taskmana"
+    "ger.v1.ListenAsAgentRequest\032-.anduril.ta"
+    "skmanager.v1.ListenAsAgentResponse0\001B\371\001\n"
+    "\032com.anduril.taskmanager.v1B\026TaskManager"
+    "ApiPubProtoP\001ZIghe.anduril.dev/anduril/a"
+    "ndurilapis-go/anduril/taskmanager/v1;tas"
+    "kmanager\242\002\003ATX\252\002\026Anduril.Taskmanager.V1\312"
+    "\002\026Anduril\\Taskmanager\\V1\342\002\"Anduril\\Taskm"
+    "anager\\V1\\GPBMetadata\352\002\030Anduril::Taskman"
+    "ager::V1b\006proto3"
 };
-static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto_deps[3] =
+static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto_deps[4] =
     {
         &::descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_2epub_2eproto,
+        &::descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fapi_2epub_2eproto,
         &::descriptor_table_google_2fprotobuf_2fany_2eproto,
         &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
 };
@@ -537,13 +653,13 @@ static ::absl::once_flag descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fma
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto = {
     false,
     false,
-    2561,
+    3216,
     descriptor_table_protodef_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto,
     "anduril/taskmanager/v1/task_manager_api.pub.proto",
     &descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto_once,
     descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto_deps,
-    3,
-    12,
+    4,
+    15,
     schemas,
     file_default_instances,
     TableStruct_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto::offsets,
@@ -2644,7 +2760,13 @@ StreamTasksRequest::StreamTasksRequest(
   _impl_.rate_limit_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::RateLimit>(
                               arena, *from._impl_.rate_limit_)
                         : nullptr;
-  _impl_.heartbeat_period_millis_ = from._impl_.heartbeat_period_millis_;
+  ::memcpy(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, heartbeat_period_millis_),
+           reinterpret_cast<const char *>(&from._impl_) +
+               offsetof(Impl_, heartbeat_period_millis_),
+           offsetof(Impl_, exclude_preexisting_tasks_) -
+               offsetof(Impl_, heartbeat_period_millis_) +
+               sizeof(Impl_::exclude_preexisting_tasks_));
 
   // @@protoc_insertion_point(copy_constructor:anduril.taskmanager.v1.StreamTasksRequest)
 }
@@ -2660,9 +2782,9 @@ inline void StreamTasksRequest::SharedCtor(::_pb::Arena* arena) {
   ::memset(reinterpret_cast<char *>(&_impl_) +
                offsetof(Impl_, rate_limit_),
            0,
-           offsetof(Impl_, heartbeat_period_millis_) -
+           offsetof(Impl_, exclude_preexisting_tasks_) -
                offsetof(Impl_, rate_limit_) +
-               sizeof(Impl_::heartbeat_period_millis_));
+               sizeof(Impl_::exclude_preexisting_tasks_));
 }
 StreamTasksRequest::~StreamTasksRequest() {
   // @@protoc_insertion_point(destructor:anduril.taskmanager.v1.StreamTasksRequest)
@@ -2696,15 +2818,15 @@ StreamTasksRequest::GetClassData() const {
   return _data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 1, 0, 2> StreamTasksRequest::_table_ = {
+const ::_pbi::TcParseTable<2, 4, 1, 0, 2> StreamTasksRequest::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(StreamTasksRequest, _impl_._has_bits_),
     0, // no _extensions_
-    3, 24,  // max_field_number, fast_idx_mask
+    4, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967288,  // skipmap
+    4294967280,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    3,  // num_field_entries
+    4,  // num_field_entries
     1,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     &_StreamTasksRequest_default_instance_._instance,
@@ -2714,7 +2836,9 @@ const ::_pbi::TcParseTable<2, 3, 1, 0, 2> StreamTasksRequest::_table_ = {
     ::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::StreamTasksRequest>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    {::_pbi::TcParser::MiniParse, {}},
+    // bool exclude_preexisting_tasks = 4 [json_name = "excludePreexistingTasks"];
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(StreamTasksRequest, _impl_.exclude_preexisting_tasks_), 63>(),
+     {32, 63, 0, PROTOBUF_FIELD_OFFSET(StreamTasksRequest, _impl_.exclude_preexisting_tasks_)}},
     // .anduril.taskmanager.v1.RateLimit rate_limit = 1 [json_name = "rateLimit"];
     {::_pbi::TcParser::FastMtS1,
      {10, 0, 0, PROTOBUF_FIELD_OFFSET(StreamTasksRequest, _impl_.rate_limit_)}},
@@ -2736,6 +2860,9 @@ const ::_pbi::TcParseTable<2, 3, 1, 0, 2> StreamTasksRequest::_table_ = {
     // uint32 heartbeat_period_millis = 3 [json_name = "heartbeatPeriodMillis"];
     {PROTOBUF_FIELD_OFFSET(StreamTasksRequest, _impl_.heartbeat_period_millis_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
+    // bool exclude_preexisting_tasks = 4 [json_name = "excludePreexistingTasks"];
+    {PROTOBUF_FIELD_OFFSET(StreamTasksRequest, _impl_.exclude_preexisting_tasks_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
   }}, {{
     {::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::RateLimit>()},
   }}, {{
@@ -2755,7 +2882,9 @@ PROTOBUF_NOINLINE void StreamTasksRequest::Clear() {
     ABSL_DCHECK(_impl_.rate_limit_ != nullptr);
     _impl_.rate_limit_->Clear();
   }
-  _impl_.heartbeat_period_millis_ = 0u;
+  ::memset(&_impl_.heartbeat_period_millis_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.exclude_preexisting_tasks_) -
+      reinterpret_cast<char*>(&_impl_.heartbeat_period_millis_)) + sizeof(_impl_.exclude_preexisting_tasks_));
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -2788,6 +2917,13 @@ PROTOBUF_NOINLINE void StreamTasksRequest::Clear() {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
         3, this->_internal_heartbeat_period_millis(), target);
+  }
+
+  // bool exclude_preexisting_tasks = 4 [json_name = "excludePreexistingTasks"];
+  if (this->_internal_exclude_preexisting_tasks() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        4, this->_internal_exclude_preexisting_tasks(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2838,6 +2974,11 @@ PROTOBUF_NOINLINE void StreamTasksRequest::Clear() {
         this->_internal_heartbeat_period_millis());
   }
 
+  // bool exclude_preexisting_tasks = 4 [json_name = "excludePreexistingTasks"];
+  if (this->_internal_exclude_preexisting_tasks() != 0) {
+    total_size += 2;
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -2865,6 +3006,9 @@ void StreamTasksRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, cons
   if (from._internal_heartbeat_period_millis() != 0) {
     _this->_impl_.heartbeat_period_millis_ = from._impl_.heartbeat_period_millis_;
   }
+  if (from._internal_exclude_preexisting_tasks() != 0) {
+    _this->_impl_.exclude_preexisting_tasks_ = from._impl_.exclude_preexisting_tasks_;
+  }
   _this->_impl_._has_bits_[0] |= cached_has_bits;
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -2883,8 +3027,8 @@ void StreamTasksRequest::InternalSwap(StreamTasksRequest* PROTOBUF_RESTRICT othe
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.views_.InternalSwap(&other->_impl_.views_);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(StreamTasksRequest, _impl_.heartbeat_period_millis_)
-      + sizeof(StreamTasksRequest::_impl_.heartbeat_period_millis_)
+      PROTOBUF_FIELD_OFFSET(StreamTasksRequest, _impl_.exclude_preexisting_tasks_)
+      + sizeof(StreamTasksRequest::_impl_.exclude_preexisting_tasks_)
       - PROTOBUF_FIELD_OFFSET(StreamTasksRequest, _impl_.rate_limit_)>(
           reinterpret_cast<char*>(&_impl_.rate_limit_),
           reinterpret_cast<char*>(&other->_impl_.rate_limit_));
@@ -3159,6 +3303,652 @@ void StreamTasksResponse::InternalSwap(StreamTasksResponse* PROTOBUF_RESTRICT ot
 }
 
 ::google::protobuf::Metadata StreamTasksResponse::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class ListenAsAgentRequest::_Internal {
+ public:
+  static constexpr ::int32_t kOneofCaseOffset =
+      PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::ListenAsAgentRequest, _impl_._oneof_case_);
+};
+
+void ListenAsAgentRequest::set_allocated_entity_ids(::anduril::taskmanager::v1::EntityIds* entity_ids) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_agent_selector();
+  if (entity_ids) {
+    ::google::protobuf::Arena* submessage_arena = entity_ids->GetArena();
+    if (message_arena != submessage_arena) {
+      entity_ids = ::google::protobuf::internal::GetOwnedMessage(message_arena, entity_ids, submessage_arena);
+    }
+    set_has_entity_ids();
+    _impl_.agent_selector_.entity_ids_ = entity_ids;
+  }
+  // @@protoc_insertion_point(field_set_allocated:anduril.taskmanager.v1.ListenAsAgentRequest.entity_ids)
+}
+ListenAsAgentRequest::ListenAsAgentRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.taskmanager.v1.ListenAsAgentRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE ListenAsAgentRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::taskmanager::v1::ListenAsAgentRequest& from_msg)
+      : agent_selector_{},
+        _cached_size_{0},
+        _oneof_case_{from._oneof_case_[0]} {}
+
+ListenAsAgentRequest::ListenAsAgentRequest(
+    ::google::protobuf::Arena* arena,
+    const ListenAsAgentRequest& from)
+    : ::google::protobuf::Message(arena) {
+  ListenAsAgentRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  switch (agent_selector_case()) {
+    case AGENT_SELECTOR_NOT_SET:
+      break;
+      case kEntityIds:
+        _impl_.agent_selector_.entity_ids_ = ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::EntityIds>(arena, *from._impl_.agent_selector_.entity_ids_);
+        break;
+  }
+
+  // @@protoc_insertion_point(copy_constructor:anduril.taskmanager.v1.ListenAsAgentRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE ListenAsAgentRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : agent_selector_{},
+        _cached_size_{0},
+        _oneof_case_{} {}
+
+inline void ListenAsAgentRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+ListenAsAgentRequest::~ListenAsAgentRequest() {
+  // @@protoc_insertion_point(destructor:anduril.taskmanager.v1.ListenAsAgentRequest)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void ListenAsAgentRequest::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  if (has_agent_selector()) {
+    clear_agent_selector();
+  }
+  _impl_.~Impl_();
+}
+
+void ListenAsAgentRequest::clear_agent_selector() {
+// @@protoc_insertion_point(one_of_clear_start:anduril.taskmanager.v1.ListenAsAgentRequest)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  switch (agent_selector_case()) {
+    case kEntityIds: {
+      if (GetArena() == nullptr) {
+        delete _impl_.agent_selector_.entity_ids_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.agent_selector_.entity_ids_);
+      }
+      break;
+    }
+    case AGENT_SELECTOR_NOT_SET: {
+      break;
+    }
+  }
+  _impl_._oneof_case_[0] = AGENT_SELECTOR_NOT_SET;
+}
+
+
+const ::google::protobuf::MessageLite::ClassData*
+ListenAsAgentRequest::GetClassData() const {
+  PROTOBUF_CONSTINIT static const ::google::protobuf::MessageLite::
+      ClassDataFull _data_ = {
+          {
+              &_table_.header,
+              nullptr,  // OnDemandRegisterArenaDtor
+              nullptr,  // IsInitialized
+              PROTOBUF_FIELD_OFFSET(ListenAsAgentRequest, _impl_._cached_size_),
+              false,
+          },
+          &ListenAsAgentRequest::MergeImpl,
+          &ListenAsAgentRequest::kDescriptorMethods,
+          &descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto,
+          nullptr,  // tracker
+      };
+  ::google::protobuf::internal::PrefetchToLocalCache(&_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_data_.tc_table);
+  return _data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 1, 0, 2> ListenAsAgentRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    &_ListenAsAgentRequest_default_instance_._instance,
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::ListenAsAgentRequest>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .anduril.taskmanager.v1.EntityIds entity_ids = 1 [json_name = "entityIds"];
+    {PROTOBUF_FIELD_OFFSET(ListenAsAgentRequest, _impl_.agent_selector_.entity_ids_), _Internal::kOneofCaseOffset + 0, 0,
+    (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::EntityIds>()},
+  }}, {{
+  }},
+};
+
+PROTOBUF_NOINLINE void ListenAsAgentRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.taskmanager.v1.ListenAsAgentRequest)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  clear_agent_selector();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+::uint8_t* ListenAsAgentRequest::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:anduril.taskmanager.v1.ListenAsAgentRequest)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  // .anduril.taskmanager.v1.EntityIds entity_ids = 1 [json_name = "entityIds"];
+  if (agent_selector_case() == kEntityIds) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        1, *_impl_.agent_selector_.entity_ids_, _impl_.agent_selector_.entity_ids_->GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:anduril.taskmanager.v1.ListenAsAgentRequest)
+  return target;
+}
+
+::size_t ListenAsAgentRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:anduril.taskmanager.v1.ListenAsAgentRequest)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  switch (agent_selector_case()) {
+    // .anduril.taskmanager.v1.EntityIds entity_ids = 1 [json_name = "entityIds"];
+    case kEntityIds: {
+      total_size +=
+          1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.agent_selector_.entity_ids_);
+      break;
+    }
+    case AGENT_SELECTOR_NOT_SET: {
+      break;
+    }
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+
+void ListenAsAgentRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<ListenAsAgentRequest*>(&to_msg);
+  auto& from = static_cast<const ListenAsAgentRequest&>(from_msg);
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.taskmanager.v1.ListenAsAgentRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (const uint32_t oneof_from_case = from._impl_._oneof_case_[0]) {
+    const uint32_t oneof_to_case = _this->_impl_._oneof_case_[0];
+    const bool oneof_needs_init = oneof_to_case != oneof_from_case;
+    if (oneof_needs_init) {
+      if (oneof_to_case != 0) {
+        _this->clear_agent_selector();
+      }
+      _this->_impl_._oneof_case_[0] = oneof_from_case;
+    }
+
+    switch (oneof_from_case) {
+      case kEntityIds: {
+        if (oneof_needs_init) {
+          _this->_impl_.agent_selector_.entity_ids_ =
+              ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::EntityIds>(arena, *from._impl_.agent_selector_.entity_ids_);
+        } else {
+          _this->_impl_.agent_selector_.entity_ids_->MergeFrom(from._internal_entity_ids());
+        }
+        break;
+      }
+      case AGENT_SELECTOR_NOT_SET:
+        break;
+    }
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ListenAsAgentRequest::CopyFrom(const ListenAsAgentRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.taskmanager.v1.ListenAsAgentRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void ListenAsAgentRequest::InternalSwap(ListenAsAgentRequest* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_.agent_selector_, other->_impl_.agent_selector_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
+}
+
+::google::protobuf::Metadata ListenAsAgentRequest::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class ListenAsAgentResponse::_Internal {
+ public:
+  static constexpr ::int32_t kOneofCaseOffset =
+      PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::ListenAsAgentResponse, _impl_._oneof_case_);
+};
+
+void ListenAsAgentResponse::set_allocated_execute_request(::anduril::taskmanager::v1::ExecuteRequest* execute_request) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_request();
+  if (execute_request) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(execute_request)->GetArena();
+    if (message_arena != submessage_arena) {
+      execute_request = ::google::protobuf::internal::GetOwnedMessage(message_arena, execute_request, submessage_arena);
+    }
+    set_has_execute_request();
+    _impl_.request_.execute_request_ = execute_request;
+  }
+  // @@protoc_insertion_point(field_set_allocated:anduril.taskmanager.v1.ListenAsAgentResponse.execute_request)
+}
+void ListenAsAgentResponse::clear_execute_request() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (request_case() == kExecuteRequest) {
+    if (GetArena() == nullptr) {
+      delete _impl_.request_.execute_request_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.request_.execute_request_);
+    }
+    clear_has_request();
+  }
+}
+void ListenAsAgentResponse::set_allocated_cancel_request(::anduril::taskmanager::v1::CancelRequest* cancel_request) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_request();
+  if (cancel_request) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(cancel_request)->GetArena();
+    if (message_arena != submessage_arena) {
+      cancel_request = ::google::protobuf::internal::GetOwnedMessage(message_arena, cancel_request, submessage_arena);
+    }
+    set_has_cancel_request();
+    _impl_.request_.cancel_request_ = cancel_request;
+  }
+  // @@protoc_insertion_point(field_set_allocated:anduril.taskmanager.v1.ListenAsAgentResponse.cancel_request)
+}
+void ListenAsAgentResponse::clear_cancel_request() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (request_case() == kCancelRequest) {
+    if (GetArena() == nullptr) {
+      delete _impl_.request_.cancel_request_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.request_.cancel_request_);
+    }
+    clear_has_request();
+  }
+}
+void ListenAsAgentResponse::set_allocated_complete_request(::anduril::taskmanager::v1::CompleteRequest* complete_request) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_request();
+  if (complete_request) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(complete_request)->GetArena();
+    if (message_arena != submessage_arena) {
+      complete_request = ::google::protobuf::internal::GetOwnedMessage(message_arena, complete_request, submessage_arena);
+    }
+    set_has_complete_request();
+    _impl_.request_.complete_request_ = complete_request;
+  }
+  // @@protoc_insertion_point(field_set_allocated:anduril.taskmanager.v1.ListenAsAgentResponse.complete_request)
+}
+void ListenAsAgentResponse::clear_complete_request() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (request_case() == kCompleteRequest) {
+    if (GetArena() == nullptr) {
+      delete _impl_.request_.complete_request_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.request_.complete_request_);
+    }
+    clear_has_request();
+  }
+}
+ListenAsAgentResponse::ListenAsAgentResponse(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.taskmanager.v1.ListenAsAgentResponse)
+}
+inline PROTOBUF_NDEBUG_INLINE ListenAsAgentResponse::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::taskmanager::v1::ListenAsAgentResponse& from_msg)
+      : request_{},
+        _cached_size_{0},
+        _oneof_case_{from._oneof_case_[0]} {}
+
+ListenAsAgentResponse::ListenAsAgentResponse(
+    ::google::protobuf::Arena* arena,
+    const ListenAsAgentResponse& from)
+    : ::google::protobuf::Message(arena) {
+  ListenAsAgentResponse* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  switch (request_case()) {
+    case REQUEST_NOT_SET:
+      break;
+      case kExecuteRequest:
+        _impl_.request_.execute_request_ = ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::ExecuteRequest>(arena, *from._impl_.request_.execute_request_);
+        break;
+      case kCancelRequest:
+        _impl_.request_.cancel_request_ = ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::CancelRequest>(arena, *from._impl_.request_.cancel_request_);
+        break;
+      case kCompleteRequest:
+        _impl_.request_.complete_request_ = ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::CompleteRequest>(arena, *from._impl_.request_.complete_request_);
+        break;
+  }
+
+  // @@protoc_insertion_point(copy_constructor:anduril.taskmanager.v1.ListenAsAgentResponse)
+}
+inline PROTOBUF_NDEBUG_INLINE ListenAsAgentResponse::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : request_{},
+        _cached_size_{0},
+        _oneof_case_{} {}
+
+inline void ListenAsAgentResponse::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+ListenAsAgentResponse::~ListenAsAgentResponse() {
+  // @@protoc_insertion_point(destructor:anduril.taskmanager.v1.ListenAsAgentResponse)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void ListenAsAgentResponse::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  if (has_request()) {
+    clear_request();
+  }
+  _impl_.~Impl_();
+}
+
+void ListenAsAgentResponse::clear_request() {
+// @@protoc_insertion_point(one_of_clear_start:anduril.taskmanager.v1.ListenAsAgentResponse)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  switch (request_case()) {
+    case kExecuteRequest: {
+      if (GetArena() == nullptr) {
+        delete _impl_.request_.execute_request_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.request_.execute_request_);
+      }
+      break;
+    }
+    case kCancelRequest: {
+      if (GetArena() == nullptr) {
+        delete _impl_.request_.cancel_request_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.request_.cancel_request_);
+      }
+      break;
+    }
+    case kCompleteRequest: {
+      if (GetArena() == nullptr) {
+        delete _impl_.request_.complete_request_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.request_.complete_request_);
+      }
+      break;
+    }
+    case REQUEST_NOT_SET: {
+      break;
+    }
+  }
+  _impl_._oneof_case_[0] = REQUEST_NOT_SET;
+}
+
+
+const ::google::protobuf::MessageLite::ClassData*
+ListenAsAgentResponse::GetClassData() const {
+  PROTOBUF_CONSTINIT static const ::google::protobuf::MessageLite::
+      ClassDataFull _data_ = {
+          {
+              &_table_.header,
+              nullptr,  // OnDemandRegisterArenaDtor
+              nullptr,  // IsInitialized
+              PROTOBUF_FIELD_OFFSET(ListenAsAgentResponse, _impl_._cached_size_),
+              false,
+          },
+          &ListenAsAgentResponse::MergeImpl,
+          &ListenAsAgentResponse::kDescriptorMethods,
+          &descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto,
+          nullptr,  // tracker
+      };
+  ::google::protobuf::internal::PrefetchToLocalCache(&_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_data_.tc_table);
+  return _data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 3, 3, 0, 2> ListenAsAgentResponse::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    3, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    3,  // num_field_entries
+    3,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    &_ListenAsAgentResponse_default_instance_._instance,
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::ListenAsAgentResponse>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .anduril.taskmanager.v1.ExecuteRequest execute_request = 1 [json_name = "executeRequest"];
+    {PROTOBUF_FIELD_OFFSET(ListenAsAgentResponse, _impl_.request_.execute_request_), _Internal::kOneofCaseOffset + 0, 0,
+    (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .anduril.taskmanager.v1.CancelRequest cancel_request = 2 [json_name = "cancelRequest"];
+    {PROTOBUF_FIELD_OFFSET(ListenAsAgentResponse, _impl_.request_.cancel_request_), _Internal::kOneofCaseOffset + 0, 1,
+    (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .anduril.taskmanager.v1.CompleteRequest complete_request = 3 [json_name = "completeRequest"];
+    {PROTOBUF_FIELD_OFFSET(ListenAsAgentResponse, _impl_.request_.complete_request_), _Internal::kOneofCaseOffset + 0, 2,
+    (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::ExecuteRequest>()},
+    {::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::CancelRequest>()},
+    {::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::CompleteRequest>()},
+  }}, {{
+  }},
+};
+
+PROTOBUF_NOINLINE void ListenAsAgentResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.taskmanager.v1.ListenAsAgentResponse)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  clear_request();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+::uint8_t* ListenAsAgentResponse::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:anduril.taskmanager.v1.ListenAsAgentResponse)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  switch (request_case()) {
+    case kExecuteRequest: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          1, *_impl_.request_.execute_request_, _impl_.request_.execute_request_->GetCachedSize(), target, stream);
+      break;
+    }
+    case kCancelRequest: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          2, *_impl_.request_.cancel_request_, _impl_.request_.cancel_request_->GetCachedSize(), target, stream);
+      break;
+    }
+    case kCompleteRequest: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          3, *_impl_.request_.complete_request_, _impl_.request_.complete_request_->GetCachedSize(), target, stream);
+      break;
+    }
+    default:
+      break;
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:anduril.taskmanager.v1.ListenAsAgentResponse)
+  return target;
+}
+
+::size_t ListenAsAgentResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:anduril.taskmanager.v1.ListenAsAgentResponse)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  switch (request_case()) {
+    // .anduril.taskmanager.v1.ExecuteRequest execute_request = 1 [json_name = "executeRequest"];
+    case kExecuteRequest: {
+      total_size +=
+          1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.request_.execute_request_);
+      break;
+    }
+    // .anduril.taskmanager.v1.CancelRequest cancel_request = 2 [json_name = "cancelRequest"];
+    case kCancelRequest: {
+      total_size +=
+          1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.request_.cancel_request_);
+      break;
+    }
+    // .anduril.taskmanager.v1.CompleteRequest complete_request = 3 [json_name = "completeRequest"];
+    case kCompleteRequest: {
+      total_size +=
+          1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.request_.complete_request_);
+      break;
+    }
+    case REQUEST_NOT_SET: {
+      break;
+    }
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+
+void ListenAsAgentResponse::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<ListenAsAgentResponse*>(&to_msg);
+  auto& from = static_cast<const ListenAsAgentResponse&>(from_msg);
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.taskmanager.v1.ListenAsAgentResponse)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (const uint32_t oneof_from_case = from._impl_._oneof_case_[0]) {
+    const uint32_t oneof_to_case = _this->_impl_._oneof_case_[0];
+    const bool oneof_needs_init = oneof_to_case != oneof_from_case;
+    if (oneof_needs_init) {
+      if (oneof_to_case != 0) {
+        _this->clear_request();
+      }
+      _this->_impl_._oneof_case_[0] = oneof_from_case;
+    }
+
+    switch (oneof_from_case) {
+      case kExecuteRequest: {
+        if (oneof_needs_init) {
+          _this->_impl_.request_.execute_request_ =
+              ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::ExecuteRequest>(arena, *from._impl_.request_.execute_request_);
+        } else {
+          _this->_impl_.request_.execute_request_->MergeFrom(from._internal_execute_request());
+        }
+        break;
+      }
+      case kCancelRequest: {
+        if (oneof_needs_init) {
+          _this->_impl_.request_.cancel_request_ =
+              ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::CancelRequest>(arena, *from._impl_.request_.cancel_request_);
+        } else {
+          _this->_impl_.request_.cancel_request_->MergeFrom(from._internal_cancel_request());
+        }
+        break;
+      }
+      case kCompleteRequest: {
+        if (oneof_needs_init) {
+          _this->_impl_.request_.complete_request_ =
+              ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::CompleteRequest>(arena, *from._impl_.request_.complete_request_);
+        } else {
+          _this->_impl_.request_.complete_request_->MergeFrom(from._internal_complete_request());
+        }
+        break;
+      }
+      case REQUEST_NOT_SET:
+        break;
+    }
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ListenAsAgentResponse::CopyFrom(const ListenAsAgentResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.taskmanager.v1.ListenAsAgentResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void ListenAsAgentResponse::InternalSwap(ListenAsAgentResponse* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_.request_, other->_impl_.request_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
+}
+
+::google::protobuf::Metadata ListenAsAgentResponse::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
@@ -3546,6 +4336,194 @@ void Heartbeat::InternalSwap(Heartbeat* PROTOBUF_RESTRICT other) {
 }
 
 ::google::protobuf::Metadata Heartbeat::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class EntityIds::_Internal {
+ public:
+};
+
+EntityIds::EntityIds(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.taskmanager.v1.EntityIds)
+}
+inline PROTOBUF_NDEBUG_INLINE EntityIds::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::taskmanager::v1::EntityIds& from_msg)
+      : entity_ids_{visibility, arena, from.entity_ids_},
+        _cached_size_{0} {}
+
+EntityIds::EntityIds(
+    ::google::protobuf::Arena* arena,
+    const EntityIds& from)
+    : ::google::protobuf::Message(arena) {
+  EntityIds* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:anduril.taskmanager.v1.EntityIds)
+}
+inline PROTOBUF_NDEBUG_INLINE EntityIds::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : entity_ids_{visibility, arena},
+        _cached_size_{0} {}
+
+inline void EntityIds::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+EntityIds::~EntityIds() {
+  // @@protoc_insertion_point(destructor:anduril.taskmanager.v1.EntityIds)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void EntityIds::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.~Impl_();
+}
+
+const ::google::protobuf::MessageLite::ClassData*
+EntityIds::GetClassData() const {
+  PROTOBUF_CONSTINIT static const ::google::protobuf::MessageLite::
+      ClassDataFull _data_ = {
+          {
+              &_table_.header,
+              nullptr,  // OnDemandRegisterArenaDtor
+              nullptr,  // IsInitialized
+              PROTOBUF_FIELD_OFFSET(EntityIds, _impl_._cached_size_),
+              false,
+          },
+          &EntityIds::MergeImpl,
+          &EntityIds::kDescriptorMethods,
+          &descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto,
+          nullptr,  // tracker
+      };
+  ::google::protobuf::internal::PrefetchToLocalCache(&_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_data_.tc_table);
+  return _data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 51, 2> EntityIds::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_EntityIds_default_instance_._instance,
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::EntityIds>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // repeated string entity_ids = 1 [json_name = "entityIds"];
+    {::_pbi::TcParser::FastUR1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(EntityIds, _impl_.entity_ids_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // repeated string entity_ids = 1 [json_name = "entityIds"];
+    {PROTOBUF_FIELD_OFFSET(EntityIds, _impl_.entity_ids_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kUtf8String | ::_fl::kRepSString)},
+  }},
+  // no aux_entries
+  {{
+    "\40\12\0\0\0\0\0\0"
+    "anduril.taskmanager.v1.EntityIds"
+    "entity_ids"
+  }},
+};
+
+PROTOBUF_NOINLINE void EntityIds::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.taskmanager.v1.EntityIds)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.entity_ids_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+::uint8_t* EntityIds::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:anduril.taskmanager.v1.EntityIds)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  // repeated string entity_ids = 1 [json_name = "entityIds"];
+  for (int i = 0, n = this->_internal_entity_ids_size(); i < n; ++i) {
+    const auto& s = this->_internal_entity_ids().Get(i);
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.taskmanager.v1.EntityIds.entity_ids");
+    target = stream->WriteString(1, s, target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:anduril.taskmanager.v1.EntityIds)
+  return target;
+}
+
+::size_t EntityIds::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:anduril.taskmanager.v1.EntityIds)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(reinterpret_cast<const void*>(this));
+  // repeated string entity_ids = 1 [json_name = "entityIds"];
+  total_size += 1 * ::google::protobuf::internal::FromIntSize(_internal_entity_ids().size());
+  for (int i = 0, n = _internal_entity_ids().size(); i < n; ++i) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+        _internal_entity_ids().Get(i));
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+
+void EntityIds::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<EntityIds*>(&to_msg);
+  auto& from = static_cast<const EntityIds&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.taskmanager.v1.EntityIds)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_internal_mutable_entity_ids()->MergeFrom(from._internal_entity_ids());
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void EntityIds::CopyFrom(const EntityIds& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.taskmanager.v1.EntityIds)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void EntityIds::InternalSwap(EntityIds* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.entity_ids_.InternalSwap(&other->_impl_.entity_ids_);
+}
+
+::google::protobuf::Metadata EntityIds::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // @@protoc_insertion_point(namespace_scope)
