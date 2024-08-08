@@ -49,11 +49,14 @@ else()
     set(BUILD_SHARED_LIBS ${OLD_BUILD_SHARED})
 endif()
 
-message(STATUS "Using gRPC ${gRPC_VERSION}")
+# Find Protobuf
+include(FindProtobuf)
+find_package(Protobuf REQUIRED)
+include_directories(${PROTOBUF_INCLUDE_DIR})
 
 ## Get all the Proto generated files
 file(GLOB_RECURSE anduril-sdk-sources ${PROJECT_SOURCE_DIR}/*.cc)
 add_library(anduril-sdk-cpp ${anduril-sdk-sources})
 
 target_include_directories(anduril-sdk-cpp PUBLIC src)
-target_link_libraries(anduril-sdk-cpp PUBLIC grpc grpc++)
+target_link_libraries(anduril-sdk-cpp PUBLIC grpc grpc++ ${PROTOBUF_LIBRARY})
