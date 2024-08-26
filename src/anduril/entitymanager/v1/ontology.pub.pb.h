@@ -205,7 +205,6 @@ class Ontology final : public ::google::protobuf::Message
     kDescriptorsFieldNumber = 1,
     kPlatformTypeFieldNumber = 3,
     kSpecificTypeFieldNumber = 4,
-    kKrnFieldNumber = 5,
     kTemplateFieldNumber = 2,
   };
   // repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];
@@ -268,22 +267,6 @@ class Ontology final : public ::google::protobuf::Message
   std::string* _internal_mutable_specific_type();
 
   public:
-  // string krn = 5 [json_name = "krn"];
-  void clear_krn() ;
-  const std::string& krn() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_krn(Arg_&& arg, Args_... args);
-  std::string* mutable_krn();
-  PROTOBUF_NODISCARD std::string* release_krn();
-  void set_allocated_krn(std::string* value);
-
-  private:
-  const std::string& _internal_krn() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_krn(
-      const std::string& value);
-  std::string* _internal_mutable_krn();
-
-  public:
   // .anduril.entitymanager.v1.Template template = 2 [json_name = "template"];
   void clear_template_() ;
   ::anduril::entitymanager::v1::Template template_() const;
@@ -299,8 +282,8 @@ class Ontology final : public ::google::protobuf::Message
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      3, 5, 0,
-      82, 2>
+      2, 4, 0,
+      79, 2>
       _table_;
 
   static constexpr const void* _raw_default_instance_ =
@@ -323,7 +306,6 @@ class Ontology final : public ::google::protobuf::Message
     ::google::protobuf::RepeatedPtrField<std::string> descriptors_;
     ::google::protobuf::internal::ArenaStringPtr platform_type_;
     ::google::protobuf::internal::ArenaStringPtr specific_type_;
-    ::google::protobuf::internal::ArenaStringPtr krn_;
     int template__;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -713,56 +695,6 @@ inline ::google::protobuf::RepeatedPtrField<std::string>*
 Ontology::_internal_mutable_descriptors() {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return &_impl_.descriptors_;
-}
-
-// string krn = 5 [json_name = "krn"];
-inline void Ontology::clear_krn() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.krn_.ClearToEmpty();
-}
-inline const std::string& Ontology::krn() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Ontology.krn)
-  return _internal_krn();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void Ontology::set_krn(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.krn_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.Ontology.krn)
-}
-inline std::string* Ontology::mutable_krn() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_krn();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Ontology.krn)
-  return _s;
-}
-inline const std::string& Ontology::_internal_krn() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.krn_.Get();
-}
-inline void Ontology::_internal_set_krn(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.krn_.Set(value, GetArena());
-}
-inline std::string* Ontology::_internal_mutable_krn() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.krn_.Mutable( GetArena());
-}
-inline std::string* Ontology::release_krn() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Ontology.krn)
-  return _impl_.krn_.Release();
-}
-inline void Ontology::set_allocated_krn(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.krn_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.krn_.IsDefault()) {
-          _impl_.krn_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Ontology.krn)
 }
 
 // string platform_type = 3 [json_name = "platformType", (.anduril.entitymanager.v1.overridable) = true];

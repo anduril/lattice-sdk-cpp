@@ -71,28 +71,6 @@ struct TaskVersionDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TaskVersionDefaultTypeInternal _TaskVersion_default_instance_;
 
-inline constexpr TaskError::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : message_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        code_{static_cast< ::anduril::taskmanager::v1::ErrorCode >(0)},
-        _cached_size_{0} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR TaskError::TaskError(::_pbi::ConstantInitialized)
-    : _impl_(::_pbi::ConstantInitialized()) {}
-struct TaskErrorDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TaskErrorDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TaskErrorDefaultTypeInternal() {}
-  union {
-    TaskError _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TaskErrorDefaultTypeInternal _TaskError_default_instance_;
-
 inline constexpr System::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : service_name_(
@@ -190,6 +168,29 @@ struct TeamDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TeamDefaultTypeInternal _Team_default_instance_;
+
+inline constexpr TaskError::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        message_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        error_details_{nullptr},
+        code_{static_cast< ::anduril::taskmanager::v1::ErrorCode >(0)} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR TaskError::TaskError(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct TaskErrorDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR TaskErrorDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~TaskErrorDefaultTypeInternal() {}
+  union {
+    TaskError _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TaskErrorDefaultTypeInternal _TaskError_default_instance_;
 
 inline constexpr Replication::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -485,7 +486,7 @@ const ::uint32_t
         3,
         4,
         5,
-        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::TaskError, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::TaskError, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
@@ -495,6 +496,10 @@ const ::uint32_t
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::TaskError, _impl_.code_),
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::TaskError, _impl_.message_),
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::TaskError, _impl_.error_details_),
+        ~0u,
+        ~0u,
+        0,
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::Principal, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::Principal, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -665,21 +670,21 @@ static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, 23, -1, sizeof(::anduril::taskmanager::v1::Task)},
         {38, 53, -1, sizeof(::anduril::taskmanager::v1::TaskStatus)},
-        {60, -1, -1, sizeof(::anduril::taskmanager::v1::TaskError)},
-        {70, 83, -1, sizeof(::anduril::taskmanager::v1::Principal)},
-        {87, -1, -1, sizeof(::anduril::taskmanager::v1::System)},
-        {99, -1, -1, sizeof(::anduril::taskmanager::v1::User)},
-        {108, 118, -1, sizeof(::anduril::taskmanager::v1::Relations)},
-        {120, 132, -1, sizeof(::anduril::taskmanager::v1::TaskEvent)},
-        {136, -1, -1, sizeof(::anduril::taskmanager::v1::TaskVersion)},
-        {147, 159, -1, sizeof(::anduril::taskmanager::v1::StatusUpdate)},
-        {163, 172, -1, sizeof(::anduril::taskmanager::v1::DefinitionUpdate)},
-        {173, -1, -1, sizeof(::anduril::taskmanager::v1::Owner)},
-        {183, 192, -1, sizeof(::anduril::taskmanager::v1::Replication)},
-        {193, -1, -1, sizeof(::anduril::taskmanager::v1::Allocation)},
-        {202, -1, -1, sizeof(::anduril::taskmanager::v1::Team)},
-        {212, -1, -1, sizeof(::anduril::taskmanager::v1::Agent)},
-        {222, 232, -1, sizeof(::anduril::taskmanager::v1::TaskEntity)},
+        {60, 71, -1, sizeof(::anduril::taskmanager::v1::TaskError)},
+        {74, 87, -1, sizeof(::anduril::taskmanager::v1::Principal)},
+        {91, -1, -1, sizeof(::anduril::taskmanager::v1::System)},
+        {103, -1, -1, sizeof(::anduril::taskmanager::v1::User)},
+        {112, 122, -1, sizeof(::anduril::taskmanager::v1::Relations)},
+        {124, 136, -1, sizeof(::anduril::taskmanager::v1::TaskEvent)},
+        {140, -1, -1, sizeof(::anduril::taskmanager::v1::TaskVersion)},
+        {151, 163, -1, sizeof(::anduril::taskmanager::v1::StatusUpdate)},
+        {167, 176, -1, sizeof(::anduril::taskmanager::v1::DefinitionUpdate)},
+        {177, -1, -1, sizeof(::anduril::taskmanager::v1::Owner)},
+        {187, 196, -1, sizeof(::anduril::taskmanager::v1::Replication)},
+        {197, -1, -1, sizeof(::anduril::taskmanager::v1::Allocation)},
+        {206, -1, -1, sizeof(::anduril::taskmanager::v1::Team)},
+        {216, -1, -1, sizeof(::anduril::taskmanager::v1::Agent)},
+        {226, 236, -1, sizeof(::anduril::taskmanager::v1::TaskEntity)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::taskmanager::v1::_Task_default_instance_._instance,
@@ -739,77 +744,78 @@ const char descriptor_table_protodef_anduril_2ftaskmanager_2fv1_2ftask_2epub_2ep
     "buf.TimestampR\tstartTime\0220\n\010estimate\030\007 \001"
     "(\0132\024.google.protobuf.AnyR\010estimate\022B\n\nal"
     "location\030\010 \001(\0132\".anduril.taskmanager.v1."
-    "AllocationR\nallocation\"\\\n\tTaskError\0225\n\004c"
-    "ode\030\001 \001(\0162!.anduril.taskmanager.v1.Error"
-    "CodeR\004code\022\030\n\007message\030\002 \001(\tR\007message\"\373\001\n"
-    "\tPrincipal\0228\n\006system\030\001 \001(\0132\036.anduril.tas"
-    "kmanager.v1.SystemH\000R\006system\0222\n\004user\030\002 \001"
-    "(\0132\034.anduril.taskmanager.v1.UserH\000R\004user"
-    "\0222\n\004team\030\004 \001(\0132\034.anduril.taskmanager.v1."
-    "TeamH\000R\004team\022C\n\014on_behalf_of\030\003 \001(\0132!.and"
-    "uril.taskmanager.v1.PrincipalR\nonBehalfO"
-    "fB\007\n\005agent\"\231\001\n\006System\022!\n\014service_name\030\001 "
-    "\001(\tR\013serviceName\022\033\n\tentity_id\030\002 \001(\tR\010ent"
-    "ityId\022\031\n\010asset_id\030\003 \001(\tR\007assetId\0224\n\026mana"
-    "ges_own_scheduling\030\004 \001(\010R\024managesOwnSche"
-    "duling\"\037\n\004User\022\027\n\007user_id\030\001 \001(\tR\006userId\""
-    "p\n\tRelations\022=\n\010assignee\030\001 \001(\0132!.anduril"
-    ".taskmanager.v1.PrincipalR\010assignee\022$\n\016p"
-    "arent_task_id\030\002 \001(\tR\014parentTaskId\"\356\001\n\tTa"
-    "skEvent\022@\n\nevent_type\030\001 \001(\0162!.anduril.ta"
-    "skmanager.v1.EventTypeR\teventType\0220\n\004tas"
-    "k\030\002 \001(\0132\034.anduril.taskmanager.v1.TaskR\004t"
-    "ask\022=\n\ttask_view\030\003 \001(\0162 .anduril.taskman"
-    "ager.v1.TaskViewR\010taskView\022.\n\004time\030\004 \001(\013"
-    "2\032.google.protobuf.TimestampR\004time\"|\n\013Ta"
-    "skVersion\022\027\n\007task_id\030\001 \001(\tR\006taskId\022-\n\022de"
-    "finition_version\030\002 \001(\rR\021definitionVersio"
-    "n\022%\n\016status_version\030\003 \001(\rR\rstatusVersion"
-    "\"\207\002\n\014StatusUpdate\022=\n\007version\030\001 \001(\0132#.and"
-    "uril.taskmanager.v1.TaskVersionR\007version"
-    "\022:\n\006status\030\002 \001(\0132\".anduril.taskmanager.v"
-    "1.TaskStatusR\006status\0229\n\006author\030\003 \001(\0132!.a"
-    "nduril.taskmanager.v1.PrincipalR\006author\022"
-    "A\n\016scheduled_time\030\004 \001(\0132\032.google.protobu"
-    "f.TimestampR\rscheduledTime\"D\n\020Definition"
-    "Update\0220\n\004task\030\001 \001(\0132\034.anduril.taskmanag"
-    "er.v1.TaskR\004task\"\?\n\005Owner\022\031\n\010asset_id\030\001 "
-    "\001(\tR\007assetId\022\033\n\tentity_id\030\002 \001(\tR\010entityI"
-    "d\"H\n\013Replication\0229\n\nstale_time\030\001 \001(\0132\032.g"
-    "oogle.protobuf.TimestampR\tstaleTime\"P\n\nA"
-    "llocation\022B\n\ractive_agents\030\001 \003(\0132\035.andur"
-    "il.taskmanager.v1.AgentR\014activeAgents\"\\\n"
-    "\004Team\022\033\n\tentity_id\030\001 \001(\tR\010entityId\0227\n\007me"
-    "mbers\030\002 \003(\0132\035.anduril.taskmanager.v1.Age"
-    "ntR\007members\"\?\n\005Agent\022\031\n\010asset_id\030\001 \001(\tR\007"
-    "assetId\022\033\n\tentity_id\030\002 \001(\tR\010entityId\"b\n\n"
-    "TaskEntity\0228\n\006entity\030\001 \001(\0132 .anduril.ent"
-    "itymanager.v1.EntityR\006entity\022\032\n\010snapshot"
-    "\030\002 \001(\010R\010snapshot*\357\002\n\006Status\022\022\n\016STATUS_IN"
-    "VALID\020\000\022\022\n\016STATUS_CREATED\020\001\022\037\n\033STATUS_SC"
-    "HEDULED_IN_MANAGER\020\002\022\017\n\013STATUS_SENT\020\003\022\032\n"
-    "\026STATUS_MACHINE_RECEIPT\020\004\022\016\n\nSTATUS_ACK\020"
-    "\005\022\020\n\014STATUS_WILCO\020\006\022\024\n\020STATUS_EXECUTING\020"
-    "\007\022\035\n\031STATUS_WAITING_FOR_UPDATE\020\010\022\022\n\016STAT"
-    "US_DONE_OK\020\t\022\026\n\022STATUS_DONE_NOT_OK\020\n\022\023\n\017"
-    "STATUS_REPLACED\020\013\022\033\n\027STATUS_CANCEL_REQUE"
-    "STED\020\014\022\035\n\031STATUS_COMPLETE_REQUESTED\020\r\022\033\n"
-    "\027STATUS_VERSION_REJECTED\020\016*\205\001\n\tErrorCode"
-    "\022\026\n\022ERROR_CODE_INVALID\020\000\022\030\n\024ERROR_CODE_C"
-    "ANCELLED\020\001\022\027\n\023ERROR_CODE_REJECTED\020\002\022\026\n\022E"
-    "RROR_CODE_TIMEOUT\020\003\022\025\n\021ERROR_CODE_FAILED"
-    "\020\004*n\n\tEventType\022\026\n\022EVENT_TYPE_INVALID\020\000\022"
-    "\026\n\022EVENT_TYPE_CREATED\020\001\022\025\n\021EVENT_TYPE_UP"
-    "DATE\020\002\022\032\n\026EVENT_TYPE_PREEXISTING\020\003*M\n\010Ta"
-    "skView\022\025\n\021TASK_VIEW_INVALID\020\000\022\025\n\021TASK_VI"
-    "EW_MANAGER\020\001\022\023\n\017TASK_VIEW_AGENT\020\002B\357\001\n\032co"
-    "m.anduril.taskmanager.v1B\014TaskPubProtoP\001"
-    "ZIghe.anduril.dev/anduril/andurilapis-go"
-    "/anduril/taskmanager/v1;taskmanager\242\002\003AT"
-    "X\252\002\026Anduril.Taskmanager.V1\312\002\026Anduril\\Tas"
-    "kmanager\\V1\342\002\"Anduril\\Taskmanager\\V1\\GPB"
-    "Metadata\352\002\030Anduril::Taskmanager::V1b\006pro"
-    "to3"
+    "AllocationR\nallocation\"\227\001\n\tTaskError\0225\n\004"
+    "code\030\001 \001(\0162!.anduril.taskmanager.v1.Erro"
+    "rCodeR\004code\022\030\n\007message\030\002 \001(\tR\007message\0229\n"
+    "\rerror_details\030\003 \001(\0132\024.google.protobuf.A"
+    "nyR\014errorDetails\"\373\001\n\tPrincipal\0228\n\006system"
+    "\030\001 \001(\0132\036.anduril.taskmanager.v1.SystemH\000"
+    "R\006system\0222\n\004user\030\002 \001(\0132\034.anduril.taskman"
+    "ager.v1.UserH\000R\004user\0222\n\004team\030\004 \001(\0132\034.and"
+    "uril.taskmanager.v1.TeamH\000R\004team\022C\n\014on_b"
+    "ehalf_of\030\003 \001(\0132!.anduril.taskmanager.v1."
+    "PrincipalR\nonBehalfOfB\007\n\005agent\"\231\001\n\006Syste"
+    "m\022!\n\014service_name\030\001 \001(\tR\013serviceName\022\033\n\t"
+    "entity_id\030\002 \001(\tR\010entityId\022\031\n\010asset_id\030\003 "
+    "\001(\tR\007assetId\0224\n\026manages_own_scheduling\030\004"
+    " \001(\010R\024managesOwnScheduling\"\037\n\004User\022\027\n\007us"
+    "er_id\030\001 \001(\tR\006userId\"p\n\tRelations\022=\n\010assi"
+    "gnee\030\001 \001(\0132!.anduril.taskmanager.v1.Prin"
+    "cipalR\010assignee\022$\n\016parent_task_id\030\002 \001(\tR"
+    "\014parentTaskId\"\356\001\n\tTaskEvent\022@\n\nevent_typ"
+    "e\030\001 \001(\0162!.anduril.taskmanager.v1.EventTy"
+    "peR\teventType\0220\n\004task\030\002 \001(\0132\034.anduril.ta"
+    "skmanager.v1.TaskR\004task\022=\n\ttask_view\030\003 \001"
+    "(\0162 .anduril.taskmanager.v1.TaskViewR\010ta"
+    "skView\022.\n\004time\030\004 \001(\0132\032.google.protobuf.T"
+    "imestampR\004time\"|\n\013TaskVersion\022\027\n\007task_id"
+    "\030\001 \001(\tR\006taskId\022-\n\022definition_version\030\002 \001"
+    "(\rR\021definitionVersion\022%\n\016status_version\030"
+    "\003 \001(\rR\rstatusVersion\"\207\002\n\014StatusUpdate\022=\n"
+    "\007version\030\001 \001(\0132#.anduril.taskmanager.v1."
+    "TaskVersionR\007version\022:\n\006status\030\002 \001(\0132\".a"
+    "nduril.taskmanager.v1.TaskStatusR\006status"
+    "\0229\n\006author\030\003 \001(\0132!.anduril.taskmanager.v"
+    "1.PrincipalR\006author\022A\n\016scheduled_time\030\004 "
+    "\001(\0132\032.google.protobuf.TimestampR\rschedul"
+    "edTime\"D\n\020DefinitionUpdate\0220\n\004task\030\001 \001(\013"
+    "2\034.anduril.taskmanager.v1.TaskR\004task\"\?\n\005"
+    "Owner\022\031\n\010asset_id\030\001 \001(\tR\007assetId\022\033\n\tenti"
+    "ty_id\030\002 \001(\tR\010entityId\"H\n\013Replication\0229\n\n"
+    "stale_time\030\001 \001(\0132\032.google.protobuf.Times"
+    "tampR\tstaleTime\"P\n\nAllocation\022B\n\ractive_"
+    "agents\030\001 \003(\0132\035.anduril.taskmanager.v1.Ag"
+    "entR\014activeAgents\"\\\n\004Team\022\033\n\tentity_id\030\001"
+    " \001(\tR\010entityId\0227\n\007members\030\002 \003(\0132\035.anduri"
+    "l.taskmanager.v1.AgentR\007members\"\?\n\005Agent"
+    "\022\031\n\010asset_id\030\001 \001(\tR\007assetId\022\033\n\tentity_id"
+    "\030\002 \001(\tR\010entityId\"b\n\nTaskEntity\0228\n\006entity"
+    "\030\001 \001(\0132 .anduril.entitymanager.v1.Entity"
+    "R\006entity\022\032\n\010snapshot\030\002 \001(\010R\010snapshot*\357\002\n"
+    "\006Status\022\022\n\016STATUS_INVALID\020\000\022\022\n\016STATUS_CR"
+    "EATED\020\001\022\037\n\033STATUS_SCHEDULED_IN_MANAGER\020\002"
+    "\022\017\n\013STATUS_SENT\020\003\022\032\n\026STATUS_MACHINE_RECE"
+    "IPT\020\004\022\016\n\nSTATUS_ACK\020\005\022\020\n\014STATUS_WILCO\020\006\022"
+    "\024\n\020STATUS_EXECUTING\020\007\022\035\n\031STATUS_WAITING_"
+    "FOR_UPDATE\020\010\022\022\n\016STATUS_DONE_OK\020\t\022\026\n\022STAT"
+    "US_DONE_NOT_OK\020\n\022\023\n\017STATUS_REPLACED\020\013\022\033\n"
+    "\027STATUS_CANCEL_REQUESTED\020\014\022\035\n\031STATUS_COM"
+    "PLETE_REQUESTED\020\r\022\033\n\027STATUS_VERSION_REJE"
+    "CTED\020\016*\205\001\n\tErrorCode\022\026\n\022ERROR_CODE_INVAL"
+    "ID\020\000\022\030\n\024ERROR_CODE_CANCELLED\020\001\022\027\n\023ERROR_"
+    "CODE_REJECTED\020\002\022\026\n\022ERROR_CODE_TIMEOUT\020\003\022"
+    "\025\n\021ERROR_CODE_FAILED\020\004*n\n\tEventType\022\026\n\022E"
+    "VENT_TYPE_INVALID\020\000\022\026\n\022EVENT_TYPE_CREATE"
+    "D\020\001\022\025\n\021EVENT_TYPE_UPDATE\020\002\022\032\n\026EVENT_TYPE"
+    "_PREEXISTING\020\003*M\n\010TaskView\022\025\n\021TASK_VIEW_"
+    "INVALID\020\000\022\025\n\021TASK_VIEW_MANAGER\020\001\022\023\n\017TASK"
+    "_VIEW_AGENT\020\002B\357\001\n\032com.anduril.taskmanage"
+    "r.v1B\014TaskPubProtoP\001ZIghe.anduril.dev/an"
+    "duril/andurilapis-go/anduril/taskmanager"
+    "/v1;taskmanager\242\002\003ATX\252\002\026Anduril.Taskmana"
+    "ger.V1\312\002\026Anduril\\Taskmanager\\V1\342\002\"Anduri"
+    "l\\Taskmanager\\V1\\GPBMetadata\352\002\030Anduril::"
+    "Taskmanager::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_2epub_2eproto_deps[3] =
     {
@@ -821,7 +827,7 @@ static ::absl::once_flag descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_2epu
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_2epub_2eproto = {
     false,
     false,
-    4283,
+    4343,
     descriptor_table_protodef_anduril_2ftaskmanager_2fv1_2ftask_2epub_2eproto,
     "anduril/taskmanager/v1/task.pub.proto",
     &descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_2epub_2eproto_once,
@@ -2057,8 +2063,17 @@ void TaskStatus::InternalSwap(TaskStatus* PROTOBUF_RESTRICT other) {
 
 class TaskError::_Internal {
  public:
+  using HasBits =
+      decltype(std::declval<TaskError>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(TaskError, _impl_._has_bits_);
 };
 
+void TaskError::clear_error_details() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.error_details_ != nullptr) _impl_.error_details_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
 TaskError::TaskError(::google::protobuf::Arena* arena)
     : ::google::protobuf::Message(arena) {
   SharedCtor(arena);
@@ -2067,8 +2082,9 @@ TaskError::TaskError(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE TaskError::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::anduril::taskmanager::v1::TaskError& from_msg)
-      : message_(arena, from.message_),
-        _cached_size_{0} {}
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        message_(arena, from.message_) {}
 
 TaskError::TaskError(
     ::google::protobuf::Arena* arena,
@@ -2079,6 +2095,10 @@ TaskError::TaskError(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.error_details_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::Any>(
+                              arena, *from._impl_.error_details_)
+                        : nullptr;
   _impl_.code_ = from._impl_.code_;
 
   // @@protoc_insertion_point(copy_constructor:anduril.taskmanager.v1.TaskError)
@@ -2086,12 +2106,17 @@ TaskError::TaskError(
 inline PROTOBUF_NDEBUG_INLINE TaskError::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : message_(arena),
-        _cached_size_{0} {}
+      : _cached_size_{0},
+        message_(arena) {}
 
 inline void TaskError::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
-  _impl_.code_ = {};
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, error_details_),
+           0,
+           offsetof(Impl_, code_) -
+               offsetof(Impl_, error_details_) +
+               sizeof(Impl_::code_));
 }
 TaskError::~TaskError() {
   // @@protoc_insertion_point(destructor:anduril.taskmanager.v1.TaskError)
@@ -2101,6 +2126,7 @@ TaskError::~TaskError() {
 inline void TaskError::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
   _impl_.message_.Destroy();
+  delete _impl_.error_details_;
   _impl_.~Impl_();
 }
 
@@ -2125,17 +2151,17 @@ TaskError::GetClassData() const {
   return _data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 0, 48, 2> TaskError::_table_ = {
+const ::_pbi::TcParseTable<2, 3, 1, 48, 2> TaskError::_table_ = {
   {
-    0,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(TaskError, _impl_._has_bits_),
     0, // no _extensions_
-    2, 8,  // max_field_number, fast_idx_mask
+    3, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
+    4294967288,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
-    0,  // num_aux_entries
-    offsetof(decltype(_table_), field_names),  // no aux_entries
+    3,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
     &_TaskError_default_instance_._instance,
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
@@ -2143,24 +2169,31 @@ const ::_pbi::TcParseTable<1, 2, 0, 48, 2> TaskError::_table_ = {
     ::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::TaskError>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // string message = 2 [json_name = "message"];
-    {::_pbi::TcParser::FastUS1,
-     {18, 63, 0, PROTOBUF_FIELD_OFFSET(TaskError, _impl_.message_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // .anduril.taskmanager.v1.ErrorCode code = 1 [json_name = "code"];
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(TaskError, _impl_.code_), 63>(),
      {8, 63, 0, PROTOBUF_FIELD_OFFSET(TaskError, _impl_.code_)}},
+    // string message = 2 [json_name = "message"];
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(TaskError, _impl_.message_)}},
+    // .google.protobuf.Any error_details = 3 [json_name = "errorDetails"];
+    {::_pbi::TcParser::FastMtS1,
+     {26, 0, 0, PROTOBUF_FIELD_OFFSET(TaskError, _impl_.error_details_)}},
   }}, {{
     65535, 65535
   }}, {{
     // .anduril.taskmanager.v1.ErrorCode code = 1 [json_name = "code"];
-    {PROTOBUF_FIELD_OFFSET(TaskError, _impl_.code_), 0, 0,
+    {PROTOBUF_FIELD_OFFSET(TaskError, _impl_.code_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
     // string message = 2 [json_name = "message"];
-    {PROTOBUF_FIELD_OFFSET(TaskError, _impl_.message_), 0, 0,
+    {PROTOBUF_FIELD_OFFSET(TaskError, _impl_.message_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-  }},
-  // no aux_entries
-  {{
+    // .google.protobuf.Any error_details = 3 [json_name = "errorDetails"];
+    {PROTOBUF_FIELD_OFFSET(TaskError, _impl_.error_details_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::google::protobuf::Any>()},
+  }}, {{
     "\40\0\7\0\0\0\0\0"
     "anduril.taskmanager.v1.TaskError"
     "message"
@@ -2175,7 +2208,13 @@ PROTOBUF_NOINLINE void TaskError::Clear() {
   (void) cached_has_bits;
 
   _impl_.message_.ClearToEmpty();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.error_details_ != nullptr);
+    _impl_.error_details_->Clear();
+  }
   _impl_.code_ = 0;
+  _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -2199,6 +2238,13 @@ PROTOBUF_NOINLINE void TaskError::Clear() {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
         _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.taskmanager.v1.TaskError.message");
     target = stream->WriteStringMaybeAliased(2, _s, target);
+  }
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // .google.protobuf.Any error_details = 3 [json_name = "errorDetails"];
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        3, *_impl_.error_details_, _impl_.error_details_->GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2225,6 +2271,13 @@ PROTOBUF_NOINLINE void TaskError::Clear() {
                                     this->_internal_message());
   }
 
+  // .google.protobuf.Any error_details = 3 [json_name = "errorDetails"];
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size +=
+        1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.error_details_);
+  }
+
   // .anduril.taskmanager.v1.ErrorCode code = 1 [json_name = "code"];
   if (this->_internal_code() != 0) {
     total_size += 1 +
@@ -2238,6 +2291,7 @@ PROTOBUF_NOINLINE void TaskError::Clear() {
 void TaskError::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
   auto* const _this = static_cast<TaskError*>(&to_msg);
   auto& from = static_cast<const TaskError&>(from_msg);
+  ::google::protobuf::Arena* arena = _this->GetArena();
   // @@protoc_insertion_point(class_specific_merge_from_start:anduril.taskmanager.v1.TaskError)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
@@ -2246,9 +2300,20 @@ void TaskError::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::googl
   if (!from._internal_message().empty()) {
     _this->_internal_set_message(from._internal_message());
   }
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(from._impl_.error_details_ != nullptr);
+    if (_this->_impl_.error_details_ == nullptr) {
+      _this->_impl_.error_details_ =
+          ::google::protobuf::Message::CopyConstruct<::google::protobuf::Any>(arena, *from._impl_.error_details_);
+    } else {
+      _this->_impl_.error_details_->MergeFrom(*from._impl_.error_details_);
+    }
+  }
   if (from._internal_code() != 0) {
     _this->_impl_.code_ = from._impl_.code_;
   }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -2265,8 +2330,14 @@ void TaskError::InternalSwap(TaskError* PROTOBUF_RESTRICT other) {
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.message_, &other->_impl_.message_, arena);
-  swap(_impl_.code_, other->_impl_.code_);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(TaskError, _impl_.code_)
+      + sizeof(TaskError::_impl_.code_)
+      - PROTOBUF_FIELD_OFFSET(TaskError, _impl_.error_details_)>(
+          reinterpret_cast<char*>(&_impl_.error_details_),
+          reinterpret_cast<char*>(&other->_impl_.error_details_));
 }
 
 ::google::protobuf::Metadata TaskError::GetMetadata() const {

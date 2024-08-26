@@ -653,195 +653,6 @@ class TaskVersion final : public ::google::protobuf::Message
 };
 // -------------------------------------------------------------------
 
-class TaskError final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:anduril.taskmanager.v1.TaskError) */ {
- public:
-  inline TaskError() : TaskError(nullptr) {}
-  ~TaskError() override;
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR TaskError(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline TaskError(const TaskError& from) : TaskError(nullptr, from) {}
-  inline TaskError(TaskError&& from) noexcept
-      : TaskError(nullptr, std::move(from)) {}
-  inline TaskError& operator=(const TaskError& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline TaskError& operator=(TaskError&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetArena() == from.GetArena()
-#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetArena() != nullptr
-#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const TaskError& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const TaskError* internal_default_instance() {
-    return reinterpret_cast<const TaskError*>(
-        &_TaskError_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 2;
-  friend void swap(TaskError& a, TaskError& b) { a.Swap(&b); }
-  inline void Swap(TaskError* other) {
-    if (other == this) return;
-#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
-#else   // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() == other->GetArena()) {
-#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(TaskError* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  TaskError* New(::google::protobuf::Arena* arena = nullptr) const final {
-    return ::google::protobuf::Message::DefaultConstruct<TaskError>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const TaskError& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const TaskError& from) { TaskError::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() final;
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  void SharedDtor();
-  void InternalSwap(TaskError* other);
- private:
-  friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "anduril.taskmanager.v1.TaskError"; }
-
- protected:
-  explicit TaskError(::google::protobuf::Arena* arena);
-  TaskError(::google::protobuf::Arena* arena, const TaskError& from);
-  TaskError(::google::protobuf::Arena* arena, TaskError&& from) noexcept
-      : TaskError(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::Message::ClassData* GetClassData() const final;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kMessageFieldNumber = 2,
-    kCodeFieldNumber = 1,
-  };
-  // string message = 2 [json_name = "message"];
-  void clear_message() ;
-  const std::string& message() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_message(Arg_&& arg, Args_... args);
-  std::string* mutable_message();
-  PROTOBUF_NODISCARD std::string* release_message();
-  void set_allocated_message(std::string* value);
-
-  private:
-  const std::string& _internal_message() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_message(
-      const std::string& value);
-  std::string* _internal_mutable_message();
-
-  public:
-  // .anduril.taskmanager.v1.ErrorCode code = 1 [json_name = "code"];
-  void clear_code() ;
-  ::anduril::taskmanager::v1::ErrorCode code() const;
-  void set_code(::anduril::taskmanager::v1::ErrorCode value);
-
-  private:
-  ::anduril::taskmanager::v1::ErrorCode _internal_code() const;
-  void _internal_set_code(::anduril::taskmanager::v1::ErrorCode value);
-
-  public:
-  // @@protoc_insertion_point(class_scope:anduril.taskmanager.v1.TaskError)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 0,
-      48, 2>
-      _table_;
-
-  static constexpr const void* _raw_default_instance_ =
-      &_TaskError_default_instance_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const TaskError& from_msg);
-    ::google::protobuf::internal::ArenaStringPtr message_;
-    int code_;
-    mutable ::google::protobuf::internal::CachedSize _cached_size_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_anduril_2ftaskmanager_2fv1_2ftask_2epub_2eproto;
-};
-// -------------------------------------------------------------------
-
 class System final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:anduril.taskmanager.v1.System) */ {
  public:
@@ -1646,6 +1457,213 @@ class Team final : public ::google::protobuf::Message
     ::google::protobuf::RepeatedPtrField< ::anduril::taskmanager::v1::Agent > members_;
     ::google::protobuf::internal::ArenaStringPtr entity_id_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_anduril_2ftaskmanager_2fv1_2ftask_2epub_2eproto;
+};
+// -------------------------------------------------------------------
+
+class TaskError final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:anduril.taskmanager.v1.TaskError) */ {
+ public:
+  inline TaskError() : TaskError(nullptr) {}
+  ~TaskError() override;
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR TaskError(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline TaskError(const TaskError& from) : TaskError(nullptr, from) {}
+  inline TaskError(TaskError&& from) noexcept
+      : TaskError(nullptr, std::move(from)) {}
+  inline TaskError& operator=(const TaskError& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline TaskError& operator=(TaskError&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const TaskError& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const TaskError* internal_default_instance() {
+    return reinterpret_cast<const TaskError*>(
+        &_TaskError_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 2;
+  friend void swap(TaskError& a, TaskError& b) { a.Swap(&b); }
+  inline void Swap(TaskError* other) {
+    if (other == this) return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
+#else   // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(TaskError* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  TaskError* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return ::google::protobuf::Message::DefaultConstruct<TaskError>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const TaskError& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const TaskError& from) { TaskError::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() final;
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(TaskError* other);
+ private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() { return "anduril.taskmanager.v1.TaskError"; }
+
+ protected:
+  explicit TaskError(::google::protobuf::Arena* arena);
+  TaskError(::google::protobuf::Arena* arena, const TaskError& from);
+  TaskError(::google::protobuf::Arena* arena, TaskError&& from) noexcept
+      : TaskError(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::Message::ClassData* GetClassData() const final;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kMessageFieldNumber = 2,
+    kErrorDetailsFieldNumber = 3,
+    kCodeFieldNumber = 1,
+  };
+  // string message = 2 [json_name = "message"];
+  void clear_message() ;
+  const std::string& message() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_message(Arg_&& arg, Args_... args);
+  std::string* mutable_message();
+  PROTOBUF_NODISCARD std::string* release_message();
+  void set_allocated_message(std::string* value);
+
+  private:
+  const std::string& _internal_message() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_message(
+      const std::string& value);
+  std::string* _internal_mutable_message();
+
+  public:
+  // .google.protobuf.Any error_details = 3 [json_name = "errorDetails"];
+  bool has_error_details() const;
+  void clear_error_details() ;
+  const ::google::protobuf::Any& error_details() const;
+  PROTOBUF_NODISCARD ::google::protobuf::Any* release_error_details();
+  ::google::protobuf::Any* mutable_error_details();
+  void set_allocated_error_details(::google::protobuf::Any* value);
+  void unsafe_arena_set_allocated_error_details(::google::protobuf::Any* value);
+  ::google::protobuf::Any* unsafe_arena_release_error_details();
+
+  private:
+  const ::google::protobuf::Any& _internal_error_details() const;
+  ::google::protobuf::Any* _internal_mutable_error_details();
+
+  public:
+  // .anduril.taskmanager.v1.ErrorCode code = 1 [json_name = "code"];
+  void clear_code() ;
+  ::anduril::taskmanager::v1::ErrorCode code() const;
+  void set_code(::anduril::taskmanager::v1::ErrorCode value);
+
+  private:
+  ::anduril::taskmanager::v1::ErrorCode _internal_code() const;
+  void _internal_set_code(::anduril::taskmanager::v1::ErrorCode value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:anduril.taskmanager.v1.TaskError)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      2, 3, 1,
+      48, 2>
+      _table_;
+
+  static constexpr const void* _raw_default_instance_ =
+      &_TaskError_default_instance_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const TaskError& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::internal::ArenaStringPtr message_;
+    ::google::protobuf::Any* error_details_;
+    int code_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -5839,6 +5857,97 @@ inline void TaskError::set_allocated_message(std::string* value) {
         }
   #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:anduril.taskmanager.v1.TaskError.message)
+}
+
+// .google.protobuf.Any error_details = 3 [json_name = "errorDetails"];
+inline bool TaskError::has_error_details() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.error_details_ != nullptr);
+  return value;
+}
+inline const ::google::protobuf::Any& TaskError::_internal_error_details() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::google::protobuf::Any* p = _impl_.error_details_;
+  return p != nullptr ? *p : reinterpret_cast<const ::google::protobuf::Any&>(::google::protobuf::_Any_default_instance_);
+}
+inline const ::google::protobuf::Any& TaskError::error_details() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.taskmanager.v1.TaskError.error_details)
+  return _internal_error_details();
+}
+inline void TaskError::unsafe_arena_set_allocated_error_details(::google::protobuf::Any* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.error_details_);
+  }
+  _impl_.error_details_ = reinterpret_cast<::google::protobuf::Any*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.taskmanager.v1.TaskError.error_details)
+}
+inline ::google::protobuf::Any* TaskError::release_error_details() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::google::protobuf::Any* released = _impl_.error_details_;
+  _impl_.error_details_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::google::protobuf::Any* TaskError::unsafe_arena_release_error_details() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.taskmanager.v1.TaskError.error_details)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::google::protobuf::Any* temp = _impl_.error_details_;
+  _impl_.error_details_ = nullptr;
+  return temp;
+}
+inline ::google::protobuf::Any* TaskError::_internal_mutable_error_details() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.error_details_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::google::protobuf::Any>(GetArena());
+    _impl_.error_details_ = reinterpret_cast<::google::protobuf::Any*>(p);
+  }
+  return _impl_.error_details_;
+}
+inline ::google::protobuf::Any* TaskError::mutable_error_details() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  ::google::protobuf::Any* _msg = _internal_mutable_error_details();
+  // @@protoc_insertion_point(field_mutable:anduril.taskmanager.v1.TaskError.error_details)
+  return _msg;
+}
+inline void TaskError::set_allocated_error_details(::google::protobuf::Any* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.error_details_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.error_details_ = reinterpret_cast<::google::protobuf::Any*>(value);
+  // @@protoc_insertion_point(field_set_allocated:anduril.taskmanager.v1.TaskError.error_details)
 }
 
 // -------------------------------------------------------------------
