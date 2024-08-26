@@ -26,6 +26,28 @@ namespace _fl = ::google::protobuf::internal::field_layout;
 namespace anduril {
 namespace entitymanager {
 namespace v1 {
+
+inline constexpr UnrelateEntityRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : relationship_ids_{},
+        entity_id_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR UnrelateEntityRequest::UnrelateEntityRequest(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct UnrelateEntityRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR UnrelateEntityRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~UnrelateEntityRequestDefaultTypeInternal() {}
+  union {
+    UnrelateEntityRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UnrelateEntityRequestDefaultTypeInternal _UnrelateEntityRequest_default_instance_;
       template <typename>
 PROTOBUF_CONSTEXPR RemoveEntityOverrideResponse::RemoveEntityOverrideResponse(::_pbi::ConstantInitialized) {}
 struct RemoveEntityOverrideResponseDefaultTypeInternal {
@@ -165,6 +187,31 @@ struct HeartbeatDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 HeartbeatDefaultTypeInternal _Heartbeat_default_instance_;
 
+inline constexpr RelationshipRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        related_entity_id_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        relationship_id_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        relationship_type_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR RelationshipRequest::RelationshipRequest(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct RelationshipRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RelationshipRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RelationshipRequestDefaultTypeInternal() {}
+  union {
+    RelationshipRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RelationshipRequestDefaultTypeInternal _RelationshipRequest_default_instance_;
+
 inline constexpr StreamEntityComponentsRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -188,6 +235,66 @@ struct StreamEntityComponentsRequestDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StreamEntityComponentsRequestDefaultTypeInternal _StreamEntityComponentsRequest_default_instance_;
+
+inline constexpr RelateEntityRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : relationships_{},
+        entity_id_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR RelateEntityRequest::RelateEntityRequest(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct RelateEntityRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RelateEntityRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RelateEntityRequestDefaultTypeInternal() {}
+  union {
+    RelateEntityRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RelateEntityRequestDefaultTypeInternal _RelateEntityRequest_default_instance_;
+
+inline constexpr UnrelateEntityResponse::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        entity_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR UnrelateEntityResponse::UnrelateEntityResponse(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct UnrelateEntityResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR UnrelateEntityResponseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~UnrelateEntityResponseDefaultTypeInternal() {}
+  union {
+    UnrelateEntityResponse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UnrelateEntityResponseDefaultTypeInternal _UnrelateEntityResponse_default_instance_;
+
+inline constexpr RelateEntityResponse::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        entity_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR RelateEntityResponse::RelateEntityResponse(::_pbi::ConstantInitialized)
+    : _impl_(::_pbi::ConstantInitialized()) {}
+struct RelateEntityResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RelateEntityResponseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RelateEntityResponseDefaultTypeInternal() {}
+  union {
+    RelateEntityResponse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RelateEntityResponseDefaultTypeInternal _RelateEntityResponse_default_instance_;
 
 inline constexpr PutEntityResponse::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -487,6 +594,60 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RelateEntityRequest, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RelateEntityRequest, _impl_.entity_id_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RelateEntityRequest, _impl_.relationships_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RelationshipRequest, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RelationshipRequest, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RelationshipRequest, _impl_.related_entity_id_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RelationshipRequest, _impl_.relationship_id_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RelationshipRequest, _impl_.relationship_type_),
+        ~0u,
+        ~0u,
+        0,
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RelateEntityResponse, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RelateEntityResponse, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RelateEntityResponse, _impl_.entity_),
+        0,
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::UnrelateEntityRequest, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::UnrelateEntityRequest, _impl_.entity_id_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::UnrelateEntityRequest, _impl_.relationship_ids_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::UnrelateEntityResponse, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::UnrelateEntityResponse, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::UnrelateEntityResponse, _impl_.entity_),
+        0,
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::EntityEvent, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::EntityEvent, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -529,8 +690,13 @@ static const ::_pbi::MigrationSchema
         {124, -1, -1, sizeof(::anduril::entitymanager::v1::RemoveEntityOverrideResponse)},
         {132, -1, -1, sizeof(::anduril::entitymanager::v1::DeleteEntityRequest)},
         {141, -1, -1, sizeof(::anduril::entitymanager::v1::DeleteEntityResponse)},
-        {149, 160, -1, sizeof(::anduril::entitymanager::v1::EntityEvent)},
-        {163, 172, -1, sizeof(::anduril::entitymanager::v1::Heartbeat)},
+        {149, -1, -1, sizeof(::anduril::entitymanager::v1::RelateEntityRequest)},
+        {159, 170, -1, sizeof(::anduril::entitymanager::v1::RelationshipRequest)},
+        {173, 182, -1, sizeof(::anduril::entitymanager::v1::RelateEntityResponse)},
+        {183, -1, -1, sizeof(::anduril::entitymanager::v1::UnrelateEntityRequest)},
+        {193, 202, -1, sizeof(::anduril::entitymanager::v1::UnrelateEntityResponse)},
+        {203, 214, -1, sizeof(::anduril::entitymanager::v1::EntityEvent)},
+        {217, 226, -1, sizeof(::anduril::entitymanager::v1::Heartbeat)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::entitymanager::v1::_GetEntityRequest_default_instance_._instance,
@@ -547,6 +713,11 @@ static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::entitymanager::v1::_RemoveEntityOverrideResponse_default_instance_._instance,
     &::anduril::entitymanager::v1::_DeleteEntityRequest_default_instance_._instance,
     &::anduril::entitymanager::v1::_DeleteEntityResponse_default_instance_._instance,
+    &::anduril::entitymanager::v1::_RelateEntityRequest_default_instance_._instance,
+    &::anduril::entitymanager::v1::_RelationshipRequest_default_instance_._instance,
+    &::anduril::entitymanager::v1::_RelateEntityResponse_default_instance_._instance,
+    &::anduril::entitymanager::v1::_UnrelateEntityRequest_default_instance_._instance,
+    &::anduril::entitymanager::v1::_UnrelateEntityResponse_default_instance_._instance,
     &::anduril::entitymanager::v1::_EntityEvent_default_instance_._instance,
     &::anduril::entitymanager::v1::_Heartbeat_default_instance_._instance,
 };
@@ -557,90 +728,113 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fentity_5fman
     "1\032)anduril/entitymanager/v1/entity.pub.p"
     "roto\032)anduril/entitymanager/v1/filter.pu"
     "b.proto\032-anduril/entitymanager/v1/rate_l"
-    "imit.pub.proto\032(anduril/entitymanager/v1"
-    "/types.pub.proto\032\037google/protobuf/timest"
-    "amp.proto\"/\n\020GetEntityRequest\022\033\n\tentity_"
-    "id\030\001 \001(\tR\010entityId\"M\n\021GetEntityResponse\022"
-    "8\n\006entity\030\001 \001(\0132 .anduril.entitymanager."
-    "v1.EntityR\006entity\"\355\002\n\035StreamEntityCompon"
-    "entsRequest\0222\n\025components_to_include\030\001 \003"
-    "(\tR\023componentsToInclude\0224\n\026include_all_c"
-    "omponents\030\002 \001(\010R\024includeAllComponents\022;\n"
-    "\006filter\030\003 \001(\0132#.anduril.entitymanager.v1"
-    ".StatementR\006filter\022B\n\nrate_limit\030\004 \001(\0132#"
-    ".anduril.entitymanager.v1.RateLimitR\trat"
-    "eLimit\0226\n\027heartbeat_period_millis\030\005 \001(\rR"
-    "\025heartbeatPeriodMillis\022)\n\020preexisting_on"
-    "ly\030\006 \001(\010R\017preexistingOnly\"\255\001\n\036StreamEnti"
-    "tyComponentsResponse\022H\n\014entity_event\030\001 \001"
-    "(\0132%.anduril.entitymanager.v1.EntityEven"
-    "tR\013entityEvent\022A\n\theartbeat\030\002 \001(\0132#.andu"
-    "ril.entitymanager.v1.HeartbeatR\theartbea"
-    "t\"i\n\020PutEntityRequest\0228\n\006entity\030\001 \001(\0132 ."
-    "anduril.entitymanager.v1.EntityR\006entity\022"
-    "\033\n\tunique_id\030\002 \001(\tR\010uniqueId\"M\n\021PutEntit"
-    "yResponse\0228\n\006entity\030\001 \001(\0132 .anduril.enti"
-    "tymanager.v1.EntityR\006entity\"R\n\026PublishEn"
-    "titiesRequest\0228\n\006entity\030\001 \001(\0132 .anduril."
-    "entitymanager.v1.EntityR\006entity\"\031\n\027Publi"
-    "shEntitiesResponse\"\266\001\n\025OverrideEntityReq"
-    "uest\0228\n\006entity\030\001 \001(\0132 .anduril.entityman"
-    "ager.v1.EntityR\006entity\022\035\n\nfield_path\030\002 \003"
-    "(\tR\tfieldPath\022D\n\nprovenance\030\003 \001(\0132$.andu"
-    "ril.entitymanager.v1.ProvenanceR\nprovena"
-    "nce\"Z\n\026OverrideEntityResponse\022@\n\006status\030"
-    "\001 \001(\0162(.anduril.entitymanager.v1.Overrid"
-    "eStatusR\006status\"Y\n\033RemoveEntityOverrideR"
-    "equest\022\033\n\tentity_id\030\001 \001(\tR\010entityId\022\035\n\nf"
-    "ield_path\030\002 \003(\tR\tfieldPath\"\036\n\034RemoveEnti"
-    "tyOverrideResponse\"2\n\023DeleteEntityReques"
-    "t\022\033\n\tentity_id\030\001 \001(\tR\010entityId\"\026\n\024Delete"
-    "EntityResponse\"\273\001\n\013EntityEvent\022B\n\nevent_"
-    "type\030\001 \001(\0162#.anduril.entitymanager.v1.Ev"
-    "entTypeR\teventType\022.\n\004time\030\002 \001(\0132\032.googl"
-    "e.protobuf.TimestampR\004time\0228\n\006entity\030\003 \001"
-    "(\0132 .anduril.entitymanager.v1.EntityR\006en"
-    "tity\"E\n\tHeartbeat\0228\n\ttimestamp\030\001 \001(\0132\032.g"
-    "oogle.protobuf.TimestampR\ttimestamp*\253\001\n\t"
-    "EventType\022\026\n\022EVENT_TYPE_INVALID\020\000\022\026\n\022EVE"
-    "NT_TYPE_CREATED\020\001\022\025\n\021EVENT_TYPE_UPDATE\020\002"
-    "\022\026\n\022EVENT_TYPE_DELETED\020\003\022\032\n\026EVENT_TYPE_P"
-    "REEXISTING\020\004\022#\n\037EVENT_TYPE_POST_EXPIRY_O"
-    "VERRIDE\020\0052\324\006\n\020EntityManagerAPI\022d\n\tGetEnt"
-    "ity\022*.anduril.entitymanager.v1.GetEntity"
-    "Request\032+.anduril.entitymanager.v1.GetEn"
-    "tityResponse\022\215\001\n\026StreamEntityComponents\022"
-    "7.anduril.entitymanager.v1.StreamEntityC"
-    "omponentsRequest\0328.anduril.entitymanager"
-    ".v1.StreamEntityComponentsResponse0\001\022d\n\t"
-    "PutEntity\022*.anduril.entitymanager.v1.Put"
-    "EntityRequest\032+.anduril.entitymanager.v1"
-    ".PutEntityResponse\022x\n\017PublishEntities\0220."
-    "anduril.entitymanager.v1.PublishEntities"
-    "Request\0321.anduril.entitymanager.v1.Publi"
-    "shEntitiesResponse(\001\022s\n\016OverrideEntity\022/"
-    ".anduril.entitymanager.v1.OverrideEntity"
-    "Request\0320.anduril.entitymanager.v1.Overr"
-    "ideEntityResponse\022\205\001\n\024RemoveEntityOverri"
-    "de\0225.anduril.entitymanager.v1.RemoveEnti"
-    "tyOverrideRequest\0326.anduril.entitymanage"
-    "r.v1.RemoveEntityOverrideResponse\022m\n\014Del"
-    "eteEntity\022-.anduril.entitymanager.v1.Del"
-    "eteEntityRequest\032..anduril.entitymanager"
-    ".v1.DeleteEntityResponseB\211\002\n\034com.anduril"
-    ".entitymanager.v1B\030EntityManagerApiPubPr"
-    "otoP\001ZMghe.anduril.dev/anduril/andurilap"
-    "is-go/anduril/entitymanager/v1;entityman"
-    "ager\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030"
-    "Anduril\\Entitymanager\\V1\342\002$Anduril\\Entit"
-    "ymanager\\V1\\GPBMetadata\352\002\032Anduril::Entit"
-    "ymanager::V1b\006proto3"
+    "imit.pub.proto\032/anduril/entitymanager/v1"
+    "/relationship.pub.proto\032(anduril/entitym"
+    "anager/v1/types.pub.proto\032\037google/protob"
+    "uf/timestamp.proto\"/\n\020GetEntityRequest\022\033"
+    "\n\tentity_id\030\001 \001(\tR\010entityId\"M\n\021GetEntity"
+    "Response\0228\n\006entity\030\001 \001(\0132 .anduril.entit"
+    "ymanager.v1.EntityR\006entity\"\355\002\n\035StreamEnt"
+    "ityComponentsRequest\0222\n\025components_to_in"
+    "clude\030\001 \003(\tR\023componentsToInclude\0224\n\026incl"
+    "ude_all_components\030\002 \001(\010R\024includeAllComp"
+    "onents\022;\n\006filter\030\003 \001(\0132#.anduril.entitym"
+    "anager.v1.StatementR\006filter\022B\n\nrate_limi"
+    "t\030\004 \001(\0132#.anduril.entitymanager.v1.RateL"
+    "imitR\trateLimit\0226\n\027heartbeat_period_mill"
+    "is\030\005 \001(\rR\025heartbeatPeriodMillis\022)\n\020preex"
+    "isting_only\030\006 \001(\010R\017preexistingOnly\"\255\001\n\036S"
+    "treamEntityComponentsResponse\022H\n\014entity_"
+    "event\030\001 \001(\0132%.anduril.entitymanager.v1.E"
+    "ntityEventR\013entityEvent\022A\n\theartbeat\030\002 \001"
+    "(\0132#.anduril.entitymanager.v1.HeartbeatR"
+    "\theartbeat\"i\n\020PutEntityRequest\0228\n\006entity"
+    "\030\001 \001(\0132 .anduril.entitymanager.v1.Entity"
+    "R\006entity\022\033\n\tunique_id\030\002 \001(\tR\010uniqueId\"M\n"
+    "\021PutEntityResponse\0228\n\006entity\030\001 \001(\0132 .and"
+    "uril.entitymanager.v1.EntityR\006entity\"R\n\026"
+    "PublishEntitiesRequest\0228\n\006entity\030\001 \001(\0132 "
+    ".anduril.entitymanager.v1.EntityR\006entity"
+    "\"\031\n\027PublishEntitiesResponse\"\266\001\n\025Override"
+    "EntityRequest\0228\n\006entity\030\001 \001(\0132 .anduril."
+    "entitymanager.v1.EntityR\006entity\022\035\n\nfield"
+    "_path\030\002 \003(\tR\tfieldPath\022D\n\nprovenance\030\003 \001"
+    "(\0132$.anduril.entitymanager.v1.Provenance"
+    "R\nprovenance\"Z\n\026OverrideEntityResponse\022@"
+    "\n\006status\030\001 \001(\0162(.anduril.entitymanager.v"
+    "1.OverrideStatusR\006status\"Y\n\033RemoveEntity"
+    "OverrideRequest\022\033\n\tentity_id\030\001 \001(\tR\010enti"
+    "tyId\022\035\n\nfield_path\030\002 \003(\tR\tfieldPath\"\036\n\034R"
+    "emoveEntityOverrideResponse\"2\n\023DeleteEnt"
+    "ityRequest\022\033\n\tentity_id\030\001 \001(\tR\010entityId\""
+    "\026\n\024DeleteEntityResponse\"\207\001\n\023RelateEntity"
+    "Request\022\033\n\tentity_id\030\001 \001(\tR\010entityId\022S\n\r"
+    "relationships\030\002 \003(\0132-.anduril.entitymana"
+    "ger.v1.RelationshipRequestR\rrelationship"
+    "s\"\303\001\n\023RelationshipRequest\022*\n\021related_ent"
+    "ity_id\030\001 \001(\tR\017relatedEntityId\022\'\n\017relatio"
+    "nship_id\030\002 \001(\tR\016relationshipId\022W\n\021relati"
+    "onship_type\030\003 \001(\0132*.anduril.entitymanage"
+    "r.v1.RelationshipTypeR\020relationshipType\""
+    "P\n\024RelateEntityResponse\0228\n\006entity\030\001 \001(\0132"
+    " .anduril.entitymanager.v1.EntityR\006entit"
+    "y\"_\n\025UnrelateEntityRequest\022\033\n\tentity_id\030"
+    "\001 \001(\tR\010entityId\022)\n\020relationship_ids\030\002 \003("
+    "\tR\017relationshipIds\"R\n\026UnrelateEntityResp"
+    "onse\0228\n\006entity\030\001 \001(\0132 .anduril.entityman"
+    "ager.v1.EntityR\006entity\"\273\001\n\013EntityEvent\022B"
+    "\n\nevent_type\030\001 \001(\0162#.anduril.entitymanag"
+    "er.v1.EventTypeR\teventType\022.\n\004time\030\002 \001(\013"
+    "2\032.google.protobuf.TimestampR\004time\0228\n\006en"
+    "tity\030\003 \001(\0132 .anduril.entitymanager.v1.En"
+    "tityR\006entity\"E\n\tHeartbeat\0228\n\ttimestamp\030\001"
+    " \001(\0132\032.google.protobuf.TimestampR\ttimest"
+    "amp*\253\001\n\tEventType\022\026\n\022EVENT_TYPE_INVALID\020"
+    "\000\022\026\n\022EVENT_TYPE_CREATED\020\001\022\025\n\021EVENT_TYPE_"
+    "UPDATE\020\002\022\026\n\022EVENT_TYPE_DELETED\020\003\022\032\n\026EVEN"
+    "T_TYPE_PREEXISTING\020\004\022#\n\037EVENT_TYPE_POST_"
+    "EXPIRY_OVERRIDE\020\0052\270\010\n\020EntityManagerAPI\022d"
+    "\n\tGetEntity\022*.anduril.entitymanager.v1.G"
+    "etEntityRequest\032+.anduril.entitymanager."
+    "v1.GetEntityResponse\022\215\001\n\026StreamEntityCom"
+    "ponents\0227.anduril.entitymanager.v1.Strea"
+    "mEntityComponentsRequest\0328.anduril.entit"
+    "ymanager.v1.StreamEntityComponentsRespon"
+    "se0\001\022d\n\tPutEntity\022*.anduril.entitymanage"
+    "r.v1.PutEntityRequest\032+.anduril.entityma"
+    "nager.v1.PutEntityResponse\022x\n\017PublishEnt"
+    "ities\0220.anduril.entitymanager.v1.Publish"
+    "EntitiesRequest\0321.anduril.entitymanager."
+    "v1.PublishEntitiesResponse(\001\022s\n\016Override"
+    "Entity\022/.anduril.entitymanager.v1.Overri"
+    "deEntityRequest\0320.anduril.entitymanager."
+    "v1.OverrideEntityResponse\022\205\001\n\024RemoveEnti"
+    "tyOverride\0225.anduril.entitymanager.v1.Re"
+    "moveEntityOverrideRequest\0326.anduril.enti"
+    "tymanager.v1.RemoveEntityOverrideRespons"
+    "e\022m\n\014DeleteEntity\022-.anduril.entitymanage"
+    "r.v1.DeleteEntityRequest\032..anduril.entit"
+    "ymanager.v1.DeleteEntityResponse\022m\n\014Rela"
+    "teEntity\022-.anduril.entitymanager.v1.Rela"
+    "teEntityRequest\032..anduril.entitymanager."
+    "v1.RelateEntityResponse\022s\n\016UnrelateEntit"
+    "y\022/.anduril.entitymanager.v1.UnrelateEnt"
+    "ityRequest\0320.anduril.entitymanager.v1.Un"
+    "relateEntityResponseB\211\002\n\034com.anduril.ent"
+    "itymanager.v1B\030EntityManagerApiPubProtoP"
+    "\001ZMghe.anduril.dev/anduril/andurilapis-g"
+    "o/anduril/entitymanager/v1;entitymanager"
+    "\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Andu"
+    "ril\\Entitymanager\\V1\342\002$Anduril\\Entityman"
+    "ager\\V1\\GPBMetadata\352\002\032Anduril::Entityman"
+    "ager::V1b\006proto3"
 };
-static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fapi_2epub_2eproto_deps[5] =
+static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fapi_2epub_2eproto_deps[6] =
     {
         &::descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto,
         &::descriptor_table_anduril_2fentitymanager_2fv1_2ffilter_2epub_2eproto,
         &::descriptor_table_anduril_2fentitymanager_2fv1_2frate_5flimit_2epub_2eproto,
+        &::descriptor_table_anduril_2fentitymanager_2fv1_2frelationship_2epub_2eproto,
         &::descriptor_table_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto,
         &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
 };
@@ -648,13 +842,13 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fentity_
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fapi_2epub_2eproto = {
     false,
     false,
-    3300,
+    4176,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fapi_2epub_2eproto,
     "anduril/entitymanager/v1/entity_manager_api.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fapi_2epub_2eproto_once,
     descriptor_table_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fapi_2epub_2eproto_deps,
-    5,
-    16,
+    6,
+    21,
     schemas,
     file_default_instances,
     TableStruct_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fapi_2epub_2eproto::offsets,
@@ -3526,6 +3720,1155 @@ const ::_pbi::TcParseTable<0, 0, 0, 0, 2> DeleteEntityResponse::_table_ = {
 
 ::google::protobuf::Metadata DeleteEntityResponse::GetMetadata() const {
   return ::google::protobuf::internal::ZeroFieldsBase::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class RelateEntityRequest::_Internal {
+ public:
+};
+
+RelateEntityRequest::RelateEntityRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.RelateEntityRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE RelateEntityRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::entitymanager::v1::RelateEntityRequest& from_msg)
+      : relationships_{visibility, arena, from.relationships_},
+        entity_id_(arena, from.entity_id_),
+        _cached_size_{0} {}
+
+RelateEntityRequest::RelateEntityRequest(
+    ::google::protobuf::Arena* arena,
+    const RelateEntityRequest& from)
+    : ::google::protobuf::Message(arena) {
+  RelateEntityRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.RelateEntityRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE RelateEntityRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : relationships_{visibility, arena},
+        entity_id_(arena),
+        _cached_size_{0} {}
+
+inline void RelateEntityRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+RelateEntityRequest::~RelateEntityRequest() {
+  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.RelateEntityRequest)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void RelateEntityRequest::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.entity_id_.Destroy();
+  _impl_.~Impl_();
+}
+
+const ::google::protobuf::MessageLite::ClassData*
+RelateEntityRequest::GetClassData() const {
+  PROTOBUF_CONSTINIT static const ::google::protobuf::MessageLite::
+      ClassDataFull _data_ = {
+          {
+              &_table_.header,
+              nullptr,  // OnDemandRegisterArenaDtor
+              nullptr,  // IsInitialized
+              PROTOBUF_FIELD_OFFSET(RelateEntityRequest, _impl_._cached_size_),
+              false,
+          },
+          &RelateEntityRequest::MergeImpl,
+          &RelateEntityRequest::kDescriptorMethods,
+          &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fapi_2epub_2eproto,
+          nullptr,  // tracker
+      };
+  ::google::protobuf::internal::PrefetchToLocalCache(&_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_data_.tc_table);
+  return _data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 62, 2> RelateEntityRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    &_RelateEntityRequest_default_instance_._instance,
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::RelateEntityRequest>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // repeated .anduril.entitymanager.v1.RelationshipRequest relationships = 2 [json_name = "relationships"];
+    {::_pbi::TcParser::FastMtR1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(RelateEntityRequest, _impl_.relationships_)}},
+    // string entity_id = 1 [json_name = "entityId"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(RelateEntityRequest, _impl_.entity_id_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string entity_id = 1 [json_name = "entityId"];
+    {PROTOBUF_FIELD_OFFSET(RelateEntityRequest, _impl_.entity_id_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // repeated .anduril.entitymanager.v1.RelationshipRequest relationships = 2 [json_name = "relationships"];
+    {PROTOBUF_FIELD_OFFSET(RelateEntityRequest, _impl_.relationships_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::RelationshipRequest>()},
+  }}, {{
+    "\54\11\0\0\0\0\0\0"
+    "anduril.entitymanager.v1.RelateEntityRequest"
+    "entity_id"
+  }},
+};
+
+PROTOBUF_NOINLINE void RelateEntityRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.RelateEntityRequest)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.relationships_.Clear();
+  _impl_.entity_id_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+::uint8_t* RelateEntityRequest::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.RelateEntityRequest)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  // string entity_id = 1 [json_name = "entityId"];
+  if (!this->_internal_entity_id().empty()) {
+    const std::string& _s = this->_internal_entity_id();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.RelateEntityRequest.entity_id");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
+  }
+
+  // repeated .anduril.entitymanager.v1.RelationshipRequest relationships = 2 [json_name = "relationships"];
+  for (unsigned i = 0, n = static_cast<unsigned>(
+                           this->_internal_relationships_size());
+       i < n; i++) {
+    const auto& repfield = this->_internal_relationships().Get(i);
+    target =
+        ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+            2, repfield, repfield.GetCachedSize(),
+            target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.RelateEntityRequest)
+  return target;
+}
+
+::size_t RelateEntityRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.RelateEntityRequest)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(reinterpret_cast<const void*>(this));
+  // repeated .anduril.entitymanager.v1.RelationshipRequest relationships = 2 [json_name = "relationships"];
+  total_size += 1UL * this->_internal_relationships_size();
+  for (const auto& msg : this->_internal_relationships()) {
+    total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+  }
+  // string entity_id = 1 [json_name = "entityId"];
+  if (!this->_internal_entity_id().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_entity_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+
+void RelateEntityRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<RelateEntityRequest*>(&to_msg);
+  auto& from = static_cast<const RelateEntityRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.RelateEntityRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_internal_mutable_relationships()->MergeFrom(
+      from._internal_relationships());
+  if (!from._internal_entity_id().empty()) {
+    _this->_internal_set_entity_id(from._internal_entity_id());
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void RelateEntityRequest::CopyFrom(const RelateEntityRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.RelateEntityRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void RelateEntityRequest::InternalSwap(RelateEntityRequest* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.relationships_.InternalSwap(&other->_impl_.relationships_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.entity_id_, &other->_impl_.entity_id_, arena);
+}
+
+::google::protobuf::Metadata RelateEntityRequest::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class RelationshipRequest::_Internal {
+ public:
+  using HasBits =
+      decltype(std::declval<RelationshipRequest>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(RelationshipRequest, _impl_._has_bits_);
+};
+
+void RelationshipRequest::clear_relationship_type() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.relationship_type_ != nullptr) _impl_.relationship_type_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+RelationshipRequest::RelationshipRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.RelationshipRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE RelationshipRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::entitymanager::v1::RelationshipRequest& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        related_entity_id_(arena, from.related_entity_id_),
+        relationship_id_(arena, from.relationship_id_) {}
+
+RelationshipRequest::RelationshipRequest(
+    ::google::protobuf::Arena* arena,
+    const RelationshipRequest& from)
+    : ::google::protobuf::Message(arena) {
+  RelationshipRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.relationship_type_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::RelationshipType>(
+                              arena, *from._impl_.relationship_type_)
+                        : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.RelationshipRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE RelationshipRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : _cached_size_{0},
+        related_entity_id_(arena),
+        relationship_id_(arena) {}
+
+inline void RelationshipRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.relationship_type_ = {};
+}
+RelationshipRequest::~RelationshipRequest() {
+  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.RelationshipRequest)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void RelationshipRequest::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.related_entity_id_.Destroy();
+  _impl_.relationship_id_.Destroy();
+  delete _impl_.relationship_type_;
+  _impl_.~Impl_();
+}
+
+const ::google::protobuf::MessageLite::ClassData*
+RelationshipRequest::GetClassData() const {
+  PROTOBUF_CONSTINIT static const ::google::protobuf::MessageLite::
+      ClassDataFull _data_ = {
+          {
+              &_table_.header,
+              nullptr,  // OnDemandRegisterArenaDtor
+              nullptr,  // IsInitialized
+              PROTOBUF_FIELD_OFFSET(RelationshipRequest, _impl_._cached_size_),
+              false,
+          },
+          &RelationshipRequest::MergeImpl,
+          &RelationshipRequest::kDescriptorMethods,
+          &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fapi_2epub_2eproto,
+          nullptr,  // tracker
+      };
+  ::google::protobuf::internal::PrefetchToLocalCache(&_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_data_.tc_table);
+  return _data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 3, 1, 85, 2> RelationshipRequest::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(RelationshipRequest, _impl_._has_bits_),
+    0, // no _extensions_
+    3, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    3,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    &_RelationshipRequest_default_instance_._instance,
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::RelationshipRequest>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // string related_entity_id = 1 [json_name = "relatedEntityId"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(RelationshipRequest, _impl_.related_entity_id_)}},
+    // string relationship_id = 2 [json_name = "relationshipId"];
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(RelationshipRequest, _impl_.relationship_id_)}},
+    // .anduril.entitymanager.v1.RelationshipType relationship_type = 3 [json_name = "relationshipType"];
+    {::_pbi::TcParser::FastMtS1,
+     {26, 0, 0, PROTOBUF_FIELD_OFFSET(RelationshipRequest, _impl_.relationship_type_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string related_entity_id = 1 [json_name = "relatedEntityId"];
+    {PROTOBUF_FIELD_OFFSET(RelationshipRequest, _impl_.related_entity_id_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string relationship_id = 2 [json_name = "relationshipId"];
+    {PROTOBUF_FIELD_OFFSET(RelationshipRequest, _impl_.relationship_id_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .anduril.entitymanager.v1.RelationshipType relationship_type = 3 [json_name = "relationshipType"];
+    {PROTOBUF_FIELD_OFFSET(RelationshipRequest, _impl_.relationship_type_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::RelationshipType>()},
+  }}, {{
+    "\54\21\17\0\0\0\0\0"
+    "anduril.entitymanager.v1.RelationshipRequest"
+    "related_entity_id"
+    "relationship_id"
+  }},
+};
+
+PROTOBUF_NOINLINE void RelationshipRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.RelationshipRequest)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.related_entity_id_.ClearToEmpty();
+  _impl_.relationship_id_.ClearToEmpty();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.relationship_type_ != nullptr);
+    _impl_.relationship_type_->Clear();
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+::uint8_t* RelationshipRequest::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.RelationshipRequest)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  // string related_entity_id = 1 [json_name = "relatedEntityId"];
+  if (!this->_internal_related_entity_id().empty()) {
+    const std::string& _s = this->_internal_related_entity_id();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.RelationshipRequest.related_entity_id");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
+  }
+
+  // string relationship_id = 2 [json_name = "relationshipId"];
+  if (!this->_internal_relationship_id().empty()) {
+    const std::string& _s = this->_internal_relationship_id();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.RelationshipRequest.relationship_id");
+    target = stream->WriteStringMaybeAliased(2, _s, target);
+  }
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // .anduril.entitymanager.v1.RelationshipType relationship_type = 3 [json_name = "relationshipType"];
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        3, *_impl_.relationship_type_, _impl_.relationship_type_->GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.RelationshipRequest)
+  return target;
+}
+
+::size_t RelationshipRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.RelationshipRequest)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(reinterpret_cast<const void*>(this));
+  // string related_entity_id = 1 [json_name = "relatedEntityId"];
+  if (!this->_internal_related_entity_id().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_related_entity_id());
+  }
+
+  // string relationship_id = 2 [json_name = "relationshipId"];
+  if (!this->_internal_relationship_id().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_relationship_id());
+  }
+
+  // .anduril.entitymanager.v1.RelationshipType relationship_type = 3 [json_name = "relationshipType"];
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size +=
+        1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.relationship_type_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+
+void RelationshipRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<RelationshipRequest*>(&to_msg);
+  auto& from = static_cast<const RelationshipRequest&>(from_msg);
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.RelationshipRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_related_entity_id().empty()) {
+    _this->_internal_set_related_entity_id(from._internal_related_entity_id());
+  }
+  if (!from._internal_relationship_id().empty()) {
+    _this->_internal_set_relationship_id(from._internal_relationship_id());
+  }
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(from._impl_.relationship_type_ != nullptr);
+    if (_this->_impl_.relationship_type_ == nullptr) {
+      _this->_impl_.relationship_type_ =
+          ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::RelationshipType>(arena, *from._impl_.relationship_type_);
+    } else {
+      _this->_impl_.relationship_type_->MergeFrom(*from._impl_.relationship_type_);
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void RelationshipRequest::CopyFrom(const RelationshipRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.RelationshipRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void RelationshipRequest::InternalSwap(RelationshipRequest* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.related_entity_id_, &other->_impl_.related_entity_id_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.relationship_id_, &other->_impl_.relationship_id_, arena);
+  swap(_impl_.relationship_type_, other->_impl_.relationship_type_);
+}
+
+::google::protobuf::Metadata RelationshipRequest::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class RelateEntityResponse::_Internal {
+ public:
+  using HasBits =
+      decltype(std::declval<RelateEntityResponse>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(RelateEntityResponse, _impl_._has_bits_);
+};
+
+void RelateEntityResponse::clear_entity() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.entity_ != nullptr) _impl_.entity_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+RelateEntityResponse::RelateEntityResponse(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.RelateEntityResponse)
+}
+inline PROTOBUF_NDEBUG_INLINE RelateEntityResponse::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::entitymanager::v1::RelateEntityResponse& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0} {}
+
+RelateEntityResponse::RelateEntityResponse(
+    ::google::protobuf::Arena* arena,
+    const RelateEntityResponse& from)
+    : ::google::protobuf::Message(arena) {
+  RelateEntityResponse* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.entity_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Entity>(
+                              arena, *from._impl_.entity_)
+                        : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.RelateEntityResponse)
+}
+inline PROTOBUF_NDEBUG_INLINE RelateEntityResponse::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : _cached_size_{0} {}
+
+inline void RelateEntityResponse::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.entity_ = {};
+}
+RelateEntityResponse::~RelateEntityResponse() {
+  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.RelateEntityResponse)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void RelateEntityResponse::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  delete _impl_.entity_;
+  _impl_.~Impl_();
+}
+
+const ::google::protobuf::MessageLite::ClassData*
+RelateEntityResponse::GetClassData() const {
+  PROTOBUF_CONSTINIT static const ::google::protobuf::MessageLite::
+      ClassDataFull _data_ = {
+          {
+              &_table_.header,
+              nullptr,  // OnDemandRegisterArenaDtor
+              nullptr,  // IsInitialized
+              PROTOBUF_FIELD_OFFSET(RelateEntityResponse, _impl_._cached_size_),
+              false,
+          },
+          &RelateEntityResponse::MergeImpl,
+          &RelateEntityResponse::kDescriptorMethods,
+          &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fapi_2epub_2eproto,
+          nullptr,  // tracker
+      };
+  ::google::protobuf::internal::PrefetchToLocalCache(&_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_data_.tc_table);
+  return _data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 1, 0, 2> RelateEntityResponse::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(RelateEntityResponse, _impl_._has_bits_),
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    &_RelateEntityResponse_default_instance_._instance,
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::RelateEntityResponse>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 0, 0, PROTOBUF_FIELD_OFFSET(RelateEntityResponse, _impl_.entity_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];
+    {PROTOBUF_FIELD_OFFSET(RelateEntityResponse, _impl_.entity_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Entity>()},
+  }}, {{
+  }},
+};
+
+PROTOBUF_NOINLINE void RelateEntityResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.RelateEntityResponse)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.entity_ != nullptr);
+    _impl_.entity_->Clear();
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+::uint8_t* RelateEntityResponse::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.RelateEntityResponse)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // .anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        1, *_impl_.entity_, _impl_.entity_->GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.RelateEntityResponse)
+  return target;
+}
+
+::size_t RelateEntityResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.RelateEntityResponse)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size +=
+        1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.entity_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+
+void RelateEntityResponse::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<RelateEntityResponse*>(&to_msg);
+  auto& from = static_cast<const RelateEntityResponse&>(from_msg);
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.RelateEntityResponse)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(from._impl_.entity_ != nullptr);
+    if (_this->_impl_.entity_ == nullptr) {
+      _this->_impl_.entity_ =
+          ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Entity>(arena, *from._impl_.entity_);
+    } else {
+      _this->_impl_.entity_->MergeFrom(*from._impl_.entity_);
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void RelateEntityResponse::CopyFrom(const RelateEntityResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.RelateEntityResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void RelateEntityResponse::InternalSwap(RelateEntityResponse* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  swap(_impl_.entity_, other->_impl_.entity_);
+}
+
+::google::protobuf::Metadata RelateEntityResponse::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class UnrelateEntityRequest::_Internal {
+ public:
+};
+
+UnrelateEntityRequest::UnrelateEntityRequest(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.UnrelateEntityRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE UnrelateEntityRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::entitymanager::v1::UnrelateEntityRequest& from_msg)
+      : relationship_ids_{visibility, arena, from.relationship_ids_},
+        entity_id_(arena, from.entity_id_),
+        _cached_size_{0} {}
+
+UnrelateEntityRequest::UnrelateEntityRequest(
+    ::google::protobuf::Arena* arena,
+    const UnrelateEntityRequest& from)
+    : ::google::protobuf::Message(arena) {
+  UnrelateEntityRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.UnrelateEntityRequest)
+}
+inline PROTOBUF_NDEBUG_INLINE UnrelateEntityRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : relationship_ids_{visibility, arena},
+        entity_id_(arena),
+        _cached_size_{0} {}
+
+inline void UnrelateEntityRequest::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+UnrelateEntityRequest::~UnrelateEntityRequest() {
+  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.UnrelateEntityRequest)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void UnrelateEntityRequest::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.entity_id_.Destroy();
+  _impl_.~Impl_();
+}
+
+const ::google::protobuf::MessageLite::ClassData*
+UnrelateEntityRequest::GetClassData() const {
+  PROTOBUF_CONSTINIT static const ::google::protobuf::MessageLite::
+      ClassDataFull _data_ = {
+          {
+              &_table_.header,
+              nullptr,  // OnDemandRegisterArenaDtor
+              nullptr,  // IsInitialized
+              PROTOBUF_FIELD_OFFSET(UnrelateEntityRequest, _impl_._cached_size_),
+              false,
+          },
+          &UnrelateEntityRequest::MergeImpl,
+          &UnrelateEntityRequest::kDescriptorMethods,
+          &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fapi_2epub_2eproto,
+          nullptr,  // tracker
+      };
+  ::google::protobuf::internal::PrefetchToLocalCache(&_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_data_.tc_table);
+  return _data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 80, 2> UnrelateEntityRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    &_UnrelateEntityRequest_default_instance_._instance,
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::UnrelateEntityRequest>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // repeated string relationship_ids = 2 [json_name = "relationshipIds"];
+    {::_pbi::TcParser::FastUR1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(UnrelateEntityRequest, _impl_.relationship_ids_)}},
+    // string entity_id = 1 [json_name = "entityId"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(UnrelateEntityRequest, _impl_.entity_id_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string entity_id = 1 [json_name = "entityId"];
+    {PROTOBUF_FIELD_OFFSET(UnrelateEntityRequest, _impl_.entity_id_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // repeated string relationship_ids = 2 [json_name = "relationshipIds"];
+    {PROTOBUF_FIELD_OFFSET(UnrelateEntityRequest, _impl_.relationship_ids_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kUtf8String | ::_fl::kRepSString)},
+  }},
+  // no aux_entries
+  {{
+    "\56\11\20\0\0\0\0\0"
+    "anduril.entitymanager.v1.UnrelateEntityRequest"
+    "entity_id"
+    "relationship_ids"
+  }},
+};
+
+PROTOBUF_NOINLINE void UnrelateEntityRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.UnrelateEntityRequest)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.relationship_ids_.Clear();
+  _impl_.entity_id_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+::uint8_t* UnrelateEntityRequest::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.UnrelateEntityRequest)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  // string entity_id = 1 [json_name = "entityId"];
+  if (!this->_internal_entity_id().empty()) {
+    const std::string& _s = this->_internal_entity_id();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.UnrelateEntityRequest.entity_id");
+    target = stream->WriteStringMaybeAliased(1, _s, target);
+  }
+
+  // repeated string relationship_ids = 2 [json_name = "relationshipIds"];
+  for (int i = 0, n = this->_internal_relationship_ids_size(); i < n; ++i) {
+    const auto& s = this->_internal_relationship_ids().Get(i);
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.UnrelateEntityRequest.relationship_ids");
+    target = stream->WriteString(2, s, target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.UnrelateEntityRequest)
+  return target;
+}
+
+::size_t UnrelateEntityRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.UnrelateEntityRequest)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(reinterpret_cast<const void*>(this));
+  // repeated string relationship_ids = 2 [json_name = "relationshipIds"];
+  total_size += 1 * ::google::protobuf::internal::FromIntSize(_internal_relationship_ids().size());
+  for (int i = 0, n = _internal_relationship_ids().size(); i < n; ++i) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+        _internal_relationship_ids().Get(i));
+  }
+  // string entity_id = 1 [json_name = "entityId"];
+  if (!this->_internal_entity_id().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_entity_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+
+void UnrelateEntityRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<UnrelateEntityRequest*>(&to_msg);
+  auto& from = static_cast<const UnrelateEntityRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.UnrelateEntityRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_internal_mutable_relationship_ids()->MergeFrom(from._internal_relationship_ids());
+  if (!from._internal_entity_id().empty()) {
+    _this->_internal_set_entity_id(from._internal_entity_id());
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void UnrelateEntityRequest::CopyFrom(const UnrelateEntityRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.UnrelateEntityRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void UnrelateEntityRequest::InternalSwap(UnrelateEntityRequest* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.relationship_ids_.InternalSwap(&other->_impl_.relationship_ids_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.entity_id_, &other->_impl_.entity_id_, arena);
+}
+
+::google::protobuf::Metadata UnrelateEntityRequest::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class UnrelateEntityResponse::_Internal {
+ public:
+  using HasBits =
+      decltype(std::declval<UnrelateEntityResponse>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(UnrelateEntityResponse, _impl_._has_bits_);
+};
+
+void UnrelateEntityResponse::clear_entity() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.entity_ != nullptr) _impl_.entity_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+UnrelateEntityResponse::UnrelateEntityResponse(::google::protobuf::Arena* arena)
+    : ::google::protobuf::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.UnrelateEntityResponse)
+}
+inline PROTOBUF_NDEBUG_INLINE UnrelateEntityResponse::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::entitymanager::v1::UnrelateEntityResponse& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0} {}
+
+UnrelateEntityResponse::UnrelateEntityResponse(
+    ::google::protobuf::Arena* arena,
+    const UnrelateEntityResponse& from)
+    : ::google::protobuf::Message(arena) {
+  UnrelateEntityResponse* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.entity_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Entity>(
+                              arena, *from._impl_.entity_)
+                        : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.UnrelateEntityResponse)
+}
+inline PROTOBUF_NDEBUG_INLINE UnrelateEntityResponse::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : _cached_size_{0} {}
+
+inline void UnrelateEntityResponse::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.entity_ = {};
+}
+UnrelateEntityResponse::~UnrelateEntityResponse() {
+  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.UnrelateEntityResponse)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void UnrelateEntityResponse::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  delete _impl_.entity_;
+  _impl_.~Impl_();
+}
+
+const ::google::protobuf::MessageLite::ClassData*
+UnrelateEntityResponse::GetClassData() const {
+  PROTOBUF_CONSTINIT static const ::google::protobuf::MessageLite::
+      ClassDataFull _data_ = {
+          {
+              &_table_.header,
+              nullptr,  // OnDemandRegisterArenaDtor
+              nullptr,  // IsInitialized
+              PROTOBUF_FIELD_OFFSET(UnrelateEntityResponse, _impl_._cached_size_),
+              false,
+          },
+          &UnrelateEntityResponse::MergeImpl,
+          &UnrelateEntityResponse::kDescriptorMethods,
+          &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fapi_2epub_2eproto,
+          nullptr,  // tracker
+      };
+  ::google::protobuf::internal::PrefetchToLocalCache(&_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_data_.tc_table);
+  return _data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 1, 0, 2> UnrelateEntityResponse::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(UnrelateEntityResponse, _impl_._has_bits_),
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    &_UnrelateEntityResponse_default_instance_._instance,
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::UnrelateEntityResponse>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 0, 0, PROTOBUF_FIELD_OFFSET(UnrelateEntityResponse, _impl_.entity_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];
+    {PROTOBUF_FIELD_OFFSET(UnrelateEntityResponse, _impl_.entity_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Entity>()},
+  }}, {{
+  }},
+};
+
+PROTOBUF_NOINLINE void UnrelateEntityResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.UnrelateEntityResponse)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.entity_ != nullptr);
+    _impl_.entity_->Clear();
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+::uint8_t* UnrelateEntityResponse::_InternalSerialize(
+    ::uint8_t* target,
+    ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.UnrelateEntityResponse)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // .anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        1, *_impl_.entity_, _impl_.entity_->GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.UnrelateEntityResponse)
+  return target;
+}
+
+::size_t UnrelateEntityResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.UnrelateEntityResponse)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size +=
+        1 + ::google::protobuf::internal::WireFormatLite::MessageSize(*_impl_.entity_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+
+void UnrelateEntityResponse::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<UnrelateEntityResponse*>(&to_msg);
+  auto& from = static_cast<const UnrelateEntityResponse&>(from_msg);
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.UnrelateEntityResponse)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(from._impl_.entity_ != nullptr);
+    if (_this->_impl_.entity_ == nullptr) {
+      _this->_impl_.entity_ =
+          ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Entity>(arena, *from._impl_.entity_);
+    } else {
+      _this->_impl_.entity_->MergeFrom(*from._impl_.entity_);
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void UnrelateEntityResponse::CopyFrom(const UnrelateEntityResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.UnrelateEntityResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void UnrelateEntityResponse::InternalSwap(UnrelateEntityResponse* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  swap(_impl_.entity_, other->_impl_.entity_);
+}
+
+::google::protobuf::Metadata UnrelateEntityResponse::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 

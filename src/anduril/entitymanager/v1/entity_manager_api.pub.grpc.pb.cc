@@ -31,6 +31,8 @@ static const char* EntityManagerAPI_method_names[] = {
   "/anduril.entitymanager.v1.EntityManagerAPI/OverrideEntity",
   "/anduril.entitymanager.v1.EntityManagerAPI/RemoveEntityOverride",
   "/anduril.entitymanager.v1.EntityManagerAPI/DeleteEntity",
+  "/anduril.entitymanager.v1.EntityManagerAPI/RelateEntity",
+  "/anduril.entitymanager.v1.EntityManagerAPI/UnrelateEntity",
 };
 
 std::unique_ptr< EntityManagerAPI::Stub> EntityManagerAPI::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -47,6 +49,8 @@ EntityManagerAPI::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& c
   , rpcmethod_OverrideEntity_(EntityManagerAPI_method_names[4], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_RemoveEntityOverride_(EntityManagerAPI_method_names[5], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_DeleteEntity_(EntityManagerAPI_method_names[6], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_RelateEntity_(EntityManagerAPI_method_names[7], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_UnrelateEntity_(EntityManagerAPI_method_names[8], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status EntityManagerAPI::Stub::GetEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::anduril::entitymanager::v1::GetEntityResponse* response) {
@@ -196,6 +200,52 @@ void EntityManagerAPI::Stub::async::DeleteEntity(::grpc::ClientContext* context,
   return result;
 }
 
+::grpc::Status EntityManagerAPI::Stub::RelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest& request, ::anduril::entitymanager::v1::RelateEntityResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::anduril::entitymanager::v1::RelateEntityRequest, ::anduril::entitymanager::v1::RelateEntityResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_RelateEntity_, context, request, response);
+}
+
+void EntityManagerAPI::Stub::async::RelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest* request, ::anduril::entitymanager::v1::RelateEntityResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::anduril::entitymanager::v1::RelateEntityRequest, ::anduril::entitymanager::v1::RelateEntityResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_RelateEntity_, context, request, response, std::move(f));
+}
+
+void EntityManagerAPI::Stub::async::RelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest* request, ::anduril::entitymanager::v1::RelateEntityResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_RelateEntity_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::RelateEntityResponse>* EntityManagerAPI::Stub::PrepareAsyncRelateEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::anduril::entitymanager::v1::RelateEntityResponse, ::anduril::entitymanager::v1::RelateEntityRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_RelateEntity_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::RelateEntityResponse>* EntityManagerAPI::Stub::AsyncRelateEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncRelateEntityRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status EntityManagerAPI::Stub::UnrelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest& request, ::anduril::entitymanager::v1::UnrelateEntityResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::anduril::entitymanager::v1::UnrelateEntityRequest, ::anduril::entitymanager::v1::UnrelateEntityResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_UnrelateEntity_, context, request, response);
+}
+
+void EntityManagerAPI::Stub::async::UnrelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest* request, ::anduril::entitymanager::v1::UnrelateEntityResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::anduril::entitymanager::v1::UnrelateEntityRequest, ::anduril::entitymanager::v1::UnrelateEntityResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UnrelateEntity_, context, request, response, std::move(f));
+}
+
+void EntityManagerAPI::Stub::async::UnrelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest* request, ::anduril::entitymanager::v1::UnrelateEntityResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UnrelateEntity_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::UnrelateEntityResponse>* EntityManagerAPI::Stub::PrepareAsyncUnrelateEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::anduril::entitymanager::v1::UnrelateEntityResponse, ::anduril::entitymanager::v1::UnrelateEntityRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_UnrelateEntity_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::UnrelateEntityResponse>* EntityManagerAPI::Stub::AsyncUnrelateEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncUnrelateEntityRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 EntityManagerAPI::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       EntityManagerAPI_method_names[0],
@@ -267,6 +317,26 @@ EntityManagerAPI::Service::Service() {
              ::anduril::entitymanager::v1::DeleteEntityResponse* resp) {
                return service->DeleteEntity(ctx, req, resp);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      EntityManagerAPI_method_names[7],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< EntityManagerAPI::Service, ::anduril::entitymanager::v1::RelateEntityRequest, ::anduril::entitymanager::v1::RelateEntityResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](EntityManagerAPI::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::anduril::entitymanager::v1::RelateEntityRequest* req,
+             ::anduril::entitymanager::v1::RelateEntityResponse* resp) {
+               return service->RelateEntity(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      EntityManagerAPI_method_names[8],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< EntityManagerAPI::Service, ::anduril::entitymanager::v1::UnrelateEntityRequest, ::anduril::entitymanager::v1::UnrelateEntityResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](EntityManagerAPI::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::anduril::entitymanager::v1::UnrelateEntityRequest* req,
+             ::anduril::entitymanager::v1::UnrelateEntityResponse* resp) {
+               return service->UnrelateEntity(ctx, req, resp);
+             }, this)));
 }
 
 EntityManagerAPI::Service::~Service() {
@@ -315,6 +385,20 @@ EntityManagerAPI::Service::~Service() {
 }
 
 ::grpc::Status EntityManagerAPI::Service::DeleteEntity(::grpc::ServerContext* context, const ::anduril::entitymanager::v1::DeleteEntityRequest* request, ::anduril::entitymanager::v1::DeleteEntityResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status EntityManagerAPI::Service::RelateEntity(::grpc::ServerContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest* request, ::anduril::entitymanager::v1::RelateEntityResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status EntityManagerAPI::Service::UnrelateEntity(::grpc::ServerContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest* request, ::anduril::entitymanager::v1::UnrelateEntityResponse* response) {
   (void) context;
   (void) request;
   (void) response;

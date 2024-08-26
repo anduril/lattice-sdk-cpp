@@ -41,6 +41,7 @@
 #include "anduril/entitymanager/v1/media.pub.pb.h"
 #include "anduril/entitymanager/v1/ontology.pub.pb.h"
 #include "anduril/entitymanager/v1/options.pub.pb.h"
+#include "anduril/entitymanager/v1/orbit.pub.pb.h"
 #include "anduril/entitymanager/v1/payloads.pub.pb.h"
 #include "anduril/entitymanager/v1/power.pub.pb.h"
 #include "anduril/entitymanager/v1/prototype.pub.pb.h"
@@ -1564,15 +1565,15 @@ class OriginalData final : public ::google::protobuf::Message
   std::string* _internal_mutable_url();
 
   public:
-  // .anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle"];
-  bool has_tle() const;
-  void clear_tle() ;
-  const ::anduril::entitymanager::v1::OriginalData_TLE& tle() const;
-  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::OriginalData_TLE* release_tle();
-  ::anduril::entitymanager::v1::OriginalData_TLE* mutable_tle();
-  void set_allocated_tle(::anduril::entitymanager::v1::OriginalData_TLE* value);
-  void unsafe_arena_set_allocated_tle(::anduril::entitymanager::v1::OriginalData_TLE* value);
-  ::anduril::entitymanager::v1::OriginalData_TLE* unsafe_arena_release_tle();
+  // .anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];
+  [[deprecated]]  bool has_tle() const;
+  [[deprecated]]  void clear_tle() ;
+  [[deprecated]] const ::anduril::entitymanager::v1::OriginalData_TLE& tle() const;
+  [[deprecated]] PROTOBUF_NODISCARD ::anduril::entitymanager::v1::OriginalData_TLE* release_tle();
+  [[deprecated]] ::anduril::entitymanager::v1::OriginalData_TLE* mutable_tle();
+  [[deprecated]] void set_allocated_tle(::anduril::entitymanager::v1::OriginalData_TLE* value);
+  [[deprecated]] void unsafe_arena_set_allocated_tle(::anduril::entitymanager::v1::OriginalData_TLE* value);
+  [[deprecated]] ::anduril::entitymanager::v1::OriginalData_TLE* unsafe_arena_release_tle();
 
   private:
   const ::anduril::entitymanager::v1::OriginalData_TLE& _internal_tle() const;
@@ -2942,6 +2943,7 @@ class Entity final : public ::google::protobuf::Message
     kGroupDetailsFieldNumber = 40,
     kTeamStatusFieldNumber = 41,
     kSuppliesFieldNumber = 42,
+    kOrbitFieldNumber = 46,
     kIsLiveFieldNumber = 3,
     kNoExpiryFieldNumber = 43,
   };
@@ -3532,6 +3534,21 @@ class Entity final : public ::google::protobuf::Message
   ::anduril::entitymanager::v1::Supplies* _internal_mutable_supplies();
 
   public:
+  // .anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];
+  bool has_orbit() const;
+  void clear_orbit() ;
+  const ::anduril::entitymanager::v1::Orbit& orbit() const;
+  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::Orbit* release_orbit();
+  ::anduril::entitymanager::v1::Orbit* mutable_orbit();
+  void set_allocated_orbit(::anduril::entitymanager::v1::Orbit* value);
+  void unsafe_arena_set_allocated_orbit(::anduril::entitymanager::v1::Orbit* value);
+  ::anduril::entitymanager::v1::Orbit* unsafe_arena_release_orbit();
+
+  private:
+  const ::anduril::entitymanager::v1::Orbit& _internal_orbit() const;
+  ::anduril::entitymanager::v1::Orbit* _internal_mutable_orbit();
+
+  public:
   // bool is_live = 3 [json_name = "isLive"];
   void clear_is_live() ;
   bool is_live() const;
@@ -3557,7 +3574,7 @@ class Entity final : public ::google::protobuf::Message
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      5, 41, 37,
+      5, 42, 38,
       100, 7>
       _table_;
 
@@ -3619,6 +3636,7 @@ class Entity final : public ::google::protobuf::Message
     ::anduril::entitymanager::v1::GroupDetails* group_details_;
     ::anduril::entitymanager::v1::TeamStatus* team_status_;
     ::anduril::entitymanager::v1::Supplies* supplies_;
+    ::anduril::entitymanager::v1::Orbit* orbit_;
     bool is_live_;
     bool no_expiry_;
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -7845,6 +7863,97 @@ inline void Entity::set_allocated_supplies(::anduril::entitymanager::v1::Supplie
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Entity.supplies)
 }
 
+// .anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];
+inline bool Entity::has_orbit() const {
+  bool value = (_impl_._has_bits_[1] & 0x00000020u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.orbit_ != nullptr);
+  return value;
+}
+inline const ::anduril::entitymanager::v1::Orbit& Entity::_internal_orbit() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::anduril::entitymanager::v1::Orbit* p = _impl_.orbit_;
+  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::Orbit&>(::anduril::entitymanager::v1::_Orbit_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::Orbit& Entity::orbit() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Entity.orbit)
+  return _internal_orbit();
+}
+inline void Entity::unsafe_arena_set_allocated_orbit(::anduril::entitymanager::v1::Orbit* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.orbit_);
+  }
+  _impl_.orbit_ = reinterpret_cast<::anduril::entitymanager::v1::Orbit*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[1] |= 0x00000020u;
+  } else {
+    _impl_._has_bits_[1] &= ~0x00000020u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.orbit)
+}
+inline ::anduril::entitymanager::v1::Orbit* Entity::release_orbit() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[1] &= ~0x00000020u;
+  ::anduril::entitymanager::v1::Orbit* released = _impl_.orbit_;
+  _impl_.orbit_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::anduril::entitymanager::v1::Orbit* Entity::unsafe_arena_release_orbit() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.orbit)
+
+  _impl_._has_bits_[1] &= ~0x00000020u;
+  ::anduril::entitymanager::v1::Orbit* temp = _impl_.orbit_;
+  _impl_.orbit_ = nullptr;
+  return temp;
+}
+inline ::anduril::entitymanager::v1::Orbit* Entity::_internal_mutable_orbit() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.orbit_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Orbit>(GetArena());
+    _impl_.orbit_ = reinterpret_cast<::anduril::entitymanager::v1::Orbit*>(p);
+  }
+  return _impl_.orbit_;
+}
+inline ::anduril::entitymanager::v1::Orbit* Entity::mutable_orbit() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[1] |= 0x00000020u;
+  ::anduril::entitymanager::v1::Orbit* _msg = _internal_mutable_orbit();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.orbit)
+  return _msg;
+}
+inline void Entity::set_allocated_orbit(::anduril::entitymanager::v1::Orbit* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.orbit_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[1] |= 0x00000020u;
+  } else {
+    _impl_._has_bits_[1] &= ~0x00000020u;
+  }
+
+  _impl_.orbit_ = reinterpret_cast<::anduril::entitymanager::v1::Orbit*>(value);
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Entity.orbit)
+}
+
 // -------------------------------------------------------------------
 
 // Entities
@@ -10548,7 +10657,7 @@ inline void OriginalData::set_allocated_url(std::string* value) {
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.OriginalData.url)
 }
 
-// .anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle"];
+// .anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];
 inline bool OriginalData::has_tle() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.tle_ != nullptr);

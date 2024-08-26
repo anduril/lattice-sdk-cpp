@@ -92,6 +92,8 @@ enum AltIdType : int {
   ALT_ID_TYPE_DODAAC = 18,
   ALT_ID_TYPE_UIC = 19,
   ALT_ID_TYPE_NORAD_CAT_ID = 20,
+  ALT_ID_TYPE_UNOOSA_NAME = 23,
+  ALT_ID_TYPE_UNOOSA_ID = 24,
   AltIdType_INT_MIN_SENTINEL_DO_NOT_USE_ =
       std::numeric_limits<::int32_t>::min(),
   AltIdType_INT_MAX_SENTINEL_DO_NOT_USE_ =
@@ -101,8 +103,8 @@ enum AltIdType : int {
 bool AltIdType_IsValid(int value);
 extern const uint32_t AltIdType_internal_data_[];
 constexpr AltIdType AltIdType_MIN = static_cast<AltIdType>(0);
-constexpr AltIdType AltIdType_MAX = static_cast<AltIdType>(20);
-constexpr int AltIdType_ARRAYSIZE = 20 + 1;
+constexpr AltIdType AltIdType_MAX = static_cast<AltIdType>(24);
+constexpr int AltIdType_ARRAYSIZE = 24 + 1;
 const ::google::protobuf::EnumDescriptor*
 AltIdType_descriptor();
 template <typename T>
@@ -115,7 +117,7 @@ const std::string& AltIdType_Name(T value) {
 template <>
 inline const std::string& AltIdType_Name(AltIdType value) {
   return ::google::protobuf::internal::NameOfDenseEnum<AltIdType_descriptor,
-                                                 0, 20>(
+                                                 0, 24>(
       static_cast<int>(value));
 }
 inline bool AltIdType_Parse(absl::string_view name, AltIdType* value) {
