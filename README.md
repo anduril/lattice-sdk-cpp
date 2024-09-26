@@ -2,7 +2,8 @@
 
 ## Requirements
 
-* gRPC 1.65.4. This can be installed with Homebrew on OSX `brew install grpc`
+* gRPC 1.62.2. This can be installed with Homebrew on OSX `brew install grpc`
+* Protobuf 28.2.0 
 
 ## Installation
 
