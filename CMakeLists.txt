@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED on)
 set(CMAKE_POSITION_INDEPENDENT_CODE True)
 
 # Specify the dependencies
-find_package(gRPC 1.62.2 CONFIG REQUIRED)
+find_package(gRPC 1.65.4 CONFIG REQUIRED)
 
 add_library(grpc ALIAS gRPC::grpc)
 add_library(grpc++ ALIAS gRPC::grpc++)
