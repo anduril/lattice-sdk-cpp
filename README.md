@@ -2,7 +2,7 @@
 
 ## Requirements
 
-* gRPC 1.62.4. This can be installed with Homebrew on OSX `brew install grpc`
+* gRPC 1.65.4. This can be installed with Homebrew on OSX `brew install grpc`
 
 ## Installation
 
