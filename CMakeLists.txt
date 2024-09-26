@@ -10,6 +10,7 @@ set(CMAKE_POSITION_INDEPENDENT_CODE True)
 
 # Specify the dependencies
 find_package(gRPC 1.62.2 CONFIG REQUIRED)
+find_package(protobuf 28.2.0 CONFIG REQUIRED)
 
 add_library(grpc ALIAS gRPC::grpc)
 add_library(grpc++ ALIAS gRPC::grpc++)
