@@ -1373,6 +1373,7 @@ class Provenance final : public ::google::protobuf::Message
     kSourceDescriptionFieldNumber = 4,
     kIntegrationNameFieldNumber = 5,
     kDataTypeFieldNumber = 6,
+    kFeedNameFieldNumber = 7,
     kSourceUpdateTimeFieldNumber = 2,
     kSourceFieldNumber = 1,
   };
@@ -1440,6 +1441,22 @@ class Provenance final : public ::google::protobuf::Message
   std::string* _internal_mutable_data_type();
 
   public:
+  // string feed_name = 7 [json_name = "feedName"];
+  void clear_feed_name() ;
+  const std::string& feed_name() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_feed_name(Arg_&& arg, Args_... args);
+  std::string* mutable_feed_name();
+  PROTOBUF_NODISCARD std::string* release_feed_name();
+  void set_allocated_feed_name(std::string* value);
+
+  private:
+  const std::string& _internal_feed_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_feed_name(
+      const std::string& value);
+  std::string* _internal_mutable_feed_name();
+
+  public:
   // .google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];
   bool has_source_update_time() const;
   void clear_source_update_time() ;
@@ -1470,8 +1487,8 @@ class Provenance final : public ::google::protobuf::Message
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      3, 6, 1,
-      96, 2>
+      3, 7, 1,
+      105, 2>
       _table_;
 
   static constexpr const void* _raw_default_instance_ =
@@ -1497,6 +1514,7 @@ class Provenance final : public ::google::protobuf::Message
     ::google::protobuf::internal::ArenaStringPtr source_description_;
     ::google::protobuf::internal::ArenaStringPtr integration_name_;
     ::google::protobuf::internal::ArenaStringPtr data_type_;
+    ::google::protobuf::internal::ArenaStringPtr feed_name_;
     ::google::protobuf::Timestamp* source_update_time_;
     int source_;
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -9027,6 +9045,56 @@ inline void Tracked::set_allocated_line_of_bearing(::anduril::entitymanager::v1:
 // -------------------------------------------------------------------
 
 // Provenance
+
+// string feed_name = 7 [json_name = "feedName"];
+inline void Provenance::clear_feed_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.feed_name_.ClearToEmpty();
+}
+inline const std::string& Provenance::feed_name() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Provenance.feed_name)
+  return _internal_feed_name();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void Provenance::set_feed_name(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.feed_name_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.Provenance.feed_name)
+}
+inline std::string* Provenance::mutable_feed_name() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_feed_name();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Provenance.feed_name)
+  return _s;
+}
+inline const std::string& Provenance::_internal_feed_name() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.feed_name_.Get();
+}
+inline void Provenance::_internal_set_feed_name(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.feed_name_.Set(value, GetArena());
+}
+inline std::string* Provenance::_internal_mutable_feed_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.feed_name_.Mutable( GetArena());
+}
+inline std::string* Provenance::release_feed_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Provenance.feed_name)
+  return _impl_.feed_name_.Release();
+}
+inline void Provenance::set_allocated_feed_name(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.feed_name_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.feed_name_.IsDefault()) {
+          _impl_.feed_name_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Provenance.feed_name)
+}
 
 // string integration_name = 5 [json_name = "integrationName"];
 inline void Provenance::clear_integration_name() {

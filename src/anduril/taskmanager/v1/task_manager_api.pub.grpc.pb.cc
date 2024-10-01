@@ -26,9 +26,8 @@ namespace v1 {
 static const char* TaskManagerAPI_method_names[] = {
   "/anduril.taskmanager.v1.TaskManagerAPI/CreateTask",
   "/anduril.taskmanager.v1.TaskManagerAPI/GetTask",
-  "/anduril.taskmanager.v1.TaskManagerAPI/UpdateTask",
+  "/anduril.taskmanager.v1.TaskManagerAPI/QueryTasks",
   "/anduril.taskmanager.v1.TaskManagerAPI/UpdateStatus",
-  "/anduril.taskmanager.v1.TaskManagerAPI/StreamTasks",
   "/anduril.taskmanager.v1.TaskManagerAPI/ListenAsAgent",
 };
 
@@ -41,10 +40,9 @@ std::unique_ptr< TaskManagerAPI::Stub> TaskManagerAPI::NewStub(const std::shared
 TaskManagerAPI::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
   : channel_(channel), rpcmethod_CreateTask_(TaskManagerAPI_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetTask_(TaskManagerAPI_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_UpdateTask_(TaskManagerAPI_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_QueryTasks_(TaskManagerAPI_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_UpdateStatus_(TaskManagerAPI_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_StreamTasks_(TaskManagerAPI_method_names[4], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
-  , rpcmethod_ListenAsAgent_(TaskManagerAPI_method_names[5], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
+  , rpcmethod_ListenAsAgent_(TaskManagerAPI_method_names[4], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
   {}
 
 ::grpc::Status TaskManagerAPI::Stub::CreateTask(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::CreateTaskRequest& request, ::anduril::taskmanager::v1::CreateTaskResponse* response) {
@@ -93,25 +91,25 @@ void TaskManagerAPI::Stub::async::GetTask(::grpc::ClientContext* context, const 
   return result;
 }
 
-::grpc::Status TaskManagerAPI::Stub::UpdateTask(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::UpdateTaskRequest& request, ::anduril::taskmanager::v1::UpdateTaskResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::anduril::taskmanager::v1::UpdateTaskRequest, ::anduril::taskmanager::v1::UpdateTaskResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_UpdateTask_, context, request, response);
+::grpc::Status TaskManagerAPI::Stub::QueryTasks(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::QueryTasksRequest& request, ::anduril::taskmanager::v1::QueryTasksResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::anduril::taskmanager::v1::QueryTasksRequest, ::anduril::taskmanager::v1::QueryTasksResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_QueryTasks_, context, request, response);
 }
 
-void TaskManagerAPI::Stub::async::UpdateTask(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::UpdateTaskRequest* request, ::anduril::taskmanager::v1::UpdateTaskResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::anduril::taskmanager::v1::UpdateTaskRequest, ::anduril::taskmanager::v1::UpdateTaskResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UpdateTask_, context, request, response, std::move(f));
+void TaskManagerAPI::Stub::async::QueryTasks(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::QueryTasksRequest* request, ::anduril::taskmanager::v1::QueryTasksResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::anduril::taskmanager::v1::QueryTasksRequest, ::anduril::taskmanager::v1::QueryTasksResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_QueryTasks_, context, request, response, std::move(f));
 }
 
-void TaskManagerAPI::Stub::async::UpdateTask(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::UpdateTaskRequest* request, ::anduril::taskmanager::v1::UpdateTaskResponse* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UpdateTask_, context, request, response, reactor);
+void TaskManagerAPI::Stub::async::QueryTasks(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::QueryTasksRequest* request, ::anduril::taskmanager::v1::QueryTasksResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_QueryTasks_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::anduril::taskmanager::v1::UpdateTaskResponse>* TaskManagerAPI::Stub::PrepareAsyncUpdateTaskRaw(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::UpdateTaskRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::anduril::taskmanager::v1::UpdateTaskResponse, ::anduril::taskmanager::v1::UpdateTaskRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_UpdateTask_, context, request);
+::grpc::ClientAsyncResponseReader< ::anduril::taskmanager::v1::QueryTasksResponse>* TaskManagerAPI::Stub::PrepareAsyncQueryTasksRaw(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::QueryTasksRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::anduril::taskmanager::v1::QueryTasksResponse, ::anduril::taskmanager::v1::QueryTasksRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_QueryTasks_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::anduril::taskmanager::v1::UpdateTaskResponse>* TaskManagerAPI::Stub::AsyncUpdateTaskRaw(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::UpdateTaskRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::anduril::taskmanager::v1::QueryTasksResponse>* TaskManagerAPI::Stub::AsyncQueryTasksRaw(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::QueryTasksRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncUpdateTaskRaw(context, request, cq);
+    this->PrepareAsyncQueryTasksRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -137,22 +135,6 @@ void TaskManagerAPI::Stub::async::UpdateStatus(::grpc::ClientContext* context, c
     this->PrepareAsyncUpdateStatusRaw(context, request, cq);
   result->StartCall();
   return result;
-}
-
-::grpc::ClientReader< ::anduril::taskmanager::v1::StreamTasksResponse>* TaskManagerAPI::Stub::StreamTasksRaw(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::StreamTasksRequest& request) {
-  return ::grpc::internal::ClientReaderFactory< ::anduril::taskmanager::v1::StreamTasksResponse>::Create(channel_.get(), rpcmethod_StreamTasks_, context, request);
-}
-
-void TaskManagerAPI::Stub::async::StreamTasks(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::StreamTasksRequest* request, ::grpc::ClientReadReactor< ::anduril::taskmanager::v1::StreamTasksResponse>* reactor) {
-  ::grpc::internal::ClientCallbackReaderFactory< ::anduril::taskmanager::v1::StreamTasksResponse>::Create(stub_->channel_.get(), stub_->rpcmethod_StreamTasks_, context, request, reactor);
-}
-
-::grpc::ClientAsyncReader< ::anduril::taskmanager::v1::StreamTasksResponse>* TaskManagerAPI::Stub::AsyncStreamTasksRaw(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::StreamTasksRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncReaderFactory< ::anduril::taskmanager::v1::StreamTasksResponse>::Create(channel_.get(), cq, rpcmethod_StreamTasks_, context, request, true, tag);
-}
-
-::grpc::ClientAsyncReader< ::anduril::taskmanager::v1::StreamTasksResponse>* TaskManagerAPI::Stub::PrepareAsyncStreamTasksRaw(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::StreamTasksRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncReaderFactory< ::anduril::taskmanager::v1::StreamTasksResponse>::Create(channel_.get(), cq, rpcmethod_StreamTasks_, context, request, false, nullptr);
 }
 
 ::grpc::ClientReader< ::anduril::taskmanager::v1::ListenAsAgentResponse>* TaskManagerAPI::Stub::ListenAsAgentRaw(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::ListenAsAgentRequest& request) {
@@ -195,12 +177,12 @@ TaskManagerAPI::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       TaskManagerAPI_method_names[2],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< TaskManagerAPI::Service, ::anduril::taskmanager::v1::UpdateTaskRequest, ::anduril::taskmanager::v1::UpdateTaskResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< TaskManagerAPI::Service, ::anduril::taskmanager::v1::QueryTasksRequest, ::anduril::taskmanager::v1::QueryTasksResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](TaskManagerAPI::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::anduril::taskmanager::v1::UpdateTaskRequest* req,
-             ::anduril::taskmanager::v1::UpdateTaskResponse* resp) {
-               return service->UpdateTask(ctx, req, resp);
+             const ::anduril::taskmanager::v1::QueryTasksRequest* req,
+             ::anduril::taskmanager::v1::QueryTasksResponse* resp) {
+               return service->QueryTasks(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       TaskManagerAPI_method_names[3],
@@ -214,16 +196,6 @@ TaskManagerAPI::Service::Service() {
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       TaskManagerAPI_method_names[4],
-      ::grpc::internal::RpcMethod::SERVER_STREAMING,
-      new ::grpc::internal::ServerStreamingHandler< TaskManagerAPI::Service, ::anduril::taskmanager::v1::StreamTasksRequest, ::anduril::taskmanager::v1::StreamTasksResponse>(
-          [](TaskManagerAPI::Service* service,
-             ::grpc::ServerContext* ctx,
-             const ::anduril::taskmanager::v1::StreamTasksRequest* req,
-             ::grpc::ServerWriter<::anduril::taskmanager::v1::StreamTasksResponse>* writer) {
-               return service->StreamTasks(ctx, req, writer);
-             }, this)));
-  AddMethod(new ::grpc::internal::RpcServiceMethod(
-      TaskManagerAPI_method_names[5],
       ::grpc::internal::RpcMethod::SERVER_STREAMING,
       new ::grpc::internal::ServerStreamingHandler< TaskManagerAPI::Service, ::anduril::taskmanager::v1::ListenAsAgentRequest, ::anduril::taskmanager::v1::ListenAsAgentResponse>(
           [](TaskManagerAPI::Service* service,
@@ -251,7 +223,7 @@ TaskManagerAPI::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status TaskManagerAPI::Service::UpdateTask(::grpc::ServerContext* context, const ::anduril::taskmanager::v1::UpdateTaskRequest* request, ::anduril::taskmanager::v1::UpdateTaskResponse* response) {
+::grpc::Status TaskManagerAPI::Service::QueryTasks(::grpc::ServerContext* context, const ::anduril::taskmanager::v1::QueryTasksRequest* request, ::anduril::taskmanager::v1::QueryTasksResponse* response) {
   (void) context;
   (void) request;
   (void) response;
@@ -262,13 +234,6 @@ TaskManagerAPI::Service::~Service() {
   (void) context;
   (void) request;
   (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-::grpc::Status TaskManagerAPI::Service::StreamTasks(::grpc::ServerContext* context, const ::anduril::taskmanager::v1::StreamTasksRequest* request, ::grpc::ServerWriter< ::anduril::taskmanager::v1::StreamTasksResponse>* writer) {
-  (void) context;
-  (void) request;
-  (void) writer;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 

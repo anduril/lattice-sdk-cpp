@@ -33,7 +33,6 @@
 #include "anduril/entitymanager/v1/entity.pub.pb.h"
 #include "anduril/entitymanager/v1/filter.pub.pb.h"
 #include "anduril/entitymanager/v1/rate_limit.pub.pb.h"
-#include "anduril/entitymanager/v1/relationship.pub.pb.h"
 #include "anduril/entitymanager/v1/types.pub.pb.h"
 #include "google/protobuf/timestamp.pb.h"
 // @@protoc_insertion_point(includes)
@@ -60,12 +59,6 @@ extern const ::google::protobuf::internal::DescriptorTable
 namespace anduril {
 namespace entitymanager {
 namespace v1 {
-class DeleteEntityRequest;
-struct DeleteEntityRequestDefaultTypeInternal;
-extern DeleteEntityRequestDefaultTypeInternal _DeleteEntityRequest_default_instance_;
-class DeleteEntityResponse;
-struct DeleteEntityResponseDefaultTypeInternal;
-extern DeleteEntityResponseDefaultTypeInternal _DeleteEntityResponse_default_instance_;
 class EntityEvent;
 struct EntityEventDefaultTypeInternal;
 extern EntityEventDefaultTypeInternal _EntityEvent_default_instance_;
@@ -90,21 +83,12 @@ extern PublishEntitiesRequestDefaultTypeInternal _PublishEntitiesRequest_default
 class PublishEntitiesResponse;
 struct PublishEntitiesResponseDefaultTypeInternal;
 extern PublishEntitiesResponseDefaultTypeInternal _PublishEntitiesResponse_default_instance_;
-class PutEntityRequest;
-struct PutEntityRequestDefaultTypeInternal;
-extern PutEntityRequestDefaultTypeInternal _PutEntityRequest_default_instance_;
-class PutEntityResponse;
-struct PutEntityResponseDefaultTypeInternal;
-extern PutEntityResponseDefaultTypeInternal _PutEntityResponse_default_instance_;
-class RelateEntityRequest;
-struct RelateEntityRequestDefaultTypeInternal;
-extern RelateEntityRequestDefaultTypeInternal _RelateEntityRequest_default_instance_;
-class RelateEntityResponse;
-struct RelateEntityResponseDefaultTypeInternal;
-extern RelateEntityResponseDefaultTypeInternal _RelateEntityResponse_default_instance_;
-class RelationshipRequest;
-struct RelationshipRequestDefaultTypeInternal;
-extern RelationshipRequestDefaultTypeInternal _RelationshipRequest_default_instance_;
+class PublishEntityRequest;
+struct PublishEntityRequestDefaultTypeInternal;
+extern PublishEntityRequestDefaultTypeInternal _PublishEntityRequest_default_instance_;
+class PublishEntityResponse;
+struct PublishEntityResponseDefaultTypeInternal;
+extern PublishEntityResponseDefaultTypeInternal _PublishEntityResponse_default_instance_;
 class RemoveEntityOverrideRequest;
 struct RemoveEntityOverrideRequestDefaultTypeInternal;
 extern RemoveEntityOverrideRequestDefaultTypeInternal _RemoveEntityOverrideRequest_default_instance_;
@@ -117,12 +101,6 @@ extern StreamEntityComponentsRequestDefaultTypeInternal _StreamEntityComponentsR
 class StreamEntityComponentsResponse;
 struct StreamEntityComponentsResponseDefaultTypeInternal;
 extern StreamEntityComponentsResponseDefaultTypeInternal _StreamEntityComponentsResponse_default_instance_;
-class UnrelateEntityRequest;
-struct UnrelateEntityRequestDefaultTypeInternal;
-extern UnrelateEntityRequestDefaultTypeInternal _UnrelateEntityRequest_default_instance_;
-class UnrelateEntityResponse;
-struct UnrelateEntityResponseDefaultTypeInternal;
-extern UnrelateEntityResponseDefaultTypeInternal _UnrelateEntityResponse_default_instance_;
 }  // namespace v1
 }  // namespace entitymanager
 }  // namespace anduril
@@ -175,224 +153,6 @@ inline bool EventType_Parse(absl::string_view name, EventType* value) {
 // ===================================================================
 
 
-// -------------------------------------------------------------------
-
-class UnrelateEntityRequest final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.UnrelateEntityRequest) */ {
- public:
-  inline UnrelateEntityRequest() : UnrelateEntityRequest(nullptr) {}
-  ~UnrelateEntityRequest() PROTOBUF_FINAL;
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR UnrelateEntityRequest(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline UnrelateEntityRequest(const UnrelateEntityRequest& from) : UnrelateEntityRequest(nullptr, from) {}
-  inline UnrelateEntityRequest(UnrelateEntityRequest&& from) noexcept
-      : UnrelateEntityRequest(nullptr, std::move(from)) {}
-  inline UnrelateEntityRequest& operator=(const UnrelateEntityRequest& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline UnrelateEntityRequest& operator=(UnrelateEntityRequest&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetArena() == from.GetArena()
-#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetArena() != nullptr
-#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const UnrelateEntityRequest& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const UnrelateEntityRequest* internal_default_instance() {
-    return reinterpret_cast<const UnrelateEntityRequest*>(
-        &_UnrelateEntityRequest_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 17;
-  friend void swap(UnrelateEntityRequest& a, UnrelateEntityRequest& b) { a.Swap(&b); }
-  inline void Swap(UnrelateEntityRequest* other) {
-    if (other == this) return;
-#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
-#else   // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() == other->GetArena()) {
-#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(UnrelateEntityRequest* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  UnrelateEntityRequest* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
-    return ::google::protobuf::Message::DefaultConstruct<UnrelateEntityRequest>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const UnrelateEntityRequest& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const UnrelateEntityRequest& from) { UnrelateEntityRequest::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  void SharedDtor();
-  void InternalSwap(UnrelateEntityRequest* other);
- private:
-  friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.UnrelateEntityRequest"; }
-
- protected:
-  explicit UnrelateEntityRequest(::google::protobuf::Arena* arena);
-  UnrelateEntityRequest(::google::protobuf::Arena* arena, const UnrelateEntityRequest& from);
-  UnrelateEntityRequest(::google::protobuf::Arena* arena, UnrelateEntityRequest&& from) noexcept
-      : UnrelateEntityRequest(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static const ::google::protobuf::Message::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kRelationshipIdsFieldNumber = 2,
-    kEntityIdFieldNumber = 1,
-  };
-  // repeated string relationship_ids = 2 [json_name = "relationshipIds"];
-  int relationship_ids_size() const;
-  private:
-  int _internal_relationship_ids_size() const;
-
-  public:
-  void clear_relationship_ids() ;
-  const std::string& relationship_ids(int index) const;
-  std::string* mutable_relationship_ids(int index);
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_relationship_ids(int index, Arg_&& value, Args_... args);
-  std::string* add_relationship_ids();
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void add_relationship_ids(Arg_&& value, Args_... args);
-  const ::google::protobuf::RepeatedPtrField<std::string>& relationship_ids() const;
-  ::google::protobuf::RepeatedPtrField<std::string>* mutable_relationship_ids();
-
-  private:
-  const ::google::protobuf::RepeatedPtrField<std::string>& _internal_relationship_ids() const;
-  ::google::protobuf::RepeatedPtrField<std::string>* _internal_mutable_relationship_ids();
-
-  public:
-  // string entity_id = 1 [json_name = "entityId"];
-  void clear_entity_id() ;
-  const std::string& entity_id() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_entity_id(Arg_&& arg, Args_... args);
-  std::string* mutable_entity_id();
-  PROTOBUF_NODISCARD std::string* release_entity_id();
-  void set_allocated_entity_id(std::string* value);
-
-  private:
-  const std::string& _internal_entity_id() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_entity_id(
-      const std::string& value);
-  std::string* _internal_mutable_entity_id();
-
-  public:
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.UnrelateEntityRequest)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 0,
-      80, 2>
-      _table_;
-
-  static constexpr const void* _raw_default_instance_ =
-      &_UnrelateEntityRequest_default_instance_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const UnrelateEntityRequest& from_msg);
-    ::google::protobuf::RepeatedPtrField<std::string> relationship_ids_;
-    ::google::protobuf::internal::ArenaStringPtr entity_id_;
-    mutable ::google::protobuf::internal::CachedSize _cached_size_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fapi_2epub_2eproto;
-};
 // -------------------------------------------------------------------
 
 class RemoveEntityOverrideResponse final : public ::google::protobuf::internal::ZeroFieldsBase
@@ -449,7 +209,7 @@ class RemoveEntityOverrideResponse final : public ::google::protobuf::internal::
     return reinterpret_cast<const RemoveEntityOverrideResponse*>(
         &_RemoveEntityOverrideResponse_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 11;
+  static constexpr int kIndexInFileMessages = 9;
   friend void swap(RemoveEntityOverrideResponse& a, RemoveEntityOverrideResponse& b) { a.Swap(&b); }
   inline void Swap(RemoveEntityOverrideResponse* other) {
     if (other == this) return;
@@ -593,7 +353,7 @@ class RemoveEntityOverrideRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const RemoveEntityOverrideRequest*>(
         &_RemoveEntityOverrideRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 10;
+  static constexpr int kIndexInFileMessages = 8;
   friend void swap(RemoveEntityOverrideRequest& a, RemoveEntityOverrideRequest& b) { a.Swap(&b); }
   inline void Swap(RemoveEntityOverrideRequest* other) {
     if (other == this) return;
@@ -756,6 +516,149 @@ class RemoveEntityOverrideRequest final : public ::google::protobuf::Message
 };
 // -------------------------------------------------------------------
 
+class PublishEntityResponse final : public ::google::protobuf::internal::ZeroFieldsBase
+/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.PublishEntityResponse) */ {
+ public:
+  inline PublishEntityResponse() : PublishEntityResponse(nullptr) {}
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR PublishEntityResponse(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline PublishEntityResponse(const PublishEntityResponse& from) : PublishEntityResponse(nullptr, from) {}
+  inline PublishEntityResponse(PublishEntityResponse&& from) noexcept
+      : PublishEntityResponse(nullptr, std::move(from)) {}
+  inline PublishEntityResponse& operator=(const PublishEntityResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PublishEntityResponse& operator=(PublishEntityResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const PublishEntityResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const PublishEntityResponse* internal_default_instance() {
+    return reinterpret_cast<const PublishEntityResponse*>(
+        &_PublishEntityResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 1;
+  friend void swap(PublishEntityResponse& a, PublishEntityResponse& b) { a.Swap(&b); }
+  inline void Swap(PublishEntityResponse* other) {
+    if (other == this) return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
+#else   // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PublishEntityResponse* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  PublishEntityResponse* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
+    return ::google::protobuf::internal::ZeroFieldsBase::DefaultConstruct<PublishEntityResponse>(arena);
+  }
+  using ::google::protobuf::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const PublishEntityResponse& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::google::protobuf::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const PublishEntityResponse& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+ private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.PublishEntityResponse"; }
+
+ protected:
+  explicit PublishEntityResponse(::google::protobuf::Arena* arena);
+  PublishEntityResponse(::google::protobuf::Arena* arena, const PublishEntityResponse& from);
+  PublishEntityResponse(::google::protobuf::Arena* arena, PublishEntityResponse&& from) noexcept
+      : PublishEntityResponse(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ZeroFieldsBase::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static const ::google::protobuf::internal::ZeroFieldsBase::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.PublishEntityResponse)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 0, 0,
+      0, 2>
+      _table_;
+
+  static constexpr const void* _raw_default_instance_ =
+      &_PublishEntityResponse_default_instance_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const PublishEntityResponse& from_msg);
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fapi_2epub_2eproto;
+};
+// -------------------------------------------------------------------
+
 class PublishEntitiesResponse final : public ::google::protobuf::internal::ZeroFieldsBase
 /* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.PublishEntitiesResponse) */ {
  public:
@@ -810,7 +713,7 @@ class PublishEntitiesResponse final : public ::google::protobuf::internal::ZeroF
     return reinterpret_cast<const PublishEntitiesResponse*>(
         &_PublishEntitiesResponse_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 7;
+  static constexpr int kIndexInFileMessages = 3;
   friend void swap(PublishEntitiesResponse& a, PublishEntitiesResponse& b) { a.Swap(&b); }
   inline void Swap(PublishEntitiesResponse* other) {
     if (other == this) return;
@@ -954,7 +857,7 @@ class OverrideEntityResponse final : public ::google::protobuf::Message
     return reinterpret_cast<const OverrideEntityResponse*>(
         &_OverrideEntityResponse_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 9;
+  static constexpr int kIndexInFileMessages = 7;
   friend void swap(OverrideEntityResponse& a, OverrideEntityResponse& b) { a.Swap(&b); }
   inline void Swap(OverrideEntityResponse* other) {
     if (other == this) return;
@@ -1142,7 +1045,7 @@ class GetEntityRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const GetEntityRequest*>(
         &_GetEntityRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 0;
+  static constexpr int kIndexInFileMessages = 4;
   friend void swap(GetEntityRequest& a, GetEntityRequest& b) { a.Swap(&b); }
   inline void Swap(GetEntityRequest* other) {
     if (other == this) return;
@@ -1281,343 +1184,6 @@ class GetEntityRequest final : public ::google::protobuf::Message
 };
 // -------------------------------------------------------------------
 
-class DeleteEntityResponse final : public ::google::protobuf::internal::ZeroFieldsBase
-/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.DeleteEntityResponse) */ {
- public:
-  inline DeleteEntityResponse() : DeleteEntityResponse(nullptr) {}
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR DeleteEntityResponse(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline DeleteEntityResponse(const DeleteEntityResponse& from) : DeleteEntityResponse(nullptr, from) {}
-  inline DeleteEntityResponse(DeleteEntityResponse&& from) noexcept
-      : DeleteEntityResponse(nullptr, std::move(from)) {}
-  inline DeleteEntityResponse& operator=(const DeleteEntityResponse& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline DeleteEntityResponse& operator=(DeleteEntityResponse&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetArena() == from.GetArena()
-#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetArena() != nullptr
-#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const DeleteEntityResponse& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const DeleteEntityResponse* internal_default_instance() {
-    return reinterpret_cast<const DeleteEntityResponse*>(
-        &_DeleteEntityResponse_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 13;
-  friend void swap(DeleteEntityResponse& a, DeleteEntityResponse& b) { a.Swap(&b); }
-  inline void Swap(DeleteEntityResponse* other) {
-    if (other == this) return;
-#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
-#else   // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() == other->GetArena()) {
-#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(DeleteEntityResponse* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  DeleteEntityResponse* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
-    return ::google::protobuf::internal::ZeroFieldsBase::DefaultConstruct<DeleteEntityResponse>(arena);
-  }
-  using ::google::protobuf::internal::ZeroFieldsBase::CopyFrom;
-  inline void CopyFrom(const DeleteEntityResponse& from) {
-    ::google::protobuf::internal::ZeroFieldsBase::CopyImpl(*this, from);
-  }
-  using ::google::protobuf::internal::ZeroFieldsBase::MergeFrom;
-  void MergeFrom(const DeleteEntityResponse& from) {
-    ::google::protobuf::internal::ZeroFieldsBase::MergeImpl(*this, from);
-  }
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
- private:
-  friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.DeleteEntityResponse"; }
-
- protected:
-  explicit DeleteEntityResponse(::google::protobuf::Arena* arena);
-  DeleteEntityResponse(::google::protobuf::Arena* arena, const DeleteEntityResponse& from);
-  DeleteEntityResponse(::google::protobuf::Arena* arena, DeleteEntityResponse&& from) noexcept
-      : DeleteEntityResponse(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::internal::ZeroFieldsBase::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static const ::google::protobuf::internal::ZeroFieldsBase::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.DeleteEntityResponse)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      0, 0, 0,
-      0, 2>
-      _table_;
-
-  static constexpr const void* _raw_default_instance_ =
-      &_DeleteEntityResponse_default_instance_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const DeleteEntityResponse& from_msg);
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fapi_2epub_2eproto;
-};
-// -------------------------------------------------------------------
-
-class DeleteEntityRequest final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.DeleteEntityRequest) */ {
- public:
-  inline DeleteEntityRequest() : DeleteEntityRequest(nullptr) {}
-  ~DeleteEntityRequest() PROTOBUF_FINAL;
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR DeleteEntityRequest(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline DeleteEntityRequest(const DeleteEntityRequest& from) : DeleteEntityRequest(nullptr, from) {}
-  inline DeleteEntityRequest(DeleteEntityRequest&& from) noexcept
-      : DeleteEntityRequest(nullptr, std::move(from)) {}
-  inline DeleteEntityRequest& operator=(const DeleteEntityRequest& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline DeleteEntityRequest& operator=(DeleteEntityRequest&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetArena() == from.GetArena()
-#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetArena() != nullptr
-#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const DeleteEntityRequest& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const DeleteEntityRequest* internal_default_instance() {
-    return reinterpret_cast<const DeleteEntityRequest*>(
-        &_DeleteEntityRequest_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 12;
-  friend void swap(DeleteEntityRequest& a, DeleteEntityRequest& b) { a.Swap(&b); }
-  inline void Swap(DeleteEntityRequest* other) {
-    if (other == this) return;
-#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
-#else   // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() == other->GetArena()) {
-#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(DeleteEntityRequest* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  DeleteEntityRequest* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
-    return ::google::protobuf::Message::DefaultConstruct<DeleteEntityRequest>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const DeleteEntityRequest& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const DeleteEntityRequest& from) { DeleteEntityRequest::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  void SharedDtor();
-  void InternalSwap(DeleteEntityRequest* other);
- private:
-  friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.DeleteEntityRequest"; }
-
- protected:
-  explicit DeleteEntityRequest(::google::protobuf::Arena* arena);
-  DeleteEntityRequest(::google::protobuf::Arena* arena, const DeleteEntityRequest& from);
-  DeleteEntityRequest(::google::protobuf::Arena* arena, DeleteEntityRequest&& from) noexcept
-      : DeleteEntityRequest(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static const ::google::protobuf::Message::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kEntityIdFieldNumber = 1,
-  };
-  // string entity_id = 1 [json_name = "entityId"];
-  void clear_entity_id() ;
-  const std::string& entity_id() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_entity_id(Arg_&& arg, Args_... args);
-  std::string* mutable_entity_id();
-  PROTOBUF_NODISCARD std::string* release_entity_id();
-  void set_allocated_entity_id(std::string* value);
-
-  private:
-  const std::string& _internal_entity_id() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_entity_id(
-      const std::string& value);
-  std::string* _internal_mutable_entity_id();
-
-  public:
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.DeleteEntityRequest)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      0, 1, 0,
-      62, 2>
-      _table_;
-
-  static constexpr const void* _raw_default_instance_ =
-      &_DeleteEntityRequest_default_instance_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const DeleteEntityRequest& from_msg);
-    ::google::protobuf::internal::ArenaStringPtr entity_id_;
-    mutable ::google::protobuf::internal::CachedSize _cached_size_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fapi_2epub_2eproto;
-};
-// -------------------------------------------------------------------
-
 class Heartbeat final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.Heartbeat) */ {
  public:
@@ -1673,7 +1239,7 @@ class Heartbeat final : public ::google::protobuf::Message
     return reinterpret_cast<const Heartbeat*>(
         &_Heartbeat_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 20;
+  static constexpr int kIndexInFileMessages = 13;
   friend void swap(Heartbeat& a, Heartbeat& b) { a.Swap(&b); }
   inline void Swap(Heartbeat* other) {
     if (other == this) return;
@@ -1812,236 +1378,6 @@ class Heartbeat final : public ::google::protobuf::Message
 };
 // -------------------------------------------------------------------
 
-class RelationshipRequest final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.RelationshipRequest) */ {
- public:
-  inline RelationshipRequest() : RelationshipRequest(nullptr) {}
-  ~RelationshipRequest() PROTOBUF_FINAL;
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR RelationshipRequest(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline RelationshipRequest(const RelationshipRequest& from) : RelationshipRequest(nullptr, from) {}
-  inline RelationshipRequest(RelationshipRequest&& from) noexcept
-      : RelationshipRequest(nullptr, std::move(from)) {}
-  inline RelationshipRequest& operator=(const RelationshipRequest& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline RelationshipRequest& operator=(RelationshipRequest&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetArena() == from.GetArena()
-#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetArena() != nullptr
-#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const RelationshipRequest& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const RelationshipRequest* internal_default_instance() {
-    return reinterpret_cast<const RelationshipRequest*>(
-        &_RelationshipRequest_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 15;
-  friend void swap(RelationshipRequest& a, RelationshipRequest& b) { a.Swap(&b); }
-  inline void Swap(RelationshipRequest* other) {
-    if (other == this) return;
-#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
-#else   // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() == other->GetArena()) {
-#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(RelationshipRequest* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  RelationshipRequest* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
-    return ::google::protobuf::Message::DefaultConstruct<RelationshipRequest>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const RelationshipRequest& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const RelationshipRequest& from) { RelationshipRequest::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  void SharedDtor();
-  void InternalSwap(RelationshipRequest* other);
- private:
-  friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.RelationshipRequest"; }
-
- protected:
-  explicit RelationshipRequest(::google::protobuf::Arena* arena);
-  RelationshipRequest(::google::protobuf::Arena* arena, const RelationshipRequest& from);
-  RelationshipRequest(::google::protobuf::Arena* arena, RelationshipRequest&& from) noexcept
-      : RelationshipRequest(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static const ::google::protobuf::Message::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kRelatedEntityIdFieldNumber = 1,
-    kRelationshipIdFieldNumber = 2,
-    kRelationshipTypeFieldNumber = 3,
-  };
-  // string related_entity_id = 1 [json_name = "relatedEntityId"];
-  void clear_related_entity_id() ;
-  const std::string& related_entity_id() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_related_entity_id(Arg_&& arg, Args_... args);
-  std::string* mutable_related_entity_id();
-  PROTOBUF_NODISCARD std::string* release_related_entity_id();
-  void set_allocated_related_entity_id(std::string* value);
-
-  private:
-  const std::string& _internal_related_entity_id() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_related_entity_id(
-      const std::string& value);
-  std::string* _internal_mutable_related_entity_id();
-
-  public:
-  // string relationship_id = 2 [json_name = "relationshipId"];
-  void clear_relationship_id() ;
-  const std::string& relationship_id() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_relationship_id(Arg_&& arg, Args_... args);
-  std::string* mutable_relationship_id();
-  PROTOBUF_NODISCARD std::string* release_relationship_id();
-  void set_allocated_relationship_id(std::string* value);
-
-  private:
-  const std::string& _internal_relationship_id() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_relationship_id(
-      const std::string& value);
-  std::string* _internal_mutable_relationship_id();
-
-  public:
-  // .anduril.entitymanager.v1.RelationshipType relationship_type = 3 [json_name = "relationshipType"];
-  bool has_relationship_type() const;
-  void clear_relationship_type() ;
-  const ::anduril::entitymanager::v1::RelationshipType& relationship_type() const;
-  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::RelationshipType* release_relationship_type();
-  ::anduril::entitymanager::v1::RelationshipType* mutable_relationship_type();
-  void set_allocated_relationship_type(::anduril::entitymanager::v1::RelationshipType* value);
-  void unsafe_arena_set_allocated_relationship_type(::anduril::entitymanager::v1::RelationshipType* value);
-  ::anduril::entitymanager::v1::RelationshipType* unsafe_arena_release_relationship_type();
-
-  private:
-  const ::anduril::entitymanager::v1::RelationshipType& _internal_relationship_type() const;
-  ::anduril::entitymanager::v1::RelationshipType* _internal_mutable_relationship_type();
-
-  public:
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.RelationshipRequest)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      2, 3, 1,
-      85, 2>
-      _table_;
-
-  static constexpr const void* _raw_default_instance_ =
-      &_RelationshipRequest_default_instance_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const RelationshipRequest& from_msg);
-    ::google::protobuf::internal::HasBits<1> _has_bits_;
-    mutable ::google::protobuf::internal::CachedSize _cached_size_;
-    ::google::protobuf::internal::ArenaStringPtr related_entity_id_;
-    ::google::protobuf::internal::ArenaStringPtr relationship_id_;
-    ::anduril::entitymanager::v1::RelationshipType* relationship_type_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fapi_2epub_2eproto;
-};
-// -------------------------------------------------------------------
-
 class StreamEntityComponentsRequest final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.StreamEntityComponentsRequest) */ {
  public:
@@ -2097,7 +1433,7 @@ class StreamEntityComponentsRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const StreamEntityComponentsRequest*>(
         &_StreamEntityComponentsRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 2;
+  static constexpr int kIndexInFileMessages = 10;
   friend void swap(StreamEntityComponentsRequest& a, StreamEntityComponentsRequest& b) { a.Swap(&b); }
   inline void Swap(StreamEntityComponentsRequest* other) {
     if (other == this) return;
@@ -2313,23 +1649,23 @@ class StreamEntityComponentsRequest final : public ::google::protobuf::Message
 };
 // -------------------------------------------------------------------
 
-class RelateEntityRequest final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.RelateEntityRequest) */ {
+class PublishEntityRequest final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.PublishEntityRequest) */ {
  public:
-  inline RelateEntityRequest() : RelateEntityRequest(nullptr) {}
-  ~RelateEntityRequest() PROTOBUF_FINAL;
+  inline PublishEntityRequest() : PublishEntityRequest(nullptr) {}
+  ~PublishEntityRequest() PROTOBUF_FINAL;
   template <typename = void>
-  explicit PROTOBUF_CONSTEXPR RelateEntityRequest(
+  explicit PROTOBUF_CONSTEXPR PublishEntityRequest(
       ::google::protobuf::internal::ConstantInitialized);
 
-  inline RelateEntityRequest(const RelateEntityRequest& from) : RelateEntityRequest(nullptr, from) {}
-  inline RelateEntityRequest(RelateEntityRequest&& from) noexcept
-      : RelateEntityRequest(nullptr, std::move(from)) {}
-  inline RelateEntityRequest& operator=(const RelateEntityRequest& from) {
+  inline PublishEntityRequest(const PublishEntityRequest& from) : PublishEntityRequest(nullptr, from) {}
+  inline PublishEntityRequest(PublishEntityRequest&& from) noexcept
+      : PublishEntityRequest(nullptr, std::move(from)) {}
+  inline PublishEntityRequest& operator=(const PublishEntityRequest& from) {
     CopyFrom(from);
     return *this;
   }
-  inline RelateEntityRequest& operator=(RelateEntityRequest&& from) noexcept {
+  inline PublishEntityRequest& operator=(PublishEntityRequest&& from) noexcept {
     if (this == &from) return *this;
     if (GetArena() == from.GetArena()
 #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -2361,16 +1697,16 @@ class RelateEntityRequest final : public ::google::protobuf::Message
   static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const RelateEntityRequest& default_instance() {
+  static const PublishEntityRequest& default_instance() {
     return *internal_default_instance();
   }
-  static inline const RelateEntityRequest* internal_default_instance() {
-    return reinterpret_cast<const RelateEntityRequest*>(
-        &_RelateEntityRequest_default_instance_);
+  static inline const PublishEntityRequest* internal_default_instance() {
+    return reinterpret_cast<const PublishEntityRequest*>(
+        &_PublishEntityRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 14;
-  friend void swap(RelateEntityRequest& a, RelateEntityRequest& b) { a.Swap(&b); }
-  inline void Swap(RelateEntityRequest* other) {
+  static constexpr int kIndexInFileMessages = 0;
+  friend void swap(PublishEntityRequest& a, PublishEntityRequest& b) { a.Swap(&b); }
+  inline void Swap(PublishEntityRequest* other) {
     if (other == this) return;
 #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetArena() != nullptr && GetArena() == other->GetArena()) {
@@ -2382,7 +1718,7 @@ class RelateEntityRequest final : public ::google::protobuf::Message
       ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(RelateEntityRequest* other) {
+  void UnsafeArenaSwap(PublishEntityRequest* other) {
     if (other == this) return;
     ABSL_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -2390,13 +1726,13 @@ class RelateEntityRequest final : public ::google::protobuf::Message
 
   // implements Message ----------------------------------------------
 
-  RelateEntityRequest* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
-    return ::google::protobuf::Message::DefaultConstruct<RelateEntityRequest>(arena);
+  PublishEntityRequest* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
+    return ::google::protobuf::Message::DefaultConstruct<PublishEntityRequest>(arena);
   }
   using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const RelateEntityRequest& from);
+  void CopyFrom(const PublishEntityRequest& from);
   using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const RelateEntityRequest& from) { RelateEntityRequest::MergeImpl(*this, from); }
+  void MergeFrom(const PublishEntityRequest& from) { PublishEntityRequest::MergeImpl(*this, from); }
 
   private:
   static void MergeImpl(
@@ -2433,229 +1769,16 @@ class RelateEntityRequest final : public ::google::protobuf::Message
   private:
   void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
-  void InternalSwap(RelateEntityRequest* other);
+  void InternalSwap(PublishEntityRequest* other);
  private:
   friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.RelateEntityRequest"; }
+  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.PublishEntityRequest"; }
 
  protected:
-  explicit RelateEntityRequest(::google::protobuf::Arena* arena);
-  RelateEntityRequest(::google::protobuf::Arena* arena, const RelateEntityRequest& from);
-  RelateEntityRequest(::google::protobuf::Arena* arena, RelateEntityRequest&& from) noexcept
-      : RelateEntityRequest(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static const ::google::protobuf::Message::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kRelationshipsFieldNumber = 2,
-    kEntityIdFieldNumber = 1,
-  };
-  // repeated .anduril.entitymanager.v1.RelationshipRequest relationships = 2 [json_name = "relationships"];
-  int relationships_size() const;
-  private:
-  int _internal_relationships_size() const;
-
-  public:
-  void clear_relationships() ;
-  ::anduril::entitymanager::v1::RelationshipRequest* mutable_relationships(int index);
-  ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::RelationshipRequest>* mutable_relationships();
-
-  private:
-  const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::RelationshipRequest>& _internal_relationships() const;
-  ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::RelationshipRequest>* _internal_mutable_relationships();
-  public:
-  const ::anduril::entitymanager::v1::RelationshipRequest& relationships(int index) const;
-  ::anduril::entitymanager::v1::RelationshipRequest* add_relationships();
-  const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::RelationshipRequest>& relationships() const;
-  // string entity_id = 1 [json_name = "entityId"];
-  void clear_entity_id() ;
-  const std::string& entity_id() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_entity_id(Arg_&& arg, Args_... args);
-  std::string* mutable_entity_id();
-  PROTOBUF_NODISCARD std::string* release_entity_id();
-  void set_allocated_entity_id(std::string* value);
-
-  private:
-  const std::string& _internal_entity_id() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_entity_id(
-      const std::string& value);
-  std::string* _internal_mutable_entity_id();
-
-  public:
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.RelateEntityRequest)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 1,
-      62, 2>
-      _table_;
-
-  static constexpr const void* _raw_default_instance_ =
-      &_RelateEntityRequest_default_instance_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const RelateEntityRequest& from_msg);
-    ::google::protobuf::RepeatedPtrField< ::anduril::entitymanager::v1::RelationshipRequest > relationships_;
-    ::google::protobuf::internal::ArenaStringPtr entity_id_;
-    mutable ::google::protobuf::internal::CachedSize _cached_size_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fapi_2epub_2eproto;
-};
-// -------------------------------------------------------------------
-
-class UnrelateEntityResponse final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.UnrelateEntityResponse) */ {
- public:
-  inline UnrelateEntityResponse() : UnrelateEntityResponse(nullptr) {}
-  ~UnrelateEntityResponse() PROTOBUF_FINAL;
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR UnrelateEntityResponse(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline UnrelateEntityResponse(const UnrelateEntityResponse& from) : UnrelateEntityResponse(nullptr, from) {}
-  inline UnrelateEntityResponse(UnrelateEntityResponse&& from) noexcept
-      : UnrelateEntityResponse(nullptr, std::move(from)) {}
-  inline UnrelateEntityResponse& operator=(const UnrelateEntityResponse& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline UnrelateEntityResponse& operator=(UnrelateEntityResponse&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetArena() == from.GetArena()
-#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetArena() != nullptr
-#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const UnrelateEntityResponse& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const UnrelateEntityResponse* internal_default_instance() {
-    return reinterpret_cast<const UnrelateEntityResponse*>(
-        &_UnrelateEntityResponse_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 18;
-  friend void swap(UnrelateEntityResponse& a, UnrelateEntityResponse& b) { a.Swap(&b); }
-  inline void Swap(UnrelateEntityResponse* other) {
-    if (other == this) return;
-#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
-#else   // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() == other->GetArena()) {
-#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(UnrelateEntityResponse* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  UnrelateEntityResponse* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
-    return ::google::protobuf::Message::DefaultConstruct<UnrelateEntityResponse>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const UnrelateEntityResponse& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const UnrelateEntityResponse& from) { UnrelateEntityResponse::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  void SharedDtor();
-  void InternalSwap(UnrelateEntityResponse* other);
- private:
-  friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.UnrelateEntityResponse"; }
-
- protected:
-  explicit UnrelateEntityResponse(::google::protobuf::Arena* arena);
-  UnrelateEntityResponse(::google::protobuf::Arena* arena, const UnrelateEntityResponse& from);
-  UnrelateEntityResponse(::google::protobuf::Arena* arena, UnrelateEntityResponse&& from) noexcept
-      : UnrelateEntityResponse(arena) {
+  explicit PublishEntityRequest(::google::protobuf::Arena* arena);
+  PublishEntityRequest(::google::protobuf::Arena* arena, const PublishEntityRequest& from);
+  PublishEntityRequest(::google::protobuf::Arena* arena, PublishEntityRequest&& from) noexcept
+      : PublishEntityRequest(arena) {
     *this = ::std::move(from);
   }
   const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
@@ -2684,7 +1807,7 @@ class UnrelateEntityResponse final : public ::google::protobuf::Message
   ::anduril::entitymanager::v1::Entity* _internal_mutable_entity();
 
   public:
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.UnrelateEntityResponse)
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.PublishEntityRequest)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
@@ -2694,7 +1817,7 @@ class UnrelateEntityResponse final : public ::google::protobuf::Message
       _table_;
 
   static constexpr const void* _raw_default_instance_ =
-      &_UnrelateEntityResponse_default_instance_;
+      &_PublishEntityRequest_default_instance_;
 
   friend class ::google::protobuf::MessageLite;
   friend class ::google::protobuf::Arena;
@@ -2709,609 +1832,9 @@ class UnrelateEntityResponse final : public ::google::protobuf::Message
                           ::google::protobuf::Arena* arena);
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
-                          const UnrelateEntityResponse& from_msg);
+                          const PublishEntityRequest& from_msg);
     ::google::protobuf::internal::HasBits<1> _has_bits_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
-    ::anduril::entitymanager::v1::Entity* entity_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fapi_2epub_2eproto;
-};
-// -------------------------------------------------------------------
-
-class RelateEntityResponse final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.RelateEntityResponse) */ {
- public:
-  inline RelateEntityResponse() : RelateEntityResponse(nullptr) {}
-  ~RelateEntityResponse() PROTOBUF_FINAL;
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR RelateEntityResponse(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline RelateEntityResponse(const RelateEntityResponse& from) : RelateEntityResponse(nullptr, from) {}
-  inline RelateEntityResponse(RelateEntityResponse&& from) noexcept
-      : RelateEntityResponse(nullptr, std::move(from)) {}
-  inline RelateEntityResponse& operator=(const RelateEntityResponse& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline RelateEntityResponse& operator=(RelateEntityResponse&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetArena() == from.GetArena()
-#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetArena() != nullptr
-#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const RelateEntityResponse& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const RelateEntityResponse* internal_default_instance() {
-    return reinterpret_cast<const RelateEntityResponse*>(
-        &_RelateEntityResponse_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 16;
-  friend void swap(RelateEntityResponse& a, RelateEntityResponse& b) { a.Swap(&b); }
-  inline void Swap(RelateEntityResponse* other) {
-    if (other == this) return;
-#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
-#else   // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() == other->GetArena()) {
-#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(RelateEntityResponse* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  RelateEntityResponse* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
-    return ::google::protobuf::Message::DefaultConstruct<RelateEntityResponse>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const RelateEntityResponse& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const RelateEntityResponse& from) { RelateEntityResponse::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  void SharedDtor();
-  void InternalSwap(RelateEntityResponse* other);
- private:
-  friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.RelateEntityResponse"; }
-
- protected:
-  explicit RelateEntityResponse(::google::protobuf::Arena* arena);
-  RelateEntityResponse(::google::protobuf::Arena* arena, const RelateEntityResponse& from);
-  RelateEntityResponse(::google::protobuf::Arena* arena, RelateEntityResponse&& from) noexcept
-      : RelateEntityResponse(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static const ::google::protobuf::Message::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kEntityFieldNumber = 1,
-  };
-  // .anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];
-  bool has_entity() const;
-  void clear_entity() ;
-  const ::anduril::entitymanager::v1::Entity& entity() const;
-  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::Entity* release_entity();
-  ::anduril::entitymanager::v1::Entity* mutable_entity();
-  void set_allocated_entity(::anduril::entitymanager::v1::Entity* value);
-  void unsafe_arena_set_allocated_entity(::anduril::entitymanager::v1::Entity* value);
-  ::anduril::entitymanager::v1::Entity* unsafe_arena_release_entity();
-
-  private:
-  const ::anduril::entitymanager::v1::Entity& _internal_entity() const;
-  ::anduril::entitymanager::v1::Entity* _internal_mutable_entity();
-
-  public:
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.RelateEntityResponse)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      0, 1, 1,
-      0, 2>
-      _table_;
-
-  static constexpr const void* _raw_default_instance_ =
-      &_RelateEntityResponse_default_instance_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const RelateEntityResponse& from_msg);
-    ::google::protobuf::internal::HasBits<1> _has_bits_;
-    mutable ::google::protobuf::internal::CachedSize _cached_size_;
-    ::anduril::entitymanager::v1::Entity* entity_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fapi_2epub_2eproto;
-};
-// -------------------------------------------------------------------
-
-class PutEntityResponse final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.PutEntityResponse) */ {
- public:
-  inline PutEntityResponse() : PutEntityResponse(nullptr) {}
-  ~PutEntityResponse() PROTOBUF_FINAL;
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR PutEntityResponse(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline PutEntityResponse(const PutEntityResponse& from) : PutEntityResponse(nullptr, from) {}
-  inline PutEntityResponse(PutEntityResponse&& from) noexcept
-      : PutEntityResponse(nullptr, std::move(from)) {}
-  inline PutEntityResponse& operator=(const PutEntityResponse& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline PutEntityResponse& operator=(PutEntityResponse&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetArena() == from.GetArena()
-#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetArena() != nullptr
-#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const PutEntityResponse& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const PutEntityResponse* internal_default_instance() {
-    return reinterpret_cast<const PutEntityResponse*>(
-        &_PutEntityResponse_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 5;
-  friend void swap(PutEntityResponse& a, PutEntityResponse& b) { a.Swap(&b); }
-  inline void Swap(PutEntityResponse* other) {
-    if (other == this) return;
-#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
-#else   // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() == other->GetArena()) {
-#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(PutEntityResponse* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  PutEntityResponse* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
-    return ::google::protobuf::Message::DefaultConstruct<PutEntityResponse>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const PutEntityResponse& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const PutEntityResponse& from) { PutEntityResponse::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  void SharedDtor();
-  void InternalSwap(PutEntityResponse* other);
- private:
-  friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.PutEntityResponse"; }
-
- protected:
-  explicit PutEntityResponse(::google::protobuf::Arena* arena);
-  PutEntityResponse(::google::protobuf::Arena* arena, const PutEntityResponse& from);
-  PutEntityResponse(::google::protobuf::Arena* arena, PutEntityResponse&& from) noexcept
-      : PutEntityResponse(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static const ::google::protobuf::Message::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kEntityFieldNumber = 1,
-  };
-  // .anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];
-  bool has_entity() const;
-  void clear_entity() ;
-  const ::anduril::entitymanager::v1::Entity& entity() const;
-  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::Entity* release_entity();
-  ::anduril::entitymanager::v1::Entity* mutable_entity();
-  void set_allocated_entity(::anduril::entitymanager::v1::Entity* value);
-  void unsafe_arena_set_allocated_entity(::anduril::entitymanager::v1::Entity* value);
-  ::anduril::entitymanager::v1::Entity* unsafe_arena_release_entity();
-
-  private:
-  const ::anduril::entitymanager::v1::Entity& _internal_entity() const;
-  ::anduril::entitymanager::v1::Entity* _internal_mutable_entity();
-
-  public:
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.PutEntityResponse)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      0, 1, 1,
-      0, 2>
-      _table_;
-
-  static constexpr const void* _raw_default_instance_ =
-      &_PutEntityResponse_default_instance_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const PutEntityResponse& from_msg);
-    ::google::protobuf::internal::HasBits<1> _has_bits_;
-    mutable ::google::protobuf::internal::CachedSize _cached_size_;
-    ::anduril::entitymanager::v1::Entity* entity_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fapi_2epub_2eproto;
-};
-// -------------------------------------------------------------------
-
-class PutEntityRequest final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.PutEntityRequest) */ {
- public:
-  inline PutEntityRequest() : PutEntityRequest(nullptr) {}
-  ~PutEntityRequest() PROTOBUF_FINAL;
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR PutEntityRequest(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline PutEntityRequest(const PutEntityRequest& from) : PutEntityRequest(nullptr, from) {}
-  inline PutEntityRequest(PutEntityRequest&& from) noexcept
-      : PutEntityRequest(nullptr, std::move(from)) {}
-  inline PutEntityRequest& operator=(const PutEntityRequest& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline PutEntityRequest& operator=(PutEntityRequest&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetArena() == from.GetArena()
-#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetArena() != nullptr
-#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const PutEntityRequest& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const PutEntityRequest* internal_default_instance() {
-    return reinterpret_cast<const PutEntityRequest*>(
-        &_PutEntityRequest_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 4;
-  friend void swap(PutEntityRequest& a, PutEntityRequest& b) { a.Swap(&b); }
-  inline void Swap(PutEntityRequest* other) {
-    if (other == this) return;
-#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
-#else   // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() == other->GetArena()) {
-#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(PutEntityRequest* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  PutEntityRequest* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
-    return ::google::protobuf::Message::DefaultConstruct<PutEntityRequest>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const PutEntityRequest& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const PutEntityRequest& from) { PutEntityRequest::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  void SharedDtor();
-  void InternalSwap(PutEntityRequest* other);
- private:
-  friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.PutEntityRequest"; }
-
- protected:
-  explicit PutEntityRequest(::google::protobuf::Arena* arena);
-  PutEntityRequest(::google::protobuf::Arena* arena, const PutEntityRequest& from);
-  PutEntityRequest(::google::protobuf::Arena* arena, PutEntityRequest&& from) noexcept
-      : PutEntityRequest(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static const ::google::protobuf::Message::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kUniqueIdFieldNumber = 2,
-    kEntityFieldNumber = 1,
-  };
-  // string unique_id = 2 [json_name = "uniqueId"];
-  void clear_unique_id() ;
-  const std::string& unique_id() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_unique_id(Arg_&& arg, Args_... args);
-  std::string* mutable_unique_id();
-  PROTOBUF_NODISCARD std::string* release_unique_id();
-  void set_allocated_unique_id(std::string* value);
-
-  private:
-  const std::string& _internal_unique_id() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_unique_id(
-      const std::string& value);
-  std::string* _internal_mutable_unique_id();
-
-  public:
-  // .anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];
-  bool has_entity() const;
-  void clear_entity() ;
-  const ::anduril::entitymanager::v1::Entity& entity() const;
-  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::Entity* release_entity();
-  ::anduril::entitymanager::v1::Entity* mutable_entity();
-  void set_allocated_entity(::anduril::entitymanager::v1::Entity* value);
-  void unsafe_arena_set_allocated_entity(::anduril::entitymanager::v1::Entity* value);
-  ::anduril::entitymanager::v1::Entity* unsafe_arena_release_entity();
-
-  private:
-  const ::anduril::entitymanager::v1::Entity& _internal_entity() const;
-  ::anduril::entitymanager::v1::Entity* _internal_mutable_entity();
-
-  public:
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.PutEntityRequest)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 1,
-      59, 2>
-      _table_;
-
-  static constexpr const void* _raw_default_instance_ =
-      &_PutEntityRequest_default_instance_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const PutEntityRequest& from_msg);
-    ::google::protobuf::internal::HasBits<1> _has_bits_;
-    mutable ::google::protobuf::internal::CachedSize _cached_size_;
-    ::google::protobuf::internal::ArenaStringPtr unique_id_;
     ::anduril::entitymanager::v1::Entity* entity_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -3375,7 +1898,7 @@ class PublishEntitiesRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const PublishEntitiesRequest*>(
         &_PublishEntitiesRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 6;
+  static constexpr int kIndexInFileMessages = 2;
   friend void swap(PublishEntitiesRequest& a, PublishEntitiesRequest& b) { a.Swap(&b); }
   inline void Swap(PublishEntitiesRequest* other) {
     if (other == this) return;
@@ -3569,7 +2092,7 @@ class OverrideEntityRequest final : public ::google::protobuf::Message
     return reinterpret_cast<const OverrideEntityRequest*>(
         &_OverrideEntityRequest_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 8;
+  static constexpr int kIndexInFileMessages = 6;
   friend void swap(OverrideEntityRequest& a, OverrideEntityRequest& b) { a.Swap(&b); }
   inline void Swap(OverrideEntityRequest* other) {
     if (other == this) return;
@@ -3804,7 +2327,7 @@ class GetEntityResponse final : public ::google::protobuf::Message
     return reinterpret_cast<const GetEntityResponse*>(
         &_GetEntityResponse_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 1;
+  static constexpr int kIndexInFileMessages = 5;
   friend void swap(GetEntityResponse& a, GetEntityResponse& b) { a.Swap(&b); }
   inline void Swap(GetEntityResponse* other) {
     if (other == this) return;
@@ -3998,7 +2521,7 @@ class EntityEvent final : public ::google::protobuf::Message
     return reinterpret_cast<const EntityEvent*>(
         &_EntityEvent_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 19;
+  static constexpr int kIndexInFileMessages = 12;
   friend void swap(EntityEvent& a, EntityEvent& b) { a.Swap(&b); }
   inline void Swap(EntityEvent* other) {
     if (other == this) return;
@@ -4221,7 +2744,7 @@ class StreamEntityComponentsResponse final : public ::google::protobuf::Message
     return reinterpret_cast<const StreamEntityComponentsResponse*>(
         &_StreamEntityComponentsResponse_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 3;
+  static constexpr int kIndexInFileMessages = 11;
   friend void swap(StreamEntityComponentsResponse& a, StreamEntityComponentsResponse& b) { a.Swap(&b); }
   inline void Swap(StreamEntityComponentsResponse* other) {
     if (other == this) return;
@@ -4390,6 +2913,204 @@ class StreamEntityComponentsResponse final : public ::google::protobuf::Message
 #endif  // __GNUC__
 // -------------------------------------------------------------------
 
+// PublishEntityRequest
+
+// .anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];
+inline bool PublishEntityRequest::has_entity() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.entity_ != nullptr);
+  return value;
+}
+inline const ::anduril::entitymanager::v1::Entity& PublishEntityRequest::_internal_entity() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::anduril::entitymanager::v1::Entity* p = _impl_.entity_;
+  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::Entity&>(::anduril::entitymanager::v1::_Entity_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::Entity& PublishEntityRequest::entity() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.PublishEntityRequest.entity)
+  return _internal_entity();
+}
+inline void PublishEntityRequest::unsafe_arena_set_allocated_entity(::anduril::entitymanager::v1::Entity* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.entity_);
+  }
+  _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.PublishEntityRequest.entity)
+}
+inline ::anduril::entitymanager::v1::Entity* PublishEntityRequest::release_entity() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::anduril::entitymanager::v1::Entity* released = _impl_.entity_;
+  _impl_.entity_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::anduril::entitymanager::v1::Entity* PublishEntityRequest::unsafe_arena_release_entity() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.PublishEntityRequest.entity)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::anduril::entitymanager::v1::Entity* temp = _impl_.entity_;
+  _impl_.entity_ = nullptr;
+  return temp;
+}
+inline ::anduril::entitymanager::v1::Entity* PublishEntityRequest::_internal_mutable_entity() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.entity_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Entity>(GetArena());
+    _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(p);
+  }
+  return _impl_.entity_;
+}
+inline ::anduril::entitymanager::v1::Entity* PublishEntityRequest::mutable_entity() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  ::anduril::entitymanager::v1::Entity* _msg = _internal_mutable_entity();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.PublishEntityRequest.entity)
+  return _msg;
+}
+inline void PublishEntityRequest::set_allocated_entity(::anduril::entitymanager::v1::Entity* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.entity_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(value);
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.PublishEntityRequest.entity)
+}
+
+// -------------------------------------------------------------------
+
+// PublishEntityResponse
+
+// -------------------------------------------------------------------
+
+// PublishEntitiesRequest
+
+// .anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];
+inline bool PublishEntitiesRequest::has_entity() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.entity_ != nullptr);
+  return value;
+}
+inline const ::anduril::entitymanager::v1::Entity& PublishEntitiesRequest::_internal_entity() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::anduril::entitymanager::v1::Entity* p = _impl_.entity_;
+  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::Entity&>(::anduril::entitymanager::v1::_Entity_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::Entity& PublishEntitiesRequest::entity() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.PublishEntitiesRequest.entity)
+  return _internal_entity();
+}
+inline void PublishEntitiesRequest::unsafe_arena_set_allocated_entity(::anduril::entitymanager::v1::Entity* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.entity_);
+  }
+  _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.PublishEntitiesRequest.entity)
+}
+inline ::anduril::entitymanager::v1::Entity* PublishEntitiesRequest::release_entity() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::anduril::entitymanager::v1::Entity* released = _impl_.entity_;
+  _impl_.entity_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::anduril::entitymanager::v1::Entity* PublishEntitiesRequest::unsafe_arena_release_entity() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.PublishEntitiesRequest.entity)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::anduril::entitymanager::v1::Entity* temp = _impl_.entity_;
+  _impl_.entity_ = nullptr;
+  return temp;
+}
+inline ::anduril::entitymanager::v1::Entity* PublishEntitiesRequest::_internal_mutable_entity() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.entity_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Entity>(GetArena());
+    _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(p);
+  }
+  return _impl_.entity_;
+}
+inline ::anduril::entitymanager::v1::Entity* PublishEntitiesRequest::mutable_entity() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  ::anduril::entitymanager::v1::Entity* _msg = _internal_mutable_entity();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.PublishEntitiesRequest.entity)
+  return _msg;
+}
+inline void PublishEntitiesRequest::set_allocated_entity(::anduril::entitymanager::v1::Entity* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.entity_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(value);
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.PublishEntitiesRequest.entity)
+}
+
+// -------------------------------------------------------------------
+
+// PublishEntitiesResponse
+
+// -------------------------------------------------------------------
+
 // GetEntityRequest
 
 // string entity_id = 1 [json_name = "entityId"];
@@ -4536,6 +3257,404 @@ inline void GetEntityResponse::set_allocated_entity(::anduril::entitymanager::v1
   _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(value);
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.GetEntityResponse.entity)
 }
+
+// -------------------------------------------------------------------
+
+// OverrideEntityRequest
+
+// .anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];
+inline bool OverrideEntityRequest::has_entity() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.entity_ != nullptr);
+  return value;
+}
+inline const ::anduril::entitymanager::v1::Entity& OverrideEntityRequest::_internal_entity() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::anduril::entitymanager::v1::Entity* p = _impl_.entity_;
+  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::Entity&>(::anduril::entitymanager::v1::_Entity_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::Entity& OverrideEntityRequest::entity() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.OverrideEntityRequest.entity)
+  return _internal_entity();
+}
+inline void OverrideEntityRequest::unsafe_arena_set_allocated_entity(::anduril::entitymanager::v1::Entity* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.entity_);
+  }
+  _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.OverrideEntityRequest.entity)
+}
+inline ::anduril::entitymanager::v1::Entity* OverrideEntityRequest::release_entity() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::anduril::entitymanager::v1::Entity* released = _impl_.entity_;
+  _impl_.entity_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::anduril::entitymanager::v1::Entity* OverrideEntityRequest::unsafe_arena_release_entity() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.OverrideEntityRequest.entity)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::anduril::entitymanager::v1::Entity* temp = _impl_.entity_;
+  _impl_.entity_ = nullptr;
+  return temp;
+}
+inline ::anduril::entitymanager::v1::Entity* OverrideEntityRequest::_internal_mutable_entity() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.entity_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Entity>(GetArena());
+    _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(p);
+  }
+  return _impl_.entity_;
+}
+inline ::anduril::entitymanager::v1::Entity* OverrideEntityRequest::mutable_entity() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  ::anduril::entitymanager::v1::Entity* _msg = _internal_mutable_entity();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.OverrideEntityRequest.entity)
+  return _msg;
+}
+inline void OverrideEntityRequest::set_allocated_entity(::anduril::entitymanager::v1::Entity* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.entity_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(value);
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.OverrideEntityRequest.entity)
+}
+
+// repeated string field_path = 2 [json_name = "fieldPath"];
+inline int OverrideEntityRequest::_internal_field_path_size() const {
+  return _internal_field_path().size();
+}
+inline int OverrideEntityRequest::field_path_size() const {
+  return _internal_field_path_size();
+}
+inline void OverrideEntityRequest::clear_field_path() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.field_path_.Clear();
+}
+inline std::string* OverrideEntityRequest::add_field_path() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  std::string* _s = _internal_mutable_field_path()->Add();
+  // @@protoc_insertion_point(field_add_mutable:anduril.entitymanager.v1.OverrideEntityRequest.field_path)
+  return _s;
+}
+inline const std::string& OverrideEntityRequest::field_path(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.OverrideEntityRequest.field_path)
+  return _internal_field_path().Get(index);
+}
+inline std::string* OverrideEntityRequest::mutable_field_path(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.OverrideEntityRequest.field_path)
+  return _internal_mutable_field_path()->Mutable(index);
+}
+template <typename Arg_, typename... Args_>
+inline void OverrideEntityRequest::set_field_path(int index, Arg_&& value, Args_... args) {
+  ::google::protobuf::internal::AssignToString(
+      *_internal_mutable_field_path()->Mutable(index),
+      std::forward<Arg_>(value), args... );
+  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.OverrideEntityRequest.field_path)
+}
+template <typename Arg_, typename... Args_>
+inline void OverrideEntityRequest::add_field_path(Arg_&& value, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::google::protobuf::internal::AddToRepeatedPtrField(*_internal_mutable_field_path(),
+                               std::forward<Arg_>(value),
+                               args... );
+  // @@protoc_insertion_point(field_add:anduril.entitymanager.v1.OverrideEntityRequest.field_path)
+}
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
+OverrideEntityRequest::field_path() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:anduril.entitymanager.v1.OverrideEntityRequest.field_path)
+  return _internal_field_path();
+}
+inline ::google::protobuf::RepeatedPtrField<std::string>*
+OverrideEntityRequest::mutable_field_path() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:anduril.entitymanager.v1.OverrideEntityRequest.field_path)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_field_path();
+}
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
+OverrideEntityRequest::_internal_field_path() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.field_path_;
+}
+inline ::google::protobuf::RepeatedPtrField<std::string>*
+OverrideEntityRequest::_internal_mutable_field_path() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.field_path_;
+}
+
+// .anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];
+inline bool OverrideEntityRequest::has_provenance() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.provenance_ != nullptr);
+  return value;
+}
+inline const ::anduril::entitymanager::v1::Provenance& OverrideEntityRequest::_internal_provenance() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::anduril::entitymanager::v1::Provenance* p = _impl_.provenance_;
+  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::Provenance&>(::anduril::entitymanager::v1::_Provenance_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::Provenance& OverrideEntityRequest::provenance() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.OverrideEntityRequest.provenance)
+  return _internal_provenance();
+}
+inline void OverrideEntityRequest::unsafe_arena_set_allocated_provenance(::anduril::entitymanager::v1::Provenance* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.provenance_);
+  }
+  _impl_.provenance_ = reinterpret_cast<::anduril::entitymanager::v1::Provenance*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.OverrideEntityRequest.provenance)
+}
+inline ::anduril::entitymanager::v1::Provenance* OverrideEntityRequest::release_provenance() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::anduril::entitymanager::v1::Provenance* released = _impl_.provenance_;
+  _impl_.provenance_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::anduril::entitymanager::v1::Provenance* OverrideEntityRequest::unsafe_arena_release_provenance() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.OverrideEntityRequest.provenance)
+
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::anduril::entitymanager::v1::Provenance* temp = _impl_.provenance_;
+  _impl_.provenance_ = nullptr;
+  return temp;
+}
+inline ::anduril::entitymanager::v1::Provenance* OverrideEntityRequest::_internal_mutable_provenance() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.provenance_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Provenance>(GetArena());
+    _impl_.provenance_ = reinterpret_cast<::anduril::entitymanager::v1::Provenance*>(p);
+  }
+  return _impl_.provenance_;
+}
+inline ::anduril::entitymanager::v1::Provenance* OverrideEntityRequest::mutable_provenance() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  ::anduril::entitymanager::v1::Provenance* _msg = _internal_mutable_provenance();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.OverrideEntityRequest.provenance)
+  return _msg;
+}
+inline void OverrideEntityRequest::set_allocated_provenance(::anduril::entitymanager::v1::Provenance* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.provenance_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+
+  _impl_.provenance_ = reinterpret_cast<::anduril::entitymanager::v1::Provenance*>(value);
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.OverrideEntityRequest.provenance)
+}
+
+// -------------------------------------------------------------------
+
+// OverrideEntityResponse
+
+// .anduril.entitymanager.v1.OverrideStatus status = 1 [json_name = "status"];
+inline void OverrideEntityResponse::clear_status() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.status_ = 0;
+}
+inline ::anduril::entitymanager::v1::OverrideStatus OverrideEntityResponse::status() const {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.OverrideEntityResponse.status)
+  return _internal_status();
+}
+inline void OverrideEntityResponse::set_status(::anduril::entitymanager::v1::OverrideStatus value) {
+  _internal_set_status(value);
+  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.OverrideEntityResponse.status)
+}
+inline ::anduril::entitymanager::v1::OverrideStatus OverrideEntityResponse::_internal_status() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return static_cast<::anduril::entitymanager::v1::OverrideStatus>(_impl_.status_);
+}
+inline void OverrideEntityResponse::_internal_set_status(::anduril::entitymanager::v1::OverrideStatus value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.status_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// RemoveEntityOverrideRequest
+
+// string entity_id = 1 [json_name = "entityId"];
+inline void RemoveEntityOverrideRequest::clear_entity_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.entity_id_.ClearToEmpty();
+}
+inline const std::string& RemoveEntityOverrideRequest::entity_id() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.RemoveEntityOverrideRequest.entity_id)
+  return _internal_entity_id();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void RemoveEntityOverrideRequest::set_entity_id(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.entity_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.RemoveEntityOverrideRequest.entity_id)
+}
+inline std::string* RemoveEntityOverrideRequest::mutable_entity_id() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_entity_id();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.RemoveEntityOverrideRequest.entity_id)
+  return _s;
+}
+inline const std::string& RemoveEntityOverrideRequest::_internal_entity_id() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.entity_id_.Get();
+}
+inline void RemoveEntityOverrideRequest::_internal_set_entity_id(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.entity_id_.Set(value, GetArena());
+}
+inline std::string* RemoveEntityOverrideRequest::_internal_mutable_entity_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.entity_id_.Mutable( GetArena());
+}
+inline std::string* RemoveEntityOverrideRequest::release_entity_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.RemoveEntityOverrideRequest.entity_id)
+  return _impl_.entity_id_.Release();
+}
+inline void RemoveEntityOverrideRequest::set_allocated_entity_id(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.entity_id_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.entity_id_.IsDefault()) {
+          _impl_.entity_id_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.RemoveEntityOverrideRequest.entity_id)
+}
+
+// repeated string field_path = 2 [json_name = "fieldPath"];
+inline int RemoveEntityOverrideRequest::_internal_field_path_size() const {
+  return _internal_field_path().size();
+}
+inline int RemoveEntityOverrideRequest::field_path_size() const {
+  return _internal_field_path_size();
+}
+inline void RemoveEntityOverrideRequest::clear_field_path() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.field_path_.Clear();
+}
+inline std::string* RemoveEntityOverrideRequest::add_field_path() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  std::string* _s = _internal_mutable_field_path()->Add();
+  // @@protoc_insertion_point(field_add_mutable:anduril.entitymanager.v1.RemoveEntityOverrideRequest.field_path)
+  return _s;
+}
+inline const std::string& RemoveEntityOverrideRequest::field_path(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.RemoveEntityOverrideRequest.field_path)
+  return _internal_field_path().Get(index);
+}
+inline std::string* RemoveEntityOverrideRequest::mutable_field_path(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.RemoveEntityOverrideRequest.field_path)
+  return _internal_mutable_field_path()->Mutable(index);
+}
+template <typename Arg_, typename... Args_>
+inline void RemoveEntityOverrideRequest::set_field_path(int index, Arg_&& value, Args_... args) {
+  ::google::protobuf::internal::AssignToString(
+      *_internal_mutable_field_path()->Mutable(index),
+      std::forward<Arg_>(value), args... );
+  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.RemoveEntityOverrideRequest.field_path)
+}
+template <typename Arg_, typename... Args_>
+inline void RemoveEntityOverrideRequest::add_field_path(Arg_&& value, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::google::protobuf::internal::AddToRepeatedPtrField(*_internal_mutable_field_path(),
+                               std::forward<Arg_>(value),
+                               args... );
+  // @@protoc_insertion_point(field_add:anduril.entitymanager.v1.RemoveEntityOverrideRequest.field_path)
+}
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
+RemoveEntityOverrideRequest::field_path() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:anduril.entitymanager.v1.RemoveEntityOverrideRequest.field_path)
+  return _internal_field_path();
+}
+inline ::google::protobuf::RepeatedPtrField<std::string>*
+RemoveEntityOverrideRequest::mutable_field_path() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:anduril.entitymanager.v1.RemoveEntityOverrideRequest.field_path)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_field_path();
+}
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
+RemoveEntityOverrideRequest::_internal_field_path() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.field_path_;
+}
+inline ::google::protobuf::RepeatedPtrField<std::string>*
+RemoveEntityOverrideRequest::_internal_mutable_field_path() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.field_path_;
+}
+
+// -------------------------------------------------------------------
+
+// RemoveEntityOverrideResponse
 
 // -------------------------------------------------------------------
 
@@ -5047,1407 +4166,6 @@ inline void StreamEntityComponentsResponse::set_allocated_heartbeat(::anduril::e
 
   _impl_.heartbeat_ = reinterpret_cast<::anduril::entitymanager::v1::Heartbeat*>(value);
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.StreamEntityComponentsResponse.heartbeat)
-}
-
-// -------------------------------------------------------------------
-
-// PutEntityRequest
-
-// .anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];
-inline bool PutEntityRequest::has_entity() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.entity_ != nullptr);
-  return value;
-}
-inline const ::anduril::entitymanager::v1::Entity& PutEntityRequest::_internal_entity() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::anduril::entitymanager::v1::Entity* p = _impl_.entity_;
-  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::Entity&>(::anduril::entitymanager::v1::_Entity_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::Entity& PutEntityRequest::entity() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.PutEntityRequest.entity)
-  return _internal_entity();
-}
-inline void PutEntityRequest::unsafe_arena_set_allocated_entity(::anduril::entitymanager::v1::Entity* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.entity_);
-  }
-  _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.PutEntityRequest.entity)
-}
-inline ::anduril::entitymanager::v1::Entity* PutEntityRequest::release_entity() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::Entity* released = _impl_.entity_;
-  _impl_.entity_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  if (GetArena() == nullptr) {
-    delete old;
-  }
-#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArena() != nullptr) {
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return released;
-}
-inline ::anduril::entitymanager::v1::Entity* PutEntityRequest::unsafe_arena_release_entity() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.PutEntityRequest.entity)
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::Entity* temp = _impl_.entity_;
-  _impl_.entity_ = nullptr;
-  return temp;
-}
-inline ::anduril::entitymanager::v1::Entity* PutEntityRequest::_internal_mutable_entity() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.entity_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Entity>(GetArena());
-    _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(p);
-  }
-  return _impl_.entity_;
-}
-inline ::anduril::entitymanager::v1::Entity* PutEntityRequest::mutable_entity() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  ::anduril::entitymanager::v1::Entity* _msg = _internal_mutable_entity();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.PutEntityRequest.entity)
-  return _msg;
-}
-inline void PutEntityRequest::set_allocated_entity(::anduril::entitymanager::v1::Entity* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.entity_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-
-  _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.PutEntityRequest.entity)
-}
-
-// string unique_id = 2 [json_name = "uniqueId"];
-inline void PutEntityRequest::clear_unique_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.unique_id_.ClearToEmpty();
-}
-inline const std::string& PutEntityRequest::unique_id() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.PutEntityRequest.unique_id)
-  return _internal_unique_id();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void PutEntityRequest::set_unique_id(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.unique_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.PutEntityRequest.unique_id)
-}
-inline std::string* PutEntityRequest::mutable_unique_id() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_unique_id();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.PutEntityRequest.unique_id)
-  return _s;
-}
-inline const std::string& PutEntityRequest::_internal_unique_id() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.unique_id_.Get();
-}
-inline void PutEntityRequest::_internal_set_unique_id(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.unique_id_.Set(value, GetArena());
-}
-inline std::string* PutEntityRequest::_internal_mutable_unique_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.unique_id_.Mutable( GetArena());
-}
-inline std::string* PutEntityRequest::release_unique_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.PutEntityRequest.unique_id)
-  return _impl_.unique_id_.Release();
-}
-inline void PutEntityRequest::set_allocated_unique_id(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.unique_id_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.unique_id_.IsDefault()) {
-          _impl_.unique_id_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.PutEntityRequest.unique_id)
-}
-
-// -------------------------------------------------------------------
-
-// PutEntityResponse
-
-// .anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];
-inline bool PutEntityResponse::has_entity() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.entity_ != nullptr);
-  return value;
-}
-inline const ::anduril::entitymanager::v1::Entity& PutEntityResponse::_internal_entity() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::anduril::entitymanager::v1::Entity* p = _impl_.entity_;
-  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::Entity&>(::anduril::entitymanager::v1::_Entity_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::Entity& PutEntityResponse::entity() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.PutEntityResponse.entity)
-  return _internal_entity();
-}
-inline void PutEntityResponse::unsafe_arena_set_allocated_entity(::anduril::entitymanager::v1::Entity* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.entity_);
-  }
-  _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.PutEntityResponse.entity)
-}
-inline ::anduril::entitymanager::v1::Entity* PutEntityResponse::release_entity() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::Entity* released = _impl_.entity_;
-  _impl_.entity_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  if (GetArena() == nullptr) {
-    delete old;
-  }
-#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArena() != nullptr) {
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return released;
-}
-inline ::anduril::entitymanager::v1::Entity* PutEntityResponse::unsafe_arena_release_entity() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.PutEntityResponse.entity)
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::Entity* temp = _impl_.entity_;
-  _impl_.entity_ = nullptr;
-  return temp;
-}
-inline ::anduril::entitymanager::v1::Entity* PutEntityResponse::_internal_mutable_entity() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.entity_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Entity>(GetArena());
-    _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(p);
-  }
-  return _impl_.entity_;
-}
-inline ::anduril::entitymanager::v1::Entity* PutEntityResponse::mutable_entity() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  ::anduril::entitymanager::v1::Entity* _msg = _internal_mutable_entity();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.PutEntityResponse.entity)
-  return _msg;
-}
-inline void PutEntityResponse::set_allocated_entity(::anduril::entitymanager::v1::Entity* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.entity_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-
-  _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.PutEntityResponse.entity)
-}
-
-// -------------------------------------------------------------------
-
-// PublishEntitiesRequest
-
-// .anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];
-inline bool PublishEntitiesRequest::has_entity() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.entity_ != nullptr);
-  return value;
-}
-inline const ::anduril::entitymanager::v1::Entity& PublishEntitiesRequest::_internal_entity() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::anduril::entitymanager::v1::Entity* p = _impl_.entity_;
-  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::Entity&>(::anduril::entitymanager::v1::_Entity_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::Entity& PublishEntitiesRequest::entity() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.PublishEntitiesRequest.entity)
-  return _internal_entity();
-}
-inline void PublishEntitiesRequest::unsafe_arena_set_allocated_entity(::anduril::entitymanager::v1::Entity* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.entity_);
-  }
-  _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.PublishEntitiesRequest.entity)
-}
-inline ::anduril::entitymanager::v1::Entity* PublishEntitiesRequest::release_entity() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::Entity* released = _impl_.entity_;
-  _impl_.entity_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  if (GetArena() == nullptr) {
-    delete old;
-  }
-#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArena() != nullptr) {
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return released;
-}
-inline ::anduril::entitymanager::v1::Entity* PublishEntitiesRequest::unsafe_arena_release_entity() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.PublishEntitiesRequest.entity)
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::Entity* temp = _impl_.entity_;
-  _impl_.entity_ = nullptr;
-  return temp;
-}
-inline ::anduril::entitymanager::v1::Entity* PublishEntitiesRequest::_internal_mutable_entity() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.entity_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Entity>(GetArena());
-    _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(p);
-  }
-  return _impl_.entity_;
-}
-inline ::anduril::entitymanager::v1::Entity* PublishEntitiesRequest::mutable_entity() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  ::anduril::entitymanager::v1::Entity* _msg = _internal_mutable_entity();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.PublishEntitiesRequest.entity)
-  return _msg;
-}
-inline void PublishEntitiesRequest::set_allocated_entity(::anduril::entitymanager::v1::Entity* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.entity_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-
-  _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.PublishEntitiesRequest.entity)
-}
-
-// -------------------------------------------------------------------
-
-// PublishEntitiesResponse
-
-// -------------------------------------------------------------------
-
-// OverrideEntityRequest
-
-// .anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];
-inline bool OverrideEntityRequest::has_entity() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.entity_ != nullptr);
-  return value;
-}
-inline const ::anduril::entitymanager::v1::Entity& OverrideEntityRequest::_internal_entity() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::anduril::entitymanager::v1::Entity* p = _impl_.entity_;
-  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::Entity&>(::anduril::entitymanager::v1::_Entity_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::Entity& OverrideEntityRequest::entity() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.OverrideEntityRequest.entity)
-  return _internal_entity();
-}
-inline void OverrideEntityRequest::unsafe_arena_set_allocated_entity(::anduril::entitymanager::v1::Entity* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.entity_);
-  }
-  _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.OverrideEntityRequest.entity)
-}
-inline ::anduril::entitymanager::v1::Entity* OverrideEntityRequest::release_entity() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::Entity* released = _impl_.entity_;
-  _impl_.entity_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  if (GetArena() == nullptr) {
-    delete old;
-  }
-#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArena() != nullptr) {
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return released;
-}
-inline ::anduril::entitymanager::v1::Entity* OverrideEntityRequest::unsafe_arena_release_entity() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.OverrideEntityRequest.entity)
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::Entity* temp = _impl_.entity_;
-  _impl_.entity_ = nullptr;
-  return temp;
-}
-inline ::anduril::entitymanager::v1::Entity* OverrideEntityRequest::_internal_mutable_entity() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.entity_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Entity>(GetArena());
-    _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(p);
-  }
-  return _impl_.entity_;
-}
-inline ::anduril::entitymanager::v1::Entity* OverrideEntityRequest::mutable_entity() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  ::anduril::entitymanager::v1::Entity* _msg = _internal_mutable_entity();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.OverrideEntityRequest.entity)
-  return _msg;
-}
-inline void OverrideEntityRequest::set_allocated_entity(::anduril::entitymanager::v1::Entity* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.entity_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-
-  _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.OverrideEntityRequest.entity)
-}
-
-// repeated string field_path = 2 [json_name = "fieldPath"];
-inline int OverrideEntityRequest::_internal_field_path_size() const {
-  return _internal_field_path().size();
-}
-inline int OverrideEntityRequest::field_path_size() const {
-  return _internal_field_path_size();
-}
-inline void OverrideEntityRequest::clear_field_path() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.field_path_.Clear();
-}
-inline std::string* OverrideEntityRequest::add_field_path() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  std::string* _s = _internal_mutable_field_path()->Add();
-  // @@protoc_insertion_point(field_add_mutable:anduril.entitymanager.v1.OverrideEntityRequest.field_path)
-  return _s;
-}
-inline const std::string& OverrideEntityRequest::field_path(int index) const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.OverrideEntityRequest.field_path)
-  return _internal_field_path().Get(index);
-}
-inline std::string* OverrideEntityRequest::mutable_field_path(int index)
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.OverrideEntityRequest.field_path)
-  return _internal_mutable_field_path()->Mutable(index);
-}
-template <typename Arg_, typename... Args_>
-inline void OverrideEntityRequest::set_field_path(int index, Arg_&& value, Args_... args) {
-  ::google::protobuf::internal::AssignToString(
-      *_internal_mutable_field_path()->Mutable(index),
-      std::forward<Arg_>(value), args... );
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.OverrideEntityRequest.field_path)
-}
-template <typename Arg_, typename... Args_>
-inline void OverrideEntityRequest::add_field_path(Arg_&& value, Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::google::protobuf::internal::AddToRepeatedPtrField(*_internal_mutable_field_path(),
-                               std::forward<Arg_>(value),
-                               args... );
-  // @@protoc_insertion_point(field_add:anduril.entitymanager.v1.OverrideEntityRequest.field_path)
-}
-inline const ::google::protobuf::RepeatedPtrField<std::string>&
-OverrideEntityRequest::field_path() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_list:anduril.entitymanager.v1.OverrideEntityRequest.field_path)
-  return _internal_field_path();
-}
-inline ::google::protobuf::RepeatedPtrField<std::string>*
-OverrideEntityRequest::mutable_field_path() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_list:anduril.entitymanager.v1.OverrideEntityRequest.field_path)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _internal_mutable_field_path();
-}
-inline const ::google::protobuf::RepeatedPtrField<std::string>&
-OverrideEntityRequest::_internal_field_path() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.field_path_;
-}
-inline ::google::protobuf::RepeatedPtrField<std::string>*
-OverrideEntityRequest::_internal_mutable_field_path() {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return &_impl_.field_path_;
-}
-
-// .anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];
-inline bool OverrideEntityRequest::has_provenance() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.provenance_ != nullptr);
-  return value;
-}
-inline const ::anduril::entitymanager::v1::Provenance& OverrideEntityRequest::_internal_provenance() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::anduril::entitymanager::v1::Provenance* p = _impl_.provenance_;
-  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::Provenance&>(::anduril::entitymanager::v1::_Provenance_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::Provenance& OverrideEntityRequest::provenance() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.OverrideEntityRequest.provenance)
-  return _internal_provenance();
-}
-inline void OverrideEntityRequest::unsafe_arena_set_allocated_provenance(::anduril::entitymanager::v1::Provenance* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.provenance_);
-  }
-  _impl_.provenance_ = reinterpret_cast<::anduril::entitymanager::v1::Provenance*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.OverrideEntityRequest.provenance)
-}
-inline ::anduril::entitymanager::v1::Provenance* OverrideEntityRequest::release_provenance() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  ::anduril::entitymanager::v1::Provenance* released = _impl_.provenance_;
-  _impl_.provenance_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  if (GetArena() == nullptr) {
-    delete old;
-  }
-#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArena() != nullptr) {
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return released;
-}
-inline ::anduril::entitymanager::v1::Provenance* OverrideEntityRequest::unsafe_arena_release_provenance() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.OverrideEntityRequest.provenance)
-
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  ::anduril::entitymanager::v1::Provenance* temp = _impl_.provenance_;
-  _impl_.provenance_ = nullptr;
-  return temp;
-}
-inline ::anduril::entitymanager::v1::Provenance* OverrideEntityRequest::_internal_mutable_provenance() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.provenance_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Provenance>(GetArena());
-    _impl_.provenance_ = reinterpret_cast<::anduril::entitymanager::v1::Provenance*>(p);
-  }
-  return _impl_.provenance_;
-}
-inline ::anduril::entitymanager::v1::Provenance* OverrideEntityRequest::mutable_provenance() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  ::anduril::entitymanager::v1::Provenance* _msg = _internal_mutable_provenance();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.OverrideEntityRequest.provenance)
-  return _msg;
-}
-inline void OverrideEntityRequest::set_allocated_provenance(::anduril::entitymanager::v1::Provenance* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.provenance_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-
-  _impl_.provenance_ = reinterpret_cast<::anduril::entitymanager::v1::Provenance*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.OverrideEntityRequest.provenance)
-}
-
-// -------------------------------------------------------------------
-
-// OverrideEntityResponse
-
-// .anduril.entitymanager.v1.OverrideStatus status = 1 [json_name = "status"];
-inline void OverrideEntityResponse::clear_status() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.status_ = 0;
-}
-inline ::anduril::entitymanager::v1::OverrideStatus OverrideEntityResponse::status() const {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.OverrideEntityResponse.status)
-  return _internal_status();
-}
-inline void OverrideEntityResponse::set_status(::anduril::entitymanager::v1::OverrideStatus value) {
-  _internal_set_status(value);
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.OverrideEntityResponse.status)
-}
-inline ::anduril::entitymanager::v1::OverrideStatus OverrideEntityResponse::_internal_status() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return static_cast<::anduril::entitymanager::v1::OverrideStatus>(_impl_.status_);
-}
-inline void OverrideEntityResponse::_internal_set_status(::anduril::entitymanager::v1::OverrideStatus value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.status_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// RemoveEntityOverrideRequest
-
-// string entity_id = 1 [json_name = "entityId"];
-inline void RemoveEntityOverrideRequest::clear_entity_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.entity_id_.ClearToEmpty();
-}
-inline const std::string& RemoveEntityOverrideRequest::entity_id() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.RemoveEntityOverrideRequest.entity_id)
-  return _internal_entity_id();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void RemoveEntityOverrideRequest::set_entity_id(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.entity_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.RemoveEntityOverrideRequest.entity_id)
-}
-inline std::string* RemoveEntityOverrideRequest::mutable_entity_id() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_entity_id();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.RemoveEntityOverrideRequest.entity_id)
-  return _s;
-}
-inline const std::string& RemoveEntityOverrideRequest::_internal_entity_id() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.entity_id_.Get();
-}
-inline void RemoveEntityOverrideRequest::_internal_set_entity_id(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.entity_id_.Set(value, GetArena());
-}
-inline std::string* RemoveEntityOverrideRequest::_internal_mutable_entity_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.entity_id_.Mutable( GetArena());
-}
-inline std::string* RemoveEntityOverrideRequest::release_entity_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.RemoveEntityOverrideRequest.entity_id)
-  return _impl_.entity_id_.Release();
-}
-inline void RemoveEntityOverrideRequest::set_allocated_entity_id(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.entity_id_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.entity_id_.IsDefault()) {
-          _impl_.entity_id_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.RemoveEntityOverrideRequest.entity_id)
-}
-
-// repeated string field_path = 2 [json_name = "fieldPath"];
-inline int RemoveEntityOverrideRequest::_internal_field_path_size() const {
-  return _internal_field_path().size();
-}
-inline int RemoveEntityOverrideRequest::field_path_size() const {
-  return _internal_field_path_size();
-}
-inline void RemoveEntityOverrideRequest::clear_field_path() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.field_path_.Clear();
-}
-inline std::string* RemoveEntityOverrideRequest::add_field_path() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  std::string* _s = _internal_mutable_field_path()->Add();
-  // @@protoc_insertion_point(field_add_mutable:anduril.entitymanager.v1.RemoveEntityOverrideRequest.field_path)
-  return _s;
-}
-inline const std::string& RemoveEntityOverrideRequest::field_path(int index) const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.RemoveEntityOverrideRequest.field_path)
-  return _internal_field_path().Get(index);
-}
-inline std::string* RemoveEntityOverrideRequest::mutable_field_path(int index)
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.RemoveEntityOverrideRequest.field_path)
-  return _internal_mutable_field_path()->Mutable(index);
-}
-template <typename Arg_, typename... Args_>
-inline void RemoveEntityOverrideRequest::set_field_path(int index, Arg_&& value, Args_... args) {
-  ::google::protobuf::internal::AssignToString(
-      *_internal_mutable_field_path()->Mutable(index),
-      std::forward<Arg_>(value), args... );
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.RemoveEntityOverrideRequest.field_path)
-}
-template <typename Arg_, typename... Args_>
-inline void RemoveEntityOverrideRequest::add_field_path(Arg_&& value, Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::google::protobuf::internal::AddToRepeatedPtrField(*_internal_mutable_field_path(),
-                               std::forward<Arg_>(value),
-                               args... );
-  // @@protoc_insertion_point(field_add:anduril.entitymanager.v1.RemoveEntityOverrideRequest.field_path)
-}
-inline const ::google::protobuf::RepeatedPtrField<std::string>&
-RemoveEntityOverrideRequest::field_path() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_list:anduril.entitymanager.v1.RemoveEntityOverrideRequest.field_path)
-  return _internal_field_path();
-}
-inline ::google::protobuf::RepeatedPtrField<std::string>*
-RemoveEntityOverrideRequest::mutable_field_path() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_list:anduril.entitymanager.v1.RemoveEntityOverrideRequest.field_path)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _internal_mutable_field_path();
-}
-inline const ::google::protobuf::RepeatedPtrField<std::string>&
-RemoveEntityOverrideRequest::_internal_field_path() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.field_path_;
-}
-inline ::google::protobuf::RepeatedPtrField<std::string>*
-RemoveEntityOverrideRequest::_internal_mutable_field_path() {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return &_impl_.field_path_;
-}
-
-// -------------------------------------------------------------------
-
-// RemoveEntityOverrideResponse
-
-// -------------------------------------------------------------------
-
-// DeleteEntityRequest
-
-// string entity_id = 1 [json_name = "entityId"];
-inline void DeleteEntityRequest::clear_entity_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.entity_id_.ClearToEmpty();
-}
-inline const std::string& DeleteEntityRequest::entity_id() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.DeleteEntityRequest.entity_id)
-  return _internal_entity_id();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void DeleteEntityRequest::set_entity_id(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.entity_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.DeleteEntityRequest.entity_id)
-}
-inline std::string* DeleteEntityRequest::mutable_entity_id() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_entity_id();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.DeleteEntityRequest.entity_id)
-  return _s;
-}
-inline const std::string& DeleteEntityRequest::_internal_entity_id() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.entity_id_.Get();
-}
-inline void DeleteEntityRequest::_internal_set_entity_id(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.entity_id_.Set(value, GetArena());
-}
-inline std::string* DeleteEntityRequest::_internal_mutable_entity_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.entity_id_.Mutable( GetArena());
-}
-inline std::string* DeleteEntityRequest::release_entity_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.DeleteEntityRequest.entity_id)
-  return _impl_.entity_id_.Release();
-}
-inline void DeleteEntityRequest::set_allocated_entity_id(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.entity_id_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.entity_id_.IsDefault()) {
-          _impl_.entity_id_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.DeleteEntityRequest.entity_id)
-}
-
-// -------------------------------------------------------------------
-
-// DeleteEntityResponse
-
-// -------------------------------------------------------------------
-
-// RelateEntityRequest
-
-// string entity_id = 1 [json_name = "entityId"];
-inline void RelateEntityRequest::clear_entity_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.entity_id_.ClearToEmpty();
-}
-inline const std::string& RelateEntityRequest::entity_id() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.RelateEntityRequest.entity_id)
-  return _internal_entity_id();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void RelateEntityRequest::set_entity_id(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.entity_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.RelateEntityRequest.entity_id)
-}
-inline std::string* RelateEntityRequest::mutable_entity_id() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_entity_id();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.RelateEntityRequest.entity_id)
-  return _s;
-}
-inline const std::string& RelateEntityRequest::_internal_entity_id() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.entity_id_.Get();
-}
-inline void RelateEntityRequest::_internal_set_entity_id(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.entity_id_.Set(value, GetArena());
-}
-inline std::string* RelateEntityRequest::_internal_mutable_entity_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.entity_id_.Mutable( GetArena());
-}
-inline std::string* RelateEntityRequest::release_entity_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.RelateEntityRequest.entity_id)
-  return _impl_.entity_id_.Release();
-}
-inline void RelateEntityRequest::set_allocated_entity_id(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.entity_id_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.entity_id_.IsDefault()) {
-          _impl_.entity_id_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.RelateEntityRequest.entity_id)
-}
-
-// repeated .anduril.entitymanager.v1.RelationshipRequest relationships = 2 [json_name = "relationships"];
-inline int RelateEntityRequest::_internal_relationships_size() const {
-  return _internal_relationships().size();
-}
-inline int RelateEntityRequest::relationships_size() const {
-  return _internal_relationships_size();
-}
-inline void RelateEntityRequest::clear_relationships() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.relationships_.Clear();
-}
-inline ::anduril::entitymanager::v1::RelationshipRequest* RelateEntityRequest::mutable_relationships(int index)
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.RelateEntityRequest.relationships)
-  return _internal_mutable_relationships()->Mutable(index);
-}
-inline ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::RelationshipRequest>* RelateEntityRequest::mutable_relationships()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_list:anduril.entitymanager.v1.RelateEntityRequest.relationships)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _internal_mutable_relationships();
-}
-inline const ::anduril::entitymanager::v1::RelationshipRequest& RelateEntityRequest::relationships(int index) const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.RelateEntityRequest.relationships)
-  return _internal_relationships().Get(index);
-}
-inline ::anduril::entitymanager::v1::RelationshipRequest* RelateEntityRequest::add_relationships() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::anduril::entitymanager::v1::RelationshipRequest* _add = _internal_mutable_relationships()->Add();
-  // @@protoc_insertion_point(field_add:anduril.entitymanager.v1.RelateEntityRequest.relationships)
-  return _add;
-}
-inline const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::RelationshipRequest>& RelateEntityRequest::relationships() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_list:anduril.entitymanager.v1.RelateEntityRequest.relationships)
-  return _internal_relationships();
-}
-inline const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::RelationshipRequest>&
-RelateEntityRequest::_internal_relationships() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.relationships_;
-}
-inline ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::RelationshipRequest>*
-RelateEntityRequest::_internal_mutable_relationships() {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return &_impl_.relationships_;
-}
-
-// -------------------------------------------------------------------
-
-// RelationshipRequest
-
-// string related_entity_id = 1 [json_name = "relatedEntityId"];
-inline void RelationshipRequest::clear_related_entity_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.related_entity_id_.ClearToEmpty();
-}
-inline const std::string& RelationshipRequest::related_entity_id() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.RelationshipRequest.related_entity_id)
-  return _internal_related_entity_id();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void RelationshipRequest::set_related_entity_id(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.related_entity_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.RelationshipRequest.related_entity_id)
-}
-inline std::string* RelationshipRequest::mutable_related_entity_id() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_related_entity_id();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.RelationshipRequest.related_entity_id)
-  return _s;
-}
-inline const std::string& RelationshipRequest::_internal_related_entity_id() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.related_entity_id_.Get();
-}
-inline void RelationshipRequest::_internal_set_related_entity_id(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.related_entity_id_.Set(value, GetArena());
-}
-inline std::string* RelationshipRequest::_internal_mutable_related_entity_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.related_entity_id_.Mutable( GetArena());
-}
-inline std::string* RelationshipRequest::release_related_entity_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.RelationshipRequest.related_entity_id)
-  return _impl_.related_entity_id_.Release();
-}
-inline void RelationshipRequest::set_allocated_related_entity_id(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.related_entity_id_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.related_entity_id_.IsDefault()) {
-          _impl_.related_entity_id_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.RelationshipRequest.related_entity_id)
-}
-
-// string relationship_id = 2 [json_name = "relationshipId"];
-inline void RelationshipRequest::clear_relationship_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.relationship_id_.ClearToEmpty();
-}
-inline const std::string& RelationshipRequest::relationship_id() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.RelationshipRequest.relationship_id)
-  return _internal_relationship_id();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void RelationshipRequest::set_relationship_id(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.relationship_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.RelationshipRequest.relationship_id)
-}
-inline std::string* RelationshipRequest::mutable_relationship_id() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_relationship_id();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.RelationshipRequest.relationship_id)
-  return _s;
-}
-inline const std::string& RelationshipRequest::_internal_relationship_id() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.relationship_id_.Get();
-}
-inline void RelationshipRequest::_internal_set_relationship_id(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.relationship_id_.Set(value, GetArena());
-}
-inline std::string* RelationshipRequest::_internal_mutable_relationship_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.relationship_id_.Mutable( GetArena());
-}
-inline std::string* RelationshipRequest::release_relationship_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.RelationshipRequest.relationship_id)
-  return _impl_.relationship_id_.Release();
-}
-inline void RelationshipRequest::set_allocated_relationship_id(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.relationship_id_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.relationship_id_.IsDefault()) {
-          _impl_.relationship_id_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.RelationshipRequest.relationship_id)
-}
-
-// .anduril.entitymanager.v1.RelationshipType relationship_type = 3 [json_name = "relationshipType"];
-inline bool RelationshipRequest::has_relationship_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.relationship_type_ != nullptr);
-  return value;
-}
-inline const ::anduril::entitymanager::v1::RelationshipType& RelationshipRequest::_internal_relationship_type() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::anduril::entitymanager::v1::RelationshipType* p = _impl_.relationship_type_;
-  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::RelationshipType&>(::anduril::entitymanager::v1::_RelationshipType_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::RelationshipType& RelationshipRequest::relationship_type() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.RelationshipRequest.relationship_type)
-  return _internal_relationship_type();
-}
-inline void RelationshipRequest::unsafe_arena_set_allocated_relationship_type(::anduril::entitymanager::v1::RelationshipType* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.relationship_type_);
-  }
-  _impl_.relationship_type_ = reinterpret_cast<::anduril::entitymanager::v1::RelationshipType*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.RelationshipRequest.relationship_type)
-}
-inline ::anduril::entitymanager::v1::RelationshipType* RelationshipRequest::release_relationship_type() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::RelationshipType* released = _impl_.relationship_type_;
-  _impl_.relationship_type_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  if (GetArena() == nullptr) {
-    delete old;
-  }
-#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArena() != nullptr) {
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return released;
-}
-inline ::anduril::entitymanager::v1::RelationshipType* RelationshipRequest::unsafe_arena_release_relationship_type() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.RelationshipRequest.relationship_type)
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::RelationshipType* temp = _impl_.relationship_type_;
-  _impl_.relationship_type_ = nullptr;
-  return temp;
-}
-inline ::anduril::entitymanager::v1::RelationshipType* RelationshipRequest::_internal_mutable_relationship_type() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.relationship_type_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::RelationshipType>(GetArena());
-    _impl_.relationship_type_ = reinterpret_cast<::anduril::entitymanager::v1::RelationshipType*>(p);
-  }
-  return _impl_.relationship_type_;
-}
-inline ::anduril::entitymanager::v1::RelationshipType* RelationshipRequest::mutable_relationship_type() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  ::anduril::entitymanager::v1::RelationshipType* _msg = _internal_mutable_relationship_type();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.RelationshipRequest.relationship_type)
-  return _msg;
-}
-inline void RelationshipRequest::set_allocated_relationship_type(::anduril::entitymanager::v1::RelationshipType* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.relationship_type_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-
-  _impl_.relationship_type_ = reinterpret_cast<::anduril::entitymanager::v1::RelationshipType*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.RelationshipRequest.relationship_type)
-}
-
-// -------------------------------------------------------------------
-
-// RelateEntityResponse
-
-// .anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];
-inline bool RelateEntityResponse::has_entity() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.entity_ != nullptr);
-  return value;
-}
-inline const ::anduril::entitymanager::v1::Entity& RelateEntityResponse::_internal_entity() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::anduril::entitymanager::v1::Entity* p = _impl_.entity_;
-  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::Entity&>(::anduril::entitymanager::v1::_Entity_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::Entity& RelateEntityResponse::entity() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.RelateEntityResponse.entity)
-  return _internal_entity();
-}
-inline void RelateEntityResponse::unsafe_arena_set_allocated_entity(::anduril::entitymanager::v1::Entity* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.entity_);
-  }
-  _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.RelateEntityResponse.entity)
-}
-inline ::anduril::entitymanager::v1::Entity* RelateEntityResponse::release_entity() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::Entity* released = _impl_.entity_;
-  _impl_.entity_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  if (GetArena() == nullptr) {
-    delete old;
-  }
-#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArena() != nullptr) {
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return released;
-}
-inline ::anduril::entitymanager::v1::Entity* RelateEntityResponse::unsafe_arena_release_entity() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.RelateEntityResponse.entity)
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::Entity* temp = _impl_.entity_;
-  _impl_.entity_ = nullptr;
-  return temp;
-}
-inline ::anduril::entitymanager::v1::Entity* RelateEntityResponse::_internal_mutable_entity() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.entity_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Entity>(GetArena());
-    _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(p);
-  }
-  return _impl_.entity_;
-}
-inline ::anduril::entitymanager::v1::Entity* RelateEntityResponse::mutable_entity() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  ::anduril::entitymanager::v1::Entity* _msg = _internal_mutable_entity();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.RelateEntityResponse.entity)
-  return _msg;
-}
-inline void RelateEntityResponse::set_allocated_entity(::anduril::entitymanager::v1::Entity* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.entity_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-
-  _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.RelateEntityResponse.entity)
-}
-
-// -------------------------------------------------------------------
-
-// UnrelateEntityRequest
-
-// string entity_id = 1 [json_name = "entityId"];
-inline void UnrelateEntityRequest::clear_entity_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.entity_id_.ClearToEmpty();
-}
-inline const std::string& UnrelateEntityRequest::entity_id() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.UnrelateEntityRequest.entity_id)
-  return _internal_entity_id();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void UnrelateEntityRequest::set_entity_id(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.entity_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.UnrelateEntityRequest.entity_id)
-}
-inline std::string* UnrelateEntityRequest::mutable_entity_id() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_entity_id();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.UnrelateEntityRequest.entity_id)
-  return _s;
-}
-inline const std::string& UnrelateEntityRequest::_internal_entity_id() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.entity_id_.Get();
-}
-inline void UnrelateEntityRequest::_internal_set_entity_id(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.entity_id_.Set(value, GetArena());
-}
-inline std::string* UnrelateEntityRequest::_internal_mutable_entity_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.entity_id_.Mutable( GetArena());
-}
-inline std::string* UnrelateEntityRequest::release_entity_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.UnrelateEntityRequest.entity_id)
-  return _impl_.entity_id_.Release();
-}
-inline void UnrelateEntityRequest::set_allocated_entity_id(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.entity_id_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.entity_id_.IsDefault()) {
-          _impl_.entity_id_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.UnrelateEntityRequest.entity_id)
-}
-
-// repeated string relationship_ids = 2 [json_name = "relationshipIds"];
-inline int UnrelateEntityRequest::_internal_relationship_ids_size() const {
-  return _internal_relationship_ids().size();
-}
-inline int UnrelateEntityRequest::relationship_ids_size() const {
-  return _internal_relationship_ids_size();
-}
-inline void UnrelateEntityRequest::clear_relationship_ids() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.relationship_ids_.Clear();
-}
-inline std::string* UnrelateEntityRequest::add_relationship_ids() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  std::string* _s = _internal_mutable_relationship_ids()->Add();
-  // @@protoc_insertion_point(field_add_mutable:anduril.entitymanager.v1.UnrelateEntityRequest.relationship_ids)
-  return _s;
-}
-inline const std::string& UnrelateEntityRequest::relationship_ids(int index) const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.UnrelateEntityRequest.relationship_ids)
-  return _internal_relationship_ids().Get(index);
-}
-inline std::string* UnrelateEntityRequest::mutable_relationship_ids(int index)
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.UnrelateEntityRequest.relationship_ids)
-  return _internal_mutable_relationship_ids()->Mutable(index);
-}
-template <typename Arg_, typename... Args_>
-inline void UnrelateEntityRequest::set_relationship_ids(int index, Arg_&& value, Args_... args) {
-  ::google::protobuf::internal::AssignToString(
-      *_internal_mutable_relationship_ids()->Mutable(index),
-      std::forward<Arg_>(value), args... );
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.UnrelateEntityRequest.relationship_ids)
-}
-template <typename Arg_, typename... Args_>
-inline void UnrelateEntityRequest::add_relationship_ids(Arg_&& value, Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::google::protobuf::internal::AddToRepeatedPtrField(*_internal_mutable_relationship_ids(),
-                               std::forward<Arg_>(value),
-                               args... );
-  // @@protoc_insertion_point(field_add:anduril.entitymanager.v1.UnrelateEntityRequest.relationship_ids)
-}
-inline const ::google::protobuf::RepeatedPtrField<std::string>&
-UnrelateEntityRequest::relationship_ids() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_list:anduril.entitymanager.v1.UnrelateEntityRequest.relationship_ids)
-  return _internal_relationship_ids();
-}
-inline ::google::protobuf::RepeatedPtrField<std::string>*
-UnrelateEntityRequest::mutable_relationship_ids() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_list:anduril.entitymanager.v1.UnrelateEntityRequest.relationship_ids)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _internal_mutable_relationship_ids();
-}
-inline const ::google::protobuf::RepeatedPtrField<std::string>&
-UnrelateEntityRequest::_internal_relationship_ids() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.relationship_ids_;
-}
-inline ::google::protobuf::RepeatedPtrField<std::string>*
-UnrelateEntityRequest::_internal_mutable_relationship_ids() {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return &_impl_.relationship_ids_;
-}
-
-// -------------------------------------------------------------------
-
-// UnrelateEntityResponse
-
-// .anduril.entitymanager.v1.Entity entity = 1 [json_name = "entity"];
-inline bool UnrelateEntityResponse::has_entity() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.entity_ != nullptr);
-  return value;
-}
-inline const ::anduril::entitymanager::v1::Entity& UnrelateEntityResponse::_internal_entity() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::anduril::entitymanager::v1::Entity* p = _impl_.entity_;
-  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::Entity&>(::anduril::entitymanager::v1::_Entity_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::Entity& UnrelateEntityResponse::entity() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.UnrelateEntityResponse.entity)
-  return _internal_entity();
-}
-inline void UnrelateEntityResponse::unsafe_arena_set_allocated_entity(::anduril::entitymanager::v1::Entity* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.entity_);
-  }
-  _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.UnrelateEntityResponse.entity)
-}
-inline ::anduril::entitymanager::v1::Entity* UnrelateEntityResponse::release_entity() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::Entity* released = _impl_.entity_;
-  _impl_.entity_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  if (GetArena() == nullptr) {
-    delete old;
-  }
-#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArena() != nullptr) {
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return released;
-}
-inline ::anduril::entitymanager::v1::Entity* UnrelateEntityResponse::unsafe_arena_release_entity() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.UnrelateEntityResponse.entity)
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::Entity* temp = _impl_.entity_;
-  _impl_.entity_ = nullptr;
-  return temp;
-}
-inline ::anduril::entitymanager::v1::Entity* UnrelateEntityResponse::_internal_mutable_entity() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.entity_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Entity>(GetArena());
-    _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(p);
-  }
-  return _impl_.entity_;
-}
-inline ::anduril::entitymanager::v1::Entity* UnrelateEntityResponse::mutable_entity() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  ::anduril::entitymanager::v1::Entity* _msg = _internal_mutable_entity();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.UnrelateEntityResponse.entity)
-  return _msg;
-}
-inline void UnrelateEntityResponse::set_allocated_entity(::anduril::entitymanager::v1::Entity* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.entity_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-
-  _impl_.entity_ = reinterpret_cast<::anduril::entitymanager::v1::Entity*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.UnrelateEntityResponse.entity)
 }
 
 // -------------------------------------------------------------------

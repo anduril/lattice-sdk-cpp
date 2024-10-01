@@ -29,7 +29,7 @@ namespace anduril {
 namespace entitymanager {
 namespace v1 {
 
-// The EntityManager provides a UI centric data model for understanding the entities in a battle space.
+// The Entity Manager provides a UI centric data model for understanding the entities in a battle space.
 //
 // Every object in a battle space is represented as an "Entity". Each Entity is essentially an ID, with a life cycle,
 // and a collection of data components. Each data component is a separate protobuf message definition.
@@ -44,37 +44,19 @@ class EntityManagerAPI final {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    // Get a entity based on an entityId.
-    virtual ::grpc::Status GetEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::anduril::entitymanager::v1::GetEntityResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::GetEntityResponse>> AsyncGetEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::GetEntityResponse>>(AsyncGetEntityRaw(context, request, cq));
+    // Unary RPC to publish an entity for ingest into Entity Manager. This is the preferred RPC to integrate entities
+    // and should be used by most integrations to publish high- or low-update rate entities. Entities created with this
+    // method are "owned" by the originator: other sources, such as the UI, may not edit or delete these entities.
+    // Entities are validated at RPC call time and an error is returned if the entity is invalid.
+    virtual ::grpc::Status PublishEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest& request, ::anduril::entitymanager::v1::PublishEntityResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::PublishEntityResponse>> AsyncPublishEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::PublishEntityResponse>>(AsyncPublishEntityRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::GetEntityResponse>> PrepareAsyncGetEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::GetEntityResponse>>(PrepareAsyncGetEntityRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::PublishEntityResponse>> PrepareAsyncPublishEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::PublishEntityResponse>>(PrepareAsyncPublishEntityRaw(context, request, cq));
     }
-    // Returns a stream of entity with specified components populated.
-    std::unique_ptr< ::grpc::ClientReaderInterface< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>> StreamEntityComponents(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request) {
-      return std::unique_ptr< ::grpc::ClientReaderInterface< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>>(StreamEntityComponentsRaw(context, request));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>> AsyncStreamEntityComponents(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>>(AsyncStreamEntityComponentsRaw(context, request, cq, tag));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>> PrepareAsyncStreamEntityComponents(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>>(PrepareAsyncStreamEntityComponentsRaw(context, request, cq));
-    }
-    // Create or Update an Entity. This should be used by low update rate situations where Entity Manager is
-    // the source of truth, rather than an aggregator. The canonical example is a manually created entity.
-    // Entities created in this fashion are stored as a Base entity, overrides on top are still possible.
-    virtual ::grpc::Status PutEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PutEntityRequest& request, ::anduril::entitymanager::v1::PutEntityResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::PutEntityResponse>> AsyncPutEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PutEntityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::PutEntityResponse>>(AsyncPutEntityRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::PutEntityResponse>> PrepareAsyncPutEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PutEntityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::PutEntityResponse>>(PrepareAsyncPutEntityRaw(context, request, cq));
-    }
-    // Create or Update one or more Entities. This should be used during high update rate situations where the originator
-    // is both the aggregator and source of truth for the published entities, and the originator does not have
-    // the ability to directly publish to Flux.
+    // Create or Update one or more Entities. Prefer PublishEntity instead. The same caveats of PublishEntity apply.
+    // This RPC does not return error messages for invalid entities or any other feedback from the server.
     std::unique_ptr< ::grpc::ClientWriterInterface< ::anduril::entitymanager::v1::PublishEntitiesRequest>> PublishEntities(::grpc::ClientContext* context, ::anduril::entitymanager::v1::PublishEntitiesResponse* response) {
       return std::unique_ptr< ::grpc::ClientWriterInterface< ::anduril::entitymanager::v1::PublishEntitiesRequest>>(PublishEntitiesRaw(context, response));
     }
@@ -84,7 +66,18 @@ class EntityManagerAPI final {
     std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::anduril::entitymanager::v1::PublishEntitiesRequest>> PrepareAsyncPublishEntities(::grpc::ClientContext* context, ::anduril::entitymanager::v1::PublishEntitiesResponse* response, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::anduril::entitymanager::v1::PublishEntitiesRequest>>(PrepareAsyncPublishEntitiesRaw(context, response, cq));
     }
-    // Override an Entity Component. Only fields marked with overridable can be overwritten.
+    // Get a entity based on an entityId.
+    virtual ::grpc::Status GetEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::anduril::entitymanager::v1::GetEntityResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::GetEntityResponse>> AsyncGetEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::GetEntityResponse>>(AsyncGetEntityRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::GetEntityResponse>> PrepareAsyncGetEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::GetEntityResponse>>(PrepareAsyncGetEntityRaw(context, request, cq));
+    }
+    // Override an Entity Component. An override is a definitive change to entity data. Any authorized user of service
+    // can override overridable components on any entity. Only fields marked with overridable can be overridden.
+    // When setting an override, the user or service setting the override is asserting that they are certain of the change
+    // and the truth behind it.
     virtual ::grpc::Status OverrideEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::OverrideEntityRequest& request, ::anduril::entitymanager::v1::OverrideEntityResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::OverrideEntityResponse>> AsyncOverrideEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::OverrideEntityRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::OverrideEntityResponse>>(AsyncOverrideEntityRaw(context, request, cq));
@@ -100,115 +93,71 @@ class EntityManagerAPI final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::RemoveEntityOverrideResponse>> PrepareAsyncRemoveEntityOverride(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RemoveEntityOverrideRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::RemoveEntityOverrideResponse>>(PrepareAsyncRemoveEntityOverrideRaw(context, request, cq));
     }
-    // Delete an Entity - only works on entities created by PutEntity.
-    virtual ::grpc::Status DeleteEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::DeleteEntityRequest& request, ::anduril::entitymanager::v1::DeleteEntityResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::DeleteEntityResponse>> AsyncDeleteEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::DeleteEntityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::DeleteEntityResponse>>(AsyncDeleteEntityRaw(context, request, cq));
+    // Returns a stream of entity with specified components populated.
+    std::unique_ptr< ::grpc::ClientReaderInterface< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>> StreamEntityComponents(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request) {
+      return std::unique_ptr< ::grpc::ClientReaderInterface< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>>(StreamEntityComponentsRaw(context, request));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::DeleteEntityResponse>> PrepareAsyncDeleteEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::DeleteEntityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::DeleteEntityResponse>>(PrepareAsyncDeleteEntityRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>> AsyncStreamEntityComponents(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>>(AsyncStreamEntityComponentsRaw(context, request, cq, tag));
     }
-    // Creates or Updates relationships on an Entity. All relationships that are being added in the request
-    // succeed or fail as a batch (i.e. if any one relationship is invalid, the request will fail).
-    virtual ::grpc::Status RelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest& request, ::anduril::entitymanager::v1::RelateEntityResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::RelateEntityResponse>> AsyncRelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::RelateEntityResponse>>(AsyncRelateEntityRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::RelateEntityResponse>> PrepareAsyncRelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::RelateEntityResponse>>(PrepareAsyncRelateEntityRaw(context, request, cq));
-    }
-    // Deletes relationships on an Entity.
-    virtual ::grpc::Status UnrelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest& request, ::anduril::entitymanager::v1::UnrelateEntityResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::UnrelateEntityResponse>> AsyncUnrelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::UnrelateEntityResponse>>(AsyncUnrelateEntityRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::UnrelateEntityResponse>> PrepareAsyncUnrelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::UnrelateEntityResponse>>(PrepareAsyncUnrelateEntityRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>> PrepareAsyncStreamEntityComponents(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>>(PrepareAsyncStreamEntityComponentsRaw(context, request, cq));
     }
     class async_interface {
      public:
       virtual ~async_interface() {}
+      // Unary RPC to publish an entity for ingest into Entity Manager. This is the preferred RPC to integrate entities
+      // and should be used by most integrations to publish high- or low-update rate entities. Entities created with this
+      // method are "owned" by the originator: other sources, such as the UI, may not edit or delete these entities.
+      // Entities are validated at RPC call time and an error is returned if the entity is invalid.
+      virtual void PublishEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest* request, ::anduril::entitymanager::v1::PublishEntityResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void PublishEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest* request, ::anduril::entitymanager::v1::PublishEntityResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // Create or Update one or more Entities. Prefer PublishEntity instead. The same caveats of PublishEntity apply.
+      // This RPC does not return error messages for invalid entities or any other feedback from the server.
+      virtual void PublishEntities(::grpc::ClientContext* context, ::anduril::entitymanager::v1::PublishEntitiesResponse* response, ::grpc::ClientWriteReactor< ::anduril::entitymanager::v1::PublishEntitiesRequest>* reactor) = 0;
       // Get a entity based on an entityId.
       virtual void GetEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest* request, ::anduril::entitymanager::v1::GetEntityResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GetEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest* request, ::anduril::entitymanager::v1::GetEntityResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      // Returns a stream of entity with specified components populated.
-      virtual void StreamEntityComponents(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest* request, ::grpc::ClientReadReactor< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* reactor) = 0;
-      // Create or Update an Entity. This should be used by low update rate situations where Entity Manager is
-      // the source of truth, rather than an aggregator. The canonical example is a manually created entity.
-      // Entities created in this fashion are stored as a Base entity, overrides on top are still possible.
-      virtual void PutEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PutEntityRequest* request, ::anduril::entitymanager::v1::PutEntityResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void PutEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PutEntityRequest* request, ::anduril::entitymanager::v1::PutEntityResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      // Create or Update one or more Entities. This should be used during high update rate situations where the originator
-      // is both the aggregator and source of truth for the published entities, and the originator does not have
-      // the ability to directly publish to Flux.
-      virtual void PublishEntities(::grpc::ClientContext* context, ::anduril::entitymanager::v1::PublishEntitiesResponse* response, ::grpc::ClientWriteReactor< ::anduril::entitymanager::v1::PublishEntitiesRequest>* reactor) = 0;
-      // Override an Entity Component. Only fields marked with overridable can be overwritten.
+      // Override an Entity Component. An override is a definitive change to entity data. Any authorized user of service
+      // can override overridable components on any entity. Only fields marked with overridable can be overridden.
+      // When setting an override, the user or service setting the override is asserting that they are certain of the change
+      // and the truth behind it.
       virtual void OverrideEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::OverrideEntityRequest* request, ::anduril::entitymanager::v1::OverrideEntityResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void OverrideEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::OverrideEntityRequest* request, ::anduril::entitymanager::v1::OverrideEntityResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // Remove an override for an Entity component.
       virtual void RemoveEntityOverride(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RemoveEntityOverrideRequest* request, ::anduril::entitymanager::v1::RemoveEntityOverrideResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void RemoveEntityOverride(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RemoveEntityOverrideRequest* request, ::anduril::entitymanager::v1::RemoveEntityOverrideResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      // Delete an Entity - only works on entities created by PutEntity.
-      virtual void DeleteEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::DeleteEntityRequest* request, ::anduril::entitymanager::v1::DeleteEntityResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void DeleteEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::DeleteEntityRequest* request, ::anduril::entitymanager::v1::DeleteEntityResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      // Creates or Updates relationships on an Entity. All relationships that are being added in the request
-      // succeed or fail as a batch (i.e. if any one relationship is invalid, the request will fail).
-      virtual void RelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest* request, ::anduril::entitymanager::v1::RelateEntityResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void RelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest* request, ::anduril::entitymanager::v1::RelateEntityResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      // Deletes relationships on an Entity.
-      virtual void UnrelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest* request, ::anduril::entitymanager::v1::UnrelateEntityResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void UnrelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest* request, ::anduril::entitymanager::v1::UnrelateEntityResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // Returns a stream of entity with specified components populated.
+      virtual void StreamEntityComponents(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest* request, ::grpc::ClientReadReactor< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
     class async_interface* experimental_async() { return async(); }
    private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::GetEntityResponse>* AsyncGetEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::GetEntityResponse>* PrepareAsyncGetEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientReaderInterface< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* StreamEntityComponentsRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request) = 0;
-    virtual ::grpc::ClientAsyncReaderInterface< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* AsyncStreamEntityComponentsRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
-    virtual ::grpc::ClientAsyncReaderInterface< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* PrepareAsyncStreamEntityComponentsRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::PutEntityResponse>* AsyncPutEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PutEntityRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::PutEntityResponse>* PrepareAsyncPutEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PutEntityRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::PublishEntityResponse>* AsyncPublishEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::PublishEntityResponse>* PrepareAsyncPublishEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientWriterInterface< ::anduril::entitymanager::v1::PublishEntitiesRequest>* PublishEntitiesRaw(::grpc::ClientContext* context, ::anduril::entitymanager::v1::PublishEntitiesResponse* response) = 0;
     virtual ::grpc::ClientAsyncWriterInterface< ::anduril::entitymanager::v1::PublishEntitiesRequest>* AsyncPublishEntitiesRaw(::grpc::ClientContext* context, ::anduril::entitymanager::v1::PublishEntitiesResponse* response, ::grpc::CompletionQueue* cq, void* tag) = 0;
     virtual ::grpc::ClientAsyncWriterInterface< ::anduril::entitymanager::v1::PublishEntitiesRequest>* PrepareAsyncPublishEntitiesRaw(::grpc::ClientContext* context, ::anduril::entitymanager::v1::PublishEntitiesResponse* response, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::GetEntityResponse>* AsyncGetEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::GetEntityResponse>* PrepareAsyncGetEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::OverrideEntityResponse>* AsyncOverrideEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::OverrideEntityRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::OverrideEntityResponse>* PrepareAsyncOverrideEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::OverrideEntityRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::RemoveEntityOverrideResponse>* AsyncRemoveEntityOverrideRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RemoveEntityOverrideRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::RemoveEntityOverrideResponse>* PrepareAsyncRemoveEntityOverrideRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RemoveEntityOverrideRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::DeleteEntityResponse>* AsyncDeleteEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::DeleteEntityRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::DeleteEntityResponse>* PrepareAsyncDeleteEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::DeleteEntityRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::RelateEntityResponse>* AsyncRelateEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::RelateEntityResponse>* PrepareAsyncRelateEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::UnrelateEntityResponse>* AsyncUnrelateEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::UnrelateEntityResponse>* PrepareAsyncUnrelateEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderInterface< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* StreamEntityComponentsRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* AsyncStreamEntityComponentsRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderInterface< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* PrepareAsyncStreamEntityComponentsRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-    ::grpc::Status GetEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::anduril::entitymanager::v1::GetEntityResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::GetEntityResponse>> AsyncGetEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::GetEntityResponse>>(AsyncGetEntityRaw(context, request, cq));
+    ::grpc::Status PublishEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest& request, ::anduril::entitymanager::v1::PublishEntityResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::PublishEntityResponse>> AsyncPublishEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::PublishEntityResponse>>(AsyncPublishEntityRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::GetEntityResponse>> PrepareAsyncGetEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::GetEntityResponse>>(PrepareAsyncGetEntityRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientReader< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>> StreamEntityComponents(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request) {
-      return std::unique_ptr< ::grpc::ClientReader< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>>(StreamEntityComponentsRaw(context, request));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncReader< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>> AsyncStreamEntityComponents(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReader< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>>(AsyncStreamEntityComponentsRaw(context, request, cq, tag));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncReader< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>> PrepareAsyncStreamEntityComponents(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReader< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>>(PrepareAsyncStreamEntityComponentsRaw(context, request, cq));
-    }
-    ::grpc::Status PutEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PutEntityRequest& request, ::anduril::entitymanager::v1::PutEntityResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::PutEntityResponse>> AsyncPutEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PutEntityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::PutEntityResponse>>(AsyncPutEntityRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::PutEntityResponse>> PrepareAsyncPutEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PutEntityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::PutEntityResponse>>(PrepareAsyncPutEntityRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::PublishEntityResponse>> PrepareAsyncPublishEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::PublishEntityResponse>>(PrepareAsyncPublishEntityRaw(context, request, cq));
     }
     std::unique_ptr< ::grpc::ClientWriter< ::anduril::entitymanager::v1::PublishEntitiesRequest>> PublishEntities(::grpc::ClientContext* context, ::anduril::entitymanager::v1::PublishEntitiesResponse* response) {
       return std::unique_ptr< ::grpc::ClientWriter< ::anduril::entitymanager::v1::PublishEntitiesRequest>>(PublishEntitiesRaw(context, response));
@@ -218,6 +167,13 @@ class EntityManagerAPI final {
     }
     std::unique_ptr< ::grpc::ClientAsyncWriter< ::anduril::entitymanager::v1::PublishEntitiesRequest>> PrepareAsyncPublishEntities(::grpc::ClientContext* context, ::anduril::entitymanager::v1::PublishEntitiesResponse* response, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncWriter< ::anduril::entitymanager::v1::PublishEntitiesRequest>>(PrepareAsyncPublishEntitiesRaw(context, response, cq));
+    }
+    ::grpc::Status GetEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::anduril::entitymanager::v1::GetEntityResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::GetEntityResponse>> AsyncGetEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::GetEntityResponse>>(AsyncGetEntityRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::GetEntityResponse>> PrepareAsyncGetEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::GetEntityResponse>>(PrepareAsyncGetEntityRaw(context, request, cq));
     }
     ::grpc::Status OverrideEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::OverrideEntityRequest& request, ::anduril::entitymanager::v1::OverrideEntityResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::OverrideEntityResponse>> AsyncOverrideEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::OverrideEntityRequest& request, ::grpc::CompletionQueue* cq) {
@@ -233,46 +189,28 @@ class EntityManagerAPI final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::RemoveEntityOverrideResponse>> PrepareAsyncRemoveEntityOverride(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RemoveEntityOverrideRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::RemoveEntityOverrideResponse>>(PrepareAsyncRemoveEntityOverrideRaw(context, request, cq));
     }
-    ::grpc::Status DeleteEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::DeleteEntityRequest& request, ::anduril::entitymanager::v1::DeleteEntityResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::DeleteEntityResponse>> AsyncDeleteEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::DeleteEntityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::DeleteEntityResponse>>(AsyncDeleteEntityRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientReader< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>> StreamEntityComponents(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request) {
+      return std::unique_ptr< ::grpc::ClientReader< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>>(StreamEntityComponentsRaw(context, request));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::DeleteEntityResponse>> PrepareAsyncDeleteEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::DeleteEntityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::DeleteEntityResponse>>(PrepareAsyncDeleteEntityRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>> AsyncStreamEntityComponents(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>>(AsyncStreamEntityComponentsRaw(context, request, cq, tag));
     }
-    ::grpc::Status RelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest& request, ::anduril::entitymanager::v1::RelateEntityResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::RelateEntityResponse>> AsyncRelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::RelateEntityResponse>>(AsyncRelateEntityRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::RelateEntityResponse>> PrepareAsyncRelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::RelateEntityResponse>>(PrepareAsyncRelateEntityRaw(context, request, cq));
-    }
-    ::grpc::Status UnrelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest& request, ::anduril::entitymanager::v1::UnrelateEntityResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::UnrelateEntityResponse>> AsyncUnrelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::UnrelateEntityResponse>>(AsyncUnrelateEntityRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::UnrelateEntityResponse>> PrepareAsyncUnrelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::UnrelateEntityResponse>>(PrepareAsyncUnrelateEntityRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReader< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>> PrepareAsyncStreamEntityComponents(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReader< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>>(PrepareAsyncStreamEntityComponentsRaw(context, request, cq));
     }
     class async final :
       public StubInterface::async_interface {
      public:
+      void PublishEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest* request, ::anduril::entitymanager::v1::PublishEntityResponse* response, std::function<void(::grpc::Status)>) override;
+      void PublishEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest* request, ::anduril::entitymanager::v1::PublishEntityResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void PublishEntities(::grpc::ClientContext* context, ::anduril::entitymanager::v1::PublishEntitiesResponse* response, ::grpc::ClientWriteReactor< ::anduril::entitymanager::v1::PublishEntitiesRequest>* reactor) override;
       void GetEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest* request, ::anduril::entitymanager::v1::GetEntityResponse* response, std::function<void(::grpc::Status)>) override;
       void GetEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest* request, ::anduril::entitymanager::v1::GetEntityResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void StreamEntityComponents(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest* request, ::grpc::ClientReadReactor< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* reactor) override;
-      void PutEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PutEntityRequest* request, ::anduril::entitymanager::v1::PutEntityResponse* response, std::function<void(::grpc::Status)>) override;
-      void PutEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PutEntityRequest* request, ::anduril::entitymanager::v1::PutEntityResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void PublishEntities(::grpc::ClientContext* context, ::anduril::entitymanager::v1::PublishEntitiesResponse* response, ::grpc::ClientWriteReactor< ::anduril::entitymanager::v1::PublishEntitiesRequest>* reactor) override;
       void OverrideEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::OverrideEntityRequest* request, ::anduril::entitymanager::v1::OverrideEntityResponse* response, std::function<void(::grpc::Status)>) override;
       void OverrideEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::OverrideEntityRequest* request, ::anduril::entitymanager::v1::OverrideEntityResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       void RemoveEntityOverride(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RemoveEntityOverrideRequest* request, ::anduril::entitymanager::v1::RemoveEntityOverrideResponse* response, std::function<void(::grpc::Status)>) override;
       void RemoveEntityOverride(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RemoveEntityOverrideRequest* request, ::anduril::entitymanager::v1::RemoveEntityOverrideResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void DeleteEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::DeleteEntityRequest* request, ::anduril::entitymanager::v1::DeleteEntityResponse* response, std::function<void(::grpc::Status)>) override;
-      void DeleteEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::DeleteEntityRequest* request, ::anduril::entitymanager::v1::DeleteEntityResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void RelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest* request, ::anduril::entitymanager::v1::RelateEntityResponse* response, std::function<void(::grpc::Status)>) override;
-      void RelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest* request, ::anduril::entitymanager::v1::RelateEntityResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void UnrelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest* request, ::anduril::entitymanager::v1::UnrelateEntityResponse* response, std::function<void(::grpc::Status)>) override;
-      void UnrelateEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest* request, ::anduril::entitymanager::v1::UnrelateEntityResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void StreamEntityComponents(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest* request, ::grpc::ClientReadReactor< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -284,35 +222,26 @@ class EntityManagerAPI final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::GetEntityResponse>* AsyncGetEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::GetEntityResponse>* PrepareAsyncGetEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientReader< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* StreamEntityComponentsRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request) override;
-    ::grpc::ClientAsyncReader< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* AsyncStreamEntityComponentsRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request, ::grpc::CompletionQueue* cq, void* tag) override;
-    ::grpc::ClientAsyncReader< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* PrepareAsyncStreamEntityComponentsRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::PutEntityResponse>* AsyncPutEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PutEntityRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::PutEntityResponse>* PrepareAsyncPutEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PutEntityRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::PublishEntityResponse>* AsyncPublishEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::PublishEntityResponse>* PrepareAsyncPublishEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientWriter< ::anduril::entitymanager::v1::PublishEntitiesRequest>* PublishEntitiesRaw(::grpc::ClientContext* context, ::anduril::entitymanager::v1::PublishEntitiesResponse* response) override;
     ::grpc::ClientAsyncWriter< ::anduril::entitymanager::v1::PublishEntitiesRequest>* AsyncPublishEntitiesRaw(::grpc::ClientContext* context, ::anduril::entitymanager::v1::PublishEntitiesResponse* response, ::grpc::CompletionQueue* cq, void* tag) override;
     ::grpc::ClientAsyncWriter< ::anduril::entitymanager::v1::PublishEntitiesRequest>* PrepareAsyncPublishEntitiesRaw(::grpc::ClientContext* context, ::anduril::entitymanager::v1::PublishEntitiesResponse* response, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::GetEntityResponse>* AsyncGetEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::GetEntityResponse>* PrepareAsyncGetEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::OverrideEntityResponse>* AsyncOverrideEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::OverrideEntityRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::OverrideEntityResponse>* PrepareAsyncOverrideEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::OverrideEntityRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::RemoveEntityOverrideResponse>* AsyncRemoveEntityOverrideRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RemoveEntityOverrideRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::RemoveEntityOverrideResponse>* PrepareAsyncRemoveEntityOverrideRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RemoveEntityOverrideRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::DeleteEntityResponse>* AsyncDeleteEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::DeleteEntityRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::DeleteEntityResponse>* PrepareAsyncDeleteEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::DeleteEntityRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::RelateEntityResponse>* AsyncRelateEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::RelateEntityResponse>* PrepareAsyncRelateEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::UnrelateEntityResponse>* AsyncUnrelateEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::anduril::entitymanager::v1::UnrelateEntityResponse>* PrepareAsyncUnrelateEntityRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest& request, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::internal::RpcMethod rpcmethod_GetEntity_;
-    const ::grpc::internal::RpcMethod rpcmethod_StreamEntityComponents_;
-    const ::grpc::internal::RpcMethod rpcmethod_PutEntity_;
+    ::grpc::ClientReader< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* StreamEntityComponentsRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request) override;
+    ::grpc::ClientAsyncReader< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* AsyncStreamEntityComponentsRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReader< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* PrepareAsyncStreamEntityComponentsRaw(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::internal::RpcMethod rpcmethod_PublishEntity_;
     const ::grpc::internal::RpcMethod rpcmethod_PublishEntities_;
+    const ::grpc::internal::RpcMethod rpcmethod_GetEntity_;
     const ::grpc::internal::RpcMethod rpcmethod_OverrideEntity_;
     const ::grpc::internal::RpcMethod rpcmethod_RemoveEntityOverride_;
-    const ::grpc::internal::RpcMethod rpcmethod_DeleteEntity_;
-    const ::grpc::internal::RpcMethod rpcmethod_RelateEntity_;
-    const ::grpc::internal::RpcMethod rpcmethod_UnrelateEntity_;
+    const ::grpc::internal::RpcMethod rpcmethod_StreamEntityComponents_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -320,88 +249,44 @@ class EntityManagerAPI final {
    public:
     Service();
     virtual ~Service();
+    // Unary RPC to publish an entity for ingest into Entity Manager. This is the preferred RPC to integrate entities
+    // and should be used by most integrations to publish high- or low-update rate entities. Entities created with this
+    // method are "owned" by the originator: other sources, such as the UI, may not edit or delete these entities.
+    // Entities are validated at RPC call time and an error is returned if the entity is invalid.
+    virtual ::grpc::Status PublishEntity(::grpc::ServerContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest* request, ::anduril::entitymanager::v1::PublishEntityResponse* response);
+    // Create or Update one or more Entities. Prefer PublishEntity instead. The same caveats of PublishEntity apply.
+    // This RPC does not return error messages for invalid entities or any other feedback from the server.
+    virtual ::grpc::Status PublishEntities(::grpc::ServerContext* context, ::grpc::ServerReader< ::anduril::entitymanager::v1::PublishEntitiesRequest>* reader, ::anduril::entitymanager::v1::PublishEntitiesResponse* response);
     // Get a entity based on an entityId.
     virtual ::grpc::Status GetEntity(::grpc::ServerContext* context, const ::anduril::entitymanager::v1::GetEntityRequest* request, ::anduril::entitymanager::v1::GetEntityResponse* response);
-    // Returns a stream of entity with specified components populated.
-    virtual ::grpc::Status StreamEntityComponents(::grpc::ServerContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest* request, ::grpc::ServerWriter< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* writer);
-    // Create or Update an Entity. This should be used by low update rate situations where Entity Manager is
-    // the source of truth, rather than an aggregator. The canonical example is a manually created entity.
-    // Entities created in this fashion are stored as a Base entity, overrides on top are still possible.
-    virtual ::grpc::Status PutEntity(::grpc::ServerContext* context, const ::anduril::entitymanager::v1::PutEntityRequest* request, ::anduril::entitymanager::v1::PutEntityResponse* response);
-    // Create or Update one or more Entities. This should be used during high update rate situations where the originator
-    // is both the aggregator and source of truth for the published entities, and the originator does not have
-    // the ability to directly publish to Flux.
-    virtual ::grpc::Status PublishEntities(::grpc::ServerContext* context, ::grpc::ServerReader< ::anduril::entitymanager::v1::PublishEntitiesRequest>* reader, ::anduril::entitymanager::v1::PublishEntitiesResponse* response);
-    // Override an Entity Component. Only fields marked with overridable can be overwritten.
+    // Override an Entity Component. An override is a definitive change to entity data. Any authorized user of service
+    // can override overridable components on any entity. Only fields marked with overridable can be overridden.
+    // When setting an override, the user or service setting the override is asserting that they are certain of the change
+    // and the truth behind it.
     virtual ::grpc::Status OverrideEntity(::grpc::ServerContext* context, const ::anduril::entitymanager::v1::OverrideEntityRequest* request, ::anduril::entitymanager::v1::OverrideEntityResponse* response);
     // Remove an override for an Entity component.
     virtual ::grpc::Status RemoveEntityOverride(::grpc::ServerContext* context, const ::anduril::entitymanager::v1::RemoveEntityOverrideRequest* request, ::anduril::entitymanager::v1::RemoveEntityOverrideResponse* response);
-    // Delete an Entity - only works on entities created by PutEntity.
-    virtual ::grpc::Status DeleteEntity(::grpc::ServerContext* context, const ::anduril::entitymanager::v1::DeleteEntityRequest* request, ::anduril::entitymanager::v1::DeleteEntityResponse* response);
-    // Creates or Updates relationships on an Entity. All relationships that are being added in the request
-    // succeed or fail as a batch (i.e. if any one relationship is invalid, the request will fail).
-    virtual ::grpc::Status RelateEntity(::grpc::ServerContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest* request, ::anduril::entitymanager::v1::RelateEntityResponse* response);
-    // Deletes relationships on an Entity.
-    virtual ::grpc::Status UnrelateEntity(::grpc::ServerContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest* request, ::anduril::entitymanager::v1::UnrelateEntityResponse* response);
+    // Returns a stream of entity with specified components populated.
+    virtual ::grpc::Status StreamEntityComponents(::grpc::ServerContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest* request, ::grpc::ServerWriter< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* writer);
   };
   template <class BaseClass>
-  class WithAsyncMethod_GetEntity : public BaseClass {
+  class WithAsyncMethod_PublishEntity : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_GetEntity() {
+    WithAsyncMethod_PublishEntity() {
       ::grpc::Service::MarkMethodAsync(0);
     }
-    ~WithAsyncMethod_GetEntity() override {
+    ~WithAsyncMethod_PublishEntity() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::GetEntityRequest* /*request*/, ::anduril::entitymanager::v1::GetEntityResponse* /*response*/) override {
+    ::grpc::Status PublishEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::PublishEntityRequest* /*request*/, ::anduril::entitymanager::v1::PublishEntityResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetEntity(::grpc::ServerContext* context, ::anduril::entitymanager::v1::GetEntityRequest* request, ::grpc::ServerAsyncResponseWriter< ::anduril::entitymanager::v1::GetEntityResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestPublishEntity(::grpc::ServerContext* context, ::anduril::entitymanager::v1::PublishEntityRequest* request, ::grpc::ServerAsyncResponseWriter< ::anduril::entitymanager::v1::PublishEntityResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_StreamEntityComponents : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_StreamEntityComponents() {
-      ::grpc::Service::MarkMethodAsync(1);
-    }
-    ~WithAsyncMethod_StreamEntityComponents() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status StreamEntityComponents(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest* /*request*/, ::grpc::ServerWriter< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* /*writer*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestStreamEntityComponents(::grpc::ServerContext* context, ::anduril::entitymanager::v1::StreamEntityComponentsRequest* request, ::grpc::ServerAsyncWriter< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncServerStreaming(1, context, request, writer, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_PutEntity : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_PutEntity() {
-      ::grpc::Service::MarkMethodAsync(2);
-    }
-    ~WithAsyncMethod_PutEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status PutEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::PutEntityRequest* /*request*/, ::anduril::entitymanager::v1::PutEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestPutEntity(::grpc::ServerContext* context, ::anduril::entitymanager::v1::PutEntityRequest* request, ::grpc::ServerAsyncResponseWriter< ::anduril::entitymanager::v1::PutEntityResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -410,7 +295,7 @@ class EntityManagerAPI final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_PublishEntities() {
-      ::grpc::Service::MarkMethodAsync(3);
+      ::grpc::Service::MarkMethodAsync(1);
     }
     ~WithAsyncMethod_PublishEntities() override {
       BaseClassMustBeDerivedFromService(this);
@@ -421,7 +306,27 @@ class EntityManagerAPI final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestPublishEntities(::grpc::ServerContext* context, ::grpc::ServerAsyncReader< ::anduril::entitymanager::v1::PublishEntitiesResponse, ::anduril::entitymanager::v1::PublishEntitiesRequest>* reader, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncClientStreaming(3, context, reader, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncClientStreaming(1, context, reader, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_GetEntity : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_GetEntity() {
+      ::grpc::Service::MarkMethodAsync(2);
+    }
+    ~WithAsyncMethod_GetEntity() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::GetEntityRequest* /*request*/, ::anduril::entitymanager::v1::GetEntityResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetEntity(::grpc::ServerContext* context, ::anduril::entitymanager::v1::GetEntityRequest* request, ::grpc::ServerAsyncResponseWriter< ::anduril::entitymanager::v1::GetEntityResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -430,7 +335,7 @@ class EntityManagerAPI final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_OverrideEntity() {
-      ::grpc::Service::MarkMethodAsync(4);
+      ::grpc::Service::MarkMethodAsync(3);
     }
     ~WithAsyncMethod_OverrideEntity() override {
       BaseClassMustBeDerivedFromService(this);
@@ -441,7 +346,7 @@ class EntityManagerAPI final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestOverrideEntity(::grpc::ServerContext* context, ::anduril::entitymanager::v1::OverrideEntityRequest* request, ::grpc::ServerAsyncResponseWriter< ::anduril::entitymanager::v1::OverrideEntityResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -450,7 +355,7 @@ class EntityManagerAPI final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_RemoveEntityOverride() {
-      ::grpc::Service::MarkMethodAsync(5);
+      ::grpc::Service::MarkMethodAsync(4);
     }
     ~WithAsyncMethod_RemoveEntityOverride() override {
       BaseClassMustBeDerivedFromService(this);
@@ -461,109 +366,18 @@ class EntityManagerAPI final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestRemoveEntityOverride(::grpc::ServerContext* context, ::anduril::entitymanager::v1::RemoveEntityOverrideRequest* request, ::grpc::ServerAsyncResponseWriter< ::anduril::entitymanager::v1::RemoveEntityOverrideResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_DeleteEntity : public BaseClass {
+  class WithAsyncMethod_StreamEntityComponents : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_DeleteEntity() {
-      ::grpc::Service::MarkMethodAsync(6);
+    WithAsyncMethod_StreamEntityComponents() {
+      ::grpc::Service::MarkMethodAsync(5);
     }
-    ~WithAsyncMethod_DeleteEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status DeleteEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::DeleteEntityRequest* /*request*/, ::anduril::entitymanager::v1::DeleteEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestDeleteEntity(::grpc::ServerContext* context, ::anduril::entitymanager::v1::DeleteEntityRequest* request, ::grpc::ServerAsyncResponseWriter< ::anduril::entitymanager::v1::DeleteEntityResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_RelateEntity : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_RelateEntity() {
-      ::grpc::Service::MarkMethodAsync(7);
-    }
-    ~WithAsyncMethod_RelateEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status RelateEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::RelateEntityRequest* /*request*/, ::anduril::entitymanager::v1::RelateEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestRelateEntity(::grpc::ServerContext* context, ::anduril::entitymanager::v1::RelateEntityRequest* request, ::grpc::ServerAsyncResponseWriter< ::anduril::entitymanager::v1::RelateEntityResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_UnrelateEntity : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_UnrelateEntity() {
-      ::grpc::Service::MarkMethodAsync(8);
-    }
-    ~WithAsyncMethod_UnrelateEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status UnrelateEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::UnrelateEntityRequest* /*request*/, ::anduril::entitymanager::v1::UnrelateEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestUnrelateEntity(::grpc::ServerContext* context, ::anduril::entitymanager::v1::UnrelateEntityRequest* request, ::grpc::ServerAsyncResponseWriter< ::anduril::entitymanager::v1::UnrelateEntityResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  typedef WithAsyncMethod_GetEntity<WithAsyncMethod_StreamEntityComponents<WithAsyncMethod_PutEntity<WithAsyncMethod_PublishEntities<WithAsyncMethod_OverrideEntity<WithAsyncMethod_RemoveEntityOverride<WithAsyncMethod_DeleteEntity<WithAsyncMethod_RelateEntity<WithAsyncMethod_UnrelateEntity<Service > > > > > > > > > AsyncService;
-  template <class BaseClass>
-  class WithCallbackMethod_GetEntity : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithCallbackMethod_GetEntity() {
-      ::grpc::Service::MarkMethodCallback(0,
-          new ::grpc::internal::CallbackUnaryHandler< ::anduril::entitymanager::v1::GetEntityRequest, ::anduril::entitymanager::v1::GetEntityResponse>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const ::anduril::entitymanager::v1::GetEntityRequest* request, ::anduril::entitymanager::v1::GetEntityResponse* response) { return this->GetEntity(context, request, response); }));}
-    void SetMessageAllocatorFor_GetEntity(
-        ::grpc::MessageAllocator< ::anduril::entitymanager::v1::GetEntityRequest, ::anduril::entitymanager::v1::GetEntityResponse>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::anduril::entitymanager::v1::GetEntityRequest, ::anduril::entitymanager::v1::GetEntityResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
-    }
-    ~WithCallbackMethod_GetEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status GetEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::GetEntityRequest* /*request*/, ::anduril::entitymanager::v1::GetEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerUnaryReactor* GetEntity(
-      ::grpc::CallbackServerContext* /*context*/, const ::anduril::entitymanager::v1::GetEntityRequest* /*request*/, ::anduril::entitymanager::v1::GetEntityResponse* /*response*/)  { return nullptr; }
-  };
-  template <class BaseClass>
-  class WithCallbackMethod_StreamEntityComponents : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithCallbackMethod_StreamEntityComponents() {
-      ::grpc::Service::MarkMethodCallback(1,
-          new ::grpc::internal::CallbackServerStreamingHandler< ::anduril::entitymanager::v1::StreamEntityComponentsRequest, ::anduril::entitymanager::v1::StreamEntityComponentsResponse>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest* request) { return this->StreamEntityComponents(context, request); }));
-    }
-    ~WithCallbackMethod_StreamEntityComponents() override {
+    ~WithAsyncMethod_StreamEntityComponents() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -571,35 +385,37 @@ class EntityManagerAPI final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerWriteReactor< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* StreamEntityComponents(
-      ::grpc::CallbackServerContext* /*context*/, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest* /*request*/)  { return nullptr; }
+    void RequestStreamEntityComponents(::grpc::ServerContext* context, ::anduril::entitymanager::v1::StreamEntityComponentsRequest* request, ::grpc::ServerAsyncWriter< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncServerStreaming(5, context, request, writer, new_call_cq, notification_cq, tag);
+    }
   };
+  typedef WithAsyncMethod_PublishEntity<WithAsyncMethod_PublishEntities<WithAsyncMethod_GetEntity<WithAsyncMethod_OverrideEntity<WithAsyncMethod_RemoveEntityOverride<WithAsyncMethod_StreamEntityComponents<Service > > > > > > AsyncService;
   template <class BaseClass>
-  class WithCallbackMethod_PutEntity : public BaseClass {
+  class WithCallbackMethod_PublishEntity : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_PutEntity() {
-      ::grpc::Service::MarkMethodCallback(2,
-          new ::grpc::internal::CallbackUnaryHandler< ::anduril::entitymanager::v1::PutEntityRequest, ::anduril::entitymanager::v1::PutEntityResponse>(
+    WithCallbackMethod_PublishEntity() {
+      ::grpc::Service::MarkMethodCallback(0,
+          new ::grpc::internal::CallbackUnaryHandler< ::anduril::entitymanager::v1::PublishEntityRequest, ::anduril::entitymanager::v1::PublishEntityResponse>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::anduril::entitymanager::v1::PutEntityRequest* request, ::anduril::entitymanager::v1::PutEntityResponse* response) { return this->PutEntity(context, request, response); }));}
-    void SetMessageAllocatorFor_PutEntity(
-        ::grpc::MessageAllocator< ::anduril::entitymanager::v1::PutEntityRequest, ::anduril::entitymanager::v1::PutEntityResponse>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::anduril::entitymanager::v1::PutEntityRequest, ::anduril::entitymanager::v1::PutEntityResponse>*>(handler)
+                   ::grpc::CallbackServerContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest* request, ::anduril::entitymanager::v1::PublishEntityResponse* response) { return this->PublishEntity(context, request, response); }));}
+    void SetMessageAllocatorFor_PublishEntity(
+        ::grpc::MessageAllocator< ::anduril::entitymanager::v1::PublishEntityRequest, ::anduril::entitymanager::v1::PublishEntityResponse>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::anduril::entitymanager::v1::PublishEntityRequest, ::anduril::entitymanager::v1::PublishEntityResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_PutEntity() override {
+    ~WithCallbackMethod_PublishEntity() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PutEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::PutEntityRequest* /*request*/, ::anduril::entitymanager::v1::PutEntityResponse* /*response*/) override {
+    ::grpc::Status PublishEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::PublishEntityRequest* /*request*/, ::anduril::entitymanager::v1::PublishEntityResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* PutEntity(
-      ::grpc::CallbackServerContext* /*context*/, const ::anduril::entitymanager::v1::PutEntityRequest* /*request*/, ::anduril::entitymanager::v1::PutEntityResponse* /*response*/)  { return nullptr; }
+    virtual ::grpc::ServerUnaryReactor* PublishEntity(
+      ::grpc::CallbackServerContext* /*context*/, const ::anduril::entitymanager::v1::PublishEntityRequest* /*request*/, ::anduril::entitymanager::v1::PublishEntityResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_PublishEntities : public BaseClass {
@@ -607,7 +423,7 @@ class EntityManagerAPI final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_PublishEntities() {
-      ::grpc::Service::MarkMethodCallback(3,
+      ::grpc::Service::MarkMethodCallback(1,
           new ::grpc::internal::CallbackClientStreamingHandler< ::anduril::entitymanager::v1::PublishEntitiesRequest, ::anduril::entitymanager::v1::PublishEntitiesResponse>(
             [this](
                    ::grpc::CallbackServerContext* context, ::anduril::entitymanager::v1::PublishEntitiesResponse* response) { return this->PublishEntities(context, response); }));
@@ -624,18 +440,45 @@ class EntityManagerAPI final {
       ::grpc::CallbackServerContext* /*context*/, ::anduril::entitymanager::v1::PublishEntitiesResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithCallbackMethod_GetEntity : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_GetEntity() {
+      ::grpc::Service::MarkMethodCallback(2,
+          new ::grpc::internal::CallbackUnaryHandler< ::anduril::entitymanager::v1::GetEntityRequest, ::anduril::entitymanager::v1::GetEntityResponse>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::anduril::entitymanager::v1::GetEntityRequest* request, ::anduril::entitymanager::v1::GetEntityResponse* response) { return this->GetEntity(context, request, response); }));}
+    void SetMessageAllocatorFor_GetEntity(
+        ::grpc::MessageAllocator< ::anduril::entitymanager::v1::GetEntityRequest, ::anduril::entitymanager::v1::GetEntityResponse>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::anduril::entitymanager::v1::GetEntityRequest, ::anduril::entitymanager::v1::GetEntityResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_GetEntity() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::GetEntityRequest* /*request*/, ::anduril::entitymanager::v1::GetEntityResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* GetEntity(
+      ::grpc::CallbackServerContext* /*context*/, const ::anduril::entitymanager::v1::GetEntityRequest* /*request*/, ::anduril::entitymanager::v1::GetEntityResponse* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithCallbackMethod_OverrideEntity : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_OverrideEntity() {
-      ::grpc::Service::MarkMethodCallback(4,
+      ::grpc::Service::MarkMethodCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::anduril::entitymanager::v1::OverrideEntityRequest, ::anduril::entitymanager::v1::OverrideEntityResponse>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::anduril::entitymanager::v1::OverrideEntityRequest* request, ::anduril::entitymanager::v1::OverrideEntityResponse* response) { return this->OverrideEntity(context, request, response); }));}
     void SetMessageAllocatorFor_OverrideEntity(
         ::grpc::MessageAllocator< ::anduril::entitymanager::v1::OverrideEntityRequest, ::anduril::entitymanager::v1::OverrideEntityResponse>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::anduril::entitymanager::v1::OverrideEntityRequest, ::anduril::entitymanager::v1::OverrideEntityResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -656,13 +499,13 @@ class EntityManagerAPI final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_RemoveEntityOverride() {
-      ::grpc::Service::MarkMethodCallback(5,
+      ::grpc::Service::MarkMethodCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::anduril::entitymanager::v1::RemoveEntityOverrideRequest, ::anduril::entitymanager::v1::RemoveEntityOverrideResponse>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::anduril::entitymanager::v1::RemoveEntityOverrideRequest* request, ::anduril::entitymanager::v1::RemoveEntityOverrideResponse* response) { return this->RemoveEntityOverride(context, request, response); }));}
     void SetMessageAllocatorFor_RemoveEntityOverride(
         ::grpc::MessageAllocator< ::anduril::entitymanager::v1::RemoveEntityOverrideRequest, ::anduril::entitymanager::v1::RemoveEntityOverrideResponse>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::anduril::entitymanager::v1::RemoveEntityOverrideRequest, ::anduril::entitymanager::v1::RemoveEntityOverrideResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -678,114 +521,17 @@ class EntityManagerAPI final {
       ::grpc::CallbackServerContext* /*context*/, const ::anduril::entitymanager::v1::RemoveEntityOverrideRequest* /*request*/, ::anduril::entitymanager::v1::RemoveEntityOverrideResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_DeleteEntity : public BaseClass {
+  class WithCallbackMethod_StreamEntityComponents : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_DeleteEntity() {
-      ::grpc::Service::MarkMethodCallback(6,
-          new ::grpc::internal::CallbackUnaryHandler< ::anduril::entitymanager::v1::DeleteEntityRequest, ::anduril::entitymanager::v1::DeleteEntityResponse>(
+    WithCallbackMethod_StreamEntityComponents() {
+      ::grpc::Service::MarkMethodCallback(5,
+          new ::grpc::internal::CallbackServerStreamingHandler< ::anduril::entitymanager::v1::StreamEntityComponentsRequest, ::anduril::entitymanager::v1::StreamEntityComponentsResponse>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::anduril::entitymanager::v1::DeleteEntityRequest* request, ::anduril::entitymanager::v1::DeleteEntityResponse* response) { return this->DeleteEntity(context, request, response); }));}
-    void SetMessageAllocatorFor_DeleteEntity(
-        ::grpc::MessageAllocator< ::anduril::entitymanager::v1::DeleteEntityRequest, ::anduril::entitymanager::v1::DeleteEntityResponse>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::anduril::entitymanager::v1::DeleteEntityRequest, ::anduril::entitymanager::v1::DeleteEntityResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
+                   ::grpc::CallbackServerContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest* request) { return this->StreamEntityComponents(context, request); }));
     }
-    ~WithCallbackMethod_DeleteEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status DeleteEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::DeleteEntityRequest* /*request*/, ::anduril::entitymanager::v1::DeleteEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerUnaryReactor* DeleteEntity(
-      ::grpc::CallbackServerContext* /*context*/, const ::anduril::entitymanager::v1::DeleteEntityRequest* /*request*/, ::anduril::entitymanager::v1::DeleteEntityResponse* /*response*/)  { return nullptr; }
-  };
-  template <class BaseClass>
-  class WithCallbackMethod_RelateEntity : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithCallbackMethod_RelateEntity() {
-      ::grpc::Service::MarkMethodCallback(7,
-          new ::grpc::internal::CallbackUnaryHandler< ::anduril::entitymanager::v1::RelateEntityRequest, ::anduril::entitymanager::v1::RelateEntityResponse>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const ::anduril::entitymanager::v1::RelateEntityRequest* request, ::anduril::entitymanager::v1::RelateEntityResponse* response) { return this->RelateEntity(context, request, response); }));}
-    void SetMessageAllocatorFor_RelateEntity(
-        ::grpc::MessageAllocator< ::anduril::entitymanager::v1::RelateEntityRequest, ::anduril::entitymanager::v1::RelateEntityResponse>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::anduril::entitymanager::v1::RelateEntityRequest, ::anduril::entitymanager::v1::RelateEntityResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
-    }
-    ~WithCallbackMethod_RelateEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status RelateEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::RelateEntityRequest* /*request*/, ::anduril::entitymanager::v1::RelateEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerUnaryReactor* RelateEntity(
-      ::grpc::CallbackServerContext* /*context*/, const ::anduril::entitymanager::v1::RelateEntityRequest* /*request*/, ::anduril::entitymanager::v1::RelateEntityResponse* /*response*/)  { return nullptr; }
-  };
-  template <class BaseClass>
-  class WithCallbackMethod_UnrelateEntity : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithCallbackMethod_UnrelateEntity() {
-      ::grpc::Service::MarkMethodCallback(8,
-          new ::grpc::internal::CallbackUnaryHandler< ::anduril::entitymanager::v1::UnrelateEntityRequest, ::anduril::entitymanager::v1::UnrelateEntityResponse>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const ::anduril::entitymanager::v1::UnrelateEntityRequest* request, ::anduril::entitymanager::v1::UnrelateEntityResponse* response) { return this->UnrelateEntity(context, request, response); }));}
-    void SetMessageAllocatorFor_UnrelateEntity(
-        ::grpc::MessageAllocator< ::anduril::entitymanager::v1::UnrelateEntityRequest, ::anduril::entitymanager::v1::UnrelateEntityResponse>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(8);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::anduril::entitymanager::v1::UnrelateEntityRequest, ::anduril::entitymanager::v1::UnrelateEntityResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
-    }
-    ~WithCallbackMethod_UnrelateEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status UnrelateEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::UnrelateEntityRequest* /*request*/, ::anduril::entitymanager::v1::UnrelateEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerUnaryReactor* UnrelateEntity(
-      ::grpc::CallbackServerContext* /*context*/, const ::anduril::entitymanager::v1::UnrelateEntityRequest* /*request*/, ::anduril::entitymanager::v1::UnrelateEntityResponse* /*response*/)  { return nullptr; }
-  };
-  typedef WithCallbackMethod_GetEntity<WithCallbackMethod_StreamEntityComponents<WithCallbackMethod_PutEntity<WithCallbackMethod_PublishEntities<WithCallbackMethod_OverrideEntity<WithCallbackMethod_RemoveEntityOverride<WithCallbackMethod_DeleteEntity<WithCallbackMethod_RelateEntity<WithCallbackMethod_UnrelateEntity<Service > > > > > > > > > CallbackService;
-  typedef CallbackService ExperimentalCallbackService;
-  template <class BaseClass>
-  class WithGenericMethod_GetEntity : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_GetEntity() {
-      ::grpc::Service::MarkMethodGeneric(0);
-    }
-    ~WithGenericMethod_GetEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status GetEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::GetEntityRequest* /*request*/, ::anduril::entitymanager::v1::GetEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_StreamEntityComponents : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_StreamEntityComponents() {
-      ::grpc::Service::MarkMethodGeneric(1);
-    }
-    ~WithGenericMethod_StreamEntityComponents() override {
+    ~WithCallbackMethod_StreamEntityComponents() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -793,20 +539,24 @@ class EntityManagerAPI final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
+    virtual ::grpc::ServerWriteReactor< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* StreamEntityComponents(
+      ::grpc::CallbackServerContext* /*context*/, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest* /*request*/)  { return nullptr; }
   };
+  typedef WithCallbackMethod_PublishEntity<WithCallbackMethod_PublishEntities<WithCallbackMethod_GetEntity<WithCallbackMethod_OverrideEntity<WithCallbackMethod_RemoveEntityOverride<WithCallbackMethod_StreamEntityComponents<Service > > > > > > CallbackService;
+  typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
-  class WithGenericMethod_PutEntity : public BaseClass {
+  class WithGenericMethod_PublishEntity : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_PutEntity() {
-      ::grpc::Service::MarkMethodGeneric(2);
+    WithGenericMethod_PublishEntity() {
+      ::grpc::Service::MarkMethodGeneric(0);
     }
-    ~WithGenericMethod_PutEntity() override {
+    ~WithGenericMethod_PublishEntity() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PutEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::PutEntityRequest* /*request*/, ::anduril::entitymanager::v1::PutEntityResponse* /*response*/) override {
+    ::grpc::Status PublishEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::PublishEntityRequest* /*request*/, ::anduril::entitymanager::v1::PublishEntityResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -817,7 +567,7 @@ class EntityManagerAPI final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_PublishEntities() {
-      ::grpc::Service::MarkMethodGeneric(3);
+      ::grpc::Service::MarkMethodGeneric(1);
     }
     ~WithGenericMethod_PublishEntities() override {
       BaseClassMustBeDerivedFromService(this);
@@ -829,12 +579,29 @@ class EntityManagerAPI final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_GetEntity : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_GetEntity() {
+      ::grpc::Service::MarkMethodGeneric(2);
+    }
+    ~WithGenericMethod_GetEntity() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::GetEntityRequest* /*request*/, ::anduril::entitymanager::v1::GetEntityResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_OverrideEntity : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_OverrideEntity() {
-      ::grpc::Service::MarkMethodGeneric(4);
+      ::grpc::Service::MarkMethodGeneric(3);
     }
     ~WithGenericMethod_OverrideEntity() override {
       BaseClassMustBeDerivedFromService(this);
@@ -851,7 +618,7 @@ class EntityManagerAPI final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_RemoveEntityOverride() {
-      ::grpc::Service::MarkMethodGeneric(5);
+      ::grpc::Service::MarkMethodGeneric(4);
     }
     ~WithGenericMethod_RemoveEntityOverride() override {
       BaseClassMustBeDerivedFromService(this);
@@ -863,85 +630,14 @@ class EntityManagerAPI final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_DeleteEntity : public BaseClass {
+  class WithGenericMethod_StreamEntityComponents : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_DeleteEntity() {
-      ::grpc::Service::MarkMethodGeneric(6);
+    WithGenericMethod_StreamEntityComponents() {
+      ::grpc::Service::MarkMethodGeneric(5);
     }
-    ~WithGenericMethod_DeleteEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status DeleteEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::DeleteEntityRequest* /*request*/, ::anduril::entitymanager::v1::DeleteEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_RelateEntity : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_RelateEntity() {
-      ::grpc::Service::MarkMethodGeneric(7);
-    }
-    ~WithGenericMethod_RelateEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status RelateEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::RelateEntityRequest* /*request*/, ::anduril::entitymanager::v1::RelateEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_UnrelateEntity : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_UnrelateEntity() {
-      ::grpc::Service::MarkMethodGeneric(8);
-    }
-    ~WithGenericMethod_UnrelateEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status UnrelateEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::UnrelateEntityRequest* /*request*/, ::anduril::entitymanager::v1::UnrelateEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithRawMethod_GetEntity : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_GetEntity() {
-      ::grpc::Service::MarkMethodRaw(0);
-    }
-    ~WithRawMethod_GetEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status GetEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::GetEntityRequest* /*request*/, ::anduril::entitymanager::v1::GetEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestGetEntity(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithRawMethod_StreamEntityComponents : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_StreamEntityComponents() {
-      ::grpc::Service::MarkMethodRaw(1);
-    }
-    ~WithRawMethod_StreamEntityComponents() override {
+    ~WithGenericMethod_StreamEntityComponents() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -949,28 +645,25 @@ class EntityManagerAPI final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestStreamEntityComponents(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncWriter< ::grpc::ByteBuffer>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncServerStreaming(1, context, request, writer, new_call_cq, notification_cq, tag);
-    }
   };
   template <class BaseClass>
-  class WithRawMethod_PutEntity : public BaseClass {
+  class WithRawMethod_PublishEntity : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_PutEntity() {
-      ::grpc::Service::MarkMethodRaw(2);
+    WithRawMethod_PublishEntity() {
+      ::grpc::Service::MarkMethodRaw(0);
     }
-    ~WithRawMethod_PutEntity() override {
+    ~WithRawMethod_PublishEntity() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PutEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::PutEntityRequest* /*request*/, ::anduril::entitymanager::v1::PutEntityResponse* /*response*/) override {
+    ::grpc::Status PublishEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::PublishEntityRequest* /*request*/, ::anduril::entitymanager::v1::PublishEntityResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestPutEntity(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    void RequestPublishEntity(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -979,7 +672,7 @@ class EntityManagerAPI final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_PublishEntities() {
-      ::grpc::Service::MarkMethodRaw(3);
+      ::grpc::Service::MarkMethodRaw(1);
     }
     ~WithRawMethod_PublishEntities() override {
       BaseClassMustBeDerivedFromService(this);
@@ -990,7 +683,27 @@ class EntityManagerAPI final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestPublishEntities(::grpc::ServerContext* context, ::grpc::ServerAsyncReader< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* reader, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncClientStreaming(3, context, reader, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncClientStreaming(1, context, reader, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_GetEntity : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_GetEntity() {
+      ::grpc::Service::MarkMethodRaw(2);
+    }
+    ~WithRawMethod_GetEntity() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::GetEntityRequest* /*request*/, ::anduril::entitymanager::v1::GetEntityResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetEntity(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -999,7 +712,7 @@ class EntityManagerAPI final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_OverrideEntity() {
-      ::grpc::Service::MarkMethodRaw(4);
+      ::grpc::Service::MarkMethodRaw(3);
     }
     ~WithRawMethod_OverrideEntity() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1010,7 +723,7 @@ class EntityManagerAPI final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestOverrideEntity(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1019,7 +732,7 @@ class EntityManagerAPI final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_RemoveEntityOverride() {
-      ::grpc::Service::MarkMethodRaw(5);
+      ::grpc::Service::MarkMethodRaw(4);
     }
     ~WithRawMethod_RemoveEntityOverride() override {
       BaseClassMustBeDerivedFromService(this);
@@ -1030,103 +743,18 @@ class EntityManagerAPI final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestRemoveEntityOverride(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithRawMethod_DeleteEntity : public BaseClass {
+  class WithRawMethod_StreamEntityComponents : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_DeleteEntity() {
-      ::grpc::Service::MarkMethodRaw(6);
+    WithRawMethod_StreamEntityComponents() {
+      ::grpc::Service::MarkMethodRaw(5);
     }
-    ~WithRawMethod_DeleteEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status DeleteEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::DeleteEntityRequest* /*request*/, ::anduril::entitymanager::v1::DeleteEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestDeleteEntity(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithRawMethod_RelateEntity : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_RelateEntity() {
-      ::grpc::Service::MarkMethodRaw(7);
-    }
-    ~WithRawMethod_RelateEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status RelateEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::RelateEntityRequest* /*request*/, ::anduril::entitymanager::v1::RelateEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestRelateEntity(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithRawMethod_UnrelateEntity : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_UnrelateEntity() {
-      ::grpc::Service::MarkMethodRaw(8);
-    }
-    ~WithRawMethod_UnrelateEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status UnrelateEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::UnrelateEntityRequest* /*request*/, ::anduril::entitymanager::v1::UnrelateEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestUnrelateEntity(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithRawCallbackMethod_GetEntity : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawCallbackMethod_GetEntity() {
-      ::grpc::Service::MarkMethodRawCallback(0,
-          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetEntity(context, request, response); }));
-    }
-    ~WithRawCallbackMethod_GetEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status GetEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::GetEntityRequest* /*request*/, ::anduril::entitymanager::v1::GetEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerUnaryReactor* GetEntity(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
-  };
-  template <class BaseClass>
-  class WithRawCallbackMethod_StreamEntityComponents : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawCallbackMethod_StreamEntityComponents() {
-      ::grpc::Service::MarkMethodRawCallback(1,
-          new ::grpc::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const::grpc::ByteBuffer* request) { return this->StreamEntityComponents(context, request); }));
-    }
-    ~WithRawCallbackMethod_StreamEntityComponents() override {
+    ~WithRawMethod_StreamEntityComponents() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -1134,29 +762,30 @@ class EntityManagerAPI final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerWriteReactor< ::grpc::ByteBuffer>* StreamEntityComponents(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)  { return nullptr; }
+    void RequestStreamEntityComponents(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncWriter< ::grpc::ByteBuffer>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncServerStreaming(5, context, request, writer, new_call_cq, notification_cq, tag);
+    }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_PutEntity : public BaseClass {
+  class WithRawCallbackMethod_PublishEntity : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_PutEntity() {
-      ::grpc::Service::MarkMethodRawCallback(2,
+    WithRawCallbackMethod_PublishEntity() {
+      ::grpc::Service::MarkMethodRawCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->PutEntity(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->PublishEntity(context, request, response); }));
     }
-    ~WithRawCallbackMethod_PutEntity() override {
+    ~WithRawCallbackMethod_PublishEntity() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status PutEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::PutEntityRequest* /*request*/, ::anduril::entitymanager::v1::PutEntityResponse* /*response*/) override {
+    ::grpc::Status PublishEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::PublishEntityRequest* /*request*/, ::anduril::entitymanager::v1::PublishEntityResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* PutEntity(
+    virtual ::grpc::ServerUnaryReactor* PublishEntity(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -1165,7 +794,7 @@ class EntityManagerAPI final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_PublishEntities() {
-      ::grpc::Service::MarkMethodRawCallback(3,
+      ::grpc::Service::MarkMethodRawCallback(1,
           new ::grpc::internal::CallbackClientStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, ::grpc::ByteBuffer* response) { return this->PublishEntities(context, response); }));
@@ -1182,12 +811,34 @@ class EntityManagerAPI final {
       ::grpc::CallbackServerContext* /*context*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithRawCallbackMethod_GetEntity : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_GetEntity() {
+      ::grpc::Service::MarkMethodRawCallback(2,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetEntity(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_GetEntity() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::GetEntityRequest* /*request*/, ::anduril::entitymanager::v1::GetEntityResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* GetEntity(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithRawCallbackMethod_OverrideEntity : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_OverrideEntity() {
-      ::grpc::Service::MarkMethodRawCallback(4,
+      ::grpc::Service::MarkMethodRawCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->OverrideEntity(context, request, response); }));
@@ -1209,7 +860,7 @@ class EntityManagerAPI final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_RemoveEntityOverride() {
-      ::grpc::Service::MarkMethodRawCallback(5,
+      ::grpc::Service::MarkMethodRawCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->RemoveEntityOverride(context, request, response); }));
@@ -1226,70 +877,53 @@ class EntityManagerAPI final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_DeleteEntity : public BaseClass {
+  class WithRawCallbackMethod_StreamEntityComponents : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_DeleteEntity() {
-      ::grpc::Service::MarkMethodRawCallback(6,
-          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+    WithRawCallbackMethod_StreamEntityComponents() {
+      ::grpc::Service::MarkMethodRawCallback(5,
+          new ::grpc::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DeleteEntity(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const::grpc::ByteBuffer* request) { return this->StreamEntityComponents(context, request); }));
     }
-    ~WithRawCallbackMethod_DeleteEntity() override {
+    ~WithRawCallbackMethod_StreamEntityComponents() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DeleteEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::DeleteEntityRequest* /*request*/, ::anduril::entitymanager::v1::DeleteEntityResponse* /*response*/) override {
+    ::grpc::Status StreamEntityComponents(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest* /*request*/, ::grpc::ServerWriter< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* /*writer*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* DeleteEntity(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+    virtual ::grpc::ServerWriteReactor< ::grpc::ByteBuffer>* StreamEntityComponents(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_RelateEntity : public BaseClass {
+  class WithStreamedUnaryMethod_PublishEntity : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_RelateEntity() {
-      ::grpc::Service::MarkMethodRawCallback(7,
-          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->RelateEntity(context, request, response); }));
+    WithStreamedUnaryMethod_PublishEntity() {
+      ::grpc::Service::MarkMethodStreamed(0,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::anduril::entitymanager::v1::PublishEntityRequest, ::anduril::entitymanager::v1::PublishEntityResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::anduril::entitymanager::v1::PublishEntityRequest, ::anduril::entitymanager::v1::PublishEntityResponse>* streamer) {
+                       return this->StreamedPublishEntity(context,
+                         streamer);
+                  }));
     }
-    ~WithRawCallbackMethod_RelateEntity() override {
+    ~WithStreamedUnaryMethod_PublishEntity() override {
       BaseClassMustBeDerivedFromService(this);
     }
-    // disable synchronous version of this method
-    ::grpc::Status RelateEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::RelateEntityRequest* /*request*/, ::anduril::entitymanager::v1::RelateEntityResponse* /*response*/) override {
+    // disable regular version of this method
+    ::grpc::Status PublishEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::PublishEntityRequest* /*request*/, ::anduril::entitymanager::v1::PublishEntityResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* RelateEntity(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
-  };
-  template <class BaseClass>
-  class WithRawCallbackMethod_UnrelateEntity : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawCallbackMethod_UnrelateEntity() {
-      ::grpc::Service::MarkMethodRawCallback(8,
-          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UnrelateEntity(context, request, response); }));
-    }
-    ~WithRawCallbackMethod_UnrelateEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status UnrelateEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::UnrelateEntityRequest* /*request*/, ::anduril::entitymanager::v1::UnrelateEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerUnaryReactor* UnrelateEntity(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedPublishEntity(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::anduril::entitymanager::v1::PublishEntityRequest,::anduril::entitymanager::v1::PublishEntityResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_GetEntity : public BaseClass {
@@ -1297,7 +931,7 @@ class EntityManagerAPI final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetEntity() {
-      ::grpc::Service::MarkMethodStreamed(0,
+      ::grpc::Service::MarkMethodStreamed(2,
         new ::grpc::internal::StreamedUnaryHandler<
           ::anduril::entitymanager::v1::GetEntityRequest, ::anduril::entitymanager::v1::GetEntityResponse>(
             [this](::grpc::ServerContext* context,
@@ -1319,39 +953,12 @@ class EntityManagerAPI final {
     virtual ::grpc::Status StreamedGetEntity(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::anduril::entitymanager::v1::GetEntityRequest,::anduril::entitymanager::v1::GetEntityResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_PutEntity : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_PutEntity() {
-      ::grpc::Service::MarkMethodStreamed(2,
-        new ::grpc::internal::StreamedUnaryHandler<
-          ::anduril::entitymanager::v1::PutEntityRequest, ::anduril::entitymanager::v1::PutEntityResponse>(
-            [this](::grpc::ServerContext* context,
-                   ::grpc::ServerUnaryStreamer<
-                     ::anduril::entitymanager::v1::PutEntityRequest, ::anduril::entitymanager::v1::PutEntityResponse>* streamer) {
-                       return this->StreamedPutEntity(context,
-                         streamer);
-                  }));
-    }
-    ~WithStreamedUnaryMethod_PutEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status PutEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::PutEntityRequest* /*request*/, ::anduril::entitymanager::v1::PutEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedPutEntity(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::anduril::entitymanager::v1::PutEntityRequest,::anduril::entitymanager::v1::PutEntityResponse>* server_unary_streamer) = 0;
-  };
-  template <class BaseClass>
   class WithStreamedUnaryMethod_OverrideEntity : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_OverrideEntity() {
-      ::grpc::Service::MarkMethodStreamed(4,
+      ::grpc::Service::MarkMethodStreamed(3,
         new ::grpc::internal::StreamedUnaryHandler<
           ::anduril::entitymanager::v1::OverrideEntityRequest, ::anduril::entitymanager::v1::OverrideEntityResponse>(
             [this](::grpc::ServerContext* context,
@@ -1378,7 +985,7 @@ class EntityManagerAPI final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_RemoveEntityOverride() {
-      ::grpc::Service::MarkMethodStreamed(5,
+      ::grpc::Service::MarkMethodStreamed(4,
         new ::grpc::internal::StreamedUnaryHandler<
           ::anduril::entitymanager::v1::RemoveEntityOverrideRequest, ::anduril::entitymanager::v1::RemoveEntityOverrideResponse>(
             [this](::grpc::ServerContext* context,
@@ -1399,95 +1006,14 @@ class EntityManagerAPI final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedRemoveEntityOverride(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::anduril::entitymanager::v1::RemoveEntityOverrideRequest,::anduril::entitymanager::v1::RemoveEntityOverrideResponse>* server_unary_streamer) = 0;
   };
-  template <class BaseClass>
-  class WithStreamedUnaryMethod_DeleteEntity : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_DeleteEntity() {
-      ::grpc::Service::MarkMethodStreamed(6,
-        new ::grpc::internal::StreamedUnaryHandler<
-          ::anduril::entitymanager::v1::DeleteEntityRequest, ::anduril::entitymanager::v1::DeleteEntityResponse>(
-            [this](::grpc::ServerContext* context,
-                   ::grpc::ServerUnaryStreamer<
-                     ::anduril::entitymanager::v1::DeleteEntityRequest, ::anduril::entitymanager::v1::DeleteEntityResponse>* streamer) {
-                       return this->StreamedDeleteEntity(context,
-                         streamer);
-                  }));
-    }
-    ~WithStreamedUnaryMethod_DeleteEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status DeleteEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::DeleteEntityRequest* /*request*/, ::anduril::entitymanager::v1::DeleteEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedDeleteEntity(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::anduril::entitymanager::v1::DeleteEntityRequest,::anduril::entitymanager::v1::DeleteEntityResponse>* server_unary_streamer) = 0;
-  };
-  template <class BaseClass>
-  class WithStreamedUnaryMethod_RelateEntity : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_RelateEntity() {
-      ::grpc::Service::MarkMethodStreamed(7,
-        new ::grpc::internal::StreamedUnaryHandler<
-          ::anduril::entitymanager::v1::RelateEntityRequest, ::anduril::entitymanager::v1::RelateEntityResponse>(
-            [this](::grpc::ServerContext* context,
-                   ::grpc::ServerUnaryStreamer<
-                     ::anduril::entitymanager::v1::RelateEntityRequest, ::anduril::entitymanager::v1::RelateEntityResponse>* streamer) {
-                       return this->StreamedRelateEntity(context,
-                         streamer);
-                  }));
-    }
-    ~WithStreamedUnaryMethod_RelateEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status RelateEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::RelateEntityRequest* /*request*/, ::anduril::entitymanager::v1::RelateEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedRelateEntity(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::anduril::entitymanager::v1::RelateEntityRequest,::anduril::entitymanager::v1::RelateEntityResponse>* server_unary_streamer) = 0;
-  };
-  template <class BaseClass>
-  class WithStreamedUnaryMethod_UnrelateEntity : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_UnrelateEntity() {
-      ::grpc::Service::MarkMethodStreamed(8,
-        new ::grpc::internal::StreamedUnaryHandler<
-          ::anduril::entitymanager::v1::UnrelateEntityRequest, ::anduril::entitymanager::v1::UnrelateEntityResponse>(
-            [this](::grpc::ServerContext* context,
-                   ::grpc::ServerUnaryStreamer<
-                     ::anduril::entitymanager::v1::UnrelateEntityRequest, ::anduril::entitymanager::v1::UnrelateEntityResponse>* streamer) {
-                       return this->StreamedUnrelateEntity(context,
-                         streamer);
-                  }));
-    }
-    ~WithStreamedUnaryMethod_UnrelateEntity() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status UnrelateEntity(::grpc::ServerContext* /*context*/, const ::anduril::entitymanager::v1::UnrelateEntityRequest* /*request*/, ::anduril::entitymanager::v1::UnrelateEntityResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedUnrelateEntity(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::anduril::entitymanager::v1::UnrelateEntityRequest,::anduril::entitymanager::v1::UnrelateEntityResponse>* server_unary_streamer) = 0;
-  };
-  typedef WithStreamedUnaryMethod_GetEntity<WithStreamedUnaryMethod_PutEntity<WithStreamedUnaryMethod_OverrideEntity<WithStreamedUnaryMethod_RemoveEntityOverride<WithStreamedUnaryMethod_DeleteEntity<WithStreamedUnaryMethod_RelateEntity<WithStreamedUnaryMethod_UnrelateEntity<Service > > > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_PublishEntity<WithStreamedUnaryMethod_GetEntity<WithStreamedUnaryMethod_OverrideEntity<WithStreamedUnaryMethod_RemoveEntityOverride<Service > > > > StreamedUnaryService;
   template <class BaseClass>
   class WithSplitStreamingMethod_StreamEntityComponents : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithSplitStreamingMethod_StreamEntityComponents() {
-      ::grpc::Service::MarkMethodStreamed(1,
+      ::grpc::Service::MarkMethodStreamed(5,
         new ::grpc::internal::SplitServerStreamingHandler<
           ::anduril::entitymanager::v1::StreamEntityComponentsRequest, ::anduril::entitymanager::v1::StreamEntityComponentsResponse>(
             [this](::grpc::ServerContext* context,
@@ -1509,7 +1035,7 @@ class EntityManagerAPI final {
     virtual ::grpc::Status StreamedStreamEntityComponents(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::anduril::entitymanager::v1::StreamEntityComponentsRequest,::anduril::entitymanager::v1::StreamEntityComponentsResponse>* server_split_streamer) = 0;
   };
   typedef WithSplitStreamingMethod_StreamEntityComponents<Service > SplitStreamedService;
-  typedef WithStreamedUnaryMethod_GetEntity<WithSplitStreamingMethod_StreamEntityComponents<WithStreamedUnaryMethod_PutEntity<WithStreamedUnaryMethod_OverrideEntity<WithStreamedUnaryMethod_RemoveEntityOverride<WithStreamedUnaryMethod_DeleteEntity<WithStreamedUnaryMethod_RelateEntity<WithStreamedUnaryMethod_UnrelateEntity<Service > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_PublishEntity<WithStreamedUnaryMethod_GetEntity<WithStreamedUnaryMethod_OverrideEntity<WithStreamedUnaryMethod_RemoveEntityOverride<WithSplitStreamingMethod_StreamEntityComponents<Service > > > > > StreamedService;
 };
 
 }  // namespace v1
