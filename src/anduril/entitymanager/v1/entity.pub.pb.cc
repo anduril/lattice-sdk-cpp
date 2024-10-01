@@ -178,6 +178,9 @@ inline constexpr Provenance::Impl_::Impl_(
         data_type_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
+        feed_name_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
         source_update_time_{nullptr},
         source_{static_cast< ::anduril::entitymanager::v1::Source >(0)} {}
 
@@ -691,12 +694,14 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _impl_.feed_name_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _impl_.integration_name_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _impl_.data_type_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _impl_.source_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _impl_.source_id_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _impl_.source_update_time_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _impl_.source_description_),
+        ~0u,
         ~0u,
         ~0u,
         ~0u,
@@ -847,17 +852,17 @@ static const ::_pbi::MigrationSchema
         {99, -1, -1, sizeof(::anduril::entitymanager::v1::Status)},
         {109, -1, -1, sizeof(::anduril::entitymanager::v1::Aliases)},
         {119, 135, -1, sizeof(::anduril::entitymanager::v1::Tracked)},
-        {143, 157, -1, sizeof(::anduril::entitymanager::v1::Provenance)},
-        {163, 178, -1, sizeof(::anduril::entitymanager::v1::Indicators)},
-        {185, -1, -1, sizeof(::anduril::entitymanager::v1::Overrides)},
-        {195, 210, -1, sizeof(::anduril::entitymanager::v1::Override)},
-        {217, 228, -1, sizeof(::anduril::entitymanager::v1::OverrideProvenance)},
-        {231, -1, -1, sizeof(::anduril::entitymanager::v1::OriginalData_TLE)},
-        {241, 251, -1, sizeof(::anduril::entitymanager::v1::OriginalData)},
-        {253, -1, -1, sizeof(::anduril::entitymanager::v1::AlternateId)},
-        {264, 274, -1, sizeof(::anduril::entitymanager::v1::VisualDetails)},
-        {276, 287, -1, sizeof(::anduril::entitymanager::v1::RangeRings)},
-        {290, -1, -1, sizeof(::anduril::entitymanager::v1::TeamStatus)},
+        {143, 158, -1, sizeof(::anduril::entitymanager::v1::Provenance)},
+        {165, 180, -1, sizeof(::anduril::entitymanager::v1::Indicators)},
+        {187, -1, -1, sizeof(::anduril::entitymanager::v1::Overrides)},
+        {197, 212, -1, sizeof(::anduril::entitymanager::v1::Override)},
+        {219, 230, -1, sizeof(::anduril::entitymanager::v1::OverrideProvenance)},
+        {233, -1, -1, sizeof(::anduril::entitymanager::v1::OriginalData_TLE)},
+        {243, 253, -1, sizeof(::anduril::entitymanager::v1::OriginalData)},
+        {255, -1, -1, sizeof(::anduril::entitymanager::v1::AlternateId)},
+        {266, 276, -1, sizeof(::anduril::entitymanager::v1::VisualDetails)},
+        {278, 289, -1, sizeof(::anduril::entitymanager::v1::RangeRings)},
+        {292, -1, -1, sizeof(::anduril::entitymanager::v1::TeamStatus)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::entitymanager::v1::_Entity_default_instance_._instance,
@@ -1000,72 +1005,73 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fentity_2epub
     "tampR\023lastMeasurementTime\022O\n\017line_of_bea"
     "ring\030\t \001(\0132\'.anduril.entitymanager.v1.Li"
     "neOfBearingR\rlineOfBearingJ\004\010\010\020\tR\021relati"
-    "ve_position\"\244\002\n\nProvenance\022)\n\020integratio"
-    "n_name\030\005 \001(\tR\017integrationName\022\033\n\tdata_ty"
-    "pe\030\006 \001(\tR\010dataType\0228\n\006source\030\001 \001(\0162 .and"
-    "uril.entitymanager.v1.SourceR\006source\022\033\n\t"
-    "source_id\030\003 \001(\tR\010sourceId\022H\n\022source_upda"
-    "te_time\030\002 \001(\0132\032.google.protobuf.Timestam"
-    "pR\020sourceUpdateTime\022-\n\022source_descriptio"
-    "n\030\004 \001(\tR\021sourceDescription\"\243\003\n\nIndicator"
-    "s\0228\n\tsimulated\030\001 \001(\0132\032.google.protobuf.B"
-    "oolValueR\tsimulated\0226\n\010exercise\030\002 \001(\0132\032."
-    "google.protobuf.BoolValueR\010exercise\0228\n\te"
-    "mergency\030\003 \001(\0132\032.google.protobuf.BoolVal"
-    "ueR\temergency\022*\n\002c2\030\004 \001(\0132\032.google.proto"
-    "buf.BoolValueR\002c2\022A\n\tdeletable\030\005 \001(\0162#.a"
-    "nduril.entitymanager.v1.DeletableR\tdelet"
-    "able\022\?\n\negressable\030\006 \001(\0132\032.google.protob"
-    "uf.BoolValueB\003\310>\001R\negressable\0229\n\007starred"
-    "\030\007 \001(\0132\032.google.protobuf.BoolValueB\003\310>\001R"
-    "\007starred\"\235\001\n\tOverrides\022>\n\010override\030\002 \003(\013"
-    "2\".anduril.entitymanager.v1.OverrideR\010ov"
-    "erride\022P\n\nprovenance\030\001 \003(\0132,.anduril.ent"
-    "itymanager.v1.OverrideProvenanceB\002\030\001R\npr"
-    "ovenance\"\245\003\n\010Override\022\035\n\nrequest_id\030\001 \001("
-    "\tR\trequestId\022\035\n\nfield_path\030\002 \001(\tR\tfieldP"
-    "ath\022N\n\022masked_field_value\030\003 \001(\0132 .anduri"
-    "l.entitymanager.v1.EntityR\020maskedFieldVa"
-    "lue\022@\n\006status\030\004 \001(\0162(.anduril.entitymana"
-    "ger.v1.OverrideStatusR\006status\022D\n\nprovena"
-    "nce\030\005 \001(\0132$.anduril.entitymanager.v1.Pro"
-    "venanceR\nprovenance\022:\n\004type\030\006 \001(\0162&.andu"
-    "ril.entitymanager.v1.OverrideTypeR\004type\022"
-    "G\n\021request_timestamp\030\007 \001(\0132\032.google.prot"
-    "obuf.TimestampR\020requestTimestamp\"\236\001\n\022Ove"
-    "rrideProvenance\022\035\n\nfield_path\030\001 \001(\tR\tfie"
-    "ldPath\022\037\n\tsource_id\030\002 \001(\tB\002\030\001R\010sourceId\022"
-    "D\n\nprovenance\030\003 \001(\0132$.anduril.entitymana"
-    "ger.v1.ProvenanceR\nprovenance:\002\030\001\"\231\001\n\014Or"
-    "iginalData\022\020\n\003url\030\001 \001(\tR\003url\022@\n\003tle\030\002 \001("
-    "\0132*.anduril.entitymanager.v1.OriginalDat"
-    "a.TLEB\002\030\001R\003tle\0325\n\003TLE\022\024\n\005line1\030\001 \001(\tR\005li"
-    "ne1\022\024\n\005line2\030\002 \001(\tR\005line2:\002\030\001\"w\n\013Alterna"
-    "teId\022\032\n\006source\030\001 \001(\tB\002\030\001R\006source\022\016\n\002id\030\002"
-    " \001(\tR\002id\022<\n\004type\030\003 \001(\0162#.anduril.entitym"
-    "anager.v1.AltIdTypeB\003\320>\001R\004type\"\267\001\n\rVisua"
-    "lDetails\022J\n\013range_rings\030\001 \001(\0132$.anduril."
-    "entitymanager.v1.RangeRingsB\003\310>\001R\nrangeR"
-    "ings\022Z\n\022interactivity_mode\030\002 \001(\0162+.andur"
-    "il.entitymanager.v1.InteractivityModeR\021i"
-    "nteractivityMode\"\263\001\n\nRangeRings\022B\n\016min_d"
-    "istance_m\030\001 \001(\0132\034.google.protobuf.Double"
-    "ValueR\014minDistanceM\022B\n\016max_distance_m\030\002 "
-    "\001(\0132\034.google.protobuf.DoubleValueR\014maxDi"
-    "stanceM\022\035\n\nring_count\030\003 \001(\rR\tringCount\"\014"
-    "\n\nTeamStatus*b\n\tDeletable\022\025\n\021DELETABLE_I"
-    "NVALID\020\000\022\022\n\016DELETABLE_TRUE\020\001\022\023\n\017DELETABL"
-    "E_FALSE\020\002\022\025\n\021DELETABLE_REQUEST\020\003*{\n\021Inte"
-    "ractivityMode\022\036\n\032INTERACTIVITY_MODE_INVA"
-    "LID\020\000\022\036\n\032INTERACTIVITY_MODE_DEFAULT\020\001\022&\n"
-    "\"INTERACTIVITY_MODE_DISABLED_ON_MAP\020\002B\377\001"
-    "\n\034com.anduril.entitymanager.v1B\016EntityPu"
-    "bProtoP\001ZMghe.anduril.dev/anduril/anduri"
-    "lapis-go/anduril/entitymanager/v1;entity"
-    "manager\242\002\003AEX\252\002\030Anduril.Entitymanager.V1"
-    "\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\En"
-    "titymanager\\V1\\GPBMetadata\352\002\032Anduril::En"
-    "titymanager::V1b\006proto3"
+    "ve_position\"\301\002\n\nProvenance\022\033\n\tfeed_name\030"
+    "\007 \001(\tR\010feedName\022)\n\020integration_name\030\005 \001("
+    "\tR\017integrationName\022\033\n\tdata_type\030\006 \001(\tR\010d"
+    "ataType\0228\n\006source\030\001 \001(\0162 .anduril.entity"
+    "manager.v1.SourceR\006source\022\033\n\tsource_id\030\003"
+    " \001(\tR\010sourceId\022H\n\022source_update_time\030\002 \001"
+    "(\0132\032.google.protobuf.TimestampR\020sourceUp"
+    "dateTime\022-\n\022source_description\030\004 \001(\tR\021so"
+    "urceDescription\"\243\003\n\nIndicators\0228\n\tsimula"
+    "ted\030\001 \001(\0132\032.google.protobuf.BoolValueR\ts"
+    "imulated\0226\n\010exercise\030\002 \001(\0132\032.google.prot"
+    "obuf.BoolValueR\010exercise\0228\n\temergency\030\003 "
+    "\001(\0132\032.google.protobuf.BoolValueR\temergen"
+    "cy\022*\n\002c2\030\004 \001(\0132\032.google.protobuf.BoolVal"
+    "ueR\002c2\022A\n\tdeletable\030\005 \001(\0162#.anduril.enti"
+    "tymanager.v1.DeletableR\tdeletable\022\?\n\negr"
+    "essable\030\006 \001(\0132\032.google.protobuf.BoolValu"
+    "eB\003\310>\001R\negressable\0229\n\007starred\030\007 \001(\0132\032.go"
+    "ogle.protobuf.BoolValueB\003\310>\001R\007starred\"\235\001"
+    "\n\tOverrides\022>\n\010override\030\002 \003(\0132\".anduril."
+    "entitymanager.v1.OverrideR\010override\022P\n\np"
+    "rovenance\030\001 \003(\0132,.anduril.entitymanager."
+    "v1.OverrideProvenanceB\002\030\001R\nprovenance\"\245\003"
+    "\n\010Override\022\035\n\nrequest_id\030\001 \001(\tR\trequestI"
+    "d\022\035\n\nfield_path\030\002 \001(\tR\tfieldPath\022N\n\022mask"
+    "ed_field_value\030\003 \001(\0132 .anduril.entityman"
+    "ager.v1.EntityR\020maskedFieldValue\022@\n\006stat"
+    "us\030\004 \001(\0162(.anduril.entitymanager.v1.Over"
+    "rideStatusR\006status\022D\n\nprovenance\030\005 \001(\0132$"
+    ".anduril.entitymanager.v1.ProvenanceR\npr"
+    "ovenance\022:\n\004type\030\006 \001(\0162&.anduril.entitym"
+    "anager.v1.OverrideTypeR\004type\022G\n\021request_"
+    "timestamp\030\007 \001(\0132\032.google.protobuf.Timest"
+    "ampR\020requestTimestamp\"\236\001\n\022OverrideProven"
+    "ance\022\035\n\nfield_path\030\001 \001(\tR\tfieldPath\022\037\n\ts"
+    "ource_id\030\002 \001(\tB\002\030\001R\010sourceId\022D\n\nprovenan"
+    "ce\030\003 \001(\0132$.anduril.entitymanager.v1.Prov"
+    "enanceR\nprovenance:\002\030\001\"\231\001\n\014OriginalData\022"
+    "\020\n\003url\030\001 \001(\tR\003url\022@\n\003tle\030\002 \001(\0132*.anduril"
+    ".entitymanager.v1.OriginalData.TLEB\002\030\001R\003"
+    "tle\0325\n\003TLE\022\024\n\005line1\030\001 \001(\tR\005line1\022\024\n\005line"
+    "2\030\002 \001(\tR\005line2:\002\030\001\"w\n\013AlternateId\022\032\n\006sou"
+    "rce\030\001 \001(\tB\002\030\001R\006source\022\016\n\002id\030\002 \001(\tR\002id\022<\n"
+    "\004type\030\003 \001(\0162#.anduril.entitymanager.v1.A"
+    "ltIdTypeB\003\320>\001R\004type\"\267\001\n\rVisualDetails\022J\n"
+    "\013range_rings\030\001 \001(\0132$.anduril.entitymanag"
+    "er.v1.RangeRingsB\003\310>\001R\nrangeRings\022Z\n\022int"
+    "eractivity_mode\030\002 \001(\0162+.anduril.entityma"
+    "nager.v1.InteractivityModeR\021interactivit"
+    "yMode\"\263\001\n\nRangeRings\022B\n\016min_distance_m\030\001"
+    " \001(\0132\034.google.protobuf.DoubleValueR\014minD"
+    "istanceM\022B\n\016max_distance_m\030\002 \001(\0132\034.googl"
+    "e.protobuf.DoubleValueR\014maxDistanceM\022\035\n\n"
+    "ring_count\030\003 \001(\rR\tringCount\"\014\n\nTeamStatu"
+    "s*b\n\tDeletable\022\025\n\021DELETABLE_INVALID\020\000\022\022\n"
+    "\016DELETABLE_TRUE\020\001\022\023\n\017DELETABLE_FALSE\020\002\022\025"
+    "\n\021DELETABLE_REQUEST\020\003*{\n\021InteractivityMo"
+    "de\022\036\n\032INTERACTIVITY_MODE_INVALID\020\000\022\036\n\032IN"
+    "TERACTIVITY_MODE_DEFAULT\020\001\022&\n\"INTERACTIV"
+    "ITY_MODE_DISABLED_ON_MAP\020\002B\377\001\n\034com.andur"
+    "il.entitymanager.v1B\016EntityPubProtoP\001ZMg"
+    "he.anduril.dev/anduril/andurilapis-go/an"
+    "duril/entitymanager/v1;entitymanager\242\002\003A"
+    "EX\252\002\030Anduril.Entitymanager.V1\312\002\030Anduril\\"
+    "Entitymanager\\V1\342\002$Anduril\\Entitymanager"
+    "\\V1\\GPBMetadata\352\002\032Anduril::Entitymanager"
+    "::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto_deps[26] =
     {
@@ -1100,7 +1106,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fentity_
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto = {
     false,
     false,
-    7463,
+    7492,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto,
     "anduril/entitymanager/v1/entity.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto_once,
@@ -4245,7 +4251,8 @@ inline PROTOBUF_NDEBUG_INLINE Provenance::Impl_::Impl_(
         source_id_(arena, from.source_id_),
         source_description_(arena, from.source_description_),
         integration_name_(arena, from.integration_name_),
-        data_type_(arena, from.data_type_) {}
+        data_type_(arena, from.data_type_),
+        feed_name_(arena, from.feed_name_) {}
 
 Provenance::Provenance(
     ::google::protobuf::Arena* arena,
@@ -4275,7 +4282,8 @@ inline PROTOBUF_NDEBUG_INLINE Provenance::Impl_::Impl_(
         source_id_(arena),
         source_description_(arena),
         integration_name_(arena),
-        data_type_(arena) {}
+        data_type_(arena),
+        feed_name_(arena) {}
 
 inline void Provenance::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
@@ -4297,6 +4305,7 @@ inline void Provenance::SharedDtor() {
   _impl_.source_description_.Destroy();
   _impl_.integration_name_.Destroy();
   _impl_.data_type_.Destroy();
+  _impl_.feed_name_.Destroy();
   delete _impl_.source_update_time_;
   _impl_.~Impl_();
 }
@@ -4330,15 +4339,15 @@ const ::google::protobuf::MessageLite::ClassData* Provenance::GetClassData() con
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 6, 1, 96, 2> Provenance::_table_ = {
+const ::_pbi::TcParseTable<3, 7, 1, 105, 2> Provenance::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(Provenance, _impl_._has_bits_),
     0, // no _extensions_
-    6, 56,  // max_field_number, fast_idx_mask
+    7, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967232,  // skipmap
+    4294967168,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    6,  // num_field_entries
+    7,  // num_field_entries
     1,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
@@ -4367,7 +4376,9 @@ const ::_pbi::TcParseTable<3, 6, 1, 96, 2> Provenance::_table_ = {
     // string data_type = 6 [json_name = "dataType"];
     {::_pbi::TcParser::FastUS1,
      {50, 63, 0, PROTOBUF_FIELD_OFFSET(Provenance, _impl_.data_type_)}},
-    {::_pbi::TcParser::MiniParse, {}},
+    // string feed_name = 7 [json_name = "feedName"];
+    {::_pbi::TcParser::FastUS1,
+     {58, 63, 0, PROTOBUF_FIELD_OFFSET(Provenance, _impl_.feed_name_)}},
   }}, {{
     65535, 65535
   }}, {{
@@ -4389,15 +4400,19 @@ const ::_pbi::TcParseTable<3, 6, 1, 96, 2> Provenance::_table_ = {
     // string data_type = 6 [json_name = "dataType"];
     {PROTOBUF_FIELD_OFFSET(Provenance, _impl_.data_type_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string feed_name = 7 [json_name = "feedName"];
+    {PROTOBUF_FIELD_OFFSET(Provenance, _impl_.feed_name_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
   }}, {{
     {::_pbi::TcParser::GetTable<::google::protobuf::Timestamp>()},
   }}, {{
-    "\43\0\0\11\22\20\11\0"
+    "\43\0\0\11\22\20\11\11"
     "anduril.entitymanager.v1.Provenance"
     "source_id"
     "source_description"
     "integration_name"
     "data_type"
+    "feed_name"
   }},
 };
 
@@ -4412,6 +4427,7 @@ PROTOBUF_NOINLINE void Provenance::Clear() {
   _impl_.source_description_.ClearToEmpty();
   _impl_.integration_name_.ClearToEmpty();
   _impl_.data_type_.ClearToEmpty();
+  _impl_.feed_name_.ClearToEmpty();
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     ABSL_DCHECK(_impl_.source_update_time_ != nullptr);
@@ -4484,6 +4500,14 @@ PROTOBUF_NOINLINE void Provenance::Clear() {
             target = stream->WriteStringMaybeAliased(6, _s, target);
           }
 
+          // string feed_name = 7 [json_name = "feedName"];
+          if (!this_._internal_feed_name().empty()) {
+            const std::string& _s = this_._internal_feed_name();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.Provenance.feed_name");
+            target = stream->WriteStringMaybeAliased(7, _s, target);
+          }
+
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
             target =
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -4529,6 +4553,11 @@ PROTOBUF_NOINLINE void Provenance::Clear() {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                               this_._internal_data_type());
             }
+            // string feed_name = 7 [json_name = "feedName"];
+            if (!this_._internal_feed_name().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_feed_name());
+            }
           }
            {
             // .google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];
@@ -4571,6 +4600,9 @@ void Provenance::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::goog
   if (!from._internal_data_type().empty()) {
     _this->_internal_set_data_type(from._internal_data_type());
   }
+  if (!from._internal_feed_name().empty()) {
+    _this->_internal_set_feed_name(from._internal_feed_name());
+  }
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     ABSL_DCHECK(from._impl_.source_update_time_ != nullptr);
@@ -4606,6 +4638,7 @@ void Provenance::InternalSwap(Provenance* PROTOBUF_RESTRICT other) {
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.source_description_, &other->_impl_.source_description_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.integration_name_, &other->_impl_.integration_name_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.data_type_, &other->_impl_.data_type_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.feed_name_, &other->_impl_.feed_name_, arena);
   ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Provenance, _impl_.source_)
       + sizeof(Provenance::_impl_.source_)

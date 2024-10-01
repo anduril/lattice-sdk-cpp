@@ -52,6 +52,33 @@ struct RateLimitDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RateLimitDefaultTypeInternal _RateLimit_default_instance_;
 
+inline constexpr QueryTasksRequest_StatusFilter::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : status_{},
+        _status_cached_byte_size_{0},
+        filter_type_{static_cast< ::anduril::taskmanager::v1::QueryTasksRequest_FilterType >(0)},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR QueryTasksRequest_StatusFilter::QueryTasksRequest_StatusFilter(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct QueryTasksRequest_StatusFilterDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR QueryTasksRequest_StatusFilterDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~QueryTasksRequest_StatusFilterDefaultTypeInternal() {}
+  union {
+    QueryTasksRequest_StatusFilter _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 QueryTasksRequest_StatusFilterDefaultTypeInternal _QueryTasksRequest_StatusFilter_default_instance_;
+
 inline constexpr GetTaskRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : task_id_(
@@ -106,17 +133,14 @@ struct EntityIdsDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 EntityIdsDefaultTypeInternal _EntityIds_default_instance_;
 
-inline constexpr StreamTasksRequest::Impl_::Impl_(
+inline constexpr QueryTasksRequest_TimeRange::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
-        views_{},
-        _views_cached_byte_size_{0},
-        rate_limit_{nullptr},
-        heartbeat_period_millis_{0u},
-        exclude_preexisting_tasks_{false} {}
+        update_start_time_{nullptr},
+        update_end_time_{nullptr} {}
 
 template <typename>
-PROTOBUF_CONSTEXPR StreamTasksRequest::StreamTasksRequest(::_pbi::ConstantInitialized)
+PROTOBUF_CONSTEXPR QueryTasksRequest_TimeRange::QueryTasksRequest_TimeRange(::_pbi::ConstantInitialized)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(_class_data_.base()),
 #else   // PROTOBUF_CUSTOM_VTABLE
@@ -124,16 +148,16 @@ PROTOBUF_CONSTEXPR StreamTasksRequest::StreamTasksRequest(::_pbi::ConstantInitia
 #endif  // PROTOBUF_CUSTOM_VTABLE
       _impl_(::_pbi::ConstantInitialized()) {
 }
-struct StreamTasksRequestDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR StreamTasksRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~StreamTasksRequestDefaultTypeInternal() {}
+struct QueryTasksRequest_TimeRangeDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR QueryTasksRequest_TimeRangeDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~QueryTasksRequest_TimeRangeDefaultTypeInternal() {}
   union {
-    StreamTasksRequest _instance;
+    QueryTasksRequest_TimeRange _instance;
   };
 };
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StreamTasksRequestDefaultTypeInternal _StreamTasksRequest_default_instance_;
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 QueryTasksRequest_TimeRangeDefaultTypeInternal _QueryTasksRequest_TimeRange_default_instance_;
 
 inline constexpr ListenAsAgentRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -185,6 +209,39 @@ struct HeartbeatDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 HeartbeatDefaultTypeInternal _Heartbeat_default_instance_;
+
+inline constexpr QueryTasksRequest::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        parent_task_id_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        page_token_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        status_filter_{nullptr},
+        update_time_range_{nullptr},
+        view_{static_cast< ::anduril::taskmanager::v1::TaskView >(0)} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR QueryTasksRequest::QueryTasksRequest(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct QueryTasksRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR QueryTasksRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~QueryTasksRequestDefaultTypeInternal() {}
+  union {
+    QueryTasksRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 QueryTasksRequestDefaultTypeInternal _QueryTasksRequest_default_instance_;
 
 inline constexpr UpdateStatusRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -249,57 +306,6 @@ struct CreateTaskRequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CreateTaskRequestDefaultTypeInternal _CreateTaskRequest_default_instance_;
 
-inline constexpr UpdateTaskResponse::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        task_{nullptr} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR UpdateTaskResponse::UpdateTaskResponse(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct UpdateTaskResponseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR UpdateTaskResponseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~UpdateTaskResponseDefaultTypeInternal() {}
-  union {
-    UpdateTaskResponse _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UpdateTaskResponseDefaultTypeInternal _UpdateTaskResponse_default_instance_;
-
-inline constexpr UpdateTaskRequest::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        task_{nullptr},
-        is_executed_elsewhere_{false} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR UpdateTaskRequest::UpdateTaskRequest(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct UpdateTaskRequestDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR UpdateTaskRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~UpdateTaskRequestDefaultTypeInternal() {}
-  union {
-    UpdateTaskRequest _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UpdateTaskRequestDefaultTypeInternal _UpdateTaskRequest_default_instance_;
-
 inline constexpr UpdateStatusResponse::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -324,6 +330,34 @@ struct UpdateStatusResponseDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UpdateStatusResponseDefaultTypeInternal _UpdateStatusResponse_default_instance_;
+
+inline constexpr QueryTasksResponse::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : tasks_{},
+        page_token_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR QueryTasksResponse::QueryTasksResponse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct QueryTasksResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR QueryTasksResponseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~QueryTasksResponseDefaultTypeInternal() {}
+  union {
+    QueryTasksResponse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 QueryTasksResponseDefaultTypeInternal _QueryTasksResponse_default_instance_;
 
 inline constexpr GetTaskResponse::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -375,32 +409,6 @@ struct CreateTaskResponseDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CreateTaskResponseDefaultTypeInternal _CreateTaskResponse_default_instance_;
 
-inline constexpr StreamTasksResponse::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        task_event_{nullptr},
-        heartbeat_{nullptr} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR StreamTasksResponse::StreamTasksResponse(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct StreamTasksResponseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR StreamTasksResponseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~StreamTasksResponseDefaultTypeInternal() {}
-  union {
-    StreamTasksResponse _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StreamTasksResponseDefaultTypeInternal _StreamTasksResponse_default_instance_;
-
 inline constexpr ListenAsAgentResponse::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : request_{},
@@ -429,8 +437,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 }  // namespace v1
 }  // namespace taskmanager
 }  // namespace anduril
-static constexpr const ::_pb::EnumDescriptor**
-    file_level_enum_descriptors_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto = nullptr;
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto[1];
 static constexpr const ::_pb::ServiceDescriptor**
     file_level_service_descriptors_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto = nullptr;
 const ::uint32_t
@@ -491,28 +498,56 @@ const ::uint32_t
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::GetTaskResponse, _impl_.task_),
         0,
-        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::UpdateTaskRequest, _impl_._has_bits_),
-        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::UpdateTaskRequest, _internal_metadata_),
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::QueryTasksRequest_TimeRange, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::QueryTasksRequest_TimeRange, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
         ~0u,  // no _weak_field_map_
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::UpdateTaskRequest, _impl_.task_),
-        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::UpdateTaskRequest, _impl_.is_executed_elsewhere_),
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::QueryTasksRequest_TimeRange, _impl_.update_start_time_),
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::QueryTasksRequest_TimeRange, _impl_.update_end_time_),
         0,
+        1,
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::QueryTasksRequest_StatusFilter, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::QueryTasksRequest_StatusFilter, _impl_.status_),
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::QueryTasksRequest_StatusFilter, _impl_.filter_type_),
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::QueryTasksRequest, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::QueryTasksRequest, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::QueryTasksRequest, _impl_.parent_task_id_),
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::QueryTasksRequest, _impl_.page_token_),
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::QueryTasksRequest, _impl_.status_filter_),
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::QueryTasksRequest, _impl_.update_time_range_),
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::QueryTasksRequest, _impl_.view_),
         ~0u,
-        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::UpdateTaskResponse, _impl_._has_bits_),
-        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::UpdateTaskResponse, _internal_metadata_),
+        ~0u,
+        0,
+        1,
+        ~0u,
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::QueryTasksResponse, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
         ~0u,  // no _weak_field_map_
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::UpdateTaskResponse, _impl_.task_),
-        0,
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::QueryTasksResponse, _impl_.tasks_),
+        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::QueryTasksResponse, _impl_.page_token_),
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::UpdateStatusRequest, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::UpdateStatusRequest, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -533,34 +568,6 @@ const ::uint32_t
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::UpdateStatusResponse, _impl_.task_),
         0,
-        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::StreamTasksRequest, _impl_._has_bits_),
-        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::StreamTasksRequest, _internal_metadata_),
-        ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
-        ~0u,  // no _weak_field_map_
-        ~0u,  // no _inlined_string_donated_
-        ~0u,  // no _split_
-        ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::StreamTasksRequest, _impl_.rate_limit_),
-        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::StreamTasksRequest, _impl_.views_),
-        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::StreamTasksRequest, _impl_.heartbeat_period_millis_),
-        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::StreamTasksRequest, _impl_.exclude_preexisting_tasks_),
-        0,
-        ~0u,
-        ~0u,
-        ~0u,
-        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::StreamTasksResponse, _impl_._has_bits_),
-        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::StreamTasksResponse, _internal_metadata_),
-        ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
-        ~0u,  // no _weak_field_map_
-        ~0u,  // no _inlined_string_donated_
-        ~0u,  // no _split_
-        ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::StreamTasksResponse, _impl_.task_event_),
-        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::StreamTasksResponse, _impl_.heartbeat_),
-        0,
-        1,
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::ListenAsAgentRequest, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -619,12 +626,12 @@ static const ::_pbi::MigrationSchema
         {24, 33, -1, sizeof(::anduril::taskmanager::v1::CreateTaskResponse)},
         {34, -1, -1, sizeof(::anduril::taskmanager::v1::GetTaskRequest)},
         {45, 54, -1, sizeof(::anduril::taskmanager::v1::GetTaskResponse)},
-        {55, 65, -1, sizeof(::anduril::taskmanager::v1::UpdateTaskRequest)},
-        {67, 76, -1, sizeof(::anduril::taskmanager::v1::UpdateTaskResponse)},
-        {77, 86, -1, sizeof(::anduril::taskmanager::v1::UpdateStatusRequest)},
-        {87, 96, -1, sizeof(::anduril::taskmanager::v1::UpdateStatusResponse)},
-        {97, 109, -1, sizeof(::anduril::taskmanager::v1::StreamTasksRequest)},
-        {113, 123, -1, sizeof(::anduril::taskmanager::v1::StreamTasksResponse)},
+        {55, 65, -1, sizeof(::anduril::taskmanager::v1::QueryTasksRequest_TimeRange)},
+        {67, -1, -1, sizeof(::anduril::taskmanager::v1::QueryTasksRequest_StatusFilter)},
+        {77, 90, -1, sizeof(::anduril::taskmanager::v1::QueryTasksRequest)},
+        {95, -1, -1, sizeof(::anduril::taskmanager::v1::QueryTasksResponse)},
+        {105, 114, -1, sizeof(::anduril::taskmanager::v1::UpdateStatusRequest)},
+        {115, 124, -1, sizeof(::anduril::taskmanager::v1::UpdateStatusResponse)},
         {125, -1, -1, sizeof(::anduril::taskmanager::v1::ListenAsAgentRequest)},
         {135, -1, -1, sizeof(::anduril::taskmanager::v1::ListenAsAgentResponse)},
         {147, -1, -1, sizeof(::anduril::taskmanager::v1::RateLimit)},
@@ -636,12 +643,12 @@ static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::taskmanager::v1::_CreateTaskResponse_default_instance_._instance,
     &::anduril::taskmanager::v1::_GetTaskRequest_default_instance_._instance,
     &::anduril::taskmanager::v1::_GetTaskResponse_default_instance_._instance,
-    &::anduril::taskmanager::v1::_UpdateTaskRequest_default_instance_._instance,
-    &::anduril::taskmanager::v1::_UpdateTaskResponse_default_instance_._instance,
+    &::anduril::taskmanager::v1::_QueryTasksRequest_TimeRange_default_instance_._instance,
+    &::anduril::taskmanager::v1::_QueryTasksRequest_StatusFilter_default_instance_._instance,
+    &::anduril::taskmanager::v1::_QueryTasksRequest_default_instance_._instance,
+    &::anduril::taskmanager::v1::_QueryTasksResponse_default_instance_._instance,
     &::anduril::taskmanager::v1::_UpdateStatusRequest_default_instance_._instance,
     &::anduril::taskmanager::v1::_UpdateStatusResponse_default_instance_._instance,
-    &::anduril::taskmanager::v1::_StreamTasksRequest_default_instance_._instance,
-    &::anduril::taskmanager::v1::_StreamTasksResponse_default_instance_._instance,
     &::anduril::taskmanager::v1::_ListenAsAgentRequest_default_instance_._instance,
     &::anduril::taskmanager::v1::_ListenAsAgentResponse_default_instance_._instance,
     &::anduril::taskmanager::v1::_RateLimit_default_instance_._instance,
@@ -673,64 +680,67 @@ const char descriptor_table_protodef_anduril_2ftaskmanager_2fv1_2ftask_5fmanager
     " \001(\rR\021definitionVersion\022=\n\ttask_view\030\003 \001"
     "(\0162 .anduril.taskmanager.v1.TaskViewR\010ta"
     "skView\"C\n\017GetTaskResponse\0220\n\004task\030\001 \001(\0132"
-    "\034.anduril.taskmanager.v1.TaskR\004task\"y\n\021U"
-    "pdateTaskRequest\0220\n\004task\030\001 \001(\0132\034.anduril"
-    ".taskmanager.v1.TaskR\004task\0222\n\025is_execute"
-    "d_elsewhere\030\007 \001(\010R\023isExecutedElsewhere\"F"
-    "\n\022UpdateTaskResponse\0220\n\004task\030\001 \001(\0132\034.and"
-    "uril.taskmanager.v1.TaskR\004task\"`\n\023Update"
-    "StatusRequest\022I\n\rstatus_update\030\001 \001(\0132$.a"
-    "nduril.taskmanager.v1.StatusUpdateR\014stat"
-    "usUpdate\"H\n\024UpdateStatusResponse\0220\n\004task"
-    "\030\001 \001(\0132\034.anduril.taskmanager.v1.TaskR\004ta"
-    "sk\"\202\002\n\022StreamTasksRequest\022@\n\nrate_limit\030"
-    "\001 \001(\0132!.anduril.taskmanager.v1.RateLimit"
-    "R\trateLimit\0226\n\005views\030\002 \003(\0162 .anduril.tas"
-    "kmanager.v1.TaskViewR\005views\0226\n\027heartbeat"
-    "_period_millis\030\003 \001(\rR\025heartbeatPeriodMil"
-    "lis\022:\n\031exclude_preexisting_tasks\030\004 \001(\010R\027"
-    "excludePreexistingTasks\"\230\001\n\023StreamTasksR"
-    "esponse\022@\n\ntask_event\030\001 \001(\0132!.anduril.ta"
-    "skmanager.v1.TaskEventR\ttaskEvent\022\?\n\thea"
-    "rtbeat\030\002 \001(\0132!.anduril.taskmanager.v1.He"
-    "artbeatR\theartbeat\"l\n\024ListenAsAgentReque"
-    "st\022B\n\nentity_ids\030\001 \001(\0132!.anduril.taskman"
-    "ager.v1.EntityIdsH\000R\tentityIdsB\020\n\016agent_"
-    "selector\"\233\002\n\025ListenAsAgentResponse\022Q\n\017ex"
-    "ecute_request\030\001 \001(\0132&.anduril.taskmanage"
-    "r.v1.ExecuteRequestH\000R\016executeRequest\022N\n"
-    "\016cancel_request\030\002 \001(\0132%.anduril.taskmana"
-    "ger.v1.CancelRequestH\000R\rcancelRequest\022T\n"
-    "\020complete_request\030\003 \001(\0132\'.anduril.taskma"
-    "nager.v1.CompleteRequestH\000R\017completeRequ"
-    "estB\t\n\007request\"C\n\tRateLimit\0226\n\030update_pe"
-    "r_task_limit_ms\030\001 \001(\rR\024updatePerTaskLimi"
-    "tMs\"E\n\tHeartbeat\0228\n\ttimestamp\030\001 \001(\0132\032.go"
-    "ogle.protobuf.TimestampR\ttimestamp\"*\n\tEn"
-    "tityIds\022\035\n\nentity_ids\030\001 \003(\tR\tentityIds2\373"
-    "\004\n\016TaskManagerAPI\022c\n\nCreateTask\022).anduri"
-    "l.taskmanager.v1.CreateTaskRequest\032*.and"
-    "uril.taskmanager.v1.CreateTaskResponse\022Z"
-    "\n\007GetTask\022&.anduril.taskmanager.v1.GetTa"
-    "skRequest\032\'.anduril.taskmanager.v1.GetTa"
-    "skResponse\022c\n\nUpdateTask\022).anduril.taskm"
-    "anager.v1.UpdateTaskRequest\032*.anduril.ta"
-    "skmanager.v1.UpdateTaskResponse\022i\n\014Updat"
-    "eStatus\022+.anduril.taskmanager.v1.UpdateS"
-    "tatusRequest\032,.anduril.taskmanager.v1.Up"
-    "dateStatusResponse\022h\n\013StreamTasks\022*.andu"
-    "ril.taskmanager.v1.StreamTasksRequest\032+."
-    "anduril.taskmanager.v1.StreamTasksRespon"
-    "se0\001\022n\n\rListenAsAgent\022,.anduril.taskmana"
-    "ger.v1.ListenAsAgentRequest\032-.anduril.ta"
-    "skmanager.v1.ListenAsAgentResponse0\001B\371\001\n"
-    "\032com.anduril.taskmanager.v1B\026TaskManager"
-    "ApiPubProtoP\001ZIghe.anduril.dev/anduril/a"
-    "ndurilapis-go/anduril/taskmanager/v1;tas"
-    "kmanager\242\002\003ATX\252\002\026Anduril.Taskmanager.V1\312"
-    "\002\026Anduril\\Taskmanager\\V1\342\002\"Anduril\\Taskm"
-    "anager\\V1\\GPBMetadata\352\002\030Anduril::Taskman"
-    "ager::V1b\006proto3"
+    "\034.anduril.taskmanager.v1.TaskR\004task\"\351\005\n\021"
+    "QueryTasksRequest\022$\n\016parent_task_id\030\001 \001("
+    "\tR\014parentTaskId\022\035\n\npage_token\030\003 \001(\tR\tpag"
+    "eToken\022[\n\rstatus_filter\030\004 \001(\01326.anduril."
+    "taskmanager.v1.QueryTasksRequest.StatusF"
+    "ilterR\014statusFilter\022_\n\021update_time_range"
+    "\030\005 \001(\01323.anduril.taskmanager.v1.QueryTas"
+    "ksRequest.TimeRangeR\017updateTimeRange\0224\n\004"
+    "view\030\006 \001(\0162 .anduril.taskmanager.v1.Task"
+    "ViewR\004view\032\227\001\n\tTimeRange\022F\n\021update_start"
+    "_time\030\001 \001(\0132\032.google.protobuf.TimestampR"
+    "\017updateStartTime\022B\n\017update_end_time\030\002 \001("
+    "\0132\032.google.protobuf.TimestampR\rupdateEnd"
+    "Time\032\235\001\n\014StatusFilter\0226\n\006status\030\001 \003(\0162\036."
+    "anduril.taskmanager.v1.StatusR\006status\022U\n"
+    "\013filter_type\030\002 \001(\01624.anduril.taskmanager"
+    ".v1.QueryTasksRequest.FilterTypeR\nfilter"
+    "Type\"[\n\nFilterType\022\027\n\023FILTER_TYPE_INVALI"
+    "D\020\000\022\031\n\025FILTER_TYPE_INCLUSIVE\020\001\022\031\n\025FILTER"
+    "_TYPE_EXCLUSIVE\020\002J\004\010\002\020\003\"g\n\022QueryTasksRes"
+    "ponse\0222\n\005tasks\030\001 \003(\0132\034.anduril.taskmanag"
+    "er.v1.TaskR\005tasks\022\035\n\npage_token\030\002 \001(\tR\tp"
+    "ageToken\"`\n\023UpdateStatusRequest\022I\n\rstatu"
+    "s_update\030\001 \001(\0132$.anduril.taskmanager.v1."
+    "StatusUpdateR\014statusUpdate\"H\n\024UpdateStat"
+    "usResponse\0220\n\004task\030\001 \001(\0132\034.anduril.taskm"
+    "anager.v1.TaskR\004task\"l\n\024ListenAsAgentReq"
+    "uest\022B\n\nentity_ids\030\001 \001(\0132!.anduril.taskm"
+    "anager.v1.EntityIdsH\000R\tentityIdsB\020\n\016agen"
+    "t_selector\"\233\002\n\025ListenAsAgentResponse\022Q\n\017"
+    "execute_request\030\001 \001(\0132&.anduril.taskmana"
+    "ger.v1.ExecuteRequestH\000R\016executeRequest\022"
+    "N\n\016cancel_request\030\002 \001(\0132%.anduril.taskma"
+    "nager.v1.CancelRequestH\000R\rcancelRequest\022"
+    "T\n\020complete_request\030\003 \001(\0132\'.anduril.task"
+    "manager.v1.CompleteRequestH\000R\017completeRe"
+    "questB\t\n\007request\"C\n\tRateLimit\0226\n\030update_"
+    "per_task_limit_ms\030\001 \001(\rR\024updatePerTaskLi"
+    "mitMs\"E\n\tHeartbeat\0228\n\ttimestamp\030\001 \001(\0132\032."
+    "google.protobuf.TimestampR\ttimestamp\"*\n\t"
+    "EntityIds\022\035\n\nentity_ids\030\001 \003(\tR\tentityIds"
+    "2\221\004\n\016TaskManagerAPI\022c\n\nCreateTask\022).andu"
+    "ril.taskmanager.v1.CreateTaskRequest\032*.a"
+    "nduril.taskmanager.v1.CreateTaskResponse"
+    "\022Z\n\007GetTask\022&.anduril.taskmanager.v1.Get"
+    "TaskRequest\032\'.anduril.taskmanager.v1.Get"
+    "TaskResponse\022c\n\nQueryTasks\022).anduril.tas"
+    "kmanager.v1.QueryTasksRequest\032*.anduril."
+    "taskmanager.v1.QueryTasksResponse\022i\n\014Upd"
+    "ateStatus\022+.anduril.taskmanager.v1.Updat"
+    "eStatusRequest\032,.anduril.taskmanager.v1."
+    "UpdateStatusResponse\022n\n\rListenAsAgent\022,."
+    "anduril.taskmanager.v1.ListenAsAgentRequ"
+    "est\032-.anduril.taskmanager.v1.ListenAsAge"
+    "ntResponse0\001B\371\001\n\032com.anduril.taskmanager"
+    ".v1B\026TaskManagerApiPubProtoP\001ZIghe.andur"
+    "il.dev/anduril/andurilapis-go/anduril/ta"
+    "skmanager/v1;taskmanager\242\002\003ATX\252\002\026Anduril"
+    ".Taskmanager.V1\312\002\026Anduril\\Taskmanager\\V1"
+    "\342\002\"Anduril\\Taskmanager\\V1\\GPBMetadata\352\002\030"
+    "Anduril::Taskmanager::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto_deps[4] =
     {
@@ -743,7 +753,7 @@ static ::absl::once_flag descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fma
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto = {
     false,
     false,
-    3216,
+    3352,
     descriptor_table_protodef_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto,
     "anduril/taskmanager/v1/task_manager_api.pub.proto",
     &descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto_once,
@@ -759,6 +769,27 @@ PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftask
 namespace anduril {
 namespace taskmanager {
 namespace v1 {
+const ::google::protobuf::EnumDescriptor* QueryTasksRequest_FilterType_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto);
+  return file_level_enum_descriptors_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto[0];
+}
+PROTOBUF_CONSTINIT const uint32_t QueryTasksRequest_FilterType_internal_data_[] = {
+    196608u, 0u, };
+bool QueryTasksRequest_FilterType_IsValid(int value) {
+  return 0 <= value && value <= 2;
+}
+#if (__cplusplus < 201703) && \
+  (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+
+constexpr QueryTasksRequest_FilterType QueryTasksRequest::FILTER_TYPE_INVALID;
+constexpr QueryTasksRequest_FilterType QueryTasksRequest::FILTER_TYPE_INCLUSIVE;
+constexpr QueryTasksRequest_FilterType QueryTasksRequest::FILTER_TYPE_EXCLUSIVE;
+constexpr QueryTasksRequest_FilterType QueryTasksRequest::FilterType_MIN;
+constexpr QueryTasksRequest_FilterType QueryTasksRequest::FilterType_MAX;
+constexpr int QueryTasksRequest::FilterType_ARRAYSIZE;
+
+#endif  // (__cplusplus < 201703) &&
+        // (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 // ===================================================================
 
 class CreateTaskRequest::_Internal {
@@ -2049,195 +2080,207 @@ void GetTaskResponse::InternalSwap(GetTaskResponse* PROTOBUF_RESTRICT other) {
 }
 // ===================================================================
 
-class UpdateTaskRequest::_Internal {
+class QueryTasksRequest_TimeRange::_Internal {
  public:
   using HasBits =
-      decltype(std::declval<UpdateTaskRequest>()._impl_._has_bits_);
+      decltype(std::declval<QueryTasksRequest_TimeRange>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(UpdateTaskRequest, _impl_._has_bits_);
+      8 * PROTOBUF_FIELD_OFFSET(QueryTasksRequest_TimeRange, _impl_._has_bits_);
 };
 
-void UpdateTaskRequest::clear_task() {
+void QueryTasksRequest_TimeRange::clear_update_start_time() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.task_ != nullptr) _impl_.task_->Clear();
+  if (_impl_.update_start_time_ != nullptr) _impl_.update_start_time_->Clear();
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-UpdateTaskRequest::UpdateTaskRequest(::google::protobuf::Arena* arena)
+void QueryTasksRequest_TimeRange::clear_update_end_time() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.update_end_time_ != nullptr) _impl_.update_end_time_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+QueryTasksRequest_TimeRange::QueryTasksRequest_TimeRange(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, _class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:anduril.taskmanager.v1.UpdateTaskRequest)
+  // @@protoc_insertion_point(arena_constructor:anduril.taskmanager.v1.QueryTasksRequest.TimeRange)
 }
-inline PROTOBUF_NDEBUG_INLINE UpdateTaskRequest::Impl_::Impl_(
+inline PROTOBUF_NDEBUG_INLINE QueryTasksRequest_TimeRange::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
-    const Impl_& from, const ::anduril::taskmanager::v1::UpdateTaskRequest& from_msg)
+    const Impl_& from, const ::anduril::taskmanager::v1::QueryTasksRequest_TimeRange& from_msg)
       : _has_bits_{from._has_bits_},
         _cached_size_{0} {}
 
-UpdateTaskRequest::UpdateTaskRequest(
+QueryTasksRequest_TimeRange::QueryTasksRequest_TimeRange(
     ::google::protobuf::Arena* arena,
-    const UpdateTaskRequest& from)
+    const QueryTasksRequest_TimeRange& from)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, _class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  UpdateTaskRequest* const _this = this;
+  QueryTasksRequest_TimeRange* const _this = this;
   (void)_this;
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
   ::uint32_t cached_has_bits = _impl_._has_bits_[0];
-  _impl_.task_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::Task>(
-                              arena, *from._impl_.task_)
+  _impl_.update_start_time_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::Timestamp>(
+                              arena, *from._impl_.update_start_time_)
                         : nullptr;
-  _impl_.is_executed_elsewhere_ = from._impl_.is_executed_elsewhere_;
+  _impl_.update_end_time_ = (cached_has_bits & 0x00000002u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::Timestamp>(
+                              arena, *from._impl_.update_end_time_)
+                        : nullptr;
 
-  // @@protoc_insertion_point(copy_constructor:anduril.taskmanager.v1.UpdateTaskRequest)
+  // @@protoc_insertion_point(copy_constructor:anduril.taskmanager.v1.QueryTasksRequest.TimeRange)
 }
-inline PROTOBUF_NDEBUG_INLINE UpdateTaskRequest::Impl_::Impl_(
+inline PROTOBUF_NDEBUG_INLINE QueryTasksRequest_TimeRange::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
       : _cached_size_{0} {}
 
-inline void UpdateTaskRequest::SharedCtor(::_pb::Arena* arena) {
+inline void QueryTasksRequest_TimeRange::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, task_),
+               offsetof(Impl_, update_start_time_),
            0,
-           offsetof(Impl_, is_executed_elsewhere_) -
-               offsetof(Impl_, task_) +
-               sizeof(Impl_::is_executed_elsewhere_));
+           offsetof(Impl_, update_end_time_) -
+               offsetof(Impl_, update_start_time_) +
+               sizeof(Impl_::update_end_time_));
 }
-UpdateTaskRequest::~UpdateTaskRequest() {
-  // @@protoc_insertion_point(destructor:anduril.taskmanager.v1.UpdateTaskRequest)
+QueryTasksRequest_TimeRange::~QueryTasksRequest_TimeRange() {
+  // @@protoc_insertion_point(destructor:anduril.taskmanager.v1.QueryTasksRequest.TimeRange)
   _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
-inline void UpdateTaskRequest::SharedDtor() {
+inline void QueryTasksRequest_TimeRange::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
-  delete _impl_.task_;
+  delete _impl_.update_start_time_;
+  delete _impl_.update_end_time_;
   _impl_.~Impl_();
 }
 
 PROTOBUF_CONSTINIT
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::google::protobuf::MessageLite::ClassDataFull
-    UpdateTaskRequest::_class_data_ = {
+    QueryTasksRequest_TimeRange::_class_data_ = {
         ::google::protobuf::Message::ClassData{
-            &_UpdateTaskRequest_default_instance_._instance,
+            &_QueryTasksRequest_TimeRange_default_instance_._instance,
             &_table_.header,
             nullptr,  // OnDemandRegisterArenaDtor
             nullptr,  // IsInitialized
-            &UpdateTaskRequest::MergeImpl,
+            &QueryTasksRequest_TimeRange::MergeImpl,
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-            ::google::protobuf::Message::GetDeleteImpl<UpdateTaskRequest>(),
-            ::google::protobuf::Message::GetNewImpl<UpdateTaskRequest>(),
-            ::google::protobuf::Message::GetClearImpl<UpdateTaskRequest>(), &UpdateTaskRequest::ByteSizeLong,
-                &UpdateTaskRequest::_InternalSerialize,
+            ::google::protobuf::Message::GetDeleteImpl<QueryTasksRequest_TimeRange>(),
+            ::google::protobuf::Message::GetNewImpl<QueryTasksRequest_TimeRange>(),
+            ::google::protobuf::Message::GetClearImpl<QueryTasksRequest_TimeRange>(), &QueryTasksRequest_TimeRange::ByteSizeLong,
+                &QueryTasksRequest_TimeRange::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-            PROTOBUF_FIELD_OFFSET(UpdateTaskRequest, _impl_._cached_size_),
+            PROTOBUF_FIELD_OFFSET(QueryTasksRequest_TimeRange, _impl_._cached_size_),
             false,
         },
-        &UpdateTaskRequest::kDescriptorMethods,
+        &QueryTasksRequest_TimeRange::kDescriptorMethods,
         &descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto,
         nullptr,  // tracker
 };
-const ::google::protobuf::MessageLite::ClassData* UpdateTaskRequest::GetClassData() const {
+const ::google::protobuf::MessageLite::ClassData* QueryTasksRequest_TimeRange::GetClassData() const {
   ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
   ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 2, 1, 0, 2> UpdateTaskRequest::_table_ = {
+const ::_pbi::TcParseTable<1, 2, 2, 0, 2> QueryTasksRequest_TimeRange::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(UpdateTaskRequest, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(QueryTasksRequest_TimeRange, _impl_._has_bits_),
     0, // no _extensions_
-    7, 24,  // max_field_number, fast_idx_mask
+    2, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967230,  // skipmap
+    4294967292,  // skipmap
     offsetof(decltype(_table_), field_entries),
     2,  // num_field_entries
-    1,  // num_aux_entries
+    2,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::UpdateTaskRequest>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::QueryTasksRequest_TimeRange>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    {::_pbi::TcParser::MiniParse, {}},
-    // .anduril.taskmanager.v1.Task task = 1 [json_name = "task"];
+    // .google.protobuf.Timestamp update_end_time = 2 [json_name = "updateEndTime"];
     {::_pbi::TcParser::FastMtS1,
-     {10, 0, 0, PROTOBUF_FIELD_OFFSET(UpdateTaskRequest, _impl_.task_)}},
-    {::_pbi::TcParser::MiniParse, {}},
-    // bool is_executed_elsewhere = 7 [json_name = "isExecutedElsewhere"];
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(UpdateTaskRequest, _impl_.is_executed_elsewhere_), 63>(),
-     {56, 63, 0, PROTOBUF_FIELD_OFFSET(UpdateTaskRequest, _impl_.is_executed_elsewhere_)}},
+     {18, 1, 1, PROTOBUF_FIELD_OFFSET(QueryTasksRequest_TimeRange, _impl_.update_end_time_)}},
+    // .google.protobuf.Timestamp update_start_time = 1 [json_name = "updateStartTime"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 0, 0, PROTOBUF_FIELD_OFFSET(QueryTasksRequest_TimeRange, _impl_.update_start_time_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // .anduril.taskmanager.v1.Task task = 1 [json_name = "task"];
-    {PROTOBUF_FIELD_OFFSET(UpdateTaskRequest, _impl_.task_), _Internal::kHasBitsOffset + 0, 0,
+    // .google.protobuf.Timestamp update_start_time = 1 [json_name = "updateStartTime"];
+    {PROTOBUF_FIELD_OFFSET(QueryTasksRequest_TimeRange, _impl_.update_start_time_), _Internal::kHasBitsOffset + 0, 0,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // bool is_executed_elsewhere = 7 [json_name = "isExecutedElsewhere"];
-    {PROTOBUF_FIELD_OFFSET(UpdateTaskRequest, _impl_.is_executed_elsewhere_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
+    // .google.protobuf.Timestamp update_end_time = 2 [json_name = "updateEndTime"];
+    {PROTOBUF_FIELD_OFFSET(QueryTasksRequest_TimeRange, _impl_.update_end_time_), _Internal::kHasBitsOffset + 1, 1,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
-    {::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::Task>()},
+    {::_pbi::TcParser::GetTable<::google::protobuf::Timestamp>()},
+    {::_pbi::TcParser::GetTable<::google::protobuf::Timestamp>()},
   }}, {{
   }},
 };
 
-PROTOBUF_NOINLINE void UpdateTaskRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:anduril.taskmanager.v1.UpdateTaskRequest)
+PROTOBUF_NOINLINE void QueryTasksRequest_TimeRange::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.taskmanager.v1.QueryTasksRequest.TimeRange)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    ABSL_DCHECK(_impl_.task_ != nullptr);
-    _impl_.task_->Clear();
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      ABSL_DCHECK(_impl_.update_start_time_ != nullptr);
+      _impl_.update_start_time_->Clear();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      ABSL_DCHECK(_impl_.update_end_time_ != nullptr);
+      _impl_.update_end_time_->Clear();
+    }
   }
-  _impl_.is_executed_elsewhere_ = false;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* UpdateTaskRequest::_InternalSerialize(
+        ::uint8_t* QueryTasksRequest_TimeRange::_InternalSerialize(
             const MessageLite& base, ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const UpdateTaskRequest& this_ = static_cast<const UpdateTaskRequest&>(base);
+          const QueryTasksRequest_TimeRange& this_ = static_cast<const QueryTasksRequest_TimeRange&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* UpdateTaskRequest::_InternalSerialize(
+        ::uint8_t* QueryTasksRequest_TimeRange::_InternalSerialize(
             ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const UpdateTaskRequest& this_ = *this;
+          const QueryTasksRequest_TimeRange& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:anduril.taskmanager.v1.UpdateTaskRequest)
+          // @@protoc_insertion_point(serialize_to_array_start:anduril.taskmanager.v1.QueryTasksRequest.TimeRange)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
 
           cached_has_bits = this_._impl_._has_bits_[0];
-          // .anduril.taskmanager.v1.Task task = 1 [json_name = "task"];
+          // .google.protobuf.Timestamp update_start_time = 1 [json_name = "updateStartTime"];
           if (cached_has_bits & 0x00000001u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                1, *this_._impl_.task_, this_._impl_.task_->GetCachedSize(), target,
+                1, *this_._impl_.update_start_time_, this_._impl_.update_start_time_->GetCachedSize(), target,
                 stream);
           }
 
-          // bool is_executed_elsewhere = 7 [json_name = "isExecutedElsewhere"];
-          if (this_._internal_is_executed_elsewhere() != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteBoolToArray(
-                7, this_._internal_is_executed_elsewhere(), target);
+          // .google.protobuf.Timestamp update_end_time = 2 [json_name = "updateEndTime"];
+          if (cached_has_bits & 0x00000002u) {
+            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                2, *this_._impl_.update_end_time_, this_._impl_.update_end_time_->GetCachedSize(), target,
+                stream);
           }
 
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
@@ -2245,18 +2288,288 @@ PROTOBUF_NOINLINE void UpdateTaskRequest::Clear() {
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
                     this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
           }
-          // @@protoc_insertion_point(serialize_to_array_end:anduril.taskmanager.v1.UpdateTaskRequest)
+          // @@protoc_insertion_point(serialize_to_array_end:anduril.taskmanager.v1.QueryTasksRequest.TimeRange)
           return target;
         }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t UpdateTaskRequest::ByteSizeLong(const MessageLite& base) {
-          const UpdateTaskRequest& this_ = static_cast<const UpdateTaskRequest&>(base);
+        ::size_t QueryTasksRequest_TimeRange::ByteSizeLong(const MessageLite& base) {
+          const QueryTasksRequest_TimeRange& this_ = static_cast<const QueryTasksRequest_TimeRange&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t UpdateTaskRequest::ByteSizeLong() const {
-          const UpdateTaskRequest& this_ = *this;
+        ::size_t QueryTasksRequest_TimeRange::ByteSizeLong() const {
+          const QueryTasksRequest_TimeRange& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:anduril.taskmanager.v1.UpdateTaskRequest)
+          // @@protoc_insertion_point(message_byte_size_start:anduril.taskmanager.v1.QueryTasksRequest.TimeRange)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+          cached_has_bits = this_._impl_._has_bits_[0];
+          if (cached_has_bits & 0x00000003u) {
+            // .google.protobuf.Timestamp update_start_time = 1 [json_name = "updateStartTime"];
+            if (cached_has_bits & 0x00000001u) {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.update_start_time_);
+            }
+            // .google.protobuf.Timestamp update_end_time = 2 [json_name = "updateEndTime"];
+            if (cached_has_bits & 0x00000002u) {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.update_end_time_);
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void QueryTasksRequest_TimeRange::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<QueryTasksRequest_TimeRange*>(&to_msg);
+  auto& from = static_cast<const QueryTasksRequest_TimeRange&>(from_msg);
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.taskmanager.v1.QueryTasksRequest.TimeRange)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      ABSL_DCHECK(from._impl_.update_start_time_ != nullptr);
+      if (_this->_impl_.update_start_time_ == nullptr) {
+        _this->_impl_.update_start_time_ =
+            ::google::protobuf::Message::CopyConstruct<::google::protobuf::Timestamp>(arena, *from._impl_.update_start_time_);
+      } else {
+        _this->_impl_.update_start_time_->MergeFrom(*from._impl_.update_start_time_);
+      }
+    }
+    if (cached_has_bits & 0x00000002u) {
+      ABSL_DCHECK(from._impl_.update_end_time_ != nullptr);
+      if (_this->_impl_.update_end_time_ == nullptr) {
+        _this->_impl_.update_end_time_ =
+            ::google::protobuf::Message::CopyConstruct<::google::protobuf::Timestamp>(arena, *from._impl_.update_end_time_);
+      } else {
+        _this->_impl_.update_end_time_->MergeFrom(*from._impl_.update_end_time_);
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void QueryTasksRequest_TimeRange::CopyFrom(const QueryTasksRequest_TimeRange& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.taskmanager.v1.QueryTasksRequest.TimeRange)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void QueryTasksRequest_TimeRange::InternalSwap(QueryTasksRequest_TimeRange* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(QueryTasksRequest_TimeRange, _impl_.update_end_time_)
+      + sizeof(QueryTasksRequest_TimeRange::_impl_.update_end_time_)
+      - PROTOBUF_FIELD_OFFSET(QueryTasksRequest_TimeRange, _impl_.update_start_time_)>(
+          reinterpret_cast<char*>(&_impl_.update_start_time_),
+          reinterpret_cast<char*>(&other->_impl_.update_start_time_));
+}
+
+::google::protobuf::Metadata QueryTasksRequest_TimeRange::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class QueryTasksRequest_StatusFilter::_Internal {
+ public:
+};
+
+QueryTasksRequest_StatusFilter::QueryTasksRequest_StatusFilter(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.taskmanager.v1.QueryTasksRequest.StatusFilter)
+}
+inline PROTOBUF_NDEBUG_INLINE QueryTasksRequest_StatusFilter::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::taskmanager::v1::QueryTasksRequest_StatusFilter& from_msg)
+      : status_{visibility, arena, from.status_},
+        _status_cached_byte_size_{0},
+        _cached_size_{0} {}
+
+QueryTasksRequest_StatusFilter::QueryTasksRequest_StatusFilter(
+    ::google::protobuf::Arena* arena,
+    const QueryTasksRequest_StatusFilter& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  QueryTasksRequest_StatusFilter* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  _impl_.filter_type_ = from._impl_.filter_type_;
+
+  // @@protoc_insertion_point(copy_constructor:anduril.taskmanager.v1.QueryTasksRequest.StatusFilter)
+}
+inline PROTOBUF_NDEBUG_INLINE QueryTasksRequest_StatusFilter::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : status_{visibility, arena},
+        _status_cached_byte_size_{0},
+        _cached_size_{0} {}
+
+inline void QueryTasksRequest_StatusFilter::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.filter_type_ = {};
+}
+QueryTasksRequest_StatusFilter::~QueryTasksRequest_StatusFilter() {
+  // @@protoc_insertion_point(destructor:anduril.taskmanager.v1.QueryTasksRequest.StatusFilter)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void QueryTasksRequest_StatusFilter::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.~Impl_();
+}
+
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::MessageLite::ClassDataFull
+    QueryTasksRequest_StatusFilter::_class_data_ = {
+        ::google::protobuf::Message::ClassData{
+            &_QueryTasksRequest_StatusFilter_default_instance_._instance,
+            &_table_.header,
+            nullptr,  // OnDemandRegisterArenaDtor
+            nullptr,  // IsInitialized
+            &QueryTasksRequest_StatusFilter::MergeImpl,
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+            ::google::protobuf::Message::GetDeleteImpl<QueryTasksRequest_StatusFilter>(),
+            ::google::protobuf::Message::GetNewImpl<QueryTasksRequest_StatusFilter>(),
+            ::google::protobuf::Message::GetClearImpl<QueryTasksRequest_StatusFilter>(), &QueryTasksRequest_StatusFilter::ByteSizeLong,
+                &QueryTasksRequest_StatusFilter::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+            PROTOBUF_FIELD_OFFSET(QueryTasksRequest_StatusFilter, _impl_._cached_size_),
+            false,
+        },
+        &QueryTasksRequest_StatusFilter::kDescriptorMethods,
+        &descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto,
+        nullptr,  // tracker
+};
+const ::google::protobuf::MessageLite::ClassData* QueryTasksRequest_StatusFilter::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 0, 2> QueryTasksRequest_StatusFilter::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::QueryTasksRequest_StatusFilter>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .anduril.taskmanager.v1.QueryTasksRequest.FilterType filter_type = 2 [json_name = "filterType"];
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(QueryTasksRequest_StatusFilter, _impl_.filter_type_), 63>(),
+     {16, 63, 0, PROTOBUF_FIELD_OFFSET(QueryTasksRequest_StatusFilter, _impl_.filter_type_)}},
+    // repeated .anduril.taskmanager.v1.Status status = 1 [json_name = "status"];
+    {::_pbi::TcParser::FastV32P1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(QueryTasksRequest_StatusFilter, _impl_.status_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // repeated .anduril.taskmanager.v1.Status status = 1 [json_name = "status"];
+    {PROTOBUF_FIELD_OFFSET(QueryTasksRequest_StatusFilter, _impl_.status_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kPackedOpenEnum)},
+    // .anduril.taskmanager.v1.QueryTasksRequest.FilterType filter_type = 2 [json_name = "filterType"];
+    {PROTOBUF_FIELD_OFFSET(QueryTasksRequest_StatusFilter, _impl_.filter_type_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+
+PROTOBUF_NOINLINE void QueryTasksRequest_StatusFilter::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.taskmanager.v1.QueryTasksRequest.StatusFilter)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.status_.Clear();
+  _impl_.filter_type_ = 0;
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* QueryTasksRequest_StatusFilter::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const QueryTasksRequest_StatusFilter& this_ = static_cast<const QueryTasksRequest_StatusFilter&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* QueryTasksRequest_StatusFilter::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const QueryTasksRequest_StatusFilter& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:anduril.taskmanager.v1.QueryTasksRequest.StatusFilter)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // repeated .anduril.taskmanager.v1.Status status = 1 [json_name = "status"];
+          {
+            std::size_t byte_size =
+                                              this_._impl_._status_cached_byte_size_.Get();
+            if (byte_size > 0) {
+              target = stream->WriteEnumPacked(
+                  1, this_._internal_status(), byte_size, target);
+            }
+          }
+
+          // .anduril.taskmanager.v1.QueryTasksRequest.FilterType filter_type = 2 [json_name = "filterType"];
+          if (this_._internal_filter_type() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteEnumToArray(
+                2, this_._internal_filter_type(), target);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:anduril.taskmanager.v1.QueryTasksRequest.StatusFilter)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t QueryTasksRequest_StatusFilter::ByteSizeLong(const MessageLite& base) {
+          const QueryTasksRequest_StatusFilter& this_ = static_cast<const QueryTasksRequest_StatusFilter&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t QueryTasksRequest_StatusFilter::ByteSizeLong() const {
+          const QueryTasksRequest_StatusFilter& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:anduril.taskmanager.v1.QueryTasksRequest.StatusFilter)
           ::size_t total_size = 0;
 
           ::uint32_t cached_has_bits = 0;
@@ -2265,242 +2578,319 @@ PROTOBUF_NOINLINE void UpdateTaskRequest::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // .anduril.taskmanager.v1.Task task = 1 [json_name = "task"];
-            cached_has_bits =
-                this_._impl_._has_bits_[0];
-            if (cached_has_bits & 0x00000001u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.task_);
+            // repeated .anduril.taskmanager.v1.Status status = 1 [json_name = "status"];
+             {
+              std::size_t data_size = 0;
+              auto count = static_cast<std::size_t>(this_._internal_status_size());
+
+              for (std::size_t i = 0; i < count; ++i) {
+                data_size += ::_pbi::WireFormatLite::EnumSize(
+                    this_._internal_status().Get(static_cast<int>(i)));
+              }
+              total_size += data_size;
+              if (data_size > 0) {
+                total_size += 1;
+                total_size += ::_pbi::WireFormatLite::Int32Size(
+                    static_cast<int32_t>(data_size));
+              }
+              this_._impl_._status_cached_byte_size_.Set(::_pbi::ToCachedSize(data_size));
             }
           }
            {
-            // bool is_executed_elsewhere = 7 [json_name = "isExecutedElsewhere"];
-            if (this_._internal_is_executed_elsewhere() != 0) {
-              total_size += 2;
+            // .anduril.taskmanager.v1.QueryTasksRequest.FilterType filter_type = 2 [json_name = "filterType"];
+            if (this_._internal_filter_type() != 0) {
+              total_size += 1 +
+                            ::_pbi::WireFormatLite::EnumSize(this_._internal_filter_type());
             }
           }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
                                                      &this_._impl_._cached_size_);
         }
 
-void UpdateTaskRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<UpdateTaskRequest*>(&to_msg);
-  auto& from = static_cast<const UpdateTaskRequest&>(from_msg);
-  ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.taskmanager.v1.UpdateTaskRequest)
+void QueryTasksRequest_StatusFilter::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<QueryTasksRequest_StatusFilter*>(&to_msg);
+  auto& from = static_cast<const QueryTasksRequest_StatusFilter&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.taskmanager.v1.QueryTasksRequest.StatusFilter)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    ABSL_DCHECK(from._impl_.task_ != nullptr);
-    if (_this->_impl_.task_ == nullptr) {
-      _this->_impl_.task_ =
-          ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::Task>(arena, *from._impl_.task_);
-    } else {
-      _this->_impl_.task_->MergeFrom(*from._impl_.task_);
-    }
+  _this->_internal_mutable_status()->MergeFrom(from._internal_status());
+  if (from._internal_filter_type() != 0) {
+    _this->_impl_.filter_type_ = from._impl_.filter_type_;
   }
-  if (from._internal_is_executed_elsewhere() != 0) {
-    _this->_impl_.is_executed_elsewhere_ = from._impl_.is_executed_elsewhere_;
-  }
-  _this->_impl_._has_bits_[0] |= cached_has_bits;
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void UpdateTaskRequest::CopyFrom(const UpdateTaskRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:anduril.taskmanager.v1.UpdateTaskRequest)
+void QueryTasksRequest_StatusFilter::CopyFrom(const QueryTasksRequest_StatusFilter& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.taskmanager.v1.QueryTasksRequest.StatusFilter)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void UpdateTaskRequest::InternalSwap(UpdateTaskRequest* PROTOBUF_RESTRICT other) {
+void QueryTasksRequest_StatusFilter::InternalSwap(QueryTasksRequest_StatusFilter* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(UpdateTaskRequest, _impl_.is_executed_elsewhere_)
-      + sizeof(UpdateTaskRequest::_impl_.is_executed_elsewhere_)
-      - PROTOBUF_FIELD_OFFSET(UpdateTaskRequest, _impl_.task_)>(
-          reinterpret_cast<char*>(&_impl_.task_),
-          reinterpret_cast<char*>(&other->_impl_.task_));
+  _impl_.status_.InternalSwap(&other->_impl_.status_);
+  swap(_impl_.filter_type_, other->_impl_.filter_type_);
 }
 
-::google::protobuf::Metadata UpdateTaskRequest::GetMetadata() const {
+::google::protobuf::Metadata QueryTasksRequest_StatusFilter::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
-class UpdateTaskResponse::_Internal {
+class QueryTasksRequest::_Internal {
  public:
   using HasBits =
-      decltype(std::declval<UpdateTaskResponse>()._impl_._has_bits_);
+      decltype(std::declval<QueryTasksRequest>()._impl_._has_bits_);
   static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(UpdateTaskResponse, _impl_._has_bits_);
+      8 * PROTOBUF_FIELD_OFFSET(QueryTasksRequest, _impl_._has_bits_);
 };
 
-void UpdateTaskResponse::clear_task() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.task_ != nullptr) _impl_.task_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-UpdateTaskResponse::UpdateTaskResponse(::google::protobuf::Arena* arena)
+QueryTasksRequest::QueryTasksRequest(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, _class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
   SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:anduril.taskmanager.v1.UpdateTaskResponse)
+  // @@protoc_insertion_point(arena_constructor:anduril.taskmanager.v1.QueryTasksRequest)
 }
-inline PROTOBUF_NDEBUG_INLINE UpdateTaskResponse::Impl_::Impl_(
+inline PROTOBUF_NDEBUG_INLINE QueryTasksRequest::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
-    const Impl_& from, const ::anduril::taskmanager::v1::UpdateTaskResponse& from_msg)
+    const Impl_& from, const ::anduril::taskmanager::v1::QueryTasksRequest& from_msg)
       : _has_bits_{from._has_bits_},
-        _cached_size_{0} {}
+        _cached_size_{0},
+        parent_task_id_(arena, from.parent_task_id_),
+        page_token_(arena, from.page_token_) {}
 
-UpdateTaskResponse::UpdateTaskResponse(
+QueryTasksRequest::QueryTasksRequest(
     ::google::protobuf::Arena* arena,
-    const UpdateTaskResponse& from)
+    const QueryTasksRequest& from)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, _class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
     : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  UpdateTaskResponse* const _this = this;
+  QueryTasksRequest* const _this = this;
   (void)_this;
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
   ::uint32_t cached_has_bits = _impl_._has_bits_[0];
-  _impl_.task_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::Task>(
-                              arena, *from._impl_.task_)
+  _impl_.status_filter_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::QueryTasksRequest_StatusFilter>(
+                              arena, *from._impl_.status_filter_)
                         : nullptr;
+  _impl_.update_time_range_ = (cached_has_bits & 0x00000002u) ? ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::QueryTasksRequest_TimeRange>(
+                              arena, *from._impl_.update_time_range_)
+                        : nullptr;
+  _impl_.view_ = from._impl_.view_;
 
-  // @@protoc_insertion_point(copy_constructor:anduril.taskmanager.v1.UpdateTaskResponse)
+  // @@protoc_insertion_point(copy_constructor:anduril.taskmanager.v1.QueryTasksRequest)
 }
-inline PROTOBUF_NDEBUG_INLINE UpdateTaskResponse::Impl_::Impl_(
+inline PROTOBUF_NDEBUG_INLINE QueryTasksRequest::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : _cached_size_{0} {}
+      : _cached_size_{0},
+        parent_task_id_(arena),
+        page_token_(arena) {}
 
-inline void UpdateTaskResponse::SharedCtor(::_pb::Arena* arena) {
+inline void QueryTasksRequest::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
-  _impl_.task_ = {};
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, status_filter_),
+           0,
+           offsetof(Impl_, view_) -
+               offsetof(Impl_, status_filter_) +
+               sizeof(Impl_::view_));
 }
-UpdateTaskResponse::~UpdateTaskResponse() {
-  // @@protoc_insertion_point(destructor:anduril.taskmanager.v1.UpdateTaskResponse)
+QueryTasksRequest::~QueryTasksRequest() {
+  // @@protoc_insertion_point(destructor:anduril.taskmanager.v1.QueryTasksRequest)
   _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   SharedDtor();
 }
-inline void UpdateTaskResponse::SharedDtor() {
+inline void QueryTasksRequest::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
-  delete _impl_.task_;
+  _impl_.parent_task_id_.Destroy();
+  _impl_.page_token_.Destroy();
+  delete _impl_.status_filter_;
+  delete _impl_.update_time_range_;
   _impl_.~Impl_();
 }
 
 PROTOBUF_CONSTINIT
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::google::protobuf::MessageLite::ClassDataFull
-    UpdateTaskResponse::_class_data_ = {
+    QueryTasksRequest::_class_data_ = {
         ::google::protobuf::Message::ClassData{
-            &_UpdateTaskResponse_default_instance_._instance,
+            &_QueryTasksRequest_default_instance_._instance,
             &_table_.header,
             nullptr,  // OnDemandRegisterArenaDtor
             nullptr,  // IsInitialized
-            &UpdateTaskResponse::MergeImpl,
+            &QueryTasksRequest::MergeImpl,
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-            ::google::protobuf::Message::GetDeleteImpl<UpdateTaskResponse>(),
-            ::google::protobuf::Message::GetNewImpl<UpdateTaskResponse>(),
-            ::google::protobuf::Message::GetClearImpl<UpdateTaskResponse>(), &UpdateTaskResponse::ByteSizeLong,
-                &UpdateTaskResponse::_InternalSerialize,
+            ::google::protobuf::Message::GetDeleteImpl<QueryTasksRequest>(),
+            ::google::protobuf::Message::GetNewImpl<QueryTasksRequest>(),
+            ::google::protobuf::Message::GetClearImpl<QueryTasksRequest>(), &QueryTasksRequest::ByteSizeLong,
+                &QueryTasksRequest::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-            PROTOBUF_FIELD_OFFSET(UpdateTaskResponse, _impl_._cached_size_),
+            PROTOBUF_FIELD_OFFSET(QueryTasksRequest, _impl_._cached_size_),
             false,
         },
-        &UpdateTaskResponse::kDescriptorMethods,
+        &QueryTasksRequest::kDescriptorMethods,
         &descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto,
         nullptr,  // tracker
 };
-const ::google::protobuf::MessageLite::ClassData* UpdateTaskResponse::GetClassData() const {
+const ::google::protobuf::MessageLite::ClassData* QueryTasksRequest::GetClassData() const {
   ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
   ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 1, 1, 0, 2> UpdateTaskResponse::_table_ = {
+const ::_pbi::TcParseTable<3, 5, 2, 73, 2> QueryTasksRequest::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(UpdateTaskResponse, _impl_._has_bits_),
+    PROTOBUF_FIELD_OFFSET(QueryTasksRequest, _impl_._has_bits_),
     0, // no _extensions_
-    1, 0,  // max_field_number, fast_idx_mask
+    6, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967294,  // skipmap
+    4294967234,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    1,  // num_field_entries
-    1,  // num_aux_entries
+    5,  // num_field_entries
+    2,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::UpdateTaskResponse>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::QueryTasksRequest>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // .anduril.taskmanager.v1.Task task = 1 [json_name = "task"];
+    {::_pbi::TcParser::MiniParse, {}},
+    // string parent_task_id = 1 [json_name = "parentTaskId"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(QueryTasksRequest, _impl_.parent_task_id_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    // string page_token = 3 [json_name = "pageToken"];
+    {::_pbi::TcParser::FastUS1,
+     {26, 63, 0, PROTOBUF_FIELD_OFFSET(QueryTasksRequest, _impl_.page_token_)}},
+    // .anduril.taskmanager.v1.QueryTasksRequest.StatusFilter status_filter = 4 [json_name = "statusFilter"];
     {::_pbi::TcParser::FastMtS1,
-     {10, 0, 0, PROTOBUF_FIELD_OFFSET(UpdateTaskResponse, _impl_.task_)}},
+     {34, 0, 0, PROTOBUF_FIELD_OFFSET(QueryTasksRequest, _impl_.status_filter_)}},
+    // .anduril.taskmanager.v1.QueryTasksRequest.TimeRange update_time_range = 5 [json_name = "updateTimeRange"];
+    {::_pbi::TcParser::FastMtS1,
+     {42, 1, 1, PROTOBUF_FIELD_OFFSET(QueryTasksRequest, _impl_.update_time_range_)}},
+    // .anduril.taskmanager.v1.TaskView view = 6 [json_name = "view"];
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(QueryTasksRequest, _impl_.view_), 63>(),
+     {48, 63, 0, PROTOBUF_FIELD_OFFSET(QueryTasksRequest, _impl_.view_)}},
+    {::_pbi::TcParser::MiniParse, {}},
   }}, {{
     65535, 65535
   }}, {{
-    // .anduril.taskmanager.v1.Task task = 1 [json_name = "task"];
-    {PROTOBUF_FIELD_OFFSET(UpdateTaskResponse, _impl_.task_), _Internal::kHasBitsOffset + 0, 0,
+    // string parent_task_id = 1 [json_name = "parentTaskId"];
+    {PROTOBUF_FIELD_OFFSET(QueryTasksRequest, _impl_.parent_task_id_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string page_token = 3 [json_name = "pageToken"];
+    {PROTOBUF_FIELD_OFFSET(QueryTasksRequest, _impl_.page_token_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .anduril.taskmanager.v1.QueryTasksRequest.StatusFilter status_filter = 4 [json_name = "statusFilter"];
+    {PROTOBUF_FIELD_OFFSET(QueryTasksRequest, _impl_.status_filter_), _Internal::kHasBitsOffset + 0, 0,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .anduril.taskmanager.v1.QueryTasksRequest.TimeRange update_time_range = 5 [json_name = "updateTimeRange"];
+    {PROTOBUF_FIELD_OFFSET(QueryTasksRequest, _impl_.update_time_range_), _Internal::kHasBitsOffset + 1, 1,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .anduril.taskmanager.v1.TaskView view = 6 [json_name = "view"];
+    {PROTOBUF_FIELD_OFFSET(QueryTasksRequest, _impl_.view_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
   }}, {{
-    {::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::Task>()},
+    {::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::QueryTasksRequest_StatusFilter>()},
+    {::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::QueryTasksRequest_TimeRange>()},
   }}, {{
+    "\50\16\12\0\0\0\0\0"
+    "anduril.taskmanager.v1.QueryTasksRequest"
+    "parent_task_id"
+    "page_token"
   }},
 };
 
-PROTOBUF_NOINLINE void UpdateTaskResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:anduril.taskmanager.v1.UpdateTaskResponse)
+PROTOBUF_NOINLINE void QueryTasksRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.taskmanager.v1.QueryTasksRequest)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.parent_task_id_.ClearToEmpty();
+  _impl_.page_token_.ClearToEmpty();
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    ABSL_DCHECK(_impl_.task_ != nullptr);
-    _impl_.task_->Clear();
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      ABSL_DCHECK(_impl_.status_filter_ != nullptr);
+      _impl_.status_filter_->Clear();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      ABSL_DCHECK(_impl_.update_time_range_ != nullptr);
+      _impl_.update_time_range_->Clear();
+    }
   }
+  _impl_.view_ = 0;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* UpdateTaskResponse::_InternalSerialize(
+        ::uint8_t* QueryTasksRequest::_InternalSerialize(
             const MessageLite& base, ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const UpdateTaskResponse& this_ = static_cast<const UpdateTaskResponse&>(base);
+          const QueryTasksRequest& this_ = static_cast<const QueryTasksRequest&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* UpdateTaskResponse::_InternalSerialize(
+        ::uint8_t* QueryTasksRequest::_InternalSerialize(
             ::uint8_t* target,
             ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const UpdateTaskResponse& this_ = *this;
+          const QueryTasksRequest& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:anduril.taskmanager.v1.UpdateTaskResponse)
+          // @@protoc_insertion_point(serialize_to_array_start:anduril.taskmanager.v1.QueryTasksRequest)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
 
+          // string parent_task_id = 1 [json_name = "parentTaskId"];
+          if (!this_._internal_parent_task_id().empty()) {
+            const std::string& _s = this_._internal_parent_task_id();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.taskmanager.v1.QueryTasksRequest.parent_task_id");
+            target = stream->WriteStringMaybeAliased(1, _s, target);
+          }
+
+          // string page_token = 3 [json_name = "pageToken"];
+          if (!this_._internal_page_token().empty()) {
+            const std::string& _s = this_._internal_page_token();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.taskmanager.v1.QueryTasksRequest.page_token");
+            target = stream->WriteStringMaybeAliased(3, _s, target);
+          }
+
           cached_has_bits = this_._impl_._has_bits_[0];
-          // .anduril.taskmanager.v1.Task task = 1 [json_name = "task"];
+          // .anduril.taskmanager.v1.QueryTasksRequest.StatusFilter status_filter = 4 [json_name = "statusFilter"];
           if (cached_has_bits & 0x00000001u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                1, *this_._impl_.task_, this_._impl_.task_->GetCachedSize(), target,
+                4, *this_._impl_.status_filter_, this_._impl_.status_filter_->GetCachedSize(), target,
                 stream);
+          }
+
+          // .anduril.taskmanager.v1.QueryTasksRequest.TimeRange update_time_range = 5 [json_name = "updateTimeRange"];
+          if (cached_has_bits & 0x00000002u) {
+            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                5, *this_._impl_.update_time_range_, this_._impl_.update_time_range_->GetCachedSize(), target,
+                stream);
+          }
+
+          // .anduril.taskmanager.v1.TaskView view = 6 [json_name = "view"];
+          if (this_._internal_view() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteEnumToArray(
+                6, this_._internal_view(), target);
           }
 
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
@@ -2508,76 +2898,389 @@ PROTOBUF_NOINLINE void UpdateTaskResponse::Clear() {
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
                     this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
           }
-          // @@protoc_insertion_point(serialize_to_array_end:anduril.taskmanager.v1.UpdateTaskResponse)
+          // @@protoc_insertion_point(serialize_to_array_end:anduril.taskmanager.v1.QueryTasksRequest)
           return target;
         }
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t UpdateTaskResponse::ByteSizeLong(const MessageLite& base) {
-          const UpdateTaskResponse& this_ = static_cast<const UpdateTaskResponse&>(base);
+        ::size_t QueryTasksRequest::ByteSizeLong(const MessageLite& base) {
+          const QueryTasksRequest& this_ = static_cast<const QueryTasksRequest&>(base);
 #else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t UpdateTaskResponse::ByteSizeLong() const {
-          const UpdateTaskResponse& this_ = *this;
+        ::size_t QueryTasksRequest::ByteSizeLong() const {
+          const QueryTasksRequest& this_ = *this;
 #endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:anduril.taskmanager.v1.UpdateTaskResponse)
+          // @@protoc_insertion_point(message_byte_size_start:anduril.taskmanager.v1.QueryTasksRequest)
           ::size_t total_size = 0;
 
           ::uint32_t cached_has_bits = 0;
           // Prevent compiler warnings about cached_has_bits being unused
           (void)cached_has_bits;
 
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // .anduril.taskmanager.v1.Task task = 1 [json_name = "task"];
-            cached_has_bits =
-                this_._impl_._has_bits_[0];
+            // string parent_task_id = 1 [json_name = "parentTaskId"];
+            if (!this_._internal_parent_task_id().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_parent_task_id());
+            }
+            // string page_token = 3 [json_name = "pageToken"];
+            if (!this_._internal_page_token().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_page_token());
+            }
+          }
+          cached_has_bits = this_._impl_._has_bits_[0];
+          if (cached_has_bits & 0x00000003u) {
+            // .anduril.taskmanager.v1.QueryTasksRequest.StatusFilter status_filter = 4 [json_name = "statusFilter"];
             if (cached_has_bits & 0x00000001u) {
               total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.task_);
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.status_filter_);
+            }
+            // .anduril.taskmanager.v1.QueryTasksRequest.TimeRange update_time_range = 5 [json_name = "updateTimeRange"];
+            if (cached_has_bits & 0x00000002u) {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.update_time_range_);
+            }
+          }
+           {
+            // .anduril.taskmanager.v1.TaskView view = 6 [json_name = "view"];
+            if (this_._internal_view() != 0) {
+              total_size += 1 +
+                            ::_pbi::WireFormatLite::EnumSize(this_._internal_view());
             }
           }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
                                                      &this_._impl_._cached_size_);
         }
 
-void UpdateTaskResponse::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<UpdateTaskResponse*>(&to_msg);
-  auto& from = static_cast<const UpdateTaskResponse&>(from_msg);
+void QueryTasksRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<QueryTasksRequest*>(&to_msg);
+  auto& from = static_cast<const QueryTasksRequest&>(from_msg);
   ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.taskmanager.v1.UpdateTaskResponse)
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.taskmanager.v1.QueryTasksRequest)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (!from._internal_parent_task_id().empty()) {
+    _this->_internal_set_parent_task_id(from._internal_parent_task_id());
+  }
+  if (!from._internal_page_token().empty()) {
+    _this->_internal_set_page_token(from._internal_page_token());
+  }
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    ABSL_DCHECK(from._impl_.task_ != nullptr);
-    if (_this->_impl_.task_ == nullptr) {
-      _this->_impl_.task_ =
-          ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::Task>(arena, *from._impl_.task_);
-    } else {
-      _this->_impl_.task_->MergeFrom(*from._impl_.task_);
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      ABSL_DCHECK(from._impl_.status_filter_ != nullptr);
+      if (_this->_impl_.status_filter_ == nullptr) {
+        _this->_impl_.status_filter_ =
+            ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::QueryTasksRequest_StatusFilter>(arena, *from._impl_.status_filter_);
+      } else {
+        _this->_impl_.status_filter_->MergeFrom(*from._impl_.status_filter_);
+      }
     }
+    if (cached_has_bits & 0x00000002u) {
+      ABSL_DCHECK(from._impl_.update_time_range_ != nullptr);
+      if (_this->_impl_.update_time_range_ == nullptr) {
+        _this->_impl_.update_time_range_ =
+            ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::QueryTasksRequest_TimeRange>(arena, *from._impl_.update_time_range_);
+      } else {
+        _this->_impl_.update_time_range_->MergeFrom(*from._impl_.update_time_range_);
+      }
+    }
+  }
+  if (from._internal_view() != 0) {
+    _this->_impl_.view_ = from._impl_.view_;
   }
   _this->_impl_._has_bits_[0] |= cached_has_bits;
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void UpdateTaskResponse::CopyFrom(const UpdateTaskResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:anduril.taskmanager.v1.UpdateTaskResponse)
+void QueryTasksRequest::CopyFrom(const QueryTasksRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.taskmanager.v1.QueryTasksRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 
-void UpdateTaskResponse::InternalSwap(UpdateTaskResponse* PROTOBUF_RESTRICT other) {
+void QueryTasksRequest::InternalSwap(QueryTasksRequest* PROTOBUF_RESTRICT other) {
   using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  swap(_impl_.task_, other->_impl_.task_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.parent_task_id_, &other->_impl_.parent_task_id_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.page_token_, &other->_impl_.page_token_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(QueryTasksRequest, _impl_.view_)
+      + sizeof(QueryTasksRequest::_impl_.view_)
+      - PROTOBUF_FIELD_OFFSET(QueryTasksRequest, _impl_.status_filter_)>(
+          reinterpret_cast<char*>(&_impl_.status_filter_),
+          reinterpret_cast<char*>(&other->_impl_.status_filter_));
 }
 
-::google::protobuf::Metadata UpdateTaskResponse::GetMetadata() const {
+::google::protobuf::Metadata QueryTasksRequest::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class QueryTasksResponse::_Internal {
+ public:
+};
+
+void QueryTasksResponse::clear_tasks() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.tasks_.Clear();
+}
+QueryTasksResponse::QueryTasksResponse(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.taskmanager.v1.QueryTasksResponse)
+}
+inline PROTOBUF_NDEBUG_INLINE QueryTasksResponse::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::taskmanager::v1::QueryTasksResponse& from_msg)
+      : tasks_{visibility, arena, from.tasks_},
+        page_token_(arena, from.page_token_),
+        _cached_size_{0} {}
+
+QueryTasksResponse::QueryTasksResponse(
+    ::google::protobuf::Arena* arena,
+    const QueryTasksResponse& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  QueryTasksResponse* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:anduril.taskmanager.v1.QueryTasksResponse)
+}
+inline PROTOBUF_NDEBUG_INLINE QueryTasksResponse::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : tasks_{visibility, arena},
+        page_token_(arena),
+        _cached_size_{0} {}
+
+inline void QueryTasksResponse::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+QueryTasksResponse::~QueryTasksResponse() {
+  // @@protoc_insertion_point(destructor:anduril.taskmanager.v1.QueryTasksResponse)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void QueryTasksResponse::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.page_token_.Destroy();
+  _impl_.~Impl_();
+}
+
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::MessageLite::ClassDataFull
+    QueryTasksResponse::_class_data_ = {
+        ::google::protobuf::Message::ClassData{
+            &_QueryTasksResponse_default_instance_._instance,
+            &_table_.header,
+            nullptr,  // OnDemandRegisterArenaDtor
+            nullptr,  // IsInitialized
+            &QueryTasksResponse::MergeImpl,
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+            ::google::protobuf::Message::GetDeleteImpl<QueryTasksResponse>(),
+            ::google::protobuf::Message::GetNewImpl<QueryTasksResponse>(),
+            ::google::protobuf::Message::GetClearImpl<QueryTasksResponse>(), &QueryTasksResponse::ByteSizeLong,
+                &QueryTasksResponse::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+            PROTOBUF_FIELD_OFFSET(QueryTasksResponse, _impl_._cached_size_),
+            false,
+        },
+        &QueryTasksResponse::kDescriptorMethods,
+        &descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto,
+        nullptr,  // tracker
+};
+const ::google::protobuf::MessageLite::ClassData* QueryTasksResponse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 60, 2> QueryTasksResponse::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::QueryTasksResponse>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // string page_token = 2 [json_name = "pageToken"];
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(QueryTasksResponse, _impl_.page_token_)}},
+    // repeated .anduril.taskmanager.v1.Task tasks = 1 [json_name = "tasks"];
+    {::_pbi::TcParser::FastMtR1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(QueryTasksResponse, _impl_.tasks_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // repeated .anduril.taskmanager.v1.Task tasks = 1 [json_name = "tasks"];
+    {PROTOBUF_FIELD_OFFSET(QueryTasksResponse, _impl_.tasks_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // string page_token = 2 [json_name = "pageToken"];
+    {PROTOBUF_FIELD_OFFSET(QueryTasksResponse, _impl_.page_token_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::Task>()},
+  }}, {{
+    "\51\0\12\0\0\0\0\0"
+    "anduril.taskmanager.v1.QueryTasksResponse"
+    "page_token"
+  }},
+};
+
+PROTOBUF_NOINLINE void QueryTasksResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.taskmanager.v1.QueryTasksResponse)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.tasks_.Clear();
+  _impl_.page_token_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* QueryTasksResponse::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const QueryTasksResponse& this_ = static_cast<const QueryTasksResponse&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* QueryTasksResponse::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const QueryTasksResponse& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:anduril.taskmanager.v1.QueryTasksResponse)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // repeated .anduril.taskmanager.v1.Task tasks = 1 [json_name = "tasks"];
+          for (unsigned i = 0, n = static_cast<unsigned>(
+                                   this_._internal_tasks_size());
+               i < n; i++) {
+            const auto& repfield = this_._internal_tasks().Get(i);
+            target =
+                ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                    1, repfield, repfield.GetCachedSize(),
+                    target, stream);
+          }
+
+          // string page_token = 2 [json_name = "pageToken"];
+          if (!this_._internal_page_token().empty()) {
+            const std::string& _s = this_._internal_page_token();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.taskmanager.v1.QueryTasksResponse.page_token");
+            target = stream->WriteStringMaybeAliased(2, _s, target);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:anduril.taskmanager.v1.QueryTasksResponse)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t QueryTasksResponse::ByteSizeLong(const MessageLite& base) {
+          const QueryTasksResponse& this_ = static_cast<const QueryTasksResponse&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t QueryTasksResponse::ByteSizeLong() const {
+          const QueryTasksResponse& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:anduril.taskmanager.v1.QueryTasksResponse)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // repeated .anduril.taskmanager.v1.Task tasks = 1 [json_name = "tasks"];
+             {
+              total_size += 1UL * this_._internal_tasks_size();
+              for (const auto& msg : this_._internal_tasks()) {
+                total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+              }
+            }
+          }
+           {
+            // string page_token = 2 [json_name = "pageToken"];
+            if (!this_._internal_page_token().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_page_token());
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void QueryTasksResponse::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<QueryTasksResponse*>(&to_msg);
+  auto& from = static_cast<const QueryTasksResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.taskmanager.v1.QueryTasksResponse)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_internal_mutable_tasks()->MergeFrom(
+      from._internal_tasks());
+  if (!from._internal_page_token().empty()) {
+    _this->_internal_set_page_token(from._internal_page_token());
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void QueryTasksResponse::CopyFrom(const QueryTasksResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.taskmanager.v1.QueryTasksResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void QueryTasksResponse::InternalSwap(QueryTasksResponse* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.tasks_.InternalSwap(&other->_impl_.tasks_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.page_token_, &other->_impl_.page_token_, arena);
+}
+
+::google::protobuf::Metadata QueryTasksResponse::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
@@ -3074,653 +3777,6 @@ void UpdateStatusResponse::InternalSwap(UpdateStatusResponse* PROTOBUF_RESTRICT 
 }
 
 ::google::protobuf::Metadata UpdateStatusResponse::GetMetadata() const {
-  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
-}
-// ===================================================================
-
-class StreamTasksRequest::_Internal {
- public:
-  using HasBits =
-      decltype(std::declval<StreamTasksRequest>()._impl_._has_bits_);
-  static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(StreamTasksRequest, _impl_._has_bits_);
-};
-
-StreamTasksRequest::StreamTasksRequest(::google::protobuf::Arena* arena)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:anduril.taskmanager.v1.StreamTasksRequest)
-}
-inline PROTOBUF_NDEBUG_INLINE StreamTasksRequest::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
-    const Impl_& from, const ::anduril::taskmanager::v1::StreamTasksRequest& from_msg)
-      : _has_bits_{from._has_bits_},
-        _cached_size_{0},
-        views_{visibility, arena, from.views_},
-        _views_cached_byte_size_{0} {}
-
-StreamTasksRequest::StreamTasksRequest(
-    ::google::protobuf::Arena* arena,
-    const StreamTasksRequest& from)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  StreamTasksRequest* const _this = this;
-  (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
-      from._internal_metadata_);
-  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
-  _impl_.rate_limit_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::RateLimit>(
-                              arena, *from._impl_.rate_limit_)
-                        : nullptr;
-  ::memcpy(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, heartbeat_period_millis_),
-           reinterpret_cast<const char *>(&from._impl_) +
-               offsetof(Impl_, heartbeat_period_millis_),
-           offsetof(Impl_, exclude_preexisting_tasks_) -
-               offsetof(Impl_, heartbeat_period_millis_) +
-               sizeof(Impl_::exclude_preexisting_tasks_));
-
-  // @@protoc_insertion_point(copy_constructor:anduril.taskmanager.v1.StreamTasksRequest)
-}
-inline PROTOBUF_NDEBUG_INLINE StreamTasksRequest::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility,
-    ::google::protobuf::Arena* arena)
-      : _cached_size_{0},
-        views_{visibility, arena},
-        _views_cached_byte_size_{0} {}
-
-inline void StreamTasksRequest::SharedCtor(::_pb::Arena* arena) {
-  new (&_impl_) Impl_(internal_visibility(), arena);
-  ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, rate_limit_),
-           0,
-           offsetof(Impl_, exclude_preexisting_tasks_) -
-               offsetof(Impl_, rate_limit_) +
-               sizeof(Impl_::exclude_preexisting_tasks_));
-}
-StreamTasksRequest::~StreamTasksRequest() {
-  // @@protoc_insertion_point(destructor:anduril.taskmanager.v1.StreamTasksRequest)
-  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
-  SharedDtor();
-}
-inline void StreamTasksRequest::SharedDtor() {
-  ABSL_DCHECK(GetArena() == nullptr);
-  delete _impl_.rate_limit_;
-  _impl_.~Impl_();
-}
-
-PROTOBUF_CONSTINIT
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::MessageLite::ClassDataFull
-    StreamTasksRequest::_class_data_ = {
-        ::google::protobuf::Message::ClassData{
-            &_StreamTasksRequest_default_instance_._instance,
-            &_table_.header,
-            nullptr,  // OnDemandRegisterArenaDtor
-            nullptr,  // IsInitialized
-            &StreamTasksRequest::MergeImpl,
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-            ::google::protobuf::Message::GetDeleteImpl<StreamTasksRequest>(),
-            ::google::protobuf::Message::GetNewImpl<StreamTasksRequest>(),
-            ::google::protobuf::Message::GetClearImpl<StreamTasksRequest>(), &StreamTasksRequest::ByteSizeLong,
-                &StreamTasksRequest::_InternalSerialize,
-#endif  // PROTOBUF_CUSTOM_VTABLE
-            PROTOBUF_FIELD_OFFSET(StreamTasksRequest, _impl_._cached_size_),
-            false,
-        },
-        &StreamTasksRequest::kDescriptorMethods,
-        &descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto,
-        nullptr,  // tracker
-};
-const ::google::protobuf::MessageLite::ClassData* StreamTasksRequest::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
-  return _class_data_.base();
-}
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 4, 1, 0, 2> StreamTasksRequest::_table_ = {
-  {
-    PROTOBUF_FIELD_OFFSET(StreamTasksRequest, _impl_._has_bits_),
-    0, // no _extensions_
-    4, 24,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294967280,  // skipmap
-    offsetof(decltype(_table_), field_entries),
-    4,  // num_field_entries
-    1,  // num_aux_entries
-    offsetof(decltype(_table_), aux_entries),
-    _class_data_.base(),
-    nullptr,  // post_loop_handler
-    ::_pbi::TcParser::GenericFallback,  // fallback
-    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::StreamTasksRequest>(),  // to_prefetch
-    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
-  }, {{
-    // bool exclude_preexisting_tasks = 4 [json_name = "excludePreexistingTasks"];
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(StreamTasksRequest, _impl_.exclude_preexisting_tasks_), 63>(),
-     {32, 63, 0, PROTOBUF_FIELD_OFFSET(StreamTasksRequest, _impl_.exclude_preexisting_tasks_)}},
-    // .anduril.taskmanager.v1.RateLimit rate_limit = 1 [json_name = "rateLimit"];
-    {::_pbi::TcParser::FastMtS1,
-     {10, 0, 0, PROTOBUF_FIELD_OFFSET(StreamTasksRequest, _impl_.rate_limit_)}},
-    // repeated .anduril.taskmanager.v1.TaskView views = 2 [json_name = "views"];
-    {::_pbi::TcParser::FastV32P1,
-     {18, 63, 0, PROTOBUF_FIELD_OFFSET(StreamTasksRequest, _impl_.views_)}},
-    // uint32 heartbeat_period_millis = 3 [json_name = "heartbeatPeriodMillis"];
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(StreamTasksRequest, _impl_.heartbeat_period_millis_), 63>(),
-     {24, 63, 0, PROTOBUF_FIELD_OFFSET(StreamTasksRequest, _impl_.heartbeat_period_millis_)}},
-  }}, {{
-    65535, 65535
-  }}, {{
-    // .anduril.taskmanager.v1.RateLimit rate_limit = 1 [json_name = "rateLimit"];
-    {PROTOBUF_FIELD_OFFSET(StreamTasksRequest, _impl_.rate_limit_), _Internal::kHasBitsOffset + 0, 0,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // repeated .anduril.taskmanager.v1.TaskView views = 2 [json_name = "views"];
-    {PROTOBUF_FIELD_OFFSET(StreamTasksRequest, _impl_.views_), -1, 0,
-    (0 | ::_fl::kFcRepeated | ::_fl::kPackedOpenEnum)},
-    // uint32 heartbeat_period_millis = 3 [json_name = "heartbeatPeriodMillis"];
-    {PROTOBUF_FIELD_OFFSET(StreamTasksRequest, _impl_.heartbeat_period_millis_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
-    // bool exclude_preexisting_tasks = 4 [json_name = "excludePreexistingTasks"];
-    {PROTOBUF_FIELD_OFFSET(StreamTasksRequest, _impl_.exclude_preexisting_tasks_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
-  }}, {{
-    {::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::RateLimit>()},
-  }}, {{
-  }},
-};
-
-PROTOBUF_NOINLINE void StreamTasksRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:anduril.taskmanager.v1.StreamTasksRequest)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.views_.Clear();
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    ABSL_DCHECK(_impl_.rate_limit_ != nullptr);
-    _impl_.rate_limit_->Clear();
-  }
-  ::memset(&_impl_.heartbeat_period_millis_, 0, static_cast<::size_t>(
-      reinterpret_cast<char*>(&_impl_.exclude_preexisting_tasks_) -
-      reinterpret_cast<char*>(&_impl_.heartbeat_period_millis_)) + sizeof(_impl_.exclude_preexisting_tasks_));
-  _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
-}
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* StreamTasksRequest::_InternalSerialize(
-            const MessageLite& base, ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const StreamTasksRequest& this_ = static_cast<const StreamTasksRequest&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* StreamTasksRequest::_InternalSerialize(
-            ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const StreamTasksRequest& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:anduril.taskmanager.v1.StreamTasksRequest)
-          ::uint32_t cached_has_bits = 0;
-          (void)cached_has_bits;
-
-          cached_has_bits = this_._impl_._has_bits_[0];
-          // .anduril.taskmanager.v1.RateLimit rate_limit = 1 [json_name = "rateLimit"];
-          if (cached_has_bits & 0x00000001u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                1, *this_._impl_.rate_limit_, this_._impl_.rate_limit_->GetCachedSize(), target,
-                stream);
-          }
-
-          // repeated .anduril.taskmanager.v1.TaskView views = 2 [json_name = "views"];
-          {
-            std::size_t byte_size =
-                                              this_._impl_._views_cached_byte_size_.Get();
-            if (byte_size > 0) {
-              target = stream->WriteEnumPacked(
-                  2, this_._internal_views(), byte_size, target);
-            }
-          }
-
-          // uint32 heartbeat_period_millis = 3 [json_name = "heartbeatPeriodMillis"];
-          if (this_._internal_heartbeat_period_millis() != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
-                3, this_._internal_heartbeat_period_millis(), target);
-          }
-
-          // bool exclude_preexisting_tasks = 4 [json_name = "excludePreexistingTasks"];
-          if (this_._internal_exclude_preexisting_tasks() != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteBoolToArray(
-                4, this_._internal_exclude_preexisting_tasks(), target);
-          }
-
-          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
-            target =
-                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
-          }
-          // @@protoc_insertion_point(serialize_to_array_end:anduril.taskmanager.v1.StreamTasksRequest)
-          return target;
-        }
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t StreamTasksRequest::ByteSizeLong(const MessageLite& base) {
-          const StreamTasksRequest& this_ = static_cast<const StreamTasksRequest&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t StreamTasksRequest::ByteSizeLong() const {
-          const StreamTasksRequest& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:anduril.taskmanager.v1.StreamTasksRequest)
-          ::size_t total_size = 0;
-
-          ::uint32_t cached_has_bits = 0;
-          // Prevent compiler warnings about cached_has_bits being unused
-          (void)cached_has_bits;
-
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
-           {
-            // repeated .anduril.taskmanager.v1.TaskView views = 2 [json_name = "views"];
-             {
-              std::size_t data_size = 0;
-              auto count = static_cast<std::size_t>(this_._internal_views_size());
-
-              for (std::size_t i = 0; i < count; ++i) {
-                data_size += ::_pbi::WireFormatLite::EnumSize(
-                    this_._internal_views().Get(static_cast<int>(i)));
-              }
-              total_size += data_size;
-              if (data_size > 0) {
-                total_size += 1;
-                total_size += ::_pbi::WireFormatLite::Int32Size(
-                    static_cast<int32_t>(data_size));
-              }
-              this_._impl_._views_cached_byte_size_.Set(::_pbi::ToCachedSize(data_size));
-            }
-          }
-           {
-            // .anduril.taskmanager.v1.RateLimit rate_limit = 1 [json_name = "rateLimit"];
-            cached_has_bits =
-                this_._impl_._has_bits_[0];
-            if (cached_has_bits & 0x00000001u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.rate_limit_);
-            }
-          }
-           {
-            // uint32 heartbeat_period_millis = 3 [json_name = "heartbeatPeriodMillis"];
-            if (this_._internal_heartbeat_period_millis() != 0) {
-              total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
-                  this_._internal_heartbeat_period_millis());
-            }
-            // bool exclude_preexisting_tasks = 4 [json_name = "excludePreexistingTasks"];
-            if (this_._internal_exclude_preexisting_tasks() != 0) {
-              total_size += 2;
-            }
-          }
-          return this_.MaybeComputeUnknownFieldsSize(total_size,
-                                                     &this_._impl_._cached_size_);
-        }
-
-void StreamTasksRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<StreamTasksRequest*>(&to_msg);
-  auto& from = static_cast<const StreamTasksRequest&>(from_msg);
-  ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.taskmanager.v1.StreamTasksRequest)
-  ABSL_DCHECK_NE(&from, _this);
-  ::uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  _this->_internal_mutable_views()->MergeFrom(from._internal_views());
-  cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    ABSL_DCHECK(from._impl_.rate_limit_ != nullptr);
-    if (_this->_impl_.rate_limit_ == nullptr) {
-      _this->_impl_.rate_limit_ =
-          ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::RateLimit>(arena, *from._impl_.rate_limit_);
-    } else {
-      _this->_impl_.rate_limit_->MergeFrom(*from._impl_.rate_limit_);
-    }
-  }
-  if (from._internal_heartbeat_period_millis() != 0) {
-    _this->_impl_.heartbeat_period_millis_ = from._impl_.heartbeat_period_millis_;
-  }
-  if (from._internal_exclude_preexisting_tasks() != 0) {
-    _this->_impl_.exclude_preexisting_tasks_ = from._impl_.exclude_preexisting_tasks_;
-  }
-  _this->_impl_._has_bits_[0] |= cached_has_bits;
-  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void StreamTasksRequest::CopyFrom(const StreamTasksRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:anduril.taskmanager.v1.StreamTasksRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-
-void StreamTasksRequest::InternalSwap(StreamTasksRequest* PROTOBUF_RESTRICT other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  _impl_.views_.InternalSwap(&other->_impl_.views_);
-  ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(StreamTasksRequest, _impl_.exclude_preexisting_tasks_)
-      + sizeof(StreamTasksRequest::_impl_.exclude_preexisting_tasks_)
-      - PROTOBUF_FIELD_OFFSET(StreamTasksRequest, _impl_.rate_limit_)>(
-          reinterpret_cast<char*>(&_impl_.rate_limit_),
-          reinterpret_cast<char*>(&other->_impl_.rate_limit_));
-}
-
-::google::protobuf::Metadata StreamTasksRequest::GetMetadata() const {
-  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
-}
-// ===================================================================
-
-class StreamTasksResponse::_Internal {
- public:
-  using HasBits =
-      decltype(std::declval<StreamTasksResponse>()._impl_._has_bits_);
-  static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(StreamTasksResponse, _impl_._has_bits_);
-};
-
-void StreamTasksResponse::clear_task_event() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.task_event_ != nullptr) _impl_.task_event_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-StreamTasksResponse::StreamTasksResponse(::google::protobuf::Arena* arena)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:anduril.taskmanager.v1.StreamTasksResponse)
-}
-inline PROTOBUF_NDEBUG_INLINE StreamTasksResponse::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
-    const Impl_& from, const ::anduril::taskmanager::v1::StreamTasksResponse& from_msg)
-      : _has_bits_{from._has_bits_},
-        _cached_size_{0} {}
-
-StreamTasksResponse::StreamTasksResponse(
-    ::google::protobuf::Arena* arena,
-    const StreamTasksResponse& from)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  StreamTasksResponse* const _this = this;
-  (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
-      from._internal_metadata_);
-  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
-  _impl_.task_event_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::TaskEvent>(
-                              arena, *from._impl_.task_event_)
-                        : nullptr;
-  _impl_.heartbeat_ = (cached_has_bits & 0x00000002u) ? ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::Heartbeat>(
-                              arena, *from._impl_.heartbeat_)
-                        : nullptr;
-
-  // @@protoc_insertion_point(copy_constructor:anduril.taskmanager.v1.StreamTasksResponse)
-}
-inline PROTOBUF_NDEBUG_INLINE StreamTasksResponse::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility,
-    ::google::protobuf::Arena* arena)
-      : _cached_size_{0} {}
-
-inline void StreamTasksResponse::SharedCtor(::_pb::Arena* arena) {
-  new (&_impl_) Impl_(internal_visibility(), arena);
-  ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, task_event_),
-           0,
-           offsetof(Impl_, heartbeat_) -
-               offsetof(Impl_, task_event_) +
-               sizeof(Impl_::heartbeat_));
-}
-StreamTasksResponse::~StreamTasksResponse() {
-  // @@protoc_insertion_point(destructor:anduril.taskmanager.v1.StreamTasksResponse)
-  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
-  SharedDtor();
-}
-inline void StreamTasksResponse::SharedDtor() {
-  ABSL_DCHECK(GetArena() == nullptr);
-  delete _impl_.task_event_;
-  delete _impl_.heartbeat_;
-  _impl_.~Impl_();
-}
-
-PROTOBUF_CONSTINIT
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::MessageLite::ClassDataFull
-    StreamTasksResponse::_class_data_ = {
-        ::google::protobuf::Message::ClassData{
-            &_StreamTasksResponse_default_instance_._instance,
-            &_table_.header,
-            nullptr,  // OnDemandRegisterArenaDtor
-            nullptr,  // IsInitialized
-            &StreamTasksResponse::MergeImpl,
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-            ::google::protobuf::Message::GetDeleteImpl<StreamTasksResponse>(),
-            ::google::protobuf::Message::GetNewImpl<StreamTasksResponse>(),
-            ::google::protobuf::Message::GetClearImpl<StreamTasksResponse>(), &StreamTasksResponse::ByteSizeLong,
-                &StreamTasksResponse::_InternalSerialize,
-#endif  // PROTOBUF_CUSTOM_VTABLE
-            PROTOBUF_FIELD_OFFSET(StreamTasksResponse, _impl_._cached_size_),
-            false,
-        },
-        &StreamTasksResponse::kDescriptorMethods,
-        &descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fapi_2epub_2eproto,
-        nullptr,  // tracker
-};
-const ::google::protobuf::MessageLite::ClassData* StreamTasksResponse::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
-  return _class_data_.base();
-}
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 2, 0, 2> StreamTasksResponse::_table_ = {
-  {
-    PROTOBUF_FIELD_OFFSET(StreamTasksResponse, _impl_._has_bits_),
-    0, // no _extensions_
-    2, 8,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
-    offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
-    2,  // num_aux_entries
-    offsetof(decltype(_table_), aux_entries),
-    _class_data_.base(),
-    nullptr,  // post_loop_handler
-    ::_pbi::TcParser::GenericFallback,  // fallback
-    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::StreamTasksResponse>(),  // to_prefetch
-    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
-  }, {{
-    // .anduril.taskmanager.v1.Heartbeat heartbeat = 2 [json_name = "heartbeat"];
-    {::_pbi::TcParser::FastMtS1,
-     {18, 1, 1, PROTOBUF_FIELD_OFFSET(StreamTasksResponse, _impl_.heartbeat_)}},
-    // .anduril.taskmanager.v1.TaskEvent task_event = 1 [json_name = "taskEvent"];
-    {::_pbi::TcParser::FastMtS1,
-     {10, 0, 0, PROTOBUF_FIELD_OFFSET(StreamTasksResponse, _impl_.task_event_)}},
-  }}, {{
-    65535, 65535
-  }}, {{
-    // .anduril.taskmanager.v1.TaskEvent task_event = 1 [json_name = "taskEvent"];
-    {PROTOBUF_FIELD_OFFSET(StreamTasksResponse, _impl_.task_event_), _Internal::kHasBitsOffset + 0, 0,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .anduril.taskmanager.v1.Heartbeat heartbeat = 2 [json_name = "heartbeat"];
-    {PROTOBUF_FIELD_OFFSET(StreamTasksResponse, _impl_.heartbeat_), _Internal::kHasBitsOffset + 1, 1,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-  }}, {{
-    {::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::TaskEvent>()},
-    {::_pbi::TcParser::GetTable<::anduril::taskmanager::v1::Heartbeat>()},
-  }}, {{
-  }},
-};
-
-PROTOBUF_NOINLINE void StreamTasksResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:anduril.taskmanager.v1.StreamTasksResponse)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      ABSL_DCHECK(_impl_.task_event_ != nullptr);
-      _impl_.task_event_->Clear();
-    }
-    if (cached_has_bits & 0x00000002u) {
-      ABSL_DCHECK(_impl_.heartbeat_ != nullptr);
-      _impl_.heartbeat_->Clear();
-    }
-  }
-  _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
-}
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* StreamTasksResponse::_InternalSerialize(
-            const MessageLite& base, ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const StreamTasksResponse& this_ = static_cast<const StreamTasksResponse&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* StreamTasksResponse::_InternalSerialize(
-            ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const StreamTasksResponse& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:anduril.taskmanager.v1.StreamTasksResponse)
-          ::uint32_t cached_has_bits = 0;
-          (void)cached_has_bits;
-
-          cached_has_bits = this_._impl_._has_bits_[0];
-          // .anduril.taskmanager.v1.TaskEvent task_event = 1 [json_name = "taskEvent"];
-          if (cached_has_bits & 0x00000001u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                1, *this_._impl_.task_event_, this_._impl_.task_event_->GetCachedSize(), target,
-                stream);
-          }
-
-          // .anduril.taskmanager.v1.Heartbeat heartbeat = 2 [json_name = "heartbeat"];
-          if (cached_has_bits & 0x00000002u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                2, *this_._impl_.heartbeat_, this_._impl_.heartbeat_->GetCachedSize(), target,
-                stream);
-          }
-
-          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
-            target =
-                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
-          }
-          // @@protoc_insertion_point(serialize_to_array_end:anduril.taskmanager.v1.StreamTasksResponse)
-          return target;
-        }
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t StreamTasksResponse::ByteSizeLong(const MessageLite& base) {
-          const StreamTasksResponse& this_ = static_cast<const StreamTasksResponse&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t StreamTasksResponse::ByteSizeLong() const {
-          const StreamTasksResponse& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:anduril.taskmanager.v1.StreamTasksResponse)
-          ::size_t total_size = 0;
-
-          ::uint32_t cached_has_bits = 0;
-          // Prevent compiler warnings about cached_has_bits being unused
-          (void)cached_has_bits;
-
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
-          cached_has_bits = this_._impl_._has_bits_[0];
-          if (cached_has_bits & 0x00000003u) {
-            // .anduril.taskmanager.v1.TaskEvent task_event = 1 [json_name = "taskEvent"];
-            if (cached_has_bits & 0x00000001u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.task_event_);
-            }
-            // .anduril.taskmanager.v1.Heartbeat heartbeat = 2 [json_name = "heartbeat"];
-            if (cached_has_bits & 0x00000002u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.heartbeat_);
-            }
-          }
-          return this_.MaybeComputeUnknownFieldsSize(total_size,
-                                                     &this_._impl_._cached_size_);
-        }
-
-void StreamTasksResponse::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<StreamTasksResponse*>(&to_msg);
-  auto& from = static_cast<const StreamTasksResponse&>(from_msg);
-  ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.taskmanager.v1.StreamTasksResponse)
-  ABSL_DCHECK_NE(&from, _this);
-  ::uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      ABSL_DCHECK(from._impl_.task_event_ != nullptr);
-      if (_this->_impl_.task_event_ == nullptr) {
-        _this->_impl_.task_event_ =
-            ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::TaskEvent>(arena, *from._impl_.task_event_);
-      } else {
-        _this->_impl_.task_event_->MergeFrom(*from._impl_.task_event_);
-      }
-    }
-    if (cached_has_bits & 0x00000002u) {
-      ABSL_DCHECK(from._impl_.heartbeat_ != nullptr);
-      if (_this->_impl_.heartbeat_ == nullptr) {
-        _this->_impl_.heartbeat_ =
-            ::google::protobuf::Message::CopyConstruct<::anduril::taskmanager::v1::Heartbeat>(arena, *from._impl_.heartbeat_);
-      } else {
-        _this->_impl_.heartbeat_->MergeFrom(*from._impl_.heartbeat_);
-      }
-    }
-  }
-  _this->_impl_._has_bits_[0] |= cached_has_bits;
-  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void StreamTasksResponse::CopyFrom(const StreamTasksResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:anduril.taskmanager.v1.StreamTasksResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-
-void StreamTasksResponse::InternalSwap(StreamTasksResponse* PROTOBUF_RESTRICT other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(StreamTasksResponse, _impl_.heartbeat_)
-      + sizeof(StreamTasksResponse::_impl_.heartbeat_)
-      - PROTOBUF_FIELD_OFFSET(StreamTasksResponse, _impl_.task_event_)>(
-          reinterpret_cast<char*>(&_impl_.task_event_),
-          reinterpret_cast<char*>(&other->_impl_.task_event_));
-}
-
-::google::protobuf::Metadata StreamTasksResponse::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================

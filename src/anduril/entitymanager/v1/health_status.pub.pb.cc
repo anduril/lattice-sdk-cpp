@@ -55,6 +55,36 @@ struct ComponentMessageDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ComponentMessageDefaultTypeInternal _ComponentMessage_default_instance_;
 
+inline constexpr AlertCondition::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : condition_code_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        description_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR AlertCondition::AlertCondition(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct AlertConditionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR AlertConditionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~AlertConditionDefaultTypeInternal() {}
+  union {
+    AlertCondition _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AlertConditionDefaultTypeInternal _AlertCondition_default_instance_;
+
 inline constexpr ComponentHealth::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -88,10 +118,44 @@ struct ComponentHealthDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ComponentHealthDefaultTypeInternal _ComponentHealth_default_instance_;
 
+inline constexpr Alert::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        active_conditions_{},
+        alert_code_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        description_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        activated_time_{nullptr},
+        level_{static_cast< ::anduril::entitymanager::v1::AlertLevel >(0)} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR Alert::Alert(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct AlertDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR AlertDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~AlertDefaultTypeInternal() {}
+  union {
+    Alert _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AlertDefaultTypeInternal _Alert_default_instance_;
+
 inline constexpr Health::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
         components_{},
+        active_alerts_{},
         update_time_{nullptr},
         connection_status_{static_cast< ::anduril::entitymanager::v1::ConnectionStatus >(0)},
         health_status_{static_cast< ::anduril::entitymanager::v1::HealthStatus >(0)} {}
@@ -118,7 +182,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 }  // namespace v1
 }  // namespace entitymanager
 }  // namespace anduril
-static const ::_pb::EnumDescriptor* file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2fhealth_5fstatus_2epub_2eproto[2];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2fhealth_5fstatus_2epub_2eproto[3];
 static constexpr const ::_pb::ServiceDescriptor**
     file_level_service_descriptors_anduril_2fentitymanager_2fv1_2fhealth_5fstatus_2epub_2eproto = nullptr;
 const ::uint32_t
@@ -164,22 +228,56 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Health, _impl_.health_status_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Health, _impl_.components_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Health, _impl_.update_time_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Health, _impl_.active_alerts_),
         ~0u,
         ~0u,
         ~0u,
         0,
+        ~0u,
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Alert, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Alert, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Alert, _impl_.alert_code_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Alert, _impl_.description_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Alert, _impl_.level_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Alert, _impl_.activated_time_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Alert, _impl_.active_conditions_),
+        ~0u,
+        ~0u,
+        ~0u,
+        0,
+        ~0u,
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::AlertCondition, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::AlertCondition, _impl_.condition_code_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::AlertCondition, _impl_.description_),
 };
 
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, -1, -1, sizeof(::anduril::entitymanager::v1::ComponentMessage)},
         {10, 23, -1, sizeof(::anduril::entitymanager::v1::ComponentHealth)},
-        {28, 40, -1, sizeof(::anduril::entitymanager::v1::Health)},
+        {28, 41, -1, sizeof(::anduril::entitymanager::v1::Health)},
+        {46, 59, -1, sizeof(::anduril::entitymanager::v1::Alert)},
+        {64, -1, -1, sizeof(::anduril::entitymanager::v1::AlertCondition)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::entitymanager::v1::_ComponentMessage_default_instance_._instance,
     &::anduril::entitymanager::v1::_ComponentHealth_default_instance_._instance,
     &::anduril::entitymanager::v1::_Health_default_instance_._instance,
+    &::anduril::entitymanager::v1::_Alert_default_instance_._instance,
+    &::anduril::entitymanager::v1::_AlertCondition_default_instance_._instance,
 };
 const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fhealth_5fstatus_2epub_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
@@ -194,7 +292,7 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fhealth_5fsta
     "ealthStatusR\006health\022F\n\010messages\030\004 \003(\0132*."
     "anduril.entitymanager.v1.ComponentMessag"
     "eR\010messages\022;\n\013update_time\030\005 \001(\0132\032.googl"
-    "e.protobuf.TimestampR\nupdateTime\"\266\002\n\006Hea"
+    "e.protobuf.TimestampR\nupdateTime\"\374\002\n\006Hea"
     "lth\022W\n\021connection_status\030\001 \001(\0162*.anduril"
     ".entitymanager.v1.ConnectionStatusR\020conn"
     "ectionStatus\022K\n\rhealth_status\030\002 \001(\0162&.an"
@@ -202,21 +300,35 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fhealth_5fsta
     "lthStatus\022I\n\ncomponents\030\003 \003(\0132).anduril."
     "entitymanager.v1.ComponentHealthR\ncompon"
     "ents\022;\n\013update_time\030\004 \001(\0132\032.google.proto"
-    "buf.TimestampR\nupdateTime*n\n\020ConnectionS"
-    "tatus\022\035\n\031CONNECTION_STATUS_INVALID\020\000\022\034\n\030"
-    "CONNECTION_STATUS_ONLINE\020\001\022\035\n\031CONNECTION"
-    "_STATUS_OFFLINE\020\002*\254\001\n\014HealthStatus\022\031\n\025HE"
-    "ALTH_STATUS_INVALID\020\000\022\031\n\025HEALTH_STATUS_H"
-    "EALTHY\020\001\022\026\n\022HEALTH_STATUS_WARN\020\002\022\026\n\022HEAL"
-    "TH_STATUS_FAIL\020\003\022\031\n\025HEALTH_STATUS_OFFLIN"
-    "E\020\004\022\033\n\027HEALTH_STATUS_NOT_READY\020\005B\205\002\n\034com"
-    ".anduril.entitymanager.v1B\024HealthStatusP"
-    "ubProtoP\001ZMghe.anduril.dev/anduril/andur"
-    "ilapis-go/anduril/entitymanager/v1;entit"
-    "ymanager\242\002\003AEX\252\002\030Anduril.Entitymanager.V"
-    "1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\E"
-    "ntitymanager\\V1\\GPBMetadata\352\002\032Anduril::E"
-    "ntitymanager::V1b\006proto3"
+    "buf.TimestampR\nupdateTime\022D\n\ractive_aler"
+    "ts\030\005 \003(\0132\037.anduril.entitymanager.v1.Aler"
+    "tR\014activeAlerts\"\236\002\n\005Alert\022\035\n\nalert_code\030"
+    "\001 \001(\tR\talertCode\022 \n\013description\030\002 \001(\tR\013d"
+    "escription\022:\n\005level\030\003 \001(\0162$.anduril.enti"
+    "tymanager.v1.AlertLevelR\005level\022A\n\016activa"
+    "ted_time\030\004 \001(\0132\032.google.protobuf.Timesta"
+    "mpR\ractivatedTime\022U\n\021active_conditions\030\005"
+    " \003(\0132(.anduril.entitymanager.v1.AlertCon"
+    "ditionR\020activeConditions\"Y\n\016AlertConditi"
+    "on\022%\n\016condition_code\030\001 \001(\tR\rconditionCod"
+    "e\022 \n\013description\030\002 \001(\tR\013description*n\n\020C"
+    "onnectionStatus\022\035\n\031CONNECTION_STATUS_INV"
+    "ALID\020\000\022\034\n\030CONNECTION_STATUS_ONLINE\020\001\022\035\n\031"
+    "CONNECTION_STATUS_OFFLINE\020\002*\254\001\n\014HealthSt"
+    "atus\022\031\n\025HEALTH_STATUS_INVALID\020\000\022\031\n\025HEALT"
+    "H_STATUS_HEALTHY\020\001\022\026\n\022HEALTH_STATUS_WARN"
+    "\020\002\022\026\n\022HEALTH_STATUS_FAIL\020\003\022\031\n\025HEALTH_STA"
+    "TUS_OFFLINE\020\004\022\033\n\027HEALTH_STATUS_NOT_READY"
+    "\020\005*q\n\nAlertLevel\022\027\n\023ALERT_LEVEL_INVALID\020"
+    "\000\022\030\n\024ALERT_LEVEL_ADVISORY\020\001\022\027\n\023ALERT_LEV"
+    "EL_CAUTION\020\002\022\027\n\023ALERT_LEVEL_WARNING\020\003B\205\002"
+    "\n\034com.anduril.entitymanager.v1B\024HealthSt"
+    "atusPubProtoP\001ZMghe.anduril.dev/anduril/"
+    "andurilapis-go/anduril/entitymanager/v1;"
+    "entitymanager\242\002\003AEX\252\002\030Anduril.Entitymana"
+    "ger.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Andu"
+    "ril\\Entitymanager\\V1\\GPBMetadata\352\002\032Andur"
+    "il::Entitymanager::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fhealth_5fstatus_2epub_2eproto_deps[1] =
     {
@@ -226,13 +338,13 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fhealth_
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fhealth_5fstatus_2epub_2eproto = {
     false,
     false,
-    1344,
+    1909,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fhealth_5fstatus_2epub_2eproto,
     "anduril/entitymanager/v1/health_status.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fhealth_5fstatus_2epub_2eproto_once,
     descriptor_table_anduril_2fentitymanager_2fv1_2fhealth_5fstatus_2epub_2eproto_deps,
     1,
-    3,
+    5,
     schemas,
     file_default_instances,
     TableStruct_anduril_2fentitymanager_2fv1_2fhealth_5fstatus_2epub_2eproto::offsets,
@@ -259,6 +371,15 @@ PROTOBUF_CONSTINIT const uint32_t HealthStatus_internal_data_[] = {
     393216u, 0u, };
 bool HealthStatus_IsValid(int value) {
   return 0 <= value && value <= 5;
+}
+const ::google::protobuf::EnumDescriptor* AlertLevel_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_anduril_2fentitymanager_2fv1_2fhealth_5fstatus_2epub_2eproto);
+  return file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2fhealth_5fstatus_2epub_2eproto[2];
+}
+PROTOBUF_CONSTINIT const uint32_t AlertLevel_internal_data_[] = {
+    262144u, 0u, };
+bool AlertLevel_IsValid(int value) {
+  return 0 <= value && value <= 3;
 }
 // ===================================================================
 
@@ -920,7 +1041,8 @@ inline PROTOBUF_NDEBUG_INLINE Health::Impl_::Impl_(
     const Impl_& from, const ::anduril::entitymanager::v1::Health& from_msg)
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
-        components_{visibility, arena, from.components_} {}
+        components_{visibility, arena, from.components_},
+        active_alerts_{visibility, arena, from.active_alerts_} {}
 
 Health::Health(
     ::google::protobuf::Arena* arena,
@@ -953,7 +1075,8 @@ inline PROTOBUF_NDEBUG_INLINE Health::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
       : _cached_size_{0},
-        components_{visibility, arena} {}
+        components_{visibility, arena},
+        active_alerts_{visibility, arena} {}
 
 inline void Health::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
@@ -1004,16 +1127,16 @@ const ::google::protobuf::MessageLite::ClassData* Health::GetClassData() const {
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 4, 2, 0, 2> Health::_table_ = {
+const ::_pbi::TcParseTable<3, 5, 3, 0, 2> Health::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(Health, _impl_._has_bits_),
     0, // no _extensions_
-    4, 24,  // max_field_number, fast_idx_mask
+    5, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967280,  // skipmap
+    4294967264,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    4,  // num_field_entries
-    2,  // num_aux_entries
+    5,  // num_field_entries
+    3,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
@@ -1022,9 +1145,7 @@ const ::_pbi::TcParseTable<2, 4, 2, 0, 2> Health::_table_ = {
     ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Health>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // .google.protobuf.Timestamp update_time = 4 [json_name = "updateTime"];
-    {::_pbi::TcParser::FastMtS1,
-     {34, 0, 1, PROTOBUF_FIELD_OFFSET(Health, _impl_.update_time_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // .anduril.entitymanager.v1.ConnectionStatus connection_status = 1 [json_name = "connectionStatus"];
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(Health, _impl_.connection_status_), 63>(),
      {8, 63, 0, PROTOBUF_FIELD_OFFSET(Health, _impl_.connection_status_)}},
@@ -1034,6 +1155,14 @@ const ::_pbi::TcParseTable<2, 4, 2, 0, 2> Health::_table_ = {
     // repeated .anduril.entitymanager.v1.ComponentHealth components = 3 [json_name = "components"];
     {::_pbi::TcParser::FastMtR1,
      {26, 63, 0, PROTOBUF_FIELD_OFFSET(Health, _impl_.components_)}},
+    // .google.protobuf.Timestamp update_time = 4 [json_name = "updateTime"];
+    {::_pbi::TcParser::FastMtS1,
+     {34, 0, 1, PROTOBUF_FIELD_OFFSET(Health, _impl_.update_time_)}},
+    // repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];
+    {::_pbi::TcParser::FastMtR1,
+     {42, 63, 2, PROTOBUF_FIELD_OFFSET(Health, _impl_.active_alerts_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
   }}, {{
     65535, 65535
   }}, {{
@@ -1049,9 +1178,13 @@ const ::_pbi::TcParseTable<2, 4, 2, 0, 2> Health::_table_ = {
     // .google.protobuf.Timestamp update_time = 4 [json_name = "updateTime"];
     {PROTOBUF_FIELD_OFFSET(Health, _impl_.update_time_), _Internal::kHasBitsOffset + 0, 1,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];
+    {PROTOBUF_FIELD_OFFSET(Health, _impl_.active_alerts_), -1, 2,
+    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::ComponentHealth>()},
     {::_pbi::TcParser::GetTable<::google::protobuf::Timestamp>()},
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Alert>()},
   }}, {{
   }},
 };
@@ -1064,6 +1197,7 @@ PROTOBUF_NOINLINE void Health::Clear() {
   (void) cached_has_bits;
 
   _impl_.components_.Clear();
+  _impl_.active_alerts_.Clear();
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     ABSL_DCHECK(_impl_.update_time_ != nullptr);
@@ -1124,6 +1258,17 @@ PROTOBUF_NOINLINE void Health::Clear() {
                 stream);
           }
 
+          // repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];
+          for (unsigned i = 0, n = static_cast<unsigned>(
+                                   this_._internal_active_alerts_size());
+               i < n; i++) {
+            const auto& repfield = this_._internal_active_alerts().Get(i);
+            target =
+                ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                    5, repfield, repfield.GetCachedSize(),
+                    target, stream);
+          }
+
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
             target =
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -1153,6 +1298,13 @@ PROTOBUF_NOINLINE void Health::Clear() {
              {
               total_size += 1UL * this_._internal_components_size();
               for (const auto& msg : this_._internal_components()) {
+                total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+              }
+            }
+            // repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];
+             {
+              total_size += 1UL * this_._internal_active_alerts_size();
+              for (const auto& msg : this_._internal_active_alerts()) {
                 total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
               }
             }
@@ -1193,6 +1345,8 @@ void Health::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
 
   _this->_internal_mutable_components()->MergeFrom(
       from._internal_components());
+  _this->_internal_mutable_active_alerts()->MergeFrom(
+      from._internal_active_alerts());
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     ABSL_DCHECK(from._impl_.update_time_ != nullptr);
@@ -1226,6 +1380,7 @@ void Health::InternalSwap(Health* PROTOBUF_RESTRICT other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.components_.InternalSwap(&other->_impl_.components_);
+  _impl_.active_alerts_.InternalSwap(&other->_impl_.active_alerts_);
   ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Health, _impl_.health_status_)
       + sizeof(Health::_impl_.health_status_)
@@ -1235,6 +1390,640 @@ void Health::InternalSwap(Health* PROTOBUF_RESTRICT other) {
 }
 
 ::google::protobuf::Metadata Health::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class Alert::_Internal {
+ public:
+  using HasBits =
+      decltype(std::declval<Alert>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(Alert, _impl_._has_bits_);
+};
+
+void Alert::clear_activated_time() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.activated_time_ != nullptr) _impl_.activated_time_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+Alert::Alert(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.Alert)
+}
+inline PROTOBUF_NDEBUG_INLINE Alert::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::entitymanager::v1::Alert& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        active_conditions_{visibility, arena, from.active_conditions_},
+        alert_code_(arena, from.alert_code_),
+        description_(arena, from.description_) {}
+
+Alert::Alert(
+    ::google::protobuf::Arena* arena,
+    const Alert& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  Alert* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.activated_time_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::Timestamp>(
+                              arena, *from._impl_.activated_time_)
+                        : nullptr;
+  _impl_.level_ = from._impl_.level_;
+
+  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.Alert)
+}
+inline PROTOBUF_NDEBUG_INLINE Alert::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : _cached_size_{0},
+        active_conditions_{visibility, arena},
+        alert_code_(arena),
+        description_(arena) {}
+
+inline void Alert::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, activated_time_),
+           0,
+           offsetof(Impl_, level_) -
+               offsetof(Impl_, activated_time_) +
+               sizeof(Impl_::level_));
+}
+Alert::~Alert() {
+  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.Alert)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void Alert::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.alert_code_.Destroy();
+  _impl_.description_.Destroy();
+  delete _impl_.activated_time_;
+  _impl_.~Impl_();
+}
+
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::MessageLite::ClassDataFull
+    Alert::_class_data_ = {
+        ::google::protobuf::Message::ClassData{
+            &_Alert_default_instance_._instance,
+            &_table_.header,
+            nullptr,  // OnDemandRegisterArenaDtor
+            nullptr,  // IsInitialized
+            &Alert::MergeImpl,
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+            ::google::protobuf::Message::GetDeleteImpl<Alert>(),
+            ::google::protobuf::Message::GetNewImpl<Alert>(),
+            ::google::protobuf::Message::GetClearImpl<Alert>(), &Alert::ByteSizeLong,
+                &Alert::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+            PROTOBUF_FIELD_OFFSET(Alert, _impl_._cached_size_),
+            false,
+        },
+        &Alert::kDescriptorMethods,
+        &descriptor_table_anduril_2fentitymanager_2fv1_2fhealth_5fstatus_2epub_2eproto,
+        nullptr,  // tracker
+};
+const ::google::protobuf::MessageLite::ClassData* Alert::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 5, 2, 60, 2> Alert::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(Alert, _impl_._has_bits_),
+    0, // no _extensions_
+    5, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967264,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    5,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Alert>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // string alert_code = 1 [json_name = "alertCode"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(Alert, _impl_.alert_code_)}},
+    // string description = 2 [json_name = "description"];
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(Alert, _impl_.description_)}},
+    // .anduril.entitymanager.v1.AlertLevel level = 3 [json_name = "level"];
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(Alert, _impl_.level_), 63>(),
+     {24, 63, 0, PROTOBUF_FIELD_OFFSET(Alert, _impl_.level_)}},
+    // .google.protobuf.Timestamp activated_time = 4 [json_name = "activatedTime"];
+    {::_pbi::TcParser::FastMtS1,
+     {34, 0, 0, PROTOBUF_FIELD_OFFSET(Alert, _impl_.activated_time_)}},
+    // repeated .anduril.entitymanager.v1.AlertCondition active_conditions = 5 [json_name = "activeConditions"];
+    {::_pbi::TcParser::FastMtR1,
+     {42, 63, 1, PROTOBUF_FIELD_OFFSET(Alert, _impl_.active_conditions_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string alert_code = 1 [json_name = "alertCode"];
+    {PROTOBUF_FIELD_OFFSET(Alert, _impl_.alert_code_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string description = 2 [json_name = "description"];
+    {PROTOBUF_FIELD_OFFSET(Alert, _impl_.description_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .anduril.entitymanager.v1.AlertLevel level = 3 [json_name = "level"];
+    {PROTOBUF_FIELD_OFFSET(Alert, _impl_.level_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
+    // .google.protobuf.Timestamp activated_time = 4 [json_name = "activatedTime"];
+    {PROTOBUF_FIELD_OFFSET(Alert, _impl_.activated_time_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // repeated .anduril.entitymanager.v1.AlertCondition active_conditions = 5 [json_name = "activeConditions"];
+    {PROTOBUF_FIELD_OFFSET(Alert, _impl_.active_conditions_), -1, 1,
+    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::google::protobuf::Timestamp>()},
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::AlertCondition>()},
+  }}, {{
+    "\36\12\13\0\0\0\0\0"
+    "anduril.entitymanager.v1.Alert"
+    "alert_code"
+    "description"
+  }},
+};
+
+PROTOBUF_NOINLINE void Alert::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.Alert)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.active_conditions_.Clear();
+  _impl_.alert_code_.ClearToEmpty();
+  _impl_.description_.ClearToEmpty();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.activated_time_ != nullptr);
+    _impl_.activated_time_->Clear();
+  }
+  _impl_.level_ = 0;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* Alert::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const Alert& this_ = static_cast<const Alert&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* Alert::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const Alert& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.Alert)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // string alert_code = 1 [json_name = "alertCode"];
+          if (!this_._internal_alert_code().empty()) {
+            const std::string& _s = this_._internal_alert_code();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.Alert.alert_code");
+            target = stream->WriteStringMaybeAliased(1, _s, target);
+          }
+
+          // string description = 2 [json_name = "description"];
+          if (!this_._internal_description().empty()) {
+            const std::string& _s = this_._internal_description();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.Alert.description");
+            target = stream->WriteStringMaybeAliased(2, _s, target);
+          }
+
+          // .anduril.entitymanager.v1.AlertLevel level = 3 [json_name = "level"];
+          if (this_._internal_level() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteEnumToArray(
+                3, this_._internal_level(), target);
+          }
+
+          cached_has_bits = this_._impl_._has_bits_[0];
+          // .google.protobuf.Timestamp activated_time = 4 [json_name = "activatedTime"];
+          if (cached_has_bits & 0x00000001u) {
+            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                4, *this_._impl_.activated_time_, this_._impl_.activated_time_->GetCachedSize(), target,
+                stream);
+          }
+
+          // repeated .anduril.entitymanager.v1.AlertCondition active_conditions = 5 [json_name = "activeConditions"];
+          for (unsigned i = 0, n = static_cast<unsigned>(
+                                   this_._internal_active_conditions_size());
+               i < n; i++) {
+            const auto& repfield = this_._internal_active_conditions().Get(i);
+            target =
+                ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                    5, repfield, repfield.GetCachedSize(),
+                    target, stream);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.Alert)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t Alert::ByteSizeLong(const MessageLite& base) {
+          const Alert& this_ = static_cast<const Alert&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t Alert::ByteSizeLong() const {
+          const Alert& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.Alert)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // repeated .anduril.entitymanager.v1.AlertCondition active_conditions = 5 [json_name = "activeConditions"];
+             {
+              total_size += 1UL * this_._internal_active_conditions_size();
+              for (const auto& msg : this_._internal_active_conditions()) {
+                total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+              }
+            }
+          }
+           {
+            // string alert_code = 1 [json_name = "alertCode"];
+            if (!this_._internal_alert_code().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_alert_code());
+            }
+            // string description = 2 [json_name = "description"];
+            if (!this_._internal_description().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_description());
+            }
+          }
+           {
+            // .google.protobuf.Timestamp activated_time = 4 [json_name = "activatedTime"];
+            cached_has_bits =
+                this_._impl_._has_bits_[0];
+            if (cached_has_bits & 0x00000001u) {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.activated_time_);
+            }
+          }
+           {
+            // .anduril.entitymanager.v1.AlertLevel level = 3 [json_name = "level"];
+            if (this_._internal_level() != 0) {
+              total_size += 1 +
+                            ::_pbi::WireFormatLite::EnumSize(this_._internal_level());
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void Alert::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<Alert*>(&to_msg);
+  auto& from = static_cast<const Alert&>(from_msg);
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.Alert)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_internal_mutable_active_conditions()->MergeFrom(
+      from._internal_active_conditions());
+  if (!from._internal_alert_code().empty()) {
+    _this->_internal_set_alert_code(from._internal_alert_code());
+  }
+  if (!from._internal_description().empty()) {
+    _this->_internal_set_description(from._internal_description());
+  }
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(from._impl_.activated_time_ != nullptr);
+    if (_this->_impl_.activated_time_ == nullptr) {
+      _this->_impl_.activated_time_ =
+          ::google::protobuf::Message::CopyConstruct<::google::protobuf::Timestamp>(arena, *from._impl_.activated_time_);
+    } else {
+      _this->_impl_.activated_time_->MergeFrom(*from._impl_.activated_time_);
+    }
+  }
+  if (from._internal_level() != 0) {
+    _this->_impl_.level_ = from._impl_.level_;
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void Alert::CopyFrom(const Alert& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.Alert)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void Alert::InternalSwap(Alert* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.active_conditions_.InternalSwap(&other->_impl_.active_conditions_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.alert_code_, &other->_impl_.alert_code_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.description_, &other->_impl_.description_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Alert, _impl_.level_)
+      + sizeof(Alert::_impl_.level_)
+      - PROTOBUF_FIELD_OFFSET(Alert, _impl_.activated_time_)>(
+          reinterpret_cast<char*>(&_impl_.activated_time_),
+          reinterpret_cast<char*>(&other->_impl_.activated_time_));
+}
+
+::google::protobuf::Metadata Alert::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class AlertCondition::_Internal {
+ public:
+};
+
+AlertCondition::AlertCondition(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.AlertCondition)
+}
+inline PROTOBUF_NDEBUG_INLINE AlertCondition::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::entitymanager::v1::AlertCondition& from_msg)
+      : condition_code_(arena, from.condition_code_),
+        description_(arena, from.description_),
+        _cached_size_{0} {}
+
+AlertCondition::AlertCondition(
+    ::google::protobuf::Arena* arena,
+    const AlertCondition& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  AlertCondition* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.AlertCondition)
+}
+inline PROTOBUF_NDEBUG_INLINE AlertCondition::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : condition_code_(arena),
+        description_(arena),
+        _cached_size_{0} {}
+
+inline void AlertCondition::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+AlertCondition::~AlertCondition() {
+  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.AlertCondition)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void AlertCondition::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.condition_code_.Destroy();
+  _impl_.description_.Destroy();
+  _impl_.~Impl_();
+}
+
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::MessageLite::ClassDataFull
+    AlertCondition::_class_data_ = {
+        ::google::protobuf::Message::ClassData{
+            &_AlertCondition_default_instance_._instance,
+            &_table_.header,
+            nullptr,  // OnDemandRegisterArenaDtor
+            nullptr,  // IsInitialized
+            &AlertCondition::MergeImpl,
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+            ::google::protobuf::Message::GetDeleteImpl<AlertCondition>(),
+            ::google::protobuf::Message::GetNewImpl<AlertCondition>(),
+            ::google::protobuf::Message::GetClearImpl<AlertCondition>(), &AlertCondition::ByteSizeLong,
+                &AlertCondition::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+            PROTOBUF_FIELD_OFFSET(AlertCondition, _impl_._cached_size_),
+            false,
+        },
+        &AlertCondition::kDescriptorMethods,
+        &descriptor_table_anduril_2fentitymanager_2fv1_2fhealth_5fstatus_2epub_2eproto,
+        nullptr,  // tracker
+};
+const ::google::protobuf::MessageLite::ClassData* AlertCondition::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 73, 2> AlertCondition::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::AlertCondition>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // string description = 2 [json_name = "description"];
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(AlertCondition, _impl_.description_)}},
+    // string condition_code = 1 [json_name = "conditionCode"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(AlertCondition, _impl_.condition_code_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string condition_code = 1 [json_name = "conditionCode"];
+    {PROTOBUF_FIELD_OFFSET(AlertCondition, _impl_.condition_code_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string description = 2 [json_name = "description"];
+    {PROTOBUF_FIELD_OFFSET(AlertCondition, _impl_.description_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\47\16\13\0\0\0\0\0"
+    "anduril.entitymanager.v1.AlertCondition"
+    "condition_code"
+    "description"
+  }},
+};
+
+PROTOBUF_NOINLINE void AlertCondition::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.AlertCondition)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.condition_code_.ClearToEmpty();
+  _impl_.description_.ClearToEmpty();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* AlertCondition::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const AlertCondition& this_ = static_cast<const AlertCondition&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* AlertCondition::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const AlertCondition& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.AlertCondition)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // string condition_code = 1 [json_name = "conditionCode"];
+          if (!this_._internal_condition_code().empty()) {
+            const std::string& _s = this_._internal_condition_code();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.AlertCondition.condition_code");
+            target = stream->WriteStringMaybeAliased(1, _s, target);
+          }
+
+          // string description = 2 [json_name = "description"];
+          if (!this_._internal_description().empty()) {
+            const std::string& _s = this_._internal_description();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.AlertCondition.description");
+            target = stream->WriteStringMaybeAliased(2, _s, target);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.AlertCondition)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t AlertCondition::ByteSizeLong(const MessageLite& base) {
+          const AlertCondition& this_ = static_cast<const AlertCondition&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t AlertCondition::ByteSizeLong() const {
+          const AlertCondition& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.AlertCondition)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // string condition_code = 1 [json_name = "conditionCode"];
+            if (!this_._internal_condition_code().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_condition_code());
+            }
+            // string description = 2 [json_name = "description"];
+            if (!this_._internal_description().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_description());
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void AlertCondition::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<AlertCondition*>(&to_msg);
+  auto& from = static_cast<const AlertCondition&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.AlertCondition)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_condition_code().empty()) {
+    _this->_internal_set_condition_code(from._internal_condition_code());
+  }
+  if (!from._internal_description().empty()) {
+    _this->_internal_set_description(from._internal_description());
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void AlertCondition::CopyFrom(const AlertCondition& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.AlertCondition)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void AlertCondition::InternalSwap(AlertCondition* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.condition_code_, &other->_impl_.condition_code_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.description_, &other->_impl_.description_, arena);
+}
+
+::google::protobuf::Metadata AlertCondition::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // @@protoc_insertion_point(namespace_scope)

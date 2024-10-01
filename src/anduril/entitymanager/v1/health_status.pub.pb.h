@@ -54,6 +54,12 @@ extern const ::google::protobuf::internal::DescriptorTable
 namespace anduril {
 namespace entitymanager {
 namespace v1 {
+class Alert;
+struct AlertDefaultTypeInternal;
+extern AlertDefaultTypeInternal _Alert_default_instance_;
+class AlertCondition;
+struct AlertConditionDefaultTypeInternal;
+extern AlertConditionDefaultTypeInternal _AlertCondition_default_instance_;
 class ComponentHealth;
 struct ComponentHealthDefaultTypeInternal;
 extern ComponentHealthDefaultTypeInternal _ComponentHealth_default_instance_;
@@ -144,6 +150,41 @@ inline const std::string& HealthStatus_Name(HealthStatus value) {
 inline bool HealthStatus_Parse(absl::string_view name, HealthStatus* value) {
   return ::google::protobuf::internal::ParseNamedEnum<HealthStatus>(
       HealthStatus_descriptor(), name, value);
+}
+enum AlertLevel : int {
+  ALERT_LEVEL_INVALID = 0,
+  ALERT_LEVEL_ADVISORY = 1,
+  ALERT_LEVEL_CAUTION = 2,
+  ALERT_LEVEL_WARNING = 3,
+  AlertLevel_INT_MIN_SENTINEL_DO_NOT_USE_ =
+      std::numeric_limits<::int32_t>::min(),
+  AlertLevel_INT_MAX_SENTINEL_DO_NOT_USE_ =
+      std::numeric_limits<::int32_t>::max(),
+};
+
+bool AlertLevel_IsValid(int value);
+extern const uint32_t AlertLevel_internal_data_[];
+constexpr AlertLevel AlertLevel_MIN = static_cast<AlertLevel>(0);
+constexpr AlertLevel AlertLevel_MAX = static_cast<AlertLevel>(3);
+constexpr int AlertLevel_ARRAYSIZE = 3 + 1;
+const ::google::protobuf::EnumDescriptor*
+AlertLevel_descriptor();
+template <typename T>
+const std::string& AlertLevel_Name(T value) {
+  static_assert(std::is_same<T, AlertLevel>::value ||
+                    std::is_integral<T>::value,
+                "Incorrect type passed to AlertLevel_Name().");
+  return AlertLevel_Name(static_cast<AlertLevel>(value));
+}
+template <>
+inline const std::string& AlertLevel_Name(AlertLevel value) {
+  return ::google::protobuf::internal::NameOfDenseEnum<AlertLevel_descriptor,
+                                                 0, 3>(
+      static_cast<int>(value));
+}
+inline bool AlertLevel_Parse(absl::string_view name, AlertLevel* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<AlertLevel>(
+      AlertLevel_descriptor(), name, value);
 }
 
 // ===================================================================
@@ -349,6 +390,218 @@ class ComponentMessage final : public ::google::protobuf::Message
                           const ComponentMessage& from_msg);
     ::google::protobuf::internal::ArenaStringPtr message_;
     int status_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fhealth_5fstatus_2epub_2eproto;
+};
+// -------------------------------------------------------------------
+
+class AlertCondition final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.AlertCondition) */ {
+ public:
+  inline AlertCondition() : AlertCondition(nullptr) {}
+  ~AlertCondition() PROTOBUF_FINAL;
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR AlertCondition(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline AlertCondition(const AlertCondition& from) : AlertCondition(nullptr, from) {}
+  inline AlertCondition(AlertCondition&& from) noexcept
+      : AlertCondition(nullptr, std::move(from)) {}
+  inline AlertCondition& operator=(const AlertCondition& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline AlertCondition& operator=(AlertCondition&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const AlertCondition& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const AlertCondition* internal_default_instance() {
+    return reinterpret_cast<const AlertCondition*>(
+        &_AlertCondition_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 4;
+  friend void swap(AlertCondition& a, AlertCondition& b) { a.Swap(&b); }
+  inline void Swap(AlertCondition* other) {
+    if (other == this) return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
+#else   // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(AlertCondition* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  AlertCondition* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
+    return ::google::protobuf::Message::DefaultConstruct<AlertCondition>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const AlertCondition& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const AlertCondition& from) { AlertCondition::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(AlertCondition* other);
+ private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.AlertCondition"; }
+
+ protected:
+  explicit AlertCondition(::google::protobuf::Arena* arena);
+  AlertCondition(::google::protobuf::Arena* arena, const AlertCondition& from);
+  AlertCondition(::google::protobuf::Arena* arena, AlertCondition&& from) noexcept
+      : AlertCondition(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static const ::google::protobuf::Message::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kConditionCodeFieldNumber = 1,
+    kDescriptionFieldNumber = 2,
+  };
+  // string condition_code = 1 [json_name = "conditionCode"];
+  void clear_condition_code() ;
+  const std::string& condition_code() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_condition_code(Arg_&& arg, Args_... args);
+  std::string* mutable_condition_code();
+  PROTOBUF_NODISCARD std::string* release_condition_code();
+  void set_allocated_condition_code(std::string* value);
+
+  private:
+  const std::string& _internal_condition_code() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_condition_code(
+      const std::string& value);
+  std::string* _internal_mutable_condition_code();
+
+  public:
+  // string description = 2 [json_name = "description"];
+  void clear_description() ;
+  const std::string& description() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_description(Arg_&& arg, Args_... args);
+  std::string* mutable_description();
+  PROTOBUF_NODISCARD std::string* release_description();
+  void set_allocated_description(std::string* value);
+
+  private:
+  const std::string& _internal_description() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_description(
+      const std::string& value);
+  std::string* _internal_mutable_description();
+
+  public:
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.AlertCondition)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      1, 2, 0,
+      73, 2>
+      _table_;
+
+  static constexpr const void* _raw_default_instance_ =
+      &_AlertCondition_default_instance_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const AlertCondition& from_msg);
+    ::google::protobuf::internal::ArenaStringPtr condition_code_;
+    ::google::protobuf::internal::ArenaStringPtr description_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -618,6 +871,267 @@ class ComponentHealth final : public ::google::protobuf::Message
 };
 // -------------------------------------------------------------------
 
+class Alert final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.Alert) */ {
+ public:
+  inline Alert() : Alert(nullptr) {}
+  ~Alert() PROTOBUF_FINAL;
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR Alert(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline Alert(const Alert& from) : Alert(nullptr, from) {}
+  inline Alert(Alert&& from) noexcept
+      : Alert(nullptr, std::move(from)) {}
+  inline Alert& operator=(const Alert& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Alert& operator=(Alert&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Alert& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Alert* internal_default_instance() {
+    return reinterpret_cast<const Alert*>(
+        &_Alert_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 3;
+  friend void swap(Alert& a, Alert& b) { a.Swap(&b); }
+  inline void Swap(Alert* other) {
+    if (other == this) return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
+#else   // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Alert* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Alert* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
+    return ::google::protobuf::Message::DefaultConstruct<Alert>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const Alert& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const Alert& from) { Alert::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(Alert* other);
+ private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.Alert"; }
+
+ protected:
+  explicit Alert(::google::protobuf::Arena* arena);
+  Alert(::google::protobuf::Arena* arena, const Alert& from);
+  Alert(::google::protobuf::Arena* arena, Alert&& from) noexcept
+      : Alert(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static const ::google::protobuf::Message::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kActiveConditionsFieldNumber = 5,
+    kAlertCodeFieldNumber = 1,
+    kDescriptionFieldNumber = 2,
+    kActivatedTimeFieldNumber = 4,
+    kLevelFieldNumber = 3,
+  };
+  // repeated .anduril.entitymanager.v1.AlertCondition active_conditions = 5 [json_name = "activeConditions"];
+  int active_conditions_size() const;
+  private:
+  int _internal_active_conditions_size() const;
+
+  public:
+  void clear_active_conditions() ;
+  ::anduril::entitymanager::v1::AlertCondition* mutable_active_conditions(int index);
+  ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::AlertCondition>* mutable_active_conditions();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::AlertCondition>& _internal_active_conditions() const;
+  ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::AlertCondition>* _internal_mutable_active_conditions();
+  public:
+  const ::anduril::entitymanager::v1::AlertCondition& active_conditions(int index) const;
+  ::anduril::entitymanager::v1::AlertCondition* add_active_conditions();
+  const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::AlertCondition>& active_conditions() const;
+  // string alert_code = 1 [json_name = "alertCode"];
+  void clear_alert_code() ;
+  const std::string& alert_code() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_alert_code(Arg_&& arg, Args_... args);
+  std::string* mutable_alert_code();
+  PROTOBUF_NODISCARD std::string* release_alert_code();
+  void set_allocated_alert_code(std::string* value);
+
+  private:
+  const std::string& _internal_alert_code() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_alert_code(
+      const std::string& value);
+  std::string* _internal_mutable_alert_code();
+
+  public:
+  // string description = 2 [json_name = "description"];
+  void clear_description() ;
+  const std::string& description() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_description(Arg_&& arg, Args_... args);
+  std::string* mutable_description();
+  PROTOBUF_NODISCARD std::string* release_description();
+  void set_allocated_description(std::string* value);
+
+  private:
+  const std::string& _internal_description() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_description(
+      const std::string& value);
+  std::string* _internal_mutable_description();
+
+  public:
+  // .google.protobuf.Timestamp activated_time = 4 [json_name = "activatedTime"];
+  bool has_activated_time() const;
+  void clear_activated_time() ;
+  const ::google::protobuf::Timestamp& activated_time() const;
+  PROTOBUF_NODISCARD ::google::protobuf::Timestamp* release_activated_time();
+  ::google::protobuf::Timestamp* mutable_activated_time();
+  void set_allocated_activated_time(::google::protobuf::Timestamp* value);
+  void unsafe_arena_set_allocated_activated_time(::google::protobuf::Timestamp* value);
+  ::google::protobuf::Timestamp* unsafe_arena_release_activated_time();
+
+  private:
+  const ::google::protobuf::Timestamp& _internal_activated_time() const;
+  ::google::protobuf::Timestamp* _internal_mutable_activated_time();
+
+  public:
+  // .anduril.entitymanager.v1.AlertLevel level = 3 [json_name = "level"];
+  void clear_level() ;
+  ::anduril::entitymanager::v1::AlertLevel level() const;
+  void set_level(::anduril::entitymanager::v1::AlertLevel value);
+
+  private:
+  ::anduril::entitymanager::v1::AlertLevel _internal_level() const;
+  void _internal_set_level(::anduril::entitymanager::v1::AlertLevel value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.Alert)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      3, 5, 2,
+      60, 2>
+      _table_;
+
+  static constexpr const void* _raw_default_instance_ =
+      &_Alert_default_instance_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const Alert& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedPtrField< ::anduril::entitymanager::v1::AlertCondition > active_conditions_;
+    ::google::protobuf::internal::ArenaStringPtr alert_code_;
+    ::google::protobuf::internal::ArenaStringPtr description_;
+    ::google::protobuf::Timestamp* activated_time_;
+    int level_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fhealth_5fstatus_2epub_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Health final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.Health) */ {
  public:
@@ -760,6 +1274,7 @@ class Health final : public ::google::protobuf::Message
   // accessors -------------------------------------------------------
   enum : int {
     kComponentsFieldNumber = 3,
+    kActiveAlertsFieldNumber = 5,
     kUpdateTimeFieldNumber = 4,
     kConnectionStatusFieldNumber = 1,
     kHealthStatusFieldNumber = 2,
@@ -781,6 +1296,23 @@ class Health final : public ::google::protobuf::Message
   const ::anduril::entitymanager::v1::ComponentHealth& components(int index) const;
   ::anduril::entitymanager::v1::ComponentHealth* add_components();
   const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::ComponentHealth>& components() const;
+  // repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];
+  int active_alerts_size() const;
+  private:
+  int _internal_active_alerts_size() const;
+
+  public:
+  void clear_active_alerts() ;
+  ::anduril::entitymanager::v1::Alert* mutable_active_alerts(int index);
+  ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Alert>* mutable_active_alerts();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Alert>& _internal_active_alerts() const;
+  ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Alert>* _internal_mutable_active_alerts();
+  public:
+  const ::anduril::entitymanager::v1::Alert& active_alerts(int index) const;
+  ::anduril::entitymanager::v1::Alert* add_active_alerts();
+  const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Alert>& active_alerts() const;
   // .google.protobuf.Timestamp update_time = 4 [json_name = "updateTime"];
   bool has_update_time() const;
   void clear_update_time() ;
@@ -821,7 +1353,7 @@ class Health final : public ::google::protobuf::Message
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      2, 4, 2,
+      3, 5, 3,
       0, 2>
       _table_;
 
@@ -845,6 +1377,7 @@ class Health final : public ::google::protobuf::Message
     ::google::protobuf::internal::HasBits<1> _has_bits_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     ::google::protobuf::RepeatedPtrField< ::anduril::entitymanager::v1::ComponentHealth > components_;
+    ::google::protobuf::RepeatedPtrField< ::anduril::entitymanager::v1::Alert > active_alerts_;
     ::google::protobuf::Timestamp* update_time_;
     int connection_status_;
     int health_status_;
@@ -1396,6 +1929,425 @@ inline void Health::set_allocated_update_time(::google::protobuf::Timestamp* val
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Health.update_time)
 }
 
+// repeated .anduril.entitymanager.v1.Alert active_alerts = 5 [json_name = "activeAlerts"];
+inline int Health::_internal_active_alerts_size() const {
+  return _internal_active_alerts().size();
+}
+inline int Health::active_alerts_size() const {
+  return _internal_active_alerts_size();
+}
+inline void Health::clear_active_alerts() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.active_alerts_.Clear();
+}
+inline ::anduril::entitymanager::v1::Alert* Health::mutable_active_alerts(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Health.active_alerts)
+  return _internal_mutable_active_alerts()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Alert>* Health::mutable_active_alerts()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:anduril.entitymanager.v1.Health.active_alerts)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_active_alerts();
+}
+inline const ::anduril::entitymanager::v1::Alert& Health::active_alerts(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Health.active_alerts)
+  return _internal_active_alerts().Get(index);
+}
+inline ::anduril::entitymanager::v1::Alert* Health::add_active_alerts() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::anduril::entitymanager::v1::Alert* _add = _internal_mutable_active_alerts()->Add();
+  // @@protoc_insertion_point(field_add:anduril.entitymanager.v1.Health.active_alerts)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Alert>& Health::active_alerts() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:anduril.entitymanager.v1.Health.active_alerts)
+  return _internal_active_alerts();
+}
+inline const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Alert>&
+Health::_internal_active_alerts() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.active_alerts_;
+}
+inline ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Alert>*
+Health::_internal_mutable_active_alerts() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.active_alerts_;
+}
+
+// -------------------------------------------------------------------
+
+// Alert
+
+// string alert_code = 1 [json_name = "alertCode"];
+inline void Alert::clear_alert_code() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.alert_code_.ClearToEmpty();
+}
+inline const std::string& Alert::alert_code() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Alert.alert_code)
+  return _internal_alert_code();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void Alert::set_alert_code(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.alert_code_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.Alert.alert_code)
+}
+inline std::string* Alert::mutable_alert_code() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_alert_code();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Alert.alert_code)
+  return _s;
+}
+inline const std::string& Alert::_internal_alert_code() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.alert_code_.Get();
+}
+inline void Alert::_internal_set_alert_code(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.alert_code_.Set(value, GetArena());
+}
+inline std::string* Alert::_internal_mutable_alert_code() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.alert_code_.Mutable( GetArena());
+}
+inline std::string* Alert::release_alert_code() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Alert.alert_code)
+  return _impl_.alert_code_.Release();
+}
+inline void Alert::set_allocated_alert_code(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.alert_code_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.alert_code_.IsDefault()) {
+          _impl_.alert_code_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Alert.alert_code)
+}
+
+// string description = 2 [json_name = "description"];
+inline void Alert::clear_description() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.description_.ClearToEmpty();
+}
+inline const std::string& Alert::description() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Alert.description)
+  return _internal_description();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void Alert::set_description(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.description_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.Alert.description)
+}
+inline std::string* Alert::mutable_description() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_description();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Alert.description)
+  return _s;
+}
+inline const std::string& Alert::_internal_description() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.description_.Get();
+}
+inline void Alert::_internal_set_description(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.description_.Set(value, GetArena());
+}
+inline std::string* Alert::_internal_mutable_description() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.description_.Mutable( GetArena());
+}
+inline std::string* Alert::release_description() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Alert.description)
+  return _impl_.description_.Release();
+}
+inline void Alert::set_allocated_description(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.description_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.description_.IsDefault()) {
+          _impl_.description_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Alert.description)
+}
+
+// .anduril.entitymanager.v1.AlertLevel level = 3 [json_name = "level"];
+inline void Alert::clear_level() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.level_ = 0;
+}
+inline ::anduril::entitymanager::v1::AlertLevel Alert::level() const {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Alert.level)
+  return _internal_level();
+}
+inline void Alert::set_level(::anduril::entitymanager::v1::AlertLevel value) {
+  _internal_set_level(value);
+  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.Alert.level)
+}
+inline ::anduril::entitymanager::v1::AlertLevel Alert::_internal_level() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return static_cast<::anduril::entitymanager::v1::AlertLevel>(_impl_.level_);
+}
+inline void Alert::_internal_set_level(::anduril::entitymanager::v1::AlertLevel value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.level_ = value;
+}
+
+// .google.protobuf.Timestamp activated_time = 4 [json_name = "activatedTime"];
+inline bool Alert::has_activated_time() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.activated_time_ != nullptr);
+  return value;
+}
+inline const ::google::protobuf::Timestamp& Alert::_internal_activated_time() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::google::protobuf::Timestamp* p = _impl_.activated_time_;
+  return p != nullptr ? *p : reinterpret_cast<const ::google::protobuf::Timestamp&>(::google::protobuf::_Timestamp_default_instance_);
+}
+inline const ::google::protobuf::Timestamp& Alert::activated_time() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Alert.activated_time)
+  return _internal_activated_time();
+}
+inline void Alert::unsafe_arena_set_allocated_activated_time(::google::protobuf::Timestamp* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.activated_time_);
+  }
+  _impl_.activated_time_ = reinterpret_cast<::google::protobuf::Timestamp*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Alert.activated_time)
+}
+inline ::google::protobuf::Timestamp* Alert::release_activated_time() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::google::protobuf::Timestamp* released = _impl_.activated_time_;
+  _impl_.activated_time_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::google::protobuf::Timestamp* Alert::unsafe_arena_release_activated_time() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Alert.activated_time)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::google::protobuf::Timestamp* temp = _impl_.activated_time_;
+  _impl_.activated_time_ = nullptr;
+  return temp;
+}
+inline ::google::protobuf::Timestamp* Alert::_internal_mutable_activated_time() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.activated_time_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::google::protobuf::Timestamp>(GetArena());
+    _impl_.activated_time_ = reinterpret_cast<::google::protobuf::Timestamp*>(p);
+  }
+  return _impl_.activated_time_;
+}
+inline ::google::protobuf::Timestamp* Alert::mutable_activated_time() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  ::google::protobuf::Timestamp* _msg = _internal_mutable_activated_time();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Alert.activated_time)
+  return _msg;
+}
+inline void Alert::set_allocated_activated_time(::google::protobuf::Timestamp* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.activated_time_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.activated_time_ = reinterpret_cast<::google::protobuf::Timestamp*>(value);
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Alert.activated_time)
+}
+
+// repeated .anduril.entitymanager.v1.AlertCondition active_conditions = 5 [json_name = "activeConditions"];
+inline int Alert::_internal_active_conditions_size() const {
+  return _internal_active_conditions().size();
+}
+inline int Alert::active_conditions_size() const {
+  return _internal_active_conditions_size();
+}
+inline void Alert::clear_active_conditions() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.active_conditions_.Clear();
+}
+inline ::anduril::entitymanager::v1::AlertCondition* Alert::mutable_active_conditions(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Alert.active_conditions)
+  return _internal_mutable_active_conditions()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::AlertCondition>* Alert::mutable_active_conditions()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:anduril.entitymanager.v1.Alert.active_conditions)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_active_conditions();
+}
+inline const ::anduril::entitymanager::v1::AlertCondition& Alert::active_conditions(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Alert.active_conditions)
+  return _internal_active_conditions().Get(index);
+}
+inline ::anduril::entitymanager::v1::AlertCondition* Alert::add_active_conditions() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::anduril::entitymanager::v1::AlertCondition* _add = _internal_mutable_active_conditions()->Add();
+  // @@protoc_insertion_point(field_add:anduril.entitymanager.v1.Alert.active_conditions)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::AlertCondition>& Alert::active_conditions() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:anduril.entitymanager.v1.Alert.active_conditions)
+  return _internal_active_conditions();
+}
+inline const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::AlertCondition>&
+Alert::_internal_active_conditions() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.active_conditions_;
+}
+inline ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::AlertCondition>*
+Alert::_internal_mutable_active_conditions() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.active_conditions_;
+}
+
+// -------------------------------------------------------------------
+
+// AlertCondition
+
+// string condition_code = 1 [json_name = "conditionCode"];
+inline void AlertCondition::clear_condition_code() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.condition_code_.ClearToEmpty();
+}
+inline const std::string& AlertCondition::condition_code() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.AlertCondition.condition_code)
+  return _internal_condition_code();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void AlertCondition::set_condition_code(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.condition_code_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.AlertCondition.condition_code)
+}
+inline std::string* AlertCondition::mutable_condition_code() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_condition_code();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.AlertCondition.condition_code)
+  return _s;
+}
+inline const std::string& AlertCondition::_internal_condition_code() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.condition_code_.Get();
+}
+inline void AlertCondition::_internal_set_condition_code(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.condition_code_.Set(value, GetArena());
+}
+inline std::string* AlertCondition::_internal_mutable_condition_code() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.condition_code_.Mutable( GetArena());
+}
+inline std::string* AlertCondition::release_condition_code() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.AlertCondition.condition_code)
+  return _impl_.condition_code_.Release();
+}
+inline void AlertCondition::set_allocated_condition_code(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.condition_code_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.condition_code_.IsDefault()) {
+          _impl_.condition_code_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.AlertCondition.condition_code)
+}
+
+// string description = 2 [json_name = "description"];
+inline void AlertCondition::clear_description() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.description_.ClearToEmpty();
+}
+inline const std::string& AlertCondition::description() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.AlertCondition.description)
+  return _internal_description();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void AlertCondition::set_description(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.description_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.AlertCondition.description)
+}
+inline std::string* AlertCondition::mutable_description() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_description();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.AlertCondition.description)
+  return _s;
+}
+inline const std::string& AlertCondition::_internal_description() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.description_.Get();
+}
+inline void AlertCondition::_internal_set_description(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.description_.Set(value, GetArena());
+}
+inline std::string* AlertCondition::_internal_mutable_description() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.description_.Mutable( GetArena());
+}
+inline std::string* AlertCondition::release_description() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.AlertCondition.description)
+  return _impl_.description_.Release();
+}
+inline void AlertCondition::set_allocated_description(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.description_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.description_.IsDefault()) {
+          _impl_.description_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.AlertCondition.description)
+}
+
 #ifdef __GNUC__
 #pragma GCC diagnostic pop
 #endif  // __GNUC__
@@ -1420,6 +2372,12 @@ struct is_proto_enum<::anduril::entitymanager::v1::HealthStatus> : std::true_typ
 template <>
 inline const EnumDescriptor* GetEnumDescriptor<::anduril::entitymanager::v1::HealthStatus>() {
   return ::anduril::entitymanager::v1::HealthStatus_descriptor();
+}
+template <>
+struct is_proto_enum<::anduril::entitymanager::v1::AlertLevel> : std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor<::anduril::entitymanager::v1::AlertLevel>() {
+  return ::anduril::entitymanager::v1::AlertLevel_descriptor();
 }
 
 }  // namespace protobuf
