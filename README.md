@@ -1,4 +1,4 @@
-# Anduril SDK C++
+# Lattice SDK C++
 
 ## Requirements
 
