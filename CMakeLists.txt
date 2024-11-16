@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 project(
-  anduril-sdk-cpp
+  lattice-sdk-cpp
   VERSION 1.0
   LANGUAGES CXX)
 
@@ -16,8 +16,8 @@ add_library(grpc ALIAS gRPC::grpc)
 add_library(grpc++ ALIAS gRPC::grpc++)
 
 ## Get all the Proto generated files
-file(GLOB_RECURSE anduril-sdk-sources ${PROJECT_SOURCE_DIR}/*.cc)
-add_library(anduril-sdk-cpp STATIC ${anduril-sdk-sources})
+file(GLOB_RECURSE lattice-sdk-sources ${PROJECT_SOURCE_DIR}/*.cc)
+add_library(lattice-sdk-cpp STATIC ${lattice-sdk-sources})
 
-target_include_directories(anduril-sdk-cpp PUBLIC src)
-target_link_libraries(anduril-sdk-cpp PUBLIC grpc++ protobuf::libprotobuf)
+target_include_directories(lattice-sdk-cpp PUBLIC src)
+target_link_libraries(lattice-sdk-cpp PUBLIC grpc++ protobuf::libprotobuf)

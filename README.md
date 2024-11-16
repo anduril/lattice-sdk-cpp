@@ -1,4 +1,4 @@
-# Anduril SDK C++
+# Lattice SDK C++
 
 ## Requirements
 
@@ -11,7 +11,7 @@
 
 ```cmake
 cmake_minimum_required(VERSION 3.25.0)
-project(anduril-sdk-example)
+project(lattice-sdk-example)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -19,15 +19,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Download the SDK from github and add it as part of the project
 include(FetchContent)
 FetchContent_Declare(
-  anduril-sdk-cpp
-  GIT_REPOSITORY https://github.com/anduril/anduril-cpp.git
+  lattice-sdk-cpp
+  GIT_REPOSITORY https://github.com/anduril/lattice-sdk-cpp.git
 )
 set(FETCHCONTENT_QUIET OFF)
-FetchContent_MakeAvailable(anduril-sdk-cpp)
+FetchContent_MakeAvailable(lattice-sdk-cpp)
 
-# Build the text-only CLI and link against the Anduril SDK.
+# Build the text-only CLI and link against the Lattice SDK.
 add_executable(cli_client main.cpp)
-target_link_libraries(cli_client anduril-sdk-cpp)
+target_link_libraries(cli_client lattice-sdk-cpp)
 ```
 
 ### Usage
@@ -43,18 +43,18 @@ main.cpp
 int main(int argc, char *argv[]) {
     GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-    auto url = "desert-guardian.anduril.com:443";
+    auto url = "YOUR_ENVIRONMENT_URL"
 
     grpc::ClientContext ctx;
     // Setting custom metadata to be sent to the server
-    ctx.AddMetadata("authorization", "Bearer <BEARER TOKEN>");
+    ctx.AddMetadata("authorization", "Bearer $BEARER TOKEN");
 
     auto creds = grpc::SslCredentials(grpc::SslCredentialsOptions());
     std::shared_ptr<anduril::entitymanager::v1::EntityManagerAPI::Stub> mStub =
         anduril::entitymanager::v1::EntityManagerAPI::NewStub(grpc::CreateChannel(url, creds));
 
     anduril::entitymanager::v1::GetEntityRequest req;
-    req.set_entity_id("<ENTITY ID>");
+    req.set_entity_id("$ENTITY_ID");
 
     anduril::entitymanager::v1::GetEntityResponse res;
 
