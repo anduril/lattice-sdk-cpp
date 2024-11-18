@@ -26,24 +26,6 @@ namespace _fl = ::google::protobuf::internal::field_layout;
 namespace anduril {
 namespace entitymanager {
 namespace v1 {
-              template <typename>
-PROTOBUF_CONSTEXPR TeamStatus::TeamStatus(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::internal::ZeroFieldsBase(_class_data_.base()){}
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::internal::ZeroFieldsBase() {
-}
-#endif  // PROTOBUF_CUSTOM_VTABLE
-struct TeamStatusDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TeamStatusDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TeamStatusDefaultTypeInternal() {}
-  union {
-    TeamStatus _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TeamStatusDefaultTypeInternal _TeamStatus_default_instance_;
 
 inline constexpr Status::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -75,18 +57,13 @@ struct StatusDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StatusDefaultTypeInternal _Status_default_instance_;
 
-inline constexpr OriginalData_TLE::Impl_::Impl_(
+inline constexpr PrimaryCorrelation::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : line1_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        line2_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
+      : secondary_entity_ids_{},
         _cached_size_{0} {}
 
 template <typename>
-PROTOBUF_CONSTEXPR OriginalData_TLE::OriginalData_TLE(::_pbi::ConstantInitialized)
+PROTOBUF_CONSTEXPR PrimaryCorrelation::PrimaryCorrelation(::_pbi::ConstantInitialized)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(_class_data_.base()),
 #else   // PROTOBUF_CUSTOM_VTABLE
@@ -94,23 +71,20 @@ PROTOBUF_CONSTEXPR OriginalData_TLE::OriginalData_TLE(::_pbi::ConstantInitialize
 #endif  // PROTOBUF_CUSTOM_VTABLE
       _impl_(::_pbi::ConstantInitialized()) {
 }
-struct OriginalData_TLEDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR OriginalData_TLEDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~OriginalData_TLEDefaultTypeInternal() {}
+struct PrimaryCorrelationDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PrimaryCorrelationDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PrimaryCorrelationDefaultTypeInternal() {}
   union {
-    OriginalData_TLE _instance;
+    PrimaryCorrelation _instance;
   };
 };
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OriginalData_TLEDefaultTypeInternal _OriginalData_TLE_default_instance_;
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PrimaryCorrelationDefaultTypeInternal _PrimaryCorrelation_default_instance_;
 
 inline constexpr AlternateId::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : source_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        id_(
+      : id_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         type_{static_cast< ::anduril::entitymanager::v1::AltIdType >(0)},
@@ -136,33 +110,6 @@ struct AlternateIdDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AlternateIdDefaultTypeInternal _AlternateId_default_instance_;
 
-inline constexpr RangeRings::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        min_distance_m_{nullptr},
-        max_distance_m_{nullptr},
-        ring_count_{0u} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR RangeRings::RangeRings(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct RangeRingsDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR RangeRingsDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~RangeRingsDefaultTypeInternal() {}
-  union {
-    RangeRings _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RangeRingsDefaultTypeInternal _RangeRings_default_instance_;
-
 inline constexpr Provenance::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -176,9 +123,6 @@ inline constexpr Provenance::Impl_::Impl_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         data_type_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        feed_name_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         source_update_time_{nullptr},
@@ -204,34 +148,6 @@ struct ProvenanceDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ProvenanceDefaultTypeInternal _Provenance_default_instance_;
 
-inline constexpr OriginalData::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        url_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        tle_{nullptr} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR OriginalData::OriginalData(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct OriginalDataDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR OriginalDataDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~OriginalDataDefaultTypeInternal() {}
-  union {
-    OriginalData _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OriginalDataDefaultTypeInternal _OriginalData_default_instance_;
-
 inline constexpr Indicators::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -240,8 +156,7 @@ inline constexpr Indicators::Impl_::Impl_(
         emergency_{nullptr},
         c2_{nullptr},
         egressable_{nullptr},
-        starred_{nullptr},
-        deletable_{static_cast< ::anduril::entitymanager::v1::Deletable >(0)} {}
+        starred_{nullptr} {}
 
 template <typename>
 PROTOBUF_CONSTEXPR Indicators::Indicators(::_pbi::ConstantInitialized)
@@ -291,11 +206,65 @@ struct AliasesDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AliasesDefaultTypeInternal _Aliases_default_instance_;
 
+inline constexpr RangeRings::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        min_distance_m_{nullptr},
+        max_distance_m_{nullptr},
+        ring_line_color_{nullptr},
+        ring_count_{0u} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR RangeRings::RangeRings(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct RangeRingsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RangeRingsDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RangeRingsDefaultTypeInternal() {}
+  union {
+    RangeRings _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RangeRingsDefaultTypeInternal _RangeRings_default_instance_;
+
+inline constexpr CorrelationMetadata::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        provenance_{nullptr},
+        replication_mode_{static_cast< ::anduril::entitymanager::v1::CorrelationReplicationMode >(0)},
+        type_{static_cast< ::anduril::entitymanager::v1::CorrelationType >(0)} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR CorrelationMetadata::CorrelationMetadata(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct CorrelationMetadataDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CorrelationMetadataDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CorrelationMetadataDefaultTypeInternal() {}
+  union {
+    CorrelationMetadata _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CorrelationMetadataDefaultTypeInternal _CorrelationMetadata_default_instance_;
+
 inline constexpr VisualDetails::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
-        range_rings_{nullptr},
-        interactivity_mode_{static_cast< ::anduril::entitymanager::v1::InteractivityMode >(0)} {}
+        range_rings_{nullptr} {}
 
 template <typename>
 PROTOBUF_CONSTEXPR VisualDetails::VisualDetails(::_pbi::ConstantInitialized)
@@ -317,19 +286,16 @@ struct VisualDetailsDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 VisualDetailsDefaultTypeInternal _VisualDetails_default_instance_;
 
-inline constexpr OverrideProvenance::Impl_::Impl_(
+inline constexpr SecondaryCorrelation::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
-        field_path_(
+        primary_entity_id_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
-        source_id_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        provenance_{nullptr} {}
+        metadata_{nullptr} {}
 
 template <typename>
-PROTOBUF_CONSTEXPR OverrideProvenance::OverrideProvenance(::_pbi::ConstantInitialized)
+PROTOBUF_CONSTEXPR SecondaryCorrelation::SecondaryCorrelation(::_pbi::ConstantInitialized)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(_class_data_.base()),
 #else   // PROTOBUF_CUSTOM_VTABLE
@@ -337,16 +303,69 @@ PROTOBUF_CONSTEXPR OverrideProvenance::OverrideProvenance(::_pbi::ConstantInitia
 #endif  // PROTOBUF_CUSTOM_VTABLE
       _impl_(::_pbi::ConstantInitialized()) {
 }
-struct OverrideProvenanceDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR OverrideProvenanceDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~OverrideProvenanceDefaultTypeInternal() {}
+struct SecondaryCorrelationDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SecondaryCorrelationDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~SecondaryCorrelationDefaultTypeInternal() {}
   union {
-    OverrideProvenance _instance;
+    SecondaryCorrelation _instance;
   };
 };
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OverrideProvenanceDefaultTypeInternal _OverrideProvenance_default_instance_;
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SecondaryCorrelationDefaultTypeInternal _SecondaryCorrelation_default_instance_;
+
+inline constexpr DecorrelatedSingle::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        entity_id_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        metadata_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR DecorrelatedSingle::DecorrelatedSingle(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct DecorrelatedSingleDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR DecorrelatedSingleDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~DecorrelatedSingleDefaultTypeInternal() {}
+  union {
+    DecorrelatedSingle _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DecorrelatedSingleDefaultTypeInternal _DecorrelatedSingle_default_instance_;
+
+inline constexpr DecorrelatedAll::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        metadata_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR DecorrelatedAll::DecorrelatedAll(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct DecorrelatedAllDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR DecorrelatedAllDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~DecorrelatedAllDefaultTypeInternal() {}
+  union {
+    DecorrelatedAll _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DecorrelatedAllDefaultTypeInternal _DecorrelatedAll_default_instance_;
 
 inline constexpr Tracked::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -354,11 +373,9 @@ inline constexpr Tracked::Impl_::Impl_(
         track_quality_wrapper_{nullptr},
         sensor_hits_{nullptr},
         number_of_objects_{nullptr},
-        sensor_details_{nullptr},
         radar_cross_section_{nullptr},
         last_measurement_time_{nullptr},
-        line_of_bearing_{nullptr},
-        track_quality_{0u} {}
+        line_of_bearing_{nullptr} {}
 
 template <typename>
 PROTOBUF_CONSTEXPR Tracked::Tracked(::_pbi::ConstantInitialized)
@@ -380,6 +397,59 @@ struct TrackedDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TrackedDefaultTypeInternal _Tracked_default_instance_;
 
+inline constexpr Decorrelation::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        decorrelated_entities_{},
+        all_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR Decorrelation::Decorrelation(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct DecorrelationDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR DecorrelationDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~DecorrelationDefaultTypeInternal() {}
+  union {
+    Decorrelation _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DecorrelationDefaultTypeInternal _Decorrelation_default_instance_;
+
+inline constexpr Correlation::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        decorrelation_{nullptr},
+        correlation_{},
+        _oneof_case_{} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR Correlation::Correlation(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct CorrelationDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CorrelationDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CorrelationDefaultTypeInternal() {}
+  union {
+    Correlation _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CorrelationDefaultTypeInternal _Correlation_default_instance_;
+
 inline constexpr Entity::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -394,15 +464,12 @@ inline constexpr Entity::Impl_::Impl_(
         location_{nullptr},
         aliases_{nullptr},
         tracked_{nullptr},
-        correlated_{nullptr},
         mil_view_{nullptr},
         ontology_{nullptr},
         provenance_{nullptr},
         overrides_{nullptr},
         indicators_{nullptr},
         location_uncertainty_{nullptr},
-        geopolygon_{nullptr},
-        original_data_{nullptr},
         status_{nullptr},
         sensors_{nullptr},
         payloads_{nullptr},
@@ -411,11 +478,9 @@ inline constexpr Entity::Impl_::Impl_(
         geo_details_{nullptr},
         signal_{nullptr},
         transponder_codes_{nullptr},
-        contact_{nullptr},
         data_classification_{nullptr},
         power_state_{nullptr},
         task_catalog_{nullptr},
-        media_{nullptr},
         relationships_{nullptr},
         visual_details_{nullptr},
         dimensions_{nullptr},
@@ -423,11 +488,10 @@ inline constexpr Entity::Impl_::Impl_(
         schedules_{nullptr},
         health_{nullptr},
         group_details_{nullptr},
-        team_status_{nullptr},
         supplies_{nullptr},
         orbit_{nullptr},
-        is_live_{false},
-        no_expiry_{false} {}
+        correlation_{nullptr},
+        is_live_{false} {}
 
 template <typename>
 PROTOBUF_CONSTEXPR Entity::Entity(::_pbi::ConstantInitialized)
@@ -486,8 +550,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 
 inline constexpr Overrides::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : provenance_{},
-        override_{},
+      : override_{},
         _cached_size_{0} {}
 
 template <typename>
@@ -509,31 +572,6 @@ struct OverridesDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 OverridesDefaultTypeInternal _Overrides_default_instance_;
-
-inline constexpr Entities::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : entities_{},
-        _cached_size_{0} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR Entities::Entities(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct EntitiesDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR EntitiesDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~EntitiesDefaultTypeInternal() {}
-  union {
-    Entities _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 EntitiesDefaultTypeInternal _Entities_default_instance_;
 }  // namespace v1
 }  // namespace entitymanager
 }  // namespace anduril
@@ -556,16 +594,14 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.is_live_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.created_time_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.expiry_time_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.no_expiry_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.status_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.location_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.location_uncertainty_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.geopolygon_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.geo_shape_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.geo_details_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.aliases_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.tracked_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.correlated_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.correlation_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.mil_view_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.ontology_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.sensors_),
@@ -574,14 +610,11 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.provenance_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.overrides_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.indicators_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.original_data_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.target_priority_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.signal_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.transponder_codes_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.contact_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.data_classification_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.task_catalog_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.media_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.relationships_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.visual_details_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.dimensions_),
@@ -589,7 +622,6 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.schedules_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.health_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.group_details_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.team_status_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.supplies_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entity, _impl_.orbit_),
         ~0u,
@@ -597,51 +629,36 @@ const ::uint32_t
         ~0u,
         0,
         1,
-        ~0u,
-        14,
-        2,
         11,
-        12,
-        18,
-        19,
-        3,
-        4,
-        5,
-        6,
-        7,
+        2,
+        10,
         15,
         16,
-        24,
+        3,
+        4,
+        31,
+        5,
+        6,
+        12,
+        13,
+        20,
+        7,
         8,
         9,
-        10,
-        13,
+        14,
         17,
-        20,
+        18,
+        19,
         21,
         22,
         23,
+        24,
         25,
         26,
         27,
         28,
         29,
         30,
-        31,
-        32,
-        33,
-        34,
-        35,
-        36,
-        ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entities, _internal_metadata_),
-        ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
-        ~0u,  // no _weak_field_map_
-        ~0u,  // no _inlined_string_donated_
-        ~0u,  // no _split_
-        ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Entities, _impl_.entities_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Status, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -670,22 +687,18 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Tracked, _impl_.track_quality_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Tracked, _impl_.track_quality_wrapper_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Tracked, _impl_.sensor_hits_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Tracked, _impl_.number_of_objects_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Tracked, _impl_.sensor_details_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Tracked, _impl_.radar_cross_section_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Tracked, _impl_.last_measurement_time_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Tracked, _impl_.line_of_bearing_),
-        ~0u,
         0,
         1,
         2,
         3,
         4,
         5,
-        6,
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -694,14 +707,12 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _impl_.feed_name_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _impl_.integration_name_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _impl_.data_type_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _impl_.source_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _impl_.source_id_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _impl_.source_update_time_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _impl_.source_description_),
-        ~0u,
         ~0u,
         ~0u,
         ~0u,
@@ -720,14 +731,12 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Indicators, _impl_.exercise_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Indicators, _impl_.emergency_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Indicators, _impl_.c2_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Indicators, _impl_.deletable_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Indicators, _impl_.egressable_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Indicators, _impl_.starred_),
         0,
         1,
         2,
         3,
-        ~0u,
         4,
         5,
         ~0u,  // no _has_bits_
@@ -739,7 +748,6 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Overrides, _impl_.override_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Overrides, _impl_.provenance_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Override, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Override, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -762,42 +770,6 @@ const ::uint32_t
         1,
         ~0u,
         2,
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::OverrideProvenance, _impl_._has_bits_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::OverrideProvenance, _internal_metadata_),
-        ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
-        ~0u,  // no _weak_field_map_
-        ~0u,  // no _inlined_string_donated_
-        ~0u,  // no _split_
-        ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::OverrideProvenance, _impl_.field_path_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::OverrideProvenance, _impl_.source_id_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::OverrideProvenance, _impl_.provenance_),
-        ~0u,
-        ~0u,
-        0,
-        ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::OriginalData_TLE, _internal_metadata_),
-        ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
-        ~0u,  // no _weak_field_map_
-        ~0u,  // no _inlined_string_donated_
-        ~0u,  // no _split_
-        ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::OriginalData_TLE, _impl_.line1_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::OriginalData_TLE, _impl_.line2_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::OriginalData, _impl_._has_bits_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::OriginalData, _internal_metadata_),
-        ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
-        ~0u,  // no _weak_field_map_
-        ~0u,  // no _inlined_string_donated_
-        ~0u,  // no _split_
-        ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::OriginalData, _impl_.url_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::OriginalData, _impl_.tle_),
-        ~0u,
-        0,
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::AlternateId, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -806,7 +778,6 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::AlternateId, _impl_.source_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::AlternateId, _impl_.id_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::AlternateId, _impl_.type_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::VisualDetails, _impl_._has_bits_),
@@ -818,9 +789,7 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::VisualDetails, _impl_.range_rings_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::VisualDetails, _impl_.interactivity_mode_),
         0,
-        ~0u,
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RangeRings, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RangeRings, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -832,41 +801,120 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RangeRings, _impl_.min_distance_m_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RangeRings, _impl_.max_distance_m_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RangeRings, _impl_.ring_count_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RangeRings, _impl_.ring_line_color_),
         0,
         1,
         ~0u,
+        2,
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Correlation, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Correlation, _internal_metadata_),
+        ~0u,  // no _extensions_
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Correlation, _impl_._oneof_case_[0]),
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        ::_pbi::kInvalidFieldOffsetTag,
+        ::_pbi::kInvalidFieldOffsetTag,
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Correlation, _impl_.decorrelation_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Correlation, _impl_.correlation_),
+        ~0u,
+        ~0u,
+        0,
         ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::TeamStatus, _internal_metadata_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::PrimaryCorrelation, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
         ~0u,  // no _weak_field_map_
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::PrimaryCorrelation, _impl_.secondary_entity_ids_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::SecondaryCorrelation, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::SecondaryCorrelation, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::SecondaryCorrelation, _impl_.primary_entity_id_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::SecondaryCorrelation, _impl_.metadata_),
+        ~0u,
+        0,
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Decorrelation, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Decorrelation, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Decorrelation, _impl_.all_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Decorrelation, _impl_.decorrelated_entities_),
+        0,
+        ~0u,
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::DecorrelatedAll, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::DecorrelatedAll, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::DecorrelatedAll, _impl_.metadata_),
+        0,
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::DecorrelatedSingle, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::DecorrelatedSingle, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::DecorrelatedSingle, _impl_.entity_id_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::DecorrelatedSingle, _impl_.metadata_),
+        ~0u,
+        0,
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::CorrelationMetadata, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::CorrelationMetadata, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::CorrelationMetadata, _impl_.provenance_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::CorrelationMetadata, _impl_.replication_mode_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::CorrelationMetadata, _impl_.type_),
+        0,
+        ~0u,
+        ~0u,
 };
 
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-        {0, 49, -1, sizeof(::anduril::entitymanager::v1::Entity)},
-        {90, -1, -1, sizeof(::anduril::entitymanager::v1::Entities)},
-        {99, -1, -1, sizeof(::anduril::entitymanager::v1::Status)},
-        {109, -1, -1, sizeof(::anduril::entitymanager::v1::Aliases)},
-        {119, 135, -1, sizeof(::anduril::entitymanager::v1::Tracked)},
-        {143, 158, -1, sizeof(::anduril::entitymanager::v1::Provenance)},
-        {165, 180, -1, sizeof(::anduril::entitymanager::v1::Indicators)},
-        {187, -1, -1, sizeof(::anduril::entitymanager::v1::Overrides)},
-        {197, 212, -1, sizeof(::anduril::entitymanager::v1::Override)},
-        {219, 230, -1, sizeof(::anduril::entitymanager::v1::OverrideProvenance)},
-        {233, -1, -1, sizeof(::anduril::entitymanager::v1::OriginalData_TLE)},
-        {243, 253, -1, sizeof(::anduril::entitymanager::v1::OriginalData)},
-        {255, -1, -1, sizeof(::anduril::entitymanager::v1::AlternateId)},
-        {266, 276, -1, sizeof(::anduril::entitymanager::v1::VisualDetails)},
-        {278, 289, -1, sizeof(::anduril::entitymanager::v1::RangeRings)},
-        {292, -1, -1, sizeof(::anduril::entitymanager::v1::TeamStatus)},
+        {0, 43, -1, sizeof(::anduril::entitymanager::v1::Entity)},
+        {78, -1, -1, sizeof(::anduril::entitymanager::v1::Status)},
+        {88, -1, -1, sizeof(::anduril::entitymanager::v1::Aliases)},
+        {98, 112, -1, sizeof(::anduril::entitymanager::v1::Tracked)},
+        {118, 132, -1, sizeof(::anduril::entitymanager::v1::Provenance)},
+        {138, 152, -1, sizeof(::anduril::entitymanager::v1::Indicators)},
+        {158, -1, -1, sizeof(::anduril::entitymanager::v1::Overrides)},
+        {167, 182, -1, sizeof(::anduril::entitymanager::v1::Override)},
+        {189, -1, -1, sizeof(::anduril::entitymanager::v1::AlternateId)},
+        {199, 208, -1, sizeof(::anduril::entitymanager::v1::VisualDetails)},
+        {209, 221, -1, sizeof(::anduril::entitymanager::v1::RangeRings)},
+        {225, 237, -1, sizeof(::anduril::entitymanager::v1::Correlation)},
+        {240, -1, -1, sizeof(::anduril::entitymanager::v1::PrimaryCorrelation)},
+        {249, 259, -1, sizeof(::anduril::entitymanager::v1::SecondaryCorrelation)},
+        {261, 271, -1, sizeof(::anduril::entitymanager::v1::Decorrelation)},
+        {273, 282, -1, sizeof(::anduril::entitymanager::v1::DecorrelatedAll)},
+        {283, 293, -1, sizeof(::anduril::entitymanager::v1::DecorrelatedSingle)},
+        {295, 306, -1, sizeof(::anduril::entitymanager::v1::CorrelationMetadata)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::entitymanager::v1::_Entity_default_instance_._instance,
-    &::anduril::entitymanager::v1::_Entities_default_instance_._instance,
     &::anduril::entitymanager::v1::_Status_default_instance_._instance,
     &::anduril::entitymanager::v1::_Aliases_default_instance_._instance,
     &::anduril::entitymanager::v1::_Tracked_default_instance_._instance,
@@ -874,216 +922,219 @@ static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::entitymanager::v1::_Indicators_default_instance_._instance,
     &::anduril::entitymanager::v1::_Overrides_default_instance_._instance,
     &::anduril::entitymanager::v1::_Override_default_instance_._instance,
-    &::anduril::entitymanager::v1::_OverrideProvenance_default_instance_._instance,
-    &::anduril::entitymanager::v1::_OriginalData_TLE_default_instance_._instance,
-    &::anduril::entitymanager::v1::_OriginalData_default_instance_._instance,
     &::anduril::entitymanager::v1::_AlternateId_default_instance_._instance,
     &::anduril::entitymanager::v1::_VisualDetails_default_instance_._instance,
     &::anduril::entitymanager::v1::_RangeRings_default_instance_._instance,
-    &::anduril::entitymanager::v1::_TeamStatus_default_instance_._instance,
+    &::anduril::entitymanager::v1::_Correlation_default_instance_._instance,
+    &::anduril::entitymanager::v1::_PrimaryCorrelation_default_instance_._instance,
+    &::anduril::entitymanager::v1::_SecondaryCorrelation_default_instance_._instance,
+    &::anduril::entitymanager::v1::_Decorrelation_default_instance_._instance,
+    &::anduril::entitymanager::v1::_DecorrelatedAll_default_instance_._instance,
+    &::anduril::entitymanager::v1::_DecorrelatedSingle_default_instance_._instance,
+    &::anduril::entitymanager::v1::_CorrelationMetadata_default_instance_._instance,
 };
 const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
     "\n)anduril/entitymanager/v1/entity.pub.pr"
     "oto\022\030anduril.entitymanager.v1\0321anduril/e"
     "ntitymanager/v1/classification.pub.proto"
-    "\0322anduril/entitymanager/v1/contact_detai"
-    "ls.pub.proto\032/anduril/entitymanager/v1/c"
-    "orrelations.pub.proto\032-anduril/entityman"
-    "ager/v1/dimensions.pub.proto\032,anduril/en"
-    "titymanager/v1/geoentity.pub.proto\032(andu"
-    "ril/entitymanager/v1/group.pub.proto\0320an"
-    "duril/entitymanager/v1/health_status.pub"
-    ".proto\032+anduril/entitymanager/v1/locatio"
-    "n.pub.proto\032(anduril/entitymanager/v1/me"
-    "dia.pub.proto\032+anduril/entitymanager/v1/"
-    "ontology.pub.proto\032*anduril/entitymanage"
-    "r/v1/options.pub.proto\032(anduril/entityma"
-    "nager/v1/orbit.pub.proto\032+anduril/entity"
-    "manager/v1/payloads.pub.proto\032(anduril/e"
-    "ntitymanager/v1/power.pub.proto\032/anduril"
-    "/entitymanager/v1/relationship.pub.proto"
-    "\0320anduril/entitymanager/v1/route_details"
-    ".pub.proto\032+anduril/entitymanager/v1/sch"
-    "edule.pub.proto\032*anduril/entitymanager/v"
-    "1/sensors.pub.proto\032)anduril/entitymanag"
-    "er/v1/signal.pub.proto\032+anduril/entityma"
-    "nager/v1/supplies.pub.proto\0322anduril/ent"
-    "itymanager/v1/target_priority.pub.proto\032"
-    "4anduril/entitymanager/v1/transponder_co"
-    "des.pub.proto\032(anduril/entitymanager/v1/"
-    "types.pub.proto\032\"anduril/tasks/v2/catalo"
-    "g.pub.proto\032\037google/protobuf/timestamp.p"
-    "roto\032\036google/protobuf/wrappers.proto\"\245\025\n"
-    "\006Entity\022\033\n\tentity_id\030\001 \001(\tR\010entityId\022 \n\013"
-    "description\030\002 \001(\tR\013description\022\027\n\007is_liv"
-    "e\030\003 \001(\010R\006isLive\022=\n\014created_time\030\004 \001(\0132\032."
-    "google.protobuf.TimestampR\013createdTime\022;"
-    "\n\013expiry_time\030\005 \001(\0132\032.google.protobuf.Ti"
-    "mestampR\nexpiryTime\022\033\n\tno_expiry\030+ \001(\010R\010"
-    "noExpiry\0228\n\006status\030\023 \001(\0132 .anduril.entit"
-    "ymanager.v1.StatusR\006status\022>\n\010location\030\006"
-    " \001(\0132\".anduril.entitymanager.v1.Location"
-    "R\010location\022`\n\024location_uncertainty\030\017 \001(\013"
-    "2-.anduril.entitymanager.v1.LocationUnce"
-    "rtaintyR\023locationUncertainty\022H\n\ngeopolyg"
-    "on\030\021 \001(\0132$.anduril.entitymanager.v1.GeoP"
-    "olygonB\002\030\001R\ngeopolygon\022\?\n\tgeo_shape\030\027 \001("
-    "\0132\".anduril.entitymanager.v1.GeoShapeR\010g"
-    "eoShape\022E\n\013geo_details\030\030 \001(\0132$.anduril.e"
-    "ntitymanager.v1.GeoDetailsR\ngeoDetails\022;"
-    "\n\007aliases\030\007 \001(\0132!.anduril.entitymanager."
-    "v1.AliasesR\007aliases\022;\n\007tracked\030\010 \001(\0132!.a"
-    "nduril.entitymanager.v1.TrackedR\007tracked"
-    "\022D\n\ncorrelated\030\t \001(\0132$.anduril.entityman"
-    "ager.v1.CorrelatedR\ncorrelated\022<\n\010mil_vi"
-    "ew\030\n \001(\0132!.anduril.entitymanager.v1.MilV"
-    "iewR\007milView\022>\n\010ontology\030\013 \001(\0132\".anduril"
-    ".entitymanager.v1.OntologyR\010ontology\022;\n\007"
-    "sensors\030\024 \001(\0132!.anduril.entitymanager.v1"
-    ".SensorsR\007sensors\022>\n\010payloads\030\025 \001(\0132\".an"
-    "duril.entitymanager.v1.PayloadsR\010payload"
-    "s\022E\n\013power_state\030\036 \001(\0132$.anduril.entitym"
-    "anager.v1.PowerStateR\npowerState\022D\n\nprov"
-    "enance\030\014 \001(\0132$.anduril.entitymanager.v1."
-    "ProvenanceR\nprovenance\022A\n\toverrides\030\r \001("
-    "\0132#.anduril.entitymanager.v1.OverridesR\t"
-    "overrides\022D\n\nindicators\030\016 \001(\0132$.anduril."
-    "entitymanager.v1.IndicatorsR\nindicators\022"
-    "K\n\roriginal_data\030\022 \001(\0132&.anduril.entitym"
-    "anager.v1.OriginalDataR\014originalData\022Q\n\017"
-    "target_priority\030\026 \001(\0132(.anduril.entityma"
-    "nager.v1.TargetPriorityR\016targetPriority\022"
-    "8\n\006signal\030\031 \001(\0132 .anduril.entitymanager."
-    "v1.SignalR\006signal\022W\n\021transponder_codes\030\032"
-    " \001(\0132*.anduril.entitymanager.v1.Transpon"
-    "derCodesR\020transponderCodes\022B\n\007contact\030\033 "
-    "\001(\0132(.anduril.entitymanager.v1.ContactDe"
-    "tailsR\007contact\022Y\n\023data_classification\030\035 "
-    "\001(\0132(.anduril.entitymanager.v1.Classific"
-    "ationR\022dataClassification\022@\n\014task_catalo"
-    "g\030\037 \001(\0132\035.anduril.tasks.v2.TaskCatalogR\013"
-    "taskCatalog\0225\n\005media\030  \001(\0132\037.anduril.ent"
-    "itymanager.v1.MediaR\005media\022M\n\rrelationsh"
-    "ips\030! \001(\0132\'.anduril.entitymanager.v1.Rel"
-    "ationshipsR\rrelationships\022N\n\016visual_deta"
-    "ils\030\" \001(\0132\'.anduril.entitymanager.v1.Vis"
-    "ualDetailsR\rvisualDetails\022D\n\ndimensions\030"
-    "$ \001(\0132$.anduril.entitymanager.v1.Dimensi"
-    "onsR\ndimensions\022K\n\rroute_details\030% \001(\0132&"
-    ".anduril.entitymanager.v1.RouteDetailsR\014"
-    "routeDetails\022A\n\tschedules\030& \001(\0132#.anduri"
-    "l.entitymanager.v1.SchedulesR\tschedules\022"
-    "8\n\006health\030\' \001(\0132 .anduril.entitymanager."
-    "v1.HealthR\006health\022K\n\rgroup_details\030( \001(\013"
-    "2&.anduril.entitymanager.v1.GroupDetails"
-    "R\014groupDetails\022E\n\013team_status\030) \001(\0132$.an"
-    "duril.entitymanager.v1.TeamStatusR\nteamS"
-    "tatus\022>\n\010supplies\030* \001(\0132\".anduril.entity"
-    "manager.v1.SuppliesR\010supplies\0225\n\005orbit\030."
-    " \001(\0132\037.anduril.entitymanager.v1.OrbitR\005o"
-    "rbitJ\004\010\020\020\021J\004\010\034\020\035J\004\010#\020$R\024prototype_extens"
-    "ions\"H\n\010Entities\022<\n\010entities\030\001 \003(\0132 .and"
-    "uril.entitymanager.v1.EntityR\010entities\"I"
-    "\n\006Status\022+\n\021platform_activity\030\001 \001(\tR\020pla"
-    "tformActivity\022\022\n\004role\030\002 \001(\tR\004role\"s\n\007Ali"
-    "ases\022O\n\ralternate_ids\030\001 \003(\0132%.anduril.en"
-    "titymanager.v1.AlternateIdB\003\310>\001R\014alterna"
-    "teIds\022\027\n\004name\030\002 \001(\tB\003\310>\001R\004name\"\352\004\n\007Track"
-    "ed\022\'\n\rtrack_quality\030\001 \001(\rB\002\030\001R\014trackQual"
-    "ity\022O\n\025track_quality_wrapper\030\002 \001(\0132\033.goo"
-    "gle.protobuf.Int32ValueR\023trackQualityWra"
-    "pper\022<\n\013sensor_hits\030\003 \001(\0132\033.google.proto"
-    "buf.Int32ValueR\nsensorHits\022Q\n\021number_of_"
-    "objects\030\004 \001(\0132%.anduril.entitymanager.v1"
-    ".UInt32RangeR\017numberOfObjects\022L\n\016sensor_"
-    "details\030\005 \001(\0132!.anduril.entitymanager.v1"
-    ".SensorsB\002\030\001R\rsensorDetails\022L\n\023radar_cro"
-    "ss_section\030\006 \001(\0132\034.google.protobuf.Doubl"
-    "eValueR\021radarCrossSection\022N\n\025last_measur"
-    "ement_time\030\007 \001(\0132\032.google.protobuf.Times"
-    "tampR\023lastMeasurementTime\022O\n\017line_of_bea"
-    "ring\030\t \001(\0132\'.anduril.entitymanager.v1.Li"
-    "neOfBearingR\rlineOfBearingJ\004\010\010\020\tR\021relati"
-    "ve_position\"\301\002\n\nProvenance\022\033\n\tfeed_name\030"
-    "\007 \001(\tR\010feedName\022)\n\020integration_name\030\005 \001("
-    "\tR\017integrationName\022\033\n\tdata_type\030\006 \001(\tR\010d"
-    "ataType\0228\n\006source\030\001 \001(\0162 .anduril.entity"
-    "manager.v1.SourceR\006source\022\033\n\tsource_id\030\003"
-    " \001(\tR\010sourceId\022H\n\022source_update_time\030\002 \001"
-    "(\0132\032.google.protobuf.TimestampR\020sourceUp"
-    "dateTime\022-\n\022source_description\030\004 \001(\tR\021so"
-    "urceDescription\"\243\003\n\nIndicators\0228\n\tsimula"
-    "ted\030\001 \001(\0132\032.google.protobuf.BoolValueR\ts"
-    "imulated\0226\n\010exercise\030\002 \001(\0132\032.google.prot"
-    "obuf.BoolValueR\010exercise\0228\n\temergency\030\003 "
-    "\001(\0132\032.google.protobuf.BoolValueR\temergen"
-    "cy\022*\n\002c2\030\004 \001(\0132\032.google.protobuf.BoolVal"
-    "ueR\002c2\022A\n\tdeletable\030\005 \001(\0162#.anduril.enti"
-    "tymanager.v1.DeletableR\tdeletable\022\?\n\negr"
-    "essable\030\006 \001(\0132\032.google.protobuf.BoolValu"
-    "eB\003\310>\001R\negressable\0229\n\007starred\030\007 \001(\0132\032.go"
-    "ogle.protobuf.BoolValueB\003\310>\001R\007starred\"\235\001"
-    "\n\tOverrides\022>\n\010override\030\002 \003(\0132\".anduril."
-    "entitymanager.v1.OverrideR\010override\022P\n\np"
-    "rovenance\030\001 \003(\0132,.anduril.entitymanager."
-    "v1.OverrideProvenanceB\002\030\001R\nprovenance\"\245\003"
-    "\n\010Override\022\035\n\nrequest_id\030\001 \001(\tR\trequestI"
-    "d\022\035\n\nfield_path\030\002 \001(\tR\tfieldPath\022N\n\022mask"
-    "ed_field_value\030\003 \001(\0132 .anduril.entityman"
-    "ager.v1.EntityR\020maskedFieldValue\022@\n\006stat"
-    "us\030\004 \001(\0162(.anduril.entitymanager.v1.Over"
-    "rideStatusR\006status\022D\n\nprovenance\030\005 \001(\0132$"
-    ".anduril.entitymanager.v1.ProvenanceR\npr"
-    "ovenance\022:\n\004type\030\006 \001(\0162&.anduril.entitym"
-    "anager.v1.OverrideTypeR\004type\022G\n\021request_"
-    "timestamp\030\007 \001(\0132\032.google.protobuf.Timest"
-    "ampR\020requestTimestamp\"\236\001\n\022OverrideProven"
-    "ance\022\035\n\nfield_path\030\001 \001(\tR\tfieldPath\022\037\n\ts"
-    "ource_id\030\002 \001(\tB\002\030\001R\010sourceId\022D\n\nprovenan"
-    "ce\030\003 \001(\0132$.anduril.entitymanager.v1.Prov"
-    "enanceR\nprovenance:\002\030\001\"\231\001\n\014OriginalData\022"
-    "\020\n\003url\030\001 \001(\tR\003url\022@\n\003tle\030\002 \001(\0132*.anduril"
-    ".entitymanager.v1.OriginalData.TLEB\002\030\001R\003"
-    "tle\0325\n\003TLE\022\024\n\005line1\030\001 \001(\tR\005line1\022\024\n\005line"
-    "2\030\002 \001(\tR\005line2:\002\030\001\"w\n\013AlternateId\022\032\n\006sou"
-    "rce\030\001 \001(\tB\002\030\001R\006source\022\016\n\002id\030\002 \001(\tR\002id\022<\n"
-    "\004type\030\003 \001(\0162#.anduril.entitymanager.v1.A"
-    "ltIdTypeB\003\320>\001R\004type\"\267\001\n\rVisualDetails\022J\n"
-    "\013range_rings\030\001 \001(\0132$.anduril.entitymanag"
-    "er.v1.RangeRingsB\003\310>\001R\nrangeRings\022Z\n\022int"
-    "eractivity_mode\030\002 \001(\0162+.anduril.entityma"
-    "nager.v1.InteractivityModeR\021interactivit"
-    "yMode\"\263\001\n\nRangeRings\022B\n\016min_distance_m\030\001"
-    " \001(\0132\034.google.protobuf.DoubleValueR\014minD"
-    "istanceM\022B\n\016max_distance_m\030\002 \001(\0132\034.googl"
-    "e.protobuf.DoubleValueR\014maxDistanceM\022\035\n\n"
-    "ring_count\030\003 \001(\rR\tringCount\"\014\n\nTeamStatu"
-    "s*b\n\tDeletable\022\025\n\021DELETABLE_INVALID\020\000\022\022\n"
-    "\016DELETABLE_TRUE\020\001\022\023\n\017DELETABLE_FALSE\020\002\022\025"
-    "\n\021DELETABLE_REQUEST\020\003*{\n\021InteractivityMo"
-    "de\022\036\n\032INTERACTIVITY_MODE_INVALID\020\000\022\036\n\032IN"
-    "TERACTIVITY_MODE_DEFAULT\020\001\022&\n\"INTERACTIV"
-    "ITY_MODE_DISABLED_ON_MAP\020\002B\377\001\n\034com.andur"
-    "il.entitymanager.v1B\016EntityPubProtoP\001ZMg"
-    "he.anduril.dev/anduril/andurilapis-go/an"
-    "duril/entitymanager/v1;entitymanager\242\002\003A"
-    "EX\252\002\030Anduril.Entitymanager.V1\312\002\030Anduril\\"
-    "Entitymanager\\V1\342\002$Anduril\\Entitymanager"
-    "\\V1\\GPBMetadata\352\002\032Anduril::Entitymanager"
-    "::V1b\006proto3"
+    "\032-anduril/entitymanager/v1/dimensions.pu"
+    "b.proto\032,anduril/entitymanager/v1/geoent"
+    "ity.pub.proto\032(anduril/entitymanager/v1/"
+    "group.pub.proto\0320anduril/entitymanager/v"
+    "1/health_status.pub.proto\032+anduril/entit"
+    "ymanager/v1/location.pub.proto\032+anduril/"
+    "entitymanager/v1/ontology.pub.proto\032*and"
+    "uril/entitymanager/v1/options.pub.proto\032"
+    "(anduril/entitymanager/v1/orbit.pub.prot"
+    "o\032+anduril/entitymanager/v1/payloads.pub"
+    ".proto\032(anduril/entitymanager/v1/power.p"
+    "ub.proto\032/anduril/entitymanager/v1/relat"
+    "ionship.pub.proto\0320anduril/entitymanager"
+    "/v1/route_details.pub.proto\032+anduril/ent"
+    "itymanager/v1/schedule.pub.proto\032*anduri"
+    "l/entitymanager/v1/sensors.pub.proto\032)an"
+    "duril/entitymanager/v1/signal.pub.proto\032"
+    "+anduril/entitymanager/v1/supplies.pub.p"
+    "roto\0322anduril/entitymanager/v1/target_pr"
+    "iority.pub.proto\0324anduril/entitymanager/"
+    "v1/transponder_codes.pub.proto\032(anduril/"
+    "entitymanager/v1/types.pub.proto\032\"anduri"
+    "l/tasks/v2/catalog.pub.proto\032\034anduril/ty"
+    "pe/color.pub.proto\032\037google/protobuf/time"
+    "stamp.proto\032\036google/protobuf/wrappers.pr"
+    "oto\"\217\023\n\006Entity\022\033\n\tentity_id\030\001 \001(\tR\010entit"
+    "yId\022 \n\013description\030\002 \001(\tR\013description\022\027\n"
+    "\007is_live\030\003 \001(\010R\006isLive\022=\n\014created_time\030\004"
+    " \001(\0132\032.google.protobuf.TimestampR\013create"
+    "dTime\022;\n\013expiry_time\030\005 \001(\0132\032.google.prot"
+    "obuf.TimestampR\nexpiryTime\0228\n\006status\030\023 \001"
+    "(\0132 .anduril.entitymanager.v1.StatusR\006st"
+    "atus\022>\n\010location\030\006 \001(\0132\".anduril.entitym"
+    "anager.v1.LocationR\010location\022`\n\024location"
+    "_uncertainty\030\017 \001(\0132-.anduril.entitymanag"
+    "er.v1.LocationUncertaintyR\023locationUncer"
+    "tainty\022\?\n\tgeo_shape\030\027 \001(\0132\".anduril.enti"
+    "tymanager.v1.GeoShapeR\010geoShape\022E\n\013geo_d"
+    "etails\030\030 \001(\0132$.anduril.entitymanager.v1."
+    "GeoDetailsR\ngeoDetails\022;\n\007aliases\030\007 \001(\0132"
+    "!.anduril.entitymanager.v1.AliasesR\007alia"
+    "ses\022;\n\007tracked\030\010 \001(\0132!.anduril.entityman"
+    "ager.v1.TrackedR\007tracked\022G\n\013correlation\030"
+    "/ \001(\0132%.anduril.entitymanager.v1.Correla"
+    "tionR\013correlation\022<\n\010mil_view\030\n \001(\0132!.an"
+    "duril.entitymanager.v1.MilViewR\007milView\022"
+    ">\n\010ontology\030\013 \001(\0132\".anduril.entitymanage"
+    "r.v1.OntologyR\010ontology\022;\n\007sensors\030\024 \001(\013"
+    "2!.anduril.entitymanager.v1.SensorsR\007sen"
+    "sors\022>\n\010payloads\030\025 \001(\0132\".anduril.entitym"
+    "anager.v1.PayloadsR\010payloads\022E\n\013power_st"
+    "ate\030\036 \001(\0132$.anduril.entitymanager.v1.Pow"
+    "erStateR\npowerState\022D\n\nprovenance\030\014 \001(\0132"
+    "$.anduril.entitymanager.v1.ProvenanceR\np"
+    "rovenance\022A\n\toverrides\030\r \001(\0132#.anduril.e"
+    "ntitymanager.v1.OverridesR\toverrides\022D\n\n"
+    "indicators\030\016 \001(\0132$.anduril.entitymanager"
+    ".v1.IndicatorsR\nindicators\022Q\n\017target_pri"
+    "ority\030\026 \001(\0132(.anduril.entitymanager.v1.T"
+    "argetPriorityR\016targetPriority\0228\n\006signal\030"
+    "\031 \001(\0132 .anduril.entitymanager.v1.SignalR"
+    "\006signal\022W\n\021transponder_codes\030\032 \001(\0132*.and"
+    "uril.entitymanager.v1.TransponderCodesR\020"
+    "transponderCodes\022Y\n\023data_classification\030"
+    "\035 \001(\0132(.anduril.entitymanager.v1.Classif"
+    "icationR\022dataClassification\022@\n\014task_cata"
+    "log\030\037 \001(\0132\035.anduril.tasks.v2.TaskCatalog"
+    "R\013taskCatalog\022M\n\rrelationships\030! \001(\0132\'.a"
+    "nduril.entitymanager.v1.RelationshipsR\rr"
+    "elationships\022N\n\016visual_details\030\" \001(\0132\'.a"
+    "nduril.entitymanager.v1.VisualDetailsR\rv"
+    "isualDetails\022D\n\ndimensions\030$ \001(\0132$.andur"
+    "il.entitymanager.v1.DimensionsR\ndimensio"
+    "ns\022K\n\rroute_details\030% \001(\0132&.anduril.enti"
+    "tymanager.v1.RouteDetailsR\014routeDetails\022"
+    "A\n\tschedules\030& \001(\0132#.anduril.entitymanag"
+    "er.v1.SchedulesR\tschedules\0228\n\006health\030\' \001"
+    "(\0132 .anduril.entitymanager.v1.HealthR\006he"
+    "alth\022K\n\rgroup_details\030( \001(\0132&.anduril.en"
+    "titymanager.v1.GroupDetailsR\014groupDetail"
+    "s\022>\n\010supplies\030* \001(\0132\".anduril.entitymana"
+    "ger.v1.SuppliesR\010supplies\0225\n\005orbit\030. \001(\013"
+    "2\037.anduril.entitymanager.v1.OrbitR\005orbit"
+    "J\004\010\t\020\nJ\004\010\020\020\021J\004\010\021\020\022J\004\010\022\020\023J\004\010\033\020\034J\004\010\034\020\035J\004\010 "
+    "\020!J\004\010)\020*J\004\010+\020,R\ncorrelatedR\roriginal_dat"
+    "aR\ngeopolygonR\005mediaR\007contactR\013team_stat"
+    "usR\tno_expiry\"I\n\006Status\022+\n\021platform_acti"
+    "vity\030\001 \001(\tR\020platformActivity\022\022\n\004role\030\002 \001"
+    "(\tR\004role\"s\n\007Aliases\022O\n\ralternate_ids\030\001 \003"
+    "(\0132%.anduril.entitymanager.v1.AlternateI"
+    "dB\003\310>\001R\014alternateIds\022\027\n\004name\030\002 \001(\tB\003\310>\001R"
+    "\004name\"\236\004\n\007Tracked\022O\n\025track_quality_wrapp"
+    "er\030\002 \001(\0132\033.google.protobuf.Int32ValueR\023t"
+    "rackQualityWrapper\022<\n\013sensor_hits\030\003 \001(\0132"
+    "\033.google.protobuf.Int32ValueR\nsensorHits"
+    "\022Q\n\021number_of_objects\030\004 \001(\0132%.anduril.en"
+    "titymanager.v1.UInt32RangeR\017numberOfObje"
+    "cts\022L\n\023radar_cross_section\030\006 \001(\0132\034.googl"
+    "e.protobuf.DoubleValueR\021radarCrossSectio"
+    "n\022N\n\025last_measurement_time\030\007 \001(\0132\032.googl"
+    "e.protobuf.TimestampR\023lastMeasurementTim"
+    "e\022O\n\017line_of_bearing\030\t \001(\0132\'.anduril.ent"
+    "itymanager.v1.LineOfBearingR\rlineOfBeari"
+    "ngJ\004\010\001\020\002J\004\010\005\020\006J\004\010\010\020\tR\rtrack_qualityR\016sen"
+    "sor_detailsR\021relative_position\"\244\002\n\nProve"
+    "nance\022)\n\020integration_name\030\005 \001(\tR\017integra"
+    "tionName\022\033\n\tdata_type\030\006 \001(\tR\010dataType\0228\n"
+    "\006source\030\001 \001(\0162 .anduril.entitymanager.v1"
+    ".SourceR\006source\022\033\n\tsource_id\030\003 \001(\tR\010sour"
+    "ceId\022H\n\022source_update_time\030\002 \001(\0132\032.googl"
+    "e.protobuf.TimestampR\020sourceUpdateTime\022-"
+    "\n\022source_description\030\004 \001(\tR\021sourceDescri"
+    "ption\"\361\002\n\nIndicators\0228\n\tsimulated\030\001 \001(\0132"
+    "\032.google.protobuf.BoolValueR\tsimulated\0226"
+    "\n\010exercise\030\002 \001(\0132\032.google.protobuf.BoolV"
+    "alueR\010exercise\0228\n\temergency\030\003 \001(\0132\032.goog"
+    "le.protobuf.BoolValueR\temergency\022*\n\002c2\030\004"
+    " \001(\0132\032.google.protobuf.BoolValueR\002c2\022\?\n\n"
+    "egressable\030\006 \001(\0132\032.google.protobuf.BoolV"
+    "alueB\003\310>\001R\negressable\0229\n\007starred\030\007 \001(\0132\032"
+    ".google.protobuf.BoolValueB\003\310>\001R\007starred"
+    "J\004\010\005\020\006R\tdeletable\"]\n\tOverrides\022>\n\010overri"
+    "de\030\002 \003(\0132\".anduril.entitymanager.v1.Over"
+    "rideR\010overrideJ\004\010\001\020\002R\nprovenance\"\245\003\n\010Ove"
+    "rride\022\035\n\nrequest_id\030\001 \001(\tR\trequestId\022\035\n\n"
+    "field_path\030\002 \001(\tR\tfieldPath\022N\n\022masked_fi"
+    "eld_value\030\003 \001(\0132 .anduril.entitymanager."
+    "v1.EntityR\020maskedFieldValue\022@\n\006status\030\004 "
+    "\001(\0162(.anduril.entitymanager.v1.OverrideS"
+    "tatusR\006status\022D\n\nprovenance\030\005 \001(\0132$.andu"
+    "ril.entitymanager.v1.ProvenanceR\nprovena"
+    "nce\022:\n\004type\030\006 \001(\0162&.anduril.entitymanage"
+    "r.v1.OverrideTypeR\004type\022G\n\021request_times"
+    "tamp\030\007 \001(\0132\032.google.protobuf.TimestampR\020"
+    "requestTimestamp\"i\n\013AlternateId\022\016\n\002id\030\002 "
+    "\001(\tR\002id\022<\n\004type\030\003 \001(\0162#.anduril.entityma"
+    "nager.v1.AltIdTypeB\003\320>\001R\004typeJ\004\010\001\020\002R\006sou"
+    "rce\"[\n\rVisualDetails\022J\n\013range_rings\030\001 \001("
+    "\0132$.anduril.entitymanager.v1.RangeRingsB"
+    "\003\310>\001R\nrangeRings\"\360\001\n\nRangeRings\022B\n\016min_d"
+    "istance_m\030\001 \001(\0132\034.google.protobuf.Double"
+    "ValueR\014minDistanceM\022B\n\016max_distance_m\030\002 "
+    "\001(\0132\034.google.protobuf.DoubleValueR\014maxDi"
+    "stanceM\022\035\n\nring_count\030\003 \001(\rR\tringCount\022;"
+    "\n\017ring_line_color\030\004 \001(\0132\023.anduril.type.C"
+    "olorR\rringLineColor\"\205\002\n\013Correlation\022H\n\007p"
+    "rimary\030\001 \001(\0132,.anduril.entitymanager.v1."
+    "PrimaryCorrelationH\000R\007primary\022N\n\tseconda"
+    "ry\030\002 \001(\0132..anduril.entitymanager.v1.Seco"
+    "ndaryCorrelationH\000R\tsecondary\022M\n\rdecorre"
+    "lation\030\003 \001(\0132\'.anduril.entitymanager.v1."
+    "DecorrelationR\rdecorrelationB\r\n\013correlat"
+    "ion\"F\n\022PrimaryCorrelation\0220\n\024secondary_e"
+    "ntity_ids\030\001 \003(\tR\022secondaryEntityIds\"\215\001\n\024"
+    "SecondaryCorrelation\022*\n\021primary_entity_i"
+    "d\030\001 \001(\tR\017primaryEntityId\022I\n\010metadata\030\002 \001"
+    "(\0132-.anduril.entitymanager.v1.Correlatio"
+    "nMetadataR\010metadata\"\257\001\n\rDecorrelation\022;\n"
+    "\003all\030\001 \001(\0132).anduril.entitymanager.v1.De"
+    "correlatedAllR\003all\022a\n\025decorrelated_entit"
+    "ies\030\002 \003(\0132,.anduril.entitymanager.v1.Dec"
+    "orrelatedSingleR\024decorrelatedEntities\"\\\n"
+    "\017DecorrelatedAll\022I\n\010metadata\030\001 \001(\0132-.and"
+    "uril.entitymanager.v1.CorrelationMetadat"
+    "aR\010metadata\"|\n\022DecorrelatedSingle\022\033\n\tent"
+    "ity_id\030\001 \001(\tR\010entityId\022I\n\010metadata\030\002 \001(\013"
+    "2-.anduril.entitymanager.v1.CorrelationM"
+    "etadataR\010metadata\"\373\001\n\023CorrelationMetadat"
+    "a\022D\n\nprovenance\030\001 \001(\0132$.anduril.entityma"
+    "nager.v1.ProvenanceR\nprovenance\022_\n\020repli"
+    "cation_mode\030\002 \001(\01624.anduril.entitymanage"
+    "r.v1.CorrelationReplicationModeR\017replica"
+    "tionMode\022=\n\004type\030\003 \001(\0162).anduril.entitym"
+    "anager.v1.CorrelationTypeR\004type*l\n\017Corre"
+    "lationType\022\034\n\030CORRELATION_TYPE_INVALID\020\000"
+    "\022\033\n\027CORRELATION_TYPE_MANUAL\020\001\022\036\n\032CORRELA"
+    "TION_TYPE_AUTOMATED\020\002*\227\001\n\032CorrelationRep"
+    "licationMode\022(\n$CORRELATION_REPLICATION_"
+    "MODE_INVALID\020\000\022&\n\"CORRELATION_REPLICATIO"
+    "N_MODE_LOCAL\020\001\022\'\n#CORRELATION_REPLICATIO"
+    "N_MODE_GLOBAL\020\002B\377\001\n\034com.anduril.entityma"
+    "nager.v1B\016EntityPubProtoP\001ZMghe.anduril."
+    "dev/anduril/andurilapis-go/anduril/entit"
+    "ymanager/v1;entitymanager\242\002\003AEX\252\002\030Anduri"
+    "l.Entitymanager.V1\312\002\030Anduril\\Entitymanag"
+    "er\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBMeta"
+    "data\352\002\032Anduril::Entitymanager::V1b\006proto"
+    "3"
 };
-static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto_deps[26] =
+static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto_deps[24] =
     {
         &::descriptor_table_anduril_2fentitymanager_2fv1_2fclassification_2epub_2eproto,
-        &::descriptor_table_anduril_2fentitymanager_2fv1_2fcontact_5fdetails_2epub_2eproto,
-        &::descriptor_table_anduril_2fentitymanager_2fv1_2fcorrelations_2epub_2eproto,
         &::descriptor_table_anduril_2fentitymanager_2fv1_2fdimensions_2epub_2eproto,
         &::descriptor_table_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto,
         &::descriptor_table_anduril_2fentitymanager_2fv1_2fgroup_2epub_2eproto,
         &::descriptor_table_anduril_2fentitymanager_2fv1_2fhealth_5fstatus_2epub_2eproto,
         &::descriptor_table_anduril_2fentitymanager_2fv1_2flocation_2epub_2eproto,
-        &::descriptor_table_anduril_2fentitymanager_2fv1_2fmedia_2epub_2eproto,
         &::descriptor_table_anduril_2fentitymanager_2fv1_2fontology_2epub_2eproto,
         &::descriptor_table_anduril_2fentitymanager_2fv1_2foptions_2epub_2eproto,
         &::descriptor_table_anduril_2fentitymanager_2fv1_2forbit_2epub_2eproto,
@@ -1099,6 +1150,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentityman
         &::descriptor_table_anduril_2fentitymanager_2fv1_2ftransponder_5fcodes_2epub_2eproto,
         &::descriptor_table_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto,
         &::descriptor_table_anduril_2ftasks_2fv2_2fcatalog_2epub_2eproto,
+        &::descriptor_table_anduril_2ftype_2fcolor_2epub_2eproto,
         &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
         &::descriptor_table_google_2fprotobuf_2fwrappers_2eproto,
 };
@@ -1106,13 +1158,13 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fentity_
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto = {
     false,
     false,
-    7492,
+    7601,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto,
     "anduril/entitymanager/v1/entity.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto_once,
     descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto_deps,
-    26,
-    16,
+    24,
+    18,
     schemas,
     file_default_instances,
     TableStruct_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto::offsets,
@@ -1122,22 +1174,22 @@ PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fenti
 namespace anduril {
 namespace entitymanager {
 namespace v1 {
-const ::google::protobuf::EnumDescriptor* Deletable_descriptor() {
+const ::google::protobuf::EnumDescriptor* CorrelationType_descriptor() {
   ::google::protobuf::internal::AssignDescriptors(&descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto);
   return file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto[0];
 }
-PROTOBUF_CONSTINIT const uint32_t Deletable_internal_data_[] = {
-    262144u, 0u, };
-bool Deletable_IsValid(int value) {
-  return 0 <= value && value <= 3;
+PROTOBUF_CONSTINIT const uint32_t CorrelationType_internal_data_[] = {
+    196608u, 0u, };
+bool CorrelationType_IsValid(int value) {
+  return 0 <= value && value <= 2;
 }
-const ::google::protobuf::EnumDescriptor* InteractivityMode_descriptor() {
+const ::google::protobuf::EnumDescriptor* CorrelationReplicationMode_descriptor() {
   ::google::protobuf::internal::AssignDescriptors(&descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto);
   return file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto[1];
 }
-PROTOBUF_CONSTINIT const uint32_t InteractivityMode_internal_data_[] = {
+PROTOBUF_CONSTINIT const uint32_t CorrelationReplicationMode_internal_data_[] = {
     196608u, 0u, };
-bool InteractivityMode_IsValid(int value) {
+bool CorrelationReplicationMode_IsValid(int value) {
   return 0 <= value && value <= 2;
 }
 // ===================================================================
@@ -1168,127 +1220,107 @@ void Entity::clear_location() {
 void Entity::clear_location_uncertainty() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.location_uncertainty_ != nullptr) _impl_.location_uncertainty_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000800u;
-}
-void Entity::clear_geopolygon() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.geopolygon_ != nullptr) _impl_.geopolygon_->Clear();
-  _impl_._has_bits_[0] &= ~0x00001000u;
+  _impl_._has_bits_[0] &= ~0x00000400u;
 }
 void Entity::clear_geo_shape() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.geo_shape_ != nullptr) _impl_.geo_shape_->Clear();
-  _impl_._has_bits_[0] &= ~0x00040000u;
+  _impl_._has_bits_[0] &= ~0x00008000u;
 }
 void Entity::clear_geo_details() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.geo_details_ != nullptr) _impl_.geo_details_->Clear();
-  _impl_._has_bits_[0] &= ~0x00080000u;
-}
-void Entity::clear_correlated() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.correlated_ != nullptr) _impl_.correlated_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00010000u;
 }
 void Entity::clear_mil_view() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.mil_view_ != nullptr) _impl_.mil_view_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 void Entity::clear_ontology() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.ontology_ != nullptr) _impl_.ontology_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
 }
 void Entity::clear_sensors() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.sensors_ != nullptr) _impl_.sensors_->Clear();
-  _impl_._has_bits_[0] &= ~0x00008000u;
+  _impl_._has_bits_[0] &= ~0x00001000u;
 }
 void Entity::clear_payloads() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.payloads_ != nullptr) _impl_.payloads_->Clear();
-  _impl_._has_bits_[0] &= ~0x00010000u;
+  _impl_._has_bits_[0] &= ~0x00002000u;
 }
 void Entity::clear_power_state() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.power_state_ != nullptr) _impl_.power_state_->Clear();
-  _impl_._has_bits_[0] &= ~0x01000000u;
+  _impl_._has_bits_[0] &= ~0x00100000u;
 }
 void Entity::clear_target_priority() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.target_priority_ != nullptr) _impl_.target_priority_->Clear();
-  _impl_._has_bits_[0] &= ~0x00020000u;
+  _impl_._has_bits_[0] &= ~0x00004000u;
 }
 void Entity::clear_signal() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.signal_ != nullptr) _impl_.signal_->Clear();
-  _impl_._has_bits_[0] &= ~0x00100000u;
+  _impl_._has_bits_[0] &= ~0x00020000u;
 }
 void Entity::clear_transponder_codes() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.transponder_codes_ != nullptr) _impl_.transponder_codes_->Clear();
-  _impl_._has_bits_[0] &= ~0x00200000u;
-}
-void Entity::clear_contact() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.contact_ != nullptr) _impl_.contact_->Clear();
-  _impl_._has_bits_[0] &= ~0x00400000u;
+  _impl_._has_bits_[0] &= ~0x00040000u;
 }
 void Entity::clear_data_classification() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.data_classification_ != nullptr) _impl_.data_classification_->Clear();
-  _impl_._has_bits_[0] &= ~0x00800000u;
+  _impl_._has_bits_[0] &= ~0x00080000u;
 }
 void Entity::clear_task_catalog() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.task_catalog_ != nullptr) _impl_.task_catalog_->Clear();
-  _impl_._has_bits_[0] &= ~0x02000000u;
-}
-void Entity::clear_media() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.media_ != nullptr) _impl_.media_->Clear();
-  _impl_._has_bits_[0] &= ~0x04000000u;
+  _impl_._has_bits_[0] &= ~0x00200000u;
 }
 void Entity::clear_relationships() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.relationships_ != nullptr) _impl_.relationships_->Clear();
-  _impl_._has_bits_[0] &= ~0x08000000u;
+  _impl_._has_bits_[0] &= ~0x00400000u;
 }
 void Entity::clear_dimensions() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.dimensions_ != nullptr) _impl_.dimensions_->Clear();
-  _impl_._has_bits_[0] &= ~0x20000000u;
+  _impl_._has_bits_[0] &= ~0x01000000u;
 }
 void Entity::clear_route_details() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.route_details_ != nullptr) _impl_.route_details_->Clear();
-  _impl_._has_bits_[0] &= ~0x40000000u;
+  _impl_._has_bits_[0] &= ~0x02000000u;
 }
 void Entity::clear_schedules() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.schedules_ != nullptr) _impl_.schedules_->Clear();
-  _impl_._has_bits_[0] &= ~0x80000000u;
+  _impl_._has_bits_[0] &= ~0x04000000u;
 }
 void Entity::clear_health() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.health_ != nullptr) _impl_.health_->Clear();
-  _impl_._has_bits_[1] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x08000000u;
 }
 void Entity::clear_group_details() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.group_details_ != nullptr) _impl_.group_details_->Clear();
-  _impl_._has_bits_[1] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x10000000u;
 }
 void Entity::clear_supplies() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.supplies_ != nullptr) _impl_.supplies_->Clear();
-  _impl_._has_bits_[1] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x20000000u;
 }
 void Entity::clear_orbit() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.orbit_ != nullptr) _impl_.orbit_->Clear();
-  _impl_._has_bits_[1] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x40000000u;
 }
 Entity::Entity(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
@@ -1336,110 +1368,88 @@ Entity::Entity(
   _impl_.tracked_ = (cached_has_bits & 0x00000010u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Tracked>(
                               arena, *from._impl_.tracked_)
                         : nullptr;
-  _impl_.correlated_ = (cached_has_bits & 0x00000020u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Correlated>(
-                              arena, *from._impl_.correlated_)
-                        : nullptr;
-  _impl_.mil_view_ = (cached_has_bits & 0x00000040u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::MilView>(
+  _impl_.mil_view_ = (cached_has_bits & 0x00000020u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::MilView>(
                               arena, *from._impl_.mil_view_)
                         : nullptr;
-  _impl_.ontology_ = (cached_has_bits & 0x00000080u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Ontology>(
+  _impl_.ontology_ = (cached_has_bits & 0x00000040u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Ontology>(
                               arena, *from._impl_.ontology_)
                         : nullptr;
-  _impl_.provenance_ = (cached_has_bits & 0x00000100u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Provenance>(
+  _impl_.provenance_ = (cached_has_bits & 0x00000080u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Provenance>(
                               arena, *from._impl_.provenance_)
                         : nullptr;
-  _impl_.overrides_ = (cached_has_bits & 0x00000200u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Overrides>(
+  _impl_.overrides_ = (cached_has_bits & 0x00000100u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Overrides>(
                               arena, *from._impl_.overrides_)
                         : nullptr;
-  _impl_.indicators_ = (cached_has_bits & 0x00000400u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Indicators>(
+  _impl_.indicators_ = (cached_has_bits & 0x00000200u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Indicators>(
                               arena, *from._impl_.indicators_)
                         : nullptr;
-  _impl_.location_uncertainty_ = (cached_has_bits & 0x00000800u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::LocationUncertainty>(
+  _impl_.location_uncertainty_ = (cached_has_bits & 0x00000400u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::LocationUncertainty>(
                               arena, *from._impl_.location_uncertainty_)
                         : nullptr;
-  _impl_.geopolygon_ = (cached_has_bits & 0x00001000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::GeoPolygon>(
-                              arena, *from._impl_.geopolygon_)
-                        : nullptr;
-  _impl_.original_data_ = (cached_has_bits & 0x00002000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::OriginalData>(
-                              arena, *from._impl_.original_data_)
-                        : nullptr;
-  _impl_.status_ = (cached_has_bits & 0x00004000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Status>(
+  _impl_.status_ = (cached_has_bits & 0x00000800u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Status>(
                               arena, *from._impl_.status_)
                         : nullptr;
-  _impl_.sensors_ = (cached_has_bits & 0x00008000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Sensors>(
+  _impl_.sensors_ = (cached_has_bits & 0x00001000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Sensors>(
                               arena, *from._impl_.sensors_)
                         : nullptr;
-  _impl_.payloads_ = (cached_has_bits & 0x00010000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Payloads>(
+  _impl_.payloads_ = (cached_has_bits & 0x00002000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Payloads>(
                               arena, *from._impl_.payloads_)
                         : nullptr;
-  _impl_.target_priority_ = (cached_has_bits & 0x00020000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::TargetPriority>(
+  _impl_.target_priority_ = (cached_has_bits & 0x00004000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::TargetPriority>(
                               arena, *from._impl_.target_priority_)
                         : nullptr;
-  _impl_.geo_shape_ = (cached_has_bits & 0x00040000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::GeoShape>(
+  _impl_.geo_shape_ = (cached_has_bits & 0x00008000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::GeoShape>(
                               arena, *from._impl_.geo_shape_)
                         : nullptr;
-  _impl_.geo_details_ = (cached_has_bits & 0x00080000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::GeoDetails>(
+  _impl_.geo_details_ = (cached_has_bits & 0x00010000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::GeoDetails>(
                               arena, *from._impl_.geo_details_)
                         : nullptr;
-  _impl_.signal_ = (cached_has_bits & 0x00100000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Signal>(
+  _impl_.signal_ = (cached_has_bits & 0x00020000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Signal>(
                               arena, *from._impl_.signal_)
                         : nullptr;
-  _impl_.transponder_codes_ = (cached_has_bits & 0x00200000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::TransponderCodes>(
+  _impl_.transponder_codes_ = (cached_has_bits & 0x00040000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::TransponderCodes>(
                               arena, *from._impl_.transponder_codes_)
                         : nullptr;
-  _impl_.contact_ = (cached_has_bits & 0x00400000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::ContactDetails>(
-                              arena, *from._impl_.contact_)
-                        : nullptr;
-  _impl_.data_classification_ = (cached_has_bits & 0x00800000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Classification>(
+  _impl_.data_classification_ = (cached_has_bits & 0x00080000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Classification>(
                               arena, *from._impl_.data_classification_)
                         : nullptr;
-  _impl_.power_state_ = (cached_has_bits & 0x01000000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::PowerState>(
+  _impl_.power_state_ = (cached_has_bits & 0x00100000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::PowerState>(
                               arena, *from._impl_.power_state_)
                         : nullptr;
-  _impl_.task_catalog_ = (cached_has_bits & 0x02000000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::tasks::v2::TaskCatalog>(
+  _impl_.task_catalog_ = (cached_has_bits & 0x00200000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::tasks::v2::TaskCatalog>(
                               arena, *from._impl_.task_catalog_)
                         : nullptr;
-  _impl_.media_ = (cached_has_bits & 0x04000000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Media>(
-                              arena, *from._impl_.media_)
-                        : nullptr;
-  _impl_.relationships_ = (cached_has_bits & 0x08000000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Relationships>(
+  _impl_.relationships_ = (cached_has_bits & 0x00400000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Relationships>(
                               arena, *from._impl_.relationships_)
                         : nullptr;
-  _impl_.visual_details_ = (cached_has_bits & 0x10000000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::VisualDetails>(
+  _impl_.visual_details_ = (cached_has_bits & 0x00800000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::VisualDetails>(
                               arena, *from._impl_.visual_details_)
                         : nullptr;
-  _impl_.dimensions_ = (cached_has_bits & 0x20000000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Dimensions>(
+  _impl_.dimensions_ = (cached_has_bits & 0x01000000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Dimensions>(
                               arena, *from._impl_.dimensions_)
                         : nullptr;
-  _impl_.route_details_ = (cached_has_bits & 0x40000000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::RouteDetails>(
+  _impl_.route_details_ = (cached_has_bits & 0x02000000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::RouteDetails>(
                               arena, *from._impl_.route_details_)
                         : nullptr;
-  _impl_.schedules_ = (cached_has_bits & 0x80000000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Schedules>(
+  _impl_.schedules_ = (cached_has_bits & 0x04000000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Schedules>(
                               arena, *from._impl_.schedules_)
                         : nullptr;
-  cached_has_bits = _impl_._has_bits_[1];
-  _impl_.health_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Health>(
+  _impl_.health_ = (cached_has_bits & 0x08000000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Health>(
                               arena, *from._impl_.health_)
                         : nullptr;
-  _impl_.group_details_ = (cached_has_bits & 0x00000002u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::GroupDetails>(
+  _impl_.group_details_ = (cached_has_bits & 0x10000000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::GroupDetails>(
                               arena, *from._impl_.group_details_)
                         : nullptr;
-  _impl_.team_status_ = (cached_has_bits & 0x00000004u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::TeamStatus>(
-                              arena, *from._impl_.team_status_)
-                        : nullptr;
-  _impl_.supplies_ = (cached_has_bits & 0x00000008u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Supplies>(
+  _impl_.supplies_ = (cached_has_bits & 0x20000000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Supplies>(
                               arena, *from._impl_.supplies_)
                         : nullptr;
-  _impl_.orbit_ = (cached_has_bits & 0x00000010u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Orbit>(
+  _impl_.orbit_ = (cached_has_bits & 0x40000000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Orbit>(
                               arena, *from._impl_.orbit_)
                         : nullptr;
-  ::memcpy(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, is_live_),
-           reinterpret_cast<const char *>(&from._impl_) +
-               offsetof(Impl_, is_live_),
-           offsetof(Impl_, no_expiry_) -
-               offsetof(Impl_, is_live_) +
-               sizeof(Impl_::no_expiry_));
+  _impl_.correlation_ = (cached_has_bits & 0x80000000u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Correlation>(
+                              arena, *from._impl_.correlation_)
+                        : nullptr;
+  _impl_.is_live_ = from._impl_.is_live_;
 
   // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.Entity)
 }
@@ -1455,9 +1465,9 @@ inline void Entity::SharedCtor(::_pb::Arena* arena) {
   ::memset(reinterpret_cast<char *>(&_impl_) +
                offsetof(Impl_, created_time_),
            0,
-           offsetof(Impl_, no_expiry_) -
+           offsetof(Impl_, is_live_) -
                offsetof(Impl_, created_time_) +
-               sizeof(Impl_::no_expiry_));
+               sizeof(Impl_::is_live_));
 }
 Entity::~Entity() {
   // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.Entity)
@@ -1473,15 +1483,12 @@ inline void Entity::SharedDtor() {
   delete _impl_.location_;
   delete _impl_.aliases_;
   delete _impl_.tracked_;
-  delete _impl_.correlated_;
   delete _impl_.mil_view_;
   delete _impl_.ontology_;
   delete _impl_.provenance_;
   delete _impl_.overrides_;
   delete _impl_.indicators_;
   delete _impl_.location_uncertainty_;
-  delete _impl_.geopolygon_;
-  delete _impl_.original_data_;
   delete _impl_.status_;
   delete _impl_.sensors_;
   delete _impl_.payloads_;
@@ -1490,11 +1497,9 @@ inline void Entity::SharedDtor() {
   delete _impl_.geo_details_;
   delete _impl_.signal_;
   delete _impl_.transponder_codes_;
-  delete _impl_.contact_;
   delete _impl_.data_classification_;
   delete _impl_.power_state_;
   delete _impl_.task_catalog_;
-  delete _impl_.media_;
   delete _impl_.relationships_;
   delete _impl_.visual_details_;
   delete _impl_.dimensions_;
@@ -1502,9 +1507,9 @@ inline void Entity::SharedDtor() {
   delete _impl_.schedules_;
   delete _impl_.health_;
   delete _impl_.group_details_;
-  delete _impl_.team_status_;
   delete _impl_.supplies_;
   delete _impl_.orbit_;
+  delete _impl_.correlation_;
   _impl_.~Impl_();
 }
 
@@ -1537,16 +1542,16 @@ const ::google::protobuf::MessageLite::ClassData* Entity::GetClassData() const {
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<5, 41, 37, 100, 7> Entity::_table_ = {
+const ::_pbi::TcParseTable<5, 35, 32, 92, 7> Entity::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(Entity, _impl_._has_bits_),
     0, // no _extensions_
-    46, 248,  // max_field_number, fast_idx_mask
+    47, 248,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    134250496,  // skipmap
+    2349039872,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    41,  // num_field_entries
-    37,  // num_aux_entries
+    35,  // num_field_entries
+    32,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
@@ -1580,76 +1585,70 @@ const ::_pbi::TcParseTable<5, 41, 37, 100, 7> Entity::_table_ = {
     // .anduril.entitymanager.v1.Tracked tracked = 8 [json_name = "tracked"];
     {::_pbi::TcParser::FastMtS1,
      {66, 4, 4, PROTOBUF_FIELD_OFFSET(Entity, _impl_.tracked_)}},
-    // .anduril.entitymanager.v1.Correlated correlated = 9 [json_name = "correlated"];
-    {::_pbi::TcParser::FastMtS1,
-     {74, 5, 5, PROTOBUF_FIELD_OFFSET(Entity, _impl_.correlated_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // .anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];
     {::_pbi::TcParser::FastMtS1,
-     {82, 6, 6, PROTOBUF_FIELD_OFFSET(Entity, _impl_.mil_view_)}},
+     {82, 5, 5, PROTOBUF_FIELD_OFFSET(Entity, _impl_.mil_view_)}},
     // .anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];
     {::_pbi::TcParser::FastMtS1,
-     {90, 7, 7, PROTOBUF_FIELD_OFFSET(Entity, _impl_.ontology_)}},
+     {90, 6, 6, PROTOBUF_FIELD_OFFSET(Entity, _impl_.ontology_)}},
     // .anduril.entitymanager.v1.Provenance provenance = 12 [json_name = "provenance"];
     {::_pbi::TcParser::FastMtS1,
-     {98, 8, 8, PROTOBUF_FIELD_OFFSET(Entity, _impl_.provenance_)}},
+     {98, 7, 7, PROTOBUF_FIELD_OFFSET(Entity, _impl_.provenance_)}},
     // .anduril.entitymanager.v1.Overrides overrides = 13 [json_name = "overrides"];
     {::_pbi::TcParser::FastMtS1,
-     {106, 9, 9, PROTOBUF_FIELD_OFFSET(Entity, _impl_.overrides_)}},
+     {106, 8, 8, PROTOBUF_FIELD_OFFSET(Entity, _impl_.overrides_)}},
     // .anduril.entitymanager.v1.Indicators indicators = 14 [json_name = "indicators"];
     {::_pbi::TcParser::FastMtS1,
-     {114, 10, 10, PROTOBUF_FIELD_OFFSET(Entity, _impl_.indicators_)}},
+     {114, 9, 9, PROTOBUF_FIELD_OFFSET(Entity, _impl_.indicators_)}},
     // .anduril.entitymanager.v1.LocationUncertainty location_uncertainty = 15 [json_name = "locationUncertainty"];
     {::_pbi::TcParser::FastMtS1,
-     {122, 11, 11, PROTOBUF_FIELD_OFFSET(Entity, _impl_.location_uncertainty_)}},
-    // .anduril.entitymanager.v1.Media media = 32 [json_name = "media"];
+     {122, 10, 10, PROTOBUF_FIELD_OFFSET(Entity, _impl_.location_uncertainty_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    // .anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];
     {::_pbi::TcParser::FastMtS2,
-     {642, 26, 26, PROTOBUF_FIELD_OFFSET(Entity, _impl_.media_)}},
-    // .anduril.entitymanager.v1.GeoPolygon geopolygon = 17 [json_name = "geopolygon", deprecated = true];
+     {650, 22, 22, PROTOBUF_FIELD_OFFSET(Entity, _impl_.relationships_)}},
+    // .anduril.entitymanager.v1.VisualDetails visual_details = 34 [json_name = "visualDetails"];
     {::_pbi::TcParser::FastMtS2,
-     {394, 12, 12, PROTOBUF_FIELD_OFFSET(Entity, _impl_.geopolygon_)}},
-    // .anduril.entitymanager.v1.OriginalData original_data = 18 [json_name = "originalData"];
-    {::_pbi::TcParser::FastMtS2,
-     {402, 13, 13, PROTOBUF_FIELD_OFFSET(Entity, _impl_.original_data_)}},
+     {658, 23, 23, PROTOBUF_FIELD_OFFSET(Entity, _impl_.visual_details_)}},
     // .anduril.entitymanager.v1.Status status = 19 [json_name = "status"];
     {::_pbi::TcParser::FastMtS2,
-     {410, 14, 14, PROTOBUF_FIELD_OFFSET(Entity, _impl_.status_)}},
+     {410, 11, 11, PROTOBUF_FIELD_OFFSET(Entity, _impl_.status_)}},
     // .anduril.entitymanager.v1.Sensors sensors = 20 [json_name = "sensors"];
     {::_pbi::TcParser::FastMtS2,
-     {418, 15, 15, PROTOBUF_FIELD_OFFSET(Entity, _impl_.sensors_)}},
+     {418, 12, 12, PROTOBUF_FIELD_OFFSET(Entity, _impl_.sensors_)}},
     // .anduril.entitymanager.v1.Payloads payloads = 21 [json_name = "payloads"];
     {::_pbi::TcParser::FastMtS2,
-     {426, 16, 16, PROTOBUF_FIELD_OFFSET(Entity, _impl_.payloads_)}},
+     {426, 13, 13, PROTOBUF_FIELD_OFFSET(Entity, _impl_.payloads_)}},
     // .anduril.entitymanager.v1.TargetPriority target_priority = 22 [json_name = "targetPriority"];
     {::_pbi::TcParser::FastMtS2,
-     {434, 17, 17, PROTOBUF_FIELD_OFFSET(Entity, _impl_.target_priority_)}},
+     {434, 14, 14, PROTOBUF_FIELD_OFFSET(Entity, _impl_.target_priority_)}},
     // .anduril.entitymanager.v1.GeoShape geo_shape = 23 [json_name = "geoShape"];
     {::_pbi::TcParser::FastMtS2,
-     {442, 18, 18, PROTOBUF_FIELD_OFFSET(Entity, _impl_.geo_shape_)}},
+     {442, 15, 15, PROTOBUF_FIELD_OFFSET(Entity, _impl_.geo_shape_)}},
     // .anduril.entitymanager.v1.GeoDetails geo_details = 24 [json_name = "geoDetails"];
     {::_pbi::TcParser::FastMtS2,
-     {450, 19, 19, PROTOBUF_FIELD_OFFSET(Entity, _impl_.geo_details_)}},
+     {450, 16, 16, PROTOBUF_FIELD_OFFSET(Entity, _impl_.geo_details_)}},
     // .anduril.entitymanager.v1.Signal signal = 25 [json_name = "signal"];
     {::_pbi::TcParser::FastMtS2,
-     {458, 20, 20, PROTOBUF_FIELD_OFFSET(Entity, _impl_.signal_)}},
+     {458, 17, 17, PROTOBUF_FIELD_OFFSET(Entity, _impl_.signal_)}},
     // .anduril.entitymanager.v1.TransponderCodes transponder_codes = 26 [json_name = "transponderCodes"];
     {::_pbi::TcParser::FastMtS2,
-     {466, 21, 21, PROTOBUF_FIELD_OFFSET(Entity, _impl_.transponder_codes_)}},
-    // .anduril.entitymanager.v1.ContactDetails contact = 27 [json_name = "contact"];
-    {::_pbi::TcParser::FastMtS2,
-     {474, 22, 22, PROTOBUF_FIELD_OFFSET(Entity, _impl_.contact_)}},
+     {466, 18, 18, PROTOBUF_FIELD_OFFSET(Entity, _impl_.transponder_codes_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     // .anduril.entitymanager.v1.Classification data_classification = 29 [json_name = "dataClassification"];
     {::_pbi::TcParser::FastMtS2,
-     {490, 23, 23, PROTOBUF_FIELD_OFFSET(Entity, _impl_.data_classification_)}},
+     {490, 19, 19, PROTOBUF_FIELD_OFFSET(Entity, _impl_.data_classification_)}},
     // .anduril.entitymanager.v1.PowerState power_state = 30 [json_name = "powerState"];
     {::_pbi::TcParser::FastMtS2,
-     {498, 24, 24, PROTOBUF_FIELD_OFFSET(Entity, _impl_.power_state_)}},
+     {498, 20, 20, PROTOBUF_FIELD_OFFSET(Entity, _impl_.power_state_)}},
     // .anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];
     {::_pbi::TcParser::FastMtS2,
-     {506, 25, 25, PROTOBUF_FIELD_OFFSET(Entity, _impl_.task_catalog_)}},
+     {506, 21, 21, PROTOBUF_FIELD_OFFSET(Entity, _impl_.task_catalog_)}},
   }}, {{
     33, 0, 1,
-    55300, 30,
+    40196, 25,
     65535, 65535
   }}, {{
     // string entity_id = 1 [json_name = "entityId"];
@@ -1676,104 +1675,86 @@ const ::_pbi::TcParseTable<5, 41, 37, 100, 7> Entity::_table_ = {
     // .anduril.entitymanager.v1.Tracked tracked = 8 [json_name = "tracked"];
     {PROTOBUF_FIELD_OFFSET(Entity, _impl_.tracked_), _Internal::kHasBitsOffset + 4, 4,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .anduril.entitymanager.v1.Correlated correlated = 9 [json_name = "correlated"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.correlated_), _Internal::kHasBitsOffset + 5, 5,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.mil_view_), _Internal::kHasBitsOffset + 6, 6,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.mil_view_), _Internal::kHasBitsOffset + 5, 5,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.ontology_), _Internal::kHasBitsOffset + 7, 7,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.ontology_), _Internal::kHasBitsOffset + 6, 6,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.Provenance provenance = 12 [json_name = "provenance"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.provenance_), _Internal::kHasBitsOffset + 8, 8,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.provenance_), _Internal::kHasBitsOffset + 7, 7,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.Overrides overrides = 13 [json_name = "overrides"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.overrides_), _Internal::kHasBitsOffset + 9, 9,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.overrides_), _Internal::kHasBitsOffset + 8, 8,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.Indicators indicators = 14 [json_name = "indicators"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.indicators_), _Internal::kHasBitsOffset + 10, 10,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.indicators_), _Internal::kHasBitsOffset + 9, 9,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.LocationUncertainty location_uncertainty = 15 [json_name = "locationUncertainty"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.location_uncertainty_), _Internal::kHasBitsOffset + 11, 11,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .anduril.entitymanager.v1.GeoPolygon geopolygon = 17 [json_name = "geopolygon", deprecated = true];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.geopolygon_), _Internal::kHasBitsOffset + 12, 12,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .anduril.entitymanager.v1.OriginalData original_data = 18 [json_name = "originalData"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.original_data_), _Internal::kHasBitsOffset + 13, 13,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.location_uncertainty_), _Internal::kHasBitsOffset + 10, 10,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.Status status = 19 [json_name = "status"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.status_), _Internal::kHasBitsOffset + 14, 14,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.status_), _Internal::kHasBitsOffset + 11, 11,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.Sensors sensors = 20 [json_name = "sensors"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.sensors_), _Internal::kHasBitsOffset + 15, 15,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.sensors_), _Internal::kHasBitsOffset + 12, 12,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.Payloads payloads = 21 [json_name = "payloads"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.payloads_), _Internal::kHasBitsOffset + 16, 16,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.payloads_), _Internal::kHasBitsOffset + 13, 13,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.TargetPriority target_priority = 22 [json_name = "targetPriority"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.target_priority_), _Internal::kHasBitsOffset + 17, 17,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.target_priority_), _Internal::kHasBitsOffset + 14, 14,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.GeoShape geo_shape = 23 [json_name = "geoShape"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.geo_shape_), _Internal::kHasBitsOffset + 18, 18,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.geo_shape_), _Internal::kHasBitsOffset + 15, 15,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.GeoDetails geo_details = 24 [json_name = "geoDetails"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.geo_details_), _Internal::kHasBitsOffset + 19, 19,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.geo_details_), _Internal::kHasBitsOffset + 16, 16,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.Signal signal = 25 [json_name = "signal"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.signal_), _Internal::kHasBitsOffset + 20, 20,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.signal_), _Internal::kHasBitsOffset + 17, 17,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.TransponderCodes transponder_codes = 26 [json_name = "transponderCodes"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.transponder_codes_), _Internal::kHasBitsOffset + 21, 21,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .anduril.entitymanager.v1.ContactDetails contact = 27 [json_name = "contact"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.contact_), _Internal::kHasBitsOffset + 22, 22,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.transponder_codes_), _Internal::kHasBitsOffset + 18, 18,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.Classification data_classification = 29 [json_name = "dataClassification"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.data_classification_), _Internal::kHasBitsOffset + 23, 23,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.data_classification_), _Internal::kHasBitsOffset + 19, 19,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.PowerState power_state = 30 [json_name = "powerState"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.power_state_), _Internal::kHasBitsOffset + 24, 24,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.power_state_), _Internal::kHasBitsOffset + 20, 20,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.task_catalog_), _Internal::kHasBitsOffset + 25, 25,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .anduril.entitymanager.v1.Media media = 32 [json_name = "media"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.media_), _Internal::kHasBitsOffset + 26, 26,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.task_catalog_), _Internal::kHasBitsOffset + 21, 21,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.relationships_), _Internal::kHasBitsOffset + 27, 27,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.relationships_), _Internal::kHasBitsOffset + 22, 22,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.VisualDetails visual_details = 34 [json_name = "visualDetails"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.visual_details_), _Internal::kHasBitsOffset + 28, 28,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.visual_details_), _Internal::kHasBitsOffset + 23, 23,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.Dimensions dimensions = 36 [json_name = "dimensions"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.dimensions_), _Internal::kHasBitsOffset + 29, 29,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.dimensions_), _Internal::kHasBitsOffset + 24, 24,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.RouteDetails route_details = 37 [json_name = "routeDetails"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.route_details_), _Internal::kHasBitsOffset + 30, 30,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.route_details_), _Internal::kHasBitsOffset + 25, 25,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.Schedules schedules = 38 [json_name = "schedules"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.schedules_), _Internal::kHasBitsOffset + 31, 31,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.schedules_), _Internal::kHasBitsOffset + 26, 26,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.Health health = 39 [json_name = "health"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.health_), _Internal::kHasBitsOffset + 32, 32,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.health_), _Internal::kHasBitsOffset + 27, 27,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.GroupDetails group_details = 40 [json_name = "groupDetails"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.group_details_), _Internal::kHasBitsOffset + 33, 33,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .anduril.entitymanager.v1.TeamStatus team_status = 41 [json_name = "teamStatus"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.team_status_), _Internal::kHasBitsOffset + 34, 34,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.group_details_), _Internal::kHasBitsOffset + 28, 28,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.supplies_), _Internal::kHasBitsOffset + 35, 35,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.supplies_), _Internal::kHasBitsOffset + 29, 29,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // bool no_expiry = 43 [json_name = "noExpiry"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.no_expiry_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
     // .anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];
-    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.orbit_), _Internal::kHasBitsOffset + 36, 36,
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.orbit_), _Internal::kHasBitsOffset + 30, 30,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .anduril.entitymanager.v1.Correlation correlation = 47 [json_name = "correlation"];
+    {PROTOBUF_FIELD_OFFSET(Entity, _impl_.correlation_), _Internal::kHasBitsOffset + 31, 31,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
     {::_pbi::TcParser::GetTable<::google::protobuf::Timestamp>()},
@@ -1781,15 +1762,12 @@ const ::_pbi::TcParseTable<5, 41, 37, 100, 7> Entity::_table_ = {
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Location>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Aliases>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Tracked>()},
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Correlated>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::MilView>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Ontology>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Provenance>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Overrides>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Indicators>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::LocationUncertainty>()},
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::GeoPolygon>()},
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::OriginalData>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Status>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Sensors>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Payloads>()},
@@ -1798,11 +1776,9 @@ const ::_pbi::TcParseTable<5, 41, 37, 100, 7> Entity::_table_ = {
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::GeoDetails>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Signal>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::TransponderCodes>()},
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::ContactDetails>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Classification>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::PowerState>()},
     {::_pbi::TcParser::GetTable<::anduril::tasks::v2::TaskCatalog>()},
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Media>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Relationships>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::VisualDetails>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Dimensions>()},
@@ -1810,11 +1786,11 @@ const ::_pbi::TcParseTable<5, 41, 37, 100, 7> Entity::_table_ = {
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Schedules>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Health>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::GroupDetails>()},
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::TeamStatus>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Supplies>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Orbit>()},
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Correlation>()},
   }}, {{
-    "\37\11\13\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
+    "\37\11\13\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
     "anduril.entitymanager.v1.Entity"
     "entity_id"
     "description"
@@ -1853,146 +1829,121 @@ PROTOBUF_NOINLINE void Entity::Clear() {
       _impl_.tracked_->Clear();
     }
     if (cached_has_bits & 0x00000020u) {
-      ABSL_DCHECK(_impl_.correlated_ != nullptr);
-      _impl_.correlated_->Clear();
-    }
-    if (cached_has_bits & 0x00000040u) {
       ABSL_DCHECK(_impl_.mil_view_ != nullptr);
       _impl_.mil_view_->Clear();
     }
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000040u) {
       ABSL_DCHECK(_impl_.ontology_ != nullptr);
       _impl_.ontology_->Clear();
+    }
+    if (cached_has_bits & 0x00000080u) {
+      ABSL_DCHECK(_impl_.provenance_ != nullptr);
+      _impl_.provenance_->Clear();
     }
   }
   if (cached_has_bits & 0x0000ff00u) {
     if (cached_has_bits & 0x00000100u) {
-      ABSL_DCHECK(_impl_.provenance_ != nullptr);
-      _impl_.provenance_->Clear();
-    }
-    if (cached_has_bits & 0x00000200u) {
       ABSL_DCHECK(_impl_.overrides_ != nullptr);
       _impl_.overrides_->Clear();
     }
-    if (cached_has_bits & 0x00000400u) {
+    if (cached_has_bits & 0x00000200u) {
       ABSL_DCHECK(_impl_.indicators_ != nullptr);
       _impl_.indicators_->Clear();
     }
-    if (cached_has_bits & 0x00000800u) {
+    if (cached_has_bits & 0x00000400u) {
       ABSL_DCHECK(_impl_.location_uncertainty_ != nullptr);
       _impl_.location_uncertainty_->Clear();
     }
-    if (cached_has_bits & 0x00001000u) {
-      ABSL_DCHECK(_impl_.geopolygon_ != nullptr);
-      _impl_.geopolygon_->Clear();
-    }
-    if (cached_has_bits & 0x00002000u) {
-      ABSL_DCHECK(_impl_.original_data_ != nullptr);
-      _impl_.original_data_->Clear();
-    }
-    if (cached_has_bits & 0x00004000u) {
+    if (cached_has_bits & 0x00000800u) {
       ABSL_DCHECK(_impl_.status_ != nullptr);
       _impl_.status_->Clear();
     }
-    if (cached_has_bits & 0x00008000u) {
+    if (cached_has_bits & 0x00001000u) {
       ABSL_DCHECK(_impl_.sensors_ != nullptr);
       _impl_.sensors_->Clear();
+    }
+    if (cached_has_bits & 0x00002000u) {
+      ABSL_DCHECK(_impl_.payloads_ != nullptr);
+      _impl_.payloads_->Clear();
+    }
+    if (cached_has_bits & 0x00004000u) {
+      ABSL_DCHECK(_impl_.target_priority_ != nullptr);
+      _impl_.target_priority_->Clear();
+    }
+    if (cached_has_bits & 0x00008000u) {
+      ABSL_DCHECK(_impl_.geo_shape_ != nullptr);
+      _impl_.geo_shape_->Clear();
     }
   }
   if (cached_has_bits & 0x00ff0000u) {
     if (cached_has_bits & 0x00010000u) {
-      ABSL_DCHECK(_impl_.payloads_ != nullptr);
-      _impl_.payloads_->Clear();
-    }
-    if (cached_has_bits & 0x00020000u) {
-      ABSL_DCHECK(_impl_.target_priority_ != nullptr);
-      _impl_.target_priority_->Clear();
-    }
-    if (cached_has_bits & 0x00040000u) {
-      ABSL_DCHECK(_impl_.geo_shape_ != nullptr);
-      _impl_.geo_shape_->Clear();
-    }
-    if (cached_has_bits & 0x00080000u) {
       ABSL_DCHECK(_impl_.geo_details_ != nullptr);
       _impl_.geo_details_->Clear();
     }
-    if (cached_has_bits & 0x00100000u) {
+    if (cached_has_bits & 0x00020000u) {
       ABSL_DCHECK(_impl_.signal_ != nullptr);
       _impl_.signal_->Clear();
     }
-    if (cached_has_bits & 0x00200000u) {
+    if (cached_has_bits & 0x00040000u) {
       ABSL_DCHECK(_impl_.transponder_codes_ != nullptr);
       _impl_.transponder_codes_->Clear();
     }
-    if (cached_has_bits & 0x00400000u) {
-      ABSL_DCHECK(_impl_.contact_ != nullptr);
-      _impl_.contact_->Clear();
-    }
-    if (cached_has_bits & 0x00800000u) {
+    if (cached_has_bits & 0x00080000u) {
       ABSL_DCHECK(_impl_.data_classification_ != nullptr);
       _impl_.data_classification_->Clear();
+    }
+    if (cached_has_bits & 0x00100000u) {
+      ABSL_DCHECK(_impl_.power_state_ != nullptr);
+      _impl_.power_state_->Clear();
+    }
+    if (cached_has_bits & 0x00200000u) {
+      ABSL_DCHECK(_impl_.task_catalog_ != nullptr);
+      _impl_.task_catalog_->Clear();
+    }
+    if (cached_has_bits & 0x00400000u) {
+      ABSL_DCHECK(_impl_.relationships_ != nullptr);
+      _impl_.relationships_->Clear();
+    }
+    if (cached_has_bits & 0x00800000u) {
+      ABSL_DCHECK(_impl_.visual_details_ != nullptr);
+      _impl_.visual_details_->Clear();
     }
   }
   if (cached_has_bits & 0xff000000u) {
     if (cached_has_bits & 0x01000000u) {
-      ABSL_DCHECK(_impl_.power_state_ != nullptr);
-      _impl_.power_state_->Clear();
-    }
-    if (cached_has_bits & 0x02000000u) {
-      ABSL_DCHECK(_impl_.task_catalog_ != nullptr);
-      _impl_.task_catalog_->Clear();
-    }
-    if (cached_has_bits & 0x04000000u) {
-      ABSL_DCHECK(_impl_.media_ != nullptr);
-      _impl_.media_->Clear();
-    }
-    if (cached_has_bits & 0x08000000u) {
-      ABSL_DCHECK(_impl_.relationships_ != nullptr);
-      _impl_.relationships_->Clear();
-    }
-    if (cached_has_bits & 0x10000000u) {
-      ABSL_DCHECK(_impl_.visual_details_ != nullptr);
-      _impl_.visual_details_->Clear();
-    }
-    if (cached_has_bits & 0x20000000u) {
       ABSL_DCHECK(_impl_.dimensions_ != nullptr);
       _impl_.dimensions_->Clear();
     }
-    if (cached_has_bits & 0x40000000u) {
+    if (cached_has_bits & 0x02000000u) {
       ABSL_DCHECK(_impl_.route_details_ != nullptr);
       _impl_.route_details_->Clear();
     }
-    if (cached_has_bits & 0x80000000u) {
+    if (cached_has_bits & 0x04000000u) {
       ABSL_DCHECK(_impl_.schedules_ != nullptr);
       _impl_.schedules_->Clear();
     }
-  }
-  cached_has_bits = _impl_._has_bits_[1];
-  if (cached_has_bits & 0x0000001fu) {
-    if (cached_has_bits & 0x00000001u) {
+    if (cached_has_bits & 0x08000000u) {
       ABSL_DCHECK(_impl_.health_ != nullptr);
       _impl_.health_->Clear();
     }
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x10000000u) {
       ABSL_DCHECK(_impl_.group_details_ != nullptr);
       _impl_.group_details_->Clear();
     }
-    if (cached_has_bits & 0x00000004u) {
-      ABSL_DCHECK(_impl_.team_status_ != nullptr);
-      _impl_.team_status_->Clear();
-    }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x20000000u) {
       ABSL_DCHECK(_impl_.supplies_ != nullptr);
       _impl_.supplies_->Clear();
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x40000000u) {
       ABSL_DCHECK(_impl_.orbit_ != nullptr);
       _impl_.orbit_->Clear();
     }
+    if (cached_has_bits & 0x80000000u) {
+      ABSL_DCHECK(_impl_.correlation_ != nullptr);
+      _impl_.correlation_->Clear();
+    }
   }
-  ::memset(&_impl_.is_live_, 0, static_cast<::size_t>(
-      reinterpret_cast<char*>(&_impl_.no_expiry_) -
-      reinterpret_cast<char*>(&_impl_.is_live_)) + sizeof(_impl_.no_expiry_));
+  _impl_.is_live_ = false;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -2071,235 +2022,192 @@ PROTOBUF_NOINLINE void Entity::Clear() {
                 stream);
           }
 
-          // .anduril.entitymanager.v1.Correlated correlated = 9 [json_name = "correlated"];
-          if (cached_has_bits & 0x00000020u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                9, *this_._impl_.correlated_, this_._impl_.correlated_->GetCachedSize(), target,
-                stream);
-          }
-
           // .anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];
-          if (cached_has_bits & 0x00000040u) {
+          if (cached_has_bits & 0x00000020u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 10, *this_._impl_.mil_view_, this_._impl_.mil_view_->GetCachedSize(), target,
                 stream);
           }
 
           // .anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];
-          if (cached_has_bits & 0x00000080u) {
+          if (cached_has_bits & 0x00000040u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 11, *this_._impl_.ontology_, this_._impl_.ontology_->GetCachedSize(), target,
                 stream);
           }
 
           // .anduril.entitymanager.v1.Provenance provenance = 12 [json_name = "provenance"];
-          if (cached_has_bits & 0x00000100u) {
+          if (cached_has_bits & 0x00000080u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 12, *this_._impl_.provenance_, this_._impl_.provenance_->GetCachedSize(), target,
                 stream);
           }
 
           // .anduril.entitymanager.v1.Overrides overrides = 13 [json_name = "overrides"];
-          if (cached_has_bits & 0x00000200u) {
+          if (cached_has_bits & 0x00000100u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 13, *this_._impl_.overrides_, this_._impl_.overrides_->GetCachedSize(), target,
                 stream);
           }
 
           // .anduril.entitymanager.v1.Indicators indicators = 14 [json_name = "indicators"];
-          if (cached_has_bits & 0x00000400u) {
+          if (cached_has_bits & 0x00000200u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 14, *this_._impl_.indicators_, this_._impl_.indicators_->GetCachedSize(), target,
                 stream);
           }
 
           // .anduril.entitymanager.v1.LocationUncertainty location_uncertainty = 15 [json_name = "locationUncertainty"];
-          if (cached_has_bits & 0x00000800u) {
+          if (cached_has_bits & 0x00000400u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 15, *this_._impl_.location_uncertainty_, this_._impl_.location_uncertainty_->GetCachedSize(), target,
                 stream);
           }
 
-          // .anduril.entitymanager.v1.GeoPolygon geopolygon = 17 [json_name = "geopolygon", deprecated = true];
-          if (cached_has_bits & 0x00001000u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                17, *this_._impl_.geopolygon_, this_._impl_.geopolygon_->GetCachedSize(), target,
-                stream);
-          }
-
-          // .anduril.entitymanager.v1.OriginalData original_data = 18 [json_name = "originalData"];
-          if (cached_has_bits & 0x00002000u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                18, *this_._impl_.original_data_, this_._impl_.original_data_->GetCachedSize(), target,
-                stream);
-          }
-
           // .anduril.entitymanager.v1.Status status = 19 [json_name = "status"];
-          if (cached_has_bits & 0x00004000u) {
+          if (cached_has_bits & 0x00000800u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 19, *this_._impl_.status_, this_._impl_.status_->GetCachedSize(), target,
                 stream);
           }
 
           // .anduril.entitymanager.v1.Sensors sensors = 20 [json_name = "sensors"];
-          if (cached_has_bits & 0x00008000u) {
+          if (cached_has_bits & 0x00001000u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 20, *this_._impl_.sensors_, this_._impl_.sensors_->GetCachedSize(), target,
                 stream);
           }
 
           // .anduril.entitymanager.v1.Payloads payloads = 21 [json_name = "payloads"];
-          if (cached_has_bits & 0x00010000u) {
+          if (cached_has_bits & 0x00002000u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 21, *this_._impl_.payloads_, this_._impl_.payloads_->GetCachedSize(), target,
                 stream);
           }
 
           // .anduril.entitymanager.v1.TargetPriority target_priority = 22 [json_name = "targetPriority"];
-          if (cached_has_bits & 0x00020000u) {
+          if (cached_has_bits & 0x00004000u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 22, *this_._impl_.target_priority_, this_._impl_.target_priority_->GetCachedSize(), target,
                 stream);
           }
 
           // .anduril.entitymanager.v1.GeoShape geo_shape = 23 [json_name = "geoShape"];
-          if (cached_has_bits & 0x00040000u) {
+          if (cached_has_bits & 0x00008000u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 23, *this_._impl_.geo_shape_, this_._impl_.geo_shape_->GetCachedSize(), target,
                 stream);
           }
 
           // .anduril.entitymanager.v1.GeoDetails geo_details = 24 [json_name = "geoDetails"];
-          if (cached_has_bits & 0x00080000u) {
+          if (cached_has_bits & 0x00010000u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 24, *this_._impl_.geo_details_, this_._impl_.geo_details_->GetCachedSize(), target,
                 stream);
           }
 
           // .anduril.entitymanager.v1.Signal signal = 25 [json_name = "signal"];
-          if (cached_has_bits & 0x00100000u) {
+          if (cached_has_bits & 0x00020000u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 25, *this_._impl_.signal_, this_._impl_.signal_->GetCachedSize(), target,
                 stream);
           }
 
           // .anduril.entitymanager.v1.TransponderCodes transponder_codes = 26 [json_name = "transponderCodes"];
-          if (cached_has_bits & 0x00200000u) {
+          if (cached_has_bits & 0x00040000u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 26, *this_._impl_.transponder_codes_, this_._impl_.transponder_codes_->GetCachedSize(), target,
                 stream);
           }
 
-          // .anduril.entitymanager.v1.ContactDetails contact = 27 [json_name = "contact"];
-          if (cached_has_bits & 0x00400000u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                27, *this_._impl_.contact_, this_._impl_.contact_->GetCachedSize(), target,
-                stream);
-          }
-
           // .anduril.entitymanager.v1.Classification data_classification = 29 [json_name = "dataClassification"];
-          if (cached_has_bits & 0x00800000u) {
+          if (cached_has_bits & 0x00080000u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 29, *this_._impl_.data_classification_, this_._impl_.data_classification_->GetCachedSize(), target,
                 stream);
           }
 
           // .anduril.entitymanager.v1.PowerState power_state = 30 [json_name = "powerState"];
-          if (cached_has_bits & 0x01000000u) {
+          if (cached_has_bits & 0x00100000u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 30, *this_._impl_.power_state_, this_._impl_.power_state_->GetCachedSize(), target,
                 stream);
           }
 
           // .anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];
-          if (cached_has_bits & 0x02000000u) {
+          if (cached_has_bits & 0x00200000u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 31, *this_._impl_.task_catalog_, this_._impl_.task_catalog_->GetCachedSize(), target,
                 stream);
           }
 
-          // .anduril.entitymanager.v1.Media media = 32 [json_name = "media"];
-          if (cached_has_bits & 0x04000000u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                32, *this_._impl_.media_, this_._impl_.media_->GetCachedSize(), target,
-                stream);
-          }
-
           // .anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];
-          if (cached_has_bits & 0x08000000u) {
+          if (cached_has_bits & 0x00400000u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 33, *this_._impl_.relationships_, this_._impl_.relationships_->GetCachedSize(), target,
                 stream);
           }
 
           // .anduril.entitymanager.v1.VisualDetails visual_details = 34 [json_name = "visualDetails"];
-          if (cached_has_bits & 0x10000000u) {
+          if (cached_has_bits & 0x00800000u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 34, *this_._impl_.visual_details_, this_._impl_.visual_details_->GetCachedSize(), target,
                 stream);
           }
 
           // .anduril.entitymanager.v1.Dimensions dimensions = 36 [json_name = "dimensions"];
-          if (cached_has_bits & 0x20000000u) {
+          if (cached_has_bits & 0x01000000u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 36, *this_._impl_.dimensions_, this_._impl_.dimensions_->GetCachedSize(), target,
                 stream);
           }
 
           // .anduril.entitymanager.v1.RouteDetails route_details = 37 [json_name = "routeDetails"];
-          if (cached_has_bits & 0x40000000u) {
+          if (cached_has_bits & 0x02000000u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 37, *this_._impl_.route_details_, this_._impl_.route_details_->GetCachedSize(), target,
                 stream);
           }
 
           // .anduril.entitymanager.v1.Schedules schedules = 38 [json_name = "schedules"];
-          if (cached_has_bits & 0x80000000u) {
+          if (cached_has_bits & 0x04000000u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 38, *this_._impl_.schedules_, this_._impl_.schedules_->GetCachedSize(), target,
                 stream);
           }
 
-          cached_has_bits = this_._impl_._has_bits_[1];
           // .anduril.entitymanager.v1.Health health = 39 [json_name = "health"];
-          if (cached_has_bits & 0x00000001u) {
+          if (cached_has_bits & 0x08000000u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 39, *this_._impl_.health_, this_._impl_.health_->GetCachedSize(), target,
                 stream);
           }
 
           // .anduril.entitymanager.v1.GroupDetails group_details = 40 [json_name = "groupDetails"];
-          if (cached_has_bits & 0x00000002u) {
+          if (cached_has_bits & 0x10000000u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 40, *this_._impl_.group_details_, this_._impl_.group_details_->GetCachedSize(), target,
                 stream);
           }
 
-          // .anduril.entitymanager.v1.TeamStatus team_status = 41 [json_name = "teamStatus"];
-          if (cached_has_bits & 0x00000004u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                41, *this_._impl_.team_status_, this_._impl_.team_status_->GetCachedSize(), target,
-                stream);
-          }
-
           // .anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];
-          if (cached_has_bits & 0x00000008u) {
+          if (cached_has_bits & 0x20000000u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 42, *this_._impl_.supplies_, this_._impl_.supplies_->GetCachedSize(), target,
                 stream);
           }
 
-          // bool no_expiry = 43 [json_name = "noExpiry"];
-          if (this_._internal_no_expiry() != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteBoolToArray(
-                43, this_._internal_no_expiry(), target);
-          }
-
           // .anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];
-          if (cached_has_bits & 0x00000010u) {
+          if (cached_has_bits & 0x40000000u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 46, *this_._impl_.orbit_, this_._impl_.orbit_->GetCachedSize(), target,
+                stream);
+          }
+
+          // .anduril.entitymanager.v1.Correlation correlation = 47 [json_name = "correlation"];
+          if (cached_has_bits & 0x80000000u) {
+            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                47, *this_._impl_.correlation_, this_._impl_.correlation_->GetCachedSize(), target,
                 stream);
           }
 
@@ -2366,184 +2274,152 @@ PROTOBUF_NOINLINE void Entity::Clear() {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.tracked_);
             }
-            // .anduril.entitymanager.v1.Correlated correlated = 9 [json_name = "correlated"];
-            if (cached_has_bits & 0x00000020u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.correlated_);
-            }
             // .anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];
-            if (cached_has_bits & 0x00000040u) {
+            if (cached_has_bits & 0x00000020u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.mil_view_);
             }
             // .anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];
-            if (cached_has_bits & 0x00000080u) {
+            if (cached_has_bits & 0x00000040u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.ontology_);
             }
-          }
-          if (cached_has_bits & 0x0000ff00u) {
             // .anduril.entitymanager.v1.Provenance provenance = 12 [json_name = "provenance"];
-            if (cached_has_bits & 0x00000100u) {
+            if (cached_has_bits & 0x00000080u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.provenance_);
             }
+          }
+          if (cached_has_bits & 0x0000ff00u) {
             // .anduril.entitymanager.v1.Overrides overrides = 13 [json_name = "overrides"];
-            if (cached_has_bits & 0x00000200u) {
+            if (cached_has_bits & 0x00000100u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.overrides_);
             }
             // .anduril.entitymanager.v1.Indicators indicators = 14 [json_name = "indicators"];
-            if (cached_has_bits & 0x00000400u) {
+            if (cached_has_bits & 0x00000200u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.indicators_);
             }
             // .anduril.entitymanager.v1.LocationUncertainty location_uncertainty = 15 [json_name = "locationUncertainty"];
-            if (cached_has_bits & 0x00000800u) {
+            if (cached_has_bits & 0x00000400u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.location_uncertainty_);
             }
-            // .anduril.entitymanager.v1.GeoPolygon geopolygon = 17 [json_name = "geopolygon", deprecated = true];
-            if (cached_has_bits & 0x00001000u) {
-              total_size += 2 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.geopolygon_);
-            }
-            // .anduril.entitymanager.v1.OriginalData original_data = 18 [json_name = "originalData"];
-            if (cached_has_bits & 0x00002000u) {
-              total_size += 2 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.original_data_);
-            }
             // .anduril.entitymanager.v1.Status status = 19 [json_name = "status"];
-            if (cached_has_bits & 0x00004000u) {
+            if (cached_has_bits & 0x00000800u) {
               total_size += 2 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.status_);
             }
             // .anduril.entitymanager.v1.Sensors sensors = 20 [json_name = "sensors"];
-            if (cached_has_bits & 0x00008000u) {
+            if (cached_has_bits & 0x00001000u) {
               total_size += 2 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.sensors_);
             }
-          }
-          if (cached_has_bits & 0x00ff0000u) {
             // .anduril.entitymanager.v1.Payloads payloads = 21 [json_name = "payloads"];
-            if (cached_has_bits & 0x00010000u) {
+            if (cached_has_bits & 0x00002000u) {
               total_size += 2 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.payloads_);
             }
             // .anduril.entitymanager.v1.TargetPriority target_priority = 22 [json_name = "targetPriority"];
-            if (cached_has_bits & 0x00020000u) {
+            if (cached_has_bits & 0x00004000u) {
               total_size += 2 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.target_priority_);
             }
             // .anduril.entitymanager.v1.GeoShape geo_shape = 23 [json_name = "geoShape"];
-            if (cached_has_bits & 0x00040000u) {
+            if (cached_has_bits & 0x00008000u) {
               total_size += 2 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.geo_shape_);
             }
+          }
+          if (cached_has_bits & 0x00ff0000u) {
             // .anduril.entitymanager.v1.GeoDetails geo_details = 24 [json_name = "geoDetails"];
-            if (cached_has_bits & 0x00080000u) {
+            if (cached_has_bits & 0x00010000u) {
               total_size += 2 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.geo_details_);
             }
             // .anduril.entitymanager.v1.Signal signal = 25 [json_name = "signal"];
-            if (cached_has_bits & 0x00100000u) {
+            if (cached_has_bits & 0x00020000u) {
               total_size += 2 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.signal_);
             }
             // .anduril.entitymanager.v1.TransponderCodes transponder_codes = 26 [json_name = "transponderCodes"];
-            if (cached_has_bits & 0x00200000u) {
+            if (cached_has_bits & 0x00040000u) {
               total_size += 2 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.transponder_codes_);
             }
-            // .anduril.entitymanager.v1.ContactDetails contact = 27 [json_name = "contact"];
-            if (cached_has_bits & 0x00400000u) {
-              total_size += 2 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.contact_);
-            }
             // .anduril.entitymanager.v1.Classification data_classification = 29 [json_name = "dataClassification"];
-            if (cached_has_bits & 0x00800000u) {
+            if (cached_has_bits & 0x00080000u) {
               total_size += 2 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.data_classification_);
             }
-          }
-          if (cached_has_bits & 0xff000000u) {
             // .anduril.entitymanager.v1.PowerState power_state = 30 [json_name = "powerState"];
-            if (cached_has_bits & 0x01000000u) {
+            if (cached_has_bits & 0x00100000u) {
               total_size += 2 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.power_state_);
             }
             // .anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];
-            if (cached_has_bits & 0x02000000u) {
+            if (cached_has_bits & 0x00200000u) {
               total_size += 2 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.task_catalog_);
             }
-            // .anduril.entitymanager.v1.Media media = 32 [json_name = "media"];
-            if (cached_has_bits & 0x04000000u) {
-              total_size += 2 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.media_);
-            }
             // .anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];
-            if (cached_has_bits & 0x08000000u) {
+            if (cached_has_bits & 0x00400000u) {
               total_size += 2 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.relationships_);
             }
             // .anduril.entitymanager.v1.VisualDetails visual_details = 34 [json_name = "visualDetails"];
-            if (cached_has_bits & 0x10000000u) {
+            if (cached_has_bits & 0x00800000u) {
               total_size += 2 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.visual_details_);
             }
+          }
+          if (cached_has_bits & 0xff000000u) {
             // .anduril.entitymanager.v1.Dimensions dimensions = 36 [json_name = "dimensions"];
-            if (cached_has_bits & 0x20000000u) {
+            if (cached_has_bits & 0x01000000u) {
               total_size += 2 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.dimensions_);
             }
             // .anduril.entitymanager.v1.RouteDetails route_details = 37 [json_name = "routeDetails"];
-            if (cached_has_bits & 0x40000000u) {
+            if (cached_has_bits & 0x02000000u) {
               total_size += 2 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.route_details_);
             }
             // .anduril.entitymanager.v1.Schedules schedules = 38 [json_name = "schedules"];
-            if (cached_has_bits & 0x80000000u) {
+            if (cached_has_bits & 0x04000000u) {
               total_size += 2 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.schedules_);
             }
-          }
-          cached_has_bits = this_._impl_._has_bits_[1];
-          if (cached_has_bits & 0x0000001fu) {
             // .anduril.entitymanager.v1.Health health = 39 [json_name = "health"];
-            if (cached_has_bits & 0x00000001u) {
+            if (cached_has_bits & 0x08000000u) {
               total_size += 2 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.health_);
             }
             // .anduril.entitymanager.v1.GroupDetails group_details = 40 [json_name = "groupDetails"];
-            if (cached_has_bits & 0x00000002u) {
+            if (cached_has_bits & 0x10000000u) {
               total_size += 2 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.group_details_);
             }
-            // .anduril.entitymanager.v1.TeamStatus team_status = 41 [json_name = "teamStatus"];
-            if (cached_has_bits & 0x00000004u) {
-              total_size += 2 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.team_status_);
-            }
             // .anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];
-            if (cached_has_bits & 0x00000008u) {
+            if (cached_has_bits & 0x20000000u) {
               total_size += 2 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.supplies_);
             }
             // .anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];
-            if (cached_has_bits & 0x00000010u) {
+            if (cached_has_bits & 0x40000000u) {
               total_size += 2 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.orbit_);
+            }
+            // .anduril.entitymanager.v1.Correlation correlation = 47 [json_name = "correlation"];
+            if (cached_has_bits & 0x80000000u) {
+              total_size += 2 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.correlation_);
             }
           }
            {
             // bool is_live = 3 [json_name = "isLive"];
             if (this_._internal_is_live() != 0) {
               total_size += 2;
-            }
-            // bool no_expiry = 43 [json_name = "noExpiry"];
-            if (this_._internal_no_expiry() != 0) {
-              total_size += 3;
             }
           }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
@@ -2613,15 +2489,6 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
       }
     }
     if (cached_has_bits & 0x00000020u) {
-      ABSL_DCHECK(from._impl_.correlated_ != nullptr);
-      if (_this->_impl_.correlated_ == nullptr) {
-        _this->_impl_.correlated_ =
-            ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Correlated>(arena, *from._impl_.correlated_);
-      } else {
-        _this->_impl_.correlated_->MergeFrom(*from._impl_.correlated_);
-      }
-    }
-    if (cached_has_bits & 0x00000040u) {
       ABSL_DCHECK(from._impl_.mil_view_ != nullptr);
       if (_this->_impl_.mil_view_ == nullptr) {
         _this->_impl_.mil_view_ =
@@ -2630,7 +2497,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.mil_view_->MergeFrom(*from._impl_.mil_view_);
       }
     }
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000040u) {
       ABSL_DCHECK(from._impl_.ontology_ != nullptr);
       if (_this->_impl_.ontology_ == nullptr) {
         _this->_impl_.ontology_ =
@@ -2639,9 +2506,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.ontology_->MergeFrom(*from._impl_.ontology_);
       }
     }
-  }
-  if (cached_has_bits & 0x0000ff00u) {
-    if (cached_has_bits & 0x00000100u) {
+    if (cached_has_bits & 0x00000080u) {
       ABSL_DCHECK(from._impl_.provenance_ != nullptr);
       if (_this->_impl_.provenance_ == nullptr) {
         _this->_impl_.provenance_ =
@@ -2650,7 +2515,9 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.provenance_->MergeFrom(*from._impl_.provenance_);
       }
     }
-    if (cached_has_bits & 0x00000200u) {
+  }
+  if (cached_has_bits & 0x0000ff00u) {
+    if (cached_has_bits & 0x00000100u) {
       ABSL_DCHECK(from._impl_.overrides_ != nullptr);
       if (_this->_impl_.overrides_ == nullptr) {
         _this->_impl_.overrides_ =
@@ -2659,7 +2526,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.overrides_->MergeFrom(*from._impl_.overrides_);
       }
     }
-    if (cached_has_bits & 0x00000400u) {
+    if (cached_has_bits & 0x00000200u) {
       ABSL_DCHECK(from._impl_.indicators_ != nullptr);
       if (_this->_impl_.indicators_ == nullptr) {
         _this->_impl_.indicators_ =
@@ -2668,7 +2535,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.indicators_->MergeFrom(*from._impl_.indicators_);
       }
     }
-    if (cached_has_bits & 0x00000800u) {
+    if (cached_has_bits & 0x00000400u) {
       ABSL_DCHECK(from._impl_.location_uncertainty_ != nullptr);
       if (_this->_impl_.location_uncertainty_ == nullptr) {
         _this->_impl_.location_uncertainty_ =
@@ -2677,25 +2544,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.location_uncertainty_->MergeFrom(*from._impl_.location_uncertainty_);
       }
     }
-    if (cached_has_bits & 0x00001000u) {
-      ABSL_DCHECK(from._impl_.geopolygon_ != nullptr);
-      if (_this->_impl_.geopolygon_ == nullptr) {
-        _this->_impl_.geopolygon_ =
-            ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::GeoPolygon>(arena, *from._impl_.geopolygon_);
-      } else {
-        _this->_impl_.geopolygon_->MergeFrom(*from._impl_.geopolygon_);
-      }
-    }
-    if (cached_has_bits & 0x00002000u) {
-      ABSL_DCHECK(from._impl_.original_data_ != nullptr);
-      if (_this->_impl_.original_data_ == nullptr) {
-        _this->_impl_.original_data_ =
-            ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::OriginalData>(arena, *from._impl_.original_data_);
-      } else {
-        _this->_impl_.original_data_->MergeFrom(*from._impl_.original_data_);
-      }
-    }
-    if (cached_has_bits & 0x00004000u) {
+    if (cached_has_bits & 0x00000800u) {
       ABSL_DCHECK(from._impl_.status_ != nullptr);
       if (_this->_impl_.status_ == nullptr) {
         _this->_impl_.status_ =
@@ -2704,7 +2553,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.status_->MergeFrom(*from._impl_.status_);
       }
     }
-    if (cached_has_bits & 0x00008000u) {
+    if (cached_has_bits & 0x00001000u) {
       ABSL_DCHECK(from._impl_.sensors_ != nullptr);
       if (_this->_impl_.sensors_ == nullptr) {
         _this->_impl_.sensors_ =
@@ -2713,9 +2562,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.sensors_->MergeFrom(*from._impl_.sensors_);
       }
     }
-  }
-  if (cached_has_bits & 0x00ff0000u) {
-    if (cached_has_bits & 0x00010000u) {
+    if (cached_has_bits & 0x00002000u) {
       ABSL_DCHECK(from._impl_.payloads_ != nullptr);
       if (_this->_impl_.payloads_ == nullptr) {
         _this->_impl_.payloads_ =
@@ -2724,7 +2571,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.payloads_->MergeFrom(*from._impl_.payloads_);
       }
     }
-    if (cached_has_bits & 0x00020000u) {
+    if (cached_has_bits & 0x00004000u) {
       ABSL_DCHECK(from._impl_.target_priority_ != nullptr);
       if (_this->_impl_.target_priority_ == nullptr) {
         _this->_impl_.target_priority_ =
@@ -2733,7 +2580,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.target_priority_->MergeFrom(*from._impl_.target_priority_);
       }
     }
-    if (cached_has_bits & 0x00040000u) {
+    if (cached_has_bits & 0x00008000u) {
       ABSL_DCHECK(from._impl_.geo_shape_ != nullptr);
       if (_this->_impl_.geo_shape_ == nullptr) {
         _this->_impl_.geo_shape_ =
@@ -2742,7 +2589,9 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.geo_shape_->MergeFrom(*from._impl_.geo_shape_);
       }
     }
-    if (cached_has_bits & 0x00080000u) {
+  }
+  if (cached_has_bits & 0x00ff0000u) {
+    if (cached_has_bits & 0x00010000u) {
       ABSL_DCHECK(from._impl_.geo_details_ != nullptr);
       if (_this->_impl_.geo_details_ == nullptr) {
         _this->_impl_.geo_details_ =
@@ -2751,7 +2600,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.geo_details_->MergeFrom(*from._impl_.geo_details_);
       }
     }
-    if (cached_has_bits & 0x00100000u) {
+    if (cached_has_bits & 0x00020000u) {
       ABSL_DCHECK(from._impl_.signal_ != nullptr);
       if (_this->_impl_.signal_ == nullptr) {
         _this->_impl_.signal_ =
@@ -2760,7 +2609,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.signal_->MergeFrom(*from._impl_.signal_);
       }
     }
-    if (cached_has_bits & 0x00200000u) {
+    if (cached_has_bits & 0x00040000u) {
       ABSL_DCHECK(from._impl_.transponder_codes_ != nullptr);
       if (_this->_impl_.transponder_codes_ == nullptr) {
         _this->_impl_.transponder_codes_ =
@@ -2769,16 +2618,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.transponder_codes_->MergeFrom(*from._impl_.transponder_codes_);
       }
     }
-    if (cached_has_bits & 0x00400000u) {
-      ABSL_DCHECK(from._impl_.contact_ != nullptr);
-      if (_this->_impl_.contact_ == nullptr) {
-        _this->_impl_.contact_ =
-            ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::ContactDetails>(arena, *from._impl_.contact_);
-      } else {
-        _this->_impl_.contact_->MergeFrom(*from._impl_.contact_);
-      }
-    }
-    if (cached_has_bits & 0x00800000u) {
+    if (cached_has_bits & 0x00080000u) {
       ABSL_DCHECK(from._impl_.data_classification_ != nullptr);
       if (_this->_impl_.data_classification_ == nullptr) {
         _this->_impl_.data_classification_ =
@@ -2787,9 +2627,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.data_classification_->MergeFrom(*from._impl_.data_classification_);
       }
     }
-  }
-  if (cached_has_bits & 0xff000000u) {
-    if (cached_has_bits & 0x01000000u) {
+    if (cached_has_bits & 0x00100000u) {
       ABSL_DCHECK(from._impl_.power_state_ != nullptr);
       if (_this->_impl_.power_state_ == nullptr) {
         _this->_impl_.power_state_ =
@@ -2798,7 +2636,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.power_state_->MergeFrom(*from._impl_.power_state_);
       }
     }
-    if (cached_has_bits & 0x02000000u) {
+    if (cached_has_bits & 0x00200000u) {
       ABSL_DCHECK(from._impl_.task_catalog_ != nullptr);
       if (_this->_impl_.task_catalog_ == nullptr) {
         _this->_impl_.task_catalog_ =
@@ -2807,16 +2645,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.task_catalog_->MergeFrom(*from._impl_.task_catalog_);
       }
     }
-    if (cached_has_bits & 0x04000000u) {
-      ABSL_DCHECK(from._impl_.media_ != nullptr);
-      if (_this->_impl_.media_ == nullptr) {
-        _this->_impl_.media_ =
-            ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Media>(arena, *from._impl_.media_);
-      } else {
-        _this->_impl_.media_->MergeFrom(*from._impl_.media_);
-      }
-    }
-    if (cached_has_bits & 0x08000000u) {
+    if (cached_has_bits & 0x00400000u) {
       ABSL_DCHECK(from._impl_.relationships_ != nullptr);
       if (_this->_impl_.relationships_ == nullptr) {
         _this->_impl_.relationships_ =
@@ -2825,7 +2654,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.relationships_->MergeFrom(*from._impl_.relationships_);
       }
     }
-    if (cached_has_bits & 0x10000000u) {
+    if (cached_has_bits & 0x00800000u) {
       ABSL_DCHECK(from._impl_.visual_details_ != nullptr);
       if (_this->_impl_.visual_details_ == nullptr) {
         _this->_impl_.visual_details_ =
@@ -2834,7 +2663,9 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.visual_details_->MergeFrom(*from._impl_.visual_details_);
       }
     }
-    if (cached_has_bits & 0x20000000u) {
+  }
+  if (cached_has_bits & 0xff000000u) {
+    if (cached_has_bits & 0x01000000u) {
       ABSL_DCHECK(from._impl_.dimensions_ != nullptr);
       if (_this->_impl_.dimensions_ == nullptr) {
         _this->_impl_.dimensions_ =
@@ -2843,7 +2674,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.dimensions_->MergeFrom(*from._impl_.dimensions_);
       }
     }
-    if (cached_has_bits & 0x40000000u) {
+    if (cached_has_bits & 0x02000000u) {
       ABSL_DCHECK(from._impl_.route_details_ != nullptr);
       if (_this->_impl_.route_details_ == nullptr) {
         _this->_impl_.route_details_ =
@@ -2852,7 +2683,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.route_details_->MergeFrom(*from._impl_.route_details_);
       }
     }
-    if (cached_has_bits & 0x80000000u) {
+    if (cached_has_bits & 0x04000000u) {
       ABSL_DCHECK(from._impl_.schedules_ != nullptr);
       if (_this->_impl_.schedules_ == nullptr) {
         _this->_impl_.schedules_ =
@@ -2861,10 +2692,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.schedules_->MergeFrom(*from._impl_.schedules_);
       }
     }
-  }
-  cached_has_bits = from._impl_._has_bits_[1];
-  if (cached_has_bits & 0x0000001fu) {
-    if (cached_has_bits & 0x00000001u) {
+    if (cached_has_bits & 0x08000000u) {
       ABSL_DCHECK(from._impl_.health_ != nullptr);
       if (_this->_impl_.health_ == nullptr) {
         _this->_impl_.health_ =
@@ -2873,7 +2701,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.health_->MergeFrom(*from._impl_.health_);
       }
     }
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x10000000u) {
       ABSL_DCHECK(from._impl_.group_details_ != nullptr);
       if (_this->_impl_.group_details_ == nullptr) {
         _this->_impl_.group_details_ =
@@ -2882,16 +2710,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.group_details_->MergeFrom(*from._impl_.group_details_);
       }
     }
-    if (cached_has_bits & 0x00000004u) {
-      ABSL_DCHECK(from._impl_.team_status_ != nullptr);
-      if (_this->_impl_.team_status_ == nullptr) {
-        _this->_impl_.team_status_ =
-            ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::TeamStatus>(arena, *from._impl_.team_status_);
-      } else {
-        _this->_impl_.team_status_->MergeFrom(*from._impl_.team_status_);
-      }
-    }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x20000000u) {
       ABSL_DCHECK(from._impl_.supplies_ != nullptr);
       if (_this->_impl_.supplies_ == nullptr) {
         _this->_impl_.supplies_ =
@@ -2900,7 +2719,7 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.supplies_->MergeFrom(*from._impl_.supplies_);
       }
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x40000000u) {
       ABSL_DCHECK(from._impl_.orbit_ != nullptr);
       if (_this->_impl_.orbit_ == nullptr) {
         _this->_impl_.orbit_ =
@@ -2909,14 +2728,20 @@ void Entity::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.orbit_->MergeFrom(*from._impl_.orbit_);
       }
     }
+    if (cached_has_bits & 0x80000000u) {
+      ABSL_DCHECK(from._impl_.correlation_ != nullptr);
+      if (_this->_impl_.correlation_ == nullptr) {
+        _this->_impl_.correlation_ =
+            ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Correlation>(arena, *from._impl_.correlation_);
+      } else {
+        _this->_impl_.correlation_->MergeFrom(*from._impl_.correlation_);
+      }
+    }
   }
   if (from._internal_is_live() != 0) {
     _this->_impl_.is_live_ = from._impl_.is_live_;
   }
-  if (from._internal_no_expiry() != 0) {
-    _this->_impl_.no_expiry_ = from._impl_.no_expiry_;
-  }
-  _this->_impl_._has_bits_.Or(from._impl_._has_bits_);
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -2934,240 +2759,17 @@ void Entity::InternalSwap(Entity* PROTOBUF_RESTRICT other) {
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  swap(_impl_._has_bits_[1], other->_impl_._has_bits_[1]);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.entity_id_, &other->_impl_.entity_id_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.description_, &other->_impl_.description_, arena);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Entity, _impl_.no_expiry_)
-      + sizeof(Entity::_impl_.no_expiry_)
+      PROTOBUF_FIELD_OFFSET(Entity, _impl_.is_live_)
+      + sizeof(Entity::_impl_.is_live_)
       - PROTOBUF_FIELD_OFFSET(Entity, _impl_.created_time_)>(
           reinterpret_cast<char*>(&_impl_.created_time_),
           reinterpret_cast<char*>(&other->_impl_.created_time_));
 }
 
 ::google::protobuf::Metadata Entity::GetMetadata() const {
-  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
-}
-// ===================================================================
-
-class Entities::_Internal {
- public:
-};
-
-Entities::Entities(::google::protobuf::Arena* arena)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.Entities)
-}
-inline PROTOBUF_NDEBUG_INLINE Entities::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
-    const Impl_& from, const ::anduril::entitymanager::v1::Entities& from_msg)
-      : entities_{visibility, arena, from.entities_},
-        _cached_size_{0} {}
-
-Entities::Entities(
-    ::google::protobuf::Arena* arena,
-    const Entities& from)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  Entities* const _this = this;
-  (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
-      from._internal_metadata_);
-  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-
-  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.Entities)
-}
-inline PROTOBUF_NDEBUG_INLINE Entities::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility,
-    ::google::protobuf::Arena* arena)
-      : entities_{visibility, arena},
-        _cached_size_{0} {}
-
-inline void Entities::SharedCtor(::_pb::Arena* arena) {
-  new (&_impl_) Impl_(internal_visibility(), arena);
-}
-Entities::~Entities() {
-  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.Entities)
-  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
-  SharedDtor();
-}
-inline void Entities::SharedDtor() {
-  ABSL_DCHECK(GetArena() == nullptr);
-  _impl_.~Impl_();
-}
-
-PROTOBUF_CONSTINIT
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::MessageLite::ClassDataFull
-    Entities::_class_data_ = {
-        ::google::protobuf::Message::ClassData{
-            &_Entities_default_instance_._instance,
-            &_table_.header,
-            nullptr,  // OnDemandRegisterArenaDtor
-            nullptr,  // IsInitialized
-            &Entities::MergeImpl,
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-            ::google::protobuf::Message::GetDeleteImpl<Entities>(),
-            ::google::protobuf::Message::GetNewImpl<Entities>(),
-            ::google::protobuf::Message::GetClearImpl<Entities>(), &Entities::ByteSizeLong,
-                &Entities::_InternalSerialize,
-#endif  // PROTOBUF_CUSTOM_VTABLE
-            PROTOBUF_FIELD_OFFSET(Entities, _impl_._cached_size_),
-            false,
-        },
-        &Entities::kDescriptorMethods,
-        &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto,
-        nullptr,  // tracker
-};
-const ::google::protobuf::MessageLite::ClassData* Entities::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
-  return _class_data_.base();
-}
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 1, 1, 0, 2> Entities::_table_ = {
-  {
-    0,  // no _has_bits_
-    0, // no _extensions_
-    1, 0,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294967294,  // skipmap
-    offsetof(decltype(_table_), field_entries),
-    1,  // num_field_entries
-    1,  // num_aux_entries
-    offsetof(decltype(_table_), aux_entries),
-    _class_data_.base(),
-    nullptr,  // post_loop_handler
-    ::_pbi::TcParser::GenericFallback,  // fallback
-    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Entities>(),  // to_prefetch
-    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
-  }, {{
-    // repeated .anduril.entitymanager.v1.Entity entities = 1 [json_name = "entities"];
-    {::_pbi::TcParser::FastMtR1,
-     {10, 63, 0, PROTOBUF_FIELD_OFFSET(Entities, _impl_.entities_)}},
-  }}, {{
-    65535, 65535
-  }}, {{
-    // repeated .anduril.entitymanager.v1.Entity entities = 1 [json_name = "entities"];
-    {PROTOBUF_FIELD_OFFSET(Entities, _impl_.entities_), 0, 0,
-    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
-  }}, {{
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Entity>()},
-  }}, {{
-  }},
-};
-
-PROTOBUF_NOINLINE void Entities::Clear() {
-// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.Entities)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.entities_.Clear();
-  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
-}
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* Entities::_InternalSerialize(
-            const MessageLite& base, ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const Entities& this_ = static_cast<const Entities&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* Entities::_InternalSerialize(
-            ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const Entities& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.Entities)
-          ::uint32_t cached_has_bits = 0;
-          (void)cached_has_bits;
-
-          // repeated .anduril.entitymanager.v1.Entity entities = 1 [json_name = "entities"];
-          for (unsigned i = 0, n = static_cast<unsigned>(
-                                   this_._internal_entities_size());
-               i < n; i++) {
-            const auto& repfield = this_._internal_entities().Get(i);
-            target =
-                ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                    1, repfield, repfield.GetCachedSize(),
-                    target, stream);
-          }
-
-          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
-            target =
-                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
-          }
-          // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.Entities)
-          return target;
-        }
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t Entities::ByteSizeLong(const MessageLite& base) {
-          const Entities& this_ = static_cast<const Entities&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t Entities::ByteSizeLong() const {
-          const Entities& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.Entities)
-          ::size_t total_size = 0;
-
-          ::uint32_t cached_has_bits = 0;
-          // Prevent compiler warnings about cached_has_bits being unused
-          (void)cached_has_bits;
-
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
-           {
-            // repeated .anduril.entitymanager.v1.Entity entities = 1 [json_name = "entities"];
-             {
-              total_size += 1UL * this_._internal_entities_size();
-              for (const auto& msg : this_._internal_entities()) {
-                total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
-              }
-            }
-          }
-          return this_.MaybeComputeUnknownFieldsSize(total_size,
-                                                     &this_._impl_._cached_size_);
-        }
-
-void Entities::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<Entities*>(&to_msg);
-  auto& from = static_cast<const Entities&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.Entities)
-  ABSL_DCHECK_NE(&from, _this);
-  ::uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  _this->_internal_mutable_entities()->MergeFrom(
-      from._internal_entities());
-  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void Entities::CopyFrom(const Entities& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.Entities)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-
-void Entities::InternalSwap(Entities* PROTOBUF_RESTRICT other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.entities_.InternalSwap(&other->_impl_.entities_);
-}
-
-::google::protobuf::Metadata Entities::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
@@ -3703,25 +3305,20 @@ void Tracked::clear_number_of_objects() {
   if (_impl_.number_of_objects_ != nullptr) _impl_.number_of_objects_->Clear();
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-void Tracked::clear_sensor_details() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.sensor_details_ != nullptr) _impl_.sensor_details_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000008u;
-}
 void Tracked::clear_radar_cross_section() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.radar_cross_section_ != nullptr) _impl_.radar_cross_section_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 void Tracked::clear_last_measurement_time() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.last_measurement_time_ != nullptr) _impl_.last_measurement_time_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 void Tracked::clear_line_of_bearing() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.line_of_bearing_ != nullptr) _impl_.line_of_bearing_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 Tracked::Tracked(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
@@ -3761,19 +3358,15 @@ Tracked::Tracked(
   _impl_.number_of_objects_ = (cached_has_bits & 0x00000004u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::UInt32Range>(
                               arena, *from._impl_.number_of_objects_)
                         : nullptr;
-  _impl_.sensor_details_ = (cached_has_bits & 0x00000008u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Sensors>(
-                              arena, *from._impl_.sensor_details_)
-                        : nullptr;
-  _impl_.radar_cross_section_ = (cached_has_bits & 0x00000010u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::DoubleValue>(
+  _impl_.radar_cross_section_ = (cached_has_bits & 0x00000008u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::DoubleValue>(
                               arena, *from._impl_.radar_cross_section_)
                         : nullptr;
-  _impl_.last_measurement_time_ = (cached_has_bits & 0x00000020u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::Timestamp>(
+  _impl_.last_measurement_time_ = (cached_has_bits & 0x00000010u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::Timestamp>(
                               arena, *from._impl_.last_measurement_time_)
                         : nullptr;
-  _impl_.line_of_bearing_ = (cached_has_bits & 0x00000040u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::LineOfBearing>(
+  _impl_.line_of_bearing_ = (cached_has_bits & 0x00000020u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::LineOfBearing>(
                               arena, *from._impl_.line_of_bearing_)
                         : nullptr;
-  _impl_.track_quality_ = from._impl_.track_quality_;
 
   // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.Tracked)
 }
@@ -3787,9 +3380,9 @@ inline void Tracked::SharedCtor(::_pb::Arena* arena) {
   ::memset(reinterpret_cast<char *>(&_impl_) +
                offsetof(Impl_, track_quality_wrapper_),
            0,
-           offsetof(Impl_, track_quality_) -
+           offsetof(Impl_, line_of_bearing_) -
                offsetof(Impl_, track_quality_wrapper_) +
-               sizeof(Impl_::track_quality_));
+               sizeof(Impl_::line_of_bearing_));
 }
 Tracked::~Tracked() {
   // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.Tracked)
@@ -3801,7 +3394,6 @@ inline void Tracked::SharedDtor() {
   delete _impl_.track_quality_wrapper_;
   delete _impl_.sensor_hits_;
   delete _impl_.number_of_objects_;
-  delete _impl_.sensor_details_;
   delete _impl_.radar_cross_section_;
   delete _impl_.last_measurement_time_;
   delete _impl_.line_of_bearing_;
@@ -3837,16 +3429,16 @@ const ::google::protobuf::MessageLite::ClassData* Tracked::GetClassData() const 
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<4, 8, 7, 0, 2> Tracked::_table_ = {
+const ::_pbi::TcParseTable<3, 6, 6, 0, 2> Tracked::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(Tracked, _impl_._has_bits_),
     0, // no _extensions_
-    9, 120,  // max_field_number, fast_idx_mask
+    9, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294966912,  // skipmap
+    4294966929,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    8,  // num_field_entries
-    7,  // num_aux_entries
+    6,  // num_field_entries
+    6,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
@@ -3856,9 +3448,9 @@ const ::_pbi::TcParseTable<4, 8, 7, 0, 2> Tracked::_table_ = {
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
-    // uint32 track_quality = 1 [json_name = "trackQuality", deprecated = true];
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(Tracked, _impl_.track_quality_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(Tracked, _impl_.track_quality_)}},
+    // .anduril.entitymanager.v1.LineOfBearing line_of_bearing = 9 [json_name = "lineOfBearing"];
+    {::_pbi::TcParser::FastMtS1,
+     {74, 5, 5, PROTOBUF_FIELD_OFFSET(Tracked, _impl_.line_of_bearing_)}},
     // .google.protobuf.Int32Value track_quality_wrapper = 2 [json_name = "trackQualityWrapper"];
     {::_pbi::TcParser::FastMtS1,
      {18, 0, 0, PROTOBUF_FIELD_OFFSET(Tracked, _impl_.track_quality_wrapper_)}},
@@ -3868,31 +3460,16 @@ const ::_pbi::TcParseTable<4, 8, 7, 0, 2> Tracked::_table_ = {
     // .anduril.entitymanager.v1.UInt32Range number_of_objects = 4 [json_name = "numberOfObjects"];
     {::_pbi::TcParser::FastMtS1,
      {34, 2, 2, PROTOBUF_FIELD_OFFSET(Tracked, _impl_.number_of_objects_)}},
-    // .anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];
-    {::_pbi::TcParser::FastMtS1,
-     {42, 3, 3, PROTOBUF_FIELD_OFFSET(Tracked, _impl_.sensor_details_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // .google.protobuf.DoubleValue radar_cross_section = 6 [json_name = "radarCrossSection"];
     {::_pbi::TcParser::FastMtS1,
-     {50, 4, 4, PROTOBUF_FIELD_OFFSET(Tracked, _impl_.radar_cross_section_)}},
+     {50, 3, 3, PROTOBUF_FIELD_OFFSET(Tracked, _impl_.radar_cross_section_)}},
     // .google.protobuf.Timestamp last_measurement_time = 7 [json_name = "lastMeasurementTime"];
     {::_pbi::TcParser::FastMtS1,
-     {58, 5, 5, PROTOBUF_FIELD_OFFSET(Tracked, _impl_.last_measurement_time_)}},
-    {::_pbi::TcParser::MiniParse, {}},
-    // .anduril.entitymanager.v1.LineOfBearing line_of_bearing = 9 [json_name = "lineOfBearing"];
-    {::_pbi::TcParser::FastMtS1,
-     {74, 6, 6, PROTOBUF_FIELD_OFFSET(Tracked, _impl_.line_of_bearing_)}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
+     {58, 4, 4, PROTOBUF_FIELD_OFFSET(Tracked, _impl_.last_measurement_time_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // uint32 track_quality = 1 [json_name = "trackQuality", deprecated = true];
-    {PROTOBUF_FIELD_OFFSET(Tracked, _impl_.track_quality_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
     // .google.protobuf.Int32Value track_quality_wrapper = 2 [json_name = "trackQualityWrapper"];
     {PROTOBUF_FIELD_OFFSET(Tracked, _impl_.track_quality_wrapper_), _Internal::kHasBitsOffset + 0, 0,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
@@ -3902,23 +3479,19 @@ const ::_pbi::TcParseTable<4, 8, 7, 0, 2> Tracked::_table_ = {
     // .anduril.entitymanager.v1.UInt32Range number_of_objects = 4 [json_name = "numberOfObjects"];
     {PROTOBUF_FIELD_OFFSET(Tracked, _impl_.number_of_objects_), _Internal::kHasBitsOffset + 2, 2,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];
-    {PROTOBUF_FIELD_OFFSET(Tracked, _impl_.sensor_details_), _Internal::kHasBitsOffset + 3, 3,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .google.protobuf.DoubleValue radar_cross_section = 6 [json_name = "radarCrossSection"];
-    {PROTOBUF_FIELD_OFFSET(Tracked, _impl_.radar_cross_section_), _Internal::kHasBitsOffset + 4, 4,
+    {PROTOBUF_FIELD_OFFSET(Tracked, _impl_.radar_cross_section_), _Internal::kHasBitsOffset + 3, 3,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .google.protobuf.Timestamp last_measurement_time = 7 [json_name = "lastMeasurementTime"];
-    {PROTOBUF_FIELD_OFFSET(Tracked, _impl_.last_measurement_time_), _Internal::kHasBitsOffset + 5, 5,
+    {PROTOBUF_FIELD_OFFSET(Tracked, _impl_.last_measurement_time_), _Internal::kHasBitsOffset + 4, 4,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.LineOfBearing line_of_bearing = 9 [json_name = "lineOfBearing"];
-    {PROTOBUF_FIELD_OFFSET(Tracked, _impl_.line_of_bearing_), _Internal::kHasBitsOffset + 6, 6,
+    {PROTOBUF_FIELD_OFFSET(Tracked, _impl_.line_of_bearing_), _Internal::kHasBitsOffset + 5, 5,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
     {::_pbi::TcParser::GetTable<::google::protobuf::Int32Value>()},
     {::_pbi::TcParser::GetTable<::google::protobuf::Int32Value>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::UInt32Range>()},
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Sensors>()},
     {::_pbi::TcParser::GetTable<::google::protobuf::DoubleValue>()},
     {::_pbi::TcParser::GetTable<::google::protobuf::Timestamp>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::LineOfBearing>()},
@@ -3934,7 +3507,7 @@ PROTOBUF_NOINLINE void Tracked::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
+  if (cached_has_bits & 0x0000003fu) {
     if (cached_has_bits & 0x00000001u) {
       ABSL_DCHECK(_impl_.track_quality_wrapper_ != nullptr);
       _impl_.track_quality_wrapper_->Clear();
@@ -3948,23 +3521,18 @@ PROTOBUF_NOINLINE void Tracked::Clear() {
       _impl_.number_of_objects_->Clear();
     }
     if (cached_has_bits & 0x00000008u) {
-      ABSL_DCHECK(_impl_.sensor_details_ != nullptr);
-      _impl_.sensor_details_->Clear();
-    }
-    if (cached_has_bits & 0x00000010u) {
       ABSL_DCHECK(_impl_.radar_cross_section_ != nullptr);
       _impl_.radar_cross_section_->Clear();
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       ABSL_DCHECK(_impl_.last_measurement_time_ != nullptr);
       _impl_.last_measurement_time_->Clear();
     }
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000020u) {
       ABSL_DCHECK(_impl_.line_of_bearing_ != nullptr);
       _impl_.line_of_bearing_->Clear();
     }
   }
-  _impl_.track_quality_ = 0u;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -3983,13 +3551,6 @@ PROTOBUF_NOINLINE void Tracked::Clear() {
           // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.Tracked)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
-
-          // uint32 track_quality = 1 [json_name = "trackQuality", deprecated = true];
-          if (this_._internal_track_quality() != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
-                1, this_._internal_track_quality(), target);
-          }
 
           cached_has_bits = this_._impl_._has_bits_[0];
           // .google.protobuf.Int32Value track_quality_wrapper = 2 [json_name = "trackQualityWrapper"];
@@ -4013,29 +3574,22 @@ PROTOBUF_NOINLINE void Tracked::Clear() {
                 stream);
           }
 
-          // .anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];
-          if (cached_has_bits & 0x00000008u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                5, *this_._impl_.sensor_details_, this_._impl_.sensor_details_->GetCachedSize(), target,
-                stream);
-          }
-
           // .google.protobuf.DoubleValue radar_cross_section = 6 [json_name = "radarCrossSection"];
-          if (cached_has_bits & 0x00000010u) {
+          if (cached_has_bits & 0x00000008u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 6, *this_._impl_.radar_cross_section_, this_._impl_.radar_cross_section_->GetCachedSize(), target,
                 stream);
           }
 
           // .google.protobuf.Timestamp last_measurement_time = 7 [json_name = "lastMeasurementTime"];
-          if (cached_has_bits & 0x00000020u) {
+          if (cached_has_bits & 0x00000010u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 7, *this_._impl_.last_measurement_time_, this_._impl_.last_measurement_time_->GetCachedSize(), target,
                 stream);
           }
 
           // .anduril.entitymanager.v1.LineOfBearing line_of_bearing = 9 [json_name = "lineOfBearing"];
-          if (cached_has_bits & 0x00000040u) {
+          if (cached_has_bits & 0x00000020u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 9, *this_._impl_.line_of_bearing_, this_._impl_.line_of_bearing_->GetCachedSize(), target,
                 stream);
@@ -4066,7 +3620,7 @@ PROTOBUF_NOINLINE void Tracked::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
           cached_has_bits = this_._impl_._has_bits_[0];
-          if (cached_has_bits & 0x0000007fu) {
+          if (cached_has_bits & 0x0000003fu) {
             // .google.protobuf.Int32Value track_quality_wrapper = 2 [json_name = "trackQualityWrapper"];
             if (cached_has_bits & 0x00000001u) {
               total_size += 1 +
@@ -4082,32 +3636,20 @@ PROTOBUF_NOINLINE void Tracked::Clear() {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.number_of_objects_);
             }
-            // .anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];
-            if (cached_has_bits & 0x00000008u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.sensor_details_);
-            }
             // .google.protobuf.DoubleValue radar_cross_section = 6 [json_name = "radarCrossSection"];
-            if (cached_has_bits & 0x00000010u) {
+            if (cached_has_bits & 0x00000008u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.radar_cross_section_);
             }
             // .google.protobuf.Timestamp last_measurement_time = 7 [json_name = "lastMeasurementTime"];
-            if (cached_has_bits & 0x00000020u) {
+            if (cached_has_bits & 0x00000010u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.last_measurement_time_);
             }
             // .anduril.entitymanager.v1.LineOfBearing line_of_bearing = 9 [json_name = "lineOfBearing"];
-            if (cached_has_bits & 0x00000040u) {
+            if (cached_has_bits & 0x00000020u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.line_of_bearing_);
-            }
-          }
-           {
-            // uint32 track_quality = 1 [json_name = "trackQuality", deprecated = true];
-            if (this_._internal_track_quality() != 0) {
-              total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
-                  this_._internal_track_quality());
             }
           }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
@@ -4124,7 +3666,7 @@ void Tracked::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google:
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000007fu) {
+  if (cached_has_bits & 0x0000003fu) {
     if (cached_has_bits & 0x00000001u) {
       ABSL_DCHECK(from._impl_.track_quality_wrapper_ != nullptr);
       if (_this->_impl_.track_quality_wrapper_ == nullptr) {
@@ -4153,15 +3695,6 @@ void Tracked::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google:
       }
     }
     if (cached_has_bits & 0x00000008u) {
-      ABSL_DCHECK(from._impl_.sensor_details_ != nullptr);
-      if (_this->_impl_.sensor_details_ == nullptr) {
-        _this->_impl_.sensor_details_ =
-            ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Sensors>(arena, *from._impl_.sensor_details_);
-      } else {
-        _this->_impl_.sensor_details_->MergeFrom(*from._impl_.sensor_details_);
-      }
-    }
-    if (cached_has_bits & 0x00000010u) {
       ABSL_DCHECK(from._impl_.radar_cross_section_ != nullptr);
       if (_this->_impl_.radar_cross_section_ == nullptr) {
         _this->_impl_.radar_cross_section_ =
@@ -4170,7 +3703,7 @@ void Tracked::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google:
         _this->_impl_.radar_cross_section_->MergeFrom(*from._impl_.radar_cross_section_);
       }
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000010u) {
       ABSL_DCHECK(from._impl_.last_measurement_time_ != nullptr);
       if (_this->_impl_.last_measurement_time_ == nullptr) {
         _this->_impl_.last_measurement_time_ =
@@ -4179,7 +3712,7 @@ void Tracked::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google:
         _this->_impl_.last_measurement_time_->MergeFrom(*from._impl_.last_measurement_time_);
       }
     }
-    if (cached_has_bits & 0x00000040u) {
+    if (cached_has_bits & 0x00000020u) {
       ABSL_DCHECK(from._impl_.line_of_bearing_ != nullptr);
       if (_this->_impl_.line_of_bearing_ == nullptr) {
         _this->_impl_.line_of_bearing_ =
@@ -4188,9 +3721,6 @@ void Tracked::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google:
         _this->_impl_.line_of_bearing_->MergeFrom(*from._impl_.line_of_bearing_);
       }
     }
-  }
-  if (from._internal_track_quality() != 0) {
-    _this->_impl_.track_quality_ = from._impl_.track_quality_;
   }
   _this->_impl_._has_bits_[0] |= cached_has_bits;
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
@@ -4209,8 +3739,8 @@ void Tracked::InternalSwap(Tracked* PROTOBUF_RESTRICT other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Tracked, _impl_.track_quality_)
-      + sizeof(Tracked::_impl_.track_quality_)
+      PROTOBUF_FIELD_OFFSET(Tracked, _impl_.line_of_bearing_)
+      + sizeof(Tracked::_impl_.line_of_bearing_)
       - PROTOBUF_FIELD_OFFSET(Tracked, _impl_.track_quality_wrapper_)>(
           reinterpret_cast<char*>(&_impl_.track_quality_wrapper_),
           reinterpret_cast<char*>(&other->_impl_.track_quality_wrapper_));
@@ -4251,8 +3781,7 @@ inline PROTOBUF_NDEBUG_INLINE Provenance::Impl_::Impl_(
         source_id_(arena, from.source_id_),
         source_description_(arena, from.source_description_),
         integration_name_(arena, from.integration_name_),
-        data_type_(arena, from.data_type_),
-        feed_name_(arena, from.feed_name_) {}
+        data_type_(arena, from.data_type_) {}
 
 Provenance::Provenance(
     ::google::protobuf::Arena* arena,
@@ -4282,8 +3811,7 @@ inline PROTOBUF_NDEBUG_INLINE Provenance::Impl_::Impl_(
         source_id_(arena),
         source_description_(arena),
         integration_name_(arena),
-        data_type_(arena),
-        feed_name_(arena) {}
+        data_type_(arena) {}
 
 inline void Provenance::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
@@ -4305,7 +3833,6 @@ inline void Provenance::SharedDtor() {
   _impl_.source_description_.Destroy();
   _impl_.integration_name_.Destroy();
   _impl_.data_type_.Destroy();
-  _impl_.feed_name_.Destroy();
   delete _impl_.source_update_time_;
   _impl_.~Impl_();
 }
@@ -4339,15 +3866,15 @@ const ::google::protobuf::MessageLite::ClassData* Provenance::GetClassData() con
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 7, 1, 105, 2> Provenance::_table_ = {
+const ::_pbi::TcParseTable<3, 6, 1, 96, 2> Provenance::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(Provenance, _impl_._has_bits_),
     0, // no _extensions_
-    7, 56,  // max_field_number, fast_idx_mask
+    6, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967168,  // skipmap
+    4294967232,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    7,  // num_field_entries
+    6,  // num_field_entries
     1,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
@@ -4376,9 +3903,7 @@ const ::_pbi::TcParseTable<3, 7, 1, 105, 2> Provenance::_table_ = {
     // string data_type = 6 [json_name = "dataType"];
     {::_pbi::TcParser::FastUS1,
      {50, 63, 0, PROTOBUF_FIELD_OFFSET(Provenance, _impl_.data_type_)}},
-    // string feed_name = 7 [json_name = "feedName"];
-    {::_pbi::TcParser::FastUS1,
-     {58, 63, 0, PROTOBUF_FIELD_OFFSET(Provenance, _impl_.feed_name_)}},
+    {::_pbi::TcParser::MiniParse, {}},
   }}, {{
     65535, 65535
   }}, {{
@@ -4400,19 +3925,15 @@ const ::_pbi::TcParseTable<3, 7, 1, 105, 2> Provenance::_table_ = {
     // string data_type = 6 [json_name = "dataType"];
     {PROTOBUF_FIELD_OFFSET(Provenance, _impl_.data_type_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // string feed_name = 7 [json_name = "feedName"];
-    {PROTOBUF_FIELD_OFFSET(Provenance, _impl_.feed_name_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
   }}, {{
     {::_pbi::TcParser::GetTable<::google::protobuf::Timestamp>()},
   }}, {{
-    "\43\0\0\11\22\20\11\11"
+    "\43\0\0\11\22\20\11\0"
     "anduril.entitymanager.v1.Provenance"
     "source_id"
     "source_description"
     "integration_name"
     "data_type"
-    "feed_name"
   }},
 };
 
@@ -4427,7 +3948,6 @@ PROTOBUF_NOINLINE void Provenance::Clear() {
   _impl_.source_description_.ClearToEmpty();
   _impl_.integration_name_.ClearToEmpty();
   _impl_.data_type_.ClearToEmpty();
-  _impl_.feed_name_.ClearToEmpty();
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     ABSL_DCHECK(_impl_.source_update_time_ != nullptr);
@@ -4500,14 +4020,6 @@ PROTOBUF_NOINLINE void Provenance::Clear() {
             target = stream->WriteStringMaybeAliased(6, _s, target);
           }
 
-          // string feed_name = 7 [json_name = "feedName"];
-          if (!this_._internal_feed_name().empty()) {
-            const std::string& _s = this_._internal_feed_name();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.Provenance.feed_name");
-            target = stream->WriteStringMaybeAliased(7, _s, target);
-          }
-
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
             target =
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -4553,11 +4065,6 @@ PROTOBUF_NOINLINE void Provenance::Clear() {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                               this_._internal_data_type());
             }
-            // string feed_name = 7 [json_name = "feedName"];
-            if (!this_._internal_feed_name().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_feed_name());
-            }
           }
            {
             // .google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];
@@ -4600,9 +4107,6 @@ void Provenance::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::goog
   if (!from._internal_data_type().empty()) {
     _this->_internal_set_data_type(from._internal_data_type());
   }
-  if (!from._internal_feed_name().empty()) {
-    _this->_internal_set_feed_name(from._internal_feed_name());
-  }
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     ABSL_DCHECK(from._impl_.source_update_time_ != nullptr);
@@ -4638,7 +4142,6 @@ void Provenance::InternalSwap(Provenance* PROTOBUF_RESTRICT other) {
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.source_description_, &other->_impl_.source_description_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.integration_name_, &other->_impl_.integration_name_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.data_type_, &other->_impl_.data_type_, arena);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.feed_name_, &other->_impl_.feed_name_, arena);
   ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Provenance, _impl_.source_)
       + sizeof(Provenance::_impl_.source_)
@@ -4737,7 +4240,6 @@ Indicators::Indicators(
   _impl_.starred_ = (cached_has_bits & 0x00000020u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::BoolValue>(
                               arena, *from._impl_.starred_)
                         : nullptr;
-  _impl_.deletable_ = from._impl_.deletable_;
 
   // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.Indicators)
 }
@@ -4751,9 +4253,9 @@ inline void Indicators::SharedCtor(::_pb::Arena* arena) {
   ::memset(reinterpret_cast<char *>(&_impl_) +
                offsetof(Impl_, simulated_),
            0,
-           offsetof(Impl_, deletable_) -
+           offsetof(Impl_, starred_) -
                offsetof(Impl_, simulated_) +
-               sizeof(Impl_::deletable_));
+               sizeof(Impl_::starred_));
 }
 Indicators::~Indicators() {
   // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.Indicators)
@@ -4800,15 +4302,15 @@ const ::google::protobuf::MessageLite::ClassData* Indicators::GetClassData() con
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 7, 6, 0, 2> Indicators::_table_ = {
+const ::_pbi::TcParseTable<3, 6, 6, 0, 2> Indicators::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(Indicators, _impl_._has_bits_),
     0, // no _extensions_
     7, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967168,  // skipmap
+    4294967184,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    7,  // num_field_entries
+    6,  // num_field_entries
     6,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
@@ -4831,9 +4333,7 @@ const ::_pbi::TcParseTable<3, 7, 6, 0, 2> Indicators::_table_ = {
     // .google.protobuf.BoolValue c2 = 4 [json_name = "c2"];
     {::_pbi::TcParser::FastMtS1,
      {34, 3, 3, PROTOBUF_FIELD_OFFSET(Indicators, _impl_.c2_)}},
-    // .anduril.entitymanager.v1.Deletable deletable = 5 [json_name = "deletable"];
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(Indicators, _impl_.deletable_), 63>(),
-     {40, 63, 0, PROTOBUF_FIELD_OFFSET(Indicators, _impl_.deletable_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // .google.protobuf.BoolValue egressable = 6 [json_name = "egressable", (.anduril.entitymanager.v1.overridable) = true];
     {::_pbi::TcParser::FastMtS1,
      {50, 4, 4, PROTOBUF_FIELD_OFFSET(Indicators, _impl_.egressable_)}},
@@ -4855,9 +4355,6 @@ const ::_pbi::TcParseTable<3, 7, 6, 0, 2> Indicators::_table_ = {
     // .google.protobuf.BoolValue c2 = 4 [json_name = "c2"];
     {PROTOBUF_FIELD_OFFSET(Indicators, _impl_.c2_), _Internal::kHasBitsOffset + 3, 3,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .anduril.entitymanager.v1.Deletable deletable = 5 [json_name = "deletable"];
-    {PROTOBUF_FIELD_OFFSET(Indicators, _impl_.deletable_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
     // .google.protobuf.BoolValue egressable = 6 [json_name = "egressable", (.anduril.entitymanager.v1.overridable) = true];
     {PROTOBUF_FIELD_OFFSET(Indicators, _impl_.egressable_), _Internal::kHasBitsOffset + 4, 4,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
@@ -4909,7 +4406,6 @@ PROTOBUF_NOINLINE void Indicators::Clear() {
       _impl_.starred_->Clear();
     }
   }
-  _impl_.deletable_ = 0;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -4956,13 +4452,6 @@ PROTOBUF_NOINLINE void Indicators::Clear() {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 4, *this_._impl_.c2_, this_._impl_.c2_->GetCachedSize(), target,
                 stream);
-          }
-
-          // .anduril.entitymanager.v1.Deletable deletable = 5 [json_name = "deletable"];
-          if (this_._internal_deletable() != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteEnumToArray(
-                5, this_._internal_deletable(), target);
           }
 
           // .google.protobuf.BoolValue egressable = 6 [json_name = "egressable", (.anduril.entitymanager.v1.overridable) = true];
@@ -5036,13 +4525,6 @@ PROTOBUF_NOINLINE void Indicators::Clear() {
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.starred_);
             }
           }
-           {
-            // .anduril.entitymanager.v1.Deletable deletable = 5 [json_name = "deletable"];
-            if (this_._internal_deletable() != 0) {
-              total_size += 1 +
-                            ::_pbi::WireFormatLite::EnumSize(this_._internal_deletable());
-            }
-          }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
                                                      &this_._impl_._cached_size_);
         }
@@ -5113,9 +4595,6 @@ void Indicators::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::goog
       }
     }
   }
-  if (from._internal_deletable() != 0) {
-    _this->_impl_.deletable_ = from._impl_.deletable_;
-  }
   _this->_impl_._has_bits_[0] |= cached_has_bits;
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -5133,8 +4612,8 @@ void Indicators::InternalSwap(Indicators* PROTOBUF_RESTRICT other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Indicators, _impl_.deletable_)
-      + sizeof(Indicators::_impl_.deletable_)
+      PROTOBUF_FIELD_OFFSET(Indicators, _impl_.starred_)
+      + sizeof(Indicators::_impl_.starred_)
       - PROTOBUF_FIELD_OFFSET(Indicators, _impl_.simulated_)>(
           reinterpret_cast<char*>(&_impl_.simulated_),
           reinterpret_cast<char*>(&other->_impl_.simulated_));
@@ -5161,8 +4640,7 @@ Overrides::Overrides(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE Overrides::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::anduril::entitymanager::v1::Overrides& from_msg)
-      : provenance_{visibility, arena, from.provenance_},
-        override_{visibility, arena, from.override_},
+      : override_{visibility, arena, from.override_},
         _cached_size_{0} {}
 
 Overrides::Overrides(
@@ -5184,8 +4662,7 @@ Overrides::Overrides(
 inline PROTOBUF_NDEBUG_INLINE Overrides::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : provenance_{visibility, arena},
-        override_{visibility, arena},
+      : override_{visibility, arena},
         _cached_size_{0} {}
 
 inline void Overrides::SharedCtor(::_pb::Arena* arena) {
@@ -5230,16 +4707,16 @@ const ::google::protobuf::MessageLite::ClassData* Overrides::GetClassData() cons
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 2, 0, 2> Overrides::_table_ = {
+const ::_pbi::TcParseTable<0, 1, 1, 0, 2> Overrides::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    2, 8,  // max_field_number, fast_idx_mask
+    2, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
+    4294967293,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
-    2,  // num_aux_entries
+    1,  // num_field_entries
+    1,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
@@ -5250,21 +4727,14 @@ const ::_pbi::TcParseTable<1, 2, 2, 0, 2> Overrides::_table_ = {
   }, {{
     // repeated .anduril.entitymanager.v1.Override override = 2 [json_name = "override"];
     {::_pbi::TcParser::FastMtR1,
-     {18, 63, 1, PROTOBUF_FIELD_OFFSET(Overrides, _impl_.override_)}},
-    // repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];
-    {::_pbi::TcParser::FastMtR1,
-     {10, 63, 0, PROTOBUF_FIELD_OFFSET(Overrides, _impl_.provenance_)}},
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(Overrides, _impl_.override_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];
-    {PROTOBUF_FIELD_OFFSET(Overrides, _impl_.provenance_), 0, 0,
-    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // repeated .anduril.entitymanager.v1.Override override = 2 [json_name = "override"];
-    {PROTOBUF_FIELD_OFFSET(Overrides, _impl_.override_), 0, 1,
+    {PROTOBUF_FIELD_OFFSET(Overrides, _impl_.override_), 0, 0,
     (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::OverrideProvenance>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Override>()},
   }}, {{
   }},
@@ -5277,7 +4747,6 @@ PROTOBUF_NOINLINE void Overrides::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.provenance_.Clear();
   _impl_.override_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -5296,17 +4765,6 @@ PROTOBUF_NOINLINE void Overrides::Clear() {
           // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.Overrides)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
-
-          // repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];
-          for (unsigned i = 0, n = static_cast<unsigned>(
-                                   this_._internal_provenance_size());
-               i < n; i++) {
-            const auto& repfield = this_._internal_provenance().Get(i);
-            target =
-                ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                    1, repfield, repfield.GetCachedSize(),
-                    target, stream);
-          }
 
           // repeated .anduril.entitymanager.v1.Override override = 2 [json_name = "override"];
           for (unsigned i = 0, n = static_cast<unsigned>(
@@ -5344,13 +4802,6 @@ PROTOBUF_NOINLINE void Overrides::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];
-             {
-              total_size += 1UL * this_._internal_provenance_size();
-              for (const auto& msg : this_._internal_provenance()) {
-                total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
-              }
-            }
             // repeated .anduril.entitymanager.v1.Override override = 2 [json_name = "override"];
              {
               total_size += 1UL * this_._internal_override_size();
@@ -5371,8 +4822,6 @@ void Overrides::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::googl
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_internal_mutable_provenance()->MergeFrom(
-      from._internal_provenance());
   _this->_internal_mutable_override()->MergeFrom(
       from._internal_override());
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
@@ -5389,7 +4838,6 @@ void Overrides::CopyFrom(const Overrides& from) {
 void Overrides::InternalSwap(Overrides* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.provenance_.InternalSwap(&other->_impl_.provenance_);
   _impl_.override_.InternalSwap(&other->_impl_.override_);
 }
 
@@ -5849,843 +5297,6 @@ void Override::InternalSwap(Override* PROTOBUF_RESTRICT other) {
 }
 // ===================================================================
 
-class OverrideProvenance::_Internal {
- public:
-  using HasBits =
-      decltype(std::declval<OverrideProvenance>()._impl_._has_bits_);
-  static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(OverrideProvenance, _impl_._has_bits_);
-};
-
-OverrideProvenance::OverrideProvenance(::google::protobuf::Arena* arena)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.OverrideProvenance)
-}
-inline PROTOBUF_NDEBUG_INLINE OverrideProvenance::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
-    const Impl_& from, const ::anduril::entitymanager::v1::OverrideProvenance& from_msg)
-      : _has_bits_{from._has_bits_},
-        _cached_size_{0},
-        field_path_(arena, from.field_path_),
-        source_id_(arena, from.source_id_) {}
-
-OverrideProvenance::OverrideProvenance(
-    ::google::protobuf::Arena* arena,
-    const OverrideProvenance& from)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  OverrideProvenance* const _this = this;
-  (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
-      from._internal_metadata_);
-  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
-  _impl_.provenance_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Provenance>(
-                              arena, *from._impl_.provenance_)
-                        : nullptr;
-
-  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.OverrideProvenance)
-}
-inline PROTOBUF_NDEBUG_INLINE OverrideProvenance::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility,
-    ::google::protobuf::Arena* arena)
-      : _cached_size_{0},
-        field_path_(arena),
-        source_id_(arena) {}
-
-inline void OverrideProvenance::SharedCtor(::_pb::Arena* arena) {
-  new (&_impl_) Impl_(internal_visibility(), arena);
-  _impl_.provenance_ = {};
-}
-OverrideProvenance::~OverrideProvenance() {
-  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.OverrideProvenance)
-  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
-  SharedDtor();
-}
-inline void OverrideProvenance::SharedDtor() {
-  ABSL_DCHECK(GetArena() == nullptr);
-  _impl_.field_path_.Destroy();
-  _impl_.source_id_.Destroy();
-  delete _impl_.provenance_;
-  _impl_.~Impl_();
-}
-
-PROTOBUF_CONSTINIT
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::MessageLite::ClassDataFull
-    OverrideProvenance::_class_data_ = {
-        ::google::protobuf::Message::ClassData{
-            &_OverrideProvenance_default_instance_._instance,
-            &_table_.header,
-            nullptr,  // OnDemandRegisterArenaDtor
-            nullptr,  // IsInitialized
-            &OverrideProvenance::MergeImpl,
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-            ::google::protobuf::Message::GetDeleteImpl<OverrideProvenance>(),
-            ::google::protobuf::Message::GetNewImpl<OverrideProvenance>(),
-            ::google::protobuf::Message::GetClearImpl<OverrideProvenance>(), &OverrideProvenance::ByteSizeLong,
-                &OverrideProvenance::_InternalSerialize,
-#endif  // PROTOBUF_CUSTOM_VTABLE
-            PROTOBUF_FIELD_OFFSET(OverrideProvenance, _impl_._cached_size_),
-            false,
-        },
-        &OverrideProvenance::kDescriptorMethods,
-        &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto,
-        nullptr,  // tracker
-};
-const ::google::protobuf::MessageLite::ClassData* OverrideProvenance::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
-  return _class_data_.base();
-}
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 1, 71, 2> OverrideProvenance::_table_ = {
-  {
-    PROTOBUF_FIELD_OFFSET(OverrideProvenance, _impl_._has_bits_),
-    0, // no _extensions_
-    3, 24,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294967288,  // skipmap
-    offsetof(decltype(_table_), field_entries),
-    3,  // num_field_entries
-    1,  // num_aux_entries
-    offsetof(decltype(_table_), aux_entries),
-    _class_data_.base(),
-    nullptr,  // post_loop_handler
-    ::_pbi::TcParser::GenericFallback,  // fallback
-    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::OverrideProvenance>(),  // to_prefetch
-    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
-  }, {{
-    {::_pbi::TcParser::MiniParse, {}},
-    // string field_path = 1 [json_name = "fieldPath"];
-    {::_pbi::TcParser::FastUS1,
-     {10, 63, 0, PROTOBUF_FIELD_OFFSET(OverrideProvenance, _impl_.field_path_)}},
-    // string source_id = 2 [json_name = "sourceId", deprecated = true];
-    {::_pbi::TcParser::FastUS1,
-     {18, 63, 0, PROTOBUF_FIELD_OFFSET(OverrideProvenance, _impl_.source_id_)}},
-    // .anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];
-    {::_pbi::TcParser::FastMtS1,
-     {26, 0, 0, PROTOBUF_FIELD_OFFSET(OverrideProvenance, _impl_.provenance_)}},
-  }}, {{
-    65535, 65535
-  }}, {{
-    // string field_path = 1 [json_name = "fieldPath"];
-    {PROTOBUF_FIELD_OFFSET(OverrideProvenance, _impl_.field_path_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // string source_id = 2 [json_name = "sourceId", deprecated = true];
-    {PROTOBUF_FIELD_OFFSET(OverrideProvenance, _impl_.source_id_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // .anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];
-    {PROTOBUF_FIELD_OFFSET(OverrideProvenance, _impl_.provenance_), _Internal::kHasBitsOffset + 0, 0,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-  }}, {{
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Provenance>()},
-  }}, {{
-    "\53\12\11\0\0\0\0\0"
-    "anduril.entitymanager.v1.OverrideProvenance"
-    "field_path"
-    "source_id"
-  }},
-};
-
-PROTOBUF_NOINLINE void OverrideProvenance::Clear() {
-// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.OverrideProvenance)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.field_path_.ClearToEmpty();
-  _impl_.source_id_.ClearToEmpty();
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    ABSL_DCHECK(_impl_.provenance_ != nullptr);
-    _impl_.provenance_->Clear();
-  }
-  _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
-}
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* OverrideProvenance::_InternalSerialize(
-            const MessageLite& base, ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const OverrideProvenance& this_ = static_cast<const OverrideProvenance&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* OverrideProvenance::_InternalSerialize(
-            ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const OverrideProvenance& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.OverrideProvenance)
-          ::uint32_t cached_has_bits = 0;
-          (void)cached_has_bits;
-
-          // string field_path = 1 [json_name = "fieldPath"];
-          if (!this_._internal_field_path().empty()) {
-            const std::string& _s = this_._internal_field_path();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.OverrideProvenance.field_path");
-            target = stream->WriteStringMaybeAliased(1, _s, target);
-          }
-
-          // string source_id = 2 [json_name = "sourceId", deprecated = true];
-          if (!this_._internal_source_id().empty()) {
-            const std::string& _s = this_._internal_source_id();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.OverrideProvenance.source_id");
-            target = stream->WriteStringMaybeAliased(2, _s, target);
-          }
-
-          cached_has_bits = this_._impl_._has_bits_[0];
-          // .anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];
-          if (cached_has_bits & 0x00000001u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                3, *this_._impl_.provenance_, this_._impl_.provenance_->GetCachedSize(), target,
-                stream);
-          }
-
-          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
-            target =
-                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
-          }
-          // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.OverrideProvenance)
-          return target;
-        }
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t OverrideProvenance::ByteSizeLong(const MessageLite& base) {
-          const OverrideProvenance& this_ = static_cast<const OverrideProvenance&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t OverrideProvenance::ByteSizeLong() const {
-          const OverrideProvenance& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.OverrideProvenance)
-          ::size_t total_size = 0;
-
-          ::uint32_t cached_has_bits = 0;
-          // Prevent compiler warnings about cached_has_bits being unused
-          (void)cached_has_bits;
-
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
-           {
-            // string field_path = 1 [json_name = "fieldPath"];
-            if (!this_._internal_field_path().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_field_path());
-            }
-            // string source_id = 2 [json_name = "sourceId", deprecated = true];
-            if (!this_._internal_source_id().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_source_id());
-            }
-          }
-           {
-            // .anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];
-            cached_has_bits =
-                this_._impl_._has_bits_[0];
-            if (cached_has_bits & 0x00000001u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.provenance_);
-            }
-          }
-          return this_.MaybeComputeUnknownFieldsSize(total_size,
-                                                     &this_._impl_._cached_size_);
-        }
-
-void OverrideProvenance::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<OverrideProvenance*>(&to_msg);
-  auto& from = static_cast<const OverrideProvenance&>(from_msg);
-  ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.OverrideProvenance)
-  ABSL_DCHECK_NE(&from, _this);
-  ::uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (!from._internal_field_path().empty()) {
-    _this->_internal_set_field_path(from._internal_field_path());
-  }
-  if (!from._internal_source_id().empty()) {
-    _this->_internal_set_source_id(from._internal_source_id());
-  }
-  cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    ABSL_DCHECK(from._impl_.provenance_ != nullptr);
-    if (_this->_impl_.provenance_ == nullptr) {
-      _this->_impl_.provenance_ =
-          ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Provenance>(arena, *from._impl_.provenance_);
-    } else {
-      _this->_impl_.provenance_->MergeFrom(*from._impl_.provenance_);
-    }
-  }
-  _this->_impl_._has_bits_[0] |= cached_has_bits;
-  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void OverrideProvenance::CopyFrom(const OverrideProvenance& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.OverrideProvenance)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-
-void OverrideProvenance::InternalSwap(OverrideProvenance* PROTOBUF_RESTRICT other) {
-  using std::swap;
-  auto* arena = GetArena();
-  ABSL_DCHECK_EQ(arena, other->GetArena());
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.field_path_, &other->_impl_.field_path_, arena);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.source_id_, &other->_impl_.source_id_, arena);
-  swap(_impl_.provenance_, other->_impl_.provenance_);
-}
-
-::google::protobuf::Metadata OverrideProvenance::GetMetadata() const {
-  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
-}
-// ===================================================================
-
-class OriginalData_TLE::_Internal {
- public:
-};
-
-OriginalData_TLE::OriginalData_TLE(::google::protobuf::Arena* arena)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.OriginalData.TLE)
-}
-inline PROTOBUF_NDEBUG_INLINE OriginalData_TLE::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
-    const Impl_& from, const ::anduril::entitymanager::v1::OriginalData_TLE& from_msg)
-      : line1_(arena, from.line1_),
-        line2_(arena, from.line2_),
-        _cached_size_{0} {}
-
-OriginalData_TLE::OriginalData_TLE(
-    ::google::protobuf::Arena* arena,
-    const OriginalData_TLE& from)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  OriginalData_TLE* const _this = this;
-  (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
-      from._internal_metadata_);
-  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-
-  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.OriginalData.TLE)
-}
-inline PROTOBUF_NDEBUG_INLINE OriginalData_TLE::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility,
-    ::google::protobuf::Arena* arena)
-      : line1_(arena),
-        line2_(arena),
-        _cached_size_{0} {}
-
-inline void OriginalData_TLE::SharedCtor(::_pb::Arena* arena) {
-  new (&_impl_) Impl_(internal_visibility(), arena);
-}
-OriginalData_TLE::~OriginalData_TLE() {
-  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.OriginalData.TLE)
-  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
-  SharedDtor();
-}
-inline void OriginalData_TLE::SharedDtor() {
-  ABSL_DCHECK(GetArena() == nullptr);
-  _impl_.line1_.Destroy();
-  _impl_.line2_.Destroy();
-  _impl_.~Impl_();
-}
-
-PROTOBUF_CONSTINIT
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::MessageLite::ClassDataFull
-    OriginalData_TLE::_class_data_ = {
-        ::google::protobuf::Message::ClassData{
-            &_OriginalData_TLE_default_instance_._instance,
-            &_table_.header,
-            nullptr,  // OnDemandRegisterArenaDtor
-            nullptr,  // IsInitialized
-            &OriginalData_TLE::MergeImpl,
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-            ::google::protobuf::Message::GetDeleteImpl<OriginalData_TLE>(),
-            ::google::protobuf::Message::GetNewImpl<OriginalData_TLE>(),
-            ::google::protobuf::Message::GetClearImpl<OriginalData_TLE>(), &OriginalData_TLE::ByteSizeLong,
-                &OriginalData_TLE::_InternalSerialize,
-#endif  // PROTOBUF_CUSTOM_VTABLE
-            PROTOBUF_FIELD_OFFSET(OriginalData_TLE, _impl_._cached_size_),
-            false,
-        },
-        &OriginalData_TLE::kDescriptorMethods,
-        &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto,
-        nullptr,  // tracker
-};
-const ::google::protobuf::MessageLite::ClassData* OriginalData_TLE::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
-  return _class_data_.base();
-}
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 0, 60, 2> OriginalData_TLE::_table_ = {
-  {
-    0,  // no _has_bits_
-    0, // no _extensions_
-    2, 8,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
-    offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
-    0,  // num_aux_entries
-    offsetof(decltype(_table_), field_names),  // no aux_entries
-    _class_data_.base(),
-    nullptr,  // post_loop_handler
-    ::_pbi::TcParser::GenericFallback,  // fallback
-    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::OriginalData_TLE>(),  // to_prefetch
-    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
-  }, {{
-    // string line2 = 2 [json_name = "line2"];
-    {::_pbi::TcParser::FastUS1,
-     {18, 63, 0, PROTOBUF_FIELD_OFFSET(OriginalData_TLE, _impl_.line2_)}},
-    // string line1 = 1 [json_name = "line1"];
-    {::_pbi::TcParser::FastUS1,
-     {10, 63, 0, PROTOBUF_FIELD_OFFSET(OriginalData_TLE, _impl_.line1_)}},
-  }}, {{
-    65535, 65535
-  }}, {{
-    // string line1 = 1 [json_name = "line1"];
-    {PROTOBUF_FIELD_OFFSET(OriginalData_TLE, _impl_.line1_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // string line2 = 2 [json_name = "line2"];
-    {PROTOBUF_FIELD_OFFSET(OriginalData_TLE, _impl_.line2_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-  }},
-  // no aux_entries
-  {{
-    "\51\5\5\0\0\0\0\0"
-    "anduril.entitymanager.v1.OriginalData.TLE"
-    "line1"
-    "line2"
-  }},
-};
-
-PROTOBUF_NOINLINE void OriginalData_TLE::Clear() {
-// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.OriginalData.TLE)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.line1_.ClearToEmpty();
-  _impl_.line2_.ClearToEmpty();
-  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
-}
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* OriginalData_TLE::_InternalSerialize(
-            const MessageLite& base, ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const OriginalData_TLE& this_ = static_cast<const OriginalData_TLE&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* OriginalData_TLE::_InternalSerialize(
-            ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const OriginalData_TLE& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.OriginalData.TLE)
-          ::uint32_t cached_has_bits = 0;
-          (void)cached_has_bits;
-
-          // string line1 = 1 [json_name = "line1"];
-          if (!this_._internal_line1().empty()) {
-            const std::string& _s = this_._internal_line1();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.OriginalData.TLE.line1");
-            target = stream->WriteStringMaybeAliased(1, _s, target);
-          }
-
-          // string line2 = 2 [json_name = "line2"];
-          if (!this_._internal_line2().empty()) {
-            const std::string& _s = this_._internal_line2();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.OriginalData.TLE.line2");
-            target = stream->WriteStringMaybeAliased(2, _s, target);
-          }
-
-          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
-            target =
-                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
-          }
-          // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.OriginalData.TLE)
-          return target;
-        }
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t OriginalData_TLE::ByteSizeLong(const MessageLite& base) {
-          const OriginalData_TLE& this_ = static_cast<const OriginalData_TLE&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t OriginalData_TLE::ByteSizeLong() const {
-          const OriginalData_TLE& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.OriginalData.TLE)
-          ::size_t total_size = 0;
-
-          ::uint32_t cached_has_bits = 0;
-          // Prevent compiler warnings about cached_has_bits being unused
-          (void)cached_has_bits;
-
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
-           {
-            // string line1 = 1 [json_name = "line1"];
-            if (!this_._internal_line1().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_line1());
-            }
-            // string line2 = 2 [json_name = "line2"];
-            if (!this_._internal_line2().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_line2());
-            }
-          }
-          return this_.MaybeComputeUnknownFieldsSize(total_size,
-                                                     &this_._impl_._cached_size_);
-        }
-
-void OriginalData_TLE::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<OriginalData_TLE*>(&to_msg);
-  auto& from = static_cast<const OriginalData_TLE&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.OriginalData.TLE)
-  ABSL_DCHECK_NE(&from, _this);
-  ::uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (!from._internal_line1().empty()) {
-    _this->_internal_set_line1(from._internal_line1());
-  }
-  if (!from._internal_line2().empty()) {
-    _this->_internal_set_line2(from._internal_line2());
-  }
-  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void OriginalData_TLE::CopyFrom(const OriginalData_TLE& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.OriginalData.TLE)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-
-void OriginalData_TLE::InternalSwap(OriginalData_TLE* PROTOBUF_RESTRICT other) {
-  using std::swap;
-  auto* arena = GetArena();
-  ABSL_DCHECK_EQ(arena, other->GetArena());
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.line1_, &other->_impl_.line1_, arena);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.line2_, &other->_impl_.line2_, arena);
-}
-
-::google::protobuf::Metadata OriginalData_TLE::GetMetadata() const {
-  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
-}
-// ===================================================================
-
-class OriginalData::_Internal {
- public:
-  using HasBits =
-      decltype(std::declval<OriginalData>()._impl_._has_bits_);
-  static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(OriginalData, _impl_._has_bits_);
-};
-
-OriginalData::OriginalData(::google::protobuf::Arena* arena)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.OriginalData)
-}
-inline PROTOBUF_NDEBUG_INLINE OriginalData::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
-    const Impl_& from, const ::anduril::entitymanager::v1::OriginalData& from_msg)
-      : _has_bits_{from._has_bits_},
-        _cached_size_{0},
-        url_(arena, from.url_) {}
-
-OriginalData::OriginalData(
-    ::google::protobuf::Arena* arena,
-    const OriginalData& from)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  OriginalData* const _this = this;
-  (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
-      from._internal_metadata_);
-  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
-  _impl_.tle_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::OriginalData_TLE>(
-                              arena, *from._impl_.tle_)
-                        : nullptr;
-
-  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.OriginalData)
-}
-inline PROTOBUF_NDEBUG_INLINE OriginalData::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility,
-    ::google::protobuf::Arena* arena)
-      : _cached_size_{0},
-        url_(arena) {}
-
-inline void OriginalData::SharedCtor(::_pb::Arena* arena) {
-  new (&_impl_) Impl_(internal_visibility(), arena);
-  _impl_.tle_ = {};
-}
-OriginalData::~OriginalData() {
-  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.OriginalData)
-  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
-  SharedDtor();
-}
-inline void OriginalData::SharedDtor() {
-  ABSL_DCHECK(GetArena() == nullptr);
-  _impl_.url_.Destroy();
-  delete _impl_.tle_;
-  _impl_.~Impl_();
-}
-
-PROTOBUF_CONSTINIT
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::MessageLite::ClassDataFull
-    OriginalData::_class_data_ = {
-        ::google::protobuf::Message::ClassData{
-            &_OriginalData_default_instance_._instance,
-            &_table_.header,
-            nullptr,  // OnDemandRegisterArenaDtor
-            nullptr,  // IsInitialized
-            &OriginalData::MergeImpl,
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-            ::google::protobuf::Message::GetDeleteImpl<OriginalData>(),
-            ::google::protobuf::Message::GetNewImpl<OriginalData>(),
-            ::google::protobuf::Message::GetClearImpl<OriginalData>(), &OriginalData::ByteSizeLong,
-                &OriginalData::_InternalSerialize,
-#endif  // PROTOBUF_CUSTOM_VTABLE
-            PROTOBUF_FIELD_OFFSET(OriginalData, _impl_._cached_size_),
-            false,
-        },
-        &OriginalData::kDescriptorMethods,
-        &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto,
-        nullptr,  // tracker
-};
-const ::google::protobuf::MessageLite::ClassData* OriginalData::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
-  return _class_data_.base();
-}
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 1, 49, 2> OriginalData::_table_ = {
-  {
-    PROTOBUF_FIELD_OFFSET(OriginalData, _impl_._has_bits_),
-    0, // no _extensions_
-    2, 8,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
-    offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
-    1,  // num_aux_entries
-    offsetof(decltype(_table_), aux_entries),
-    _class_data_.base(),
-    nullptr,  // post_loop_handler
-    ::_pbi::TcParser::GenericFallback,  // fallback
-    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::OriginalData>(),  // to_prefetch
-    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
-  }, {{
-    // .anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];
-    {::_pbi::TcParser::FastMtS1,
-     {18, 0, 0, PROTOBUF_FIELD_OFFSET(OriginalData, _impl_.tle_)}},
-    // string url = 1 [json_name = "url"];
-    {::_pbi::TcParser::FastUS1,
-     {10, 63, 0, PROTOBUF_FIELD_OFFSET(OriginalData, _impl_.url_)}},
-  }}, {{
-    65535, 65535
-  }}, {{
-    // string url = 1 [json_name = "url"];
-    {PROTOBUF_FIELD_OFFSET(OriginalData, _impl_.url_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // .anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];
-    {PROTOBUF_FIELD_OFFSET(OriginalData, _impl_.tle_), _Internal::kHasBitsOffset + 0, 0,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-  }}, {{
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::OriginalData_TLE>()},
-  }}, {{
-    "\45\3\0\0\0\0\0\0"
-    "anduril.entitymanager.v1.OriginalData"
-    "url"
-  }},
-};
-
-PROTOBUF_NOINLINE void OriginalData::Clear() {
-// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.OriginalData)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.url_.ClearToEmpty();
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    ABSL_DCHECK(_impl_.tle_ != nullptr);
-    _impl_.tle_->Clear();
-  }
-  _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
-}
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* OriginalData::_InternalSerialize(
-            const MessageLite& base, ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const OriginalData& this_ = static_cast<const OriginalData&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* OriginalData::_InternalSerialize(
-            ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const OriginalData& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.OriginalData)
-          ::uint32_t cached_has_bits = 0;
-          (void)cached_has_bits;
-
-          // string url = 1 [json_name = "url"];
-          if (!this_._internal_url().empty()) {
-            const std::string& _s = this_._internal_url();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.OriginalData.url");
-            target = stream->WriteStringMaybeAliased(1, _s, target);
-          }
-
-          cached_has_bits = this_._impl_._has_bits_[0];
-          // .anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];
-          if (cached_has_bits & 0x00000001u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                2, *this_._impl_.tle_, this_._impl_.tle_->GetCachedSize(), target,
-                stream);
-          }
-
-          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
-            target =
-                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
-          }
-          // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.OriginalData)
-          return target;
-        }
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t OriginalData::ByteSizeLong(const MessageLite& base) {
-          const OriginalData& this_ = static_cast<const OriginalData&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t OriginalData::ByteSizeLong() const {
-          const OriginalData& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.OriginalData)
-          ::size_t total_size = 0;
-
-          ::uint32_t cached_has_bits = 0;
-          // Prevent compiler warnings about cached_has_bits being unused
-          (void)cached_has_bits;
-
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
-           {
-            // string url = 1 [json_name = "url"];
-            if (!this_._internal_url().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_url());
-            }
-          }
-           {
-            // .anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];
-            cached_has_bits =
-                this_._impl_._has_bits_[0];
-            if (cached_has_bits & 0x00000001u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.tle_);
-            }
-          }
-          return this_.MaybeComputeUnknownFieldsSize(total_size,
-                                                     &this_._impl_._cached_size_);
-        }
-
-void OriginalData::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<OriginalData*>(&to_msg);
-  auto& from = static_cast<const OriginalData&>(from_msg);
-  ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.OriginalData)
-  ABSL_DCHECK_NE(&from, _this);
-  ::uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (!from._internal_url().empty()) {
-    _this->_internal_set_url(from._internal_url());
-  }
-  cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    ABSL_DCHECK(from._impl_.tle_ != nullptr);
-    if (_this->_impl_.tle_ == nullptr) {
-      _this->_impl_.tle_ =
-          ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::OriginalData_TLE>(arena, *from._impl_.tle_);
-    } else {
-      _this->_impl_.tle_->MergeFrom(*from._impl_.tle_);
-    }
-  }
-  _this->_impl_._has_bits_[0] |= cached_has_bits;
-  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void OriginalData::CopyFrom(const OriginalData& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.OriginalData)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-
-void OriginalData::InternalSwap(OriginalData* PROTOBUF_RESTRICT other) {
-  using std::swap;
-  auto* arena = GetArena();
-  ABSL_DCHECK_EQ(arena, other->GetArena());
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.url_, &other->_impl_.url_, arena);
-  swap(_impl_.tle_, other->_impl_.tle_);
-}
-
-::google::protobuf::Metadata OriginalData::GetMetadata() const {
-  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
-}
-// ===================================================================
-
 class AlternateId::_Internal {
  public:
 };
@@ -6702,8 +5313,7 @@ AlternateId::AlternateId(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE AlternateId::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::anduril::entitymanager::v1::AlternateId& from_msg)
-      : source_(arena, from.source_),
-        id_(arena, from.id_),
+      : id_(arena, from.id_),
         _cached_size_{0} {}
 
 AlternateId::AlternateId(
@@ -6726,8 +5336,7 @@ AlternateId::AlternateId(
 inline PROTOBUF_NDEBUG_INLINE AlternateId::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : source_(arena),
-        id_(arena),
+      : id_(arena),
         _cached_size_{0} {}
 
 inline void AlternateId::SharedCtor(::_pb::Arena* arena) {
@@ -6741,7 +5350,6 @@ AlternateId::~AlternateId() {
 }
 inline void AlternateId::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
-  _impl_.source_.Destroy();
   _impl_.id_.Destroy();
   _impl_.~Impl_();
 }
@@ -6775,15 +5383,15 @@ const ::google::protobuf::MessageLite::ClassData* AlternateId::GetClassData() co
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 0, 53, 2> AlternateId::_table_ = {
+const ::_pbi::TcParseTable<1, 2, 0, 47, 2> AlternateId::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    3, 24,  // max_field_number, fast_idx_mask
+    3, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967288,  // skipmap
+    4294967289,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    3,  // num_field_entries
+    2,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     _class_data_.base(),
@@ -6793,10 +5401,6 @@ const ::_pbi::TcParseTable<2, 3, 0, 53, 2> AlternateId::_table_ = {
     ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::AlternateId>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    {::_pbi::TcParser::MiniParse, {}},
-    // string source = 1 [json_name = "source", deprecated = true];
-    {::_pbi::TcParser::FastUS1,
-     {10, 63, 0, PROTOBUF_FIELD_OFFSET(AlternateId, _impl_.source_)}},
     // string id = 2 [json_name = "id"];
     {::_pbi::TcParser::FastUS1,
      {18, 63, 0, PROTOBUF_FIELD_OFFSET(AlternateId, _impl_.id_)}},
@@ -6806,9 +5410,6 @@ const ::_pbi::TcParseTable<2, 3, 0, 53, 2> AlternateId::_table_ = {
   }}, {{
     65535, 65535
   }}, {{
-    // string source = 1 [json_name = "source", deprecated = true];
-    {PROTOBUF_FIELD_OFFSET(AlternateId, _impl_.source_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // string id = 2 [json_name = "id"];
     {PROTOBUF_FIELD_OFFSET(AlternateId, _impl_.id_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
@@ -6818,9 +5419,8 @@ const ::_pbi::TcParseTable<2, 3, 0, 53, 2> AlternateId::_table_ = {
   }},
   // no aux_entries
   {{
-    "\44\6\2\0\0\0\0\0"
+    "\44\2\0\0\0\0\0\0"
     "anduril.entitymanager.v1.AlternateId"
-    "source"
     "id"
   }},
 };
@@ -6832,7 +5432,6 @@ PROTOBUF_NOINLINE void AlternateId::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.source_.ClearToEmpty();
   _impl_.id_.ClearToEmpty();
   _impl_.type_ = 0;
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
@@ -6852,14 +5451,6 @@ PROTOBUF_NOINLINE void AlternateId::Clear() {
           // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.AlternateId)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
-
-          // string source = 1 [json_name = "source", deprecated = true];
-          if (!this_._internal_source().empty()) {
-            const std::string& _s = this_._internal_source();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.AlternateId.source");
-            target = stream->WriteStringMaybeAliased(1, _s, target);
-          }
 
           // string id = 2 [json_name = "id"];
           if (!this_._internal_id().empty()) {
@@ -6901,11 +5492,6 @@ PROTOBUF_NOINLINE void AlternateId::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // string source = 1 [json_name = "source", deprecated = true];
-            if (!this_._internal_source().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_source());
-            }
             // string id = 2 [json_name = "id"];
             if (!this_._internal_id().empty()) {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -6929,9 +5515,6 @@ void AlternateId::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::goo
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_source().empty()) {
-    _this->_internal_set_source(from._internal_source());
-  }
   if (!from._internal_id().empty()) {
     _this->_internal_set_id(from._internal_id());
   }
@@ -6954,7 +5537,6 @@ void AlternateId::InternalSwap(AlternateId* PROTOBUF_RESTRICT other) {
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.source_, &other->_impl_.source_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.id_, &other->_impl_.id_, arena);
   swap(_impl_.type_, other->_impl_.type_);
 }
@@ -7004,7 +5586,6 @@ VisualDetails::VisualDetails(
   _impl_.range_rings_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::RangeRings>(
                               arena, *from._impl_.range_rings_)
                         : nullptr;
-  _impl_.interactivity_mode_ = from._impl_.interactivity_mode_;
 
   // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.VisualDetails)
 }
@@ -7015,12 +5596,7 @@ inline PROTOBUF_NDEBUG_INLINE VisualDetails::Impl_::Impl_(
 
 inline void VisualDetails::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
-  ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, range_rings_),
-           0,
-           offsetof(Impl_, interactivity_mode_) -
-               offsetof(Impl_, range_rings_) +
-               sizeof(Impl_::interactivity_mode_));
+  _impl_.range_rings_ = {};
 }
 VisualDetails::~VisualDetails() {
   // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.VisualDetails)
@@ -7062,15 +5638,15 @@ const ::google::protobuf::MessageLite::ClassData* VisualDetails::GetClassData() 
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 1, 0, 2> VisualDetails::_table_ = {
+const ::_pbi::TcParseTable<0, 1, 1, 0, 2> VisualDetails::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(VisualDetails, _impl_._has_bits_),
     0, // no _extensions_
-    2, 8,  // max_field_number, fast_idx_mask
+    1, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
+    4294967294,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
+    1,  // num_field_entries
     1,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
@@ -7080,9 +5656,6 @@ const ::_pbi::TcParseTable<1, 2, 1, 0, 2> VisualDetails::_table_ = {
     ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::VisualDetails>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // .anduril.entitymanager.v1.InteractivityMode interactivity_mode = 2 [json_name = "interactivityMode"];
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(VisualDetails, _impl_.interactivity_mode_), 63>(),
-     {16, 63, 0, PROTOBUF_FIELD_OFFSET(VisualDetails, _impl_.interactivity_mode_)}},
     // .anduril.entitymanager.v1.RangeRings range_rings = 1 [json_name = "rangeRings", (.anduril.entitymanager.v1.overridable) = true];
     {::_pbi::TcParser::FastMtS1,
      {10, 0, 0, PROTOBUF_FIELD_OFFSET(VisualDetails, _impl_.range_rings_)}},
@@ -7092,9 +5665,6 @@ const ::_pbi::TcParseTable<1, 2, 1, 0, 2> VisualDetails::_table_ = {
     // .anduril.entitymanager.v1.RangeRings range_rings = 1 [json_name = "rangeRings", (.anduril.entitymanager.v1.overridable) = true];
     {PROTOBUF_FIELD_OFFSET(VisualDetails, _impl_.range_rings_), _Internal::kHasBitsOffset + 0, 0,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .anduril.entitymanager.v1.InteractivityMode interactivity_mode = 2 [json_name = "interactivityMode"];
-    {PROTOBUF_FIELD_OFFSET(VisualDetails, _impl_.interactivity_mode_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
   }}, {{
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::RangeRings>()},
   }}, {{
@@ -7113,7 +5683,6 @@ PROTOBUF_NOINLINE void VisualDetails::Clear() {
     ABSL_DCHECK(_impl_.range_rings_ != nullptr);
     _impl_.range_rings_->Clear();
   }
-  _impl_.interactivity_mode_ = 0;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -7141,13 +5710,6 @@ PROTOBUF_NOINLINE void VisualDetails::Clear() {
                 stream);
           }
 
-          // .anduril.entitymanager.v1.InteractivityMode interactivity_mode = 2 [json_name = "interactivityMode"];
-          if (this_._internal_interactivity_mode() != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteEnumToArray(
-                2, this_._internal_interactivity_mode(), target);
-          }
-
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
             target =
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -7171,7 +5733,6 @@ PROTOBUF_NOINLINE void VisualDetails::Clear() {
           // Prevent compiler warnings about cached_has_bits being unused
           (void)cached_has_bits;
 
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
             // .anduril.entitymanager.v1.RangeRings range_rings = 1 [json_name = "rangeRings", (.anduril.entitymanager.v1.overridable) = true];
             cached_has_bits =
@@ -7179,13 +5740,6 @@ PROTOBUF_NOINLINE void VisualDetails::Clear() {
             if (cached_has_bits & 0x00000001u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.range_rings_);
-            }
-          }
-           {
-            // .anduril.entitymanager.v1.InteractivityMode interactivity_mode = 2 [json_name = "interactivityMode"];
-            if (this_._internal_interactivity_mode() != 0) {
-              total_size += 1 +
-                            ::_pbi::WireFormatLite::EnumSize(this_._internal_interactivity_mode());
             }
           }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
@@ -7211,9 +5765,6 @@ void VisualDetails::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::g
       _this->_impl_.range_rings_->MergeFrom(*from._impl_.range_rings_);
     }
   }
-  if (from._internal_interactivity_mode() != 0) {
-    _this->_impl_.interactivity_mode_ = from._impl_.interactivity_mode_;
-  }
   _this->_impl_._has_bits_[0] |= cached_has_bits;
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -7230,12 +5781,7 @@ void VisualDetails::InternalSwap(VisualDetails* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(VisualDetails, _impl_.interactivity_mode_)
-      + sizeof(VisualDetails::_impl_.interactivity_mode_)
-      - PROTOBUF_FIELD_OFFSET(VisualDetails, _impl_.range_rings_)>(
-          reinterpret_cast<char*>(&_impl_.range_rings_),
-          reinterpret_cast<char*>(&other->_impl_.range_rings_));
+  swap(_impl_.range_rings_, other->_impl_.range_rings_);
 }
 
 ::google::protobuf::Metadata VisualDetails::GetMetadata() const {
@@ -7260,6 +5806,11 @@ void RangeRings::clear_max_distance_m() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.max_distance_m_ != nullptr) _impl_.max_distance_m_->Clear();
   _impl_._has_bits_[0] &= ~0x00000002u;
+}
+void RangeRings::clear_ring_line_color() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.ring_line_color_ != nullptr) _impl_.ring_line_color_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 RangeRings::RangeRings(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
@@ -7296,6 +5847,9 @@ RangeRings::RangeRings(
   _impl_.max_distance_m_ = (cached_has_bits & 0x00000002u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::DoubleValue>(
                               arena, *from._impl_.max_distance_m_)
                         : nullptr;
+  _impl_.ring_line_color_ = (cached_has_bits & 0x00000004u) ? ::google::protobuf::Message::CopyConstruct<::anduril::type::Color>(
+                              arena, *from._impl_.ring_line_color_)
+                        : nullptr;
   _impl_.ring_count_ = from._impl_.ring_count_;
 
   // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.RangeRings)
@@ -7323,6 +5877,7 @@ inline void RangeRings::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
   delete _impl_.min_distance_m_;
   delete _impl_.max_distance_m_;
+  delete _impl_.ring_line_color_;
   _impl_.~Impl_();
 }
 
@@ -7355,16 +5910,16 @@ const ::google::protobuf::MessageLite::ClassData* RangeRings::GetClassData() con
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 2, 0, 2> RangeRings::_table_ = {
+const ::_pbi::TcParseTable<2, 4, 3, 0, 2> RangeRings::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(RangeRings, _impl_._has_bits_),
     0, // no _extensions_
-    3, 24,  // max_field_number, fast_idx_mask
+    4, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967288,  // skipmap
+    4294967280,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    3,  // num_field_entries
-    2,  // num_aux_entries
+    4,  // num_field_entries
+    3,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
@@ -7373,7 +5928,9 @@ const ::_pbi::TcParseTable<2, 3, 2, 0, 2> RangeRings::_table_ = {
     ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::RangeRings>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    {::_pbi::TcParser::MiniParse, {}},
+    // .anduril.type.Color ring_line_color = 4 [json_name = "ringLineColor"];
+    {::_pbi::TcParser::FastMtS1,
+     {34, 2, 2, PROTOBUF_FIELD_OFFSET(RangeRings, _impl_.ring_line_color_)}},
     // .google.protobuf.DoubleValue min_distance_m = 1 [json_name = "minDistanceM"];
     {::_pbi::TcParser::FastMtS1,
      {10, 0, 0, PROTOBUF_FIELD_OFFSET(RangeRings, _impl_.min_distance_m_)}},
@@ -7395,9 +5952,13 @@ const ::_pbi::TcParseTable<2, 3, 2, 0, 2> RangeRings::_table_ = {
     // uint32 ring_count = 3 [json_name = "ringCount"];
     {PROTOBUF_FIELD_OFFSET(RangeRings, _impl_.ring_count_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
+    // .anduril.type.Color ring_line_color = 4 [json_name = "ringLineColor"];
+    {PROTOBUF_FIELD_OFFSET(RangeRings, _impl_.ring_line_color_), _Internal::kHasBitsOffset + 2, 2,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
     {::_pbi::TcParser::GetTable<::google::protobuf::DoubleValue>()},
     {::_pbi::TcParser::GetTable<::google::protobuf::DoubleValue>()},
+    {::_pbi::TcParser::GetTable<::anduril::type::Color>()},
   }}, {{
   }},
 };
@@ -7410,7 +5971,7 @@ PROTOBUF_NOINLINE void RangeRings::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
       ABSL_DCHECK(_impl_.min_distance_m_ != nullptr);
       _impl_.min_distance_m_->Clear();
@@ -7418,6 +5979,10 @@ PROTOBUF_NOINLINE void RangeRings::Clear() {
     if (cached_has_bits & 0x00000002u) {
       ABSL_DCHECK(_impl_.max_distance_m_ != nullptr);
       _impl_.max_distance_m_->Clear();
+    }
+    if (cached_has_bits & 0x00000004u) {
+      ABSL_DCHECK(_impl_.ring_line_color_ != nullptr);
+      _impl_.ring_line_color_->Clear();
     }
   }
   _impl_.ring_count_ = 0u;
@@ -7462,6 +6027,13 @@ PROTOBUF_NOINLINE void RangeRings::Clear() {
                 3, this_._internal_ring_count(), target);
           }
 
+          // .anduril.type.Color ring_line_color = 4 [json_name = "ringLineColor"];
+          if (cached_has_bits & 0x00000004u) {
+            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                4, *this_._impl_.ring_line_color_, this_._impl_.ring_line_color_->GetCachedSize(), target,
+                stream);
+          }
+
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
             target =
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -7487,7 +6059,7 @@ PROTOBUF_NOINLINE void RangeRings::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
           cached_has_bits = this_._impl_._has_bits_[0];
-          if (cached_has_bits & 0x00000003u) {
+          if (cached_has_bits & 0x00000007u) {
             // .google.protobuf.DoubleValue min_distance_m = 1 [json_name = "minDistanceM"];
             if (cached_has_bits & 0x00000001u) {
               total_size += 1 +
@@ -7497,6 +6069,11 @@ PROTOBUF_NOINLINE void RangeRings::Clear() {
             if (cached_has_bits & 0x00000002u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.max_distance_m_);
+            }
+            // .anduril.type.Color ring_line_color = 4 [json_name = "ringLineColor"];
+            if (cached_has_bits & 0x00000004u) {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.ring_line_color_);
             }
           }
            {
@@ -7520,7 +6097,7 @@ void RangeRings::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::goog
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
       ABSL_DCHECK(from._impl_.min_distance_m_ != nullptr);
       if (_this->_impl_.min_distance_m_ == nullptr) {
@@ -7537,6 +6114,15 @@ void RangeRings::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::goog
             ::google::protobuf::Message::CopyConstruct<::google::protobuf::DoubleValue>(arena, *from._impl_.max_distance_m_);
       } else {
         _this->_impl_.max_distance_m_->MergeFrom(*from._impl_.max_distance_m_);
+      }
+    }
+    if (cached_has_bits & 0x00000004u) {
+      ABSL_DCHECK(from._impl_.ring_line_color_ != nullptr);
+      if (_this->_impl_.ring_line_color_ == nullptr) {
+        _this->_impl_.ring_line_color_ =
+            ::google::protobuf::Message::CopyConstruct<::anduril::type::Color>(arena, *from._impl_.ring_line_color_);
+      } else {
+        _this->_impl_.ring_line_color_->MergeFrom(*from._impl_.ring_line_color_);
       }
     }
   }
@@ -7572,99 +6158,2004 @@ void RangeRings::InternalSwap(RangeRings* PROTOBUF_RESTRICT other) {
 }
 // ===================================================================
 
-class TeamStatus::_Internal {
+class Correlation::_Internal {
  public:
+  using HasBits =
+      decltype(std::declval<Correlation>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(Correlation, _impl_._has_bits_);
+  static constexpr ::int32_t kOneofCaseOffset =
+      PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Correlation, _impl_._oneof_case_);
 };
 
-TeamStatus::TeamStatus(::google::protobuf::Arena* arena)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::internal::ZeroFieldsBase(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.TeamStatus)
+void Correlation::set_allocated_primary(::anduril::entitymanager::v1::PrimaryCorrelation* primary) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_correlation();
+  if (primary) {
+    ::google::protobuf::Arena* submessage_arena = primary->GetArena();
+    if (message_arena != submessage_arena) {
+      primary = ::google::protobuf::internal::GetOwnedMessage(message_arena, primary, submessage_arena);
+    }
+    set_has_primary();
+    _impl_.correlation_.primary_ = primary;
+  }
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Correlation.primary)
 }
-TeamStatus::TeamStatus(
-    ::google::protobuf::Arena* arena,
-    const TeamStatus& from)
+void Correlation::set_allocated_secondary(::anduril::entitymanager::v1::SecondaryCorrelation* secondary) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_correlation();
+  if (secondary) {
+    ::google::protobuf::Arena* submessage_arena = secondary->GetArena();
+    if (message_arena != submessage_arena) {
+      secondary = ::google::protobuf::internal::GetOwnedMessage(message_arena, secondary, submessage_arena);
+    }
+    set_has_secondary();
+    _impl_.correlation_.secondary_ = secondary;
+  }
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Correlation.secondary)
+}
+Correlation::Correlation(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::internal::ZeroFieldsBase(arena, _class_data_.base()) {
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
 #else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
+    : ::google::protobuf::Message(arena) {
 #endif  // PROTOBUF_CUSTOM_VTABLE
-  TeamStatus* const _this = this;
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.Correlation)
+}
+inline PROTOBUF_NDEBUG_INLINE Correlation::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::entitymanager::v1::Correlation& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        correlation_{},
+        _oneof_case_{from._oneof_case_[0]} {}
+
+Correlation::Correlation(
+    ::google::protobuf::Arena* arena,
+    const Correlation& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  Correlation* const _this = this;
   (void)_this;
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.decorrelation_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Decorrelation>(
+                              arena, *from._impl_.decorrelation_)
+                        : nullptr;
+  switch (correlation_case()) {
+    case CORRELATION_NOT_SET:
+      break;
+      case kPrimary:
+        _impl_.correlation_.primary_ = ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::PrimaryCorrelation>(arena, *from._impl_.correlation_.primary_);
+        break;
+      case kSecondary:
+        _impl_.correlation_.secondary_ = ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::SecondaryCorrelation>(arena, *from._impl_.correlation_.secondary_);
+        break;
+  }
 
-  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.TeamStatus)
+  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.Correlation)
 }
+inline PROTOBUF_NDEBUG_INLINE Correlation::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : _cached_size_{0},
+        correlation_{},
+        _oneof_case_{} {}
+
+inline void Correlation::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.decorrelation_ = {};
+}
+Correlation::~Correlation() {
+  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.Correlation)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void Correlation::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  delete _impl_.decorrelation_;
+  if (has_correlation()) {
+    clear_correlation();
+  }
+  _impl_.~Impl_();
+}
+
+void Correlation::clear_correlation() {
+// @@protoc_insertion_point(one_of_clear_start:anduril.entitymanager.v1.Correlation)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  switch (correlation_case()) {
+    case kPrimary: {
+      if (GetArena() == nullptr) {
+        delete _impl_.correlation_.primary_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.correlation_.primary_);
+      }
+      break;
+    }
+    case kSecondary: {
+      if (GetArena() == nullptr) {
+        delete _impl_.correlation_.secondary_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.correlation_.secondary_);
+      }
+      break;
+    }
+    case CORRELATION_NOT_SET: {
+      break;
+    }
+  }
+  _impl_._oneof_case_[0] = CORRELATION_NOT_SET;
+}
+
 
 PROTOBUF_CONSTINIT
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
 const ::google::protobuf::MessageLite::ClassDataFull
-    TeamStatus::_class_data_ = {
-        ::google::protobuf::internal::ZeroFieldsBase::ClassData{
-            &_TeamStatus_default_instance_._instance,
+    Correlation::_class_data_ = {
+        ::google::protobuf::Message::ClassData{
+            &_Correlation_default_instance_._instance,
             &_table_.header,
             nullptr,  // OnDemandRegisterArenaDtor
             nullptr,  // IsInitialized
-            &TeamStatus::MergeImpl,
+            &Correlation::MergeImpl,
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-            ::google::protobuf::internal::ZeroFieldsBase::GetDeleteImpl<TeamStatus>(),
-            ::google::protobuf::internal::ZeroFieldsBase::GetNewImpl<TeamStatus>(),
-            ::google::protobuf::internal::ZeroFieldsBase::GetClearImpl<TeamStatus>(), &TeamStatus::ByteSizeLong,
-                &TeamStatus::_InternalSerialize,
+            ::google::protobuf::Message::GetDeleteImpl<Correlation>(),
+            ::google::protobuf::Message::GetNewImpl<Correlation>(),
+            ::google::protobuf::Message::GetClearImpl<Correlation>(), &Correlation::ByteSizeLong,
+                &Correlation::_InternalSerialize,
 #endif  // PROTOBUF_CUSTOM_VTABLE
-            PROTOBUF_FIELD_OFFSET(TeamStatus, _impl_._cached_size_),
+            PROTOBUF_FIELD_OFFSET(Correlation, _impl_._cached_size_),
             false,
         },
-        &TeamStatus::kDescriptorMethods,
+        &Correlation::kDescriptorMethods,
         &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto,
         nullptr,  // tracker
 };
-const ::google::protobuf::MessageLite::ClassData* TeamStatus::GetClassData() const {
+const ::google::protobuf::MessageLite::ClassData* Correlation::GetClassData() const {
   ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
   ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 0, 0, 0, 2> TeamStatus::_table_ = {
+const ::_pbi::TcParseTable<0, 3, 3, 0, 2> Correlation::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(Correlation, _impl_._has_bits_),
+    0, // no _extensions_
+    3, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    3,  // num_field_entries
+    3,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Correlation>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .anduril.entitymanager.v1.Decorrelation decorrelation = 3 [json_name = "decorrelation"];
+    {::_pbi::TcParser::FastMtS1,
+     {26, 0, 2, PROTOBUF_FIELD_OFFSET(Correlation, _impl_.decorrelation_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .anduril.entitymanager.v1.PrimaryCorrelation primary = 1 [json_name = "primary"];
+    {PROTOBUF_FIELD_OFFSET(Correlation, _impl_.correlation_.primary_), _Internal::kOneofCaseOffset + 0, 0,
+    (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .anduril.entitymanager.v1.SecondaryCorrelation secondary = 2 [json_name = "secondary"];
+    {PROTOBUF_FIELD_OFFSET(Correlation, _impl_.correlation_.secondary_), _Internal::kOneofCaseOffset + 0, 1,
+    (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .anduril.entitymanager.v1.Decorrelation decorrelation = 3 [json_name = "decorrelation"];
+    {PROTOBUF_FIELD_OFFSET(Correlation, _impl_.decorrelation_), _Internal::kHasBitsOffset + 0, 2,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::PrimaryCorrelation>()},
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::SecondaryCorrelation>()},
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Decorrelation>()},
+  }}, {{
+  }},
+};
+
+PROTOBUF_NOINLINE void Correlation::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.Correlation)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.decorrelation_ != nullptr);
+    _impl_.decorrelation_->Clear();
+  }
+  clear_correlation();
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* Correlation::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const Correlation& this_ = static_cast<const Correlation&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* Correlation::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const Correlation& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.Correlation)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          switch (this_.correlation_case()) {
+            case kPrimary: {
+              target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                  1, *this_._impl_.correlation_.primary_, this_._impl_.correlation_.primary_->GetCachedSize(), target,
+                  stream);
+              break;
+            }
+            case kSecondary: {
+              target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                  2, *this_._impl_.correlation_.secondary_, this_._impl_.correlation_.secondary_->GetCachedSize(), target,
+                  stream);
+              break;
+            }
+            default:
+              break;
+          }
+          cached_has_bits = this_._impl_._has_bits_[0];
+          // .anduril.entitymanager.v1.Decorrelation decorrelation = 3 [json_name = "decorrelation"];
+          if (cached_has_bits & 0x00000001u) {
+            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                3, *this_._impl_.decorrelation_, this_._impl_.decorrelation_->GetCachedSize(), target,
+                stream);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.Correlation)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t Correlation::ByteSizeLong(const MessageLite& base) {
+          const Correlation& this_ = static_cast<const Correlation&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t Correlation::ByteSizeLong() const {
+          const Correlation& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.Correlation)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+           {
+            // .anduril.entitymanager.v1.Decorrelation decorrelation = 3 [json_name = "decorrelation"];
+            cached_has_bits =
+                this_._impl_._has_bits_[0];
+            if (cached_has_bits & 0x00000001u) {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.decorrelation_);
+            }
+          }
+          switch (this_.correlation_case()) {
+            // .anduril.entitymanager.v1.PrimaryCorrelation primary = 1 [json_name = "primary"];
+            case kPrimary: {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.correlation_.primary_);
+              break;
+            }
+            // .anduril.entitymanager.v1.SecondaryCorrelation secondary = 2 [json_name = "secondary"];
+            case kSecondary: {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.correlation_.secondary_);
+              break;
+            }
+            case CORRELATION_NOT_SET: {
+              break;
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void Correlation::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<Correlation*>(&to_msg);
+  auto& from = static_cast<const Correlation&>(from_msg);
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.Correlation)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(from._impl_.decorrelation_ != nullptr);
+    if (_this->_impl_.decorrelation_ == nullptr) {
+      _this->_impl_.decorrelation_ =
+          ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Decorrelation>(arena, *from._impl_.decorrelation_);
+    } else {
+      _this->_impl_.decorrelation_->MergeFrom(*from._impl_.decorrelation_);
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  if (const uint32_t oneof_from_case = from._impl_._oneof_case_[0]) {
+    const uint32_t oneof_to_case = _this->_impl_._oneof_case_[0];
+    const bool oneof_needs_init = oneof_to_case != oneof_from_case;
+    if (oneof_needs_init) {
+      if (oneof_to_case != 0) {
+        _this->clear_correlation();
+      }
+      _this->_impl_._oneof_case_[0] = oneof_from_case;
+    }
+
+    switch (oneof_from_case) {
+      case kPrimary: {
+        if (oneof_needs_init) {
+          _this->_impl_.correlation_.primary_ =
+              ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::PrimaryCorrelation>(arena, *from._impl_.correlation_.primary_);
+        } else {
+          _this->_impl_.correlation_.primary_->MergeFrom(from._internal_primary());
+        }
+        break;
+      }
+      case kSecondary: {
+        if (oneof_needs_init) {
+          _this->_impl_.correlation_.secondary_ =
+              ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::SecondaryCorrelation>(arena, *from._impl_.correlation_.secondary_);
+        } else {
+          _this->_impl_.correlation_.secondary_->MergeFrom(from._internal_secondary());
+        }
+        break;
+      }
+      case CORRELATION_NOT_SET:
+        break;
+    }
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void Correlation::CopyFrom(const Correlation& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.Correlation)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void Correlation::InternalSwap(Correlation* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  swap(_impl_.decorrelation_, other->_impl_.decorrelation_);
+  swap(_impl_.correlation_, other->_impl_.correlation_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
+}
+
+::google::protobuf::Metadata Correlation::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class PrimaryCorrelation::_Internal {
+ public:
+};
+
+PrimaryCorrelation::PrimaryCorrelation(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.PrimaryCorrelation)
+}
+inline PROTOBUF_NDEBUG_INLINE PrimaryCorrelation::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::entitymanager::v1::PrimaryCorrelation& from_msg)
+      : secondary_entity_ids_{visibility, arena, from.secondary_entity_ids_},
+        _cached_size_{0} {}
+
+PrimaryCorrelation::PrimaryCorrelation(
+    ::google::protobuf::Arena* arena,
+    const PrimaryCorrelation& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  PrimaryCorrelation* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.PrimaryCorrelation)
+}
+inline PROTOBUF_NDEBUG_INLINE PrimaryCorrelation::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : secondary_entity_ids_{visibility, arena},
+        _cached_size_{0} {}
+
+inline void PrimaryCorrelation::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+PrimaryCorrelation::~PrimaryCorrelation() {
+  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.PrimaryCorrelation)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void PrimaryCorrelation::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.~Impl_();
+}
+
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::MessageLite::ClassDataFull
+    PrimaryCorrelation::_class_data_ = {
+        ::google::protobuf::Message::ClassData{
+            &_PrimaryCorrelation_default_instance_._instance,
+            &_table_.header,
+            nullptr,  // OnDemandRegisterArenaDtor
+            nullptr,  // IsInitialized
+            &PrimaryCorrelation::MergeImpl,
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+            ::google::protobuf::Message::GetDeleteImpl<PrimaryCorrelation>(),
+            ::google::protobuf::Message::GetNewImpl<PrimaryCorrelation>(),
+            ::google::protobuf::Message::GetClearImpl<PrimaryCorrelation>(), &PrimaryCorrelation::ByteSizeLong,
+                &PrimaryCorrelation::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+            PROTOBUF_FIELD_OFFSET(PrimaryCorrelation, _impl_._cached_size_),
+            false,
+        },
+        &PrimaryCorrelation::kDescriptorMethods,
+        &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto,
+        nullptr,  // tracker
+};
+const ::google::protobuf::MessageLite::ClassData* PrimaryCorrelation::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 72, 2> PrimaryCorrelation::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    0, 0,  // max_field_number, fast_idx_mask
+    1, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967295,  // skipmap
-    offsetof(decltype(_table_), field_names),  // no field_entries
-    0,  // num_field_entries
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     _class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
     #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::TeamStatus>(),  // to_prefetch
+    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::PrimaryCorrelation>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    {::_pbi::TcParser::MiniParse, {}},
+    // repeated string secondary_entity_ids = 1 [json_name = "secondaryEntityIds"];
+    {::_pbi::TcParser::FastUR1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(PrimaryCorrelation, _impl_.secondary_entity_ids_)}},
   }}, {{
     65535, 65535
+  }}, {{
+    // repeated string secondary_entity_ids = 1 [json_name = "secondaryEntityIds"];
+    {PROTOBUF_FIELD_OFFSET(PrimaryCorrelation, _impl_.secondary_entity_ids_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kUtf8String | ::_fl::kRepSString)},
   }},
-  // no field_entries, or aux_entries
+  // no aux_entries
   {{
+    "\53\24\0\0\0\0\0\0"
+    "anduril.entitymanager.v1.PrimaryCorrelation"
+    "secondary_entity_ids"
   }},
 };
 
+PROTOBUF_NOINLINE void PrimaryCorrelation::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.PrimaryCorrelation)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.secondary_entity_ids_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* PrimaryCorrelation::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const PrimaryCorrelation& this_ = static_cast<const PrimaryCorrelation&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* PrimaryCorrelation::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const PrimaryCorrelation& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.PrimaryCorrelation)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // repeated string secondary_entity_ids = 1 [json_name = "secondaryEntityIds"];
+          for (int i = 0, n = this_._internal_secondary_entity_ids_size(); i < n; ++i) {
+            const auto& s = this_._internal_secondary_entity_ids().Get(i);
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.PrimaryCorrelation.secondary_entity_ids");
+            target = stream->WriteString(1, s, target);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.PrimaryCorrelation)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t PrimaryCorrelation::ByteSizeLong(const MessageLite& base) {
+          const PrimaryCorrelation& this_ = static_cast<const PrimaryCorrelation&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t PrimaryCorrelation::ByteSizeLong() const {
+          const PrimaryCorrelation& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.PrimaryCorrelation)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // repeated string secondary_entity_ids = 1 [json_name = "secondaryEntityIds"];
+             {
+              total_size +=
+                  1 * ::google::protobuf::internal::FromIntSize(this_._internal_secondary_entity_ids().size());
+              for (int i = 0, n = this_._internal_secondary_entity_ids().size(); i < n; ++i) {
+                total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+                    this_._internal_secondary_entity_ids().Get(i));
+              }
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void PrimaryCorrelation::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<PrimaryCorrelation*>(&to_msg);
+  auto& from = static_cast<const PrimaryCorrelation&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.PrimaryCorrelation)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_internal_mutable_secondary_entity_ids()->MergeFrom(from._internal_secondary_entity_ids());
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void PrimaryCorrelation::CopyFrom(const PrimaryCorrelation& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.PrimaryCorrelation)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
 
 
+void PrimaryCorrelation::InternalSwap(PrimaryCorrelation* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.secondary_entity_ids_.InternalSwap(&other->_impl_.secondary_entity_ids_);
+}
+
+::google::protobuf::Metadata PrimaryCorrelation::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class SecondaryCorrelation::_Internal {
+ public:
+  using HasBits =
+      decltype(std::declval<SecondaryCorrelation>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(SecondaryCorrelation, _impl_._has_bits_);
+};
+
+SecondaryCorrelation::SecondaryCorrelation(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.SecondaryCorrelation)
+}
+inline PROTOBUF_NDEBUG_INLINE SecondaryCorrelation::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::entitymanager::v1::SecondaryCorrelation& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        primary_entity_id_(arena, from.primary_entity_id_) {}
+
+SecondaryCorrelation::SecondaryCorrelation(
+    ::google::protobuf::Arena* arena,
+    const SecondaryCorrelation& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SecondaryCorrelation* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.metadata_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::CorrelationMetadata>(
+                              arena, *from._impl_.metadata_)
+                        : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.SecondaryCorrelation)
+}
+inline PROTOBUF_NDEBUG_INLINE SecondaryCorrelation::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : _cached_size_{0},
+        primary_entity_id_(arena) {}
+
+inline void SecondaryCorrelation::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.metadata_ = {};
+}
+SecondaryCorrelation::~SecondaryCorrelation() {
+  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.SecondaryCorrelation)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void SecondaryCorrelation::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.primary_entity_id_.Destroy();
+  delete _impl_.metadata_;
+  _impl_.~Impl_();
+}
+
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::MessageLite::ClassDataFull
+    SecondaryCorrelation::_class_data_ = {
+        ::google::protobuf::Message::ClassData{
+            &_SecondaryCorrelation_default_instance_._instance,
+            &_table_.header,
+            nullptr,  // OnDemandRegisterArenaDtor
+            nullptr,  // IsInitialized
+            &SecondaryCorrelation::MergeImpl,
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+            ::google::protobuf::Message::GetDeleteImpl<SecondaryCorrelation>(),
+            ::google::protobuf::Message::GetNewImpl<SecondaryCorrelation>(),
+            ::google::protobuf::Message::GetClearImpl<SecondaryCorrelation>(), &SecondaryCorrelation::ByteSizeLong,
+                &SecondaryCorrelation::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+            PROTOBUF_FIELD_OFFSET(SecondaryCorrelation, _impl_._cached_size_),
+            false,
+        },
+        &SecondaryCorrelation::kDescriptorMethods,
+        &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto,
+        nullptr,  // tracker
+};
+const ::google::protobuf::MessageLite::ClassData* SecondaryCorrelation::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 71, 2> SecondaryCorrelation::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(SecondaryCorrelation, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::SecondaryCorrelation>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .anduril.entitymanager.v1.CorrelationMetadata metadata = 2 [json_name = "metadata"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 0, 0, PROTOBUF_FIELD_OFFSET(SecondaryCorrelation, _impl_.metadata_)}},
+    // string primary_entity_id = 1 [json_name = "primaryEntityId"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(SecondaryCorrelation, _impl_.primary_entity_id_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string primary_entity_id = 1 [json_name = "primaryEntityId"];
+    {PROTOBUF_FIELD_OFFSET(SecondaryCorrelation, _impl_.primary_entity_id_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .anduril.entitymanager.v1.CorrelationMetadata metadata = 2 [json_name = "metadata"];
+    {PROTOBUF_FIELD_OFFSET(SecondaryCorrelation, _impl_.metadata_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::CorrelationMetadata>()},
+  }}, {{
+    "\55\21\0\0\0\0\0\0"
+    "anduril.entitymanager.v1.SecondaryCorrelation"
+    "primary_entity_id"
+  }},
+};
+
+PROTOBUF_NOINLINE void SecondaryCorrelation::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.SecondaryCorrelation)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.primary_entity_id_.ClearToEmpty();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.metadata_ != nullptr);
+    _impl_.metadata_->Clear();
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* SecondaryCorrelation::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const SecondaryCorrelation& this_ = static_cast<const SecondaryCorrelation&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* SecondaryCorrelation::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const SecondaryCorrelation& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.SecondaryCorrelation)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // string primary_entity_id = 1 [json_name = "primaryEntityId"];
+          if (!this_._internal_primary_entity_id().empty()) {
+            const std::string& _s = this_._internal_primary_entity_id();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.SecondaryCorrelation.primary_entity_id");
+            target = stream->WriteStringMaybeAliased(1, _s, target);
+          }
+
+          cached_has_bits = this_._impl_._has_bits_[0];
+          // .anduril.entitymanager.v1.CorrelationMetadata metadata = 2 [json_name = "metadata"];
+          if (cached_has_bits & 0x00000001u) {
+            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                2, *this_._impl_.metadata_, this_._impl_.metadata_->GetCachedSize(), target,
+                stream);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.SecondaryCorrelation)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t SecondaryCorrelation::ByteSizeLong(const MessageLite& base) {
+          const SecondaryCorrelation& this_ = static_cast<const SecondaryCorrelation&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t SecondaryCorrelation::ByteSizeLong() const {
+          const SecondaryCorrelation& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.SecondaryCorrelation)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // string primary_entity_id = 1 [json_name = "primaryEntityId"];
+            if (!this_._internal_primary_entity_id().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_primary_entity_id());
+            }
+          }
+           {
+            // .anduril.entitymanager.v1.CorrelationMetadata metadata = 2 [json_name = "metadata"];
+            cached_has_bits =
+                this_._impl_._has_bits_[0];
+            if (cached_has_bits & 0x00000001u) {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.metadata_);
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void SecondaryCorrelation::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<SecondaryCorrelation*>(&to_msg);
+  auto& from = static_cast<const SecondaryCorrelation&>(from_msg);
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.SecondaryCorrelation)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_primary_entity_id().empty()) {
+    _this->_internal_set_primary_entity_id(from._internal_primary_entity_id());
+  }
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(from._impl_.metadata_ != nullptr);
+    if (_this->_impl_.metadata_ == nullptr) {
+      _this->_impl_.metadata_ =
+          ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::CorrelationMetadata>(arena, *from._impl_.metadata_);
+    } else {
+      _this->_impl_.metadata_->MergeFrom(*from._impl_.metadata_);
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void SecondaryCorrelation::CopyFrom(const SecondaryCorrelation& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.SecondaryCorrelation)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
 
 
+void SecondaryCorrelation::InternalSwap(SecondaryCorrelation* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.primary_entity_id_, &other->_impl_.primary_entity_id_, arena);
+  swap(_impl_.metadata_, other->_impl_.metadata_);
+}
+
+::google::protobuf::Metadata SecondaryCorrelation::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class Decorrelation::_Internal {
+ public:
+  using HasBits =
+      decltype(std::declval<Decorrelation>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(Decorrelation, _impl_._has_bits_);
+};
+
+Decorrelation::Decorrelation(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.Decorrelation)
+}
+inline PROTOBUF_NDEBUG_INLINE Decorrelation::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::entitymanager::v1::Decorrelation& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        decorrelated_entities_{visibility, arena, from.decorrelated_entities_} {}
+
+Decorrelation::Decorrelation(
+    ::google::protobuf::Arena* arena,
+    const Decorrelation& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  Decorrelation* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.all_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::DecorrelatedAll>(
+                              arena, *from._impl_.all_)
+                        : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.Decorrelation)
+}
+inline PROTOBUF_NDEBUG_INLINE Decorrelation::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : _cached_size_{0},
+        decorrelated_entities_{visibility, arena} {}
+
+inline void Decorrelation::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.all_ = {};
+}
+Decorrelation::~Decorrelation() {
+  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.Decorrelation)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void Decorrelation::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  delete _impl_.all_;
+  _impl_.~Impl_();
+}
+
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::MessageLite::ClassDataFull
+    Decorrelation::_class_data_ = {
+        ::google::protobuf::Message::ClassData{
+            &_Decorrelation_default_instance_._instance,
+            &_table_.header,
+            nullptr,  // OnDemandRegisterArenaDtor
+            nullptr,  // IsInitialized
+            &Decorrelation::MergeImpl,
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+            ::google::protobuf::Message::GetDeleteImpl<Decorrelation>(),
+            ::google::protobuf::Message::GetNewImpl<Decorrelation>(),
+            ::google::protobuf::Message::GetClearImpl<Decorrelation>(), &Decorrelation::ByteSizeLong,
+                &Decorrelation::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+            PROTOBUF_FIELD_OFFSET(Decorrelation, _impl_._cached_size_),
+            false,
+        },
+        &Decorrelation::kDescriptorMethods,
+        &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto,
+        nullptr,  // tracker
+};
+const ::google::protobuf::MessageLite::ClassData* Decorrelation::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 2, 0, 2> Decorrelation::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(Decorrelation, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Decorrelation>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // repeated .anduril.entitymanager.v1.DecorrelatedSingle decorrelated_entities = 2 [json_name = "decorrelatedEntities"];
+    {::_pbi::TcParser::FastMtR1,
+     {18, 63, 1, PROTOBUF_FIELD_OFFSET(Decorrelation, _impl_.decorrelated_entities_)}},
+    // .anduril.entitymanager.v1.DecorrelatedAll all = 1 [json_name = "all"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 0, 0, PROTOBUF_FIELD_OFFSET(Decorrelation, _impl_.all_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .anduril.entitymanager.v1.DecorrelatedAll all = 1 [json_name = "all"];
+    {PROTOBUF_FIELD_OFFSET(Decorrelation, _impl_.all_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // repeated .anduril.entitymanager.v1.DecorrelatedSingle decorrelated_entities = 2 [json_name = "decorrelatedEntities"];
+    {PROTOBUF_FIELD_OFFSET(Decorrelation, _impl_.decorrelated_entities_), -1, 1,
+    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::DecorrelatedAll>()},
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::DecorrelatedSingle>()},
+  }}, {{
+  }},
+};
+
+PROTOBUF_NOINLINE void Decorrelation::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.Decorrelation)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.decorrelated_entities_.Clear();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.all_ != nullptr);
+    _impl_.all_->Clear();
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* Decorrelation::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const Decorrelation& this_ = static_cast<const Decorrelation&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* Decorrelation::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const Decorrelation& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.Decorrelation)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          cached_has_bits = this_._impl_._has_bits_[0];
+          // .anduril.entitymanager.v1.DecorrelatedAll all = 1 [json_name = "all"];
+          if (cached_has_bits & 0x00000001u) {
+            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                1, *this_._impl_.all_, this_._impl_.all_->GetCachedSize(), target,
+                stream);
+          }
+
+          // repeated .anduril.entitymanager.v1.DecorrelatedSingle decorrelated_entities = 2 [json_name = "decorrelatedEntities"];
+          for (unsigned i = 0, n = static_cast<unsigned>(
+                                   this_._internal_decorrelated_entities_size());
+               i < n; i++) {
+            const auto& repfield = this_._internal_decorrelated_entities().Get(i);
+            target =
+                ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                    2, repfield, repfield.GetCachedSize(),
+                    target, stream);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.Decorrelation)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t Decorrelation::ByteSizeLong(const MessageLite& base) {
+          const Decorrelation& this_ = static_cast<const Decorrelation&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t Decorrelation::ByteSizeLong() const {
+          const Decorrelation& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.Decorrelation)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // repeated .anduril.entitymanager.v1.DecorrelatedSingle decorrelated_entities = 2 [json_name = "decorrelatedEntities"];
+             {
+              total_size += 1UL * this_._internal_decorrelated_entities_size();
+              for (const auto& msg : this_._internal_decorrelated_entities()) {
+                total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+              }
+            }
+          }
+           {
+            // .anduril.entitymanager.v1.DecorrelatedAll all = 1 [json_name = "all"];
+            cached_has_bits =
+                this_._impl_._has_bits_[0];
+            if (cached_has_bits & 0x00000001u) {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.all_);
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void Decorrelation::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<Decorrelation*>(&to_msg);
+  auto& from = static_cast<const Decorrelation&>(from_msg);
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.Decorrelation)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_internal_mutable_decorrelated_entities()->MergeFrom(
+      from._internal_decorrelated_entities());
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(from._impl_.all_ != nullptr);
+    if (_this->_impl_.all_ == nullptr) {
+      _this->_impl_.all_ =
+          ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::DecorrelatedAll>(arena, *from._impl_.all_);
+    } else {
+      _this->_impl_.all_->MergeFrom(*from._impl_.all_);
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void Decorrelation::CopyFrom(const Decorrelation& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.Decorrelation)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
 
 
+void Decorrelation::InternalSwap(Decorrelation* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.decorrelated_entities_.InternalSwap(&other->_impl_.decorrelated_entities_);
+  swap(_impl_.all_, other->_impl_.all_);
+}
 
-::google::protobuf::Metadata TeamStatus::GetMetadata() const {
-  return ::google::protobuf::internal::ZeroFieldsBase::GetMetadataImpl(GetClassData()->full());
+::google::protobuf::Metadata Decorrelation::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class DecorrelatedAll::_Internal {
+ public:
+  using HasBits =
+      decltype(std::declval<DecorrelatedAll>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(DecorrelatedAll, _impl_._has_bits_);
+};
+
+DecorrelatedAll::DecorrelatedAll(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.DecorrelatedAll)
+}
+inline PROTOBUF_NDEBUG_INLINE DecorrelatedAll::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::entitymanager::v1::DecorrelatedAll& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0} {}
+
+DecorrelatedAll::DecorrelatedAll(
+    ::google::protobuf::Arena* arena,
+    const DecorrelatedAll& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  DecorrelatedAll* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.metadata_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::CorrelationMetadata>(
+                              arena, *from._impl_.metadata_)
+                        : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.DecorrelatedAll)
+}
+inline PROTOBUF_NDEBUG_INLINE DecorrelatedAll::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : _cached_size_{0} {}
+
+inline void DecorrelatedAll::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.metadata_ = {};
+}
+DecorrelatedAll::~DecorrelatedAll() {
+  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.DecorrelatedAll)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void DecorrelatedAll::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  delete _impl_.metadata_;
+  _impl_.~Impl_();
+}
+
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::MessageLite::ClassDataFull
+    DecorrelatedAll::_class_data_ = {
+        ::google::protobuf::Message::ClassData{
+            &_DecorrelatedAll_default_instance_._instance,
+            &_table_.header,
+            nullptr,  // OnDemandRegisterArenaDtor
+            nullptr,  // IsInitialized
+            &DecorrelatedAll::MergeImpl,
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+            ::google::protobuf::Message::GetDeleteImpl<DecorrelatedAll>(),
+            ::google::protobuf::Message::GetNewImpl<DecorrelatedAll>(),
+            ::google::protobuf::Message::GetClearImpl<DecorrelatedAll>(), &DecorrelatedAll::ByteSizeLong,
+                &DecorrelatedAll::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+            PROTOBUF_FIELD_OFFSET(DecorrelatedAll, _impl_._cached_size_),
+            false,
+        },
+        &DecorrelatedAll::kDescriptorMethods,
+        &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto,
+        nullptr,  // tracker
+};
+const ::google::protobuf::MessageLite::ClassData* DecorrelatedAll::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 1, 0, 2> DecorrelatedAll::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(DecorrelatedAll, _impl_._has_bits_),
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::DecorrelatedAll>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .anduril.entitymanager.v1.CorrelationMetadata metadata = 1 [json_name = "metadata"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 0, 0, PROTOBUF_FIELD_OFFSET(DecorrelatedAll, _impl_.metadata_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .anduril.entitymanager.v1.CorrelationMetadata metadata = 1 [json_name = "metadata"];
+    {PROTOBUF_FIELD_OFFSET(DecorrelatedAll, _impl_.metadata_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::CorrelationMetadata>()},
+  }}, {{
+  }},
+};
+
+PROTOBUF_NOINLINE void DecorrelatedAll::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.DecorrelatedAll)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.metadata_ != nullptr);
+    _impl_.metadata_->Clear();
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* DecorrelatedAll::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const DecorrelatedAll& this_ = static_cast<const DecorrelatedAll&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* DecorrelatedAll::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const DecorrelatedAll& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.DecorrelatedAll)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          cached_has_bits = this_._impl_._has_bits_[0];
+          // .anduril.entitymanager.v1.CorrelationMetadata metadata = 1 [json_name = "metadata"];
+          if (cached_has_bits & 0x00000001u) {
+            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                1, *this_._impl_.metadata_, this_._impl_.metadata_->GetCachedSize(), target,
+                stream);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.DecorrelatedAll)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t DecorrelatedAll::ByteSizeLong(const MessageLite& base) {
+          const DecorrelatedAll& this_ = static_cast<const DecorrelatedAll&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t DecorrelatedAll::ByteSizeLong() const {
+          const DecorrelatedAll& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.DecorrelatedAll)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+           {
+            // .anduril.entitymanager.v1.CorrelationMetadata metadata = 1 [json_name = "metadata"];
+            cached_has_bits =
+                this_._impl_._has_bits_[0];
+            if (cached_has_bits & 0x00000001u) {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.metadata_);
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void DecorrelatedAll::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<DecorrelatedAll*>(&to_msg);
+  auto& from = static_cast<const DecorrelatedAll&>(from_msg);
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.DecorrelatedAll)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(from._impl_.metadata_ != nullptr);
+    if (_this->_impl_.metadata_ == nullptr) {
+      _this->_impl_.metadata_ =
+          ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::CorrelationMetadata>(arena, *from._impl_.metadata_);
+    } else {
+      _this->_impl_.metadata_->MergeFrom(*from._impl_.metadata_);
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void DecorrelatedAll::CopyFrom(const DecorrelatedAll& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.DecorrelatedAll)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void DecorrelatedAll::InternalSwap(DecorrelatedAll* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  swap(_impl_.metadata_, other->_impl_.metadata_);
+}
+
+::google::protobuf::Metadata DecorrelatedAll::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class DecorrelatedSingle::_Internal {
+ public:
+  using HasBits =
+      decltype(std::declval<DecorrelatedSingle>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(DecorrelatedSingle, _impl_._has_bits_);
+};
+
+DecorrelatedSingle::DecorrelatedSingle(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.DecorrelatedSingle)
+}
+inline PROTOBUF_NDEBUG_INLINE DecorrelatedSingle::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::entitymanager::v1::DecorrelatedSingle& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        entity_id_(arena, from.entity_id_) {}
+
+DecorrelatedSingle::DecorrelatedSingle(
+    ::google::protobuf::Arena* arena,
+    const DecorrelatedSingle& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  DecorrelatedSingle* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.metadata_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::CorrelationMetadata>(
+                              arena, *from._impl_.metadata_)
+                        : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.DecorrelatedSingle)
+}
+inline PROTOBUF_NDEBUG_INLINE DecorrelatedSingle::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : _cached_size_{0},
+        entity_id_(arena) {}
+
+inline void DecorrelatedSingle::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.metadata_ = {};
+}
+DecorrelatedSingle::~DecorrelatedSingle() {
+  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.DecorrelatedSingle)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void DecorrelatedSingle::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  _impl_.entity_id_.Destroy();
+  delete _impl_.metadata_;
+  _impl_.~Impl_();
+}
+
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::MessageLite::ClassDataFull
+    DecorrelatedSingle::_class_data_ = {
+        ::google::protobuf::Message::ClassData{
+            &_DecorrelatedSingle_default_instance_._instance,
+            &_table_.header,
+            nullptr,  // OnDemandRegisterArenaDtor
+            nullptr,  // IsInitialized
+            &DecorrelatedSingle::MergeImpl,
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+            ::google::protobuf::Message::GetDeleteImpl<DecorrelatedSingle>(),
+            ::google::protobuf::Message::GetNewImpl<DecorrelatedSingle>(),
+            ::google::protobuf::Message::GetClearImpl<DecorrelatedSingle>(), &DecorrelatedSingle::ByteSizeLong,
+                &DecorrelatedSingle::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+            PROTOBUF_FIELD_OFFSET(DecorrelatedSingle, _impl_._cached_size_),
+            false,
+        },
+        &DecorrelatedSingle::kDescriptorMethods,
+        &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto,
+        nullptr,  // tracker
+};
+const ::google::protobuf::MessageLite::ClassData* DecorrelatedSingle::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 61, 2> DecorrelatedSingle::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(DecorrelatedSingle, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::DecorrelatedSingle>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .anduril.entitymanager.v1.CorrelationMetadata metadata = 2 [json_name = "metadata"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 0, 0, PROTOBUF_FIELD_OFFSET(DecorrelatedSingle, _impl_.metadata_)}},
+    // string entity_id = 1 [json_name = "entityId"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(DecorrelatedSingle, _impl_.entity_id_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string entity_id = 1 [json_name = "entityId"];
+    {PROTOBUF_FIELD_OFFSET(DecorrelatedSingle, _impl_.entity_id_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .anduril.entitymanager.v1.CorrelationMetadata metadata = 2 [json_name = "metadata"];
+    {PROTOBUF_FIELD_OFFSET(DecorrelatedSingle, _impl_.metadata_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::CorrelationMetadata>()},
+  }}, {{
+    "\53\11\0\0\0\0\0\0"
+    "anduril.entitymanager.v1.DecorrelatedSingle"
+    "entity_id"
+  }},
+};
+
+PROTOBUF_NOINLINE void DecorrelatedSingle::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.DecorrelatedSingle)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.entity_id_.ClearToEmpty();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.metadata_ != nullptr);
+    _impl_.metadata_->Clear();
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* DecorrelatedSingle::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const DecorrelatedSingle& this_ = static_cast<const DecorrelatedSingle&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* DecorrelatedSingle::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const DecorrelatedSingle& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.DecorrelatedSingle)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // string entity_id = 1 [json_name = "entityId"];
+          if (!this_._internal_entity_id().empty()) {
+            const std::string& _s = this_._internal_entity_id();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.DecorrelatedSingle.entity_id");
+            target = stream->WriteStringMaybeAliased(1, _s, target);
+          }
+
+          cached_has_bits = this_._impl_._has_bits_[0];
+          // .anduril.entitymanager.v1.CorrelationMetadata metadata = 2 [json_name = "metadata"];
+          if (cached_has_bits & 0x00000001u) {
+            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                2, *this_._impl_.metadata_, this_._impl_.metadata_->GetCachedSize(), target,
+                stream);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.DecorrelatedSingle)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t DecorrelatedSingle::ByteSizeLong(const MessageLite& base) {
+          const DecorrelatedSingle& this_ = static_cast<const DecorrelatedSingle&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t DecorrelatedSingle::ByteSizeLong() const {
+          const DecorrelatedSingle& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.DecorrelatedSingle)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // string entity_id = 1 [json_name = "entityId"];
+            if (!this_._internal_entity_id().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_entity_id());
+            }
+          }
+           {
+            // .anduril.entitymanager.v1.CorrelationMetadata metadata = 2 [json_name = "metadata"];
+            cached_has_bits =
+                this_._impl_._has_bits_[0];
+            if (cached_has_bits & 0x00000001u) {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.metadata_);
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void DecorrelatedSingle::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<DecorrelatedSingle*>(&to_msg);
+  auto& from = static_cast<const DecorrelatedSingle&>(from_msg);
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.DecorrelatedSingle)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_entity_id().empty()) {
+    _this->_internal_set_entity_id(from._internal_entity_id());
+  }
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(from._impl_.metadata_ != nullptr);
+    if (_this->_impl_.metadata_ == nullptr) {
+      _this->_impl_.metadata_ =
+          ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::CorrelationMetadata>(arena, *from._impl_.metadata_);
+    } else {
+      _this->_impl_.metadata_->MergeFrom(*from._impl_.metadata_);
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void DecorrelatedSingle::CopyFrom(const DecorrelatedSingle& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.DecorrelatedSingle)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void DecorrelatedSingle::InternalSwap(DecorrelatedSingle* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.entity_id_, &other->_impl_.entity_id_, arena);
+  swap(_impl_.metadata_, other->_impl_.metadata_);
+}
+
+::google::protobuf::Metadata DecorrelatedSingle::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class CorrelationMetadata::_Internal {
+ public:
+  using HasBits =
+      decltype(std::declval<CorrelationMetadata>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(CorrelationMetadata, _impl_._has_bits_);
+};
+
+CorrelationMetadata::CorrelationMetadata(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.CorrelationMetadata)
+}
+inline PROTOBUF_NDEBUG_INLINE CorrelationMetadata::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::entitymanager::v1::CorrelationMetadata& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0} {}
+
+CorrelationMetadata::CorrelationMetadata(
+    ::google::protobuf::Arena* arena,
+    const CorrelationMetadata& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  CorrelationMetadata* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.provenance_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Provenance>(
+                              arena, *from._impl_.provenance_)
+                        : nullptr;
+  ::memcpy(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, replication_mode_),
+           reinterpret_cast<const char *>(&from._impl_) +
+               offsetof(Impl_, replication_mode_),
+           offsetof(Impl_, type_) -
+               offsetof(Impl_, replication_mode_) +
+               sizeof(Impl_::type_));
+
+  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.CorrelationMetadata)
+}
+inline PROTOBUF_NDEBUG_INLINE CorrelationMetadata::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : _cached_size_{0} {}
+
+inline void CorrelationMetadata::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, provenance_),
+           0,
+           offsetof(Impl_, type_) -
+               offsetof(Impl_, provenance_) +
+               sizeof(Impl_::type_));
+}
+CorrelationMetadata::~CorrelationMetadata() {
+  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.CorrelationMetadata)
+  _internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  SharedDtor();
+}
+inline void CorrelationMetadata::SharedDtor() {
+  ABSL_DCHECK(GetArena() == nullptr);
+  delete _impl_.provenance_;
+  _impl_.~Impl_();
+}
+
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::MessageLite::ClassDataFull
+    CorrelationMetadata::_class_data_ = {
+        ::google::protobuf::Message::ClassData{
+            &_CorrelationMetadata_default_instance_._instance,
+            &_table_.header,
+            nullptr,  // OnDemandRegisterArenaDtor
+            nullptr,  // IsInitialized
+            &CorrelationMetadata::MergeImpl,
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+            ::google::protobuf::Message::GetDeleteImpl<CorrelationMetadata>(),
+            ::google::protobuf::Message::GetNewImpl<CorrelationMetadata>(),
+            ::google::protobuf::Message::GetClearImpl<CorrelationMetadata>(), &CorrelationMetadata::ByteSizeLong,
+                &CorrelationMetadata::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+            PROTOBUF_FIELD_OFFSET(CorrelationMetadata, _impl_._cached_size_),
+            false,
+        },
+        &CorrelationMetadata::kDescriptorMethods,
+        &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto,
+        nullptr,  // tracker
+};
+const ::google::protobuf::MessageLite::ClassData* CorrelationMetadata::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 3, 1, 0, 2> CorrelationMetadata::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(CorrelationMetadata, _impl_._has_bits_),
+    0, // no _extensions_
+    3, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    3,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::CorrelationMetadata>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // .anduril.entitymanager.v1.Provenance provenance = 1 [json_name = "provenance"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 0, 0, PROTOBUF_FIELD_OFFSET(CorrelationMetadata, _impl_.provenance_)}},
+    // .anduril.entitymanager.v1.CorrelationReplicationMode replication_mode = 2 [json_name = "replicationMode"];
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CorrelationMetadata, _impl_.replication_mode_), 63>(),
+     {16, 63, 0, PROTOBUF_FIELD_OFFSET(CorrelationMetadata, _impl_.replication_mode_)}},
+    // .anduril.entitymanager.v1.CorrelationType type = 3 [json_name = "type"];
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CorrelationMetadata, _impl_.type_), 63>(),
+     {24, 63, 0, PROTOBUF_FIELD_OFFSET(CorrelationMetadata, _impl_.type_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .anduril.entitymanager.v1.Provenance provenance = 1 [json_name = "provenance"];
+    {PROTOBUF_FIELD_OFFSET(CorrelationMetadata, _impl_.provenance_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .anduril.entitymanager.v1.CorrelationReplicationMode replication_mode = 2 [json_name = "replicationMode"];
+    {PROTOBUF_FIELD_OFFSET(CorrelationMetadata, _impl_.replication_mode_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
+    // .anduril.entitymanager.v1.CorrelationType type = 3 [json_name = "type"];
+    {PROTOBUF_FIELD_OFFSET(CorrelationMetadata, _impl_.type_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Provenance>()},
+  }}, {{
+  }},
+};
+
+PROTOBUF_NOINLINE void CorrelationMetadata::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.CorrelationMetadata)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.provenance_ != nullptr);
+    _impl_.provenance_->Clear();
+  }
+  ::memset(&_impl_.replication_mode_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.type_) -
+      reinterpret_cast<char*>(&_impl_.replication_mode_)) + sizeof(_impl_.type_));
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* CorrelationMetadata::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const CorrelationMetadata& this_ = static_cast<const CorrelationMetadata&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* CorrelationMetadata::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const CorrelationMetadata& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.CorrelationMetadata)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          cached_has_bits = this_._impl_._has_bits_[0];
+          // .anduril.entitymanager.v1.Provenance provenance = 1 [json_name = "provenance"];
+          if (cached_has_bits & 0x00000001u) {
+            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                1, *this_._impl_.provenance_, this_._impl_.provenance_->GetCachedSize(), target,
+                stream);
+          }
+
+          // .anduril.entitymanager.v1.CorrelationReplicationMode replication_mode = 2 [json_name = "replicationMode"];
+          if (this_._internal_replication_mode() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteEnumToArray(
+                2, this_._internal_replication_mode(), target);
+          }
+
+          // .anduril.entitymanager.v1.CorrelationType type = 3 [json_name = "type"];
+          if (this_._internal_type() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteEnumToArray(
+                3, this_._internal_type(), target);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.CorrelationMetadata)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t CorrelationMetadata::ByteSizeLong(const MessageLite& base) {
+          const CorrelationMetadata& this_ = static_cast<const CorrelationMetadata&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t CorrelationMetadata::ByteSizeLong() const {
+          const CorrelationMetadata& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.CorrelationMetadata)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // .anduril.entitymanager.v1.Provenance provenance = 1 [json_name = "provenance"];
+            cached_has_bits =
+                this_._impl_._has_bits_[0];
+            if (cached_has_bits & 0x00000001u) {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.provenance_);
+            }
+          }
+           {
+            // .anduril.entitymanager.v1.CorrelationReplicationMode replication_mode = 2 [json_name = "replicationMode"];
+            if (this_._internal_replication_mode() != 0) {
+              total_size += 1 +
+                            ::_pbi::WireFormatLite::EnumSize(this_._internal_replication_mode());
+            }
+            // .anduril.entitymanager.v1.CorrelationType type = 3 [json_name = "type"];
+            if (this_._internal_type() != 0) {
+              total_size += 1 +
+                            ::_pbi::WireFormatLite::EnumSize(this_._internal_type());
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void CorrelationMetadata::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<CorrelationMetadata*>(&to_msg);
+  auto& from = static_cast<const CorrelationMetadata&>(from_msg);
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.CorrelationMetadata)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(from._impl_.provenance_ != nullptr);
+    if (_this->_impl_.provenance_ == nullptr) {
+      _this->_impl_.provenance_ =
+          ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Provenance>(arena, *from._impl_.provenance_);
+    } else {
+      _this->_impl_.provenance_->MergeFrom(*from._impl_.provenance_);
+    }
+  }
+  if (from._internal_replication_mode() != 0) {
+    _this->_impl_.replication_mode_ = from._impl_.replication_mode_;
+  }
+  if (from._internal_type() != 0) {
+    _this->_impl_.type_ = from._impl_.type_;
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CorrelationMetadata::CopyFrom(const CorrelationMetadata& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.CorrelationMetadata)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void CorrelationMetadata::InternalSwap(CorrelationMetadata* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CorrelationMetadata, _impl_.type_)
+      + sizeof(CorrelationMetadata::_impl_.type_)
+      - PROTOBUF_FIELD_OFFSET(CorrelationMetadata, _impl_.provenance_)>(
+          reinterpret_cast<char*>(&_impl_.provenance_),
+          reinterpret_cast<char*>(&other->_impl_.provenance_));
+}
+
+::google::protobuf::Metadata CorrelationMetadata::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace v1

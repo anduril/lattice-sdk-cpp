@@ -20,7 +20,6 @@
 #include "google/protobuf/io/coded_stream.h"
 #include "google/protobuf/arena.h"
 #include "google/protobuf/arenastring.h"
-#include "google/protobuf/generated_message_bases.h"
 #include "google/protobuf/generated_message_tctable_decl.h"
 #include "google/protobuf/generated_message_util.h"
 #include "google/protobuf/metadata_lite.h"
@@ -31,14 +30,11 @@
 #include "google/protobuf/generated_enum_reflection.h"
 #include "google/protobuf/unknown_field_set.h"
 #include "anduril/entitymanager/v1/classification.pub.pb.h"
-#include "anduril/entitymanager/v1/contact_details.pub.pb.h"
-#include "anduril/entitymanager/v1/correlations.pub.pb.h"
 #include "anduril/entitymanager/v1/dimensions.pub.pb.h"
 #include "anduril/entitymanager/v1/geoentity.pub.pb.h"
 #include "anduril/entitymanager/v1/group.pub.pb.h"
 #include "anduril/entitymanager/v1/health_status.pub.pb.h"
 #include "anduril/entitymanager/v1/location.pub.pb.h"
-#include "anduril/entitymanager/v1/media.pub.pb.h"
 #include "anduril/entitymanager/v1/ontology.pub.pb.h"
 #include "anduril/entitymanager/v1/options.pub.pb.h"
 #include "anduril/entitymanager/v1/orbit.pub.pb.h"
@@ -54,6 +50,7 @@
 #include "anduril/entitymanager/v1/transponder_codes.pub.pb.h"
 #include "anduril/entitymanager/v1/types.pub.pb.h"
 #include "anduril/tasks/v2/catalog.pub.pb.h"
+#include "anduril/type/color.pub.pb.h"
 #include "google/protobuf/timestamp.pb.h"
 #include "google/protobuf/wrappers.pb.h"
 // @@protoc_insertion_point(includes)
@@ -86,42 +83,48 @@ extern AliasesDefaultTypeInternal _Aliases_default_instance_;
 class AlternateId;
 struct AlternateIdDefaultTypeInternal;
 extern AlternateIdDefaultTypeInternal _AlternateId_default_instance_;
-class Entities;
-struct EntitiesDefaultTypeInternal;
-extern EntitiesDefaultTypeInternal _Entities_default_instance_;
+class Correlation;
+struct CorrelationDefaultTypeInternal;
+extern CorrelationDefaultTypeInternal _Correlation_default_instance_;
+class CorrelationMetadata;
+struct CorrelationMetadataDefaultTypeInternal;
+extern CorrelationMetadataDefaultTypeInternal _CorrelationMetadata_default_instance_;
+class DecorrelatedAll;
+struct DecorrelatedAllDefaultTypeInternal;
+extern DecorrelatedAllDefaultTypeInternal _DecorrelatedAll_default_instance_;
+class DecorrelatedSingle;
+struct DecorrelatedSingleDefaultTypeInternal;
+extern DecorrelatedSingleDefaultTypeInternal _DecorrelatedSingle_default_instance_;
+class Decorrelation;
+struct DecorrelationDefaultTypeInternal;
+extern DecorrelationDefaultTypeInternal _Decorrelation_default_instance_;
 class Entity;
 struct EntityDefaultTypeInternal;
 extern EntityDefaultTypeInternal _Entity_default_instance_;
 class Indicators;
 struct IndicatorsDefaultTypeInternal;
 extern IndicatorsDefaultTypeInternal _Indicators_default_instance_;
-class OriginalData;
-struct OriginalDataDefaultTypeInternal;
-extern OriginalDataDefaultTypeInternal _OriginalData_default_instance_;
-class OriginalData_TLE;
-struct OriginalData_TLEDefaultTypeInternal;
-extern OriginalData_TLEDefaultTypeInternal _OriginalData_TLE_default_instance_;
 class Override;
 struct OverrideDefaultTypeInternal;
 extern OverrideDefaultTypeInternal _Override_default_instance_;
-class OverrideProvenance;
-struct OverrideProvenanceDefaultTypeInternal;
-extern OverrideProvenanceDefaultTypeInternal _OverrideProvenance_default_instance_;
 class Overrides;
 struct OverridesDefaultTypeInternal;
 extern OverridesDefaultTypeInternal _Overrides_default_instance_;
+class PrimaryCorrelation;
+struct PrimaryCorrelationDefaultTypeInternal;
+extern PrimaryCorrelationDefaultTypeInternal _PrimaryCorrelation_default_instance_;
 class Provenance;
 struct ProvenanceDefaultTypeInternal;
 extern ProvenanceDefaultTypeInternal _Provenance_default_instance_;
 class RangeRings;
 struct RangeRingsDefaultTypeInternal;
 extern RangeRingsDefaultTypeInternal _RangeRings_default_instance_;
+class SecondaryCorrelation;
+struct SecondaryCorrelationDefaultTypeInternal;
+extern SecondaryCorrelationDefaultTypeInternal _SecondaryCorrelation_default_instance_;
 class Status;
 struct StatusDefaultTypeInternal;
 extern StatusDefaultTypeInternal _Status_default_instance_;
-class TeamStatus;
-struct TeamStatusDefaultTypeInternal;
-extern TeamStatusDefaultTypeInternal _TeamStatus_default_instance_;
 class Tracked;
 struct TrackedDefaultTypeInternal;
 extern TrackedDefaultTypeInternal _Tracked_default_instance_;
@@ -139,222 +142,78 @@ namespace protobuf {
 namespace anduril {
 namespace entitymanager {
 namespace v1 {
-enum Deletable : int {
-  DELETABLE_INVALID = 0,
-  DELETABLE_TRUE = 1,
-  DELETABLE_FALSE = 2,
-  DELETABLE_REQUEST = 3,
-  Deletable_INT_MIN_SENTINEL_DO_NOT_USE_ =
+enum CorrelationType : int {
+  CORRELATION_TYPE_INVALID = 0,
+  CORRELATION_TYPE_MANUAL = 1,
+  CORRELATION_TYPE_AUTOMATED = 2,
+  CorrelationType_INT_MIN_SENTINEL_DO_NOT_USE_ =
       std::numeric_limits<::int32_t>::min(),
-  Deletable_INT_MAX_SENTINEL_DO_NOT_USE_ =
+  CorrelationType_INT_MAX_SENTINEL_DO_NOT_USE_ =
       std::numeric_limits<::int32_t>::max(),
 };
 
-bool Deletable_IsValid(int value);
-extern const uint32_t Deletable_internal_data_[];
-constexpr Deletable Deletable_MIN = static_cast<Deletable>(0);
-constexpr Deletable Deletable_MAX = static_cast<Deletable>(3);
-constexpr int Deletable_ARRAYSIZE = 3 + 1;
+bool CorrelationType_IsValid(int value);
+extern const uint32_t CorrelationType_internal_data_[];
+constexpr CorrelationType CorrelationType_MIN = static_cast<CorrelationType>(0);
+constexpr CorrelationType CorrelationType_MAX = static_cast<CorrelationType>(2);
+constexpr int CorrelationType_ARRAYSIZE = 2 + 1;
 const ::google::protobuf::EnumDescriptor*
-Deletable_descriptor();
+CorrelationType_descriptor();
 template <typename T>
-const std::string& Deletable_Name(T value) {
-  static_assert(std::is_same<T, Deletable>::value ||
+const std::string& CorrelationType_Name(T value) {
+  static_assert(std::is_same<T, CorrelationType>::value ||
                     std::is_integral<T>::value,
-                "Incorrect type passed to Deletable_Name().");
-  return Deletable_Name(static_cast<Deletable>(value));
+                "Incorrect type passed to CorrelationType_Name().");
+  return CorrelationType_Name(static_cast<CorrelationType>(value));
 }
 template <>
-inline const std::string& Deletable_Name(Deletable value) {
-  return ::google::protobuf::internal::NameOfDenseEnum<Deletable_descriptor,
-                                                 0, 3>(
-      static_cast<int>(value));
-}
-inline bool Deletable_Parse(absl::string_view name, Deletable* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<Deletable>(
-      Deletable_descriptor(), name, value);
-}
-enum InteractivityMode : int {
-  INTERACTIVITY_MODE_INVALID = 0,
-  INTERACTIVITY_MODE_DEFAULT = 1,
-  INTERACTIVITY_MODE_DISABLED_ON_MAP = 2,
-  InteractivityMode_INT_MIN_SENTINEL_DO_NOT_USE_ =
-      std::numeric_limits<::int32_t>::min(),
-  InteractivityMode_INT_MAX_SENTINEL_DO_NOT_USE_ =
-      std::numeric_limits<::int32_t>::max(),
-};
-
-bool InteractivityMode_IsValid(int value);
-extern const uint32_t InteractivityMode_internal_data_[];
-constexpr InteractivityMode InteractivityMode_MIN = static_cast<InteractivityMode>(0);
-constexpr InteractivityMode InteractivityMode_MAX = static_cast<InteractivityMode>(2);
-constexpr int InteractivityMode_ARRAYSIZE = 2 + 1;
-const ::google::protobuf::EnumDescriptor*
-InteractivityMode_descriptor();
-template <typename T>
-const std::string& InteractivityMode_Name(T value) {
-  static_assert(std::is_same<T, InteractivityMode>::value ||
-                    std::is_integral<T>::value,
-                "Incorrect type passed to InteractivityMode_Name().");
-  return InteractivityMode_Name(static_cast<InteractivityMode>(value));
-}
-template <>
-inline const std::string& InteractivityMode_Name(InteractivityMode value) {
-  return ::google::protobuf::internal::NameOfDenseEnum<InteractivityMode_descriptor,
+inline const std::string& CorrelationType_Name(CorrelationType value) {
+  return ::google::protobuf::internal::NameOfDenseEnum<CorrelationType_descriptor,
                                                  0, 2>(
       static_cast<int>(value));
 }
-inline bool InteractivityMode_Parse(absl::string_view name, InteractivityMode* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<InteractivityMode>(
-      InteractivityMode_descriptor(), name, value);
+inline bool CorrelationType_Parse(absl::string_view name, CorrelationType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<CorrelationType>(
+      CorrelationType_descriptor(), name, value);
+}
+enum CorrelationReplicationMode : int {
+  CORRELATION_REPLICATION_MODE_INVALID = 0,
+  CORRELATION_REPLICATION_MODE_LOCAL = 1,
+  CORRELATION_REPLICATION_MODE_GLOBAL = 2,
+  CorrelationReplicationMode_INT_MIN_SENTINEL_DO_NOT_USE_ =
+      std::numeric_limits<::int32_t>::min(),
+  CorrelationReplicationMode_INT_MAX_SENTINEL_DO_NOT_USE_ =
+      std::numeric_limits<::int32_t>::max(),
+};
+
+bool CorrelationReplicationMode_IsValid(int value);
+extern const uint32_t CorrelationReplicationMode_internal_data_[];
+constexpr CorrelationReplicationMode CorrelationReplicationMode_MIN = static_cast<CorrelationReplicationMode>(0);
+constexpr CorrelationReplicationMode CorrelationReplicationMode_MAX = static_cast<CorrelationReplicationMode>(2);
+constexpr int CorrelationReplicationMode_ARRAYSIZE = 2 + 1;
+const ::google::protobuf::EnumDescriptor*
+CorrelationReplicationMode_descriptor();
+template <typename T>
+const std::string& CorrelationReplicationMode_Name(T value) {
+  static_assert(std::is_same<T, CorrelationReplicationMode>::value ||
+                    std::is_integral<T>::value,
+                "Incorrect type passed to CorrelationReplicationMode_Name().");
+  return CorrelationReplicationMode_Name(static_cast<CorrelationReplicationMode>(value));
+}
+template <>
+inline const std::string& CorrelationReplicationMode_Name(CorrelationReplicationMode value) {
+  return ::google::protobuf::internal::NameOfDenseEnum<CorrelationReplicationMode_descriptor,
+                                                 0, 2>(
+      static_cast<int>(value));
+}
+inline bool CorrelationReplicationMode_Parse(absl::string_view name, CorrelationReplicationMode* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<CorrelationReplicationMode>(
+      CorrelationReplicationMode_descriptor(), name, value);
 }
 
 // ===================================================================
 
 
-// -------------------------------------------------------------------
-
-class TeamStatus final : public ::google::protobuf::internal::ZeroFieldsBase
-/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.TeamStatus) */ {
- public:
-  inline TeamStatus() : TeamStatus(nullptr) {}
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR TeamStatus(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline TeamStatus(const TeamStatus& from) : TeamStatus(nullptr, from) {}
-  inline TeamStatus(TeamStatus&& from) noexcept
-      : TeamStatus(nullptr, std::move(from)) {}
-  inline TeamStatus& operator=(const TeamStatus& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline TeamStatus& operator=(TeamStatus&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetArena() == from.GetArena()
-#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetArena() != nullptr
-#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const TeamStatus& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const TeamStatus* internal_default_instance() {
-    return reinterpret_cast<const TeamStatus*>(
-        &_TeamStatus_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 15;
-  friend void swap(TeamStatus& a, TeamStatus& b) { a.Swap(&b); }
-  inline void Swap(TeamStatus* other) {
-    if (other == this) return;
-#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
-#else   // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() == other->GetArena()) {
-#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(TeamStatus* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  TeamStatus* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
-    return ::google::protobuf::internal::ZeroFieldsBase::DefaultConstruct<TeamStatus>(arena);
-  }
-  using ::google::protobuf::internal::ZeroFieldsBase::CopyFrom;
-  inline void CopyFrom(const TeamStatus& from) {
-    ::google::protobuf::internal::ZeroFieldsBase::CopyImpl(*this, from);
-  }
-  using ::google::protobuf::internal::ZeroFieldsBase::MergeFrom;
-  void MergeFrom(const TeamStatus& from) {
-    ::google::protobuf::internal::ZeroFieldsBase::MergeImpl(*this, from);
-  }
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
- private:
-  friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.TeamStatus"; }
-
- protected:
-  explicit TeamStatus(::google::protobuf::Arena* arena);
-  TeamStatus(::google::protobuf::Arena* arena, const TeamStatus& from);
-  TeamStatus(::google::protobuf::Arena* arena, TeamStatus&& from) noexcept
-      : TeamStatus(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::internal::ZeroFieldsBase::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static const ::google::protobuf::internal::ZeroFieldsBase::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.TeamStatus)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      0, 0, 0,
-      0, 2>
-      _table_;
-
-  static constexpr const void* _raw_default_instance_ =
-      &_TeamStatus_default_instance_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const TeamStatus& from_msg);
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto;
-};
 // -------------------------------------------------------------------
 
 class Status final : public ::google::protobuf::Message
@@ -412,7 +271,7 @@ class Status final : public ::google::protobuf::Message
     return reinterpret_cast<const Status*>(
         &_Status_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 2;
+  static constexpr int kIndexInFileMessages = 1;
   friend void swap(Status& a, Status& b) { a.Swap(&b); }
   inline void Swap(Status* other) {
     if (other == this) return;
@@ -569,23 +428,23 @@ class Status final : public ::google::protobuf::Message
 };
 // -------------------------------------------------------------------
 
-class OriginalData_TLE final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.OriginalData.TLE) */ {
+class PrimaryCorrelation final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.PrimaryCorrelation) */ {
  public:
-  inline OriginalData_TLE() : OriginalData_TLE(nullptr) {}
-  ~OriginalData_TLE() PROTOBUF_FINAL;
+  inline PrimaryCorrelation() : PrimaryCorrelation(nullptr) {}
+  ~PrimaryCorrelation() PROTOBUF_FINAL;
   template <typename = void>
-  explicit PROTOBUF_CONSTEXPR OriginalData_TLE(
+  explicit PROTOBUF_CONSTEXPR PrimaryCorrelation(
       ::google::protobuf::internal::ConstantInitialized);
 
-  inline OriginalData_TLE(const OriginalData_TLE& from) : OriginalData_TLE(nullptr, from) {}
-  inline OriginalData_TLE(OriginalData_TLE&& from) noexcept
-      : OriginalData_TLE(nullptr, std::move(from)) {}
-  inline OriginalData_TLE& operator=(const OriginalData_TLE& from) {
+  inline PrimaryCorrelation(const PrimaryCorrelation& from) : PrimaryCorrelation(nullptr, from) {}
+  inline PrimaryCorrelation(PrimaryCorrelation&& from) noexcept
+      : PrimaryCorrelation(nullptr, std::move(from)) {}
+  inline PrimaryCorrelation& operator=(const PrimaryCorrelation& from) {
     CopyFrom(from);
     return *this;
   }
-  inline OriginalData_TLE& operator=(OriginalData_TLE&& from) noexcept {
+  inline PrimaryCorrelation& operator=(PrimaryCorrelation&& from) noexcept {
     if (this == &from) return *this;
     if (GetArena() == from.GetArena()
 #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -617,16 +476,16 @@ class OriginalData_TLE final : public ::google::protobuf::Message
   static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const OriginalData_TLE& default_instance() {
+  static const PrimaryCorrelation& default_instance() {
     return *internal_default_instance();
   }
-  static inline const OriginalData_TLE* internal_default_instance() {
-    return reinterpret_cast<const OriginalData_TLE*>(
-        &_OriginalData_TLE_default_instance_);
+  static inline const PrimaryCorrelation* internal_default_instance() {
+    return reinterpret_cast<const PrimaryCorrelation*>(
+        &_PrimaryCorrelation_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 10;
-  friend void swap(OriginalData_TLE& a, OriginalData_TLE& b) { a.Swap(&b); }
-  inline void Swap(OriginalData_TLE* other) {
+  static constexpr int kIndexInFileMessages = 12;
+  friend void swap(PrimaryCorrelation& a, PrimaryCorrelation& b) { a.Swap(&b); }
+  inline void Swap(PrimaryCorrelation* other) {
     if (other == this) return;
 #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetArena() != nullptr && GetArena() == other->GetArena()) {
@@ -638,7 +497,7 @@ class OriginalData_TLE final : public ::google::protobuf::Message
       ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(OriginalData_TLE* other) {
+  void UnsafeArenaSwap(PrimaryCorrelation* other) {
     if (other == this) return;
     ABSL_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -646,13 +505,13 @@ class OriginalData_TLE final : public ::google::protobuf::Message
 
   // implements Message ----------------------------------------------
 
-  OriginalData_TLE* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
-    return ::google::protobuf::Message::DefaultConstruct<OriginalData_TLE>(arena);
+  PrimaryCorrelation* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
+    return ::google::protobuf::Message::DefaultConstruct<PrimaryCorrelation>(arena);
   }
   using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const OriginalData_TLE& from);
+  void CopyFrom(const PrimaryCorrelation& from);
   using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const OriginalData_TLE& from) { OriginalData_TLE::MergeImpl(*this, from); }
+  void MergeFrom(const PrimaryCorrelation& from) { PrimaryCorrelation::MergeImpl(*this, from); }
 
   private:
   static void MergeImpl(
@@ -689,16 +548,16 @@ class OriginalData_TLE final : public ::google::protobuf::Message
   private:
   void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
-  void InternalSwap(OriginalData_TLE* other);
+  void InternalSwap(PrimaryCorrelation* other);
  private:
   friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.OriginalData.TLE"; }
+  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.PrimaryCorrelation"; }
 
  protected:
-  explicit OriginalData_TLE(::google::protobuf::Arena* arena);
-  OriginalData_TLE(::google::protobuf::Arena* arena, const OriginalData_TLE& from);
-  OriginalData_TLE(::google::protobuf::Arena* arena, OriginalData_TLE&& from) noexcept
-      : OriginalData_TLE(arena) {
+  explicit PrimaryCorrelation(::google::protobuf::Arena* arena);
+  PrimaryCorrelation(::google::protobuf::Arena* arena, const PrimaryCorrelation& from);
+  PrimaryCorrelation(::google::protobuf::Arena* arena, PrimaryCorrelation&& from) noexcept
+      : PrimaryCorrelation(arena) {
     *this = ::std::move(from);
   }
   const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
@@ -710,52 +569,41 @@ class OriginalData_TLE final : public ::google::protobuf::Message
 
   // accessors -------------------------------------------------------
   enum : int {
-    kLine1FieldNumber = 1,
-    kLine2FieldNumber = 2,
+    kSecondaryEntityIdsFieldNumber = 1,
   };
-  // string line1 = 1 [json_name = "line1"];
-  void clear_line1() ;
-  const std::string& line1() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_line1(Arg_&& arg, Args_... args);
-  std::string* mutable_line1();
-  PROTOBUF_NODISCARD std::string* release_line1();
-  void set_allocated_line1(std::string* value);
-
+  // repeated string secondary_entity_ids = 1 [json_name = "secondaryEntityIds"];
+  int secondary_entity_ids_size() const;
   private:
-  const std::string& _internal_line1() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_line1(
-      const std::string& value);
-  std::string* _internal_mutable_line1();
+  int _internal_secondary_entity_ids_size() const;
 
   public:
-  // string line2 = 2 [json_name = "line2"];
-  void clear_line2() ;
-  const std::string& line2() const;
+  void clear_secondary_entity_ids() ;
+  const std::string& secondary_entity_ids(int index) const;
+  std::string* mutable_secondary_entity_ids(int index);
   template <typename Arg_ = const std::string&, typename... Args_>
-  void set_line2(Arg_&& arg, Args_... args);
-  std::string* mutable_line2();
-  PROTOBUF_NODISCARD std::string* release_line2();
-  void set_allocated_line2(std::string* value);
+  void set_secondary_entity_ids(int index, Arg_&& value, Args_... args);
+  std::string* add_secondary_entity_ids();
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void add_secondary_entity_ids(Arg_&& value, Args_... args);
+  const ::google::protobuf::RepeatedPtrField<std::string>& secondary_entity_ids() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* mutable_secondary_entity_ids();
 
   private:
-  const std::string& _internal_line2() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_line2(
-      const std::string& value);
-  std::string* _internal_mutable_line2();
+  const ::google::protobuf::RepeatedPtrField<std::string>& _internal_secondary_entity_ids() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* _internal_mutable_secondary_entity_ids();
 
   public:
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.OriginalData.TLE)
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.PrimaryCorrelation)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 0,
-      60, 2>
+      0, 1, 0,
+      72, 2>
       _table_;
 
   static constexpr const void* _raw_default_instance_ =
-      &_OriginalData_TLE_default_instance_;
+      &_PrimaryCorrelation_default_instance_;
 
   friend class ::google::protobuf::MessageLite;
   friend class ::google::protobuf::Arena;
@@ -770,9 +618,8 @@ class OriginalData_TLE final : public ::google::protobuf::Message
                           ::google::protobuf::Arena* arena);
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
-                          const OriginalData_TLE& from_msg);
-    ::google::protobuf::internal::ArenaStringPtr line1_;
-    ::google::protobuf::internal::ArenaStringPtr line2_;
+                          const PrimaryCorrelation& from_msg);
+    ::google::protobuf::RepeatedPtrField<std::string> secondary_entity_ids_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -836,7 +683,7 @@ class AlternateId final : public ::google::protobuf::Message
     return reinterpret_cast<const AlternateId*>(
         &_AlternateId_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 12;
+  static constexpr int kIndexInFileMessages = 8;
   friend void swap(AlternateId& a, AlternateId& b) { a.Swap(&b); }
   inline void Swap(AlternateId* other) {
     if (other == this) return;
@@ -922,26 +769,9 @@ class AlternateId final : public ::google::protobuf::Message
 
   // accessors -------------------------------------------------------
   enum : int {
-    kSourceFieldNumber = 1,
     kIdFieldNumber = 2,
     kTypeFieldNumber = 3,
   };
-  // string source = 1 [json_name = "source", deprecated = true];
-  [[deprecated]]  void clear_source() ;
-  [[deprecated]] const std::string& source() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  [[deprecated]] void set_source(Arg_&& arg, Args_... args);
-  [[deprecated]] std::string* mutable_source();
-  [[deprecated]] PROTOBUF_NODISCARD std::string* release_source();
-  [[deprecated]] void set_allocated_source(std::string* value);
-
-  private:
-  const std::string& _internal_source() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_source(
-      const std::string& value);
-  std::string* _internal_mutable_source();
-
-  public:
   // string id = 2 [json_name = "id"];
   void clear_id() ;
   const std::string& id() const;
@@ -973,8 +803,8 @@ class AlternateId final : public ::google::protobuf::Message
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      2, 3, 0,
-      53, 2>
+      1, 2, 0,
+      47, 2>
       _table_;
 
   static constexpr const void* _raw_default_instance_ =
@@ -994,233 +824,9 @@ class AlternateId final : public ::google::protobuf::Message
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const AlternateId& from_msg);
-    ::google::protobuf::internal::ArenaStringPtr source_;
     ::google::protobuf::internal::ArenaStringPtr id_;
     int type_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto;
-};
-// -------------------------------------------------------------------
-
-class RangeRings final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.RangeRings) */ {
- public:
-  inline RangeRings() : RangeRings(nullptr) {}
-  ~RangeRings() PROTOBUF_FINAL;
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR RangeRings(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline RangeRings(const RangeRings& from) : RangeRings(nullptr, from) {}
-  inline RangeRings(RangeRings&& from) noexcept
-      : RangeRings(nullptr, std::move(from)) {}
-  inline RangeRings& operator=(const RangeRings& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline RangeRings& operator=(RangeRings&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetArena() == from.GetArena()
-#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetArena() != nullptr
-#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const RangeRings& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const RangeRings* internal_default_instance() {
-    return reinterpret_cast<const RangeRings*>(
-        &_RangeRings_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 14;
-  friend void swap(RangeRings& a, RangeRings& b) { a.Swap(&b); }
-  inline void Swap(RangeRings* other) {
-    if (other == this) return;
-#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
-#else   // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() == other->GetArena()) {
-#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(RangeRings* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  RangeRings* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
-    return ::google::protobuf::Message::DefaultConstruct<RangeRings>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const RangeRings& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const RangeRings& from) { RangeRings::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  void SharedDtor();
-  void InternalSwap(RangeRings* other);
- private:
-  friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.RangeRings"; }
-
- protected:
-  explicit RangeRings(::google::protobuf::Arena* arena);
-  RangeRings(::google::protobuf::Arena* arena, const RangeRings& from);
-  RangeRings(::google::protobuf::Arena* arena, RangeRings&& from) noexcept
-      : RangeRings(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static const ::google::protobuf::Message::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kMinDistanceMFieldNumber = 1,
-    kMaxDistanceMFieldNumber = 2,
-    kRingCountFieldNumber = 3,
-  };
-  // .google.protobuf.DoubleValue min_distance_m = 1 [json_name = "minDistanceM"];
-  bool has_min_distance_m() const;
-  void clear_min_distance_m() ;
-  const ::google::protobuf::DoubleValue& min_distance_m() const;
-  PROTOBUF_NODISCARD ::google::protobuf::DoubleValue* release_min_distance_m();
-  ::google::protobuf::DoubleValue* mutable_min_distance_m();
-  void set_allocated_min_distance_m(::google::protobuf::DoubleValue* value);
-  void unsafe_arena_set_allocated_min_distance_m(::google::protobuf::DoubleValue* value);
-  ::google::protobuf::DoubleValue* unsafe_arena_release_min_distance_m();
-
-  private:
-  const ::google::protobuf::DoubleValue& _internal_min_distance_m() const;
-  ::google::protobuf::DoubleValue* _internal_mutable_min_distance_m();
-
-  public:
-  // .google.protobuf.DoubleValue max_distance_m = 2 [json_name = "maxDistanceM"];
-  bool has_max_distance_m() const;
-  void clear_max_distance_m() ;
-  const ::google::protobuf::DoubleValue& max_distance_m() const;
-  PROTOBUF_NODISCARD ::google::protobuf::DoubleValue* release_max_distance_m();
-  ::google::protobuf::DoubleValue* mutable_max_distance_m();
-  void set_allocated_max_distance_m(::google::protobuf::DoubleValue* value);
-  void unsafe_arena_set_allocated_max_distance_m(::google::protobuf::DoubleValue* value);
-  ::google::protobuf::DoubleValue* unsafe_arena_release_max_distance_m();
-
-  private:
-  const ::google::protobuf::DoubleValue& _internal_max_distance_m() const;
-  ::google::protobuf::DoubleValue* _internal_mutable_max_distance_m();
-
-  public:
-  // uint32 ring_count = 3 [json_name = "ringCount"];
-  void clear_ring_count() ;
-  ::uint32_t ring_count() const;
-  void set_ring_count(::uint32_t value);
-
-  private:
-  ::uint32_t _internal_ring_count() const;
-  void _internal_set_ring_count(::uint32_t value);
-
-  public:
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.RangeRings)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      2, 3, 2,
-      0, 2>
-      _table_;
-
-  static constexpr const void* _raw_default_instance_ =
-      &_RangeRings_default_instance_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const RangeRings& from_msg);
-    ::google::protobuf::internal::HasBits<1> _has_bits_;
-    mutable ::google::protobuf::internal::CachedSize _cached_size_;
-    ::google::protobuf::DoubleValue* min_distance_m_;
-    ::google::protobuf::DoubleValue* max_distance_m_;
-    ::uint32_t ring_count_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -1283,7 +889,7 @@ class Provenance final : public ::google::protobuf::Message
     return reinterpret_cast<const Provenance*>(
         &_Provenance_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 5;
+  static constexpr int kIndexInFileMessages = 4;
   friend void swap(Provenance& a, Provenance& b) { a.Swap(&b); }
   inline void Swap(Provenance* other) {
     if (other == this) return;
@@ -1373,7 +979,6 @@ class Provenance final : public ::google::protobuf::Message
     kSourceDescriptionFieldNumber = 4,
     kIntegrationNameFieldNumber = 5,
     kDataTypeFieldNumber = 6,
-    kFeedNameFieldNumber = 7,
     kSourceUpdateTimeFieldNumber = 2,
     kSourceFieldNumber = 1,
   };
@@ -1441,22 +1046,6 @@ class Provenance final : public ::google::protobuf::Message
   std::string* _internal_mutable_data_type();
 
   public:
-  // string feed_name = 7 [json_name = "feedName"];
-  void clear_feed_name() ;
-  const std::string& feed_name() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_feed_name(Arg_&& arg, Args_... args);
-  std::string* mutable_feed_name();
-  PROTOBUF_NODISCARD std::string* release_feed_name();
-  void set_allocated_feed_name(std::string* value);
-
-  private:
-  const std::string& _internal_feed_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_feed_name(
-      const std::string& value);
-  std::string* _internal_mutable_feed_name();
-
-  public:
   // .google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];
   bool has_source_update_time() const;
   void clear_source_update_time() ;
@@ -1487,8 +1076,8 @@ class Provenance final : public ::google::protobuf::Message
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      3, 7, 1,
-      105, 2>
+      3, 6, 1,
+      96, 2>
       _table_;
 
   static constexpr const void* _raw_default_instance_ =
@@ -1514,222 +1103,8 @@ class Provenance final : public ::google::protobuf::Message
     ::google::protobuf::internal::ArenaStringPtr source_description_;
     ::google::protobuf::internal::ArenaStringPtr integration_name_;
     ::google::protobuf::internal::ArenaStringPtr data_type_;
-    ::google::protobuf::internal::ArenaStringPtr feed_name_;
     ::google::protobuf::Timestamp* source_update_time_;
     int source_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto;
-};
-// -------------------------------------------------------------------
-
-class OriginalData final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.OriginalData) */ {
- public:
-  inline OriginalData() : OriginalData(nullptr) {}
-  ~OriginalData() PROTOBUF_FINAL;
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR OriginalData(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline OriginalData(const OriginalData& from) : OriginalData(nullptr, from) {}
-  inline OriginalData(OriginalData&& from) noexcept
-      : OriginalData(nullptr, std::move(from)) {}
-  inline OriginalData& operator=(const OriginalData& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline OriginalData& operator=(OriginalData&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetArena() == from.GetArena()
-#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetArena() != nullptr
-#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const OriginalData& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const OriginalData* internal_default_instance() {
-    return reinterpret_cast<const OriginalData*>(
-        &_OriginalData_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 11;
-  friend void swap(OriginalData& a, OriginalData& b) { a.Swap(&b); }
-  inline void Swap(OriginalData* other) {
-    if (other == this) return;
-#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
-#else   // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() == other->GetArena()) {
-#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(OriginalData* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  OriginalData* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
-    return ::google::protobuf::Message::DefaultConstruct<OriginalData>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const OriginalData& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const OriginalData& from) { OriginalData::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  void SharedDtor();
-  void InternalSwap(OriginalData* other);
- private:
-  friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.OriginalData"; }
-
- protected:
-  explicit OriginalData(::google::protobuf::Arena* arena);
-  OriginalData(::google::protobuf::Arena* arena, const OriginalData& from);
-  OriginalData(::google::protobuf::Arena* arena, OriginalData&& from) noexcept
-      : OriginalData(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static const ::google::protobuf::Message::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-  using TLE = OriginalData_TLE;
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kUrlFieldNumber = 1,
-    kTleFieldNumber = 2,
-  };
-  // string url = 1 [json_name = "url"];
-  void clear_url() ;
-  const std::string& url() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_url(Arg_&& arg, Args_... args);
-  std::string* mutable_url();
-  PROTOBUF_NODISCARD std::string* release_url();
-  void set_allocated_url(std::string* value);
-
-  private:
-  const std::string& _internal_url() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_url(
-      const std::string& value);
-  std::string* _internal_mutable_url();
-
-  public:
-  // .anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];
-  [[deprecated]]  bool has_tle() const;
-  [[deprecated]]  void clear_tle() ;
-  [[deprecated]] const ::anduril::entitymanager::v1::OriginalData_TLE& tle() const;
-  [[deprecated]] PROTOBUF_NODISCARD ::anduril::entitymanager::v1::OriginalData_TLE* release_tle();
-  [[deprecated]] ::anduril::entitymanager::v1::OriginalData_TLE* mutable_tle();
-  [[deprecated]] void set_allocated_tle(::anduril::entitymanager::v1::OriginalData_TLE* value);
-  [[deprecated]] void unsafe_arena_set_allocated_tle(::anduril::entitymanager::v1::OriginalData_TLE* value);
-  [[deprecated]] ::anduril::entitymanager::v1::OriginalData_TLE* unsafe_arena_release_tle();
-
-  private:
-  const ::anduril::entitymanager::v1::OriginalData_TLE& _internal_tle() const;
-  ::anduril::entitymanager::v1::OriginalData_TLE* _internal_mutable_tle();
-
-  public:
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.OriginalData)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 1,
-      49, 2>
-      _table_;
-
-  static constexpr const void* _raw_default_instance_ =
-      &_OriginalData_default_instance_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const OriginalData& from_msg);
-    ::google::protobuf::internal::HasBits<1> _has_bits_;
-    mutable ::google::protobuf::internal::CachedSize _cached_size_;
-    ::google::protobuf::internal::ArenaStringPtr url_;
-    ::anduril::entitymanager::v1::OriginalData_TLE* tle_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -1792,7 +1167,7 @@ class Indicators final : public ::google::protobuf::Message
     return reinterpret_cast<const Indicators*>(
         &_Indicators_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 6;
+  static constexpr int kIndexInFileMessages = 5;
   friend void swap(Indicators& a, Indicators& b) { a.Swap(&b); }
   inline void Swap(Indicators* other) {
     if (other == this) return;
@@ -1884,7 +1259,6 @@ class Indicators final : public ::google::protobuf::Message
     kC2FieldNumber = 4,
     kEgressableFieldNumber = 6,
     kStarredFieldNumber = 7,
-    kDeletableFieldNumber = 5,
   };
   // .google.protobuf.BoolValue simulated = 1 [json_name = "simulated"];
   bool has_simulated() const;
@@ -1976,22 +1350,12 @@ class Indicators final : public ::google::protobuf::Message
   ::google::protobuf::BoolValue* _internal_mutable_starred();
 
   public:
-  // .anduril.entitymanager.v1.Deletable deletable = 5 [json_name = "deletable"];
-  void clear_deletable() ;
-  ::anduril::entitymanager::v1::Deletable deletable() const;
-  void set_deletable(::anduril::entitymanager::v1::Deletable value);
-
-  private:
-  ::anduril::entitymanager::v1::Deletable _internal_deletable() const;
-  void _internal_set_deletable(::anduril::entitymanager::v1::Deletable value);
-
-  public:
   // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.Indicators)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      3, 7, 6,
+      3, 6, 6,
       0, 2>
       _table_;
 
@@ -2020,7 +1384,6 @@ class Indicators final : public ::google::protobuf::Message
     ::google::protobuf::BoolValue* c2_;
     ::google::protobuf::BoolValue* egressable_;
     ::google::protobuf::BoolValue* starred_;
-    int deletable_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -2083,7 +1446,7 @@ class Aliases final : public ::google::protobuf::Message
     return reinterpret_cast<const Aliases*>(
         &_Aliases_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 3;
+  static constexpr int kIndexInFileMessages = 2;
   friend void swap(Aliases& a, Aliases& b) { a.Swap(&b); }
   inline void Swap(Aliases* other) {
     if (other == this) return;
@@ -2241,6 +1604,464 @@ class Aliases final : public ::google::protobuf::Message
 };
 // -------------------------------------------------------------------
 
+class RangeRings final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.RangeRings) */ {
+ public:
+  inline RangeRings() : RangeRings(nullptr) {}
+  ~RangeRings() PROTOBUF_FINAL;
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR RangeRings(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline RangeRings(const RangeRings& from) : RangeRings(nullptr, from) {}
+  inline RangeRings(RangeRings&& from) noexcept
+      : RangeRings(nullptr, std::move(from)) {}
+  inline RangeRings& operator=(const RangeRings& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RangeRings& operator=(RangeRings&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RangeRings& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RangeRings* internal_default_instance() {
+    return reinterpret_cast<const RangeRings*>(
+        &_RangeRings_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 10;
+  friend void swap(RangeRings& a, RangeRings& b) { a.Swap(&b); }
+  inline void Swap(RangeRings* other) {
+    if (other == this) return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
+#else   // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RangeRings* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RangeRings* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
+    return ::google::protobuf::Message::DefaultConstruct<RangeRings>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const RangeRings& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const RangeRings& from) { RangeRings::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(RangeRings* other);
+ private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.RangeRings"; }
+
+ protected:
+  explicit RangeRings(::google::protobuf::Arena* arena);
+  RangeRings(::google::protobuf::Arena* arena, const RangeRings& from);
+  RangeRings(::google::protobuf::Arena* arena, RangeRings&& from) noexcept
+      : RangeRings(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static const ::google::protobuf::Message::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kMinDistanceMFieldNumber = 1,
+    kMaxDistanceMFieldNumber = 2,
+    kRingLineColorFieldNumber = 4,
+    kRingCountFieldNumber = 3,
+  };
+  // .google.protobuf.DoubleValue min_distance_m = 1 [json_name = "minDistanceM"];
+  bool has_min_distance_m() const;
+  void clear_min_distance_m() ;
+  const ::google::protobuf::DoubleValue& min_distance_m() const;
+  PROTOBUF_NODISCARD ::google::protobuf::DoubleValue* release_min_distance_m();
+  ::google::protobuf::DoubleValue* mutable_min_distance_m();
+  void set_allocated_min_distance_m(::google::protobuf::DoubleValue* value);
+  void unsafe_arena_set_allocated_min_distance_m(::google::protobuf::DoubleValue* value);
+  ::google::protobuf::DoubleValue* unsafe_arena_release_min_distance_m();
+
+  private:
+  const ::google::protobuf::DoubleValue& _internal_min_distance_m() const;
+  ::google::protobuf::DoubleValue* _internal_mutable_min_distance_m();
+
+  public:
+  // .google.protobuf.DoubleValue max_distance_m = 2 [json_name = "maxDistanceM"];
+  bool has_max_distance_m() const;
+  void clear_max_distance_m() ;
+  const ::google::protobuf::DoubleValue& max_distance_m() const;
+  PROTOBUF_NODISCARD ::google::protobuf::DoubleValue* release_max_distance_m();
+  ::google::protobuf::DoubleValue* mutable_max_distance_m();
+  void set_allocated_max_distance_m(::google::protobuf::DoubleValue* value);
+  void unsafe_arena_set_allocated_max_distance_m(::google::protobuf::DoubleValue* value);
+  ::google::protobuf::DoubleValue* unsafe_arena_release_max_distance_m();
+
+  private:
+  const ::google::protobuf::DoubleValue& _internal_max_distance_m() const;
+  ::google::protobuf::DoubleValue* _internal_mutable_max_distance_m();
+
+  public:
+  // .anduril.type.Color ring_line_color = 4 [json_name = "ringLineColor"];
+  bool has_ring_line_color() const;
+  void clear_ring_line_color() ;
+  const ::anduril::type::Color& ring_line_color() const;
+  PROTOBUF_NODISCARD ::anduril::type::Color* release_ring_line_color();
+  ::anduril::type::Color* mutable_ring_line_color();
+  void set_allocated_ring_line_color(::anduril::type::Color* value);
+  void unsafe_arena_set_allocated_ring_line_color(::anduril::type::Color* value);
+  ::anduril::type::Color* unsafe_arena_release_ring_line_color();
+
+  private:
+  const ::anduril::type::Color& _internal_ring_line_color() const;
+  ::anduril::type::Color* _internal_mutable_ring_line_color();
+
+  public:
+  // uint32 ring_count = 3 [json_name = "ringCount"];
+  void clear_ring_count() ;
+  ::uint32_t ring_count() const;
+  void set_ring_count(::uint32_t value);
+
+  private:
+  ::uint32_t _internal_ring_count() const;
+  void _internal_set_ring_count(::uint32_t value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.RangeRings)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      2, 4, 3,
+      0, 2>
+      _table_;
+
+  static constexpr const void* _raw_default_instance_ =
+      &_RangeRings_default_instance_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const RangeRings& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::DoubleValue* min_distance_m_;
+    ::google::protobuf::DoubleValue* max_distance_m_;
+    ::anduril::type::Color* ring_line_color_;
+    ::uint32_t ring_count_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CorrelationMetadata final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.CorrelationMetadata) */ {
+ public:
+  inline CorrelationMetadata() : CorrelationMetadata(nullptr) {}
+  ~CorrelationMetadata() PROTOBUF_FINAL;
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR CorrelationMetadata(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline CorrelationMetadata(const CorrelationMetadata& from) : CorrelationMetadata(nullptr, from) {}
+  inline CorrelationMetadata(CorrelationMetadata&& from) noexcept
+      : CorrelationMetadata(nullptr, std::move(from)) {}
+  inline CorrelationMetadata& operator=(const CorrelationMetadata& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CorrelationMetadata& operator=(CorrelationMetadata&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CorrelationMetadata& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CorrelationMetadata* internal_default_instance() {
+    return reinterpret_cast<const CorrelationMetadata*>(
+        &_CorrelationMetadata_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 17;
+  friend void swap(CorrelationMetadata& a, CorrelationMetadata& b) { a.Swap(&b); }
+  inline void Swap(CorrelationMetadata* other) {
+    if (other == this) return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
+#else   // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CorrelationMetadata* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CorrelationMetadata* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
+    return ::google::protobuf::Message::DefaultConstruct<CorrelationMetadata>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const CorrelationMetadata& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const CorrelationMetadata& from) { CorrelationMetadata::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(CorrelationMetadata* other);
+ private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.CorrelationMetadata"; }
+
+ protected:
+  explicit CorrelationMetadata(::google::protobuf::Arena* arena);
+  CorrelationMetadata(::google::protobuf::Arena* arena, const CorrelationMetadata& from);
+  CorrelationMetadata(::google::protobuf::Arena* arena, CorrelationMetadata&& from) noexcept
+      : CorrelationMetadata(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static const ::google::protobuf::Message::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kProvenanceFieldNumber = 1,
+    kReplicationModeFieldNumber = 2,
+    kTypeFieldNumber = 3,
+  };
+  // .anduril.entitymanager.v1.Provenance provenance = 1 [json_name = "provenance"];
+  bool has_provenance() const;
+  void clear_provenance() ;
+  const ::anduril::entitymanager::v1::Provenance& provenance() const;
+  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::Provenance* release_provenance();
+  ::anduril::entitymanager::v1::Provenance* mutable_provenance();
+  void set_allocated_provenance(::anduril::entitymanager::v1::Provenance* value);
+  void unsafe_arena_set_allocated_provenance(::anduril::entitymanager::v1::Provenance* value);
+  ::anduril::entitymanager::v1::Provenance* unsafe_arena_release_provenance();
+
+  private:
+  const ::anduril::entitymanager::v1::Provenance& _internal_provenance() const;
+  ::anduril::entitymanager::v1::Provenance* _internal_mutable_provenance();
+
+  public:
+  // .anduril.entitymanager.v1.CorrelationReplicationMode replication_mode = 2 [json_name = "replicationMode"];
+  void clear_replication_mode() ;
+  ::anduril::entitymanager::v1::CorrelationReplicationMode replication_mode() const;
+  void set_replication_mode(::anduril::entitymanager::v1::CorrelationReplicationMode value);
+
+  private:
+  ::anduril::entitymanager::v1::CorrelationReplicationMode _internal_replication_mode() const;
+  void _internal_set_replication_mode(::anduril::entitymanager::v1::CorrelationReplicationMode value);
+
+  public:
+  // .anduril.entitymanager.v1.CorrelationType type = 3 [json_name = "type"];
+  void clear_type() ;
+  ::anduril::entitymanager::v1::CorrelationType type() const;
+  void set_type(::anduril::entitymanager::v1::CorrelationType value);
+
+  private:
+  ::anduril::entitymanager::v1::CorrelationType _internal_type() const;
+  void _internal_set_type(::anduril::entitymanager::v1::CorrelationType value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.CorrelationMetadata)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      2, 3, 1,
+      0, 2>
+      _table_;
+
+  static constexpr const void* _raw_default_instance_ =
+      &_CorrelationMetadata_default_instance_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const CorrelationMetadata& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::anduril::entitymanager::v1::Provenance* provenance_;
+    int replication_mode_;
+    int type_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto;
+};
+// -------------------------------------------------------------------
+
 class VisualDetails final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.VisualDetails) */ {
  public:
@@ -2296,7 +2117,7 @@ class VisualDetails final : public ::google::protobuf::Message
     return reinterpret_cast<const VisualDetails*>(
         &_VisualDetails_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 13;
+  static constexpr int kIndexInFileMessages = 9;
   friend void swap(VisualDetails& a, VisualDetails& b) { a.Swap(&b); }
   inline void Swap(VisualDetails* other) {
     if (other == this) return;
@@ -2383,7 +2204,6 @@ class VisualDetails final : public ::google::protobuf::Message
   // accessors -------------------------------------------------------
   enum : int {
     kRangeRingsFieldNumber = 1,
-    kInteractivityModeFieldNumber = 2,
   };
   // .anduril.entitymanager.v1.RangeRings range_rings = 1 [json_name = "rangeRings", (.anduril.entitymanager.v1.overridable) = true];
   bool has_range_rings() const;
@@ -2400,22 +2220,12 @@ class VisualDetails final : public ::google::protobuf::Message
   ::anduril::entitymanager::v1::RangeRings* _internal_mutable_range_rings();
 
   public:
-  // .anduril.entitymanager.v1.InteractivityMode interactivity_mode = 2 [json_name = "interactivityMode"];
-  void clear_interactivity_mode() ;
-  ::anduril::entitymanager::v1::InteractivityMode interactivity_mode() const;
-  void set_interactivity_mode(::anduril::entitymanager::v1::InteractivityMode value);
-
-  private:
-  ::anduril::entitymanager::v1::InteractivityMode _internal_interactivity_mode() const;
-  void _internal_set_interactivity_mode(::anduril::entitymanager::v1::InteractivityMode value);
-
-  public:
   // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.VisualDetails)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 1,
+      0, 1, 1,
       0, 2>
       _table_;
 
@@ -2439,7 +2249,6 @@ class VisualDetails final : public ::google::protobuf::Message
     ::google::protobuf::internal::HasBits<1> _has_bits_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     ::anduril::entitymanager::v1::RangeRings* range_rings_;
-    int interactivity_mode_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -2447,23 +2256,23 @@ class VisualDetails final : public ::google::protobuf::Message
 };
 // -------------------------------------------------------------------
 
-class OverrideProvenance final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.OverrideProvenance) */ {
+class SecondaryCorrelation final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.SecondaryCorrelation) */ {
  public:
-  inline OverrideProvenance() : OverrideProvenance(nullptr) {}
-  ~OverrideProvenance() PROTOBUF_FINAL;
+  inline SecondaryCorrelation() : SecondaryCorrelation(nullptr) {}
+  ~SecondaryCorrelation() PROTOBUF_FINAL;
   template <typename = void>
-  explicit PROTOBUF_CONSTEXPR OverrideProvenance(
+  explicit PROTOBUF_CONSTEXPR SecondaryCorrelation(
       ::google::protobuf::internal::ConstantInitialized);
 
-  inline OverrideProvenance(const OverrideProvenance& from) : OverrideProvenance(nullptr, from) {}
-  inline OverrideProvenance(OverrideProvenance&& from) noexcept
-      : OverrideProvenance(nullptr, std::move(from)) {}
-  inline OverrideProvenance& operator=(const OverrideProvenance& from) {
+  inline SecondaryCorrelation(const SecondaryCorrelation& from) : SecondaryCorrelation(nullptr, from) {}
+  inline SecondaryCorrelation(SecondaryCorrelation&& from) noexcept
+      : SecondaryCorrelation(nullptr, std::move(from)) {}
+  inline SecondaryCorrelation& operator=(const SecondaryCorrelation& from) {
     CopyFrom(from);
     return *this;
   }
-  inline OverrideProvenance& operator=(OverrideProvenance&& from) noexcept {
+  inline SecondaryCorrelation& operator=(SecondaryCorrelation&& from) noexcept {
     if (this == &from) return *this;
     if (GetArena() == from.GetArena()
 #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -2495,16 +2304,16 @@ class OverrideProvenance final : public ::google::protobuf::Message
   static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const OverrideProvenance& default_instance() {
+  static const SecondaryCorrelation& default_instance() {
     return *internal_default_instance();
   }
-  static inline const OverrideProvenance* internal_default_instance() {
-    return reinterpret_cast<const OverrideProvenance*>(
-        &_OverrideProvenance_default_instance_);
+  static inline const SecondaryCorrelation* internal_default_instance() {
+    return reinterpret_cast<const SecondaryCorrelation*>(
+        &_SecondaryCorrelation_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 9;
-  friend void swap(OverrideProvenance& a, OverrideProvenance& b) { a.Swap(&b); }
-  inline void Swap(OverrideProvenance* other) {
+  static constexpr int kIndexInFileMessages = 13;
+  friend void swap(SecondaryCorrelation& a, SecondaryCorrelation& b) { a.Swap(&b); }
+  inline void Swap(SecondaryCorrelation* other) {
     if (other == this) return;
 #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetArena() != nullptr && GetArena() == other->GetArena()) {
@@ -2516,7 +2325,7 @@ class OverrideProvenance final : public ::google::protobuf::Message
       ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(OverrideProvenance* other) {
+  void UnsafeArenaSwap(SecondaryCorrelation* other) {
     if (other == this) return;
     ABSL_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -2524,13 +2333,13 @@ class OverrideProvenance final : public ::google::protobuf::Message
 
   // implements Message ----------------------------------------------
 
-  OverrideProvenance* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
-    return ::google::protobuf::Message::DefaultConstruct<OverrideProvenance>(arena);
+  SecondaryCorrelation* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
+    return ::google::protobuf::Message::DefaultConstruct<SecondaryCorrelation>(arena);
   }
   using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const OverrideProvenance& from);
+  void CopyFrom(const SecondaryCorrelation& from);
   using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const OverrideProvenance& from) { OverrideProvenance::MergeImpl(*this, from); }
+  void MergeFrom(const SecondaryCorrelation& from) { SecondaryCorrelation::MergeImpl(*this, from); }
 
   private:
   static void MergeImpl(
@@ -2567,16 +2376,16 @@ class OverrideProvenance final : public ::google::protobuf::Message
   private:
   void SharedCtor(::google::protobuf::Arena* arena);
   void SharedDtor();
-  void InternalSwap(OverrideProvenance* other);
+  void InternalSwap(SecondaryCorrelation* other);
  private:
   friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.OverrideProvenance"; }
+  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.SecondaryCorrelation"; }
 
  protected:
-  explicit OverrideProvenance(::google::protobuf::Arena* arena);
-  OverrideProvenance(::google::protobuf::Arena* arena, const OverrideProvenance& from);
-  OverrideProvenance(::google::protobuf::Arena* arena, OverrideProvenance&& from) noexcept
-      : OverrideProvenance(arena) {
+  explicit SecondaryCorrelation(::google::protobuf::Arena* arena);
+  SecondaryCorrelation(::google::protobuf::Arena* arena, const SecondaryCorrelation& from);
+  SecondaryCorrelation(::google::protobuf::Arena* arena, SecondaryCorrelation&& from) noexcept
+      : SecondaryCorrelation(arena) {
     *this = ::std::move(from);
   }
   const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
@@ -2588,68 +2397,51 @@ class OverrideProvenance final : public ::google::protobuf::Message
 
   // accessors -------------------------------------------------------
   enum : int {
-    kFieldPathFieldNumber = 1,
-    kSourceIdFieldNumber = 2,
-    kProvenanceFieldNumber = 3,
+    kPrimaryEntityIdFieldNumber = 1,
+    kMetadataFieldNumber = 2,
   };
-  // string field_path = 1 [json_name = "fieldPath"];
-  void clear_field_path() ;
-  const std::string& field_path() const;
+  // string primary_entity_id = 1 [json_name = "primaryEntityId"];
+  void clear_primary_entity_id() ;
+  const std::string& primary_entity_id() const;
   template <typename Arg_ = const std::string&, typename... Args_>
-  void set_field_path(Arg_&& arg, Args_... args);
-  std::string* mutable_field_path();
-  PROTOBUF_NODISCARD std::string* release_field_path();
-  void set_allocated_field_path(std::string* value);
+  void set_primary_entity_id(Arg_&& arg, Args_... args);
+  std::string* mutable_primary_entity_id();
+  PROTOBUF_NODISCARD std::string* release_primary_entity_id();
+  void set_allocated_primary_entity_id(std::string* value);
 
   private:
-  const std::string& _internal_field_path() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_field_path(
+  const std::string& _internal_primary_entity_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_primary_entity_id(
       const std::string& value);
-  std::string* _internal_mutable_field_path();
+  std::string* _internal_mutable_primary_entity_id();
 
   public:
-  // string source_id = 2 [json_name = "sourceId", deprecated = true];
-  [[deprecated]]  void clear_source_id() ;
-  [[deprecated]] const std::string& source_id() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  [[deprecated]] void set_source_id(Arg_&& arg, Args_... args);
-  [[deprecated]] std::string* mutable_source_id();
-  [[deprecated]] PROTOBUF_NODISCARD std::string* release_source_id();
-  [[deprecated]] void set_allocated_source_id(std::string* value);
+  // .anduril.entitymanager.v1.CorrelationMetadata metadata = 2 [json_name = "metadata"];
+  bool has_metadata() const;
+  void clear_metadata() ;
+  const ::anduril::entitymanager::v1::CorrelationMetadata& metadata() const;
+  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::CorrelationMetadata* release_metadata();
+  ::anduril::entitymanager::v1::CorrelationMetadata* mutable_metadata();
+  void set_allocated_metadata(::anduril::entitymanager::v1::CorrelationMetadata* value);
+  void unsafe_arena_set_allocated_metadata(::anduril::entitymanager::v1::CorrelationMetadata* value);
+  ::anduril::entitymanager::v1::CorrelationMetadata* unsafe_arena_release_metadata();
 
   private:
-  const std::string& _internal_source_id() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_source_id(
-      const std::string& value);
-  std::string* _internal_mutable_source_id();
+  const ::anduril::entitymanager::v1::CorrelationMetadata& _internal_metadata() const;
+  ::anduril::entitymanager::v1::CorrelationMetadata* _internal_mutable_metadata();
 
   public:
-  // .anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];
-  bool has_provenance() const;
-  void clear_provenance() ;
-  const ::anduril::entitymanager::v1::Provenance& provenance() const;
-  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::Provenance* release_provenance();
-  ::anduril::entitymanager::v1::Provenance* mutable_provenance();
-  void set_allocated_provenance(::anduril::entitymanager::v1::Provenance* value);
-  void unsafe_arena_set_allocated_provenance(::anduril::entitymanager::v1::Provenance* value);
-  ::anduril::entitymanager::v1::Provenance* unsafe_arena_release_provenance();
-
-  private:
-  const ::anduril::entitymanager::v1::Provenance& _internal_provenance() const;
-  ::anduril::entitymanager::v1::Provenance* _internal_mutable_provenance();
-
-  public:
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.OverrideProvenance)
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.SecondaryCorrelation)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      2, 3, 1,
+      1, 2, 1,
       71, 2>
       _table_;
 
   static constexpr const void* _raw_default_instance_ =
-      &_OverrideProvenance_default_instance_;
+      &_SecondaryCorrelation_default_instance_;
 
   friend class ::google::protobuf::MessageLite;
   friend class ::google::protobuf::Arena;
@@ -2664,12 +2456,417 @@ class OverrideProvenance final : public ::google::protobuf::Message
                           ::google::protobuf::Arena* arena);
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
-                          const OverrideProvenance& from_msg);
+                          const SecondaryCorrelation& from_msg);
     ::google::protobuf::internal::HasBits<1> _has_bits_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
-    ::google::protobuf::internal::ArenaStringPtr field_path_;
-    ::google::protobuf::internal::ArenaStringPtr source_id_;
-    ::anduril::entitymanager::v1::Provenance* provenance_;
+    ::google::protobuf::internal::ArenaStringPtr primary_entity_id_;
+    ::anduril::entitymanager::v1::CorrelationMetadata* metadata_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto;
+};
+// -------------------------------------------------------------------
+
+class DecorrelatedSingle final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.DecorrelatedSingle) */ {
+ public:
+  inline DecorrelatedSingle() : DecorrelatedSingle(nullptr) {}
+  ~DecorrelatedSingle() PROTOBUF_FINAL;
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR DecorrelatedSingle(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline DecorrelatedSingle(const DecorrelatedSingle& from) : DecorrelatedSingle(nullptr, from) {}
+  inline DecorrelatedSingle(DecorrelatedSingle&& from) noexcept
+      : DecorrelatedSingle(nullptr, std::move(from)) {}
+  inline DecorrelatedSingle& operator=(const DecorrelatedSingle& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DecorrelatedSingle& operator=(DecorrelatedSingle&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DecorrelatedSingle& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DecorrelatedSingle* internal_default_instance() {
+    return reinterpret_cast<const DecorrelatedSingle*>(
+        &_DecorrelatedSingle_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 16;
+  friend void swap(DecorrelatedSingle& a, DecorrelatedSingle& b) { a.Swap(&b); }
+  inline void Swap(DecorrelatedSingle* other) {
+    if (other == this) return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
+#else   // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DecorrelatedSingle* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  DecorrelatedSingle* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
+    return ::google::protobuf::Message::DefaultConstruct<DecorrelatedSingle>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const DecorrelatedSingle& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const DecorrelatedSingle& from) { DecorrelatedSingle::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(DecorrelatedSingle* other);
+ private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.DecorrelatedSingle"; }
+
+ protected:
+  explicit DecorrelatedSingle(::google::protobuf::Arena* arena);
+  DecorrelatedSingle(::google::protobuf::Arena* arena, const DecorrelatedSingle& from);
+  DecorrelatedSingle(::google::protobuf::Arena* arena, DecorrelatedSingle&& from) noexcept
+      : DecorrelatedSingle(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static const ::google::protobuf::Message::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kEntityIdFieldNumber = 1,
+    kMetadataFieldNumber = 2,
+  };
+  // string entity_id = 1 [json_name = "entityId"];
+  void clear_entity_id() ;
+  const std::string& entity_id() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_entity_id(Arg_&& arg, Args_... args);
+  std::string* mutable_entity_id();
+  PROTOBUF_NODISCARD std::string* release_entity_id();
+  void set_allocated_entity_id(std::string* value);
+
+  private:
+  const std::string& _internal_entity_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_entity_id(
+      const std::string& value);
+  std::string* _internal_mutable_entity_id();
+
+  public:
+  // .anduril.entitymanager.v1.CorrelationMetadata metadata = 2 [json_name = "metadata"];
+  bool has_metadata() const;
+  void clear_metadata() ;
+  const ::anduril::entitymanager::v1::CorrelationMetadata& metadata() const;
+  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::CorrelationMetadata* release_metadata();
+  ::anduril::entitymanager::v1::CorrelationMetadata* mutable_metadata();
+  void set_allocated_metadata(::anduril::entitymanager::v1::CorrelationMetadata* value);
+  void unsafe_arena_set_allocated_metadata(::anduril::entitymanager::v1::CorrelationMetadata* value);
+  ::anduril::entitymanager::v1::CorrelationMetadata* unsafe_arena_release_metadata();
+
+  private:
+  const ::anduril::entitymanager::v1::CorrelationMetadata& _internal_metadata() const;
+  ::anduril::entitymanager::v1::CorrelationMetadata* _internal_mutable_metadata();
+
+  public:
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.DecorrelatedSingle)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      1, 2, 1,
+      61, 2>
+      _table_;
+
+  static constexpr const void* _raw_default_instance_ =
+      &_DecorrelatedSingle_default_instance_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const DecorrelatedSingle& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::internal::ArenaStringPtr entity_id_;
+    ::anduril::entitymanager::v1::CorrelationMetadata* metadata_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto;
+};
+// -------------------------------------------------------------------
+
+class DecorrelatedAll final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.DecorrelatedAll) */ {
+ public:
+  inline DecorrelatedAll() : DecorrelatedAll(nullptr) {}
+  ~DecorrelatedAll() PROTOBUF_FINAL;
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR DecorrelatedAll(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline DecorrelatedAll(const DecorrelatedAll& from) : DecorrelatedAll(nullptr, from) {}
+  inline DecorrelatedAll(DecorrelatedAll&& from) noexcept
+      : DecorrelatedAll(nullptr, std::move(from)) {}
+  inline DecorrelatedAll& operator=(const DecorrelatedAll& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DecorrelatedAll& operator=(DecorrelatedAll&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DecorrelatedAll& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DecorrelatedAll* internal_default_instance() {
+    return reinterpret_cast<const DecorrelatedAll*>(
+        &_DecorrelatedAll_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 15;
+  friend void swap(DecorrelatedAll& a, DecorrelatedAll& b) { a.Swap(&b); }
+  inline void Swap(DecorrelatedAll* other) {
+    if (other == this) return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
+#else   // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DecorrelatedAll* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  DecorrelatedAll* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
+    return ::google::protobuf::Message::DefaultConstruct<DecorrelatedAll>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const DecorrelatedAll& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const DecorrelatedAll& from) { DecorrelatedAll::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(DecorrelatedAll* other);
+ private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.DecorrelatedAll"; }
+
+ protected:
+  explicit DecorrelatedAll(::google::protobuf::Arena* arena);
+  DecorrelatedAll(::google::protobuf::Arena* arena, const DecorrelatedAll& from);
+  DecorrelatedAll(::google::protobuf::Arena* arena, DecorrelatedAll&& from) noexcept
+      : DecorrelatedAll(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static const ::google::protobuf::Message::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kMetadataFieldNumber = 1,
+  };
+  // .anduril.entitymanager.v1.CorrelationMetadata metadata = 1 [json_name = "metadata"];
+  bool has_metadata() const;
+  void clear_metadata() ;
+  const ::anduril::entitymanager::v1::CorrelationMetadata& metadata() const;
+  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::CorrelationMetadata* release_metadata();
+  ::anduril::entitymanager::v1::CorrelationMetadata* mutable_metadata();
+  void set_allocated_metadata(::anduril::entitymanager::v1::CorrelationMetadata* value);
+  void unsafe_arena_set_allocated_metadata(::anduril::entitymanager::v1::CorrelationMetadata* value);
+  ::anduril::entitymanager::v1::CorrelationMetadata* unsafe_arena_release_metadata();
+
+  private:
+  const ::anduril::entitymanager::v1::CorrelationMetadata& _internal_metadata() const;
+  ::anduril::entitymanager::v1::CorrelationMetadata* _internal_mutable_metadata();
+
+  public:
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.DecorrelatedAll)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 1, 1,
+      0, 2>
+      _table_;
+
+  static constexpr const void* _raw_default_instance_ =
+      &_DecorrelatedAll_default_instance_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const DecorrelatedAll& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::anduril::entitymanager::v1::CorrelationMetadata* metadata_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -2732,7 +2929,7 @@ class Tracked final : public ::google::protobuf::Message
     return reinterpret_cast<const Tracked*>(
         &_Tracked_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 4;
+  static constexpr int kIndexInFileMessages = 3;
   friend void swap(Tracked& a, Tracked& b) { a.Swap(&b); }
   inline void Swap(Tracked* other) {
     if (other == this) return;
@@ -2821,11 +3018,9 @@ class Tracked final : public ::google::protobuf::Message
     kTrackQualityWrapperFieldNumber = 2,
     kSensorHitsFieldNumber = 3,
     kNumberOfObjectsFieldNumber = 4,
-    kSensorDetailsFieldNumber = 5,
     kRadarCrossSectionFieldNumber = 6,
     kLastMeasurementTimeFieldNumber = 7,
     kLineOfBearingFieldNumber = 9,
-    kTrackQualityFieldNumber = 1,
   };
   // .google.protobuf.Int32Value track_quality_wrapper = 2 [json_name = "trackQualityWrapper"];
   bool has_track_quality_wrapper() const;
@@ -2870,21 +3065,6 @@ class Tracked final : public ::google::protobuf::Message
   private:
   const ::anduril::entitymanager::v1::UInt32Range& _internal_number_of_objects() const;
   ::anduril::entitymanager::v1::UInt32Range* _internal_mutable_number_of_objects();
-
-  public:
-  // .anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];
-  [[deprecated]]  bool has_sensor_details() const;
-  [[deprecated]]  void clear_sensor_details() ;
-  [[deprecated]] const ::anduril::entitymanager::v1::Sensors& sensor_details() const;
-  [[deprecated]] PROTOBUF_NODISCARD ::anduril::entitymanager::v1::Sensors* release_sensor_details();
-  [[deprecated]] ::anduril::entitymanager::v1::Sensors* mutable_sensor_details();
-  [[deprecated]] void set_allocated_sensor_details(::anduril::entitymanager::v1::Sensors* value);
-  [[deprecated]] void unsafe_arena_set_allocated_sensor_details(::anduril::entitymanager::v1::Sensors* value);
-  [[deprecated]] ::anduril::entitymanager::v1::Sensors* unsafe_arena_release_sensor_details();
-
-  private:
-  const ::anduril::entitymanager::v1::Sensors& _internal_sensor_details() const;
-  ::anduril::entitymanager::v1::Sensors* _internal_mutable_sensor_details();
 
   public:
   // .google.protobuf.DoubleValue radar_cross_section = 6 [json_name = "radarCrossSection"];
@@ -2932,22 +3112,12 @@ class Tracked final : public ::google::protobuf::Message
   ::anduril::entitymanager::v1::LineOfBearing* _internal_mutable_line_of_bearing();
 
   public:
-  // uint32 track_quality = 1 [json_name = "trackQuality", deprecated = true];
-  [[deprecated]]  void clear_track_quality() ;
-  [[deprecated]] ::uint32_t track_quality() const;
-  [[deprecated]] void set_track_quality(::uint32_t value);
-
-  private:
-  ::uint32_t _internal_track_quality() const;
-  void _internal_set_track_quality(::uint32_t value);
-
-  public:
   // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.Tracked)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      4, 8, 7,
+      3, 6, 6,
       0, 2>
       _table_;
 
@@ -2973,11 +3143,474 @@ class Tracked final : public ::google::protobuf::Message
     ::google::protobuf::Int32Value* track_quality_wrapper_;
     ::google::protobuf::Int32Value* sensor_hits_;
     ::anduril::entitymanager::v1::UInt32Range* number_of_objects_;
-    ::anduril::entitymanager::v1::Sensors* sensor_details_;
     ::google::protobuf::DoubleValue* radar_cross_section_;
     ::google::protobuf::Timestamp* last_measurement_time_;
     ::anduril::entitymanager::v1::LineOfBearing* line_of_bearing_;
-    ::uint32_t track_quality_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Decorrelation final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.Decorrelation) */ {
+ public:
+  inline Decorrelation() : Decorrelation(nullptr) {}
+  ~Decorrelation() PROTOBUF_FINAL;
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR Decorrelation(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline Decorrelation(const Decorrelation& from) : Decorrelation(nullptr, from) {}
+  inline Decorrelation(Decorrelation&& from) noexcept
+      : Decorrelation(nullptr, std::move(from)) {}
+  inline Decorrelation& operator=(const Decorrelation& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Decorrelation& operator=(Decorrelation&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Decorrelation& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Decorrelation* internal_default_instance() {
+    return reinterpret_cast<const Decorrelation*>(
+        &_Decorrelation_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 14;
+  friend void swap(Decorrelation& a, Decorrelation& b) { a.Swap(&b); }
+  inline void Swap(Decorrelation* other) {
+    if (other == this) return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
+#else   // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Decorrelation* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Decorrelation* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
+    return ::google::protobuf::Message::DefaultConstruct<Decorrelation>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const Decorrelation& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const Decorrelation& from) { Decorrelation::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(Decorrelation* other);
+ private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.Decorrelation"; }
+
+ protected:
+  explicit Decorrelation(::google::protobuf::Arena* arena);
+  Decorrelation(::google::protobuf::Arena* arena, const Decorrelation& from);
+  Decorrelation(::google::protobuf::Arena* arena, Decorrelation&& from) noexcept
+      : Decorrelation(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static const ::google::protobuf::Message::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kDecorrelatedEntitiesFieldNumber = 2,
+    kAllFieldNumber = 1,
+  };
+  // repeated .anduril.entitymanager.v1.DecorrelatedSingle decorrelated_entities = 2 [json_name = "decorrelatedEntities"];
+  int decorrelated_entities_size() const;
+  private:
+  int _internal_decorrelated_entities_size() const;
+
+  public:
+  void clear_decorrelated_entities() ;
+  ::anduril::entitymanager::v1::DecorrelatedSingle* mutable_decorrelated_entities(int index);
+  ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::DecorrelatedSingle>* mutable_decorrelated_entities();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::DecorrelatedSingle>& _internal_decorrelated_entities() const;
+  ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::DecorrelatedSingle>* _internal_mutable_decorrelated_entities();
+  public:
+  const ::anduril::entitymanager::v1::DecorrelatedSingle& decorrelated_entities(int index) const;
+  ::anduril::entitymanager::v1::DecorrelatedSingle* add_decorrelated_entities();
+  const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::DecorrelatedSingle>& decorrelated_entities() const;
+  // .anduril.entitymanager.v1.DecorrelatedAll all = 1 [json_name = "all"];
+  bool has_all() const;
+  void clear_all() ;
+  const ::anduril::entitymanager::v1::DecorrelatedAll& all() const;
+  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::DecorrelatedAll* release_all();
+  ::anduril::entitymanager::v1::DecorrelatedAll* mutable_all();
+  void set_allocated_all(::anduril::entitymanager::v1::DecorrelatedAll* value);
+  void unsafe_arena_set_allocated_all(::anduril::entitymanager::v1::DecorrelatedAll* value);
+  ::anduril::entitymanager::v1::DecorrelatedAll* unsafe_arena_release_all();
+
+  private:
+  const ::anduril::entitymanager::v1::DecorrelatedAll& _internal_all() const;
+  ::anduril::entitymanager::v1::DecorrelatedAll* _internal_mutable_all();
+
+  public:
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.Decorrelation)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      1, 2, 2,
+      0, 2>
+      _table_;
+
+  static constexpr const void* _raw_default_instance_ =
+      &_Decorrelation_default_instance_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const Decorrelation& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedPtrField< ::anduril::entitymanager::v1::DecorrelatedSingle > decorrelated_entities_;
+    ::anduril::entitymanager::v1::DecorrelatedAll* all_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Correlation final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.Correlation) */ {
+ public:
+  inline Correlation() : Correlation(nullptr) {}
+  ~Correlation() PROTOBUF_FINAL;
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR Correlation(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline Correlation(const Correlation& from) : Correlation(nullptr, from) {}
+  inline Correlation(Correlation&& from) noexcept
+      : Correlation(nullptr, std::move(from)) {}
+  inline Correlation& operator=(const Correlation& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Correlation& operator=(Correlation&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Correlation& default_instance() {
+    return *internal_default_instance();
+  }
+  enum CorrelationCase {
+    kPrimary = 1,
+    kSecondary = 2,
+    CORRELATION_NOT_SET = 0,
+  };
+  static inline const Correlation* internal_default_instance() {
+    return reinterpret_cast<const Correlation*>(
+        &_Correlation_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 11;
+  friend void swap(Correlation& a, Correlation& b) { a.Swap(&b); }
+  inline void Swap(Correlation* other) {
+    if (other == this) return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
+#else   // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Correlation* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Correlation* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
+    return ::google::protobuf::Message::DefaultConstruct<Correlation>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const Correlation& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const Correlation& from) { Correlation::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(Correlation* other);
+ private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.Correlation"; }
+
+ protected:
+  explicit Correlation(::google::protobuf::Arena* arena);
+  Correlation(::google::protobuf::Arena* arena, const Correlation& from);
+  Correlation(::google::protobuf::Arena* arena, Correlation&& from) noexcept
+      : Correlation(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static const ::google::protobuf::Message::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kDecorrelationFieldNumber = 3,
+    kPrimaryFieldNumber = 1,
+    kSecondaryFieldNumber = 2,
+  };
+  // .anduril.entitymanager.v1.Decorrelation decorrelation = 3 [json_name = "decorrelation"];
+  bool has_decorrelation() const;
+  void clear_decorrelation() ;
+  const ::anduril::entitymanager::v1::Decorrelation& decorrelation() const;
+  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::Decorrelation* release_decorrelation();
+  ::anduril::entitymanager::v1::Decorrelation* mutable_decorrelation();
+  void set_allocated_decorrelation(::anduril::entitymanager::v1::Decorrelation* value);
+  void unsafe_arena_set_allocated_decorrelation(::anduril::entitymanager::v1::Decorrelation* value);
+  ::anduril::entitymanager::v1::Decorrelation* unsafe_arena_release_decorrelation();
+
+  private:
+  const ::anduril::entitymanager::v1::Decorrelation& _internal_decorrelation() const;
+  ::anduril::entitymanager::v1::Decorrelation* _internal_mutable_decorrelation();
+
+  public:
+  // .anduril.entitymanager.v1.PrimaryCorrelation primary = 1 [json_name = "primary"];
+  bool has_primary() const;
+  private:
+  bool _internal_has_primary() const;
+
+  public:
+  void clear_primary() ;
+  const ::anduril::entitymanager::v1::PrimaryCorrelation& primary() const;
+  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::PrimaryCorrelation* release_primary();
+  ::anduril::entitymanager::v1::PrimaryCorrelation* mutable_primary();
+  void set_allocated_primary(::anduril::entitymanager::v1::PrimaryCorrelation* value);
+  void unsafe_arena_set_allocated_primary(::anduril::entitymanager::v1::PrimaryCorrelation* value);
+  ::anduril::entitymanager::v1::PrimaryCorrelation* unsafe_arena_release_primary();
+
+  private:
+  const ::anduril::entitymanager::v1::PrimaryCorrelation& _internal_primary() const;
+  ::anduril::entitymanager::v1::PrimaryCorrelation* _internal_mutable_primary();
+
+  public:
+  // .anduril.entitymanager.v1.SecondaryCorrelation secondary = 2 [json_name = "secondary"];
+  bool has_secondary() const;
+  private:
+  bool _internal_has_secondary() const;
+
+  public:
+  void clear_secondary() ;
+  const ::anduril::entitymanager::v1::SecondaryCorrelation& secondary() const;
+  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::SecondaryCorrelation* release_secondary();
+  ::anduril::entitymanager::v1::SecondaryCorrelation* mutable_secondary();
+  void set_allocated_secondary(::anduril::entitymanager::v1::SecondaryCorrelation* value);
+  void unsafe_arena_set_allocated_secondary(::anduril::entitymanager::v1::SecondaryCorrelation* value);
+  ::anduril::entitymanager::v1::SecondaryCorrelation* unsafe_arena_release_secondary();
+
+  private:
+  const ::anduril::entitymanager::v1::SecondaryCorrelation& _internal_secondary() const;
+  ::anduril::entitymanager::v1::SecondaryCorrelation* _internal_mutable_secondary();
+
+  public:
+  void clear_correlation();
+  CorrelationCase correlation_case() const;
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.Correlation)
+ private:
+  class _Internal;
+  void set_has_primary();
+  void set_has_secondary();
+  inline bool has_correlation() const;
+  inline void clear_has_correlation();
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 3, 3,
+      0, 2>
+      _table_;
+
+  static constexpr const void* _raw_default_instance_ =
+      &_Correlation_default_instance_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const Correlation& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    ::anduril::entitymanager::v1::Decorrelation* decorrelation_;
+    union CorrelationUnion {
+      constexpr CorrelationUnion() : _constinit_{} {}
+      ::google::protobuf::internal::ConstantInitialized _constinit_;
+      ::anduril::entitymanager::v1::PrimaryCorrelation* primary_;
+      ::anduril::entitymanager::v1::SecondaryCorrelation* secondary_;
+    } correlation_;
+    ::uint32_t _oneof_case_[1];
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -3133,15 +3766,12 @@ class Entity final : public ::google::protobuf::Message
     kLocationFieldNumber = 6,
     kAliasesFieldNumber = 7,
     kTrackedFieldNumber = 8,
-    kCorrelatedFieldNumber = 9,
     kMilViewFieldNumber = 10,
     kOntologyFieldNumber = 11,
     kProvenanceFieldNumber = 12,
     kOverridesFieldNumber = 13,
     kIndicatorsFieldNumber = 14,
     kLocationUncertaintyFieldNumber = 15,
-    kGeopolygonFieldNumber = 17,
-    kOriginalDataFieldNumber = 18,
     kStatusFieldNumber = 19,
     kSensorsFieldNumber = 20,
     kPayloadsFieldNumber = 21,
@@ -3150,11 +3780,9 @@ class Entity final : public ::google::protobuf::Message
     kGeoDetailsFieldNumber = 24,
     kSignalFieldNumber = 25,
     kTransponderCodesFieldNumber = 26,
-    kContactFieldNumber = 27,
     kDataClassificationFieldNumber = 29,
     kPowerStateFieldNumber = 30,
     kTaskCatalogFieldNumber = 31,
-    kMediaFieldNumber = 32,
     kRelationshipsFieldNumber = 33,
     kVisualDetailsFieldNumber = 34,
     kDimensionsFieldNumber = 36,
@@ -3162,11 +3790,10 @@ class Entity final : public ::google::protobuf::Message
     kSchedulesFieldNumber = 38,
     kHealthFieldNumber = 39,
     kGroupDetailsFieldNumber = 40,
-    kTeamStatusFieldNumber = 41,
     kSuppliesFieldNumber = 42,
     kOrbitFieldNumber = 46,
+    kCorrelationFieldNumber = 47,
     kIsLiveFieldNumber = 3,
-    kNoExpiryFieldNumber = 43,
   };
   // string entity_id = 1 [json_name = "entityId"];
   void clear_entity_id() ;
@@ -3275,21 +3902,6 @@ class Entity final : public ::google::protobuf::Message
   ::anduril::entitymanager::v1::Tracked* _internal_mutable_tracked();
 
   public:
-  // .anduril.entitymanager.v1.Correlated correlated = 9 [json_name = "correlated"];
-  bool has_correlated() const;
-  void clear_correlated() ;
-  const ::anduril::entitymanager::v1::Correlated& correlated() const;
-  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::Correlated* release_correlated();
-  ::anduril::entitymanager::v1::Correlated* mutable_correlated();
-  void set_allocated_correlated(::anduril::entitymanager::v1::Correlated* value);
-  void unsafe_arena_set_allocated_correlated(::anduril::entitymanager::v1::Correlated* value);
-  ::anduril::entitymanager::v1::Correlated* unsafe_arena_release_correlated();
-
-  private:
-  const ::anduril::entitymanager::v1::Correlated& _internal_correlated() const;
-  ::anduril::entitymanager::v1::Correlated* _internal_mutable_correlated();
-
-  public:
   // .anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];
   bool has_mil_view() const;
   void clear_mil_view() ;
@@ -3378,36 +3990,6 @@ class Entity final : public ::google::protobuf::Message
   private:
   const ::anduril::entitymanager::v1::LocationUncertainty& _internal_location_uncertainty() const;
   ::anduril::entitymanager::v1::LocationUncertainty* _internal_mutable_location_uncertainty();
-
-  public:
-  // .anduril.entitymanager.v1.GeoPolygon geopolygon = 17 [json_name = "geopolygon", deprecated = true];
-  [[deprecated]]  bool has_geopolygon() const;
-  [[deprecated]]  void clear_geopolygon() ;
-  [[deprecated]] const ::anduril::entitymanager::v1::GeoPolygon& geopolygon() const;
-  [[deprecated]] PROTOBUF_NODISCARD ::anduril::entitymanager::v1::GeoPolygon* release_geopolygon();
-  [[deprecated]] ::anduril::entitymanager::v1::GeoPolygon* mutable_geopolygon();
-  [[deprecated]] void set_allocated_geopolygon(::anduril::entitymanager::v1::GeoPolygon* value);
-  [[deprecated]] void unsafe_arena_set_allocated_geopolygon(::anduril::entitymanager::v1::GeoPolygon* value);
-  [[deprecated]] ::anduril::entitymanager::v1::GeoPolygon* unsafe_arena_release_geopolygon();
-
-  private:
-  const ::anduril::entitymanager::v1::GeoPolygon& _internal_geopolygon() const;
-  ::anduril::entitymanager::v1::GeoPolygon* _internal_mutable_geopolygon();
-
-  public:
-  // .anduril.entitymanager.v1.OriginalData original_data = 18 [json_name = "originalData"];
-  bool has_original_data() const;
-  void clear_original_data() ;
-  const ::anduril::entitymanager::v1::OriginalData& original_data() const;
-  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::OriginalData* release_original_data();
-  ::anduril::entitymanager::v1::OriginalData* mutable_original_data();
-  void set_allocated_original_data(::anduril::entitymanager::v1::OriginalData* value);
-  void unsafe_arena_set_allocated_original_data(::anduril::entitymanager::v1::OriginalData* value);
-  ::anduril::entitymanager::v1::OriginalData* unsafe_arena_release_original_data();
-
-  private:
-  const ::anduril::entitymanager::v1::OriginalData& _internal_original_data() const;
-  ::anduril::entitymanager::v1::OriginalData* _internal_mutable_original_data();
 
   public:
   // .anduril.entitymanager.v1.Status status = 19 [json_name = "status"];
@@ -3530,21 +4112,6 @@ class Entity final : public ::google::protobuf::Message
   ::anduril::entitymanager::v1::TransponderCodes* _internal_mutable_transponder_codes();
 
   public:
-  // .anduril.entitymanager.v1.ContactDetails contact = 27 [json_name = "contact"];
-  bool has_contact() const;
-  void clear_contact() ;
-  const ::anduril::entitymanager::v1::ContactDetails& contact() const;
-  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::ContactDetails* release_contact();
-  ::anduril::entitymanager::v1::ContactDetails* mutable_contact();
-  void set_allocated_contact(::anduril::entitymanager::v1::ContactDetails* value);
-  void unsafe_arena_set_allocated_contact(::anduril::entitymanager::v1::ContactDetails* value);
-  ::anduril::entitymanager::v1::ContactDetails* unsafe_arena_release_contact();
-
-  private:
-  const ::anduril::entitymanager::v1::ContactDetails& _internal_contact() const;
-  ::anduril::entitymanager::v1::ContactDetails* _internal_mutable_contact();
-
-  public:
   // .anduril.entitymanager.v1.Classification data_classification = 29 [json_name = "dataClassification"];
   bool has_data_classification() const;
   void clear_data_classification() ;
@@ -3588,21 +4155,6 @@ class Entity final : public ::google::protobuf::Message
   private:
   const ::anduril::tasks::v2::TaskCatalog& _internal_task_catalog() const;
   ::anduril::tasks::v2::TaskCatalog* _internal_mutable_task_catalog();
-
-  public:
-  // .anduril.entitymanager.v1.Media media = 32 [json_name = "media"];
-  bool has_media() const;
-  void clear_media() ;
-  const ::anduril::entitymanager::v1::Media& media() const;
-  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::Media* release_media();
-  ::anduril::entitymanager::v1::Media* mutable_media();
-  void set_allocated_media(::anduril::entitymanager::v1::Media* value);
-  void unsafe_arena_set_allocated_media(::anduril::entitymanager::v1::Media* value);
-  ::anduril::entitymanager::v1::Media* unsafe_arena_release_media();
-
-  private:
-  const ::anduril::entitymanager::v1::Media& _internal_media() const;
-  ::anduril::entitymanager::v1::Media* _internal_mutable_media();
 
   public:
   // .anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];
@@ -3710,21 +4262,6 @@ class Entity final : public ::google::protobuf::Message
   ::anduril::entitymanager::v1::GroupDetails* _internal_mutable_group_details();
 
   public:
-  // .anduril.entitymanager.v1.TeamStatus team_status = 41 [json_name = "teamStatus"];
-  bool has_team_status() const;
-  void clear_team_status() ;
-  const ::anduril::entitymanager::v1::TeamStatus& team_status() const;
-  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::TeamStatus* release_team_status();
-  ::anduril::entitymanager::v1::TeamStatus* mutable_team_status();
-  void set_allocated_team_status(::anduril::entitymanager::v1::TeamStatus* value);
-  void unsafe_arena_set_allocated_team_status(::anduril::entitymanager::v1::TeamStatus* value);
-  ::anduril::entitymanager::v1::TeamStatus* unsafe_arena_release_team_status();
-
-  private:
-  const ::anduril::entitymanager::v1::TeamStatus& _internal_team_status() const;
-  ::anduril::entitymanager::v1::TeamStatus* _internal_mutable_team_status();
-
-  public:
   // .anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];
   bool has_supplies() const;
   void clear_supplies() ;
@@ -3755,6 +4292,21 @@ class Entity final : public ::google::protobuf::Message
   ::anduril::entitymanager::v1::Orbit* _internal_mutable_orbit();
 
   public:
+  // .anduril.entitymanager.v1.Correlation correlation = 47 [json_name = "correlation"];
+  bool has_correlation() const;
+  void clear_correlation() ;
+  const ::anduril::entitymanager::v1::Correlation& correlation() const;
+  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::Correlation* release_correlation();
+  ::anduril::entitymanager::v1::Correlation* mutable_correlation();
+  void set_allocated_correlation(::anduril::entitymanager::v1::Correlation* value);
+  void unsafe_arena_set_allocated_correlation(::anduril::entitymanager::v1::Correlation* value);
+  ::anduril::entitymanager::v1::Correlation* unsafe_arena_release_correlation();
+
+  private:
+  const ::anduril::entitymanager::v1::Correlation& _internal_correlation() const;
+  ::anduril::entitymanager::v1::Correlation* _internal_mutable_correlation();
+
+  public:
   // bool is_live = 3 [json_name = "isLive"];
   void clear_is_live() ;
   bool is_live() const;
@@ -3765,23 +4317,13 @@ class Entity final : public ::google::protobuf::Message
   void _internal_set_is_live(bool value);
 
   public:
-  // bool no_expiry = 43 [json_name = "noExpiry"];
-  void clear_no_expiry() ;
-  bool no_expiry() const;
-  void set_no_expiry(bool value);
-
-  private:
-  bool _internal_no_expiry() const;
-  void _internal_set_no_expiry(bool value);
-
-  public:
   // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.Entity)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      5, 41, 37,
-      100, 7>
+      5, 35, 32,
+      92, 7>
       _table_;
 
   static constexpr const void* _raw_default_instance_ =
@@ -3801,7 +4343,7 @@ class Entity final : public ::google::protobuf::Message
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const Entity& from_msg);
-    ::google::protobuf::internal::HasBits<2> _has_bits_;
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     ::google::protobuf::internal::ArenaStringPtr entity_id_;
     ::google::protobuf::internal::ArenaStringPtr description_;
@@ -3810,15 +4352,12 @@ class Entity final : public ::google::protobuf::Message
     ::anduril::entitymanager::v1::Location* location_;
     ::anduril::entitymanager::v1::Aliases* aliases_;
     ::anduril::entitymanager::v1::Tracked* tracked_;
-    ::anduril::entitymanager::v1::Correlated* correlated_;
     ::anduril::entitymanager::v1::MilView* mil_view_;
     ::anduril::entitymanager::v1::Ontology* ontology_;
     ::anduril::entitymanager::v1::Provenance* provenance_;
     ::anduril::entitymanager::v1::Overrides* overrides_;
     ::anduril::entitymanager::v1::Indicators* indicators_;
     ::anduril::entitymanager::v1::LocationUncertainty* location_uncertainty_;
-    ::anduril::entitymanager::v1::GeoPolygon* geopolygon_;
-    ::anduril::entitymanager::v1::OriginalData* original_data_;
     ::anduril::entitymanager::v1::Status* status_;
     ::anduril::entitymanager::v1::Sensors* sensors_;
     ::anduril::entitymanager::v1::Payloads* payloads_;
@@ -3827,11 +4366,9 @@ class Entity final : public ::google::protobuf::Message
     ::anduril::entitymanager::v1::GeoDetails* geo_details_;
     ::anduril::entitymanager::v1::Signal* signal_;
     ::anduril::entitymanager::v1::TransponderCodes* transponder_codes_;
-    ::anduril::entitymanager::v1::ContactDetails* contact_;
     ::anduril::entitymanager::v1::Classification* data_classification_;
     ::anduril::entitymanager::v1::PowerState* power_state_;
     ::anduril::tasks::v2::TaskCatalog* task_catalog_;
-    ::anduril::entitymanager::v1::Media* media_;
     ::anduril::entitymanager::v1::Relationships* relationships_;
     ::anduril::entitymanager::v1::VisualDetails* visual_details_;
     ::anduril::entitymanager::v1::Dimensions* dimensions_;
@@ -3839,11 +4376,10 @@ class Entity final : public ::google::protobuf::Message
     ::anduril::entitymanager::v1::Schedules* schedules_;
     ::anduril::entitymanager::v1::Health* health_;
     ::anduril::entitymanager::v1::GroupDetails* group_details_;
-    ::anduril::entitymanager::v1::TeamStatus* team_status_;
     ::anduril::entitymanager::v1::Supplies* supplies_;
     ::anduril::entitymanager::v1::Orbit* orbit_;
+    ::anduril::entitymanager::v1::Correlation* correlation_;
     bool is_live_;
-    bool no_expiry_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -3906,7 +4442,7 @@ class Override final : public ::google::protobuf::Message
     return reinterpret_cast<const Override*>(
         &_Override_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 8;
+  static constexpr int kIndexInFileMessages = 7;
   friend void swap(Override& a, Override& b) { a.Swap(&b); }
   inline void Swap(Override* other) {
     if (other == this) return;
@@ -4194,7 +4730,7 @@ class Overrides final : public ::google::protobuf::Message
     return reinterpret_cast<const Overrides*>(
         &_Overrides_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 7;
+  static constexpr int kIndexInFileMessages = 6;
   friend void swap(Overrides& a, Overrides& b) { a.Swap(&b); }
   inline void Swap(Overrides* other) {
     if (other == this) return;
@@ -4280,26 +4816,8 @@ class Overrides final : public ::google::protobuf::Message
 
   // accessors -------------------------------------------------------
   enum : int {
-    kProvenanceFieldNumber = 1,
     kOverrideFieldNumber = 2,
   };
-  // repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];
-  [[deprecated]]  int provenance_size() const;
-  private:
-  int _internal_provenance_size() const;
-
-  public:
-  [[deprecated]]  void clear_provenance() ;
-  [[deprecated]] ::anduril::entitymanager::v1::OverrideProvenance* mutable_provenance(int index);
-  [[deprecated]] ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::OverrideProvenance>* mutable_provenance();
-
-  private:
-  const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::OverrideProvenance>& _internal_provenance() const;
-  ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::OverrideProvenance>* _internal_mutable_provenance();
-  public:
-  [[deprecated]] const ::anduril::entitymanager::v1::OverrideProvenance& provenance(int index) const;
-  [[deprecated]] ::anduril::entitymanager::v1::OverrideProvenance* add_provenance();
-  [[deprecated]] const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::OverrideProvenance>& provenance() const;
   // repeated .anduril.entitymanager.v1.Override override = 2 [json_name = "override"];
   int override_size() const;
   private:
@@ -4322,7 +4840,7 @@ class Overrides final : public ::google::protobuf::Message
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 2,
+      0, 1, 1,
       0, 2>
       _table_;
 
@@ -4343,203 +4861,7 @@ class Overrides final : public ::google::protobuf::Message
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const Overrides& from_msg);
-    ::google::protobuf::RepeatedPtrField< ::anduril::entitymanager::v1::OverrideProvenance > provenance_;
     ::google::protobuf::RepeatedPtrField< ::anduril::entitymanager::v1::Override > override_;
-    mutable ::google::protobuf::internal::CachedSize _cached_size_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto;
-};
-// -------------------------------------------------------------------
-
-class Entities final : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.Entities) */ {
- public:
-  inline Entities() : Entities(nullptr) {}
-  ~Entities() PROTOBUF_FINAL;
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR Entities(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline Entities(const Entities& from) : Entities(nullptr, from) {}
-  inline Entities(Entities&& from) noexcept
-      : Entities(nullptr, std::move(from)) {}
-  inline Entities& operator=(const Entities& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Entities& operator=(Entities&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetArena() == from.GetArena()
-#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetArena() != nullptr
-#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const Entities& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const Entities* internal_default_instance() {
-    return reinterpret_cast<const Entities*>(
-        &_Entities_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 1;
-  friend void swap(Entities& a, Entities& b) { a.Swap(&b); }
-  inline void Swap(Entities* other) {
-    if (other == this) return;
-#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
-#else   // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() == other->GetArena()) {
-#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Entities* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  Entities* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
-    return ::google::protobuf::Message::DefaultConstruct<Entities>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const Entities& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const Entities& from) { Entities::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  void SharedDtor();
-  void InternalSwap(Entities* other);
- private:
-  friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.Entities"; }
-
- protected:
-  explicit Entities(::google::protobuf::Arena* arena);
-  Entities(::google::protobuf::Arena* arena, const Entities& from);
-  Entities(::google::protobuf::Arena* arena, Entities&& from) noexcept
-      : Entities(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static const ::google::protobuf::Message::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kEntitiesFieldNumber = 1,
-  };
-  // repeated .anduril.entitymanager.v1.Entity entities = 1 [json_name = "entities"];
-  int entities_size() const;
-  private:
-  int _internal_entities_size() const;
-
-  public:
-  void clear_entities() ;
-  ::anduril::entitymanager::v1::Entity* mutable_entities(int index);
-  ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Entity>* mutable_entities();
-
-  private:
-  const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Entity>& _internal_entities() const;
-  ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Entity>* _internal_mutable_entities();
-  public:
-  const ::anduril::entitymanager::v1::Entity& entities(int index) const;
-  ::anduril::entitymanager::v1::Entity* add_entities();
-  const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Entity>& entities() const;
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.Entities)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      0, 1, 1,
-      0, 2>
-      _table_;
-
-  static constexpr const void* _raw_default_instance_ =
-      &_Entities_default_instance_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const Entities& from_msg);
-    ::google::protobuf::RepeatedPtrField< ::anduril::entitymanager::v1::Entity > entities_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -4867,38 +5189,16 @@ inline void Entity::set_allocated_expiry_time(::google::protobuf::Timestamp* val
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Entity.expiry_time)
 }
 
-// bool no_expiry = 43 [json_name = "noExpiry"];
-inline void Entity::clear_no_expiry() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.no_expiry_ = false;
-}
-inline bool Entity::no_expiry() const {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Entity.no_expiry)
-  return _internal_no_expiry();
-}
-inline void Entity::set_no_expiry(bool value) {
-  _internal_set_no_expiry(value);
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.Entity.no_expiry)
-}
-inline bool Entity::_internal_no_expiry() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.no_expiry_;
-}
-inline void Entity::_internal_set_no_expiry(bool value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.no_expiry_ = value;
-}
-
 // .anduril.entitymanager.v1.Status status = 19 [json_name = "status"];
 inline bool Entity::has_status() const {
-  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.status_ != nullptr);
   return value;
 }
 inline void Entity::clear_status() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.status_ != nullptr) _impl_.status_->Clear();
-  _impl_._has_bits_[0] &= ~0x00004000u;
+  _impl_._has_bits_[0] &= ~0x00000800u;
 }
 inline const ::anduril::entitymanager::v1::Status& Entity::_internal_status() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -4916,16 +5216,16 @@ inline void Entity::unsafe_arena_set_allocated_status(::anduril::entitymanager::
   }
   _impl_.status_ = reinterpret_cast<::anduril::entitymanager::v1::Status*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00004000u;
+    _impl_._has_bits_[0] |= 0x00000800u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00004000u;
+    _impl_._has_bits_[0] &= ~0x00000800u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.status)
 }
 inline ::anduril::entitymanager::v1::Status* Entity::release_status() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00004000u;
+  _impl_._has_bits_[0] &= ~0x00000800u;
   ::anduril::entitymanager::v1::Status* released = _impl_.status_;
   _impl_.status_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -4945,7 +5245,7 @@ inline ::anduril::entitymanager::v1::Status* Entity::unsafe_arena_release_status
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.status)
 
-  _impl_._has_bits_[0] &= ~0x00004000u;
+  _impl_._has_bits_[0] &= ~0x00000800u;
   ::anduril::entitymanager::v1::Status* temp = _impl_.status_;
   _impl_.status_ = nullptr;
   return temp;
@@ -4959,7 +5259,7 @@ inline ::anduril::entitymanager::v1::Status* Entity::_internal_mutable_status() 
   return _impl_.status_;
 }
 inline ::anduril::entitymanager::v1::Status* Entity::mutable_status() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00004000u;
+  _impl_._has_bits_[0] |= 0x00000800u;
   ::anduril::entitymanager::v1::Status* _msg = _internal_mutable_status();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.status)
   return _msg;
@@ -4976,9 +5276,9 @@ inline void Entity::set_allocated_status(::anduril::entitymanager::v1::Status* v
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00004000u;
+    _impl_._has_bits_[0] |= 0x00000800u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00004000u;
+    _impl_._has_bits_[0] &= ~0x00000800u;
   }
 
   _impl_.status_ = reinterpret_cast<::anduril::entitymanager::v1::Status*>(value);
@@ -5078,7 +5378,7 @@ inline void Entity::set_allocated_location(::anduril::entitymanager::v1::Locatio
 
 // .anduril.entitymanager.v1.LocationUncertainty location_uncertainty = 15 [json_name = "locationUncertainty"];
 inline bool Entity::has_location_uncertainty() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000800u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.location_uncertainty_ != nullptr);
   return value;
 }
@@ -5098,16 +5398,16 @@ inline void Entity::unsafe_arena_set_allocated_location_uncertainty(::anduril::e
   }
   _impl_.location_uncertainty_ = reinterpret_cast<::anduril::entitymanager::v1::LocationUncertainty*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000800u;
+    _impl_._has_bits_[0] |= 0x00000400u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000800u;
+    _impl_._has_bits_[0] &= ~0x00000400u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.location_uncertainty)
 }
 inline ::anduril::entitymanager::v1::LocationUncertainty* Entity::release_location_uncertainty() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00000800u;
+  _impl_._has_bits_[0] &= ~0x00000400u;
   ::anduril::entitymanager::v1::LocationUncertainty* released = _impl_.location_uncertainty_;
   _impl_.location_uncertainty_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -5127,7 +5427,7 @@ inline ::anduril::entitymanager::v1::LocationUncertainty* Entity::unsafe_arena_r
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.location_uncertainty)
 
-  _impl_._has_bits_[0] &= ~0x00000800u;
+  _impl_._has_bits_[0] &= ~0x00000400u;
   ::anduril::entitymanager::v1::LocationUncertainty* temp = _impl_.location_uncertainty_;
   _impl_.location_uncertainty_ = nullptr;
   return temp;
@@ -5141,7 +5441,7 @@ inline ::anduril::entitymanager::v1::LocationUncertainty* Entity::_internal_muta
   return _impl_.location_uncertainty_;
 }
 inline ::anduril::entitymanager::v1::LocationUncertainty* Entity::mutable_location_uncertainty() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000800u;
+  _impl_._has_bits_[0] |= 0x00000400u;
   ::anduril::entitymanager::v1::LocationUncertainty* _msg = _internal_mutable_location_uncertainty();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.location_uncertainty)
   return _msg;
@@ -5158,109 +5458,18 @@ inline void Entity::set_allocated_location_uncertainty(::anduril::entitymanager:
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000800u;
+    _impl_._has_bits_[0] |= 0x00000400u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000800u;
+    _impl_._has_bits_[0] &= ~0x00000400u;
   }
 
   _impl_.location_uncertainty_ = reinterpret_cast<::anduril::entitymanager::v1::LocationUncertainty*>(value);
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Entity.location_uncertainty)
 }
 
-// .anduril.entitymanager.v1.GeoPolygon geopolygon = 17 [json_name = "geopolygon", deprecated = true];
-inline bool Entity::has_geopolygon() const {
-  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.geopolygon_ != nullptr);
-  return value;
-}
-inline const ::anduril::entitymanager::v1::GeoPolygon& Entity::_internal_geopolygon() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::anduril::entitymanager::v1::GeoPolygon* p = _impl_.geopolygon_;
-  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::GeoPolygon&>(::anduril::entitymanager::v1::_GeoPolygon_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::GeoPolygon& Entity::geopolygon() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Entity.geopolygon)
-  return _internal_geopolygon();
-}
-inline void Entity::unsafe_arena_set_allocated_geopolygon(::anduril::entitymanager::v1::GeoPolygon* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.geopolygon_);
-  }
-  _impl_.geopolygon_ = reinterpret_cast<::anduril::entitymanager::v1::GeoPolygon*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00001000u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00001000u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.geopolygon)
-}
-inline ::anduril::entitymanager::v1::GeoPolygon* Entity::release_geopolygon() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00001000u;
-  ::anduril::entitymanager::v1::GeoPolygon* released = _impl_.geopolygon_;
-  _impl_.geopolygon_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  if (GetArena() == nullptr) {
-    delete old;
-  }
-#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArena() != nullptr) {
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return released;
-}
-inline ::anduril::entitymanager::v1::GeoPolygon* Entity::unsafe_arena_release_geopolygon() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.geopolygon)
-
-  _impl_._has_bits_[0] &= ~0x00001000u;
-  ::anduril::entitymanager::v1::GeoPolygon* temp = _impl_.geopolygon_;
-  _impl_.geopolygon_ = nullptr;
-  return temp;
-}
-inline ::anduril::entitymanager::v1::GeoPolygon* Entity::_internal_mutable_geopolygon() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.geopolygon_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::GeoPolygon>(GetArena());
-    _impl_.geopolygon_ = reinterpret_cast<::anduril::entitymanager::v1::GeoPolygon*>(p);
-  }
-  return _impl_.geopolygon_;
-}
-inline ::anduril::entitymanager::v1::GeoPolygon* Entity::mutable_geopolygon() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00001000u;
-  ::anduril::entitymanager::v1::GeoPolygon* _msg = _internal_mutable_geopolygon();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.geopolygon)
-  return _msg;
-}
-inline void Entity::set_allocated_geopolygon(::anduril::entitymanager::v1::GeoPolygon* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.geopolygon_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00001000u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00001000u;
-  }
-
-  _impl_.geopolygon_ = reinterpret_cast<::anduril::entitymanager::v1::GeoPolygon*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Entity.geopolygon)
-}
-
 // .anduril.entitymanager.v1.GeoShape geo_shape = 23 [json_name = "geoShape"];
 inline bool Entity::has_geo_shape() const {
-  bool value = (_impl_._has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.geo_shape_ != nullptr);
   return value;
 }
@@ -5280,16 +5489,16 @@ inline void Entity::unsafe_arena_set_allocated_geo_shape(::anduril::entitymanage
   }
   _impl_.geo_shape_ = reinterpret_cast<::anduril::entitymanager::v1::GeoShape*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00040000u;
+    _impl_._has_bits_[0] |= 0x00008000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00040000u;
+    _impl_._has_bits_[0] &= ~0x00008000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.geo_shape)
 }
 inline ::anduril::entitymanager::v1::GeoShape* Entity::release_geo_shape() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00040000u;
+  _impl_._has_bits_[0] &= ~0x00008000u;
   ::anduril::entitymanager::v1::GeoShape* released = _impl_.geo_shape_;
   _impl_.geo_shape_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -5309,7 +5518,7 @@ inline ::anduril::entitymanager::v1::GeoShape* Entity::unsafe_arena_release_geo_
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.geo_shape)
 
-  _impl_._has_bits_[0] &= ~0x00040000u;
+  _impl_._has_bits_[0] &= ~0x00008000u;
   ::anduril::entitymanager::v1::GeoShape* temp = _impl_.geo_shape_;
   _impl_.geo_shape_ = nullptr;
   return temp;
@@ -5323,7 +5532,7 @@ inline ::anduril::entitymanager::v1::GeoShape* Entity::_internal_mutable_geo_sha
   return _impl_.geo_shape_;
 }
 inline ::anduril::entitymanager::v1::GeoShape* Entity::mutable_geo_shape() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00040000u;
+  _impl_._has_bits_[0] |= 0x00008000u;
   ::anduril::entitymanager::v1::GeoShape* _msg = _internal_mutable_geo_shape();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.geo_shape)
   return _msg;
@@ -5340,9 +5549,9 @@ inline void Entity::set_allocated_geo_shape(::anduril::entitymanager::v1::GeoSha
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00040000u;
+    _impl_._has_bits_[0] |= 0x00008000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00040000u;
+    _impl_._has_bits_[0] &= ~0x00008000u;
   }
 
   _impl_.geo_shape_ = reinterpret_cast<::anduril::entitymanager::v1::GeoShape*>(value);
@@ -5351,7 +5560,7 @@ inline void Entity::set_allocated_geo_shape(::anduril::entitymanager::v1::GeoSha
 
 // .anduril.entitymanager.v1.GeoDetails geo_details = 24 [json_name = "geoDetails"];
 inline bool Entity::has_geo_details() const {
-  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.geo_details_ != nullptr);
   return value;
 }
@@ -5371,16 +5580,16 @@ inline void Entity::unsafe_arena_set_allocated_geo_details(::anduril::entitymana
   }
   _impl_.geo_details_ = reinterpret_cast<::anduril::entitymanager::v1::GeoDetails*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00080000u;
+    _impl_._has_bits_[0] |= 0x00010000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00080000u;
+    _impl_._has_bits_[0] &= ~0x00010000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.geo_details)
 }
 inline ::anduril::entitymanager::v1::GeoDetails* Entity::release_geo_details() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00080000u;
+  _impl_._has_bits_[0] &= ~0x00010000u;
   ::anduril::entitymanager::v1::GeoDetails* released = _impl_.geo_details_;
   _impl_.geo_details_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -5400,7 +5609,7 @@ inline ::anduril::entitymanager::v1::GeoDetails* Entity::unsafe_arena_release_ge
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.geo_details)
 
-  _impl_._has_bits_[0] &= ~0x00080000u;
+  _impl_._has_bits_[0] &= ~0x00010000u;
   ::anduril::entitymanager::v1::GeoDetails* temp = _impl_.geo_details_;
   _impl_.geo_details_ = nullptr;
   return temp;
@@ -5414,7 +5623,7 @@ inline ::anduril::entitymanager::v1::GeoDetails* Entity::_internal_mutable_geo_d
   return _impl_.geo_details_;
 }
 inline ::anduril::entitymanager::v1::GeoDetails* Entity::mutable_geo_details() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00080000u;
+  _impl_._has_bits_[0] |= 0x00010000u;
   ::anduril::entitymanager::v1::GeoDetails* _msg = _internal_mutable_geo_details();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.geo_details)
   return _msg;
@@ -5431,9 +5640,9 @@ inline void Entity::set_allocated_geo_details(::anduril::entitymanager::v1::GeoD
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00080000u;
+    _impl_._has_bits_[0] |= 0x00010000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00080000u;
+    _impl_._has_bits_[0] &= ~0x00010000u;
   }
 
   _impl_.geo_details_ = reinterpret_cast<::anduril::entitymanager::v1::GeoDetails*>(value);
@@ -5632,40 +5841,45 @@ inline void Entity::set_allocated_tracked(::anduril::entitymanager::v1::Tracked*
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Entity.tracked)
 }
 
-// .anduril.entitymanager.v1.Correlated correlated = 9 [json_name = "correlated"];
-inline bool Entity::has_correlated() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.correlated_ != nullptr);
+// .anduril.entitymanager.v1.Correlation correlation = 47 [json_name = "correlation"];
+inline bool Entity::has_correlation() const {
+  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.correlation_ != nullptr);
   return value;
 }
-inline const ::anduril::entitymanager::v1::Correlated& Entity::_internal_correlated() const {
+inline void Entity::clear_correlation() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.correlation_ != nullptr) _impl_.correlation_->Clear();
+  _impl_._has_bits_[0] &= ~0x80000000u;
+}
+inline const ::anduril::entitymanager::v1::Correlation& Entity::_internal_correlation() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::anduril::entitymanager::v1::Correlated* p = _impl_.correlated_;
-  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::Correlated&>(::anduril::entitymanager::v1::_Correlated_default_instance_);
+  const ::anduril::entitymanager::v1::Correlation* p = _impl_.correlation_;
+  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::Correlation&>(::anduril::entitymanager::v1::_Correlation_default_instance_);
 }
-inline const ::anduril::entitymanager::v1::Correlated& Entity::correlated() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Entity.correlated)
-  return _internal_correlated();
+inline const ::anduril::entitymanager::v1::Correlation& Entity::correlation() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Entity.correlation)
+  return _internal_correlation();
 }
-inline void Entity::unsafe_arena_set_allocated_correlated(::anduril::entitymanager::v1::Correlated* value) {
+inline void Entity::unsafe_arena_set_allocated_correlation(::anduril::entitymanager::v1::Correlation* value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.correlated_);
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.correlation_);
   }
-  _impl_.correlated_ = reinterpret_cast<::anduril::entitymanager::v1::Correlated*>(value);
+  _impl_.correlation_ = reinterpret_cast<::anduril::entitymanager::v1::Correlation*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000020u;
+    _impl_._has_bits_[0] |= 0x80000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000020u;
+    _impl_._has_bits_[0] &= ~0x80000000u;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.correlated)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.correlation)
 }
-inline ::anduril::entitymanager::v1::Correlated* Entity::release_correlated() {
+inline ::anduril::entitymanager::v1::Correlation* Entity::release_correlation() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00000020u;
-  ::anduril::entitymanager::v1::Correlated* released = _impl_.correlated_;
-  _impl_.correlated_ = nullptr;
+  _impl_._has_bits_[0] &= ~0x80000000u;
+  ::anduril::entitymanager::v1::Correlation* released = _impl_.correlation_;
+  _impl_.correlation_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
   released = ::google::protobuf::internal::DuplicateIfNonNull(released);
@@ -5679,53 +5893,53 @@ inline ::anduril::entitymanager::v1::Correlated* Entity::release_correlated() {
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return released;
 }
-inline ::anduril::entitymanager::v1::Correlated* Entity::unsafe_arena_release_correlated() {
+inline ::anduril::entitymanager::v1::Correlation* Entity::unsafe_arena_release_correlation() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.correlated)
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.correlation)
 
-  _impl_._has_bits_[0] &= ~0x00000020u;
-  ::anduril::entitymanager::v1::Correlated* temp = _impl_.correlated_;
-  _impl_.correlated_ = nullptr;
+  _impl_._has_bits_[0] &= ~0x80000000u;
+  ::anduril::entitymanager::v1::Correlation* temp = _impl_.correlation_;
+  _impl_.correlation_ = nullptr;
   return temp;
 }
-inline ::anduril::entitymanager::v1::Correlated* Entity::_internal_mutable_correlated() {
+inline ::anduril::entitymanager::v1::Correlation* Entity::_internal_mutable_correlation() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.correlated_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Correlated>(GetArena());
-    _impl_.correlated_ = reinterpret_cast<::anduril::entitymanager::v1::Correlated*>(p);
+  if (_impl_.correlation_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Correlation>(GetArena());
+    _impl_.correlation_ = reinterpret_cast<::anduril::entitymanager::v1::Correlation*>(p);
   }
-  return _impl_.correlated_;
+  return _impl_.correlation_;
 }
-inline ::anduril::entitymanager::v1::Correlated* Entity::mutable_correlated() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000020u;
-  ::anduril::entitymanager::v1::Correlated* _msg = _internal_mutable_correlated();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.correlated)
+inline ::anduril::entitymanager::v1::Correlation* Entity::mutable_correlation() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x80000000u;
+  ::anduril::entitymanager::v1::Correlation* _msg = _internal_mutable_correlation();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.correlation)
   return _msg;
 }
-inline void Entity::set_allocated_correlated(::anduril::entitymanager::v1::Correlated* value) {
+inline void Entity::set_allocated_correlation(::anduril::entitymanager::v1::Correlation* value) {
   ::google::protobuf::Arena* message_arena = GetArena();
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (message_arena == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.correlated_);
+    delete (_impl_.correlation_);
   }
 
   if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
+    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000020u;
+    _impl_._has_bits_[0] |= 0x80000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000020u;
+    _impl_._has_bits_[0] &= ~0x80000000u;
   }
 
-  _impl_.correlated_ = reinterpret_cast<::anduril::entitymanager::v1::Correlated*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Entity.correlated)
+  _impl_.correlation_ = reinterpret_cast<::anduril::entitymanager::v1::Correlation*>(value);
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Entity.correlation)
 }
 
 // .anduril.entitymanager.v1.MilView mil_view = 10 [json_name = "milView"];
 inline bool Entity::has_mil_view() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.mil_view_ != nullptr);
   return value;
 }
@@ -5745,16 +5959,16 @@ inline void Entity::unsafe_arena_set_allocated_mil_view(::anduril::entitymanager
   }
   _impl_.mil_view_ = reinterpret_cast<::anduril::entitymanager::v1::MilView*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000040u;
+    _impl_._has_bits_[0] |= 0x00000020u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000040u;
+    _impl_._has_bits_[0] &= ~0x00000020u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.mil_view)
 }
 inline ::anduril::entitymanager::v1::MilView* Entity::release_mil_view() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
   ::anduril::entitymanager::v1::MilView* released = _impl_.mil_view_;
   _impl_.mil_view_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -5774,7 +5988,7 @@ inline ::anduril::entitymanager::v1::MilView* Entity::unsafe_arena_release_mil_v
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.mil_view)
 
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
   ::anduril::entitymanager::v1::MilView* temp = _impl_.mil_view_;
   _impl_.mil_view_ = nullptr;
   return temp;
@@ -5788,7 +6002,7 @@ inline ::anduril::entitymanager::v1::MilView* Entity::_internal_mutable_mil_view
   return _impl_.mil_view_;
 }
 inline ::anduril::entitymanager::v1::MilView* Entity::mutable_mil_view() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   ::anduril::entitymanager::v1::MilView* _msg = _internal_mutable_mil_view();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.mil_view)
   return _msg;
@@ -5805,9 +6019,9 @@ inline void Entity::set_allocated_mil_view(::anduril::entitymanager::v1::MilView
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000040u;
+    _impl_._has_bits_[0] |= 0x00000020u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000040u;
+    _impl_._has_bits_[0] &= ~0x00000020u;
   }
 
   _impl_.mil_view_ = reinterpret_cast<::anduril::entitymanager::v1::MilView*>(value);
@@ -5816,7 +6030,7 @@ inline void Entity::set_allocated_mil_view(::anduril::entitymanager::v1::MilView
 
 // .anduril.entitymanager.v1.Ontology ontology = 11 [json_name = "ontology"];
 inline bool Entity::has_ontology() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.ontology_ != nullptr);
   return value;
 }
@@ -5836,16 +6050,16 @@ inline void Entity::unsafe_arena_set_allocated_ontology(::anduril::entitymanager
   }
   _impl_.ontology_ = reinterpret_cast<::anduril::entitymanager::v1::Ontology*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000080u;
+    _impl_._has_bits_[0] |= 0x00000040u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000080u;
+    _impl_._has_bits_[0] &= ~0x00000040u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.ontology)
 }
 inline ::anduril::entitymanager::v1::Ontology* Entity::release_ontology() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
   ::anduril::entitymanager::v1::Ontology* released = _impl_.ontology_;
   _impl_.ontology_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -5865,7 +6079,7 @@ inline ::anduril::entitymanager::v1::Ontology* Entity::unsafe_arena_release_onto
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.ontology)
 
-  _impl_._has_bits_[0] &= ~0x00000080u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
   ::anduril::entitymanager::v1::Ontology* temp = _impl_.ontology_;
   _impl_.ontology_ = nullptr;
   return temp;
@@ -5879,7 +6093,7 @@ inline ::anduril::entitymanager::v1::Ontology* Entity::_internal_mutable_ontolog
   return _impl_.ontology_;
 }
 inline ::anduril::entitymanager::v1::Ontology* Entity::mutable_ontology() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_._has_bits_[0] |= 0x00000040u;
   ::anduril::entitymanager::v1::Ontology* _msg = _internal_mutable_ontology();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.ontology)
   return _msg;
@@ -5896,9 +6110,9 @@ inline void Entity::set_allocated_ontology(::anduril::entitymanager::v1::Ontolog
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000080u;
+    _impl_._has_bits_[0] |= 0x00000040u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000080u;
+    _impl_._has_bits_[0] &= ~0x00000040u;
   }
 
   _impl_.ontology_ = reinterpret_cast<::anduril::entitymanager::v1::Ontology*>(value);
@@ -5907,7 +6121,7 @@ inline void Entity::set_allocated_ontology(::anduril::entitymanager::v1::Ontolog
 
 // .anduril.entitymanager.v1.Sensors sensors = 20 [json_name = "sensors"];
 inline bool Entity::has_sensors() const {
-  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.sensors_ != nullptr);
   return value;
 }
@@ -5927,16 +6141,16 @@ inline void Entity::unsafe_arena_set_allocated_sensors(::anduril::entitymanager:
   }
   _impl_.sensors_ = reinterpret_cast<::anduril::entitymanager::v1::Sensors*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00008000u;
+    _impl_._has_bits_[0] |= 0x00001000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00008000u;
+    _impl_._has_bits_[0] &= ~0x00001000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.sensors)
 }
 inline ::anduril::entitymanager::v1::Sensors* Entity::release_sensors() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00008000u;
+  _impl_._has_bits_[0] &= ~0x00001000u;
   ::anduril::entitymanager::v1::Sensors* released = _impl_.sensors_;
   _impl_.sensors_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -5956,7 +6170,7 @@ inline ::anduril::entitymanager::v1::Sensors* Entity::unsafe_arena_release_senso
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.sensors)
 
-  _impl_._has_bits_[0] &= ~0x00008000u;
+  _impl_._has_bits_[0] &= ~0x00001000u;
   ::anduril::entitymanager::v1::Sensors* temp = _impl_.sensors_;
   _impl_.sensors_ = nullptr;
   return temp;
@@ -5970,7 +6184,7 @@ inline ::anduril::entitymanager::v1::Sensors* Entity::_internal_mutable_sensors(
   return _impl_.sensors_;
 }
 inline ::anduril::entitymanager::v1::Sensors* Entity::mutable_sensors() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00008000u;
+  _impl_._has_bits_[0] |= 0x00001000u;
   ::anduril::entitymanager::v1::Sensors* _msg = _internal_mutable_sensors();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.sensors)
   return _msg;
@@ -5987,9 +6201,9 @@ inline void Entity::set_allocated_sensors(::anduril::entitymanager::v1::Sensors*
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00008000u;
+    _impl_._has_bits_[0] |= 0x00001000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00008000u;
+    _impl_._has_bits_[0] &= ~0x00001000u;
   }
 
   _impl_.sensors_ = reinterpret_cast<::anduril::entitymanager::v1::Sensors*>(value);
@@ -5998,7 +6212,7 @@ inline void Entity::set_allocated_sensors(::anduril::entitymanager::v1::Sensors*
 
 // .anduril.entitymanager.v1.Payloads payloads = 21 [json_name = "payloads"];
 inline bool Entity::has_payloads() const {
-  bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.payloads_ != nullptr);
   return value;
 }
@@ -6018,16 +6232,16 @@ inline void Entity::unsafe_arena_set_allocated_payloads(::anduril::entitymanager
   }
   _impl_.payloads_ = reinterpret_cast<::anduril::entitymanager::v1::Payloads*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00010000u;
+    _impl_._has_bits_[0] |= 0x00002000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00010000u;
+    _impl_._has_bits_[0] &= ~0x00002000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.payloads)
 }
 inline ::anduril::entitymanager::v1::Payloads* Entity::release_payloads() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00010000u;
+  _impl_._has_bits_[0] &= ~0x00002000u;
   ::anduril::entitymanager::v1::Payloads* released = _impl_.payloads_;
   _impl_.payloads_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -6047,7 +6261,7 @@ inline ::anduril::entitymanager::v1::Payloads* Entity::unsafe_arena_release_payl
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.payloads)
 
-  _impl_._has_bits_[0] &= ~0x00010000u;
+  _impl_._has_bits_[0] &= ~0x00002000u;
   ::anduril::entitymanager::v1::Payloads* temp = _impl_.payloads_;
   _impl_.payloads_ = nullptr;
   return temp;
@@ -6061,7 +6275,7 @@ inline ::anduril::entitymanager::v1::Payloads* Entity::_internal_mutable_payload
   return _impl_.payloads_;
 }
 inline ::anduril::entitymanager::v1::Payloads* Entity::mutable_payloads() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00010000u;
+  _impl_._has_bits_[0] |= 0x00002000u;
   ::anduril::entitymanager::v1::Payloads* _msg = _internal_mutable_payloads();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.payloads)
   return _msg;
@@ -6078,9 +6292,9 @@ inline void Entity::set_allocated_payloads(::anduril::entitymanager::v1::Payload
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00010000u;
+    _impl_._has_bits_[0] |= 0x00002000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00010000u;
+    _impl_._has_bits_[0] &= ~0x00002000u;
   }
 
   _impl_.payloads_ = reinterpret_cast<::anduril::entitymanager::v1::Payloads*>(value);
@@ -6089,7 +6303,7 @@ inline void Entity::set_allocated_payloads(::anduril::entitymanager::v1::Payload
 
 // .anduril.entitymanager.v1.PowerState power_state = 30 [json_name = "powerState"];
 inline bool Entity::has_power_state() const {
-  bool value = (_impl_._has_bits_[0] & 0x01000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.power_state_ != nullptr);
   return value;
 }
@@ -6109,16 +6323,16 @@ inline void Entity::unsafe_arena_set_allocated_power_state(::anduril::entitymana
   }
   _impl_.power_state_ = reinterpret_cast<::anduril::entitymanager::v1::PowerState*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x01000000u;
+    _impl_._has_bits_[0] |= 0x00100000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x01000000u;
+    _impl_._has_bits_[0] &= ~0x00100000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.power_state)
 }
 inline ::anduril::entitymanager::v1::PowerState* Entity::release_power_state() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x01000000u;
+  _impl_._has_bits_[0] &= ~0x00100000u;
   ::anduril::entitymanager::v1::PowerState* released = _impl_.power_state_;
   _impl_.power_state_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -6138,7 +6352,7 @@ inline ::anduril::entitymanager::v1::PowerState* Entity::unsafe_arena_release_po
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.power_state)
 
-  _impl_._has_bits_[0] &= ~0x01000000u;
+  _impl_._has_bits_[0] &= ~0x00100000u;
   ::anduril::entitymanager::v1::PowerState* temp = _impl_.power_state_;
   _impl_.power_state_ = nullptr;
   return temp;
@@ -6152,7 +6366,7 @@ inline ::anduril::entitymanager::v1::PowerState* Entity::_internal_mutable_power
   return _impl_.power_state_;
 }
 inline ::anduril::entitymanager::v1::PowerState* Entity::mutable_power_state() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x01000000u;
+  _impl_._has_bits_[0] |= 0x00100000u;
   ::anduril::entitymanager::v1::PowerState* _msg = _internal_mutable_power_state();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.power_state)
   return _msg;
@@ -6169,9 +6383,9 @@ inline void Entity::set_allocated_power_state(::anduril::entitymanager::v1::Powe
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x01000000u;
+    _impl_._has_bits_[0] |= 0x00100000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x01000000u;
+    _impl_._has_bits_[0] &= ~0x00100000u;
   }
 
   _impl_.power_state_ = reinterpret_cast<::anduril::entitymanager::v1::PowerState*>(value);
@@ -6180,14 +6394,14 @@ inline void Entity::set_allocated_power_state(::anduril::entitymanager::v1::Powe
 
 // .anduril.entitymanager.v1.Provenance provenance = 12 [json_name = "provenance"];
 inline bool Entity::has_provenance() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.provenance_ != nullptr);
   return value;
 }
 inline void Entity::clear_provenance() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.provenance_ != nullptr) _impl_.provenance_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000100u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
 }
 inline const ::anduril::entitymanager::v1::Provenance& Entity::_internal_provenance() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -6205,16 +6419,16 @@ inline void Entity::unsafe_arena_set_allocated_provenance(::anduril::entitymanag
   }
   _impl_.provenance_ = reinterpret_cast<::anduril::entitymanager::v1::Provenance*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000100u;
+    _impl_._has_bits_[0] |= 0x00000080u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000100u;
+    _impl_._has_bits_[0] &= ~0x00000080u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.provenance)
 }
 inline ::anduril::entitymanager::v1::Provenance* Entity::release_provenance() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00000100u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
   ::anduril::entitymanager::v1::Provenance* released = _impl_.provenance_;
   _impl_.provenance_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -6234,7 +6448,7 @@ inline ::anduril::entitymanager::v1::Provenance* Entity::unsafe_arena_release_pr
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.provenance)
 
-  _impl_._has_bits_[0] &= ~0x00000100u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
   ::anduril::entitymanager::v1::Provenance* temp = _impl_.provenance_;
   _impl_.provenance_ = nullptr;
   return temp;
@@ -6248,7 +6462,7 @@ inline ::anduril::entitymanager::v1::Provenance* Entity::_internal_mutable_prove
   return _impl_.provenance_;
 }
 inline ::anduril::entitymanager::v1::Provenance* Entity::mutable_provenance() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_._has_bits_[0] |= 0x00000080u;
   ::anduril::entitymanager::v1::Provenance* _msg = _internal_mutable_provenance();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.provenance)
   return _msg;
@@ -6265,9 +6479,9 @@ inline void Entity::set_allocated_provenance(::anduril::entitymanager::v1::Prove
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000100u;
+    _impl_._has_bits_[0] |= 0x00000080u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000100u;
+    _impl_._has_bits_[0] &= ~0x00000080u;
   }
 
   _impl_.provenance_ = reinterpret_cast<::anduril::entitymanager::v1::Provenance*>(value);
@@ -6276,14 +6490,14 @@ inline void Entity::set_allocated_provenance(::anduril::entitymanager::v1::Prove
 
 // .anduril.entitymanager.v1.Overrides overrides = 13 [json_name = "overrides"];
 inline bool Entity::has_overrides() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000100u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.overrides_ != nullptr);
   return value;
 }
 inline void Entity::clear_overrides() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.overrides_ != nullptr) _impl_.overrides_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000200u;
+  _impl_._has_bits_[0] &= ~0x00000100u;
 }
 inline const ::anduril::entitymanager::v1::Overrides& Entity::_internal_overrides() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -6301,16 +6515,16 @@ inline void Entity::unsafe_arena_set_allocated_overrides(::anduril::entitymanage
   }
   _impl_.overrides_ = reinterpret_cast<::anduril::entitymanager::v1::Overrides*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000200u;
+    _impl_._has_bits_[0] |= 0x00000100u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000200u;
+    _impl_._has_bits_[0] &= ~0x00000100u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.overrides)
 }
 inline ::anduril::entitymanager::v1::Overrides* Entity::release_overrides() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00000200u;
+  _impl_._has_bits_[0] &= ~0x00000100u;
   ::anduril::entitymanager::v1::Overrides* released = _impl_.overrides_;
   _impl_.overrides_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -6330,7 +6544,7 @@ inline ::anduril::entitymanager::v1::Overrides* Entity::unsafe_arena_release_ove
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.overrides)
 
-  _impl_._has_bits_[0] &= ~0x00000200u;
+  _impl_._has_bits_[0] &= ~0x00000100u;
   ::anduril::entitymanager::v1::Overrides* temp = _impl_.overrides_;
   _impl_.overrides_ = nullptr;
   return temp;
@@ -6344,7 +6558,7 @@ inline ::anduril::entitymanager::v1::Overrides* Entity::_internal_mutable_overri
   return _impl_.overrides_;
 }
 inline ::anduril::entitymanager::v1::Overrides* Entity::mutable_overrides() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_._has_bits_[0] |= 0x00000100u;
   ::anduril::entitymanager::v1::Overrides* _msg = _internal_mutable_overrides();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.overrides)
   return _msg;
@@ -6361,9 +6575,9 @@ inline void Entity::set_allocated_overrides(::anduril::entitymanager::v1::Overri
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000200u;
+    _impl_._has_bits_[0] |= 0x00000100u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000200u;
+    _impl_._has_bits_[0] &= ~0x00000100u;
   }
 
   _impl_.overrides_ = reinterpret_cast<::anduril::entitymanager::v1::Overrides*>(value);
@@ -6372,14 +6586,14 @@ inline void Entity::set_allocated_overrides(::anduril::entitymanager::v1::Overri
 
 // .anduril.entitymanager.v1.Indicators indicators = 14 [json_name = "indicators"];
 inline bool Entity::has_indicators() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.indicators_ != nullptr);
   return value;
 }
 inline void Entity::clear_indicators() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.indicators_ != nullptr) _impl_.indicators_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000400u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
 }
 inline const ::anduril::entitymanager::v1::Indicators& Entity::_internal_indicators() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -6397,16 +6611,16 @@ inline void Entity::unsafe_arena_set_allocated_indicators(::anduril::entitymanag
   }
   _impl_.indicators_ = reinterpret_cast<::anduril::entitymanager::v1::Indicators*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000400u;
+    _impl_._has_bits_[0] |= 0x00000200u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000400u;
+    _impl_._has_bits_[0] &= ~0x00000200u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.indicators)
 }
 inline ::anduril::entitymanager::v1::Indicators* Entity::release_indicators() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00000400u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
   ::anduril::entitymanager::v1::Indicators* released = _impl_.indicators_;
   _impl_.indicators_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -6426,7 +6640,7 @@ inline ::anduril::entitymanager::v1::Indicators* Entity::unsafe_arena_release_in
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.indicators)
 
-  _impl_._has_bits_[0] &= ~0x00000400u;
+  _impl_._has_bits_[0] &= ~0x00000200u;
   ::anduril::entitymanager::v1::Indicators* temp = _impl_.indicators_;
   _impl_.indicators_ = nullptr;
   return temp;
@@ -6440,7 +6654,7 @@ inline ::anduril::entitymanager::v1::Indicators* Entity::_internal_mutable_indic
   return _impl_.indicators_;
 }
 inline ::anduril::entitymanager::v1::Indicators* Entity::mutable_indicators() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000400u;
+  _impl_._has_bits_[0] |= 0x00000200u;
   ::anduril::entitymanager::v1::Indicators* _msg = _internal_mutable_indicators();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.indicators)
   return _msg;
@@ -6457,114 +6671,18 @@ inline void Entity::set_allocated_indicators(::anduril::entitymanager::v1::Indic
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000400u;
+    _impl_._has_bits_[0] |= 0x00000200u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000400u;
+    _impl_._has_bits_[0] &= ~0x00000200u;
   }
 
   _impl_.indicators_ = reinterpret_cast<::anduril::entitymanager::v1::Indicators*>(value);
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Entity.indicators)
 }
 
-// .anduril.entitymanager.v1.OriginalData original_data = 18 [json_name = "originalData"];
-inline bool Entity::has_original_data() const {
-  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.original_data_ != nullptr);
-  return value;
-}
-inline void Entity::clear_original_data() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.original_data_ != nullptr) _impl_.original_data_->Clear();
-  _impl_._has_bits_[0] &= ~0x00002000u;
-}
-inline const ::anduril::entitymanager::v1::OriginalData& Entity::_internal_original_data() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::anduril::entitymanager::v1::OriginalData* p = _impl_.original_data_;
-  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::OriginalData&>(::anduril::entitymanager::v1::_OriginalData_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::OriginalData& Entity::original_data() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Entity.original_data)
-  return _internal_original_data();
-}
-inline void Entity::unsafe_arena_set_allocated_original_data(::anduril::entitymanager::v1::OriginalData* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.original_data_);
-  }
-  _impl_.original_data_ = reinterpret_cast<::anduril::entitymanager::v1::OriginalData*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00002000u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00002000u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.original_data)
-}
-inline ::anduril::entitymanager::v1::OriginalData* Entity::release_original_data() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00002000u;
-  ::anduril::entitymanager::v1::OriginalData* released = _impl_.original_data_;
-  _impl_.original_data_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  if (GetArena() == nullptr) {
-    delete old;
-  }
-#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArena() != nullptr) {
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return released;
-}
-inline ::anduril::entitymanager::v1::OriginalData* Entity::unsafe_arena_release_original_data() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.original_data)
-
-  _impl_._has_bits_[0] &= ~0x00002000u;
-  ::anduril::entitymanager::v1::OriginalData* temp = _impl_.original_data_;
-  _impl_.original_data_ = nullptr;
-  return temp;
-}
-inline ::anduril::entitymanager::v1::OriginalData* Entity::_internal_mutable_original_data() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.original_data_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::OriginalData>(GetArena());
-    _impl_.original_data_ = reinterpret_cast<::anduril::entitymanager::v1::OriginalData*>(p);
-  }
-  return _impl_.original_data_;
-}
-inline ::anduril::entitymanager::v1::OriginalData* Entity::mutable_original_data() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00002000u;
-  ::anduril::entitymanager::v1::OriginalData* _msg = _internal_mutable_original_data();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.original_data)
-  return _msg;
-}
-inline void Entity::set_allocated_original_data(::anduril::entitymanager::v1::OriginalData* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete (_impl_.original_data_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00002000u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00002000u;
-  }
-
-  _impl_.original_data_ = reinterpret_cast<::anduril::entitymanager::v1::OriginalData*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Entity.original_data)
-}
-
 // .anduril.entitymanager.v1.TargetPriority target_priority = 22 [json_name = "targetPriority"];
 inline bool Entity::has_target_priority() const {
-  bool value = (_impl_._has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.target_priority_ != nullptr);
   return value;
 }
@@ -6584,16 +6702,16 @@ inline void Entity::unsafe_arena_set_allocated_target_priority(::anduril::entity
   }
   _impl_.target_priority_ = reinterpret_cast<::anduril::entitymanager::v1::TargetPriority*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00020000u;
+    _impl_._has_bits_[0] |= 0x00004000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00020000u;
+    _impl_._has_bits_[0] &= ~0x00004000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.target_priority)
 }
 inline ::anduril::entitymanager::v1::TargetPriority* Entity::release_target_priority() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00020000u;
+  _impl_._has_bits_[0] &= ~0x00004000u;
   ::anduril::entitymanager::v1::TargetPriority* released = _impl_.target_priority_;
   _impl_.target_priority_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -6613,7 +6731,7 @@ inline ::anduril::entitymanager::v1::TargetPriority* Entity::unsafe_arena_releas
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.target_priority)
 
-  _impl_._has_bits_[0] &= ~0x00020000u;
+  _impl_._has_bits_[0] &= ~0x00004000u;
   ::anduril::entitymanager::v1::TargetPriority* temp = _impl_.target_priority_;
   _impl_.target_priority_ = nullptr;
   return temp;
@@ -6627,7 +6745,7 @@ inline ::anduril::entitymanager::v1::TargetPriority* Entity::_internal_mutable_t
   return _impl_.target_priority_;
 }
 inline ::anduril::entitymanager::v1::TargetPriority* Entity::mutable_target_priority() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00020000u;
+  _impl_._has_bits_[0] |= 0x00004000u;
   ::anduril::entitymanager::v1::TargetPriority* _msg = _internal_mutable_target_priority();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.target_priority)
   return _msg;
@@ -6644,9 +6762,9 @@ inline void Entity::set_allocated_target_priority(::anduril::entitymanager::v1::
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00020000u;
+    _impl_._has_bits_[0] |= 0x00004000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00020000u;
+    _impl_._has_bits_[0] &= ~0x00004000u;
   }
 
   _impl_.target_priority_ = reinterpret_cast<::anduril::entitymanager::v1::TargetPriority*>(value);
@@ -6655,7 +6773,7 @@ inline void Entity::set_allocated_target_priority(::anduril::entitymanager::v1::
 
 // .anduril.entitymanager.v1.Signal signal = 25 [json_name = "signal"];
 inline bool Entity::has_signal() const {
-  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00020000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.signal_ != nullptr);
   return value;
 }
@@ -6675,16 +6793,16 @@ inline void Entity::unsafe_arena_set_allocated_signal(::anduril::entitymanager::
   }
   _impl_.signal_ = reinterpret_cast<::anduril::entitymanager::v1::Signal*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00100000u;
+    _impl_._has_bits_[0] |= 0x00020000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00100000u;
+    _impl_._has_bits_[0] &= ~0x00020000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.signal)
 }
 inline ::anduril::entitymanager::v1::Signal* Entity::release_signal() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00100000u;
+  _impl_._has_bits_[0] &= ~0x00020000u;
   ::anduril::entitymanager::v1::Signal* released = _impl_.signal_;
   _impl_.signal_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -6704,7 +6822,7 @@ inline ::anduril::entitymanager::v1::Signal* Entity::unsafe_arena_release_signal
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.signal)
 
-  _impl_._has_bits_[0] &= ~0x00100000u;
+  _impl_._has_bits_[0] &= ~0x00020000u;
   ::anduril::entitymanager::v1::Signal* temp = _impl_.signal_;
   _impl_.signal_ = nullptr;
   return temp;
@@ -6718,7 +6836,7 @@ inline ::anduril::entitymanager::v1::Signal* Entity::_internal_mutable_signal() 
   return _impl_.signal_;
 }
 inline ::anduril::entitymanager::v1::Signal* Entity::mutable_signal() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00100000u;
+  _impl_._has_bits_[0] |= 0x00020000u;
   ::anduril::entitymanager::v1::Signal* _msg = _internal_mutable_signal();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.signal)
   return _msg;
@@ -6735,9 +6853,9 @@ inline void Entity::set_allocated_signal(::anduril::entitymanager::v1::Signal* v
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00100000u;
+    _impl_._has_bits_[0] |= 0x00020000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00100000u;
+    _impl_._has_bits_[0] &= ~0x00020000u;
   }
 
   _impl_.signal_ = reinterpret_cast<::anduril::entitymanager::v1::Signal*>(value);
@@ -6746,7 +6864,7 @@ inline void Entity::set_allocated_signal(::anduril::entitymanager::v1::Signal* v
 
 // .anduril.entitymanager.v1.TransponderCodes transponder_codes = 26 [json_name = "transponderCodes"];
 inline bool Entity::has_transponder_codes() const {
-  bool value = (_impl_._has_bits_[0] & 0x00200000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00040000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.transponder_codes_ != nullptr);
   return value;
 }
@@ -6766,16 +6884,16 @@ inline void Entity::unsafe_arena_set_allocated_transponder_codes(::anduril::enti
   }
   _impl_.transponder_codes_ = reinterpret_cast<::anduril::entitymanager::v1::TransponderCodes*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00200000u;
+    _impl_._has_bits_[0] |= 0x00040000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00200000u;
+    _impl_._has_bits_[0] &= ~0x00040000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.transponder_codes)
 }
 inline ::anduril::entitymanager::v1::TransponderCodes* Entity::release_transponder_codes() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00200000u;
+  _impl_._has_bits_[0] &= ~0x00040000u;
   ::anduril::entitymanager::v1::TransponderCodes* released = _impl_.transponder_codes_;
   _impl_.transponder_codes_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -6795,7 +6913,7 @@ inline ::anduril::entitymanager::v1::TransponderCodes* Entity::unsafe_arena_rele
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.transponder_codes)
 
-  _impl_._has_bits_[0] &= ~0x00200000u;
+  _impl_._has_bits_[0] &= ~0x00040000u;
   ::anduril::entitymanager::v1::TransponderCodes* temp = _impl_.transponder_codes_;
   _impl_.transponder_codes_ = nullptr;
   return temp;
@@ -6809,7 +6927,7 @@ inline ::anduril::entitymanager::v1::TransponderCodes* Entity::_internal_mutable
   return _impl_.transponder_codes_;
 }
 inline ::anduril::entitymanager::v1::TransponderCodes* Entity::mutable_transponder_codes() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00200000u;
+  _impl_._has_bits_[0] |= 0x00040000u;
   ::anduril::entitymanager::v1::TransponderCodes* _msg = _internal_mutable_transponder_codes();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.transponder_codes)
   return _msg;
@@ -6826,109 +6944,18 @@ inline void Entity::set_allocated_transponder_codes(::anduril::entitymanager::v1
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00200000u;
+    _impl_._has_bits_[0] |= 0x00040000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00200000u;
+    _impl_._has_bits_[0] &= ~0x00040000u;
   }
 
   _impl_.transponder_codes_ = reinterpret_cast<::anduril::entitymanager::v1::TransponderCodes*>(value);
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Entity.transponder_codes)
 }
 
-// .anduril.entitymanager.v1.ContactDetails contact = 27 [json_name = "contact"];
-inline bool Entity::has_contact() const {
-  bool value = (_impl_._has_bits_[0] & 0x00400000u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.contact_ != nullptr);
-  return value;
-}
-inline const ::anduril::entitymanager::v1::ContactDetails& Entity::_internal_contact() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::anduril::entitymanager::v1::ContactDetails* p = _impl_.contact_;
-  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::ContactDetails&>(::anduril::entitymanager::v1::_ContactDetails_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::ContactDetails& Entity::contact() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Entity.contact)
-  return _internal_contact();
-}
-inline void Entity::unsafe_arena_set_allocated_contact(::anduril::entitymanager::v1::ContactDetails* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.contact_);
-  }
-  _impl_.contact_ = reinterpret_cast<::anduril::entitymanager::v1::ContactDetails*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00400000u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00400000u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.contact)
-}
-inline ::anduril::entitymanager::v1::ContactDetails* Entity::release_contact() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00400000u;
-  ::anduril::entitymanager::v1::ContactDetails* released = _impl_.contact_;
-  _impl_.contact_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  if (GetArena() == nullptr) {
-    delete old;
-  }
-#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArena() != nullptr) {
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return released;
-}
-inline ::anduril::entitymanager::v1::ContactDetails* Entity::unsafe_arena_release_contact() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.contact)
-
-  _impl_._has_bits_[0] &= ~0x00400000u;
-  ::anduril::entitymanager::v1::ContactDetails* temp = _impl_.contact_;
-  _impl_.contact_ = nullptr;
-  return temp;
-}
-inline ::anduril::entitymanager::v1::ContactDetails* Entity::_internal_mutable_contact() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.contact_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::ContactDetails>(GetArena());
-    _impl_.contact_ = reinterpret_cast<::anduril::entitymanager::v1::ContactDetails*>(p);
-  }
-  return _impl_.contact_;
-}
-inline ::anduril::entitymanager::v1::ContactDetails* Entity::mutable_contact() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00400000u;
-  ::anduril::entitymanager::v1::ContactDetails* _msg = _internal_mutable_contact();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.contact)
-  return _msg;
-}
-inline void Entity::set_allocated_contact(::anduril::entitymanager::v1::ContactDetails* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.contact_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00400000u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00400000u;
-  }
-
-  _impl_.contact_ = reinterpret_cast<::anduril::entitymanager::v1::ContactDetails*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Entity.contact)
-}
-
 // .anduril.entitymanager.v1.Classification data_classification = 29 [json_name = "dataClassification"];
 inline bool Entity::has_data_classification() const {
-  bool value = (_impl_._has_bits_[0] & 0x00800000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.data_classification_ != nullptr);
   return value;
 }
@@ -6948,16 +6975,16 @@ inline void Entity::unsafe_arena_set_allocated_data_classification(::anduril::en
   }
   _impl_.data_classification_ = reinterpret_cast<::anduril::entitymanager::v1::Classification*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00800000u;
+    _impl_._has_bits_[0] |= 0x00080000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00800000u;
+    _impl_._has_bits_[0] &= ~0x00080000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.data_classification)
 }
 inline ::anduril::entitymanager::v1::Classification* Entity::release_data_classification() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00800000u;
+  _impl_._has_bits_[0] &= ~0x00080000u;
   ::anduril::entitymanager::v1::Classification* released = _impl_.data_classification_;
   _impl_.data_classification_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -6977,7 +7004,7 @@ inline ::anduril::entitymanager::v1::Classification* Entity::unsafe_arena_releas
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.data_classification)
 
-  _impl_._has_bits_[0] &= ~0x00800000u;
+  _impl_._has_bits_[0] &= ~0x00080000u;
   ::anduril::entitymanager::v1::Classification* temp = _impl_.data_classification_;
   _impl_.data_classification_ = nullptr;
   return temp;
@@ -6991,7 +7018,7 @@ inline ::anduril::entitymanager::v1::Classification* Entity::_internal_mutable_d
   return _impl_.data_classification_;
 }
 inline ::anduril::entitymanager::v1::Classification* Entity::mutable_data_classification() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00800000u;
+  _impl_._has_bits_[0] |= 0x00080000u;
   ::anduril::entitymanager::v1::Classification* _msg = _internal_mutable_data_classification();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.data_classification)
   return _msg;
@@ -7008,9 +7035,9 @@ inline void Entity::set_allocated_data_classification(::anduril::entitymanager::
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00800000u;
+    _impl_._has_bits_[0] |= 0x00080000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00800000u;
+    _impl_._has_bits_[0] &= ~0x00080000u;
   }
 
   _impl_.data_classification_ = reinterpret_cast<::anduril::entitymanager::v1::Classification*>(value);
@@ -7019,7 +7046,7 @@ inline void Entity::set_allocated_data_classification(::anduril::entitymanager::
 
 // .anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];
 inline bool Entity::has_task_catalog() const {
-  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00200000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.task_catalog_ != nullptr);
   return value;
 }
@@ -7039,16 +7066,16 @@ inline void Entity::unsafe_arena_set_allocated_task_catalog(::anduril::tasks::v2
   }
   _impl_.task_catalog_ = reinterpret_cast<::anduril::tasks::v2::TaskCatalog*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x02000000u;
+    _impl_._has_bits_[0] |= 0x00200000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x02000000u;
+    _impl_._has_bits_[0] &= ~0x00200000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.task_catalog)
 }
 inline ::anduril::tasks::v2::TaskCatalog* Entity::release_task_catalog() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x02000000u;
+  _impl_._has_bits_[0] &= ~0x00200000u;
   ::anduril::tasks::v2::TaskCatalog* released = _impl_.task_catalog_;
   _impl_.task_catalog_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -7068,7 +7095,7 @@ inline ::anduril::tasks::v2::TaskCatalog* Entity::unsafe_arena_release_task_cata
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.task_catalog)
 
-  _impl_._has_bits_[0] &= ~0x02000000u;
+  _impl_._has_bits_[0] &= ~0x00200000u;
   ::anduril::tasks::v2::TaskCatalog* temp = _impl_.task_catalog_;
   _impl_.task_catalog_ = nullptr;
   return temp;
@@ -7082,7 +7109,7 @@ inline ::anduril::tasks::v2::TaskCatalog* Entity::_internal_mutable_task_catalog
   return _impl_.task_catalog_;
 }
 inline ::anduril::tasks::v2::TaskCatalog* Entity::mutable_task_catalog() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x02000000u;
+  _impl_._has_bits_[0] |= 0x00200000u;
   ::anduril::tasks::v2::TaskCatalog* _msg = _internal_mutable_task_catalog();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.task_catalog)
   return _msg;
@@ -7099,109 +7126,18 @@ inline void Entity::set_allocated_task_catalog(::anduril::tasks::v2::TaskCatalog
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x02000000u;
+    _impl_._has_bits_[0] |= 0x00200000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x02000000u;
+    _impl_._has_bits_[0] &= ~0x00200000u;
   }
 
   _impl_.task_catalog_ = reinterpret_cast<::anduril::tasks::v2::TaskCatalog*>(value);
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Entity.task_catalog)
 }
 
-// .anduril.entitymanager.v1.Media media = 32 [json_name = "media"];
-inline bool Entity::has_media() const {
-  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.media_ != nullptr);
-  return value;
-}
-inline const ::anduril::entitymanager::v1::Media& Entity::_internal_media() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::anduril::entitymanager::v1::Media* p = _impl_.media_;
-  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::Media&>(::anduril::entitymanager::v1::_Media_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::Media& Entity::media() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Entity.media)
-  return _internal_media();
-}
-inline void Entity::unsafe_arena_set_allocated_media(::anduril::entitymanager::v1::Media* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.media_);
-  }
-  _impl_.media_ = reinterpret_cast<::anduril::entitymanager::v1::Media*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x04000000u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x04000000u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.media)
-}
-inline ::anduril::entitymanager::v1::Media* Entity::release_media() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x04000000u;
-  ::anduril::entitymanager::v1::Media* released = _impl_.media_;
-  _impl_.media_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  if (GetArena() == nullptr) {
-    delete old;
-  }
-#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArena() != nullptr) {
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return released;
-}
-inline ::anduril::entitymanager::v1::Media* Entity::unsafe_arena_release_media() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.media)
-
-  _impl_._has_bits_[0] &= ~0x04000000u;
-  ::anduril::entitymanager::v1::Media* temp = _impl_.media_;
-  _impl_.media_ = nullptr;
-  return temp;
-}
-inline ::anduril::entitymanager::v1::Media* Entity::_internal_mutable_media() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.media_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Media>(GetArena());
-    _impl_.media_ = reinterpret_cast<::anduril::entitymanager::v1::Media*>(p);
-  }
-  return _impl_.media_;
-}
-inline ::anduril::entitymanager::v1::Media* Entity::mutable_media() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x04000000u;
-  ::anduril::entitymanager::v1::Media* _msg = _internal_mutable_media();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.media)
-  return _msg;
-}
-inline void Entity::set_allocated_media(::anduril::entitymanager::v1::Media* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.media_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x04000000u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x04000000u;
-  }
-
-  _impl_.media_ = reinterpret_cast<::anduril::entitymanager::v1::Media*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Entity.media)
-}
-
 // .anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];
 inline bool Entity::has_relationships() const {
-  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00400000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.relationships_ != nullptr);
   return value;
 }
@@ -7221,16 +7157,16 @@ inline void Entity::unsafe_arena_set_allocated_relationships(::anduril::entityma
   }
   _impl_.relationships_ = reinterpret_cast<::anduril::entitymanager::v1::Relationships*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x08000000u;
+    _impl_._has_bits_[0] |= 0x00400000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x08000000u;
+    _impl_._has_bits_[0] &= ~0x00400000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.relationships)
 }
 inline ::anduril::entitymanager::v1::Relationships* Entity::release_relationships() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x08000000u;
+  _impl_._has_bits_[0] &= ~0x00400000u;
   ::anduril::entitymanager::v1::Relationships* released = _impl_.relationships_;
   _impl_.relationships_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -7250,7 +7186,7 @@ inline ::anduril::entitymanager::v1::Relationships* Entity::unsafe_arena_release
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.relationships)
 
-  _impl_._has_bits_[0] &= ~0x08000000u;
+  _impl_._has_bits_[0] &= ~0x00400000u;
   ::anduril::entitymanager::v1::Relationships* temp = _impl_.relationships_;
   _impl_.relationships_ = nullptr;
   return temp;
@@ -7264,7 +7200,7 @@ inline ::anduril::entitymanager::v1::Relationships* Entity::_internal_mutable_re
   return _impl_.relationships_;
 }
 inline ::anduril::entitymanager::v1::Relationships* Entity::mutable_relationships() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x08000000u;
+  _impl_._has_bits_[0] |= 0x00400000u;
   ::anduril::entitymanager::v1::Relationships* _msg = _internal_mutable_relationships();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.relationships)
   return _msg;
@@ -7281,9 +7217,9 @@ inline void Entity::set_allocated_relationships(::anduril::entitymanager::v1::Re
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x08000000u;
+    _impl_._has_bits_[0] |= 0x00400000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x08000000u;
+    _impl_._has_bits_[0] &= ~0x00400000u;
   }
 
   _impl_.relationships_ = reinterpret_cast<::anduril::entitymanager::v1::Relationships*>(value);
@@ -7292,14 +7228,14 @@ inline void Entity::set_allocated_relationships(::anduril::entitymanager::v1::Re
 
 // .anduril.entitymanager.v1.VisualDetails visual_details = 34 [json_name = "visualDetails"];
 inline bool Entity::has_visual_details() const {
-  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00800000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.visual_details_ != nullptr);
   return value;
 }
 inline void Entity::clear_visual_details() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.visual_details_ != nullptr) _impl_.visual_details_->Clear();
-  _impl_._has_bits_[0] &= ~0x10000000u;
+  _impl_._has_bits_[0] &= ~0x00800000u;
 }
 inline const ::anduril::entitymanager::v1::VisualDetails& Entity::_internal_visual_details() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -7317,16 +7253,16 @@ inline void Entity::unsafe_arena_set_allocated_visual_details(::anduril::entitym
   }
   _impl_.visual_details_ = reinterpret_cast<::anduril::entitymanager::v1::VisualDetails*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x10000000u;
+    _impl_._has_bits_[0] |= 0x00800000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x10000000u;
+    _impl_._has_bits_[0] &= ~0x00800000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.visual_details)
 }
 inline ::anduril::entitymanager::v1::VisualDetails* Entity::release_visual_details() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x10000000u;
+  _impl_._has_bits_[0] &= ~0x00800000u;
   ::anduril::entitymanager::v1::VisualDetails* released = _impl_.visual_details_;
   _impl_.visual_details_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -7346,7 +7282,7 @@ inline ::anduril::entitymanager::v1::VisualDetails* Entity::unsafe_arena_release
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.visual_details)
 
-  _impl_._has_bits_[0] &= ~0x10000000u;
+  _impl_._has_bits_[0] &= ~0x00800000u;
   ::anduril::entitymanager::v1::VisualDetails* temp = _impl_.visual_details_;
   _impl_.visual_details_ = nullptr;
   return temp;
@@ -7360,7 +7296,7 @@ inline ::anduril::entitymanager::v1::VisualDetails* Entity::_internal_mutable_vi
   return _impl_.visual_details_;
 }
 inline ::anduril::entitymanager::v1::VisualDetails* Entity::mutable_visual_details() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x10000000u;
+  _impl_._has_bits_[0] |= 0x00800000u;
   ::anduril::entitymanager::v1::VisualDetails* _msg = _internal_mutable_visual_details();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.visual_details)
   return _msg;
@@ -7377,9 +7313,9 @@ inline void Entity::set_allocated_visual_details(::anduril::entitymanager::v1::V
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x10000000u;
+    _impl_._has_bits_[0] |= 0x00800000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x10000000u;
+    _impl_._has_bits_[0] &= ~0x00800000u;
   }
 
   _impl_.visual_details_ = reinterpret_cast<::anduril::entitymanager::v1::VisualDetails*>(value);
@@ -7388,7 +7324,7 @@ inline void Entity::set_allocated_visual_details(::anduril::entitymanager::v1::V
 
 // .anduril.entitymanager.v1.Dimensions dimensions = 36 [json_name = "dimensions"];
 inline bool Entity::has_dimensions() const {
-  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x01000000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.dimensions_ != nullptr);
   return value;
 }
@@ -7408,16 +7344,16 @@ inline void Entity::unsafe_arena_set_allocated_dimensions(::anduril::entitymanag
   }
   _impl_.dimensions_ = reinterpret_cast<::anduril::entitymanager::v1::Dimensions*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x20000000u;
+    _impl_._has_bits_[0] |= 0x01000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x20000000u;
+    _impl_._has_bits_[0] &= ~0x01000000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.dimensions)
 }
 inline ::anduril::entitymanager::v1::Dimensions* Entity::release_dimensions() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x20000000u;
+  _impl_._has_bits_[0] &= ~0x01000000u;
   ::anduril::entitymanager::v1::Dimensions* released = _impl_.dimensions_;
   _impl_.dimensions_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -7437,7 +7373,7 @@ inline ::anduril::entitymanager::v1::Dimensions* Entity::unsafe_arena_release_di
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.dimensions)
 
-  _impl_._has_bits_[0] &= ~0x20000000u;
+  _impl_._has_bits_[0] &= ~0x01000000u;
   ::anduril::entitymanager::v1::Dimensions* temp = _impl_.dimensions_;
   _impl_.dimensions_ = nullptr;
   return temp;
@@ -7451,7 +7387,7 @@ inline ::anduril::entitymanager::v1::Dimensions* Entity::_internal_mutable_dimen
   return _impl_.dimensions_;
 }
 inline ::anduril::entitymanager::v1::Dimensions* Entity::mutable_dimensions() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x20000000u;
+  _impl_._has_bits_[0] |= 0x01000000u;
   ::anduril::entitymanager::v1::Dimensions* _msg = _internal_mutable_dimensions();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.dimensions)
   return _msg;
@@ -7468,9 +7404,9 @@ inline void Entity::set_allocated_dimensions(::anduril::entitymanager::v1::Dimen
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x20000000u;
+    _impl_._has_bits_[0] |= 0x01000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x20000000u;
+    _impl_._has_bits_[0] &= ~0x01000000u;
   }
 
   _impl_.dimensions_ = reinterpret_cast<::anduril::entitymanager::v1::Dimensions*>(value);
@@ -7479,7 +7415,7 @@ inline void Entity::set_allocated_dimensions(::anduril::entitymanager::v1::Dimen
 
 // .anduril.entitymanager.v1.RouteDetails route_details = 37 [json_name = "routeDetails"];
 inline bool Entity::has_route_details() const {
-  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.route_details_ != nullptr);
   return value;
 }
@@ -7499,16 +7435,16 @@ inline void Entity::unsafe_arena_set_allocated_route_details(::anduril::entityma
   }
   _impl_.route_details_ = reinterpret_cast<::anduril::entitymanager::v1::RouteDetails*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x40000000u;
+    _impl_._has_bits_[0] |= 0x02000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x40000000u;
+    _impl_._has_bits_[0] &= ~0x02000000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.route_details)
 }
 inline ::anduril::entitymanager::v1::RouteDetails* Entity::release_route_details() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x40000000u;
+  _impl_._has_bits_[0] &= ~0x02000000u;
   ::anduril::entitymanager::v1::RouteDetails* released = _impl_.route_details_;
   _impl_.route_details_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -7528,7 +7464,7 @@ inline ::anduril::entitymanager::v1::RouteDetails* Entity::unsafe_arena_release_
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.route_details)
 
-  _impl_._has_bits_[0] &= ~0x40000000u;
+  _impl_._has_bits_[0] &= ~0x02000000u;
   ::anduril::entitymanager::v1::RouteDetails* temp = _impl_.route_details_;
   _impl_.route_details_ = nullptr;
   return temp;
@@ -7542,7 +7478,7 @@ inline ::anduril::entitymanager::v1::RouteDetails* Entity::_internal_mutable_rou
   return _impl_.route_details_;
 }
 inline ::anduril::entitymanager::v1::RouteDetails* Entity::mutable_route_details() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x40000000u;
+  _impl_._has_bits_[0] |= 0x02000000u;
   ::anduril::entitymanager::v1::RouteDetails* _msg = _internal_mutable_route_details();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.route_details)
   return _msg;
@@ -7559,9 +7495,9 @@ inline void Entity::set_allocated_route_details(::anduril::entitymanager::v1::Ro
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x40000000u;
+    _impl_._has_bits_[0] |= 0x02000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x40000000u;
+    _impl_._has_bits_[0] &= ~0x02000000u;
   }
 
   _impl_.route_details_ = reinterpret_cast<::anduril::entitymanager::v1::RouteDetails*>(value);
@@ -7570,7 +7506,7 @@ inline void Entity::set_allocated_route_details(::anduril::entitymanager::v1::Ro
 
 // .anduril.entitymanager.v1.Schedules schedules = 38 [json_name = "schedules"];
 inline bool Entity::has_schedules() const {
-  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.schedules_ != nullptr);
   return value;
 }
@@ -7590,16 +7526,16 @@ inline void Entity::unsafe_arena_set_allocated_schedules(::anduril::entitymanage
   }
   _impl_.schedules_ = reinterpret_cast<::anduril::entitymanager::v1::Schedules*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x80000000u;
+    _impl_._has_bits_[0] |= 0x04000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x80000000u;
+    _impl_._has_bits_[0] &= ~0x04000000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.schedules)
 }
 inline ::anduril::entitymanager::v1::Schedules* Entity::release_schedules() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x80000000u;
+  _impl_._has_bits_[0] &= ~0x04000000u;
   ::anduril::entitymanager::v1::Schedules* released = _impl_.schedules_;
   _impl_.schedules_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -7619,7 +7555,7 @@ inline ::anduril::entitymanager::v1::Schedules* Entity::unsafe_arena_release_sch
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.schedules)
 
-  _impl_._has_bits_[0] &= ~0x80000000u;
+  _impl_._has_bits_[0] &= ~0x04000000u;
   ::anduril::entitymanager::v1::Schedules* temp = _impl_.schedules_;
   _impl_.schedules_ = nullptr;
   return temp;
@@ -7633,7 +7569,7 @@ inline ::anduril::entitymanager::v1::Schedules* Entity::_internal_mutable_schedu
   return _impl_.schedules_;
 }
 inline ::anduril::entitymanager::v1::Schedules* Entity::mutable_schedules() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x80000000u;
+  _impl_._has_bits_[0] |= 0x04000000u;
   ::anduril::entitymanager::v1::Schedules* _msg = _internal_mutable_schedules();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.schedules)
   return _msg;
@@ -7650,9 +7586,9 @@ inline void Entity::set_allocated_schedules(::anduril::entitymanager::v1::Schedu
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x80000000u;
+    _impl_._has_bits_[0] |= 0x04000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x80000000u;
+    _impl_._has_bits_[0] &= ~0x04000000u;
   }
 
   _impl_.schedules_ = reinterpret_cast<::anduril::entitymanager::v1::Schedules*>(value);
@@ -7661,7 +7597,7 @@ inline void Entity::set_allocated_schedules(::anduril::entitymanager::v1::Schedu
 
 // .anduril.entitymanager.v1.Health health = 39 [json_name = "health"];
 inline bool Entity::has_health() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.health_ != nullptr);
   return value;
 }
@@ -7681,16 +7617,16 @@ inline void Entity::unsafe_arena_set_allocated_health(::anduril::entitymanager::
   }
   _impl_.health_ = reinterpret_cast<::anduril::entitymanager::v1::Health*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[1] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x08000000u;
   } else {
-    _impl_._has_bits_[1] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x08000000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.health)
 }
 inline ::anduril::entitymanager::v1::Health* Entity::release_health() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[1] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x08000000u;
   ::anduril::entitymanager::v1::Health* released = _impl_.health_;
   _impl_.health_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -7710,7 +7646,7 @@ inline ::anduril::entitymanager::v1::Health* Entity::unsafe_arena_release_health
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.health)
 
-  _impl_._has_bits_[1] &= ~0x00000001u;
+  _impl_._has_bits_[0] &= ~0x08000000u;
   ::anduril::entitymanager::v1::Health* temp = _impl_.health_;
   _impl_.health_ = nullptr;
   return temp;
@@ -7724,7 +7660,7 @@ inline ::anduril::entitymanager::v1::Health* Entity::_internal_mutable_health() 
   return _impl_.health_;
 }
 inline ::anduril::entitymanager::v1::Health* Entity::mutable_health() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[1] |= 0x00000001u;
+  _impl_._has_bits_[0] |= 0x08000000u;
   ::anduril::entitymanager::v1::Health* _msg = _internal_mutable_health();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.health)
   return _msg;
@@ -7741,9 +7677,9 @@ inline void Entity::set_allocated_health(::anduril::entitymanager::v1::Health* v
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[1] |= 0x00000001u;
+    _impl_._has_bits_[0] |= 0x08000000u;
   } else {
-    _impl_._has_bits_[1] &= ~0x00000001u;
+    _impl_._has_bits_[0] &= ~0x08000000u;
   }
 
   _impl_.health_ = reinterpret_cast<::anduril::entitymanager::v1::Health*>(value);
@@ -7752,7 +7688,7 @@ inline void Entity::set_allocated_health(::anduril::entitymanager::v1::Health* v
 
 // .anduril.entitymanager.v1.GroupDetails group_details = 40 [json_name = "groupDetails"];
 inline bool Entity::has_group_details() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.group_details_ != nullptr);
   return value;
 }
@@ -7772,16 +7708,16 @@ inline void Entity::unsafe_arena_set_allocated_group_details(::anduril::entityma
   }
   _impl_.group_details_ = reinterpret_cast<::anduril::entitymanager::v1::GroupDetails*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[1] |= 0x00000002u;
+    _impl_._has_bits_[0] |= 0x10000000u;
   } else {
-    _impl_._has_bits_[1] &= ~0x00000002u;
+    _impl_._has_bits_[0] &= ~0x10000000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.group_details)
 }
 inline ::anduril::entitymanager::v1::GroupDetails* Entity::release_group_details() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[1] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x10000000u;
   ::anduril::entitymanager::v1::GroupDetails* released = _impl_.group_details_;
   _impl_.group_details_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -7801,7 +7737,7 @@ inline ::anduril::entitymanager::v1::GroupDetails* Entity::unsafe_arena_release_
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.group_details)
 
-  _impl_._has_bits_[1] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x10000000u;
   ::anduril::entitymanager::v1::GroupDetails* temp = _impl_.group_details_;
   _impl_.group_details_ = nullptr;
   return temp;
@@ -7815,7 +7751,7 @@ inline ::anduril::entitymanager::v1::GroupDetails* Entity::_internal_mutable_gro
   return _impl_.group_details_;
 }
 inline ::anduril::entitymanager::v1::GroupDetails* Entity::mutable_group_details() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[1] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x10000000u;
   ::anduril::entitymanager::v1::GroupDetails* _msg = _internal_mutable_group_details();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.group_details)
   return _msg;
@@ -7832,114 +7768,18 @@ inline void Entity::set_allocated_group_details(::anduril::entitymanager::v1::Gr
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[1] |= 0x00000002u;
+    _impl_._has_bits_[0] |= 0x10000000u;
   } else {
-    _impl_._has_bits_[1] &= ~0x00000002u;
+    _impl_._has_bits_[0] &= ~0x10000000u;
   }
 
   _impl_.group_details_ = reinterpret_cast<::anduril::entitymanager::v1::GroupDetails*>(value);
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Entity.group_details)
 }
 
-// .anduril.entitymanager.v1.TeamStatus team_status = 41 [json_name = "teamStatus"];
-inline bool Entity::has_team_status() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000004u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.team_status_ != nullptr);
-  return value;
-}
-inline void Entity::clear_team_status() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.team_status_ != nullptr) _impl_.team_status_->Clear();
-  _impl_._has_bits_[1] &= ~0x00000004u;
-}
-inline const ::anduril::entitymanager::v1::TeamStatus& Entity::_internal_team_status() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::anduril::entitymanager::v1::TeamStatus* p = _impl_.team_status_;
-  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::TeamStatus&>(::anduril::entitymanager::v1::_TeamStatus_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::TeamStatus& Entity::team_status() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Entity.team_status)
-  return _internal_team_status();
-}
-inline void Entity::unsafe_arena_set_allocated_team_status(::anduril::entitymanager::v1::TeamStatus* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.team_status_);
-  }
-  _impl_.team_status_ = reinterpret_cast<::anduril::entitymanager::v1::TeamStatus*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[1] |= 0x00000004u;
-  } else {
-    _impl_._has_bits_[1] &= ~0x00000004u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.team_status)
-}
-inline ::anduril::entitymanager::v1::TeamStatus* Entity::release_team_status() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[1] &= ~0x00000004u;
-  ::anduril::entitymanager::v1::TeamStatus* released = _impl_.team_status_;
-  _impl_.team_status_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  if (GetArena() == nullptr) {
-    delete old;
-  }
-#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArena() != nullptr) {
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return released;
-}
-inline ::anduril::entitymanager::v1::TeamStatus* Entity::unsafe_arena_release_team_status() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.team_status)
-
-  _impl_._has_bits_[1] &= ~0x00000004u;
-  ::anduril::entitymanager::v1::TeamStatus* temp = _impl_.team_status_;
-  _impl_.team_status_ = nullptr;
-  return temp;
-}
-inline ::anduril::entitymanager::v1::TeamStatus* Entity::_internal_mutable_team_status() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.team_status_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::TeamStatus>(GetArena());
-    _impl_.team_status_ = reinterpret_cast<::anduril::entitymanager::v1::TeamStatus*>(p);
-  }
-  return _impl_.team_status_;
-}
-inline ::anduril::entitymanager::v1::TeamStatus* Entity::mutable_team_status() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[1] |= 0x00000004u;
-  ::anduril::entitymanager::v1::TeamStatus* _msg = _internal_mutable_team_status();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.team_status)
-  return _msg;
-}
-inline void Entity::set_allocated_team_status(::anduril::entitymanager::v1::TeamStatus* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete (_impl_.team_status_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[1] |= 0x00000004u;
-  } else {
-    _impl_._has_bits_[1] &= ~0x00000004u;
-  }
-
-  _impl_.team_status_ = reinterpret_cast<::anduril::entitymanager::v1::TeamStatus*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Entity.team_status)
-}
-
 // .anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];
 inline bool Entity::has_supplies() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.supplies_ != nullptr);
   return value;
 }
@@ -7959,16 +7799,16 @@ inline void Entity::unsafe_arena_set_allocated_supplies(::anduril::entitymanager
   }
   _impl_.supplies_ = reinterpret_cast<::anduril::entitymanager::v1::Supplies*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[1] |= 0x00000008u;
+    _impl_._has_bits_[0] |= 0x20000000u;
   } else {
-    _impl_._has_bits_[1] &= ~0x00000008u;
+    _impl_._has_bits_[0] &= ~0x20000000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.supplies)
 }
 inline ::anduril::entitymanager::v1::Supplies* Entity::release_supplies() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[1] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x20000000u;
   ::anduril::entitymanager::v1::Supplies* released = _impl_.supplies_;
   _impl_.supplies_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -7988,7 +7828,7 @@ inline ::anduril::entitymanager::v1::Supplies* Entity::unsafe_arena_release_supp
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.supplies)
 
-  _impl_._has_bits_[1] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x20000000u;
   ::anduril::entitymanager::v1::Supplies* temp = _impl_.supplies_;
   _impl_.supplies_ = nullptr;
   return temp;
@@ -8002,7 +7842,7 @@ inline ::anduril::entitymanager::v1::Supplies* Entity::_internal_mutable_supplie
   return _impl_.supplies_;
 }
 inline ::anduril::entitymanager::v1::Supplies* Entity::mutable_supplies() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[1] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x20000000u;
   ::anduril::entitymanager::v1::Supplies* _msg = _internal_mutable_supplies();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.supplies)
   return _msg;
@@ -8019,9 +7859,9 @@ inline void Entity::set_allocated_supplies(::anduril::entitymanager::v1::Supplie
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[1] |= 0x00000008u;
+    _impl_._has_bits_[0] |= 0x20000000u;
   } else {
-    _impl_._has_bits_[1] &= ~0x00000008u;
+    _impl_._has_bits_[0] &= ~0x20000000u;
   }
 
   _impl_.supplies_ = reinterpret_cast<::anduril::entitymanager::v1::Supplies*>(value);
@@ -8030,7 +7870,7 @@ inline void Entity::set_allocated_supplies(::anduril::entitymanager::v1::Supplie
 
 // .anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];
 inline bool Entity::has_orbit() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.orbit_ != nullptr);
   return value;
 }
@@ -8050,16 +7890,16 @@ inline void Entity::unsafe_arena_set_allocated_orbit(::anduril::entitymanager::v
   }
   _impl_.orbit_ = reinterpret_cast<::anduril::entitymanager::v1::Orbit*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[1] |= 0x00000010u;
+    _impl_._has_bits_[0] |= 0x40000000u;
   } else {
-    _impl_._has_bits_[1] &= ~0x00000010u;
+    _impl_._has_bits_[0] &= ~0x40000000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.orbit)
 }
 inline ::anduril::entitymanager::v1::Orbit* Entity::release_orbit() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[1] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x40000000u;
   ::anduril::entitymanager::v1::Orbit* released = _impl_.orbit_;
   _impl_.orbit_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -8079,7 +7919,7 @@ inline ::anduril::entitymanager::v1::Orbit* Entity::unsafe_arena_release_orbit()
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.orbit)
 
-  _impl_._has_bits_[1] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x40000000u;
   ::anduril::entitymanager::v1::Orbit* temp = _impl_.orbit_;
   _impl_.orbit_ = nullptr;
   return temp;
@@ -8093,7 +7933,7 @@ inline ::anduril::entitymanager::v1::Orbit* Entity::_internal_mutable_orbit() {
   return _impl_.orbit_;
 }
 inline ::anduril::entitymanager::v1::Orbit* Entity::mutable_orbit() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[1] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x40000000u;
   ::anduril::entitymanager::v1::Orbit* _msg = _internal_mutable_orbit();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.orbit)
   return _msg;
@@ -8110,66 +7950,13 @@ inline void Entity::set_allocated_orbit(::anduril::entitymanager::v1::Orbit* val
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[1] |= 0x00000010u;
+    _impl_._has_bits_[0] |= 0x40000000u;
   } else {
-    _impl_._has_bits_[1] &= ~0x00000010u;
+    _impl_._has_bits_[0] &= ~0x40000000u;
   }
 
   _impl_.orbit_ = reinterpret_cast<::anduril::entitymanager::v1::Orbit*>(value);
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Entity.orbit)
-}
-
-// -------------------------------------------------------------------
-
-// Entities
-
-// repeated .anduril.entitymanager.v1.Entity entities = 1 [json_name = "entities"];
-inline int Entities::_internal_entities_size() const {
-  return _internal_entities().size();
-}
-inline int Entities::entities_size() const {
-  return _internal_entities_size();
-}
-inline void Entities::clear_entities() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.entities_.Clear();
-}
-inline ::anduril::entitymanager::v1::Entity* Entities::mutable_entities(int index)
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entities.entities)
-  return _internal_mutable_entities()->Mutable(index);
-}
-inline ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Entity>* Entities::mutable_entities()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_list:anduril.entitymanager.v1.Entities.entities)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _internal_mutable_entities();
-}
-inline const ::anduril::entitymanager::v1::Entity& Entities::entities(int index) const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Entities.entities)
-  return _internal_entities().Get(index);
-}
-inline ::anduril::entitymanager::v1::Entity* Entities::add_entities() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::anduril::entitymanager::v1::Entity* _add = _internal_mutable_entities()->Add();
-  // @@protoc_insertion_point(field_add:anduril.entitymanager.v1.Entities.entities)
-  return _add;
-}
-inline const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Entity>& Entities::entities() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_list:anduril.entitymanager.v1.Entities.entities)
-  return _internal_entities();
-}
-inline const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Entity>&
-Entities::_internal_entities() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.entities_;
-}
-inline ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Entity>*
-Entities::_internal_mutable_entities() {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return &_impl_.entities_;
 }
 
 // -------------------------------------------------------------------
@@ -8382,28 +8169,6 @@ inline void Aliases::set_allocated_name(std::string* value) {
 // -------------------------------------------------------------------
 
 // Tracked
-
-// uint32 track_quality = 1 [json_name = "trackQuality", deprecated = true];
-inline void Tracked::clear_track_quality() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.track_quality_ = 0u;
-}
-inline ::uint32_t Tracked::track_quality() const {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Tracked.track_quality)
-  return _internal_track_quality();
-}
-inline void Tracked::set_track_quality(::uint32_t value) {
-  _internal_set_track_quality(value);
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.Tracked.track_quality)
-}
-inline ::uint32_t Tracked::_internal_track_quality() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.track_quality_;
-}
-inline void Tracked::_internal_set_track_quality(::uint32_t value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.track_quality_ = value;
-}
 
 // .google.protobuf.Int32Value track_quality_wrapper = 2 [json_name = "trackQualityWrapper"];
 inline bool Tracked::has_track_quality_wrapper() const {
@@ -8678,100 +8443,9 @@ inline void Tracked::set_allocated_number_of_objects(::anduril::entitymanager::v
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Tracked.number_of_objects)
 }
 
-// .anduril.entitymanager.v1.Sensors sensor_details = 5 [json_name = "sensorDetails", deprecated = true];
-inline bool Tracked::has_sensor_details() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.sensor_details_ != nullptr);
-  return value;
-}
-inline const ::anduril::entitymanager::v1::Sensors& Tracked::_internal_sensor_details() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::anduril::entitymanager::v1::Sensors* p = _impl_.sensor_details_;
-  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::Sensors&>(::anduril::entitymanager::v1::_Sensors_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::Sensors& Tracked::sensor_details() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Tracked.sensor_details)
-  return _internal_sensor_details();
-}
-inline void Tracked::unsafe_arena_set_allocated_sensor_details(::anduril::entitymanager::v1::Sensors* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.sensor_details_);
-  }
-  _impl_.sensor_details_ = reinterpret_cast<::anduril::entitymanager::v1::Sensors*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000008u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000008u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Tracked.sensor_details)
-}
-inline ::anduril::entitymanager::v1::Sensors* Tracked::release_sensor_details() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00000008u;
-  ::anduril::entitymanager::v1::Sensors* released = _impl_.sensor_details_;
-  _impl_.sensor_details_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  if (GetArena() == nullptr) {
-    delete old;
-  }
-#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArena() != nullptr) {
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return released;
-}
-inline ::anduril::entitymanager::v1::Sensors* Tracked::unsafe_arena_release_sensor_details() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Tracked.sensor_details)
-
-  _impl_._has_bits_[0] &= ~0x00000008u;
-  ::anduril::entitymanager::v1::Sensors* temp = _impl_.sensor_details_;
-  _impl_.sensor_details_ = nullptr;
-  return temp;
-}
-inline ::anduril::entitymanager::v1::Sensors* Tracked::_internal_mutable_sensor_details() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.sensor_details_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Sensors>(GetArena());
-    _impl_.sensor_details_ = reinterpret_cast<::anduril::entitymanager::v1::Sensors*>(p);
-  }
-  return _impl_.sensor_details_;
-}
-inline ::anduril::entitymanager::v1::Sensors* Tracked::mutable_sensor_details() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000008u;
-  ::anduril::entitymanager::v1::Sensors* _msg = _internal_mutable_sensor_details();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Tracked.sensor_details)
-  return _msg;
-}
-inline void Tracked::set_allocated_sensor_details(::anduril::entitymanager::v1::Sensors* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.sensor_details_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000008u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000008u;
-  }
-
-  _impl_.sensor_details_ = reinterpret_cast<::anduril::entitymanager::v1::Sensors*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Tracked.sensor_details)
-}
-
 // .google.protobuf.DoubleValue radar_cross_section = 6 [json_name = "radarCrossSection"];
 inline bool Tracked::has_radar_cross_section() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.radar_cross_section_ != nullptr);
   return value;
 }
@@ -8791,16 +8465,16 @@ inline void Tracked::unsafe_arena_set_allocated_radar_cross_section(::google::pr
   }
   _impl_.radar_cross_section_ = reinterpret_cast<::google::protobuf::DoubleValue*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000010u;
+    _impl_._has_bits_[0] |= 0x00000008u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000010u;
+    _impl_._has_bits_[0] &= ~0x00000008u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Tracked.radar_cross_section)
 }
 inline ::google::protobuf::DoubleValue* Tracked::release_radar_cross_section() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
   ::google::protobuf::DoubleValue* released = _impl_.radar_cross_section_;
   _impl_.radar_cross_section_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -8820,7 +8494,7 @@ inline ::google::protobuf::DoubleValue* Tracked::unsafe_arena_release_radar_cros
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Tracked.radar_cross_section)
 
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
   ::google::protobuf::DoubleValue* temp = _impl_.radar_cross_section_;
   _impl_.radar_cross_section_ = nullptr;
   return temp;
@@ -8834,7 +8508,7 @@ inline ::google::protobuf::DoubleValue* Tracked::_internal_mutable_radar_cross_s
   return _impl_.radar_cross_section_;
 }
 inline ::google::protobuf::DoubleValue* Tracked::mutable_radar_cross_section() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   ::google::protobuf::DoubleValue* _msg = _internal_mutable_radar_cross_section();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Tracked.radar_cross_section)
   return _msg;
@@ -8851,9 +8525,9 @@ inline void Tracked::set_allocated_radar_cross_section(::google::protobuf::Doubl
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000010u;
+    _impl_._has_bits_[0] |= 0x00000008u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000010u;
+    _impl_._has_bits_[0] &= ~0x00000008u;
   }
 
   _impl_.radar_cross_section_ = reinterpret_cast<::google::protobuf::DoubleValue*>(value);
@@ -8862,7 +8536,7 @@ inline void Tracked::set_allocated_radar_cross_section(::google::protobuf::Doubl
 
 // .google.protobuf.Timestamp last_measurement_time = 7 [json_name = "lastMeasurementTime"];
 inline bool Tracked::has_last_measurement_time() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.last_measurement_time_ != nullptr);
   return value;
 }
@@ -8882,16 +8556,16 @@ inline void Tracked::unsafe_arena_set_allocated_last_measurement_time(::google::
   }
   _impl_.last_measurement_time_ = reinterpret_cast<::google::protobuf::Timestamp*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000020u;
+    _impl_._has_bits_[0] |= 0x00000010u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000020u;
+    _impl_._has_bits_[0] &= ~0x00000010u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Tracked.last_measurement_time)
 }
 inline ::google::protobuf::Timestamp* Tracked::release_last_measurement_time() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
   ::google::protobuf::Timestamp* released = _impl_.last_measurement_time_;
   _impl_.last_measurement_time_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -8911,7 +8585,7 @@ inline ::google::protobuf::Timestamp* Tracked::unsafe_arena_release_last_measure
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Tracked.last_measurement_time)
 
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
   ::google::protobuf::Timestamp* temp = _impl_.last_measurement_time_;
   _impl_.last_measurement_time_ = nullptr;
   return temp;
@@ -8925,7 +8599,7 @@ inline ::google::protobuf::Timestamp* Tracked::_internal_mutable_last_measuremen
   return _impl_.last_measurement_time_;
 }
 inline ::google::protobuf::Timestamp* Tracked::mutable_last_measurement_time() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   ::google::protobuf::Timestamp* _msg = _internal_mutable_last_measurement_time();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Tracked.last_measurement_time)
   return _msg;
@@ -8942,9 +8616,9 @@ inline void Tracked::set_allocated_last_measurement_time(::google::protobuf::Tim
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000020u;
+    _impl_._has_bits_[0] |= 0x00000010u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000020u;
+    _impl_._has_bits_[0] &= ~0x00000010u;
   }
 
   _impl_.last_measurement_time_ = reinterpret_cast<::google::protobuf::Timestamp*>(value);
@@ -8953,7 +8627,7 @@ inline void Tracked::set_allocated_last_measurement_time(::google::protobuf::Tim
 
 // .anduril.entitymanager.v1.LineOfBearing line_of_bearing = 9 [json_name = "lineOfBearing"];
 inline bool Tracked::has_line_of_bearing() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.line_of_bearing_ != nullptr);
   return value;
 }
@@ -8973,16 +8647,16 @@ inline void Tracked::unsafe_arena_set_allocated_line_of_bearing(::anduril::entit
   }
   _impl_.line_of_bearing_ = reinterpret_cast<::anduril::entitymanager::v1::LineOfBearing*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000040u;
+    _impl_._has_bits_[0] |= 0x00000020u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000040u;
+    _impl_._has_bits_[0] &= ~0x00000020u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Tracked.line_of_bearing)
 }
 inline ::anduril::entitymanager::v1::LineOfBearing* Tracked::release_line_of_bearing() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
   ::anduril::entitymanager::v1::LineOfBearing* released = _impl_.line_of_bearing_;
   _impl_.line_of_bearing_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -9002,7 +8676,7 @@ inline ::anduril::entitymanager::v1::LineOfBearing* Tracked::unsafe_arena_releas
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Tracked.line_of_bearing)
 
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
   ::anduril::entitymanager::v1::LineOfBearing* temp = _impl_.line_of_bearing_;
   _impl_.line_of_bearing_ = nullptr;
   return temp;
@@ -9016,7 +8690,7 @@ inline ::anduril::entitymanager::v1::LineOfBearing* Tracked::_internal_mutable_l
   return _impl_.line_of_bearing_;
 }
 inline ::anduril::entitymanager::v1::LineOfBearing* Tracked::mutable_line_of_bearing() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   ::anduril::entitymanager::v1::LineOfBearing* _msg = _internal_mutable_line_of_bearing();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Tracked.line_of_bearing)
   return _msg;
@@ -9033,9 +8707,9 @@ inline void Tracked::set_allocated_line_of_bearing(::anduril::entitymanager::v1:
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000040u;
+    _impl_._has_bits_[0] |= 0x00000020u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000040u;
+    _impl_._has_bits_[0] &= ~0x00000020u;
   }
 
   _impl_.line_of_bearing_ = reinterpret_cast<::anduril::entitymanager::v1::LineOfBearing*>(value);
@@ -9045,56 +8719,6 @@ inline void Tracked::set_allocated_line_of_bearing(::anduril::entitymanager::v1:
 // -------------------------------------------------------------------
 
 // Provenance
-
-// string feed_name = 7 [json_name = "feedName"];
-inline void Provenance::clear_feed_name() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.feed_name_.ClearToEmpty();
-}
-inline const std::string& Provenance::feed_name() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Provenance.feed_name)
-  return _internal_feed_name();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void Provenance::set_feed_name(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.feed_name_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.Provenance.feed_name)
-}
-inline std::string* Provenance::mutable_feed_name() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_feed_name();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Provenance.feed_name)
-  return _s;
-}
-inline const std::string& Provenance::_internal_feed_name() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.feed_name_.Get();
-}
-inline void Provenance::_internal_set_feed_name(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.feed_name_.Set(value, GetArena());
-}
-inline std::string* Provenance::_internal_mutable_feed_name() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.feed_name_.Mutable( GetArena());
-}
-inline std::string* Provenance::release_feed_name() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Provenance.feed_name)
-  return _impl_.feed_name_.Release();
-}
-inline void Provenance::set_allocated_feed_name(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.feed_name_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.feed_name_.IsDefault()) {
-          _impl_.feed_name_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Provenance.feed_name)
-}
 
 // string integration_name = 5 [json_name = "integrationName"];
 inline void Provenance::clear_integration_name() {
@@ -9777,28 +9401,6 @@ inline void Indicators::set_allocated_c2(::google::protobuf::BoolValue* value) {
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Indicators.c2)
 }
 
-// .anduril.entitymanager.v1.Deletable deletable = 5 [json_name = "deletable"];
-inline void Indicators::clear_deletable() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.deletable_ = 0;
-}
-inline ::anduril::entitymanager::v1::Deletable Indicators::deletable() const {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Indicators.deletable)
-  return _internal_deletable();
-}
-inline void Indicators::set_deletable(::anduril::entitymanager::v1::Deletable value) {
-  _internal_set_deletable(value);
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.Indicators.deletable)
-}
-inline ::anduril::entitymanager::v1::Deletable Indicators::_internal_deletable() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return static_cast<::anduril::entitymanager::v1::Deletable>(_impl_.deletable_);
-}
-inline void Indicators::_internal_set_deletable(::anduril::entitymanager::v1::Deletable value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.deletable_ = value;
-}
-
 // .google.protobuf.BoolValue egressable = 6 [json_name = "egressable", (.anduril.entitymanager.v1.overridable) = true];
 inline bool Indicators::has_egressable() const {
   bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
@@ -10032,55 +9634,6 @@ inline ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Overri
 Overrides::_internal_mutable_override() {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return &_impl_.override_;
-}
-
-// repeated .anduril.entitymanager.v1.OverrideProvenance provenance = 1 [json_name = "provenance", deprecated = true];
-inline int Overrides::_internal_provenance_size() const {
-  return _internal_provenance().size();
-}
-inline int Overrides::provenance_size() const {
-  return _internal_provenance_size();
-}
-inline void Overrides::clear_provenance() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.provenance_.Clear();
-}
-inline ::anduril::entitymanager::v1::OverrideProvenance* Overrides::mutable_provenance(int index)
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Overrides.provenance)
-  return _internal_mutable_provenance()->Mutable(index);
-}
-inline ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::OverrideProvenance>* Overrides::mutable_provenance()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_list:anduril.entitymanager.v1.Overrides.provenance)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _internal_mutable_provenance();
-}
-inline const ::anduril::entitymanager::v1::OverrideProvenance& Overrides::provenance(int index) const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Overrides.provenance)
-  return _internal_provenance().Get(index);
-}
-inline ::anduril::entitymanager::v1::OverrideProvenance* Overrides::add_provenance() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::anduril::entitymanager::v1::OverrideProvenance* _add = _internal_mutable_provenance()->Add();
-  // @@protoc_insertion_point(field_add:anduril.entitymanager.v1.Overrides.provenance)
-  return _add;
-}
-inline const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::OverrideProvenance>& Overrides::provenance() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_list:anduril.entitymanager.v1.Overrides.provenance)
-  return _internal_provenance();
-}
-inline const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::OverrideProvenance>&
-Overrides::_internal_provenance() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.provenance_;
-}
-inline ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::OverrideProvenance>*
-Overrides::_internal_mutable_provenance() {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return &_impl_.provenance_;
 }
 
 // -------------------------------------------------------------------
@@ -10516,511 +10069,7 @@ inline void Override::set_allocated_request_timestamp(::google::protobuf::Timest
 
 // -------------------------------------------------------------------
 
-// OverrideProvenance
-
-// string field_path = 1 [json_name = "fieldPath"];
-inline void OverrideProvenance::clear_field_path() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.field_path_.ClearToEmpty();
-}
-inline const std::string& OverrideProvenance::field_path() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.OverrideProvenance.field_path)
-  return _internal_field_path();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void OverrideProvenance::set_field_path(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.field_path_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.OverrideProvenance.field_path)
-}
-inline std::string* OverrideProvenance::mutable_field_path() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_field_path();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.OverrideProvenance.field_path)
-  return _s;
-}
-inline const std::string& OverrideProvenance::_internal_field_path() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.field_path_.Get();
-}
-inline void OverrideProvenance::_internal_set_field_path(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.field_path_.Set(value, GetArena());
-}
-inline std::string* OverrideProvenance::_internal_mutable_field_path() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.field_path_.Mutable( GetArena());
-}
-inline std::string* OverrideProvenance::release_field_path() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.OverrideProvenance.field_path)
-  return _impl_.field_path_.Release();
-}
-inline void OverrideProvenance::set_allocated_field_path(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.field_path_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.field_path_.IsDefault()) {
-          _impl_.field_path_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.OverrideProvenance.field_path)
-}
-
-// string source_id = 2 [json_name = "sourceId", deprecated = true];
-inline void OverrideProvenance::clear_source_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.source_id_.ClearToEmpty();
-}
-inline const std::string& OverrideProvenance::source_id() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.OverrideProvenance.source_id)
-  return _internal_source_id();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void OverrideProvenance::set_source_id(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.source_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.OverrideProvenance.source_id)
-}
-inline std::string* OverrideProvenance::mutable_source_id() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_source_id();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.OverrideProvenance.source_id)
-  return _s;
-}
-inline const std::string& OverrideProvenance::_internal_source_id() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.source_id_.Get();
-}
-inline void OverrideProvenance::_internal_set_source_id(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.source_id_.Set(value, GetArena());
-}
-inline std::string* OverrideProvenance::_internal_mutable_source_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.source_id_.Mutable( GetArena());
-}
-inline std::string* OverrideProvenance::release_source_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.OverrideProvenance.source_id)
-  return _impl_.source_id_.Release();
-}
-inline void OverrideProvenance::set_allocated_source_id(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.source_id_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.source_id_.IsDefault()) {
-          _impl_.source_id_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.OverrideProvenance.source_id)
-}
-
-// .anduril.entitymanager.v1.Provenance provenance = 3 [json_name = "provenance"];
-inline bool OverrideProvenance::has_provenance() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.provenance_ != nullptr);
-  return value;
-}
-inline void OverrideProvenance::clear_provenance() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.provenance_ != nullptr) _impl_.provenance_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline const ::anduril::entitymanager::v1::Provenance& OverrideProvenance::_internal_provenance() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::anduril::entitymanager::v1::Provenance* p = _impl_.provenance_;
-  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::Provenance&>(::anduril::entitymanager::v1::_Provenance_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::Provenance& OverrideProvenance::provenance() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.OverrideProvenance.provenance)
-  return _internal_provenance();
-}
-inline void OverrideProvenance::unsafe_arena_set_allocated_provenance(::anduril::entitymanager::v1::Provenance* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.provenance_);
-  }
-  _impl_.provenance_ = reinterpret_cast<::anduril::entitymanager::v1::Provenance*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.OverrideProvenance.provenance)
-}
-inline ::anduril::entitymanager::v1::Provenance* OverrideProvenance::release_provenance() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::Provenance* released = _impl_.provenance_;
-  _impl_.provenance_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  if (GetArena() == nullptr) {
-    delete old;
-  }
-#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArena() != nullptr) {
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return released;
-}
-inline ::anduril::entitymanager::v1::Provenance* OverrideProvenance::unsafe_arena_release_provenance() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.OverrideProvenance.provenance)
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::Provenance* temp = _impl_.provenance_;
-  _impl_.provenance_ = nullptr;
-  return temp;
-}
-inline ::anduril::entitymanager::v1::Provenance* OverrideProvenance::_internal_mutable_provenance() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.provenance_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Provenance>(GetArena());
-    _impl_.provenance_ = reinterpret_cast<::anduril::entitymanager::v1::Provenance*>(p);
-  }
-  return _impl_.provenance_;
-}
-inline ::anduril::entitymanager::v1::Provenance* OverrideProvenance::mutable_provenance() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  ::anduril::entitymanager::v1::Provenance* _msg = _internal_mutable_provenance();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.OverrideProvenance.provenance)
-  return _msg;
-}
-inline void OverrideProvenance::set_allocated_provenance(::anduril::entitymanager::v1::Provenance* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete (_impl_.provenance_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-
-  _impl_.provenance_ = reinterpret_cast<::anduril::entitymanager::v1::Provenance*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.OverrideProvenance.provenance)
-}
-
-// -------------------------------------------------------------------
-
-// OriginalData_TLE
-
-// string line1 = 1 [json_name = "line1"];
-inline void OriginalData_TLE::clear_line1() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.line1_.ClearToEmpty();
-}
-inline const std::string& OriginalData_TLE::line1() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.OriginalData.TLE.line1)
-  return _internal_line1();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void OriginalData_TLE::set_line1(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.line1_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.OriginalData.TLE.line1)
-}
-inline std::string* OriginalData_TLE::mutable_line1() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_line1();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.OriginalData.TLE.line1)
-  return _s;
-}
-inline const std::string& OriginalData_TLE::_internal_line1() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.line1_.Get();
-}
-inline void OriginalData_TLE::_internal_set_line1(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.line1_.Set(value, GetArena());
-}
-inline std::string* OriginalData_TLE::_internal_mutable_line1() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.line1_.Mutable( GetArena());
-}
-inline std::string* OriginalData_TLE::release_line1() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.OriginalData.TLE.line1)
-  return _impl_.line1_.Release();
-}
-inline void OriginalData_TLE::set_allocated_line1(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.line1_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.line1_.IsDefault()) {
-          _impl_.line1_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.OriginalData.TLE.line1)
-}
-
-// string line2 = 2 [json_name = "line2"];
-inline void OriginalData_TLE::clear_line2() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.line2_.ClearToEmpty();
-}
-inline const std::string& OriginalData_TLE::line2() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.OriginalData.TLE.line2)
-  return _internal_line2();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void OriginalData_TLE::set_line2(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.line2_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.OriginalData.TLE.line2)
-}
-inline std::string* OriginalData_TLE::mutable_line2() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_line2();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.OriginalData.TLE.line2)
-  return _s;
-}
-inline const std::string& OriginalData_TLE::_internal_line2() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.line2_.Get();
-}
-inline void OriginalData_TLE::_internal_set_line2(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.line2_.Set(value, GetArena());
-}
-inline std::string* OriginalData_TLE::_internal_mutable_line2() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.line2_.Mutable( GetArena());
-}
-inline std::string* OriginalData_TLE::release_line2() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.OriginalData.TLE.line2)
-  return _impl_.line2_.Release();
-}
-inline void OriginalData_TLE::set_allocated_line2(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.line2_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.line2_.IsDefault()) {
-          _impl_.line2_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.OriginalData.TLE.line2)
-}
-
-// -------------------------------------------------------------------
-
-// OriginalData
-
-// string url = 1 [json_name = "url"];
-inline void OriginalData::clear_url() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.url_.ClearToEmpty();
-}
-inline const std::string& OriginalData::url() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.OriginalData.url)
-  return _internal_url();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void OriginalData::set_url(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.url_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.OriginalData.url)
-}
-inline std::string* OriginalData::mutable_url() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_url();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.OriginalData.url)
-  return _s;
-}
-inline const std::string& OriginalData::_internal_url() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.url_.Get();
-}
-inline void OriginalData::_internal_set_url(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.url_.Set(value, GetArena());
-}
-inline std::string* OriginalData::_internal_mutable_url() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.url_.Mutable( GetArena());
-}
-inline std::string* OriginalData::release_url() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.OriginalData.url)
-  return _impl_.url_.Release();
-}
-inline void OriginalData::set_allocated_url(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.url_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.url_.IsDefault()) {
-          _impl_.url_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.OriginalData.url)
-}
-
-// .anduril.entitymanager.v1.OriginalData.TLE tle = 2 [json_name = "tle", deprecated = true];
-inline bool OriginalData::has_tle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.tle_ != nullptr);
-  return value;
-}
-inline void OriginalData::clear_tle() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.tle_ != nullptr) _impl_.tle_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline const ::anduril::entitymanager::v1::OriginalData_TLE& OriginalData::_internal_tle() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::anduril::entitymanager::v1::OriginalData_TLE* p = _impl_.tle_;
-  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::OriginalData_TLE&>(::anduril::entitymanager::v1::_OriginalData_TLE_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::OriginalData_TLE& OriginalData::tle() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.OriginalData.tle)
-  return _internal_tle();
-}
-inline void OriginalData::unsafe_arena_set_allocated_tle(::anduril::entitymanager::v1::OriginalData_TLE* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.tle_);
-  }
-  _impl_.tle_ = reinterpret_cast<::anduril::entitymanager::v1::OriginalData_TLE*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.OriginalData.tle)
-}
-inline ::anduril::entitymanager::v1::OriginalData_TLE* OriginalData::release_tle() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::OriginalData_TLE* released = _impl_.tle_;
-  _impl_.tle_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  if (GetArena() == nullptr) {
-    delete old;
-  }
-#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArena() != nullptr) {
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-  }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return released;
-}
-inline ::anduril::entitymanager::v1::OriginalData_TLE* OriginalData::unsafe_arena_release_tle() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.OriginalData.tle)
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::OriginalData_TLE* temp = _impl_.tle_;
-  _impl_.tle_ = nullptr;
-  return temp;
-}
-inline ::anduril::entitymanager::v1::OriginalData_TLE* OriginalData::_internal_mutable_tle() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.tle_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::OriginalData_TLE>(GetArena());
-    _impl_.tle_ = reinterpret_cast<::anduril::entitymanager::v1::OriginalData_TLE*>(p);
-  }
-  return _impl_.tle_;
-}
-inline ::anduril::entitymanager::v1::OriginalData_TLE* OriginalData::mutable_tle() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  ::anduril::entitymanager::v1::OriginalData_TLE* _msg = _internal_mutable_tle();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.OriginalData.tle)
-  return _msg;
-}
-inline void OriginalData::set_allocated_tle(::anduril::entitymanager::v1::OriginalData_TLE* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete (_impl_.tle_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-
-  _impl_.tle_ = reinterpret_cast<::anduril::entitymanager::v1::OriginalData_TLE*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.OriginalData.tle)
-}
-
-// -------------------------------------------------------------------
-
 // AlternateId
-
-// string source = 1 [json_name = "source", deprecated = true];
-inline void AlternateId::clear_source() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.source_.ClearToEmpty();
-}
-inline const std::string& AlternateId::source() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.AlternateId.source)
-  return _internal_source();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void AlternateId::set_source(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.source_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.AlternateId.source)
-}
-inline std::string* AlternateId::mutable_source() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_source();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.AlternateId.source)
-  return _s;
-}
-inline const std::string& AlternateId::_internal_source() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.source_.Get();
-}
-inline void AlternateId::_internal_set_source(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.source_.Set(value, GetArena());
-}
-inline std::string* AlternateId::_internal_mutable_source() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.source_.Mutable( GetArena());
-}
-inline std::string* AlternateId::release_source() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.AlternateId.source)
-  return _impl_.source_.Release();
-}
-inline void AlternateId::set_allocated_source(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.source_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.source_.IsDefault()) {
-          _impl_.source_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.AlternateId.source)
-}
 
 // string id = 2 [json_name = "id"];
 inline void AlternateId::clear_id() {
@@ -11192,28 +10241,6 @@ inline void VisualDetails::set_allocated_range_rings(::anduril::entitymanager::v
 
   _impl_.range_rings_ = reinterpret_cast<::anduril::entitymanager::v1::RangeRings*>(value);
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.VisualDetails.range_rings)
-}
-
-// .anduril.entitymanager.v1.InteractivityMode interactivity_mode = 2 [json_name = "interactivityMode"];
-inline void VisualDetails::clear_interactivity_mode() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.interactivity_mode_ = 0;
-}
-inline ::anduril::entitymanager::v1::InteractivityMode VisualDetails::interactivity_mode() const {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.VisualDetails.interactivity_mode)
-  return _internal_interactivity_mode();
-}
-inline void VisualDetails::set_interactivity_mode(::anduril::entitymanager::v1::InteractivityMode value) {
-  _internal_set_interactivity_mode(value);
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.VisualDetails.interactivity_mode)
-}
-inline ::anduril::entitymanager::v1::InteractivityMode VisualDetails::_internal_interactivity_mode() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return static_cast<::anduril::entitymanager::v1::InteractivityMode>(_impl_.interactivity_mode_);
-}
-inline void VisualDetails::_internal_set_interactivity_mode(::anduril::entitymanager::v1::InteractivityMode value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.interactivity_mode_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -11424,9 +10451,1124 @@ inline void RangeRings::_internal_set_ring_count(::uint32_t value) {
   _impl_.ring_count_ = value;
 }
 
+// .anduril.type.Color ring_line_color = 4 [json_name = "ringLineColor"];
+inline bool RangeRings::has_ring_line_color() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.ring_line_color_ != nullptr);
+  return value;
+}
+inline const ::anduril::type::Color& RangeRings::_internal_ring_line_color() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::anduril::type::Color* p = _impl_.ring_line_color_;
+  return p != nullptr ? *p : reinterpret_cast<const ::anduril::type::Color&>(::anduril::type::_Color_default_instance_);
+}
+inline const ::anduril::type::Color& RangeRings::ring_line_color() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.RangeRings.ring_line_color)
+  return _internal_ring_line_color();
+}
+inline void RangeRings::unsafe_arena_set_allocated_ring_line_color(::anduril::type::Color* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.ring_line_color_);
+  }
+  _impl_.ring_line_color_ = reinterpret_cast<::anduril::type::Color*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000004u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000004u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.RangeRings.ring_line_color)
+}
+inline ::anduril::type::Color* RangeRings::release_ring_line_color() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000004u;
+  ::anduril::type::Color* released = _impl_.ring_line_color_;
+  _impl_.ring_line_color_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::anduril::type::Color* RangeRings::unsafe_arena_release_ring_line_color() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.RangeRings.ring_line_color)
+
+  _impl_._has_bits_[0] &= ~0x00000004u;
+  ::anduril::type::Color* temp = _impl_.ring_line_color_;
+  _impl_.ring_line_color_ = nullptr;
+  return temp;
+}
+inline ::anduril::type::Color* RangeRings::_internal_mutable_ring_line_color() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.ring_line_color_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::type::Color>(GetArena());
+    _impl_.ring_line_color_ = reinterpret_cast<::anduril::type::Color*>(p);
+  }
+  return _impl_.ring_line_color_;
+}
+inline ::anduril::type::Color* RangeRings::mutable_ring_line_color() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  ::anduril::type::Color* _msg = _internal_mutable_ring_line_color();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.RangeRings.ring_line_color)
+  return _msg;
+}
+inline void RangeRings::set_allocated_ring_line_color(::anduril::type::Color* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.ring_line_color_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000004u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000004u;
+  }
+
+  _impl_.ring_line_color_ = reinterpret_cast<::anduril::type::Color*>(value);
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.RangeRings.ring_line_color)
+}
+
 // -------------------------------------------------------------------
 
-// TeamStatus
+// Correlation
+
+// .anduril.entitymanager.v1.PrimaryCorrelation primary = 1 [json_name = "primary"];
+inline bool Correlation::has_primary() const {
+  return correlation_case() == kPrimary;
+}
+inline bool Correlation::_internal_has_primary() const {
+  return correlation_case() == kPrimary;
+}
+inline void Correlation::set_has_primary() {
+  _impl_._oneof_case_[0] = kPrimary;
+}
+inline void Correlation::clear_primary() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (correlation_case() == kPrimary) {
+    if (GetArena() == nullptr) {
+      delete _impl_.correlation_.primary_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.correlation_.primary_);
+    }
+    clear_has_correlation();
+  }
+}
+inline ::anduril::entitymanager::v1::PrimaryCorrelation* Correlation::release_primary() {
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Correlation.primary)
+  if (correlation_case() == kPrimary) {
+    clear_has_correlation();
+    auto* temp = _impl_.correlation_.primary_;
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.correlation_.primary_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::anduril::entitymanager::v1::PrimaryCorrelation& Correlation::_internal_primary() const {
+  return correlation_case() == kPrimary ? *_impl_.correlation_.primary_ : reinterpret_cast<::anduril::entitymanager::v1::PrimaryCorrelation&>(::anduril::entitymanager::v1::_PrimaryCorrelation_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::PrimaryCorrelation& Correlation::primary() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Correlation.primary)
+  return _internal_primary();
+}
+inline ::anduril::entitymanager::v1::PrimaryCorrelation* Correlation::unsafe_arena_release_primary() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:anduril.entitymanager.v1.Correlation.primary)
+  if (correlation_case() == kPrimary) {
+    clear_has_correlation();
+    auto* temp = _impl_.correlation_.primary_;
+    _impl_.correlation_.primary_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Correlation::unsafe_arena_set_allocated_primary(::anduril::entitymanager::v1::PrimaryCorrelation* value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_correlation();
+  if (value) {
+    set_has_primary();
+    _impl_.correlation_.primary_ = value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Correlation.primary)
+}
+inline ::anduril::entitymanager::v1::PrimaryCorrelation* Correlation::_internal_mutable_primary() {
+  if (correlation_case() != kPrimary) {
+    clear_correlation();
+    set_has_primary();
+    _impl_.correlation_.primary_ =
+        ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::PrimaryCorrelation>(GetArena());
+  }
+  return _impl_.correlation_.primary_;
+}
+inline ::anduril::entitymanager::v1::PrimaryCorrelation* Correlation::mutable_primary() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::anduril::entitymanager::v1::PrimaryCorrelation* _msg = _internal_mutable_primary();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Correlation.primary)
+  return _msg;
+}
+
+// .anduril.entitymanager.v1.SecondaryCorrelation secondary = 2 [json_name = "secondary"];
+inline bool Correlation::has_secondary() const {
+  return correlation_case() == kSecondary;
+}
+inline bool Correlation::_internal_has_secondary() const {
+  return correlation_case() == kSecondary;
+}
+inline void Correlation::set_has_secondary() {
+  _impl_._oneof_case_[0] = kSecondary;
+}
+inline void Correlation::clear_secondary() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (correlation_case() == kSecondary) {
+    if (GetArena() == nullptr) {
+      delete _impl_.correlation_.secondary_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.correlation_.secondary_);
+    }
+    clear_has_correlation();
+  }
+}
+inline ::anduril::entitymanager::v1::SecondaryCorrelation* Correlation::release_secondary() {
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Correlation.secondary)
+  if (correlation_case() == kSecondary) {
+    clear_has_correlation();
+    auto* temp = _impl_.correlation_.secondary_;
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.correlation_.secondary_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::anduril::entitymanager::v1::SecondaryCorrelation& Correlation::_internal_secondary() const {
+  return correlation_case() == kSecondary ? *_impl_.correlation_.secondary_ : reinterpret_cast<::anduril::entitymanager::v1::SecondaryCorrelation&>(::anduril::entitymanager::v1::_SecondaryCorrelation_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::SecondaryCorrelation& Correlation::secondary() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Correlation.secondary)
+  return _internal_secondary();
+}
+inline ::anduril::entitymanager::v1::SecondaryCorrelation* Correlation::unsafe_arena_release_secondary() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:anduril.entitymanager.v1.Correlation.secondary)
+  if (correlation_case() == kSecondary) {
+    clear_has_correlation();
+    auto* temp = _impl_.correlation_.secondary_;
+    _impl_.correlation_.secondary_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Correlation::unsafe_arena_set_allocated_secondary(::anduril::entitymanager::v1::SecondaryCorrelation* value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_correlation();
+  if (value) {
+    set_has_secondary();
+    _impl_.correlation_.secondary_ = value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Correlation.secondary)
+}
+inline ::anduril::entitymanager::v1::SecondaryCorrelation* Correlation::_internal_mutable_secondary() {
+  if (correlation_case() != kSecondary) {
+    clear_correlation();
+    set_has_secondary();
+    _impl_.correlation_.secondary_ =
+        ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::SecondaryCorrelation>(GetArena());
+  }
+  return _impl_.correlation_.secondary_;
+}
+inline ::anduril::entitymanager::v1::SecondaryCorrelation* Correlation::mutable_secondary() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::anduril::entitymanager::v1::SecondaryCorrelation* _msg = _internal_mutable_secondary();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Correlation.secondary)
+  return _msg;
+}
+
+// .anduril.entitymanager.v1.Decorrelation decorrelation = 3 [json_name = "decorrelation"];
+inline bool Correlation::has_decorrelation() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.decorrelation_ != nullptr);
+  return value;
+}
+inline void Correlation::clear_decorrelation() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.decorrelation_ != nullptr) _impl_.decorrelation_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::anduril::entitymanager::v1::Decorrelation& Correlation::_internal_decorrelation() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::anduril::entitymanager::v1::Decorrelation* p = _impl_.decorrelation_;
+  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::Decorrelation&>(::anduril::entitymanager::v1::_Decorrelation_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::Decorrelation& Correlation::decorrelation() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Correlation.decorrelation)
+  return _internal_decorrelation();
+}
+inline void Correlation::unsafe_arena_set_allocated_decorrelation(::anduril::entitymanager::v1::Decorrelation* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.decorrelation_);
+  }
+  _impl_.decorrelation_ = reinterpret_cast<::anduril::entitymanager::v1::Decorrelation*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Correlation.decorrelation)
+}
+inline ::anduril::entitymanager::v1::Decorrelation* Correlation::release_decorrelation() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::anduril::entitymanager::v1::Decorrelation* released = _impl_.decorrelation_;
+  _impl_.decorrelation_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::anduril::entitymanager::v1::Decorrelation* Correlation::unsafe_arena_release_decorrelation() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Correlation.decorrelation)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::anduril::entitymanager::v1::Decorrelation* temp = _impl_.decorrelation_;
+  _impl_.decorrelation_ = nullptr;
+  return temp;
+}
+inline ::anduril::entitymanager::v1::Decorrelation* Correlation::_internal_mutable_decorrelation() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.decorrelation_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Decorrelation>(GetArena());
+    _impl_.decorrelation_ = reinterpret_cast<::anduril::entitymanager::v1::Decorrelation*>(p);
+  }
+  return _impl_.decorrelation_;
+}
+inline ::anduril::entitymanager::v1::Decorrelation* Correlation::mutable_decorrelation() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  ::anduril::entitymanager::v1::Decorrelation* _msg = _internal_mutable_decorrelation();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Correlation.decorrelation)
+  return _msg;
+}
+inline void Correlation::set_allocated_decorrelation(::anduril::entitymanager::v1::Decorrelation* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete (_impl_.decorrelation_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.decorrelation_ = reinterpret_cast<::anduril::entitymanager::v1::Decorrelation*>(value);
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Correlation.decorrelation)
+}
+
+inline bool Correlation::has_correlation() const {
+  return correlation_case() != CORRELATION_NOT_SET;
+}
+inline void Correlation::clear_has_correlation() {
+  _impl_._oneof_case_[0] = CORRELATION_NOT_SET;
+}
+inline Correlation::CorrelationCase Correlation::correlation_case() const {
+  return Correlation::CorrelationCase(_impl_._oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// PrimaryCorrelation
+
+// repeated string secondary_entity_ids = 1 [json_name = "secondaryEntityIds"];
+inline int PrimaryCorrelation::_internal_secondary_entity_ids_size() const {
+  return _internal_secondary_entity_ids().size();
+}
+inline int PrimaryCorrelation::secondary_entity_ids_size() const {
+  return _internal_secondary_entity_ids_size();
+}
+inline void PrimaryCorrelation::clear_secondary_entity_ids() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.secondary_entity_ids_.Clear();
+}
+inline std::string* PrimaryCorrelation::add_secondary_entity_ids() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  std::string* _s = _internal_mutable_secondary_entity_ids()->Add();
+  // @@protoc_insertion_point(field_add_mutable:anduril.entitymanager.v1.PrimaryCorrelation.secondary_entity_ids)
+  return _s;
+}
+inline const std::string& PrimaryCorrelation::secondary_entity_ids(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.PrimaryCorrelation.secondary_entity_ids)
+  return _internal_secondary_entity_ids().Get(index);
+}
+inline std::string* PrimaryCorrelation::mutable_secondary_entity_ids(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.PrimaryCorrelation.secondary_entity_ids)
+  return _internal_mutable_secondary_entity_ids()->Mutable(index);
+}
+template <typename Arg_, typename... Args_>
+inline void PrimaryCorrelation::set_secondary_entity_ids(int index, Arg_&& value, Args_... args) {
+  ::google::protobuf::internal::AssignToString(
+      *_internal_mutable_secondary_entity_ids()->Mutable(index),
+      std::forward<Arg_>(value), args... );
+  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.PrimaryCorrelation.secondary_entity_ids)
+}
+template <typename Arg_, typename... Args_>
+inline void PrimaryCorrelation::add_secondary_entity_ids(Arg_&& value, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::google::protobuf::internal::AddToRepeatedPtrField(*_internal_mutable_secondary_entity_ids(),
+                               std::forward<Arg_>(value),
+                               args... );
+  // @@protoc_insertion_point(field_add:anduril.entitymanager.v1.PrimaryCorrelation.secondary_entity_ids)
+}
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
+PrimaryCorrelation::secondary_entity_ids() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:anduril.entitymanager.v1.PrimaryCorrelation.secondary_entity_ids)
+  return _internal_secondary_entity_ids();
+}
+inline ::google::protobuf::RepeatedPtrField<std::string>*
+PrimaryCorrelation::mutable_secondary_entity_ids() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:anduril.entitymanager.v1.PrimaryCorrelation.secondary_entity_ids)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_secondary_entity_ids();
+}
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
+PrimaryCorrelation::_internal_secondary_entity_ids() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.secondary_entity_ids_;
+}
+inline ::google::protobuf::RepeatedPtrField<std::string>*
+PrimaryCorrelation::_internal_mutable_secondary_entity_ids() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.secondary_entity_ids_;
+}
+
+// -------------------------------------------------------------------
+
+// SecondaryCorrelation
+
+// string primary_entity_id = 1 [json_name = "primaryEntityId"];
+inline void SecondaryCorrelation::clear_primary_entity_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.primary_entity_id_.ClearToEmpty();
+}
+inline const std::string& SecondaryCorrelation::primary_entity_id() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.SecondaryCorrelation.primary_entity_id)
+  return _internal_primary_entity_id();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void SecondaryCorrelation::set_primary_entity_id(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.primary_entity_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.SecondaryCorrelation.primary_entity_id)
+}
+inline std::string* SecondaryCorrelation::mutable_primary_entity_id() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_primary_entity_id();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.SecondaryCorrelation.primary_entity_id)
+  return _s;
+}
+inline const std::string& SecondaryCorrelation::_internal_primary_entity_id() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.primary_entity_id_.Get();
+}
+inline void SecondaryCorrelation::_internal_set_primary_entity_id(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.primary_entity_id_.Set(value, GetArena());
+}
+inline std::string* SecondaryCorrelation::_internal_mutable_primary_entity_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.primary_entity_id_.Mutable( GetArena());
+}
+inline std::string* SecondaryCorrelation::release_primary_entity_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.SecondaryCorrelation.primary_entity_id)
+  return _impl_.primary_entity_id_.Release();
+}
+inline void SecondaryCorrelation::set_allocated_primary_entity_id(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.primary_entity_id_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.primary_entity_id_.IsDefault()) {
+          _impl_.primary_entity_id_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.SecondaryCorrelation.primary_entity_id)
+}
+
+// .anduril.entitymanager.v1.CorrelationMetadata metadata = 2 [json_name = "metadata"];
+inline bool SecondaryCorrelation::has_metadata() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.metadata_ != nullptr);
+  return value;
+}
+inline void SecondaryCorrelation::clear_metadata() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.metadata_ != nullptr) _impl_.metadata_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::anduril::entitymanager::v1::CorrelationMetadata& SecondaryCorrelation::_internal_metadata() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::anduril::entitymanager::v1::CorrelationMetadata* p = _impl_.metadata_;
+  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::CorrelationMetadata&>(::anduril::entitymanager::v1::_CorrelationMetadata_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::CorrelationMetadata& SecondaryCorrelation::metadata() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.SecondaryCorrelation.metadata)
+  return _internal_metadata();
+}
+inline void SecondaryCorrelation::unsafe_arena_set_allocated_metadata(::anduril::entitymanager::v1::CorrelationMetadata* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.metadata_);
+  }
+  _impl_.metadata_ = reinterpret_cast<::anduril::entitymanager::v1::CorrelationMetadata*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.SecondaryCorrelation.metadata)
+}
+inline ::anduril::entitymanager::v1::CorrelationMetadata* SecondaryCorrelation::release_metadata() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::anduril::entitymanager::v1::CorrelationMetadata* released = _impl_.metadata_;
+  _impl_.metadata_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::anduril::entitymanager::v1::CorrelationMetadata* SecondaryCorrelation::unsafe_arena_release_metadata() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.SecondaryCorrelation.metadata)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::anduril::entitymanager::v1::CorrelationMetadata* temp = _impl_.metadata_;
+  _impl_.metadata_ = nullptr;
+  return temp;
+}
+inline ::anduril::entitymanager::v1::CorrelationMetadata* SecondaryCorrelation::_internal_mutable_metadata() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.metadata_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::CorrelationMetadata>(GetArena());
+    _impl_.metadata_ = reinterpret_cast<::anduril::entitymanager::v1::CorrelationMetadata*>(p);
+  }
+  return _impl_.metadata_;
+}
+inline ::anduril::entitymanager::v1::CorrelationMetadata* SecondaryCorrelation::mutable_metadata() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  ::anduril::entitymanager::v1::CorrelationMetadata* _msg = _internal_mutable_metadata();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.SecondaryCorrelation.metadata)
+  return _msg;
+}
+inline void SecondaryCorrelation::set_allocated_metadata(::anduril::entitymanager::v1::CorrelationMetadata* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete (_impl_.metadata_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.metadata_ = reinterpret_cast<::anduril::entitymanager::v1::CorrelationMetadata*>(value);
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.SecondaryCorrelation.metadata)
+}
+
+// -------------------------------------------------------------------
+
+// Decorrelation
+
+// .anduril.entitymanager.v1.DecorrelatedAll all = 1 [json_name = "all"];
+inline bool Decorrelation::has_all() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.all_ != nullptr);
+  return value;
+}
+inline void Decorrelation::clear_all() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.all_ != nullptr) _impl_.all_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::anduril::entitymanager::v1::DecorrelatedAll& Decorrelation::_internal_all() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::anduril::entitymanager::v1::DecorrelatedAll* p = _impl_.all_;
+  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::DecorrelatedAll&>(::anduril::entitymanager::v1::_DecorrelatedAll_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::DecorrelatedAll& Decorrelation::all() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Decorrelation.all)
+  return _internal_all();
+}
+inline void Decorrelation::unsafe_arena_set_allocated_all(::anduril::entitymanager::v1::DecorrelatedAll* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.all_);
+  }
+  _impl_.all_ = reinterpret_cast<::anduril::entitymanager::v1::DecorrelatedAll*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Decorrelation.all)
+}
+inline ::anduril::entitymanager::v1::DecorrelatedAll* Decorrelation::release_all() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::anduril::entitymanager::v1::DecorrelatedAll* released = _impl_.all_;
+  _impl_.all_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::anduril::entitymanager::v1::DecorrelatedAll* Decorrelation::unsafe_arena_release_all() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Decorrelation.all)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::anduril::entitymanager::v1::DecorrelatedAll* temp = _impl_.all_;
+  _impl_.all_ = nullptr;
+  return temp;
+}
+inline ::anduril::entitymanager::v1::DecorrelatedAll* Decorrelation::_internal_mutable_all() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.all_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::DecorrelatedAll>(GetArena());
+    _impl_.all_ = reinterpret_cast<::anduril::entitymanager::v1::DecorrelatedAll*>(p);
+  }
+  return _impl_.all_;
+}
+inline ::anduril::entitymanager::v1::DecorrelatedAll* Decorrelation::mutable_all() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  ::anduril::entitymanager::v1::DecorrelatedAll* _msg = _internal_mutable_all();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Decorrelation.all)
+  return _msg;
+}
+inline void Decorrelation::set_allocated_all(::anduril::entitymanager::v1::DecorrelatedAll* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete (_impl_.all_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.all_ = reinterpret_cast<::anduril::entitymanager::v1::DecorrelatedAll*>(value);
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Decorrelation.all)
+}
+
+// repeated .anduril.entitymanager.v1.DecorrelatedSingle decorrelated_entities = 2 [json_name = "decorrelatedEntities"];
+inline int Decorrelation::_internal_decorrelated_entities_size() const {
+  return _internal_decorrelated_entities().size();
+}
+inline int Decorrelation::decorrelated_entities_size() const {
+  return _internal_decorrelated_entities_size();
+}
+inline void Decorrelation::clear_decorrelated_entities() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.decorrelated_entities_.Clear();
+}
+inline ::anduril::entitymanager::v1::DecorrelatedSingle* Decorrelation::mutable_decorrelated_entities(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Decorrelation.decorrelated_entities)
+  return _internal_mutable_decorrelated_entities()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::DecorrelatedSingle>* Decorrelation::mutable_decorrelated_entities()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:anduril.entitymanager.v1.Decorrelation.decorrelated_entities)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_decorrelated_entities();
+}
+inline const ::anduril::entitymanager::v1::DecorrelatedSingle& Decorrelation::decorrelated_entities(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Decorrelation.decorrelated_entities)
+  return _internal_decorrelated_entities().Get(index);
+}
+inline ::anduril::entitymanager::v1::DecorrelatedSingle* Decorrelation::add_decorrelated_entities() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::anduril::entitymanager::v1::DecorrelatedSingle* _add = _internal_mutable_decorrelated_entities()->Add();
+  // @@protoc_insertion_point(field_add:anduril.entitymanager.v1.Decorrelation.decorrelated_entities)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::DecorrelatedSingle>& Decorrelation::decorrelated_entities() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:anduril.entitymanager.v1.Decorrelation.decorrelated_entities)
+  return _internal_decorrelated_entities();
+}
+inline const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::DecorrelatedSingle>&
+Decorrelation::_internal_decorrelated_entities() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.decorrelated_entities_;
+}
+inline ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::DecorrelatedSingle>*
+Decorrelation::_internal_mutable_decorrelated_entities() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.decorrelated_entities_;
+}
+
+// -------------------------------------------------------------------
+
+// DecorrelatedAll
+
+// .anduril.entitymanager.v1.CorrelationMetadata metadata = 1 [json_name = "metadata"];
+inline bool DecorrelatedAll::has_metadata() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.metadata_ != nullptr);
+  return value;
+}
+inline void DecorrelatedAll::clear_metadata() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.metadata_ != nullptr) _impl_.metadata_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::anduril::entitymanager::v1::CorrelationMetadata& DecorrelatedAll::_internal_metadata() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::anduril::entitymanager::v1::CorrelationMetadata* p = _impl_.metadata_;
+  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::CorrelationMetadata&>(::anduril::entitymanager::v1::_CorrelationMetadata_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::CorrelationMetadata& DecorrelatedAll::metadata() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.DecorrelatedAll.metadata)
+  return _internal_metadata();
+}
+inline void DecorrelatedAll::unsafe_arena_set_allocated_metadata(::anduril::entitymanager::v1::CorrelationMetadata* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.metadata_);
+  }
+  _impl_.metadata_ = reinterpret_cast<::anduril::entitymanager::v1::CorrelationMetadata*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.DecorrelatedAll.metadata)
+}
+inline ::anduril::entitymanager::v1::CorrelationMetadata* DecorrelatedAll::release_metadata() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::anduril::entitymanager::v1::CorrelationMetadata* released = _impl_.metadata_;
+  _impl_.metadata_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::anduril::entitymanager::v1::CorrelationMetadata* DecorrelatedAll::unsafe_arena_release_metadata() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.DecorrelatedAll.metadata)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::anduril::entitymanager::v1::CorrelationMetadata* temp = _impl_.metadata_;
+  _impl_.metadata_ = nullptr;
+  return temp;
+}
+inline ::anduril::entitymanager::v1::CorrelationMetadata* DecorrelatedAll::_internal_mutable_metadata() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.metadata_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::CorrelationMetadata>(GetArena());
+    _impl_.metadata_ = reinterpret_cast<::anduril::entitymanager::v1::CorrelationMetadata*>(p);
+  }
+  return _impl_.metadata_;
+}
+inline ::anduril::entitymanager::v1::CorrelationMetadata* DecorrelatedAll::mutable_metadata() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  ::anduril::entitymanager::v1::CorrelationMetadata* _msg = _internal_mutable_metadata();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.DecorrelatedAll.metadata)
+  return _msg;
+}
+inline void DecorrelatedAll::set_allocated_metadata(::anduril::entitymanager::v1::CorrelationMetadata* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete (_impl_.metadata_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.metadata_ = reinterpret_cast<::anduril::entitymanager::v1::CorrelationMetadata*>(value);
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.DecorrelatedAll.metadata)
+}
+
+// -------------------------------------------------------------------
+
+// DecorrelatedSingle
+
+// string entity_id = 1 [json_name = "entityId"];
+inline void DecorrelatedSingle::clear_entity_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.entity_id_.ClearToEmpty();
+}
+inline const std::string& DecorrelatedSingle::entity_id() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.DecorrelatedSingle.entity_id)
+  return _internal_entity_id();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void DecorrelatedSingle::set_entity_id(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.entity_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.DecorrelatedSingle.entity_id)
+}
+inline std::string* DecorrelatedSingle::mutable_entity_id() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_entity_id();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.DecorrelatedSingle.entity_id)
+  return _s;
+}
+inline const std::string& DecorrelatedSingle::_internal_entity_id() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.entity_id_.Get();
+}
+inline void DecorrelatedSingle::_internal_set_entity_id(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.entity_id_.Set(value, GetArena());
+}
+inline std::string* DecorrelatedSingle::_internal_mutable_entity_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.entity_id_.Mutable( GetArena());
+}
+inline std::string* DecorrelatedSingle::release_entity_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.DecorrelatedSingle.entity_id)
+  return _impl_.entity_id_.Release();
+}
+inline void DecorrelatedSingle::set_allocated_entity_id(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.entity_id_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.entity_id_.IsDefault()) {
+          _impl_.entity_id_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.DecorrelatedSingle.entity_id)
+}
+
+// .anduril.entitymanager.v1.CorrelationMetadata metadata = 2 [json_name = "metadata"];
+inline bool DecorrelatedSingle::has_metadata() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.metadata_ != nullptr);
+  return value;
+}
+inline void DecorrelatedSingle::clear_metadata() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.metadata_ != nullptr) _impl_.metadata_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::anduril::entitymanager::v1::CorrelationMetadata& DecorrelatedSingle::_internal_metadata() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::anduril::entitymanager::v1::CorrelationMetadata* p = _impl_.metadata_;
+  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::CorrelationMetadata&>(::anduril::entitymanager::v1::_CorrelationMetadata_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::CorrelationMetadata& DecorrelatedSingle::metadata() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.DecorrelatedSingle.metadata)
+  return _internal_metadata();
+}
+inline void DecorrelatedSingle::unsafe_arena_set_allocated_metadata(::anduril::entitymanager::v1::CorrelationMetadata* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.metadata_);
+  }
+  _impl_.metadata_ = reinterpret_cast<::anduril::entitymanager::v1::CorrelationMetadata*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.DecorrelatedSingle.metadata)
+}
+inline ::anduril::entitymanager::v1::CorrelationMetadata* DecorrelatedSingle::release_metadata() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::anduril::entitymanager::v1::CorrelationMetadata* released = _impl_.metadata_;
+  _impl_.metadata_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::anduril::entitymanager::v1::CorrelationMetadata* DecorrelatedSingle::unsafe_arena_release_metadata() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.DecorrelatedSingle.metadata)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::anduril::entitymanager::v1::CorrelationMetadata* temp = _impl_.metadata_;
+  _impl_.metadata_ = nullptr;
+  return temp;
+}
+inline ::anduril::entitymanager::v1::CorrelationMetadata* DecorrelatedSingle::_internal_mutable_metadata() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.metadata_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::CorrelationMetadata>(GetArena());
+    _impl_.metadata_ = reinterpret_cast<::anduril::entitymanager::v1::CorrelationMetadata*>(p);
+  }
+  return _impl_.metadata_;
+}
+inline ::anduril::entitymanager::v1::CorrelationMetadata* DecorrelatedSingle::mutable_metadata() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  ::anduril::entitymanager::v1::CorrelationMetadata* _msg = _internal_mutable_metadata();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.DecorrelatedSingle.metadata)
+  return _msg;
+}
+inline void DecorrelatedSingle::set_allocated_metadata(::anduril::entitymanager::v1::CorrelationMetadata* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete (_impl_.metadata_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.metadata_ = reinterpret_cast<::anduril::entitymanager::v1::CorrelationMetadata*>(value);
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.DecorrelatedSingle.metadata)
+}
+
+// -------------------------------------------------------------------
+
+// CorrelationMetadata
+
+// .anduril.entitymanager.v1.Provenance provenance = 1 [json_name = "provenance"];
+inline bool CorrelationMetadata::has_provenance() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.provenance_ != nullptr);
+  return value;
+}
+inline void CorrelationMetadata::clear_provenance() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.provenance_ != nullptr) _impl_.provenance_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::anduril::entitymanager::v1::Provenance& CorrelationMetadata::_internal_provenance() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::anduril::entitymanager::v1::Provenance* p = _impl_.provenance_;
+  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::Provenance&>(::anduril::entitymanager::v1::_Provenance_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::Provenance& CorrelationMetadata::provenance() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.CorrelationMetadata.provenance)
+  return _internal_provenance();
+}
+inline void CorrelationMetadata::unsafe_arena_set_allocated_provenance(::anduril::entitymanager::v1::Provenance* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.provenance_);
+  }
+  _impl_.provenance_ = reinterpret_cast<::anduril::entitymanager::v1::Provenance*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.CorrelationMetadata.provenance)
+}
+inline ::anduril::entitymanager::v1::Provenance* CorrelationMetadata::release_provenance() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::anduril::entitymanager::v1::Provenance* released = _impl_.provenance_;
+  _impl_.provenance_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+  released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  if (GetArena() == nullptr) {
+    delete old;
+  }
+#else   // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArena() != nullptr) {
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return released;
+}
+inline ::anduril::entitymanager::v1::Provenance* CorrelationMetadata::unsafe_arena_release_provenance() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.CorrelationMetadata.provenance)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::anduril::entitymanager::v1::Provenance* temp = _impl_.provenance_;
+  _impl_.provenance_ = nullptr;
+  return temp;
+}
+inline ::anduril::entitymanager::v1::Provenance* CorrelationMetadata::_internal_mutable_provenance() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.provenance_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Provenance>(GetArena());
+    _impl_.provenance_ = reinterpret_cast<::anduril::entitymanager::v1::Provenance*>(p);
+  }
+  return _impl_.provenance_;
+}
+inline ::anduril::entitymanager::v1::Provenance* CorrelationMetadata::mutable_provenance() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  ::anduril::entitymanager::v1::Provenance* _msg = _internal_mutable_provenance();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.CorrelationMetadata.provenance)
+  return _msg;
+}
+inline void CorrelationMetadata::set_allocated_provenance(::anduril::entitymanager::v1::Provenance* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete (_impl_.provenance_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.provenance_ = reinterpret_cast<::anduril::entitymanager::v1::Provenance*>(value);
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.CorrelationMetadata.provenance)
+}
+
+// .anduril.entitymanager.v1.CorrelationReplicationMode replication_mode = 2 [json_name = "replicationMode"];
+inline void CorrelationMetadata::clear_replication_mode() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.replication_mode_ = 0;
+}
+inline ::anduril::entitymanager::v1::CorrelationReplicationMode CorrelationMetadata::replication_mode() const {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.CorrelationMetadata.replication_mode)
+  return _internal_replication_mode();
+}
+inline void CorrelationMetadata::set_replication_mode(::anduril::entitymanager::v1::CorrelationReplicationMode value) {
+  _internal_set_replication_mode(value);
+  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.CorrelationMetadata.replication_mode)
+}
+inline ::anduril::entitymanager::v1::CorrelationReplicationMode CorrelationMetadata::_internal_replication_mode() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return static_cast<::anduril::entitymanager::v1::CorrelationReplicationMode>(_impl_.replication_mode_);
+}
+inline void CorrelationMetadata::_internal_set_replication_mode(::anduril::entitymanager::v1::CorrelationReplicationMode value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.replication_mode_ = value;
+}
+
+// .anduril.entitymanager.v1.CorrelationType type = 3 [json_name = "type"];
+inline void CorrelationMetadata::clear_type() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.type_ = 0;
+}
+inline ::anduril::entitymanager::v1::CorrelationType CorrelationMetadata::type() const {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.CorrelationMetadata.type)
+  return _internal_type();
+}
+inline void CorrelationMetadata::set_type(::anduril::entitymanager::v1::CorrelationType value) {
+  _internal_set_type(value);
+  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.CorrelationMetadata.type)
+}
+inline ::anduril::entitymanager::v1::CorrelationType CorrelationMetadata::_internal_type() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return static_cast<::anduril::entitymanager::v1::CorrelationType>(_impl_.type_);
+}
+inline void CorrelationMetadata::_internal_set_type(::anduril::entitymanager::v1::CorrelationType value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.type_ = value;
+}
 
 #ifdef __GNUC__
 #pragma GCC diagnostic pop
@@ -11442,16 +11584,16 @@ namespace google {
 namespace protobuf {
 
 template <>
-struct is_proto_enum<::anduril::entitymanager::v1::Deletable> : std::true_type {};
+struct is_proto_enum<::anduril::entitymanager::v1::CorrelationType> : std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor<::anduril::entitymanager::v1::Deletable>() {
-  return ::anduril::entitymanager::v1::Deletable_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor<::anduril::entitymanager::v1::CorrelationType>() {
+  return ::anduril::entitymanager::v1::CorrelationType_descriptor();
 }
 template <>
-struct is_proto_enum<::anduril::entitymanager::v1::InteractivityMode> : std::true_type {};
+struct is_proto_enum<::anduril::entitymanager::v1::CorrelationReplicationMode> : std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor<::anduril::entitymanager::v1::InteractivityMode>() {
-  return ::anduril::entitymanager::v1::InteractivityMode_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor<::anduril::entitymanager::v1::CorrelationReplicationMode>() {
+  return ::anduril::entitymanager::v1::CorrelationReplicationMode_descriptor();
 }
 
 }  // namespace protobuf

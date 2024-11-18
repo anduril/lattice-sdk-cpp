@@ -1624,15 +1624,15 @@ class Sensor final : public ::google::protobuf::Message
   std::string* _internal_mutable_sensor_description();
 
   public:
-  // .anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView"];
-  bool has_field_of_view() const;
-  void clear_field_of_view() ;
-  const ::anduril::entitymanager::v1::FieldOfView& field_of_view() const;
-  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::FieldOfView* release_field_of_view();
-  ::anduril::entitymanager::v1::FieldOfView* mutable_field_of_view();
-  void set_allocated_field_of_view(::anduril::entitymanager::v1::FieldOfView* value);
-  void unsafe_arena_set_allocated_field_of_view(::anduril::entitymanager::v1::FieldOfView* value);
-  ::anduril::entitymanager::v1::FieldOfView* unsafe_arena_release_field_of_view();
+  // .anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];
+  [[deprecated]]  bool has_field_of_view() const;
+  [[deprecated]]  void clear_field_of_view() ;
+  [[deprecated]] const ::anduril::entitymanager::v1::FieldOfView& field_of_view() const;
+  [[deprecated]] PROTOBUF_NODISCARD ::anduril::entitymanager::v1::FieldOfView* release_field_of_view();
+  [[deprecated]] ::anduril::entitymanager::v1::FieldOfView* mutable_field_of_view();
+  [[deprecated]] void set_allocated_field_of_view(::anduril::entitymanager::v1::FieldOfView* value);
+  [[deprecated]] void unsafe_arena_set_allocated_field_of_view(::anduril::entitymanager::v1::FieldOfView* value);
+  [[deprecated]] ::anduril::entitymanager::v1::FieldOfView* unsafe_arena_release_field_of_view();
 
   private:
   const ::anduril::entitymanager::v1::FieldOfView& _internal_field_of_view() const;
@@ -2067,7 +2067,7 @@ inline void Sensor::_internal_set_operational_state(::anduril::entitymanager::v1
   _impl_.operational_state_ = value;
 }
 
-// .anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView"];
+// .anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];
 inline bool Sensor::has_field_of_view() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.field_of_view_ != nullptr);

@@ -55,9 +55,6 @@ extern const ::google::protobuf::internal::DescriptorTable
 namespace anduril {
 namespace entitymanager {
 namespace v1 {
-class Configure;
-struct ConfigureDefaultTypeInternal;
-extern ConfigureDefaultTypeInternal _Configure_default_instance_;
 class GroupChild;
 struct GroupChildDefaultTypeInternal;
 extern GroupChildDefaultTypeInternal _GroupChild_default_instance_;
@@ -76,9 +73,6 @@ extern RelationshipTypeDefaultTypeInternal _RelationshipType_default_instance_;
 class Relationships;
 struct RelationshipsDefaultTypeInternal;
 extern RelationshipsDefaultTypeInternal _Relationships_default_instance_;
-class Tether;
-struct TetherDefaultTypeInternal;
-extern TetherDefaultTypeInternal _Tether_default_instance_;
 class TrackedBy;
 struct TrackedByDefaultTypeInternal;
 extern TrackedByDefaultTypeInternal _TrackedBy_default_instance_;
@@ -97,149 +91,6 @@ namespace v1 {
 // ===================================================================
 
 
-// -------------------------------------------------------------------
-
-class Tether final : public ::google::protobuf::internal::ZeroFieldsBase
-/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.Tether) */ {
- public:
-  inline Tether() : Tether(nullptr) {}
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR Tether(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline Tether(const Tether& from) : Tether(nullptr, from) {}
-  inline Tether(Tether&& from) noexcept
-      : Tether(nullptr, std::move(from)) {}
-  inline Tether& operator=(const Tether& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Tether& operator=(Tether&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetArena() == from.GetArena()
-#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetArena() != nullptr
-#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const Tether& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const Tether* internal_default_instance() {
-    return reinterpret_cast<const Tether*>(
-        &_Tether_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 3;
-  friend void swap(Tether& a, Tether& b) { a.Swap(&b); }
-  inline void Swap(Tether* other) {
-    if (other == this) return;
-#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
-#else   // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() == other->GetArena()) {
-#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Tether* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  Tether* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
-    return ::google::protobuf::internal::ZeroFieldsBase::DefaultConstruct<Tether>(arena);
-  }
-  using ::google::protobuf::internal::ZeroFieldsBase::CopyFrom;
-  inline void CopyFrom(const Tether& from) {
-    ::google::protobuf::internal::ZeroFieldsBase::CopyImpl(*this, from);
-  }
-  using ::google::protobuf::internal::ZeroFieldsBase::MergeFrom;
-  void MergeFrom(const Tether& from) {
-    ::google::protobuf::internal::ZeroFieldsBase::MergeImpl(*this, from);
-  }
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
- private:
-  friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.Tether"; }
-
- protected:
-  explicit Tether(::google::protobuf::Arena* arena);
-  Tether(::google::protobuf::Arena* arena, const Tether& from);
-  Tether(::google::protobuf::Arena* arena, Tether&& from) noexcept
-      : Tether(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::internal::ZeroFieldsBase::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static const ::google::protobuf::internal::ZeroFieldsBase::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.Tether)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      0, 0, 0,
-      0, 2>
-      _table_;
-
-  static constexpr const void* _raw_default_instance_ =
-      &_Tether_default_instance_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const Tether& from_msg);
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2frelationship_2epub_2eproto;
-};
 // -------------------------------------------------------------------
 
 class MergedFrom final : public ::google::protobuf::internal::ZeroFieldsBase
@@ -296,7 +147,7 @@ class MergedFrom final : public ::google::protobuf::internal::ZeroFieldsBase
     return reinterpret_cast<const MergedFrom*>(
         &_MergedFrom_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 8;
+  static constexpr int kIndexInFileMessages = 6;
   friend void swap(MergedFrom& a, MergedFrom& b) { a.Swap(&b); }
   inline void Swap(MergedFrom* other) {
     if (other == this) return;
@@ -439,7 +290,7 @@ class GroupParent final : public ::google::protobuf::internal::ZeroFieldsBase
     return reinterpret_cast<const GroupParent*>(
         &_GroupParent_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 7;
+  static constexpr int kIndexInFileMessages = 5;
   friend void swap(GroupParent& a, GroupParent& b) { a.Swap(&b); }
   inline void Swap(GroupParent* other) {
     if (other == this) return;
@@ -582,7 +433,7 @@ class GroupChild final : public ::google::protobuf::internal::ZeroFieldsBase
     return reinterpret_cast<const GroupChild*>(
         &_GroupChild_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 6;
+  static constexpr int kIndexInFileMessages = 4;
   friend void swap(GroupChild& a, GroupChild& b) { a.Swap(&b); }
   inline void Swap(GroupChild* other) {
     if (other == this) return;
@@ -671,149 +522,6 @@ class GroupChild final : public ::google::protobuf::internal::ZeroFieldsBase
 };
 // -------------------------------------------------------------------
 
-class Configure final : public ::google::protobuf::internal::ZeroFieldsBase
-/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.Configure) */ {
- public:
-  inline Configure() : Configure(nullptr) {}
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR Configure(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline Configure(const Configure& from) : Configure(nullptr, from) {}
-  inline Configure(Configure&& from) noexcept
-      : Configure(nullptr, std::move(from)) {}
-  inline Configure& operator=(const Configure& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Configure& operator=(Configure&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetArena() == from.GetArena()
-#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetArena() != nullptr
-#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const Configure& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const Configure* internal_default_instance() {
-    return reinterpret_cast<const Configure*>(
-        &_Configure_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 5;
-  friend void swap(Configure& a, Configure& b) { a.Swap(&b); }
-  inline void Swap(Configure* other) {
-    if (other == this) return;
-#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
-#else   // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() == other->GetArena()) {
-#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Configure* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  Configure* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
-    return ::google::protobuf::internal::ZeroFieldsBase::DefaultConstruct<Configure>(arena);
-  }
-  using ::google::protobuf::internal::ZeroFieldsBase::CopyFrom;
-  inline void CopyFrom(const Configure& from) {
-    ::google::protobuf::internal::ZeroFieldsBase::CopyImpl(*this, from);
-  }
-  using ::google::protobuf::internal::ZeroFieldsBase::MergeFrom;
-  void MergeFrom(const Configure& from) {
-    ::google::protobuf::internal::ZeroFieldsBase::MergeImpl(*this, from);
-  }
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
- private:
-  friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.Configure"; }
-
- protected:
-  explicit Configure(::google::protobuf::Arena* arena);
-  Configure(::google::protobuf::Arena* arena, const Configure& from);
-  Configure(::google::protobuf::Arena* arena, Configure&& from) noexcept
-      : Configure(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::internal::ZeroFieldsBase::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static const ::google::protobuf::internal::ZeroFieldsBase::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.Configure)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      0, 0, 0,
-      0, 2>
-      _table_;
-
-  static constexpr const void* _raw_default_instance_ =
-      &_Configure_default_instance_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const Configure& from_msg);
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2frelationship_2epub_2eproto;
-};
-// -------------------------------------------------------------------
-
 class TrackedBy final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.TrackedBy) */ {
  public:
@@ -869,7 +577,7 @@ class TrackedBy final : public ::google::protobuf::Message
     return reinterpret_cast<const TrackedBy*>(
         &_TrackedBy_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 4;
+  static constexpr int kIndexInFileMessages = 3;
   friend void swap(TrackedBy& a, TrackedBy& b) { a.Swap(&b); }
   inline void Swap(TrackedBy* other) {
     if (other == this) return;
@@ -1077,9 +785,7 @@ class RelationshipType final : public ::google::protobuf::Message
     return *internal_default_instance();
   }
   enum TypeCase {
-    kTether = 1,
     kTrackedBy = 2,
-    kConfigure = 3,
     kGroupChild = 4,
     kGroupParent = 5,
     kMergedFrom = 6,
@@ -1175,32 +881,11 @@ class RelationshipType final : public ::google::protobuf::Message
 
   // accessors -------------------------------------------------------
   enum : int {
-    kTetherFieldNumber = 1,
     kTrackedByFieldNumber = 2,
-    kConfigureFieldNumber = 3,
     kGroupChildFieldNumber = 4,
     kGroupParentFieldNumber = 5,
     kMergedFromFieldNumber = 6,
   };
-  // .anduril.entitymanager.v1.Tether tether = 1 [json_name = "tether"];
-  bool has_tether() const;
-  private:
-  bool _internal_has_tether() const;
-
-  public:
-  void clear_tether() ;
-  const ::anduril::entitymanager::v1::Tether& tether() const;
-  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::Tether* release_tether();
-  ::anduril::entitymanager::v1::Tether* mutable_tether();
-  void set_allocated_tether(::anduril::entitymanager::v1::Tether* value);
-  void unsafe_arena_set_allocated_tether(::anduril::entitymanager::v1::Tether* value);
-  ::anduril::entitymanager::v1::Tether* unsafe_arena_release_tether();
-
-  private:
-  const ::anduril::entitymanager::v1::Tether& _internal_tether() const;
-  ::anduril::entitymanager::v1::Tether* _internal_mutable_tether();
-
-  public:
   // .anduril.entitymanager.v1.TrackedBy tracked_by = 2 [json_name = "trackedBy"];
   bool has_tracked_by() const;
   private:
@@ -1218,25 +903,6 @@ class RelationshipType final : public ::google::protobuf::Message
   private:
   const ::anduril::entitymanager::v1::TrackedBy& _internal_tracked_by() const;
   ::anduril::entitymanager::v1::TrackedBy* _internal_mutable_tracked_by();
-
-  public:
-  // .anduril.entitymanager.v1.Configure configure = 3 [json_name = "configure"];
-  bool has_configure() const;
-  private:
-  bool _internal_has_configure() const;
-
-  public:
-  void clear_configure() ;
-  const ::anduril::entitymanager::v1::Configure& configure() const;
-  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::Configure* release_configure();
-  ::anduril::entitymanager::v1::Configure* mutable_configure();
-  void set_allocated_configure(::anduril::entitymanager::v1::Configure* value);
-  void unsafe_arena_set_allocated_configure(::anduril::entitymanager::v1::Configure* value);
-  ::anduril::entitymanager::v1::Configure* unsafe_arena_release_configure();
-
-  private:
-  const ::anduril::entitymanager::v1::Configure& _internal_configure() const;
-  ::anduril::entitymanager::v1::Configure* _internal_mutable_configure();
 
   public:
   // .anduril.entitymanager.v1.GroupChild group_child = 4 [json_name = "groupChild"];
@@ -1301,9 +967,7 @@ class RelationshipType final : public ::google::protobuf::Message
   // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.RelationshipType)
  private:
   class _Internal;
-  void set_has_tether();
   void set_has_tracked_by();
-  void set_has_configure();
   void set_has_group_child();
   void set_has_group_parent();
   void set_has_merged_from();
@@ -1311,7 +975,7 @@ class RelationshipType final : public ::google::protobuf::Message
   inline void clear_has_type();
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      0, 6, 6,
+      0, 4, 4,
       0, 2>
       _table_;
 
@@ -1335,9 +999,7 @@ class RelationshipType final : public ::google::protobuf::Message
     union TypeUnion {
       constexpr TypeUnion() : _constinit_{} {}
       ::google::protobuf::internal::ConstantInitialized _constinit_;
-      ::anduril::entitymanager::v1::Tether* tether_;
       ::anduril::entitymanager::v1::TrackedBy* tracked_by_;
-      ::anduril::entitymanager::v1::Configure* configure_;
       ::anduril::entitymanager::v1::GroupChild* group_child_;
       ::anduril::entitymanager::v1::GroupParent* group_parent_;
       ::anduril::entitymanager::v1::MergedFrom* merged_from_;
@@ -2044,85 +1706,6 @@ inline void Relationship::set_allocated_relationship_type(::anduril::entitymanag
 
 // RelationshipType
 
-// .anduril.entitymanager.v1.Tether tether = 1 [json_name = "tether"];
-inline bool RelationshipType::has_tether() const {
-  return type_case() == kTether;
-}
-inline bool RelationshipType::_internal_has_tether() const {
-  return type_case() == kTether;
-}
-inline void RelationshipType::set_has_tether() {
-  _impl_._oneof_case_[0] = kTether;
-}
-inline void RelationshipType::clear_tether() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (type_case() == kTether) {
-    if (GetArena() == nullptr) {
-      delete _impl_.type_.tether_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.type_.tether_);
-    }
-    clear_has_type();
-  }
-}
-inline ::anduril::entitymanager::v1::Tether* RelationshipType::release_tether() {
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.RelationshipType.tether)
-  if (type_case() == kTether) {
-    clear_has_type();
-    auto* temp = _impl_.type_.tether_;
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.type_.tether_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::anduril::entitymanager::v1::Tether& RelationshipType::_internal_tether() const {
-  return type_case() == kTether ? *_impl_.type_.tether_ : reinterpret_cast<::anduril::entitymanager::v1::Tether&>(::anduril::entitymanager::v1::_Tether_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::Tether& RelationshipType::tether() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.RelationshipType.tether)
-  return _internal_tether();
-}
-inline ::anduril::entitymanager::v1::Tether* RelationshipType::unsafe_arena_release_tether() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:anduril.entitymanager.v1.RelationshipType.tether)
-  if (type_case() == kTether) {
-    clear_has_type();
-    auto* temp = _impl_.type_.tether_;
-    _impl_.type_.tether_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void RelationshipType::unsafe_arena_set_allocated_tether(::anduril::entitymanager::v1::Tether* value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_type();
-  if (value) {
-    set_has_tether();
-    _impl_.type_.tether_ = value;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.RelationshipType.tether)
-}
-inline ::anduril::entitymanager::v1::Tether* RelationshipType::_internal_mutable_tether() {
-  if (type_case() != kTether) {
-    clear_type();
-    set_has_tether();
-    _impl_.type_.tether_ =
-        ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Tether>(GetArena());
-  }
-  return _impl_.type_.tether_;
-}
-inline ::anduril::entitymanager::v1::Tether* RelationshipType::mutable_tether() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::anduril::entitymanager::v1::Tether* _msg = _internal_mutable_tether();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.RelationshipType.tether)
-  return _msg;
-}
-
 // .anduril.entitymanager.v1.TrackedBy tracked_by = 2 [json_name = "trackedBy"];
 inline bool RelationshipType::has_tracked_by() const {
   return type_case() == kTrackedBy;
@@ -2199,85 +1782,6 @@ inline ::anduril::entitymanager::v1::TrackedBy* RelationshipType::_internal_muta
 inline ::anduril::entitymanager::v1::TrackedBy* RelationshipType::mutable_tracked_by() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   ::anduril::entitymanager::v1::TrackedBy* _msg = _internal_mutable_tracked_by();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.RelationshipType.tracked_by)
-  return _msg;
-}
-
-// .anduril.entitymanager.v1.Configure configure = 3 [json_name = "configure"];
-inline bool RelationshipType::has_configure() const {
-  return type_case() == kConfigure;
-}
-inline bool RelationshipType::_internal_has_configure() const {
-  return type_case() == kConfigure;
-}
-inline void RelationshipType::set_has_configure() {
-  _impl_._oneof_case_[0] = kConfigure;
-}
-inline void RelationshipType::clear_configure() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (type_case() == kConfigure) {
-    if (GetArena() == nullptr) {
-      delete _impl_.type_.configure_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.type_.configure_);
-    }
-    clear_has_type();
-  }
-}
-inline ::anduril::entitymanager::v1::Configure* RelationshipType::release_configure() {
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.RelationshipType.configure)
-  if (type_case() == kConfigure) {
-    clear_has_type();
-    auto* temp = _impl_.type_.configure_;
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.type_.configure_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::anduril::entitymanager::v1::Configure& RelationshipType::_internal_configure() const {
-  return type_case() == kConfigure ? *_impl_.type_.configure_ : reinterpret_cast<::anduril::entitymanager::v1::Configure&>(::anduril::entitymanager::v1::_Configure_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::Configure& RelationshipType::configure() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.RelationshipType.configure)
-  return _internal_configure();
-}
-inline ::anduril::entitymanager::v1::Configure* RelationshipType::unsafe_arena_release_configure() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:anduril.entitymanager.v1.RelationshipType.configure)
-  if (type_case() == kConfigure) {
-    clear_has_type();
-    auto* temp = _impl_.type_.configure_;
-    _impl_.type_.configure_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void RelationshipType::unsafe_arena_set_allocated_configure(::anduril::entitymanager::v1::Configure* value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_type();
-  if (value) {
-    set_has_configure();
-    _impl_.type_.configure_ = value;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.RelationshipType.configure)
-}
-inline ::anduril::entitymanager::v1::Configure* RelationshipType::_internal_mutable_configure() {
-  if (type_case() != kConfigure) {
-    clear_type();
-    set_has_configure();
-    _impl_.type_.configure_ =
-        ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Configure>(GetArena());
-  }
-  return _impl_.type_.configure_;
-}
-inline ::anduril::entitymanager::v1::Configure* RelationshipType::mutable_configure() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::anduril::entitymanager::v1::Configure* _msg = _internal_mutable_configure();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.RelationshipType.configure)
   return _msg;
 }
 
@@ -2529,10 +2033,6 @@ inline RelationshipType::TypeCase RelationshipType::type_case() const {
 }
 // -------------------------------------------------------------------
 
-// Tether
-
-// -------------------------------------------------------------------
-
 // TrackedBy
 
 // .anduril.entitymanager.v1.Sensors actively_tracking_sensors = 1 [json_name = "activelyTrackingSensors"];
@@ -2716,10 +2216,6 @@ inline void TrackedBy::set_allocated_last_measurement_timestamp(::google::protob
   _impl_.last_measurement_timestamp_ = reinterpret_cast<::google::protobuf::Timestamp*>(value);
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.TrackedBy.last_measurement_timestamp)
 }
-
-// -------------------------------------------------------------------
-
-// Configure
 
 // -------------------------------------------------------------------
 

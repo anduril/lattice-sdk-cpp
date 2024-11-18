@@ -29,8 +29,7 @@ namespace v1 {
 
 inline constexpr Ontology::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : descriptors_{},
-        platform_type_(
+      : platform_type_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         specific_type_(
@@ -114,7 +113,6 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Ontology, _impl_.descriptors_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Ontology, _impl_.platform_type_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Ontology, _impl_.specific_type_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Ontology, _impl_.template__),
@@ -141,19 +139,18 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fontology_2ep
     "\n\013environment\030\002 \001(\0162 .anduril.ontology.v"
     "1.EnvironmentB\003\310>\001R\013environment\022G\n\013natio"
     "nality\030\003 \001(\0162 .anduril.ontology.v1.Natio"
-    "nalityB\003\310>\001R\013nationality\"\304\001\n\010Ontology\022$\n"
-    "\013descriptors\030\001 \003(\tB\002\030\001R\013descriptors\022(\n\rp"
-    "latform_type\030\003 \001(\tB\003\310>\001R\014platformType\022(\n"
-    "\rspecific_type\030\004 \001(\tB\003\310>\001R\014specificType\022"
-    ">\n\010template\030\002 \001(\0162\".anduril.entitymanage"
-    "r.v1.TemplateR\010templateB\201\002\n\034com.anduril."
-    "entitymanager.v1B\020OntologyPubProtoP\001ZMgh"
-    "e.anduril.dev/anduril/andurilapis-go/and"
-    "uril/entitymanager/v1;entitymanager\242\002\003AE"
-    "X\252\002\030Anduril.Entitymanager.V1\312\002\030Anduril\\E"
-    "ntitymanager\\V1\342\002$Anduril\\Entitymanager\\"
-    "V1\\GPBMetadata\352\002\032Anduril::Entitymanager:"
-    ":V1b\006proto3"
+    "nalityB\003\310>\001R\013nationality\"\261\001\n\010Ontology\022(\n"
+    "\rplatform_type\030\003 \001(\tB\003\310>\001R\014platformType\022"
+    "(\n\rspecific_type\030\004 \001(\tB\003\310>\001R\014specificTyp"
+    "e\022>\n\010template\030\002 \001(\0162\".anduril.entitymana"
+    "ger.v1.TemplateR\010templateJ\004\010\001\020\002R\013descrip"
+    "torsB\201\002\n\034com.anduril.entitymanager.v1B\020O"
+    "ntologyPubProtoP\001ZMghe.anduril.dev/andur"
+    "il/andurilapis-go/anduril/entitymanager/"
+    "v1;entitymanager\242\002\003AEX\252\002\030Anduril.Entitym"
+    "anager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$A"
+    "nduril\\Entitymanager\\V1\\GPBMetadata\352\002\032An"
+    "duril::Entitymanager::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fontology_2epub_2eproto_deps[3] =
     {
@@ -165,7 +162,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fontolog
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fontology_2epub_2eproto = {
     false,
     false,
-    891,
+    872,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fontology_2epub_2eproto,
     "anduril/entitymanager/v1/ontology.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fontology_2epub_2eproto_once,
@@ -454,8 +451,7 @@ Ontology::Ontology(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE Ontology::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::anduril::entitymanager::v1::Ontology& from_msg)
-      : descriptors_{visibility, arena, from.descriptors_},
-        platform_type_(arena, from.platform_type_),
+      : platform_type_(arena, from.platform_type_),
         specific_type_(arena, from.specific_type_),
         _cached_size_{0} {}
 
@@ -479,8 +475,7 @@ Ontology::Ontology(
 inline PROTOBUF_NDEBUG_INLINE Ontology::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : descriptors_{visibility, arena},
-        platform_type_(arena),
+      : platform_type_(arena),
         specific_type_(arena),
         _cached_size_{0} {}
 
@@ -529,15 +524,15 @@ const ::google::protobuf::MessageLite::ClassData* Ontology::GetClassData() const
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 4, 0, 79, 2> Ontology::_table_ = {
+const ::_pbi::TcParseTable<2, 3, 0, 68, 2> Ontology::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
     4, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967280,  // skipmap
+    4294967281,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    4,  // num_field_entries
+    3,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     _class_data_.base(),
@@ -550,9 +545,7 @@ const ::_pbi::TcParseTable<2, 4, 0, 79, 2> Ontology::_table_ = {
     // string specific_type = 4 [json_name = "specificType", (.anduril.entitymanager.v1.overridable) = true];
     {::_pbi::TcParser::FastUS1,
      {34, 63, 0, PROTOBUF_FIELD_OFFSET(Ontology, _impl_.specific_type_)}},
-    // repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];
-    {::_pbi::TcParser::FastUR1,
-     {10, 63, 0, PROTOBUF_FIELD_OFFSET(Ontology, _impl_.descriptors_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // .anduril.entitymanager.v1.Template template = 2 [json_name = "template"];
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(Ontology, _impl_.template__), 63>(),
      {16, 63, 0, PROTOBUF_FIELD_OFFSET(Ontology, _impl_.template__)}},
@@ -562,9 +555,6 @@ const ::_pbi::TcParseTable<2, 4, 0, 79, 2> Ontology::_table_ = {
   }}, {{
     65535, 65535
   }}, {{
-    // repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];
-    {PROTOBUF_FIELD_OFFSET(Ontology, _impl_.descriptors_), 0, 0,
-    (0 | ::_fl::kFcRepeated | ::_fl::kUtf8String | ::_fl::kRepSString)},
     // .anduril.entitymanager.v1.Template template = 2 [json_name = "template"];
     {PROTOBUF_FIELD_OFFSET(Ontology, _impl_.template__), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
@@ -577,9 +567,8 @@ const ::_pbi::TcParseTable<2, 4, 0, 79, 2> Ontology::_table_ = {
   }},
   // no aux_entries
   {{
-    "\41\13\0\15\15\0\0\0"
+    "\41\0\15\15\0\0\0\0"
     "anduril.entitymanager.v1.Ontology"
-    "descriptors"
     "platform_type"
     "specific_type"
   }},
@@ -592,7 +581,6 @@ PROTOBUF_NOINLINE void Ontology::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.descriptors_.Clear();
   _impl_.platform_type_.ClearToEmpty();
   _impl_.specific_type_.ClearToEmpty();
   _impl_.template__ = 0;
@@ -613,14 +601,6 @@ PROTOBUF_NOINLINE void Ontology::Clear() {
           // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.Ontology)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
-
-          // repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];
-          for (int i = 0, n = this_._internal_descriptors_size(); i < n; ++i) {
-            const auto& s = this_._internal_descriptors().Get(i);
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.Ontology.descriptors");
-            target = stream->WriteString(1, s, target);
-          }
 
           // .anduril.entitymanager.v1.Template template = 2 [json_name = "template"];
           if (this_._internal_template_() != 0) {
@@ -670,17 +650,6 @@ PROTOBUF_NOINLINE void Ontology::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];
-             {
-              total_size +=
-                  1 * ::google::protobuf::internal::FromIntSize(this_._internal_descriptors().size());
-              for (int i = 0, n = this_._internal_descriptors().size(); i < n; ++i) {
-                total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
-                    this_._internal_descriptors().Get(i));
-              }
-            }
-          }
-           {
             // string platform_type = 3 [json_name = "platformType", (.anduril.entitymanager.v1.overridable) = true];
             if (!this_._internal_platform_type().empty()) {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -709,7 +678,6 @@ void Ontology::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_internal_mutable_descriptors()->MergeFrom(from._internal_descriptors());
   if (!from._internal_platform_type().empty()) {
     _this->_internal_set_platform_type(from._internal_platform_type());
   }
@@ -735,7 +703,6 @@ void Ontology::InternalSwap(Ontology* PROTOBUF_RESTRICT other) {
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.descriptors_.InternalSwap(&other->_impl_.descriptors_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.platform_type_, &other->_impl_.platform_type_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.specific_type_, &other->_impl_.specific_type_, arena);
   swap(_impl_.template__, other->_impl_.template__);
