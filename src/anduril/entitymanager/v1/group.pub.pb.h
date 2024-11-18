@@ -56,9 +56,6 @@ namespace v1 {
 class GroupDetails;
 struct GroupDetailsDefaultTypeInternal;
 extern GroupDetailsDefaultTypeInternal _GroupDetails_default_instance_;
-class Team;
-struct TeamDefaultTypeInternal;
-extern TeamDefaultTypeInternal _Team_default_instance_;
 }  // namespace v1
 }  // namespace entitymanager
 }  // namespace anduril
@@ -76,154 +73,10 @@ namespace v1 {
 
 // -------------------------------------------------------------------
 
-class Team final : public ::google::protobuf::internal::ZeroFieldsBase
-/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.Team) */ {
- public:
-  inline Team() : Team(nullptr) {}
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR Team(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline Team(const Team& from) : Team(nullptr, from) {}
-  inline Team(Team&& from) noexcept
-      : Team(nullptr, std::move(from)) {}
-  inline Team& operator=(const Team& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Team& operator=(Team&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetArena() == from.GetArena()
-#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetArena() != nullptr
-#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const Team& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const Team* internal_default_instance() {
-    return reinterpret_cast<const Team*>(
-        &_Team_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 1;
-  friend void swap(Team& a, Team& b) { a.Swap(&b); }
-  inline void Swap(Team* other) {
-    if (other == this) return;
-#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
-#else   // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetArena() == other->GetArena()) {
-#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Team* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  Team* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
-    return ::google::protobuf::internal::ZeroFieldsBase::DefaultConstruct<Team>(arena);
-  }
-  using ::google::protobuf::internal::ZeroFieldsBase::CopyFrom;
-  inline void CopyFrom(const Team& from) {
-    ::google::protobuf::internal::ZeroFieldsBase::CopyImpl(*this, from);
-  }
-  using ::google::protobuf::internal::ZeroFieldsBase::MergeFrom;
-  void MergeFrom(const Team& from) {
-    ::google::protobuf::internal::ZeroFieldsBase::MergeImpl(*this, from);
-  }
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
- private:
-  friend class ::google::protobuf::internal::AnyMetadata;
-  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.Team"; }
-
- protected:
-  explicit Team(::google::protobuf::Arena* arena);
-  Team(::google::protobuf::Arena* arena, const Team& from);
-  Team(::google::protobuf::Arena* arena, Team&& from) noexcept
-      : Team(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::internal::ZeroFieldsBase::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static const ::google::protobuf::internal::ZeroFieldsBase::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.Team)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      0, 0, 0,
-      0, 2>
-      _table_;
-
-  static constexpr const void* _raw_default_instance_ =
-      &_Team_default_instance_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const Team& from_msg);
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fgroup_2epub_2eproto;
-};
-// -------------------------------------------------------------------
-
-class GroupDetails final : public ::google::protobuf::Message
+class GroupDetails final : public ::google::protobuf::internal::ZeroFieldsBase
 /* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.GroupDetails) */ {
  public:
   inline GroupDetails() : GroupDetails(nullptr) {}
-  ~GroupDetails() PROTOBUF_FINAL;
   template <typename = void>
   explicit PROTOBUF_CONSTEXPR GroupDetails(
       ::google::protobuf::internal::ConstantInitialized);
@@ -270,10 +123,6 @@ class GroupDetails final : public ::google::protobuf::Message
   static const GroupDetails& default_instance() {
     return *internal_default_instance();
   }
-  enum GroupTypeCase {
-    kTeam = 1,
-    GROUP_TYPE_NOT_SET = 0,
-  };
   static inline const GroupDetails* internal_default_instance() {
     return reinterpret_cast<const GroupDetails*>(
         &_GroupDetails_default_instance_);
@@ -301,49 +150,21 @@ class GroupDetails final : public ::google::protobuf::Message
   // implements Message ----------------------------------------------
 
   GroupDetails* New(::google::protobuf::Arena* arena = nullptr) const PROTOBUF_FINAL {
-    return ::google::protobuf::Message::DefaultConstruct<GroupDetails>(arena);
+    return ::google::protobuf::internal::ZeroFieldsBase::DefaultConstruct<GroupDetails>(arena);
   }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const GroupDetails& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const GroupDetails& from) { GroupDetails::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
+  using ::google::protobuf::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const GroupDetails& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::google::protobuf::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const GroupDetails& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
 
   public:
   bool IsInitialized() const {
     return true;
   }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  void SharedDtor();
-  void InternalSwap(GroupDetails* other);
  private:
   friend class ::google::protobuf::internal::AnyMetadata;
   static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.GroupDetails"; }
@@ -355,47 +176,20 @@ class GroupDetails final : public ::google::protobuf::Message
       : GroupDetails(arena) {
     *this = ::std::move(from);
   }
-  const ::google::protobuf::Message::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static const ::google::protobuf::Message::ClassDataFull _class_data_;
+  const ::google::protobuf::internal::ZeroFieldsBase::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static const ::google::protobuf::internal::ZeroFieldsBase::ClassDataFull _class_data_;
 
  public:
   ::google::protobuf::Metadata GetMetadata() const;
   // nested types ----------------------------------------------------
 
   // accessors -------------------------------------------------------
-  enum : int {
-    kTeamFieldNumber = 1,
-  };
-  // .anduril.entitymanager.v1.Team team = 1 [json_name = "team"];
-  bool has_team() const;
-  private:
-  bool _internal_has_team() const;
-
-  public:
-  void clear_team() ;
-  const ::anduril::entitymanager::v1::Team& team() const;
-  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::Team* release_team();
-  ::anduril::entitymanager::v1::Team* mutable_team();
-  void set_allocated_team(::anduril::entitymanager::v1::Team* value);
-  void unsafe_arena_set_allocated_team(::anduril::entitymanager::v1::Team* value);
-  ::anduril::entitymanager::v1::Team* unsafe_arena_release_team();
-
-  private:
-  const ::anduril::entitymanager::v1::Team& _internal_team() const;
-  ::anduril::entitymanager::v1::Team* _internal_mutable_team();
-
-  public:
-  void clear_group_type();
-  GroupTypeCase group_type_case() const;
   // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.GroupDetails)
  private:
   class _Internal;
-  void set_has_team();
-  inline bool has_group_type() const;
-  inline void clear_has_group_type();
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      0, 1, 1,
+      0, 0, 0,
       0, 2>
       _table_;
 
@@ -416,16 +210,8 @@ class GroupDetails final : public ::google::protobuf::Message
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const GroupDetails& from_msg);
-    union GroupTypeUnion {
-      constexpr GroupTypeUnion() : _constinit_{} {}
-      ::google::protobuf::internal::ConstantInitialized _constinit_;
-      ::anduril::entitymanager::v1::Team* team_;
-    } group_type_;
-    mutable ::google::protobuf::internal::CachedSize _cached_size_;
-    ::uint32_t _oneof_case_[1];
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
-  union { Impl_ _impl_; };
   friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fgroup_2epub_2eproto;
 };
 
@@ -444,98 +230,6 @@ class GroupDetails final : public ::google::protobuf::Message
 // -------------------------------------------------------------------
 
 // GroupDetails
-
-// .anduril.entitymanager.v1.Team team = 1 [json_name = "team"];
-inline bool GroupDetails::has_team() const {
-  return group_type_case() == kTeam;
-}
-inline bool GroupDetails::_internal_has_team() const {
-  return group_type_case() == kTeam;
-}
-inline void GroupDetails::set_has_team() {
-  _impl_._oneof_case_[0] = kTeam;
-}
-inline void GroupDetails::clear_team() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (group_type_case() == kTeam) {
-    if (GetArena() == nullptr) {
-      delete _impl_.group_type_.team_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.group_type_.team_);
-    }
-    clear_has_group_type();
-  }
-}
-inline ::anduril::entitymanager::v1::Team* GroupDetails::release_team() {
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.GroupDetails.team)
-  if (group_type_case() == kTeam) {
-    clear_has_group_type();
-    auto* temp = _impl_.group_type_.team_;
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.group_type_.team_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::anduril::entitymanager::v1::Team& GroupDetails::_internal_team() const {
-  return group_type_case() == kTeam ? *_impl_.group_type_.team_ : reinterpret_cast<::anduril::entitymanager::v1::Team&>(::anduril::entitymanager::v1::_Team_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::Team& GroupDetails::team() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.GroupDetails.team)
-  return _internal_team();
-}
-inline ::anduril::entitymanager::v1::Team* GroupDetails::unsafe_arena_release_team() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:anduril.entitymanager.v1.GroupDetails.team)
-  if (group_type_case() == kTeam) {
-    clear_has_group_type();
-    auto* temp = _impl_.group_type_.team_;
-    _impl_.group_type_.team_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void GroupDetails::unsafe_arena_set_allocated_team(::anduril::entitymanager::v1::Team* value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_group_type();
-  if (value) {
-    set_has_team();
-    _impl_.group_type_.team_ = value;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.GroupDetails.team)
-}
-inline ::anduril::entitymanager::v1::Team* GroupDetails::_internal_mutable_team() {
-  if (group_type_case() != kTeam) {
-    clear_group_type();
-    set_has_team();
-    _impl_.group_type_.team_ =
-        ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Team>(GetArena());
-  }
-  return _impl_.group_type_.team_;
-}
-inline ::anduril::entitymanager::v1::Team* GroupDetails::mutable_team() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::anduril::entitymanager::v1::Team* _msg = _internal_mutable_team();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.GroupDetails.team)
-  return _msg;
-}
-
-inline bool GroupDetails::has_group_type() const {
-  return group_type_case() != GROUP_TYPE_NOT_SET;
-}
-inline void GroupDetails::clear_has_group_type() {
-  _impl_._oneof_case_[0] = GROUP_TYPE_NOT_SET;
-}
-inline GroupDetails::GroupTypeCase GroupDetails::group_type_case() const {
-  return GroupDetails::GroupTypeCase(_impl_._oneof_case_[0]);
-}
-// -------------------------------------------------------------------
-
-// Team
 
 #ifdef __GNUC__
 #pragma GCC diagnostic pop

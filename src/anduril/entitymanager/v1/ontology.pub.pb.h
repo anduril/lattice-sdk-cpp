@@ -219,33 +219,10 @@ class Ontology final : public ::google::protobuf::Message
 
   // accessors -------------------------------------------------------
   enum : int {
-    kDescriptorsFieldNumber = 1,
     kPlatformTypeFieldNumber = 3,
     kSpecificTypeFieldNumber = 4,
     kTemplateFieldNumber = 2,
   };
-  // repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];
-  [[deprecated]]  int descriptors_size() const;
-  private:
-  int _internal_descriptors_size() const;
-
-  public:
-  [[deprecated]]  void clear_descriptors() ;
-  [[deprecated]] const std::string& descriptors(int index) const;
-  [[deprecated]] std::string* mutable_descriptors(int index);
-  template <typename Arg_ = const std::string&, typename... Args_>
-  [[deprecated]] void set_descriptors(int index, Arg_&& value, Args_... args);
-  [[deprecated]] std::string* add_descriptors();
-  template <typename Arg_ = const std::string&, typename... Args_>
-  [[deprecated]] void add_descriptors(Arg_&& value, Args_... args);
-  [[deprecated]] const ::google::protobuf::RepeatedPtrField<std::string>& descriptors() const;
-  [[deprecated]] ::google::protobuf::RepeatedPtrField<std::string>* mutable_descriptors();
-
-  private:
-  const ::google::protobuf::RepeatedPtrField<std::string>& _internal_descriptors() const;
-  ::google::protobuf::RepeatedPtrField<std::string>* _internal_mutable_descriptors();
-
-  public:
   // string platform_type = 3 [json_name = "platformType", (.anduril.entitymanager.v1.overridable) = true];
   void clear_platform_type() ;
   const std::string& platform_type() const;
@@ -293,8 +270,8 @@ class Ontology final : public ::google::protobuf::Message
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      2, 4, 0,
-      79, 2>
+      2, 3, 0,
+      68, 2>
       _table_;
 
   static constexpr const void* _raw_default_instance_ =
@@ -314,7 +291,6 @@ class Ontology final : public ::google::protobuf::Message
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const Ontology& from_msg);
-    ::google::protobuf::RepeatedPtrField<std::string> descriptors_;
     ::google::protobuf::internal::ArenaStringPtr platform_type_;
     ::google::protobuf::internal::ArenaStringPtr specific_type_;
     int template__;
@@ -622,70 +598,6 @@ inline void MilView::_internal_set_nationality(::anduril::ontology::v1::National
 // -------------------------------------------------------------------
 
 // Ontology
-
-// repeated string descriptors = 1 [json_name = "descriptors", deprecated = true];
-inline int Ontology::_internal_descriptors_size() const {
-  return _internal_descriptors().size();
-}
-inline int Ontology::descriptors_size() const {
-  return _internal_descriptors_size();
-}
-inline void Ontology::clear_descriptors() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.descriptors_.Clear();
-}
-inline std::string* Ontology::add_descriptors() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  std::string* _s = _internal_mutable_descriptors()->Add();
-  // @@protoc_insertion_point(field_add_mutable:anduril.entitymanager.v1.Ontology.descriptors)
-  return _s;
-}
-inline const std::string& Ontology::descriptors(int index) const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Ontology.descriptors)
-  return _internal_descriptors().Get(index);
-}
-inline std::string* Ontology::mutable_descriptors(int index)
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Ontology.descriptors)
-  return _internal_mutable_descriptors()->Mutable(index);
-}
-template <typename Arg_, typename... Args_>
-inline void Ontology::set_descriptors(int index, Arg_&& value, Args_... args) {
-  ::google::protobuf::internal::AssignToString(
-      *_internal_mutable_descriptors()->Mutable(index),
-      std::forward<Arg_>(value), args... );
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.Ontology.descriptors)
-}
-template <typename Arg_, typename... Args_>
-inline void Ontology::add_descriptors(Arg_&& value, Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::google::protobuf::internal::AddToRepeatedPtrField(*_internal_mutable_descriptors(),
-                               std::forward<Arg_>(value),
-                               args... );
-  // @@protoc_insertion_point(field_add:anduril.entitymanager.v1.Ontology.descriptors)
-}
-inline const ::google::protobuf::RepeatedPtrField<std::string>&
-Ontology::descriptors() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_list:anduril.entitymanager.v1.Ontology.descriptors)
-  return _internal_descriptors();
-}
-inline ::google::protobuf::RepeatedPtrField<std::string>*
-Ontology::mutable_descriptors() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_list:anduril.entitymanager.v1.Ontology.descriptors)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _internal_mutable_descriptors();
-}
-inline const ::google::protobuf::RepeatedPtrField<std::string>&
-Ontology::_internal_descriptors() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.descriptors_;
-}
-inline ::google::protobuf::RepeatedPtrField<std::string>*
-Ontology::_internal_mutable_descriptors() {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return &_impl_.descriptors_;
-}
 
 // string platform_type = 3 [json_name = "platformType", (.anduril.entitymanager.v1.overridable) = true];
 inline void Ontology::clear_platform_type() {

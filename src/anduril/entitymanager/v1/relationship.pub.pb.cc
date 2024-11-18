@@ -27,24 +27,6 @@ namespace anduril {
 namespace entitymanager {
 namespace v1 {
               template <typename>
-PROTOBUF_CONSTEXPR Tether::Tether(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::internal::ZeroFieldsBase(_class_data_.base()){}
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::internal::ZeroFieldsBase() {
-}
-#endif  // PROTOBUF_CUSTOM_VTABLE
-struct TetherDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR TetherDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~TetherDefaultTypeInternal() {}
-  union {
-    Tether _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TetherDefaultTypeInternal _Tether_default_instance_;
-              template <typename>
 PROTOBUF_CONSTEXPR MergedFrom::MergedFrom(::_pbi::ConstantInitialized)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::internal::ZeroFieldsBase(_class_data_.base()){}
@@ -98,24 +80,6 @@ struct GroupChildDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GroupChildDefaultTypeInternal _GroupChild_default_instance_;
-              template <typename>
-PROTOBUF_CONSTEXPR Configure::Configure(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::internal::ZeroFieldsBase(_class_data_.base()){}
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::internal::ZeroFieldsBase() {
-}
-#endif  // PROTOBUF_CUSTOM_VTABLE
-struct ConfigureDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR ConfigureDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~ConfigureDefaultTypeInternal() {}
-  union {
-    Configure _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ConfigureDefaultTypeInternal _Configure_default_instance_;
 
 inline constexpr TrackedBy::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -269,17 +233,7 @@ const ::uint32_t
         ::_pbi::kInvalidFieldOffsetTag,
         ::_pbi::kInvalidFieldOffsetTag,
         ::_pbi::kInvalidFieldOffsetTag,
-        ::_pbi::kInvalidFieldOffsetTag,
-        ::_pbi::kInvalidFieldOffsetTag,
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RelationshipType, _impl_.type_),
-        ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Tether, _internal_metadata_),
-        ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
-        ~0u,  // no _weak_field_map_
-        ~0u,  // no _inlined_string_donated_
-        ~0u,  // no _split_
-        ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::TrackedBy, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::TrackedBy, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -292,14 +246,6 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::TrackedBy, _impl_.last_measurement_timestamp_),
         0,
         1,
-        ~0u,  // no _has_bits_
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Configure, _internal_metadata_),
-        ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
-        ~0u,  // no _weak_field_map_
-        ~0u,  // no _inlined_string_donated_
-        ~0u,  // no _split_
-        ~0u,  // no sizeof(Split)
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::GroupChild, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -331,20 +277,16 @@ static const ::_pbi::MigrationSchema
         {0, -1, -1, sizeof(::anduril::entitymanager::v1::Relationships)},
         {9, 20, -1, sizeof(::anduril::entitymanager::v1::Relationship)},
         {23, -1, -1, sizeof(::anduril::entitymanager::v1::RelationshipType)},
-        {38, -1, -1, sizeof(::anduril::entitymanager::v1::Tether)},
-        {46, 56, -1, sizeof(::anduril::entitymanager::v1::TrackedBy)},
-        {58, -1, -1, sizeof(::anduril::entitymanager::v1::Configure)},
-        {66, -1, -1, sizeof(::anduril::entitymanager::v1::GroupChild)},
-        {74, -1, -1, sizeof(::anduril::entitymanager::v1::GroupParent)},
-        {82, -1, -1, sizeof(::anduril::entitymanager::v1::MergedFrom)},
+        {36, 46, -1, sizeof(::anduril::entitymanager::v1::TrackedBy)},
+        {48, -1, -1, sizeof(::anduril::entitymanager::v1::GroupChild)},
+        {56, -1, -1, sizeof(::anduril::entitymanager::v1::GroupParent)},
+        {64, -1, -1, sizeof(::anduril::entitymanager::v1::MergedFrom)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::entitymanager::v1::_Relationships_default_instance_._instance,
     &::anduril::entitymanager::v1::_Relationship_default_instance_._instance,
     &::anduril::entitymanager::v1::_RelationshipType_default_instance_._instance,
-    &::anduril::entitymanager::v1::_Tether_default_instance_._instance,
     &::anduril::entitymanager::v1::_TrackedBy_default_instance_._instance,
-    &::anduril::entitymanager::v1::_Configure_default_instance_._instance,
     &::anduril::entitymanager::v1::_GroupChild_default_instance_._instance,
     &::anduril::entitymanager::v1::_GroupParent_default_instance_._instance,
     &::anduril::entitymanager::v1::_MergedFrom_default_instance_._instance,
@@ -361,32 +303,28 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2frelationship
     "ty_id\030\001 \001(\tR\017relatedEntityId\022\'\n\017relation"
     "ship_id\030\002 \001(\tR\016relationshipId\022W\n\021relatio"
     "nship_type\030\003 \001(\0132*.anduril.entitymanager"
-    ".v1.RelationshipTypeR\020relationshipType\"\277"
-    "\003\n\020RelationshipType\022:\n\006tether\030\001 \001(\0132 .an"
-    "duril.entitymanager.v1.TetherH\000R\006tether\022"
-    "D\n\ntracked_by\030\002 \001(\0132#.anduril.entitymana"
-    "ger.v1.TrackedByH\000R\ttrackedBy\022C\n\tconfigu"
-    "re\030\003 \001(\0132#.anduril.entitymanager.v1.Conf"
-    "igureH\000R\tconfigure\022G\n\013group_child\030\004 \001(\0132"
-    "$.anduril.entitymanager.v1.GroupChildH\000R"
-    "\ngroupChild\022J\n\014group_parent\030\005 \001(\0132%.andu"
-    "ril.entitymanager.v1.GroupParentH\000R\013grou"
-    "pParent\022G\n\013merged_from\030\006 \001(\0132$.anduril.e"
-    "ntitymanager.v1.MergedFromH\000R\nmergedFrom"
-    "B\006\n\004type\"\010\n\006Tether\"\304\001\n\tTrackedBy\022]\n\031acti"
-    "vely_tracking_sensors\030\001 \001(\0132!.anduril.en"
-    "titymanager.v1.SensorsR\027activelyTracking"
-    "Sensors\022X\n\032last_measurement_timestamp\030\002 "
-    "\001(\0132\032.google.protobuf.TimestampR\030lastMea"
-    "surementTimestamp\"\013\n\tConfigure\"\014\n\nGroupC"
-    "hild\"\r\n\013GroupParent\"\014\n\nMergedFromB\205\002\n\034co"
-    "m.anduril.entitymanager.v1B\024Relationship"
-    "PubProtoP\001ZMghe.anduril.dev/anduril/andu"
-    "rilapis-go/anduril/entitymanager/v1;enti"
-    "tymanager\242\002\003AEX\252\002\030Anduril.Entitymanager."
-    "V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\"
-    "Entitymanager\\V1\\GPBMetadata\352\002\032Anduril::"
-    "Entitymanager::V1b\006proto3"
+    ".v1.RelationshipTypeR\020relationshipType\"\276"
+    "\002\n\020RelationshipType\022D\n\ntracked_by\030\002 \001(\0132"
+    "#.anduril.entitymanager.v1.TrackedByH\000R\t"
+    "trackedBy\022G\n\013group_child\030\004 \001(\0132$.anduril"
+    ".entitymanager.v1.GroupChildH\000R\ngroupChi"
+    "ld\022J\n\014group_parent\030\005 \001(\0132%.anduril.entit"
+    "ymanager.v1.GroupParentH\000R\013groupParent\022G"
+    "\n\013merged_from\030\006 \001(\0132$.anduril.entitymana"
+    "ger.v1.MergedFromH\000R\nmergedFromB\006\n\004type\""
+    "\304\001\n\tTrackedBy\022]\n\031actively_tracking_senso"
+    "rs\030\001 \001(\0132!.anduril.entitymanager.v1.Sens"
+    "orsR\027activelyTrackingSensors\022X\n\032last_mea"
+    "surement_timestamp\030\002 \001(\0132\032.google.protob"
+    "uf.TimestampR\030lastMeasurementTimestamp\"\014"
+    "\n\nGroupChild\"\r\n\013GroupParent\"\014\n\nMergedFro"
+    "mB\205\002\n\034com.anduril.entitymanager.v1B\024Rela"
+    "tionshipPubProtoP\001ZMghe.anduril.dev/andu"
+    "ril/andurilapis-go/anduril/entitymanager"
+    "/v1;entitymanager\242\002\003AEX\252\002\030Anduril.Entity"
+    "manager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$"
+    "Anduril\\Entitymanager\\V1\\GPBMetadata\352\002\032A"
+    "nduril::Entitymanager::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2frelationship_2epub_2eproto_deps[2] =
     {
@@ -397,13 +335,13 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2frelatio
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2frelationship_2epub_2eproto = {
     false,
     false,
-    1425,
+    1273,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2frelationship_2epub_2eproto,
     "anduril/entitymanager/v1/relationship.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2frelationship_2epub_2eproto_once,
     descriptor_table_anduril_2fentitymanager_2fv1_2frelationship_2epub_2eproto_deps,
     2,
-    9,
+    7,
     schemas,
     file_default_instances,
     TableStruct_anduril_2fentitymanager_2fv1_2frelationship_2epub_2eproto::offsets,
@@ -950,19 +888,6 @@ class RelationshipType::_Internal {
       PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RelationshipType, _impl_._oneof_case_);
 };
 
-void RelationshipType::set_allocated_tether(::anduril::entitymanager::v1::Tether* tether) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_type();
-  if (tether) {
-    ::google::protobuf::Arena* submessage_arena = tether->GetArena();
-    if (message_arena != submessage_arena) {
-      tether = ::google::protobuf::internal::GetOwnedMessage(message_arena, tether, submessage_arena);
-    }
-    set_has_tether();
-    _impl_.type_.tether_ = tether;
-  }
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.RelationshipType.tether)
-}
 void RelationshipType::set_allocated_tracked_by(::anduril::entitymanager::v1::TrackedBy* tracked_by) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_type();
@@ -975,19 +900,6 @@ void RelationshipType::set_allocated_tracked_by(::anduril::entitymanager::v1::Tr
     _impl_.type_.tracked_by_ = tracked_by;
   }
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.RelationshipType.tracked_by)
-}
-void RelationshipType::set_allocated_configure(::anduril::entitymanager::v1::Configure* configure) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_type();
-  if (configure) {
-    ::google::protobuf::Arena* submessage_arena = configure->GetArena();
-    if (message_arena != submessage_arena) {
-      configure = ::google::protobuf::internal::GetOwnedMessage(message_arena, configure, submessage_arena);
-    }
-    set_has_configure();
-    _impl_.type_.configure_ = configure;
-  }
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.RelationshipType.configure)
 }
 void RelationshipType::set_allocated_group_child(::anduril::entitymanager::v1::GroupChild* group_child) {
   ::google::protobuf::Arena* message_arena = GetArena();
@@ -1060,14 +972,8 @@ RelationshipType::RelationshipType(
   switch (type_case()) {
     case TYPE_NOT_SET:
       break;
-      case kTether:
-        _impl_.type_.tether_ = ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Tether>(arena, *from._impl_.type_.tether_);
-        break;
       case kTrackedBy:
         _impl_.type_.tracked_by_ = ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::TrackedBy>(arena, *from._impl_.type_.tracked_by_);
-        break;
-      case kConfigure:
-        _impl_.type_.configure_ = ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Configure>(arena, *from._impl_.type_.configure_);
         break;
       case kGroupChild:
         _impl_.type_.group_child_ = ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::GroupChild>(arena, *from._impl_.type_.group_child_);
@@ -1109,27 +1015,11 @@ void RelationshipType::clear_type() {
 // @@protoc_insertion_point(one_of_clear_start:anduril.entitymanager.v1.RelationshipType)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   switch (type_case()) {
-    case kTether: {
-      if (GetArena() == nullptr) {
-        delete _impl_.type_.tether_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.type_.tether_);
-      }
-      break;
-    }
     case kTrackedBy: {
       if (GetArena() == nullptr) {
         delete _impl_.type_.tracked_by_;
       } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
         ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.type_.tracked_by_);
-      }
-      break;
-    }
-    case kConfigure: {
-      if (GetArena() == nullptr) {
-        delete _impl_.type_.configure_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.type_.configure_);
       }
       break;
     }
@@ -1194,16 +1084,16 @@ const ::google::protobuf::MessageLite::ClassData* RelationshipType::GetClassData
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 6, 6, 0, 2> RelationshipType::_table_ = {
+const ::_pbi::TcParseTable<0, 4, 4, 0, 2> RelationshipType::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
     6, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967232,  // skipmap
+    4294967237,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    6,  // num_field_entries
-    6,  // num_aux_entries
+    4,  // num_field_entries
+    4,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
@@ -1216,28 +1106,20 @@ const ::_pbi::TcParseTable<0, 6, 6, 0, 2> RelationshipType::_table_ = {
   }}, {{
     65535, 65535
   }}, {{
-    // .anduril.entitymanager.v1.Tether tether = 1 [json_name = "tether"];
-    {PROTOBUF_FIELD_OFFSET(RelationshipType, _impl_.type_.tether_), _Internal::kOneofCaseOffset + 0, 0,
-    (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.TrackedBy tracked_by = 2 [json_name = "trackedBy"];
-    {PROTOBUF_FIELD_OFFSET(RelationshipType, _impl_.type_.tracked_by_), _Internal::kOneofCaseOffset + 0, 1,
-    (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .anduril.entitymanager.v1.Configure configure = 3 [json_name = "configure"];
-    {PROTOBUF_FIELD_OFFSET(RelationshipType, _impl_.type_.configure_), _Internal::kOneofCaseOffset + 0, 2,
+    {PROTOBUF_FIELD_OFFSET(RelationshipType, _impl_.type_.tracked_by_), _Internal::kOneofCaseOffset + 0, 0,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.GroupChild group_child = 4 [json_name = "groupChild"];
-    {PROTOBUF_FIELD_OFFSET(RelationshipType, _impl_.type_.group_child_), _Internal::kOneofCaseOffset + 0, 3,
+    {PROTOBUF_FIELD_OFFSET(RelationshipType, _impl_.type_.group_child_), _Internal::kOneofCaseOffset + 0, 1,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.GroupParent group_parent = 5 [json_name = "groupParent"];
-    {PROTOBUF_FIELD_OFFSET(RelationshipType, _impl_.type_.group_parent_), _Internal::kOneofCaseOffset + 0, 4,
+    {PROTOBUF_FIELD_OFFSET(RelationshipType, _impl_.type_.group_parent_), _Internal::kOneofCaseOffset + 0, 2,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.MergedFrom merged_from = 6 [json_name = "mergedFrom"];
-    {PROTOBUF_FIELD_OFFSET(RelationshipType, _impl_.type_.merged_from_), _Internal::kOneofCaseOffset + 0, 5,
+    {PROTOBUF_FIELD_OFFSET(RelationshipType, _impl_.type_.merged_from_), _Internal::kOneofCaseOffset + 0, 3,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Tether>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::TrackedBy>()},
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Configure>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::GroupChild>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::GroupParent>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::MergedFrom>()},
@@ -1272,21 +1154,9 @@ PROTOBUF_NOINLINE void RelationshipType::Clear() {
           (void)cached_has_bits;
 
           switch (this_.type_case()) {
-            case kTether: {
-              target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                  1, *this_._impl_.type_.tether_, this_._impl_.type_.tether_->GetCachedSize(), target,
-                  stream);
-              break;
-            }
             case kTrackedBy: {
               target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                   2, *this_._impl_.type_.tracked_by_, this_._impl_.type_.tracked_by_->GetCachedSize(), target,
-                  stream);
-              break;
-            }
-            case kConfigure: {
-              target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                  3, *this_._impl_.type_.configure_, this_._impl_.type_.configure_->GetCachedSize(), target,
                   stream);
               break;
             }
@@ -1335,22 +1205,10 @@ PROTOBUF_NOINLINE void RelationshipType::Clear() {
           (void)cached_has_bits;
 
           switch (this_.type_case()) {
-            // .anduril.entitymanager.v1.Tether tether = 1 [json_name = "tether"];
-            case kTether: {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.type_.tether_);
-              break;
-            }
             // .anduril.entitymanager.v1.TrackedBy tracked_by = 2 [json_name = "trackedBy"];
             case kTrackedBy: {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.type_.tracked_by_);
-              break;
-            }
-            // .anduril.entitymanager.v1.Configure configure = 3 [json_name = "configure"];
-            case kConfigure: {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.type_.configure_);
               break;
             }
             // .anduril.entitymanager.v1.GroupChild group_child = 4 [json_name = "groupChild"];
@@ -1399,30 +1257,12 @@ void RelationshipType::MergeImpl(::google::protobuf::MessageLite& to_msg, const 
     }
 
     switch (oneof_from_case) {
-      case kTether: {
-        if (oneof_needs_init) {
-          _this->_impl_.type_.tether_ =
-              ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Tether>(arena, *from._impl_.type_.tether_);
-        } else {
-          _this->_impl_.type_.tether_->MergeFrom(from._internal_tether());
-        }
-        break;
-      }
       case kTrackedBy: {
         if (oneof_needs_init) {
           _this->_impl_.type_.tracked_by_ =
               ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::TrackedBy>(arena, *from._impl_.type_.tracked_by_);
         } else {
           _this->_impl_.type_.tracked_by_->MergeFrom(from._internal_tracked_by());
-        }
-        break;
-      }
-      case kConfigure: {
-        if (oneof_needs_init) {
-          _this->_impl_.type_.configure_ =
-              ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Configure>(arena, *from._impl_.type_.configure_);
-        } else {
-          _this->_impl_.type_.configure_->MergeFrom(from._internal_configure());
         }
         break;
       }
@@ -1477,102 +1317,6 @@ void RelationshipType::InternalSwap(RelationshipType* PROTOBUF_RESTRICT other) {
 
 ::google::protobuf::Metadata RelationshipType::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
-}
-// ===================================================================
-
-class Tether::_Internal {
- public:
-};
-
-Tether::Tether(::google::protobuf::Arena* arena)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::internal::ZeroFieldsBase(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.Tether)
-}
-Tether::Tether(
-    ::google::protobuf::Arena* arena,
-    const Tether& from)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::internal::ZeroFieldsBase(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  Tether* const _this = this;
-  (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
-      from._internal_metadata_);
-
-  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.Tether)
-}
-
-PROTOBUF_CONSTINIT
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::MessageLite::ClassDataFull
-    Tether::_class_data_ = {
-        ::google::protobuf::internal::ZeroFieldsBase::ClassData{
-            &_Tether_default_instance_._instance,
-            &_table_.header,
-            nullptr,  // OnDemandRegisterArenaDtor
-            nullptr,  // IsInitialized
-            &Tether::MergeImpl,
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-            ::google::protobuf::internal::ZeroFieldsBase::GetDeleteImpl<Tether>(),
-            ::google::protobuf::internal::ZeroFieldsBase::GetNewImpl<Tether>(),
-            ::google::protobuf::internal::ZeroFieldsBase::GetClearImpl<Tether>(), &Tether::ByteSizeLong,
-                &Tether::_InternalSerialize,
-#endif  // PROTOBUF_CUSTOM_VTABLE
-            PROTOBUF_FIELD_OFFSET(Tether, _impl_._cached_size_),
-            false,
-        },
-        &Tether::kDescriptorMethods,
-        &descriptor_table_anduril_2fentitymanager_2fv1_2frelationship_2epub_2eproto,
-        nullptr,  // tracker
-};
-const ::google::protobuf::MessageLite::ClassData* Tether::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
-  return _class_data_.base();
-}
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 0, 0, 0, 2> Tether::_table_ = {
-  {
-    0,  // no _has_bits_
-    0, // no _extensions_
-    0, 0,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294967295,  // skipmap
-    offsetof(decltype(_table_), field_names),  // no field_entries
-    0,  // num_field_entries
-    0,  // num_aux_entries
-    offsetof(decltype(_table_), field_names),  // no aux_entries
-    _class_data_.base(),
-    nullptr,  // post_loop_handler
-    ::_pbi::TcParser::GenericFallback,  // fallback
-    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Tether>(),  // to_prefetch
-    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
-  }, {{
-    {::_pbi::TcParser::MiniParse, {}},
-  }}, {{
-    65535, 65535
-  }},
-  // no field_entries, or aux_entries
-  {{
-  }},
-};
-
-
-
-
-
-
-
-
-::google::protobuf::Metadata Tether::GetMetadata() const {
-  return ::google::protobuf::internal::ZeroFieldsBase::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 
@@ -1876,102 +1620,6 @@ void TrackedBy::InternalSwap(TrackedBy* PROTOBUF_RESTRICT other) {
 
 ::google::protobuf::Metadata TrackedBy::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
-}
-// ===================================================================
-
-class Configure::_Internal {
- public:
-};
-
-Configure::Configure(::google::protobuf::Arena* arena)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::internal::ZeroFieldsBase(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.Configure)
-}
-Configure::Configure(
-    ::google::protobuf::Arena* arena,
-    const Configure& from)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::internal::ZeroFieldsBase(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  Configure* const _this = this;
-  (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
-      from._internal_metadata_);
-
-  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.Configure)
-}
-
-PROTOBUF_CONSTINIT
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::MessageLite::ClassDataFull
-    Configure::_class_data_ = {
-        ::google::protobuf::internal::ZeroFieldsBase::ClassData{
-            &_Configure_default_instance_._instance,
-            &_table_.header,
-            nullptr,  // OnDemandRegisterArenaDtor
-            nullptr,  // IsInitialized
-            &Configure::MergeImpl,
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-            ::google::protobuf::internal::ZeroFieldsBase::GetDeleteImpl<Configure>(),
-            ::google::protobuf::internal::ZeroFieldsBase::GetNewImpl<Configure>(),
-            ::google::protobuf::internal::ZeroFieldsBase::GetClearImpl<Configure>(), &Configure::ByteSizeLong,
-                &Configure::_InternalSerialize,
-#endif  // PROTOBUF_CUSTOM_VTABLE
-            PROTOBUF_FIELD_OFFSET(Configure, _impl_._cached_size_),
-            false,
-        },
-        &Configure::kDescriptorMethods,
-        &descriptor_table_anduril_2fentitymanager_2fv1_2frelationship_2epub_2eproto,
-        nullptr,  // tracker
-};
-const ::google::protobuf::MessageLite::ClassData* Configure::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
-  return _class_data_.base();
-}
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 0, 0, 0, 2> Configure::_table_ = {
-  {
-    0,  // no _has_bits_
-    0, // no _extensions_
-    0, 0,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294967295,  // skipmap
-    offsetof(decltype(_table_), field_names),  // no field_entries
-    0,  // num_field_entries
-    0,  // num_aux_entries
-    offsetof(decltype(_table_), field_names),  // no aux_entries
-    _class_data_.base(),
-    nullptr,  // post_loop_handler
-    ::_pbi::TcParser::GenericFallback,  // fallback
-    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Configure>(),  // to_prefetch
-    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
-  }, {{
-    {::_pbi::TcParser::MiniParse, {}},
-  }}, {{
-    65535, 65535
-  }},
-  // no field_entries, or aux_entries
-  {{
-  }},
-};
-
-
-
-
-
-
-
-
-::google::protobuf::Metadata Configure::GetMetadata() const {
-  return ::google::protobuf::internal::ZeroFieldsBase::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 

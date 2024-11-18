@@ -379,79 +379,79 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fsensors_2epu
     "roto\032\037google/protobuf/timestamp.proto\032\036g"
     "oogle/protobuf/wrappers.proto\"E\n\007Sensors"
     "\022:\n\007sensors\030\001 \003(\0132 .anduril.entitymanage"
-    "r.v1.SensorR\007sensors\"\273\004\n\006Sensor\022 \n\tsenso"
+    "r.v1.SensorR\007sensors\"\277\004\n\006Sensor\022 \n\tsenso"
     "r_id\030\001 \001(\tB\003\320>\001R\010sensorId\022W\n\021operational"
     "_state\030\003 \001(\0162*.anduril.entitymanager.v1."
-    "OperationalStateR\020operationalState\022I\n\rfi"
+    "OperationalStateR\020operationalState\022M\n\rfi"
     "eld_of_view\030\004 \001(\0132%.anduril.entitymanage"
-    "r.v1.FieldOfViewR\013fieldOfView\022E\n\013sensor_"
-    "type\030\005 \001(\0162$.anduril.entitymanager.v1.Se"
-    "nsorTypeR\nsensorType\022-\n\022sensor_descripti"
-    "on\030\006 \001(\tR\021sensorDescription\022R\n\017rf_config"
-    "uraton\030\007 \001(\0132).anduril.entitymanager.v1."
-    "RFConfigurationR\016rfConfiguraton\022T\n\030last_"
-    "detection_timestamp\030\010 \001(\0132\032.google.proto"
-    "buf.TimestampR\026lastDetectionTimestamp\022K\n"
-    "\016fields_of_view\030\t \003(\0132%.anduril.entityma"
-    "nager.v1.FieldOfViewR\014fieldsOfView\"\355\003\n\013F"
-    "ieldOfView\022\025\n\006fov_id\030\001 \001(\005R\005fovId\022\031\n\010mou"
-    "nt_id\030\002 \001(\tR\007mountId\022W\n\021projected_frustu"
-    "m\030\003 \001(\0132*.anduril.entitymanager.v1.Proje"
-    "ctedFrustumR\020projectedFrustum\022T\n\024project"
-    "ed_center_ray\030\004 \001(\0132\".anduril.entitymana"
-    "ger.v1.PositionR\022projectedCenterRay\022F\n\017c"
-    "enter_ray_pose\030\005 \001(\0132\036.anduril.entityman"
-    "ager.v1.PoseR\rcenterRayPose\022%\n\016horizonta"
-    "l_fov\030\006 \001(\002R\rhorizontalFov\022!\n\014vertical_f"
-    "ov\030\007 \001(\002R\013verticalFov\0221\n\005range\030\010 \001(\0132\033.g"
-    "oogle.protobuf.FloatValueR\005range\0228\n\004mode"
-    "\030\t \001(\0162$.anduril.entitymanager.v1.Sensor"
-    "ModeR\004mode\"\246\002\n\020ProjectedFrustum\022A\n\nupper"
-    "_left\030\001 \001(\0132\".anduril.entitymanager.v1.P"
-    "ositionR\tupperLeft\022C\n\013upper_right\030\002 \001(\0132"
-    "\".anduril.entitymanager.v1.PositionR\nupp"
-    "erRight\022E\n\014bottom_right\030\003 \001(\0132\".anduril."
-    "entitymanager.v1.PositionR\013bottomRight\022C"
-    "\n\013bottom_left\030\004 \001(\0132\".anduril.entitymana"
-    "ger.v1.PositionR\nbottomLeft\"\347\002\n\017RFConfig"
-    "uration\022Q\n\017frequency_range\030\001 \003(\0132$.andur"
-    "il.entitymanager.v1.FloatRangeB\002\030\001R\016freq"
-    "uencyRange\022Q\n\017bandwidth_range\030\002 \003(\0132$.an"
-    "duril.entitymanager.v1.FloatRangeB\002\030\001R\016b"
-    "andwidthRange\022V\n\022frequency_range_hz\030\003 \003("
-    "\0132(.anduril.entitymanager.v1.FrequencyRa"
-    "ngeR\020frequencyRangeHz\022V\n\022bandwidth_range"
-    "_hz\030\004 \003(\0132(.anduril.entitymanager.v1.Ban"
-    "dwidthRangeR\020bandwidthRangeHz\"\264\001\n\016Bandwi"
-    "dthRange\022P\n\021minimum_bandwidth\030\001 \001(\0132#.an"
-    "duril.entitymanager.v1.BandwidthR\020minimu"
-    "mBandwidth\022P\n\021maximum_bandwidth\030\002 \001(\0132#."
-    "anduril.entitymanager.v1.BandwidthR\020maxi"
-    "mumBandwidth\"L\n\tBandwidth\022\?\n\014bandwidth_h"
-    "z\030\001 \001(\0132\034.google.protobuf.DoubleValueR\013b"
-    "andwidthHz*\324\001\n\020OperationalState\022\035\n\031OPERA"
-    "TIONAL_STATE_INVALID\020\000\022\031\n\025OPERATIONAL_ST"
-    "ATE_OFF\020\001\022%\n!OPERATIONAL_STATE_NON_OPERA"
-    "TIONAL\020\002\022\036\n\032OPERATIONAL_STATE_DEGRADED\020\003"
-    "\022!\n\035OPERATIONAL_STATE_OPERATIONAL\020\004\022\034\n\030O"
-    "PERATIONAL_STATE_DENIED\020\005*\240\001\n\nSensorMode"
-    "\022\027\n\023SENSOR_MODE_INVALID\020\000\022\026\n\022SENSOR_MODE"
-    "_SEARCH\020\001\022\025\n\021SENSOR_MODE_TRACK\020\002\022\036\n\032SENS"
-    "OR_MODE_WEAPON_SUPPORT\020\003\022\024\n\020SENSOR_MODE_"
-    "AUTO\020\004\022\024\n\020SENSOR_MODE_MUTE\020\005*\373\001\n\nSensorT"
-    "ype\022\027\n\023SENSOR_TYPE_INVALID\020\000\022\025\n\021SENSOR_T"
-    "YPE_RADAR\020\001\022\026\n\022SENSOR_TYPE_CAMERA\020\002\022\033\n\027S"
-    "ENSOR_TYPE_TRANSPONDER\020\003\022\022\n\016SENSOR_TYPE_"
-    "RF\020\004\022\023\n\017SENSOR_TYPE_GPS\020\005\022\027\n\023SENSOR_TYPE"
-    "_PTU_POS\020\006\022\024\n\020SENSOR_TYPE_WISP\020\007\022\031\n\025SENS"
-    "OR_TYPE_PERIMETER\020\010\022\025\n\021SENSOR_TYPE_SONAR"
-    "\020\tB\200\002\n\034com.anduril.entitymanager.v1B\017Sen"
-    "sorsPubProtoP\001ZMghe.anduril.dev/anduril/"
-    "andurilapis-go/anduril/entitymanager/v1;"
-    "entitymanager\242\002\003AEX\252\002\030Anduril.Entitymana"
-    "ger.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Andu"
-    "ril\\Entitymanager\\V1\\GPBMetadata\352\002\032Andur"
-    "il::Entitymanager::V1b\006proto3"
+    "r.v1.FieldOfViewB\002\030\001R\013fieldOfView\022E\n\013sen"
+    "sor_type\030\005 \001(\0162$.anduril.entitymanager.v"
+    "1.SensorTypeR\nsensorType\022-\n\022sensor_descr"
+    "iption\030\006 \001(\tR\021sensorDescription\022R\n\017rf_co"
+    "nfiguraton\030\007 \001(\0132).anduril.entitymanager"
+    ".v1.RFConfigurationR\016rfConfiguraton\022T\n\030l"
+    "ast_detection_timestamp\030\010 \001(\0132\032.google.p"
+    "rotobuf.TimestampR\026lastDetectionTimestam"
+    "p\022K\n\016fields_of_view\030\t \003(\0132%.anduril.enti"
+    "tymanager.v1.FieldOfViewR\014fieldsOfView\"\355"
+    "\003\n\013FieldOfView\022\025\n\006fov_id\030\001 \001(\005R\005fovId\022\031\n"
+    "\010mount_id\030\002 \001(\tR\007mountId\022W\n\021projected_fr"
+    "ustum\030\003 \001(\0132*.anduril.entitymanager.v1.P"
+    "rojectedFrustumR\020projectedFrustum\022T\n\024pro"
+    "jected_center_ray\030\004 \001(\0132\".anduril.entity"
+    "manager.v1.PositionR\022projectedCenterRay\022"
+    "F\n\017center_ray_pose\030\005 \001(\0132\036.anduril.entit"
+    "ymanager.v1.PoseR\rcenterRayPose\022%\n\016horiz"
+    "ontal_fov\030\006 \001(\002R\rhorizontalFov\022!\n\014vertic"
+    "al_fov\030\007 \001(\002R\013verticalFov\0221\n\005range\030\010 \001(\013"
+    "2\033.google.protobuf.FloatValueR\005range\0228\n\004"
+    "mode\030\t \001(\0162$.anduril.entitymanager.v1.Se"
+    "nsorModeR\004mode\"\246\002\n\020ProjectedFrustum\022A\n\nu"
+    "pper_left\030\001 \001(\0132\".anduril.entitymanager."
+    "v1.PositionR\tupperLeft\022C\n\013upper_right\030\002 "
+    "\001(\0132\".anduril.entitymanager.v1.PositionR"
+    "\nupperRight\022E\n\014bottom_right\030\003 \001(\0132\".andu"
+    "ril.entitymanager.v1.PositionR\013bottomRig"
+    "ht\022C\n\013bottom_left\030\004 \001(\0132\".anduril.entity"
+    "manager.v1.PositionR\nbottomLeft\"\347\002\n\017RFCo"
+    "nfiguration\022Q\n\017frequency_range\030\001 \003(\0132$.a"
+    "nduril.entitymanager.v1.FloatRangeB\002\030\001R\016"
+    "frequencyRange\022Q\n\017bandwidth_range\030\002 \003(\0132"
+    "$.anduril.entitymanager.v1.FloatRangeB\002\030"
+    "\001R\016bandwidthRange\022V\n\022frequency_range_hz\030"
+    "\003 \003(\0132(.anduril.entitymanager.v1.Frequen"
+    "cyRangeR\020frequencyRangeHz\022V\n\022bandwidth_r"
+    "ange_hz\030\004 \003(\0132(.anduril.entitymanager.v1"
+    ".BandwidthRangeR\020bandwidthRangeHz\"\264\001\n\016Ba"
+    "ndwidthRange\022P\n\021minimum_bandwidth\030\001 \001(\0132"
+    "#.anduril.entitymanager.v1.BandwidthR\020mi"
+    "nimumBandwidth\022P\n\021maximum_bandwidth\030\002 \001("
+    "\0132#.anduril.entitymanager.v1.BandwidthR\020"
+    "maximumBandwidth\"L\n\tBandwidth\022\?\n\014bandwid"
+    "th_hz\030\001 \001(\0132\034.google.protobuf.DoubleValu"
+    "eR\013bandwidthHz*\324\001\n\020OperationalState\022\035\n\031O"
+    "PERATIONAL_STATE_INVALID\020\000\022\031\n\025OPERATIONA"
+    "L_STATE_OFF\020\001\022%\n!OPERATIONAL_STATE_NON_O"
+    "PERATIONAL\020\002\022\036\n\032OPERATIONAL_STATE_DEGRAD"
+    "ED\020\003\022!\n\035OPERATIONAL_STATE_OPERATIONAL\020\004\022"
+    "\034\n\030OPERATIONAL_STATE_DENIED\020\005*\240\001\n\nSensor"
+    "Mode\022\027\n\023SENSOR_MODE_INVALID\020\000\022\026\n\022SENSOR_"
+    "MODE_SEARCH\020\001\022\025\n\021SENSOR_MODE_TRACK\020\002\022\036\n\032"
+    "SENSOR_MODE_WEAPON_SUPPORT\020\003\022\024\n\020SENSOR_M"
+    "ODE_AUTO\020\004\022\024\n\020SENSOR_MODE_MUTE\020\005*\373\001\n\nSen"
+    "sorType\022\027\n\023SENSOR_TYPE_INVALID\020\000\022\025\n\021SENS"
+    "OR_TYPE_RADAR\020\001\022\026\n\022SENSOR_TYPE_CAMERA\020\002\022"
+    "\033\n\027SENSOR_TYPE_TRANSPONDER\020\003\022\022\n\016SENSOR_T"
+    "YPE_RF\020\004\022\023\n\017SENSOR_TYPE_GPS\020\005\022\027\n\023SENSOR_"
+    "TYPE_PTU_POS\020\006\022\024\n\020SENSOR_TYPE_WISP\020\007\022\031\n\025"
+    "SENSOR_TYPE_PERIMETER\020\010\022\025\n\021SENSOR_TYPE_S"
+    "ONAR\020\tB\200\002\n\034com.anduril.entitymanager.v1B"
+    "\017SensorsPubProtoP\001ZMghe.anduril.dev/andu"
+    "ril/andurilapis-go/anduril/entitymanager"
+    "/v1;entitymanager\242\002\003AEX\252\002\030Anduril.Entity"
+    "manager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$"
+    "Anduril\\Entitymanager\\V1\\GPBMetadata\352\002\032A"
+    "nduril::Entitymanager::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fsensors_2epub_2eproto_deps[6] =
     {
@@ -466,7 +466,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fsensors
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fsensors_2epub_2eproto = {
     false,
     false,
-    3269,
+    3273,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fsensors_2epub_2eproto,
     "anduril/entitymanager/v1/sensors.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fsensors_2epub_2eproto_once,
@@ -884,7 +884,7 @@ const ::_pbi::TcParseTable<4, 8, 4, 75, 2> Sensor::_table_ = {
     // .anduril.entitymanager.v1.OperationalState operational_state = 3 [json_name = "operationalState"];
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(Sensor, _impl_.operational_state_), 63>(),
      {24, 63, 0, PROTOBUF_FIELD_OFFSET(Sensor, _impl_.operational_state_)}},
-    // .anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView"];
+    // .anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];
     {::_pbi::TcParser::FastMtS1,
      {34, 0, 0, PROTOBUF_FIELD_OFFSET(Sensor, _impl_.field_of_view_)}},
     // .anduril.entitymanager.v1.SensorType sensor_type = 5 [json_name = "sensorType"];
@@ -917,7 +917,7 @@ const ::_pbi::TcParseTable<4, 8, 4, 75, 2> Sensor::_table_ = {
     // .anduril.entitymanager.v1.OperationalState operational_state = 3 [json_name = "operationalState"];
     {PROTOBUF_FIELD_OFFSET(Sensor, _impl_.operational_state_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
-    // .anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView"];
+    // .anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];
     {PROTOBUF_FIELD_OFFSET(Sensor, _impl_.field_of_view_), _Internal::kHasBitsOffset + 0, 0,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.SensorType sensor_type = 5 [json_name = "sensorType"];
@@ -1011,7 +1011,7 @@ PROTOBUF_NOINLINE void Sensor::Clear() {
           }
 
           cached_has_bits = this_._impl_._has_bits_[0];
-          // .anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView"];
+          // .anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];
           if (cached_has_bits & 0x00000001u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 4, *this_._impl_.field_of_view_, this_._impl_.field_of_view_->GetCachedSize(), target,
@@ -1105,7 +1105,7 @@ PROTOBUF_NOINLINE void Sensor::Clear() {
           }
           cached_has_bits = this_._impl_._has_bits_[0];
           if (cached_has_bits & 0x00000007u) {
-            // .anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView"];
+            // .anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];
             if (cached_has_bits & 0x00000001u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.field_of_view_);
