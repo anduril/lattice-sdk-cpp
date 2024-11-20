@@ -442,20 +442,19 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fgeoentity_2e
     "ns\"\214\001\n\022GeoPolygonPosition\022>\n\010position\030\001 "
     "\001(\0132\".anduril.entitymanager.v1.PositionR"
     "\010position\0226\n\010height_m\030\002 \001(\0132\033.google.pro"
-    "tobuf.FloatValueR\007heightM*\351\001\n\007GeoType\022\024\n"
+    "tobuf.FloatValueR\007heightM*\304\001\n\007GeoType\022\024\n"
     "\020GEO_TYPE_INVALID\020\000\022\024\n\020GEO_TYPE_GENERAL\020"
     "\001\022\023\n\017GEO_TYPE_HAZARD\020\002\022\026\n\022GEO_TYPE_EMERG"
-    "ENCY\020\003\022\021\n\rGEO_TYPE_FSCM\020\004\022\034\n\030GEO_TYPE_EN"
-    "GAGEMENT_ZONE\020\005\022\031\n\025GEO_TYPE_CONTROL_AREA"
-    "\020\006\022\025\n\021GEO_TYPE_BULLSEYE\020\007\022\020\n\014GEO_TYPE_AC"
-    "M\020\010\022\020\n\014GEO_TYPE_MCM\020\tB\202\002\n\034com.anduril.en"
-    "titymanager.v1B\021GeoentityPubProtoP\001ZMghe"
-    ".anduril.dev/anduril/andurilapis-go/andu"
-    "ril/entitymanager/v1;entitymanager\242\002\003AEX"
-    "\252\002\030Anduril.Entitymanager.V1\312\002\030Anduril\\En"
-    "titymanager\\V1\342\002$Anduril\\Entitymanager\\V"
-    "1\\GPBMetadata\352\002\032Anduril::Entitymanager::"
-    "V1b\006proto3"
+    "ENCY\020\003\022\034\n\030GEO_TYPE_ENGAGEMENT_ZONE\020\005\022\031\n\025"
+    "GEO_TYPE_CONTROL_AREA\020\006\022\025\n\021GEO_TYPE_BULL"
+    "SEYE\020\007\"\004\010\004\020\004\"\004\010\010\020\010\"\004\010\t\020\tB\202\002\n\034com.anduril"
+    ".entitymanager.v1B\021GeoentityPubProtoP\001ZM"
+    "ghe.anduril.dev/anduril/andurilapis-go/a"
+    "nduril/entitymanager/v1;entitymanager\242\002\003"
+    "AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Anduril"
+    "\\Entitymanager\\V1\342\002$Anduril\\Entitymanage"
+    "r\\V1\\GPBMetadata\352\002\032Anduril::Entitymanage"
+    "r::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto_deps[2] =
     {
@@ -466,7 +465,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fgeoenti
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto = {
     false,
     false,
-    2210,
+    2173,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto,
     "anduril/entitymanager/v1/geoentity.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto_once,
@@ -487,9 +486,9 @@ const ::google::protobuf::EnumDescriptor* GeoType_descriptor() {
   return file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto[0];
 }
 PROTOBUF_CONSTINIT const uint32_t GeoType_internal_data_[] = {
-    655360u, 0u, };
+    262144u, 32u, 14u, };
 bool GeoType_IsValid(int value) {
-  return 0 <= value && value <= 9;
+  return 0 <= value && value <= 7 && ((239u >> value) & 1) != 0;
 }
 // ===================================================================
 
