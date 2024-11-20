@@ -60,7 +60,6 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr TaskCatalog::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : task_definitions_{},
-        is_asset_inhibited_{false},
         _cached_size_{0} {}
 
 template <typename>
@@ -101,7 +100,6 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::TaskCatalog, _impl_.task_definitions_),
-        PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::TaskCatalog, _impl_.is_asset_inhibited_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::TaskDefinition, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -117,7 +115,7 @@ const ::uint32_t
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, -1, -1, sizeof(::anduril::tasks::v2::TaskCatalog)},
-        {10, -1, -1, sizeof(::anduril::tasks::v2::TaskDefinition)},
+        {9, -1, -1, sizeof(::anduril::tasks::v2::TaskDefinition)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::tasks::v2::_TaskCatalog_default_instance_._instance,
@@ -126,24 +124,23 @@ static const ::_pb::Message* const file_default_instances[] = {
 const char descriptor_table_protodef_anduril_2ftasks_2fv2_2fcatalog_2epub_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
     "\n\"anduril/tasks/v2/catalog.pub.proto\022\020an"
-    "duril.tasks.v2\"\210\001\n\013TaskCatalog\022K\n\020task_d"
-    "efinitions\030\001 \003(\0132 .anduril.tasks.v2.Task"
-    "DefinitionR\017taskDefinitions\022,\n\022is_asset_"
-    "inhibited\030\002 \001(\010R\020isAssetInhibited\"i\n\016Tas"
-    "kDefinition\0224\n\026task_specification_url\030\001 "
-    "\001(\tR\024taskSpecificationUrl\022!\n\014display_nam"
-    "e\030\002 \001(\tR\013displayNameB\310\001\n\024com.anduril.tas"
-    "ks.v2B\017CatalogPubProtoP\001Z=ghe.anduril.de"
-    "v/anduril/andurilapis-go/anduril/tasks/v"
-    "2;tasks\242\002\003ATX\252\002\020Anduril.Tasks.V2\312\002\020Andur"
-    "il\\Tasks\\V2\342\002\034Anduril\\Tasks\\V2\\GPBMetada"
-    "ta\352\002\022Anduril::Tasks::V2b\006proto3"
+    "duril.tasks.v2\"`\n\013TaskCatalog\022K\n\020task_de"
+    "finitions\030\001 \003(\0132 .anduril.tasks.v2.TaskD"
+    "efinitionR\017taskDefinitionsJ\004\010\002\020\003\"i\n\016Task"
+    "Definition\0224\n\026task_specification_url\030\001 \001"
+    "(\tR\024taskSpecificationUrl\022!\n\014display_name"
+    "\030\002 \001(\tR\013displayNameB\310\001\n\024com.anduril.task"
+    "s.v2B\017CatalogPubProtoP\001Z=ghe.anduril.dev"
+    "/anduril/andurilapis-go/anduril/tasks/v2"
+    ";tasks\242\002\003ATX\252\002\020Anduril.Tasks.V2\312\002\020Anduri"
+    "l\\Tasks\\V2\342\002\034Anduril\\Tasks\\V2\\GPBMetadat"
+    "a\352\002\022Anduril::Tasks::V2b\006proto3"
 };
 static ::absl::once_flag descriptor_table_anduril_2ftasks_2fv2_2fcatalog_2epub_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftasks_2fv2_2fcatalog_2epub_2eproto = {
     false,
     false,
-    511,
+    470,
     descriptor_table_protodef_anduril_2ftasks_2fv2_2fcatalog_2epub_2eproto,
     "anduril/tasks/v2/catalog.pub.proto",
     &descriptor_table_anduril_2ftasks_2fv2_2fcatalog_2epub_2eproto_once,
@@ -193,7 +190,6 @@ TaskCatalog::TaskCatalog(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-  _impl_.is_asset_inhibited_ = from._impl_.is_asset_inhibited_;
 
   // @@protoc_insertion_point(copy_constructor:anduril.tasks.v2.TaskCatalog)
 }
@@ -205,7 +201,6 @@ inline PROTOBUF_NDEBUG_INLINE TaskCatalog::Impl_::Impl_(
 
 inline void TaskCatalog::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
-  _impl_.is_asset_inhibited_ = {};
 }
 TaskCatalog::~TaskCatalog() {
   // @@protoc_insertion_point(destructor:anduril.tasks.v2.TaskCatalog)
@@ -246,15 +241,15 @@ const ::google::protobuf::MessageLite::ClassData* TaskCatalog::GetClassData() co
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 1, 0, 2> TaskCatalog::_table_ = {
+const ::_pbi::TcParseTable<0, 1, 1, 0, 2> TaskCatalog::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    2, 8,  // max_field_number, fast_idx_mask
+    1, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
+    4294967294,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
+    1,  // num_field_entries
     1,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
@@ -264,9 +259,6 @@ const ::_pbi::TcParseTable<1, 2, 1, 0, 2> TaskCatalog::_table_ = {
     ::_pbi::TcParser::GetTable<::anduril::tasks::v2::TaskCatalog>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // bool is_asset_inhibited = 2 [json_name = "isAssetInhibited"];
-    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(TaskCatalog, _impl_.is_asset_inhibited_), 63>(),
-     {16, 63, 0, PROTOBUF_FIELD_OFFSET(TaskCatalog, _impl_.is_asset_inhibited_)}},
     // repeated .anduril.tasks.v2.TaskDefinition task_definitions = 1 [json_name = "taskDefinitions"];
     {::_pbi::TcParser::FastMtR1,
      {10, 63, 0, PROTOBUF_FIELD_OFFSET(TaskCatalog, _impl_.task_definitions_)}},
@@ -276,9 +268,6 @@ const ::_pbi::TcParseTable<1, 2, 1, 0, 2> TaskCatalog::_table_ = {
     // repeated .anduril.tasks.v2.TaskDefinition task_definitions = 1 [json_name = "taskDefinitions"];
     {PROTOBUF_FIELD_OFFSET(TaskCatalog, _impl_.task_definitions_), 0, 0,
     (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
-    // bool is_asset_inhibited = 2 [json_name = "isAssetInhibited"];
-    {PROTOBUF_FIELD_OFFSET(TaskCatalog, _impl_.is_asset_inhibited_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kBool)},
   }}, {{
     {::_pbi::TcParser::GetTable<::anduril::tasks::v2::TaskDefinition>()},
   }}, {{
@@ -293,7 +282,6 @@ PROTOBUF_NOINLINE void TaskCatalog::Clear() {
   (void) cached_has_bits;
 
   _impl_.task_definitions_.Clear();
-  _impl_.is_asset_inhibited_ = false;
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -321,13 +309,6 @@ PROTOBUF_NOINLINE void TaskCatalog::Clear() {
                 ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                     1, repfield, repfield.GetCachedSize(),
                     target, stream);
-          }
-
-          // bool is_asset_inhibited = 2 [json_name = "isAssetInhibited"];
-          if (this_._internal_is_asset_inhibited() != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteBoolToArray(
-                2, this_._internal_is_asset_inhibited(), target);
           }
 
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
@@ -363,12 +344,6 @@ PROTOBUF_NOINLINE void TaskCatalog::Clear() {
               }
             }
           }
-           {
-            // bool is_asset_inhibited = 2 [json_name = "isAssetInhibited"];
-            if (this_._internal_is_asset_inhibited() != 0) {
-              total_size += 2;
-            }
-          }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
                                                      &this_._impl_._cached_size_);
         }
@@ -383,9 +358,6 @@ void TaskCatalog::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::goo
 
   _this->_internal_mutable_task_definitions()->MergeFrom(
       from._internal_task_definitions());
-  if (from._internal_is_asset_inhibited() != 0) {
-    _this->_impl_.is_asset_inhibited_ = from._impl_.is_asset_inhibited_;
-  }
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -401,7 +373,6 @@ void TaskCatalog::InternalSwap(TaskCatalog* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.task_definitions_.InternalSwap(&other->_impl_.task_definitions_);
-        swap(_impl_.is_asset_inhibited_, other->_impl_.is_asset_inhibited_);
 }
 
 ::google::protobuf::Metadata TaskCatalog::GetMetadata() const {
