@@ -830,7 +830,6 @@ class System final : public ::google::protobuf::Message
   enum : int {
     kServiceNameFieldNumber = 1,
     kEntityIdFieldNumber = 2,
-    kAssetIdFieldNumber = 3,
     kManagesOwnSchedulingFieldNumber = 4,
   };
   // string service_name = 1 [json_name = "serviceName"];
@@ -865,22 +864,6 @@ class System final : public ::google::protobuf::Message
   std::string* _internal_mutable_entity_id();
 
   public:
-  // string asset_id = 3 [json_name = "assetId"];
-  void clear_asset_id() ;
-  const std::string& asset_id() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_asset_id(Arg_&& arg, Args_... args);
-  std::string* mutable_asset_id();
-  PROTOBUF_NODISCARD std::string* release_asset_id();
-  void set_allocated_asset_id(std::string* value);
-
-  private:
-  const std::string& _internal_asset_id() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_asset_id(
-      const std::string& value);
-  std::string* _internal_mutable_asset_id();
-
-  public:
   // bool manages_own_scheduling = 4 [json_name = "managesOwnScheduling"];
   void clear_manages_own_scheduling() ;
   bool manages_own_scheduling() const;
@@ -896,8 +879,8 @@ class System final : public ::google::protobuf::Message
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      2, 4, 0,
-      67, 2>
+      2, 3, 0,
+      59, 2>
       _table_;
 
   static constexpr const void* _raw_default_instance_ =
@@ -919,7 +902,6 @@ class System final : public ::google::protobuf::Message
                           const System& from_msg);
     ::google::protobuf::internal::ArenaStringPtr service_name_;
     ::google::protobuf::internal::ArenaStringPtr entity_id_;
-    ::google::protobuf::internal::ArenaStringPtr asset_id_;
     bool manages_own_scheduling_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -1070,25 +1052,8 @@ class Owner final : public ::google::protobuf::Message
 
   // accessors -------------------------------------------------------
   enum : int {
-    kAssetIdFieldNumber = 1,
     kEntityIdFieldNumber = 2,
   };
-  // string asset_id = 1 [json_name = "assetId"];
-  void clear_asset_id() ;
-  const std::string& asset_id() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_asset_id(Arg_&& arg, Args_... args);
-  std::string* mutable_asset_id();
-  PROTOBUF_NODISCARD std::string* release_asset_id();
-  void set_allocated_asset_id(std::string* value);
-
-  private:
-  const std::string& _internal_asset_id() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_asset_id(
-      const std::string& value);
-  std::string* _internal_mutable_asset_id();
-
-  public:
   // string entity_id = 2 [json_name = "entityId"];
   void clear_entity_id() ;
   const std::string& entity_id() const;
@@ -1110,8 +1075,8 @@ class Owner final : public ::google::protobuf::Message
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 0,
-      54, 2>
+      0, 1, 0,
+      46, 2>
       _table_;
 
   static constexpr const void* _raw_default_instance_ =
@@ -1131,7 +1096,6 @@ class Owner final : public ::google::protobuf::Message
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const Owner& from_msg);
-    ::google::protobuf::internal::ArenaStringPtr asset_id_;
     ::google::protobuf::internal::ArenaStringPtr entity_id_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -1282,25 +1246,8 @@ class Agent final : public ::google::protobuf::Message
 
   // accessors -------------------------------------------------------
   enum : int {
-    kAssetIdFieldNumber = 1,
     kEntityIdFieldNumber = 2,
   };
-  // string asset_id = 1 [json_name = "assetId"];
-  void clear_asset_id() ;
-  const std::string& asset_id() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_asset_id(Arg_&& arg, Args_... args);
-  std::string* mutable_asset_id();
-  PROTOBUF_NODISCARD std::string* release_asset_id();
-  void set_allocated_asset_id(std::string* value);
-
-  private:
-  const std::string& _internal_asset_id() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_asset_id(
-      const std::string& value);
-  std::string* _internal_mutable_asset_id();
-
-  public:
   // string entity_id = 2 [json_name = "entityId"];
   void clear_entity_id() ;
   const std::string& entity_id() const;
@@ -1322,8 +1269,8 @@ class Agent final : public ::google::protobuf::Message
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 0,
-      54, 2>
+      0, 1, 0,
+      46, 2>
       _table_;
 
   static constexpr const void* _raw_default_instance_ =
@@ -1343,7 +1290,6 @@ class Agent final : public ::google::protobuf::Message
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const Agent& from_msg);
-    ::google::protobuf::internal::ArenaStringPtr asset_id_;
     ::google::protobuf::internal::ArenaStringPtr entity_id_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -6689,56 +6635,6 @@ inline void System::set_allocated_entity_id(std::string* value) {
   // @@protoc_insertion_point(field_set_allocated:anduril.taskmanager.v1.System.entity_id)
 }
 
-// string asset_id = 3 [json_name = "assetId"];
-inline void System::clear_asset_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.asset_id_.ClearToEmpty();
-}
-inline const std::string& System::asset_id() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.taskmanager.v1.System.asset_id)
-  return _internal_asset_id();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void System::set_asset_id(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.asset_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.taskmanager.v1.System.asset_id)
-}
-inline std::string* System::mutable_asset_id() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_asset_id();
-  // @@protoc_insertion_point(field_mutable:anduril.taskmanager.v1.System.asset_id)
-  return _s;
-}
-inline const std::string& System::_internal_asset_id() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.asset_id_.Get();
-}
-inline void System::_internal_set_asset_id(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.asset_id_.Set(value, GetArena());
-}
-inline std::string* System::_internal_mutable_asset_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.asset_id_.Mutable( GetArena());
-}
-inline std::string* System::release_asset_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.taskmanager.v1.System.asset_id)
-  return _impl_.asset_id_.Release();
-}
-inline void System::set_allocated_asset_id(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.asset_id_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.asset_id_.IsDefault()) {
-          _impl_.asset_id_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:anduril.taskmanager.v1.System.asset_id)
-}
-
 // bool manages_own_scheduling = 4 [json_name = "managesOwnScheduling"];
 inline void System::clear_manages_own_scheduling() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
@@ -7785,56 +7681,6 @@ inline void DefinitionUpdate::set_allocated_task(::anduril::taskmanager::v1::Tas
 
 // Owner
 
-// string asset_id = 1 [json_name = "assetId"];
-inline void Owner::clear_asset_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.asset_id_.ClearToEmpty();
-}
-inline const std::string& Owner::asset_id() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.taskmanager.v1.Owner.asset_id)
-  return _internal_asset_id();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void Owner::set_asset_id(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.asset_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.taskmanager.v1.Owner.asset_id)
-}
-inline std::string* Owner::mutable_asset_id() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_asset_id();
-  // @@protoc_insertion_point(field_mutable:anduril.taskmanager.v1.Owner.asset_id)
-  return _s;
-}
-inline const std::string& Owner::_internal_asset_id() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.asset_id_.Get();
-}
-inline void Owner::_internal_set_asset_id(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.asset_id_.Set(value, GetArena());
-}
-inline std::string* Owner::_internal_mutable_asset_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.asset_id_.Mutable( GetArena());
-}
-inline std::string* Owner::release_asset_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.taskmanager.v1.Owner.asset_id)
-  return _impl_.asset_id_.Release();
-}
-inline void Owner::set_allocated_asset_id(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.asset_id_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.asset_id_.IsDefault()) {
-          _impl_.asset_id_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:anduril.taskmanager.v1.Owner.asset_id)
-}
-
 // string entity_id = 2 [json_name = "entityId"];
 inline void Owner::clear_entity_id() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
@@ -8139,56 +7985,6 @@ Team::_internal_mutable_members() {
 // -------------------------------------------------------------------
 
 // Agent
-
-// string asset_id = 1 [json_name = "assetId"];
-inline void Agent::clear_asset_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.asset_id_.ClearToEmpty();
-}
-inline const std::string& Agent::asset_id() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.taskmanager.v1.Agent.asset_id)
-  return _internal_asset_id();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void Agent::set_asset_id(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.asset_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.taskmanager.v1.Agent.asset_id)
-}
-inline std::string* Agent::mutable_asset_id() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_asset_id();
-  // @@protoc_insertion_point(field_mutable:anduril.taskmanager.v1.Agent.asset_id)
-  return _s;
-}
-inline const std::string& Agent::_internal_asset_id() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.asset_id_.Get();
-}
-inline void Agent::_internal_set_asset_id(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.asset_id_.Set(value, GetArena());
-}
-inline std::string* Agent::_internal_mutable_asset_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.asset_id_.Mutable( GetArena());
-}
-inline std::string* Agent::release_asset_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.taskmanager.v1.Agent.asset_id)
-  return _impl_.asset_id_.Release();
-}
-inline void Agent::set_allocated_asset_id(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.asset_id_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.asset_id_.IsDefault()) {
-          _impl_.asset_id_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:anduril.taskmanager.v1.Agent.asset_id)
-}
 
 // string entity_id = 2 [json_name = "entityId"];
 inline void Agent::clear_entity_id() {

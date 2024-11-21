@@ -60,10 +60,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 
 inline constexpr Objective::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : produced_by_asset_id_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        objective_{},
+      : objective_{},
         _cached_size_{0},
         _oneof_case_{} {}
 
@@ -106,7 +103,6 @@ const ::uint32_t
         ~0u,  // no sizeof(Split)
         ::_pbi::kInvalidFieldOffsetTag,
         ::_pbi::kInvalidFieldOffsetTag,
-        PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::Objective, _impl_.produced_by_asset_id_),
         PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::Objective, _impl_.objective_),
         PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::Point, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::Point, _internal_metadata_),
@@ -127,7 +123,7 @@ const ::uint32_t
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, -1, -1, sizeof(::anduril::tasks::v2::Objective)},
-        {12, 23, -1, sizeof(::anduril::tasks::v2::Point)},
+        {11, 22, -1, sizeof(::anduril::tasks::v2::Point)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::tasks::v2::_Objective_default_instance_._instance,
@@ -137,19 +133,18 @@ const char descriptor_table_protodef_anduril_2ftasks_2fv2_2fobjective_2epub_2epr
     protodesc_cold) = {
     "\n$anduril/tasks/v2/objective.pub.proto\022\020"
     "anduril.tasks.v2\032\035anduril/type/coords.pu"
-    "b.proto\"\231\001\n\tObjective\022\035\n\tentity_id\030\001 \001(\t"
-    "H\000R\010entityId\022/\n\005point\030\005 \001(\0132\027.anduril.ta"
-    "sks.v2.PointH\000R\005point\022/\n\024produced_by_ass"
-    "et_id\030\002 \001(\tR\021producedByAssetIdB\013\n\tobject"
-    "ive\"\177\n\005Point\022%\n\016reference_name\030\001 \001(\tR\rre"
-    "ferenceName\022#\n\003lla\030\002 \001(\0132\021.anduril.type."
-    "LLAR\003lla\022*\n\021backing_entity_id\030\003 \001(\tR\017bac"
-    "kingEntityIdB\312\001\n\024com.anduril.tasks.v2B\021O"
-    "bjectivePubProtoP\001Z=ghe.anduril.dev/andu"
-    "ril/andurilapis-go/anduril/tasks/v2;task"
-    "s\242\002\003ATX\252\002\020Anduril.Tasks.V2\312\002\020Anduril\\Tas"
-    "ks\\V2\342\002\034Anduril\\Tasks\\V2\\GPBMetadata\352\002\022A"
-    "nduril::Tasks::V2b\006proto3"
+    "b.proto\"n\n\tObjective\022\035\n\tentity_id\030\001 \001(\tH"
+    "\000R\010entityId\022/\n\005point\030\005 \001(\0132\027.anduril.tas"
+    "ks.v2.PointH\000R\005pointB\013\n\tobjectiveJ\004\010\002\020\003\""
+    "\177\n\005Point\022%\n\016reference_name\030\001 \001(\tR\rrefere"
+    "nceName\022#\n\003lla\030\002 \001(\0132\021.anduril.type.LLAR"
+    "\003lla\022*\n\021backing_entity_id\030\003 \001(\tR\017backing"
+    "EntityIdB\312\001\n\024com.anduril.tasks.v2B\021Objec"
+    "tivePubProtoP\001Z=ghe.anduril.dev/anduril/"
+    "andurilapis-go/anduril/tasks/v2;tasks\242\002\003"
+    "ATX\252\002\020Anduril.Tasks.V2\312\002\020Anduril\\Tasks\\V"
+    "2\342\002\034Anduril\\Tasks\\V2\\GPBMetadata\352\002\022Andur"
+    "il::Tasks::V2b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2ftasks_2fv2_2fobjective_2epub_2eproto_deps[1] =
     {
@@ -159,7 +154,7 @@ static ::absl::once_flag descriptor_table_anduril_2ftasks_2fv2_2fobjective_2epub
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftasks_2fv2_2fobjective_2epub_2eproto = {
     false,
     false,
-    585,
+    541,
     descriptor_table_protodef_anduril_2ftasks_2fv2_2fobjective_2epub_2eproto,
     "anduril/tasks/v2/objective.pub.proto",
     &descriptor_table_anduril_2ftasks_2fv2_2fobjective_2epub_2eproto_once,
@@ -208,8 +203,7 @@ Objective::Objective(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE Objective::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::anduril::tasks::v2::Objective& from_msg)
-      : produced_by_asset_id_(arena, from.produced_by_asset_id_),
-        objective_{},
+      : objective_{},
         _cached_size_{0},
         _oneof_case_{from._oneof_case_[0]} {}
 
@@ -242,8 +236,7 @@ Objective::Objective(
 inline PROTOBUF_NDEBUG_INLINE Objective::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : produced_by_asset_id_(arena),
-        objective_{},
+      : objective_{},
         _cached_size_{0},
         _oneof_case_{} {}
 
@@ -257,7 +250,6 @@ Objective::~Objective() {
 }
 inline void Objective::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
-  _impl_.produced_by_asset_id_.Destroy();
   if (has_objective()) {
     clear_objective();
   }
@@ -317,15 +309,15 @@ const ::google::protobuf::MessageLite::ClassData* Objective::GetClassData() cons
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 3, 1, 64, 2> Objective::_table_ = {
+const ::_pbi::TcParseTable<0, 2, 1, 44, 2> Objective::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
     5, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967276,  // skipmap
+    4294967278,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    3,  // num_field_entries
+    2,  // num_field_entries
     1,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
@@ -335,28 +327,22 @@ const ::_pbi::TcParseTable<0, 3, 1, 64, 2> Objective::_table_ = {
     ::_pbi::TcParser::GetTable<::anduril::tasks::v2::Objective>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // string produced_by_asset_id = 2 [json_name = "producedByAssetId"];
-    {::_pbi::TcParser::FastUS1,
-     {18, 63, 0, PROTOBUF_FIELD_OFFSET(Objective, _impl_.produced_by_asset_id_)}},
+    {::_pbi::TcParser::MiniParse, {}},
   }}, {{
     65535, 65535
   }}, {{
     // string entity_id = 1 [json_name = "entityId"];
     {PROTOBUF_FIELD_OFFSET(Objective, _impl_.objective_.entity_id_), _Internal::kOneofCaseOffset + 0, 0,
     (0 | ::_fl::kFcOneof | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // string produced_by_asset_id = 2 [json_name = "producedByAssetId"];
-    {PROTOBUF_FIELD_OFFSET(Objective, _impl_.produced_by_asset_id_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // .anduril.tasks.v2.Point point = 5 [json_name = "point"];
     {PROTOBUF_FIELD_OFFSET(Objective, _impl_.objective_.point_), _Internal::kOneofCaseOffset + 0, 0,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
     {::_pbi::TcParser::GetTable<::anduril::tasks::v2::Point>()},
   }}, {{
-    "\32\11\24\0\0\0\0\0"
+    "\32\11\0\0\0\0\0\0"
     "anduril.tasks.v2.Objective"
     "entity_id"
-    "produced_by_asset_id"
   }},
 };
 
@@ -367,7 +353,6 @@ PROTOBUF_NOINLINE void Objective::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.produced_by_asset_id_.ClearToEmpty();
   clear_objective();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -387,29 +372,23 @@ PROTOBUF_NOINLINE void Objective::Clear() {
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
 
-          // string entity_id = 1 [json_name = "entityId"];
-          if (this_.objective_case() == kEntityId) {
-            const std::string& _s = this_._internal_entity_id();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.tasks.v2.Objective.entity_id");
-            target = stream->WriteStringMaybeAliased(1, _s, target);
+          switch (this_.objective_case()) {
+            case kEntityId: {
+              const std::string& _s = this_._internal_entity_id();
+              ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                  _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.tasks.v2.Objective.entity_id");
+              target = stream->WriteStringMaybeAliased(1, _s, target);
+              break;
+            }
+            case kPoint: {
+              target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                  5, *this_._impl_.objective_.point_, this_._impl_.objective_.point_->GetCachedSize(), target,
+                  stream);
+              break;
+            }
+            default:
+              break;
           }
-
-          // string produced_by_asset_id = 2 [json_name = "producedByAssetId"];
-          if (!this_._internal_produced_by_asset_id().empty()) {
-            const std::string& _s = this_._internal_produced_by_asset_id();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.tasks.v2.Objective.produced_by_asset_id");
-            target = stream->WriteStringMaybeAliased(2, _s, target);
-          }
-
-          // .anduril.tasks.v2.Point point = 5 [json_name = "point"];
-          if (this_.objective_case() == kPoint) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                5, *this_._impl_.objective_.point_, this_._impl_.objective_.point_->GetCachedSize(), target,
-                stream);
-          }
-
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
             target =
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -433,13 +412,6 @@ PROTOBUF_NOINLINE void Objective::Clear() {
           // Prevent compiler warnings about cached_has_bits being unused
           (void)cached_has_bits;
 
-           {
-            // string produced_by_asset_id = 2 [json_name = "producedByAssetId"];
-            if (!this_._internal_produced_by_asset_id().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_produced_by_asset_id());
-            }
-          }
           switch (this_.objective_case()) {
             // string entity_id = 1 [json_name = "entityId"];
             case kEntityId: {
@@ -470,9 +442,6 @@ void Objective::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::googl
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_produced_by_asset_id().empty()) {
-    _this->_internal_set_produced_by_asset_id(from._internal_produced_by_asset_id());
-  }
   if (const uint32_t oneof_from_case = from._impl_._oneof_case_[0]) {
     const uint32_t oneof_to_case = _this->_impl_._oneof_case_[0];
     const bool oneof_needs_init = oneof_to_case != oneof_from_case;
@@ -517,10 +486,7 @@ void Objective::CopyFrom(const Objective& from) {
 
 void Objective::InternalSwap(Objective* PROTOBUF_RESTRICT other) {
   using std::swap;
-  auto* arena = GetArena();
-  ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.produced_by_asset_id_, &other->_impl_.produced_by_asset_id_, arena);
   swap(_impl_.objective_, other->_impl_.objective_);
   swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
 }

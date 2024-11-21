@@ -324,12 +324,6 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr Monitor::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
-        track_id_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        track_producer_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
         objective_{nullptr} {}
 
 template <typename>
@@ -808,11 +802,7 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::Monitor, _impl_.objective_),
-        PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::Monitor, _impl_.track_id_),
-        PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::Monitor, _impl_.track_producer_),
         0,
-        ~0u,
-        ~0u,
         PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::Scan, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::Scan, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -858,9 +848,9 @@ static const ::_pbi::MigrationSchema
         {191, -1, -1, sizeof(::anduril::tasks::v2::AzimuthElevationPoint)},
         {201, 212, -1, sizeof(::anduril::tasks::v2::FramePoint)},
         {215, -1, -1, sizeof(::anduril::tasks::v2::GimbalZoom)},
-        {226, 237, -1, sizeof(::anduril::tasks::v2::Monitor)},
-        {240, 250, -1, sizeof(::anduril::tasks::v2::Scan)},
-        {252, 262, -1, sizeof(::anduril::tasks::v2::BattleDamageAssessment)},
+        {226, 235, -1, sizeof(::anduril::tasks::v2::Monitor)},
+        {236, 246, -1, sizeof(::anduril::tasks::v2::Scan)},
+        {248, 258, -1, sizeof(::anduril::tasks::v2::BattleDamageAssessment)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::tasks::v2::_Investigate_default_instance_._instance,
@@ -967,29 +957,28 @@ const char descriptor_table_protodef_anduril_2ftasks_2fv2_2fshared_2fisr_2epub_2
     "rizontal_fov\030\001 \001(\0132\034.google.protobuf.Dou"
     "bleValueH\000R\020setHorizontalFov\022J\n\021set_magn"
     "ification\030\002 \001(\0132\033.google.protobuf.FloatV"
-    "alueH\000R\020setMagnificationB\006\n\004mode\"\206\001\n\007Mon"
-    "itor\0229\n\tobjective\030\001 \001(\0132\033.anduril.tasks."
-    "v2.ObjectiveR\tobjective\022\031\n\010track_id\030\002 \001("
-    "\tR\007trackId\022%\n\016track_producer\030\003 \001(\tR\rtrac"
-    "kProducer\"\202\001\n\004Scan\0229\n\tobjective\030\001 \001(\0132\033."
-    "anduril.tasks.v2.ObjectiveR\tobjective\022\?\n"
-    "\nparameters\030\002 \001(\0132\037.anduril.tasks.v2.ISR"
-    "ParametersR\nparameters\"\224\001\n\026BattleDamageA"
-    "ssessment\0229\n\tobjective\030\001 \001(\0132\033.anduril.t"
-    "asks.v2.ObjectiveR\tobjective\022\?\n\nparamete"
-    "rs\030\002 \001(\0132\037.anduril.tasks.v2.ISRParameter"
-    "sR\nparameters*l\n\016OrbitDirection\022%\n!ORBIT"
-    "_DIRECTION_DIRECTION_INVALID\020\000\022\031\n\025ORBIT_"
-    "DIRECTION_RIGHT\020\001\022\030\n\024ORBIT_DIRECTION_LEF"
-    "T\020\002*\200\001\n\014OrbitPattern\022\031\n\025ORBIT_PATTERN_IN"
-    "VALID\020\000\022\030\n\024ORBIT_PATTERN_CIRCLE\020\001\022\033\n\027ORB"
-    "IT_PATTERN_RACETRACK\020\002\022\036\n\032ORBIT_PATTERN_"
-    "FIGURE_EIGHT\020\003B\304\001\n\024com.anduril.tasks.v2B"
-    "\013IsrPubProtoP\001Z=ghe.anduril.dev/anduril/"
-    "andurilapis-go/anduril/tasks/v2;tasks\242\002\003"
-    "ATX\252\002\020Anduril.Tasks.V2\312\002\020Anduril\\Tasks\\V"
-    "2\342\002\034Anduril\\Tasks\\V2\\GPBMetadata\352\002\022Andur"
-    "il::Tasks::V2b\006proto3"
+    "alueH\000R\020setMagnificationB\006\n\004mode\"P\n\007Moni"
+    "tor\0229\n\tobjective\030\001 \001(\0132\033.anduril.tasks.v"
+    "2.ObjectiveR\tobjectiveJ\004\010\002\020\003J\004\010\003\020\004\"\202\001\n\004S"
+    "can\0229\n\tobjective\030\001 \001(\0132\033.anduril.tasks.v"
+    "2.ObjectiveR\tobjective\022\?\n\nparameters\030\002 \001"
+    "(\0132\037.anduril.tasks.v2.ISRParametersR\npar"
+    "ameters\"\224\001\n\026BattleDamageAssessment\0229\n\tob"
+    "jective\030\001 \001(\0132\033.anduril.tasks.v2.Objecti"
+    "veR\tobjective\022\?\n\nparameters\030\002 \001(\0132\037.andu"
+    "ril.tasks.v2.ISRParametersR\nparameters*l"
+    "\n\016OrbitDirection\022%\n!ORBIT_DIRECTION_DIRE"
+    "CTION_INVALID\020\000\022\031\n\025ORBIT_DIRECTION_RIGHT"
+    "\020\001\022\030\n\024ORBIT_DIRECTION_LEFT\020\002*\200\001\n\014OrbitPa"
+    "ttern\022\031\n\025ORBIT_PATTERN_INVALID\020\000\022\030\n\024ORBI"
+    "T_PATTERN_CIRCLE\020\001\022\033\n\027ORBIT_PATTERN_RACE"
+    "TRACK\020\002\022\036\n\032ORBIT_PATTERN_FIGURE_EIGHT\020\003B"
+    "\304\001\n\024com.anduril.tasks.v2B\013IsrPubProtoP\001Z"
+    "=ghe.anduril.dev/anduril/andurilapis-go/"
+    "anduril/tasks/v2;tasks\242\002\003ATX\252\002\020Anduril.T"
+    "asks.V2\312\002\020Anduril\\Tasks\\V2\342\002\034Anduril\\Tas"
+    "ks\\V2\\GPBMetadata\352\002\022Anduril::Tasks::V2b\006"
+    "proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2ftasks_2fv2_2fshared_2fisr_2epub_2eproto_deps[4] =
     {
@@ -1002,7 +991,7 @@ static ::absl::once_flag descriptor_table_anduril_2ftasks_2fv2_2fshared_2fisr_2e
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftasks_2fv2_2fshared_2fisr_2epub_2eproto = {
     false,
     false,
-    4141,
+    4086,
     descriptor_table_protodef_anduril_2ftasks_2fv2_2fshared_2fisr_2epub_2eproto,
     "anduril/tasks/v2/shared/isr.pub.proto",
     &descriptor_table_anduril_2ftasks_2fv2_2fshared_2fisr_2epub_2eproto_once,
@@ -6709,9 +6698,7 @@ inline PROTOBUF_NDEBUG_INLINE Monitor::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::anduril::tasks::v2::Monitor& from_msg)
       : _has_bits_{from._has_bits_},
-        _cached_size_{0},
-        track_id_(arena, from.track_id_),
-        track_producer_(arena, from.track_producer_) {}
+        _cached_size_{0} {}
 
 Monitor::Monitor(
     ::google::protobuf::Arena* arena,
@@ -6736,9 +6723,7 @@ Monitor::Monitor(
 inline PROTOBUF_NDEBUG_INLINE Monitor::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : _cached_size_{0},
-        track_id_(arena),
-        track_producer_(arena) {}
+      : _cached_size_{0} {}
 
 inline void Monitor::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
@@ -6751,8 +6736,6 @@ Monitor::~Monitor() {
 }
 inline void Monitor::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
-  _impl_.track_id_.Destroy();
-  _impl_.track_producer_.Destroy();
   delete _impl_.objective_;
   _impl_.~Impl_();
 }
@@ -6786,15 +6769,15 @@ const ::google::protobuf::MessageLite::ClassData* Monitor::GetClassData() const 
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 1, 55, 2> Monitor::_table_ = {
+const ::_pbi::TcParseTable<0, 1, 1, 0, 2> Monitor::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(Monitor, _impl_._has_bits_),
     0, // no _extensions_
-    3, 24,  // max_field_number, fast_idx_mask
+    1, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967288,  // skipmap
+    4294967294,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    3,  // num_field_entries
+    1,  // num_field_entries
     1,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
@@ -6804,35 +6787,18 @@ const ::_pbi::TcParseTable<2, 3, 1, 55, 2> Monitor::_table_ = {
     ::_pbi::TcParser::GetTable<::anduril::tasks::v2::Monitor>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    {::_pbi::TcParser::MiniParse, {}},
     // .anduril.tasks.v2.Objective objective = 1 [json_name = "objective"];
     {::_pbi::TcParser::FastMtS1,
      {10, 0, 0, PROTOBUF_FIELD_OFFSET(Monitor, _impl_.objective_)}},
-    // string track_id = 2 [json_name = "trackId"];
-    {::_pbi::TcParser::FastUS1,
-     {18, 63, 0, PROTOBUF_FIELD_OFFSET(Monitor, _impl_.track_id_)}},
-    // string track_producer = 3 [json_name = "trackProducer"];
-    {::_pbi::TcParser::FastUS1,
-     {26, 63, 0, PROTOBUF_FIELD_OFFSET(Monitor, _impl_.track_producer_)}},
   }}, {{
     65535, 65535
   }}, {{
     // .anduril.tasks.v2.Objective objective = 1 [json_name = "objective"];
     {PROTOBUF_FIELD_OFFSET(Monitor, _impl_.objective_), _Internal::kHasBitsOffset + 0, 0,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // string track_id = 2 [json_name = "trackId"];
-    {PROTOBUF_FIELD_OFFSET(Monitor, _impl_.track_id_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // string track_producer = 3 [json_name = "trackProducer"];
-    {PROTOBUF_FIELD_OFFSET(Monitor, _impl_.track_producer_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
   }}, {{
     {::_pbi::TcParser::GetTable<::anduril::tasks::v2::Objective>()},
   }}, {{
-    "\30\0\10\16\0\0\0\0"
-    "anduril.tasks.v2.Monitor"
-    "track_id"
-    "track_producer"
   }},
 };
 
@@ -6843,8 +6809,6 @@ PROTOBUF_NOINLINE void Monitor::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.track_id_.ClearToEmpty();
-  _impl_.track_producer_.ClearToEmpty();
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     ABSL_DCHECK(_impl_.objective_ != nullptr);
@@ -6877,22 +6841,6 @@ PROTOBUF_NOINLINE void Monitor::Clear() {
                 stream);
           }
 
-          // string track_id = 2 [json_name = "trackId"];
-          if (!this_._internal_track_id().empty()) {
-            const std::string& _s = this_._internal_track_id();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.tasks.v2.Monitor.track_id");
-            target = stream->WriteStringMaybeAliased(2, _s, target);
-          }
-
-          // string track_producer = 3 [json_name = "trackProducer"];
-          if (!this_._internal_track_producer().empty()) {
-            const std::string& _s = this_._internal_track_producer();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.tasks.v2.Monitor.track_producer");
-            target = stream->WriteStringMaybeAliased(3, _s, target);
-          }
-
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
             target =
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -6916,19 +6864,6 @@ PROTOBUF_NOINLINE void Monitor::Clear() {
           // Prevent compiler warnings about cached_has_bits being unused
           (void)cached_has_bits;
 
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
-           {
-            // string track_id = 2 [json_name = "trackId"];
-            if (!this_._internal_track_id().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_track_id());
-            }
-            // string track_producer = 3 [json_name = "trackProducer"];
-            if (!this_._internal_track_producer().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_track_producer());
-            }
-          }
            {
             // .anduril.tasks.v2.Objective objective = 1 [json_name = "objective"];
             cached_has_bits =
@@ -6951,12 +6886,6 @@ void Monitor::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google:
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_track_id().empty()) {
-    _this->_internal_set_track_id(from._internal_track_id());
-  }
-  if (!from._internal_track_producer().empty()) {
-    _this->_internal_set_track_producer(from._internal_track_producer());
-  }
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     ABSL_DCHECK(from._impl_.objective_ != nullptr);
@@ -6981,12 +6910,8 @@ void Monitor::CopyFrom(const Monitor& from) {
 
 void Monitor::InternalSwap(Monitor* PROTOBUF_RESTRICT other) {
   using std::swap;
-  auto* arena = GetArena();
-  ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.track_id_, &other->_impl_.track_id_, arena);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.track_producer_, &other->_impl_.track_producer_, arena);
   swap(_impl_.objective_, other->_impl_.objective_);
 }
 

@@ -91,9 +91,6 @@ inline constexpr System::Impl_::Impl_(
         entity_id_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
-        asset_id_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
         manages_own_scheduling_{false},
         _cached_size_{0} {}
 
@@ -119,10 +116,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 
 inline constexpr Owner::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : asset_id_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        entity_id_(
+      : entity_id_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
@@ -149,10 +143,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 
 inline constexpr Agent::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : asset_id_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        entity_id_(
+      : entity_id_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
@@ -629,7 +620,6 @@ const ::uint32_t
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::System, _impl_.service_name_),
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::System, _impl_.entity_id_),
-        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::System, _impl_.asset_id_),
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::System, _impl_.manages_own_scheduling_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::User, _internal_metadata_),
@@ -713,7 +703,6 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::Owner, _impl_.asset_id_),
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::Owner, _impl_.entity_id_),
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::Replication, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::Replication, _internal_metadata_),
@@ -752,7 +741,6 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::Agent, _impl_.asset_id_),
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::Agent, _impl_.entity_id_),
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::TaskEntity, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::anduril::taskmanager::v1::TaskEntity, _internal_metadata_),
@@ -775,18 +763,18 @@ static const ::_pbi::MigrationSchema
         {60, 71, -1, sizeof(::anduril::taskmanager::v1::TaskError)},
         {74, 87, -1, sizeof(::anduril::taskmanager::v1::Principal)},
         {91, -1, -1, sizeof(::anduril::taskmanager::v1::System)},
-        {103, -1, -1, sizeof(::anduril::taskmanager::v1::User)},
-        {112, 122, -1, sizeof(::anduril::taskmanager::v1::Relations)},
-        {124, 136, -1, sizeof(::anduril::taskmanager::v1::TaskEvent)},
-        {140, -1, -1, sizeof(::anduril::taskmanager::v1::TaskVersion)},
-        {151, 163, -1, sizeof(::anduril::taskmanager::v1::StatusUpdate)},
-        {167, 176, -1, sizeof(::anduril::taskmanager::v1::DefinitionUpdate)},
-        {177, -1, -1, sizeof(::anduril::taskmanager::v1::Owner)},
-        {187, 196, -1, sizeof(::anduril::taskmanager::v1::Replication)},
-        {197, -1, -1, sizeof(::anduril::taskmanager::v1::Allocation)},
-        {206, -1, -1, sizeof(::anduril::taskmanager::v1::Team)},
-        {216, -1, -1, sizeof(::anduril::taskmanager::v1::Agent)},
-        {226, 236, -1, sizeof(::anduril::taskmanager::v1::TaskEntity)},
+        {102, -1, -1, sizeof(::anduril::taskmanager::v1::User)},
+        {111, 121, -1, sizeof(::anduril::taskmanager::v1::Relations)},
+        {123, 135, -1, sizeof(::anduril::taskmanager::v1::TaskEvent)},
+        {139, -1, -1, sizeof(::anduril::taskmanager::v1::TaskVersion)},
+        {150, 162, -1, sizeof(::anduril::taskmanager::v1::StatusUpdate)},
+        {166, 175, -1, sizeof(::anduril::taskmanager::v1::DefinitionUpdate)},
+        {176, -1, -1, sizeof(::anduril::taskmanager::v1::Owner)},
+        {185, 194, -1, sizeof(::anduril::taskmanager::v1::Replication)},
+        {195, -1, -1, sizeof(::anduril::taskmanager::v1::Allocation)},
+        {204, -1, -1, sizeof(::anduril::taskmanager::v1::Team)},
+        {214, -1, -1, sizeof(::anduril::taskmanager::v1::Agent)},
+        {223, 233, -1, sizeof(::anduril::taskmanager::v1::TaskEntity)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::taskmanager::v1::_Task_default_instance_._instance,
@@ -856,68 +844,66 @@ const char descriptor_table_protodef_anduril_2ftaskmanager_2fv1_2ftask_2epub_2ep
     "ager.v1.UserH\000R\004user\0222\n\004team\030\004 \001(\0132\034.and"
     "uril.taskmanager.v1.TeamH\000R\004team\022C\n\014on_b"
     "ehalf_of\030\003 \001(\0132!.anduril.taskmanager.v1."
-    "PrincipalR\nonBehalfOfB\007\n\005agent\"\231\001\n\006Syste"
+    "PrincipalR\nonBehalfOfB\007\n\005agent\"\204\001\n\006Syste"
     "m\022!\n\014service_name\030\001 \001(\tR\013serviceName\022\033\n\t"
-    "entity_id\030\002 \001(\tR\010entityId\022\031\n\010asset_id\030\003 "
-    "\001(\tR\007assetId\0224\n\026manages_own_scheduling\030\004"
-    " \001(\010R\024managesOwnScheduling\"\037\n\004User\022\027\n\007us"
-    "er_id\030\001 \001(\tR\006userId\"p\n\tRelations\022=\n\010assi"
-    "gnee\030\001 \001(\0132!.anduril.taskmanager.v1.Prin"
-    "cipalR\010assignee\022$\n\016parent_task_id\030\002 \001(\tR"
-    "\014parentTaskId\"\356\001\n\tTaskEvent\022@\n\nevent_typ"
-    "e\030\001 \001(\0162!.anduril.taskmanager.v1.EventTy"
-    "peR\teventType\0220\n\004task\030\002 \001(\0132\034.anduril.ta"
-    "skmanager.v1.TaskR\004task\022=\n\ttask_view\030\003 \001"
-    "(\0162 .anduril.taskmanager.v1.TaskViewR\010ta"
-    "skView\022.\n\004time\030\004 \001(\0132\032.google.protobuf.T"
-    "imestampR\004time\"|\n\013TaskVersion\022\027\n\007task_id"
-    "\030\001 \001(\tR\006taskId\022-\n\022definition_version\030\002 \001"
-    "(\rR\021definitionVersion\022%\n\016status_version\030"
-    "\003 \001(\rR\rstatusVersion\"\207\002\n\014StatusUpdate\022=\n"
-    "\007version\030\001 \001(\0132#.anduril.taskmanager.v1."
-    "TaskVersionR\007version\022:\n\006status\030\002 \001(\0132\".a"
-    "nduril.taskmanager.v1.TaskStatusR\006status"
-    "\0229\n\006author\030\003 \001(\0132!.anduril.taskmanager.v"
-    "1.PrincipalR\006author\022A\n\016scheduled_time\030\004 "
-    "\001(\0132\032.google.protobuf.TimestampR\rschedul"
-    "edTime\"D\n\020DefinitionUpdate\0220\n\004task\030\001 \001(\013"
-    "2\034.anduril.taskmanager.v1.TaskR\004task\"\?\n\005"
-    "Owner\022\031\n\010asset_id\030\001 \001(\tR\007assetId\022\033\n\tenti"
-    "ty_id\030\002 \001(\tR\010entityId\"H\n\013Replication\0229\n\n"
-    "stale_time\030\001 \001(\0132\032.google.protobuf.Times"
-    "tampR\tstaleTime\"P\n\nAllocation\022B\n\ractive_"
-    "agents\030\001 \003(\0132\035.anduril.taskmanager.v1.Ag"
-    "entR\014activeAgents\"\\\n\004Team\022\033\n\tentity_id\030\001"
-    " \001(\tR\010entityId\0227\n\007members\030\002 \003(\0132\035.anduri"
-    "l.taskmanager.v1.AgentR\007members\"\?\n\005Agent"
-    "\022\031\n\010asset_id\030\001 \001(\tR\007assetId\022\033\n\tentity_id"
-    "\030\002 \001(\tR\010entityId\"b\n\nTaskEntity\0228\n\006entity"
-    "\030\001 \001(\0132 .anduril.entitymanager.v1.Entity"
-    "R\006entity\022\032\n\010snapshot\030\002 \001(\010R\010snapshot*\357\002\n"
-    "\006Status\022\022\n\016STATUS_INVALID\020\000\022\022\n\016STATUS_CR"
-    "EATED\020\001\022\037\n\033STATUS_SCHEDULED_IN_MANAGER\020\002"
-    "\022\017\n\013STATUS_SENT\020\003\022\032\n\026STATUS_MACHINE_RECE"
-    "IPT\020\004\022\016\n\nSTATUS_ACK\020\005\022\020\n\014STATUS_WILCO\020\006\022"
-    "\024\n\020STATUS_EXECUTING\020\007\022\035\n\031STATUS_WAITING_"
-    "FOR_UPDATE\020\010\022\022\n\016STATUS_DONE_OK\020\t\022\026\n\022STAT"
-    "US_DONE_NOT_OK\020\n\022\023\n\017STATUS_REPLACED\020\013\022\033\n"
-    "\027STATUS_CANCEL_REQUESTED\020\014\022\035\n\031STATUS_COM"
-    "PLETE_REQUESTED\020\r\022\033\n\027STATUS_VERSION_REJE"
-    "CTED\020\016*\205\001\n\tErrorCode\022\026\n\022ERROR_CODE_INVAL"
-    "ID\020\000\022\030\n\024ERROR_CODE_CANCELLED\020\001\022\027\n\023ERROR_"
-    "CODE_REJECTED\020\002\022\026\n\022ERROR_CODE_TIMEOUT\020\003\022"
-    "\025\n\021ERROR_CODE_FAILED\020\004*n\n\tEventType\022\026\n\022E"
-    "VENT_TYPE_INVALID\020\000\022\026\n\022EVENT_TYPE_CREATE"
-    "D\020\001\022\025\n\021EVENT_TYPE_UPDATE\020\002\022\032\n\026EVENT_TYPE"
-    "_PREEXISTING\020\003*M\n\010TaskView\022\025\n\021TASK_VIEW_"
-    "INVALID\020\000\022\025\n\021TASK_VIEW_MANAGER\020\001\022\023\n\017TASK"
-    "_VIEW_AGENT\020\002B\357\001\n\032com.anduril.taskmanage"
-    "r.v1B\014TaskPubProtoP\001ZIghe.anduril.dev/an"
-    "duril/andurilapis-go/anduril/taskmanager"
-    "/v1;taskmanager\242\002\003ATX\252\002\026Anduril.Taskmana"
-    "ger.V1\312\002\026Anduril\\Taskmanager\\V1\342\002\"Anduri"
-    "l\\Taskmanager\\V1\\GPBMetadata\352\002\030Anduril::"
-    "Taskmanager::V1b\006proto3"
+    "entity_id\030\002 \001(\tR\010entityId\0224\n\026manages_own"
+    "_scheduling\030\004 \001(\010R\024managesOwnSchedulingJ"
+    "\004\010\003\020\004\"\037\n\004User\022\027\n\007user_id\030\001 \001(\tR\006userId\"p"
+    "\n\tRelations\022=\n\010assignee\030\001 \001(\0132!.anduril."
+    "taskmanager.v1.PrincipalR\010assignee\022$\n\016pa"
+    "rent_task_id\030\002 \001(\tR\014parentTaskId\"\356\001\n\tTas"
+    "kEvent\022@\n\nevent_type\030\001 \001(\0162!.anduril.tas"
+    "kmanager.v1.EventTypeR\teventType\0220\n\004task"
+    "\030\002 \001(\0132\034.anduril.taskmanager.v1.TaskR\004ta"
+    "sk\022=\n\ttask_view\030\003 \001(\0162 .anduril.taskmana"
+    "ger.v1.TaskViewR\010taskView\022.\n\004time\030\004 \001(\0132"
+    "\032.google.protobuf.TimestampR\004time\"|\n\013Tas"
+    "kVersion\022\027\n\007task_id\030\001 \001(\tR\006taskId\022-\n\022def"
+    "inition_version\030\002 \001(\rR\021definitionVersion"
+    "\022%\n\016status_version\030\003 \001(\rR\rstatusVersion\""
+    "\207\002\n\014StatusUpdate\022=\n\007version\030\001 \001(\0132#.andu"
+    "ril.taskmanager.v1.TaskVersionR\007version\022"
+    ":\n\006status\030\002 \001(\0132\".anduril.taskmanager.v1"
+    ".TaskStatusR\006status\0229\n\006author\030\003 \001(\0132!.an"
+    "duril.taskmanager.v1.PrincipalR\006author\022A"
+    "\n\016scheduled_time\030\004 \001(\0132\032.google.protobuf"
+    ".TimestampR\rscheduledTime\"D\n\020DefinitionU"
+    "pdate\0220\n\004task\030\001 \001(\0132\034.anduril.taskmanage"
+    "r.v1.TaskR\004task\"*\n\005Owner\022\033\n\tentity_id\030\002 "
+    "\001(\tR\010entityIdJ\004\010\001\020\002\"H\n\013Replication\0229\n\nst"
+    "ale_time\030\001 \001(\0132\032.google.protobuf.Timesta"
+    "mpR\tstaleTime\"P\n\nAllocation\022B\n\ractive_ag"
+    "ents\030\001 \003(\0132\035.anduril.taskmanager.v1.Agen"
+    "tR\014activeAgents\"\\\n\004Team\022\033\n\tentity_id\030\001 \001"
+    "(\tR\010entityId\0227\n\007members\030\002 \003(\0132\035.anduril."
+    "taskmanager.v1.AgentR\007members\"*\n\005Agent\022\033"
+    "\n\tentity_id\030\002 \001(\tR\010entityIdJ\004\010\001\020\002\"b\n\nTas"
+    "kEntity\0228\n\006entity\030\001 \001(\0132 .anduril.entity"
+    "manager.v1.EntityR\006entity\022\032\n\010snapshot\030\002 "
+    "\001(\010R\010snapshot*\357\002\n\006Status\022\022\n\016STATUS_INVAL"
+    "ID\020\000\022\022\n\016STATUS_CREATED\020\001\022\037\n\033STATUS_SCHED"
+    "ULED_IN_MANAGER\020\002\022\017\n\013STATUS_SENT\020\003\022\032\n\026ST"
+    "ATUS_MACHINE_RECEIPT\020\004\022\016\n\nSTATUS_ACK\020\005\022\020"
+    "\n\014STATUS_WILCO\020\006\022\024\n\020STATUS_EXECUTING\020\007\022\035"
+    "\n\031STATUS_WAITING_FOR_UPDATE\020\010\022\022\n\016STATUS_"
+    "DONE_OK\020\t\022\026\n\022STATUS_DONE_NOT_OK\020\n\022\023\n\017STA"
+    "TUS_REPLACED\020\013\022\033\n\027STATUS_CANCEL_REQUESTE"
+    "D\020\014\022\035\n\031STATUS_COMPLETE_REQUESTED\020\r\022\033\n\027ST"
+    "ATUS_VERSION_REJECTED\020\016*\205\001\n\tErrorCode\022\026\n"
+    "\022ERROR_CODE_INVALID\020\000\022\030\n\024ERROR_CODE_CANC"
+    "ELLED\020\001\022\027\n\023ERROR_CODE_REJECTED\020\002\022\026\n\022ERRO"
+    "R_CODE_TIMEOUT\020\003\022\025\n\021ERROR_CODE_FAILED\020\004*"
+    "n\n\tEventType\022\026\n\022EVENT_TYPE_INVALID\020\000\022\026\n\022"
+    "EVENT_TYPE_CREATED\020\001\022\025\n\021EVENT_TYPE_UPDAT"
+    "E\020\002\022\032\n\026EVENT_TYPE_PREEXISTING\020\003*M\n\010TaskV"
+    "iew\022\025\n\021TASK_VIEW_INVALID\020\000\022\025\n\021TASK_VIEW_"
+    "MANAGER\020\001\022\023\n\017TASK_VIEW_AGENT\020\002B\357\001\n\032com.a"
+    "nduril.taskmanager.v1B\014TaskPubProtoP\001ZIg"
+    "he.anduril.dev/anduril/andurilapis-go/an"
+    "duril/taskmanager/v1;taskmanager\242\002\003ATX\252\002"
+    "\026Anduril.Taskmanager.V1\312\002\026Anduril\\Taskma"
+    "nager\\V1\342\002\"Anduril\\Taskmanager\\V1\\GPBMet"
+    "adata\352\002\030Anduril::Taskmanager::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_2epub_2eproto_deps[3] =
     {
@@ -929,7 +915,7 @@ static ::absl::once_flag descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_2epu
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_2epub_2eproto = {
     false,
     false,
-    4343,
+    4280,
     descriptor_table_protodef_anduril_2ftaskmanager_2fv1_2ftask_2epub_2eproto,
     "anduril/taskmanager/v1/task.pub.proto",
     &descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_2epub_2eproto_once,
@@ -3009,7 +2995,6 @@ inline PROTOBUF_NDEBUG_INLINE System::Impl_::Impl_(
     const Impl_& from, const ::anduril::taskmanager::v1::System& from_msg)
       : service_name_(arena, from.service_name_),
         entity_id_(arena, from.entity_id_),
-        asset_id_(arena, from.asset_id_),
         _cached_size_{0} {}
 
 System::System(
@@ -3034,7 +3019,6 @@ inline PROTOBUF_NDEBUG_INLINE System::Impl_::Impl_(
     ::google::protobuf::Arena* arena)
       : service_name_(arena),
         entity_id_(arena),
-        asset_id_(arena),
         _cached_size_{0} {}
 
 inline void System::SharedCtor(::_pb::Arena* arena) {
@@ -3050,7 +3034,6 @@ inline void System::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
   _impl_.service_name_.Destroy();
   _impl_.entity_id_.Destroy();
-  _impl_.asset_id_.Destroy();
   _impl_.~Impl_();
 }
 
@@ -3083,15 +3066,15 @@ const ::google::protobuf::MessageLite::ClassData* System::GetClassData() const {
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 4, 0, 67, 2> System::_table_ = {
+const ::_pbi::TcParseTable<2, 3, 0, 59, 2> System::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
     4, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967280,  // skipmap
+    4294967284,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    4,  // num_field_entries
+    3,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     _class_data_.base(),
@@ -3110,9 +3093,7 @@ const ::_pbi::TcParseTable<2, 4, 0, 67, 2> System::_table_ = {
     // string entity_id = 2 [json_name = "entityId"];
     {::_pbi::TcParser::FastUS1,
      {18, 63, 0, PROTOBUF_FIELD_OFFSET(System, _impl_.entity_id_)}},
-    // string asset_id = 3 [json_name = "assetId"];
-    {::_pbi::TcParser::FastUS1,
-     {26, 63, 0, PROTOBUF_FIELD_OFFSET(System, _impl_.asset_id_)}},
+    {::_pbi::TcParser::MiniParse, {}},
   }}, {{
     65535, 65535
   }}, {{
@@ -3122,20 +3103,16 @@ const ::_pbi::TcParseTable<2, 4, 0, 67, 2> System::_table_ = {
     // string entity_id = 2 [json_name = "entityId"];
     {PROTOBUF_FIELD_OFFSET(System, _impl_.entity_id_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // string asset_id = 3 [json_name = "assetId"];
-    {PROTOBUF_FIELD_OFFSET(System, _impl_.asset_id_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // bool manages_own_scheduling = 4 [json_name = "managesOwnScheduling"];
     {PROTOBUF_FIELD_OFFSET(System, _impl_.manages_own_scheduling_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kBool)},
   }},
   // no aux_entries
   {{
-    "\35\14\11\10\0\0\0\0"
+    "\35\14\11\0\0\0\0\0"
     "anduril.taskmanager.v1.System"
     "service_name"
     "entity_id"
-    "asset_id"
   }},
 };
 
@@ -3148,7 +3125,6 @@ PROTOBUF_NOINLINE void System::Clear() {
 
   _impl_.service_name_.ClearToEmpty();
   _impl_.entity_id_.ClearToEmpty();
-  _impl_.asset_id_.ClearToEmpty();
   _impl_.manages_own_scheduling_ = false;
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -3182,14 +3158,6 @@ PROTOBUF_NOINLINE void System::Clear() {
             ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
                 _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.taskmanager.v1.System.entity_id");
             target = stream->WriteStringMaybeAliased(2, _s, target);
-          }
-
-          // string asset_id = 3 [json_name = "assetId"];
-          if (!this_._internal_asset_id().empty()) {
-            const std::string& _s = this_._internal_asset_id();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.taskmanager.v1.System.asset_id");
-            target = stream->WriteStringMaybeAliased(3, _s, target);
           }
 
           // bool manages_own_scheduling = 4 [json_name = "managesOwnScheduling"];
@@ -3234,11 +3202,6 @@ PROTOBUF_NOINLINE void System::Clear() {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                               this_._internal_entity_id());
             }
-            // string asset_id = 3 [json_name = "assetId"];
-            if (!this_._internal_asset_id().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_asset_id());
-            }
             // bool manages_own_scheduling = 4 [json_name = "managesOwnScheduling"];
             if (this_._internal_manages_own_scheduling() != 0) {
               total_size += 2;
@@ -3262,9 +3225,6 @@ void System::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
   if (!from._internal_entity_id().empty()) {
     _this->_internal_set_entity_id(from._internal_entity_id());
   }
-  if (!from._internal_asset_id().empty()) {
-    _this->_internal_set_asset_id(from._internal_asset_id());
-  }
   if (from._internal_manages_own_scheduling() != 0) {
     _this->_impl_.manages_own_scheduling_ = from._impl_.manages_own_scheduling_;
   }
@@ -3286,7 +3246,6 @@ void System::InternalSwap(System* PROTOBUF_RESTRICT other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.service_name_, &other->_impl_.service_name_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.entity_id_, &other->_impl_.entity_id_, arena);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.asset_id_, &other->_impl_.asset_id_, arena);
         swap(_impl_.manages_own_scheduling_, other->_impl_.manages_own_scheduling_);
 }
 
@@ -5066,8 +5025,7 @@ Owner::Owner(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE Owner::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::anduril::taskmanager::v1::Owner& from_msg)
-      : asset_id_(arena, from.asset_id_),
-        entity_id_(arena, from.entity_id_),
+      : entity_id_(arena, from.entity_id_),
         _cached_size_{0} {}
 
 Owner::Owner(
@@ -5089,8 +5047,7 @@ Owner::Owner(
 inline PROTOBUF_NDEBUG_INLINE Owner::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : asset_id_(arena),
-        entity_id_(arena),
+      : entity_id_(arena),
         _cached_size_{0} {}
 
 inline void Owner::SharedCtor(::_pb::Arena* arena) {
@@ -5103,7 +5060,6 @@ Owner::~Owner() {
 }
 inline void Owner::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
-  _impl_.asset_id_.Destroy();
   _impl_.entity_id_.Destroy();
   _impl_.~Impl_();
 }
@@ -5137,15 +5093,15 @@ const ::google::protobuf::MessageLite::ClassData* Owner::GetClassData() const {
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 0, 54, 2> Owner::_table_ = {
+const ::_pbi::TcParseTable<0, 1, 0, 46, 2> Owner::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    2, 8,  // max_field_number, fast_idx_mask
+    2, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
+    4294967293,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
+    1,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     _class_data_.base(),
@@ -5158,24 +5114,17 @@ const ::_pbi::TcParseTable<1, 2, 0, 54, 2> Owner::_table_ = {
     // string entity_id = 2 [json_name = "entityId"];
     {::_pbi::TcParser::FastUS1,
      {18, 63, 0, PROTOBUF_FIELD_OFFSET(Owner, _impl_.entity_id_)}},
-    // string asset_id = 1 [json_name = "assetId"];
-    {::_pbi::TcParser::FastUS1,
-     {10, 63, 0, PROTOBUF_FIELD_OFFSET(Owner, _impl_.asset_id_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // string asset_id = 1 [json_name = "assetId"];
-    {PROTOBUF_FIELD_OFFSET(Owner, _impl_.asset_id_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // string entity_id = 2 [json_name = "entityId"];
     {PROTOBUF_FIELD_OFFSET(Owner, _impl_.entity_id_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
   }},
   // no aux_entries
   {{
-    "\34\10\11\0\0\0\0\0"
+    "\34\11\0\0\0\0\0\0"
     "anduril.taskmanager.v1.Owner"
-    "asset_id"
     "entity_id"
   }},
 };
@@ -5187,7 +5136,6 @@ PROTOBUF_NOINLINE void Owner::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.asset_id_.ClearToEmpty();
   _impl_.entity_id_.ClearToEmpty();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -5206,14 +5154,6 @@ PROTOBUF_NOINLINE void Owner::Clear() {
           // @@protoc_insertion_point(serialize_to_array_start:anduril.taskmanager.v1.Owner)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
-
-          // string asset_id = 1 [json_name = "assetId"];
-          if (!this_._internal_asset_id().empty()) {
-            const std::string& _s = this_._internal_asset_id();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.taskmanager.v1.Owner.asset_id");
-            target = stream->WriteStringMaybeAliased(1, _s, target);
-          }
 
           // string entity_id = 2 [json_name = "entityId"];
           if (!this_._internal_entity_id().empty()) {
@@ -5246,13 +5186,7 @@ PROTOBUF_NOINLINE void Owner::Clear() {
           // Prevent compiler warnings about cached_has_bits being unused
           (void)cached_has_bits;
 
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // string asset_id = 1 [json_name = "assetId"];
-            if (!this_._internal_asset_id().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_asset_id());
-            }
             // string entity_id = 2 [json_name = "entityId"];
             if (!this_._internal_entity_id().empty()) {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -5271,9 +5205,6 @@ void Owner::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::p
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_asset_id().empty()) {
-    _this->_internal_set_asset_id(from._internal_asset_id());
-  }
   if (!from._internal_entity_id().empty()) {
     _this->_internal_set_entity_id(from._internal_entity_id());
   }
@@ -5293,7 +5224,6 @@ void Owner::InternalSwap(Owner* PROTOBUF_RESTRICT other) {
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.asset_id_, &other->_impl_.asset_id_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.entity_id_, &other->_impl_.entity_id_, arena);
 }
 
@@ -6044,8 +5974,7 @@ Agent::Agent(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE Agent::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::anduril::taskmanager::v1::Agent& from_msg)
-      : asset_id_(arena, from.asset_id_),
-        entity_id_(arena, from.entity_id_),
+      : entity_id_(arena, from.entity_id_),
         _cached_size_{0} {}
 
 Agent::Agent(
@@ -6067,8 +5996,7 @@ Agent::Agent(
 inline PROTOBUF_NDEBUG_INLINE Agent::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : asset_id_(arena),
-        entity_id_(arena),
+      : entity_id_(arena),
         _cached_size_{0} {}
 
 inline void Agent::SharedCtor(::_pb::Arena* arena) {
@@ -6081,7 +6009,6 @@ Agent::~Agent() {
 }
 inline void Agent::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
-  _impl_.asset_id_.Destroy();
   _impl_.entity_id_.Destroy();
   _impl_.~Impl_();
 }
@@ -6115,15 +6042,15 @@ const ::google::protobuf::MessageLite::ClassData* Agent::GetClassData() const {
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 0, 54, 2> Agent::_table_ = {
+const ::_pbi::TcParseTable<0, 1, 0, 46, 2> Agent::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    2, 8,  // max_field_number, fast_idx_mask
+    2, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
+    4294967293,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
+    1,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     _class_data_.base(),
@@ -6136,24 +6063,17 @@ const ::_pbi::TcParseTable<1, 2, 0, 54, 2> Agent::_table_ = {
     // string entity_id = 2 [json_name = "entityId"];
     {::_pbi::TcParser::FastUS1,
      {18, 63, 0, PROTOBUF_FIELD_OFFSET(Agent, _impl_.entity_id_)}},
-    // string asset_id = 1 [json_name = "assetId"];
-    {::_pbi::TcParser::FastUS1,
-     {10, 63, 0, PROTOBUF_FIELD_OFFSET(Agent, _impl_.asset_id_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // string asset_id = 1 [json_name = "assetId"];
-    {PROTOBUF_FIELD_OFFSET(Agent, _impl_.asset_id_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // string entity_id = 2 [json_name = "entityId"];
     {PROTOBUF_FIELD_OFFSET(Agent, _impl_.entity_id_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
   }},
   // no aux_entries
   {{
-    "\34\10\11\0\0\0\0\0"
+    "\34\11\0\0\0\0\0\0"
     "anduril.taskmanager.v1.Agent"
-    "asset_id"
     "entity_id"
   }},
 };
@@ -6165,7 +6085,6 @@ PROTOBUF_NOINLINE void Agent::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.asset_id_.ClearToEmpty();
   _impl_.entity_id_.ClearToEmpty();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -6184,14 +6103,6 @@ PROTOBUF_NOINLINE void Agent::Clear() {
           // @@protoc_insertion_point(serialize_to_array_start:anduril.taskmanager.v1.Agent)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
-
-          // string asset_id = 1 [json_name = "assetId"];
-          if (!this_._internal_asset_id().empty()) {
-            const std::string& _s = this_._internal_asset_id();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.taskmanager.v1.Agent.asset_id");
-            target = stream->WriteStringMaybeAliased(1, _s, target);
-          }
 
           // string entity_id = 2 [json_name = "entityId"];
           if (!this_._internal_entity_id().empty()) {
@@ -6224,13 +6135,7 @@ PROTOBUF_NOINLINE void Agent::Clear() {
           // Prevent compiler warnings about cached_has_bits being unused
           (void)cached_has_bits;
 
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // string asset_id = 1 [json_name = "assetId"];
-            if (!this_._internal_asset_id().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_asset_id());
-            }
             // string entity_id = 2 [json_name = "entityId"];
             if (!this_._internal_entity_id().empty()) {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -6249,9 +6154,6 @@ void Agent::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::p
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_asset_id().empty()) {
-    _this->_internal_set_asset_id(from._internal_asset_id());
-  }
   if (!from._internal_entity_id().empty()) {
     _this->_internal_set_entity_id(from._internal_entity_id());
   }
@@ -6271,7 +6173,6 @@ void Agent::InternalSwap(Agent* PROTOBUF_RESTRICT other) {
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.asset_id_, &other->_impl_.asset_id_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.entity_id_, &other->_impl_.entity_id_, arena);
 }
 
