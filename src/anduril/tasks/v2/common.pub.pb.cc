@@ -109,10 +109,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 
 inline constexpr Agent::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : asset_id_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        entity_id_(
+      : entity_id_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
@@ -246,7 +243,6 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::Agent, _impl_.asset_id_),
         PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::Agent, _impl_.entity_id_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::ControlArea, _internal_metadata_),
@@ -267,7 +263,7 @@ static const ::_pbi::MigrationSchema
         {22, 31, -1, sizeof(::anduril::tasks::v2::AreaConstraints)},
         {32, -1, -1, sizeof(::anduril::tasks::v2::AltitudeConstraint)},
         {42, -1, -1, sizeof(::anduril::tasks::v2::Agent)},
-        {52, -1, -1, sizeof(::anduril::tasks::v2::ControlArea)},
+        {51, -1, -1, sizeof(::anduril::tasks::v2::ControlArea)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::tasks::v2::_DurationRange_default_instance_._instance,
@@ -289,21 +285,20 @@ const char descriptor_table_protodef_anduril_2ftasks_2fv2_2fcommon_2epub_2eproto
     "int\030\001 \001(\0132$.anduril.tasks.v2.AltitudeCon"
     "straintR\022altitudeConstraint\"8\n\022AltitudeC"
     "onstraint\022\020\n\003min\030\001 \001(\001R\003min\022\020\n\003max\030\002 \001(\001"
-    "R\003max\"\?\n\005Agent\022\031\n\010asset_id\030\001 \001(\tR\007assetI"
-    "d\022\033\n\tentity_id\030\002 \001(\tR\010entityId\"y\n\013Contro"
-    "lArea\022\033\n\tentity_id\030\001 \001(\tR\010entityId\022M\n\021co"
-    "ntrol_area_type\030\002 \001(\0162!.anduril.tasks.v2"
-    ".ControlAreaTypeR\017controlAreaType*\233\001\n\017Co"
-    "ntrolAreaType\022\035\n\031CONTROL_AREA_TYPE_INVAL"
-    "ID\020\000\022\"\n\036CONTROL_AREA_TYPE_KEEP_IN_ZONE\020\001"
-    "\022#\n\037CONTROL_AREA_TYPE_KEEP_OUT_ZONE\020\002\022 \n"
-    "\034CONTROL_AREA_TYPE_DITCH_ZONE\020\003B\307\001\n\024com."
-    "anduril.tasks.v2B\016CommonPubProtoP\001Z=ghe."
-    "anduril.dev/anduril/andurilapis-go/andur"
-    "il/tasks/v2;tasks\242\002\003ATX\252\002\020Anduril.Tasks."
-    "V2\312\002\020Anduril\\Tasks\\V2\342\002\034Anduril\\Tasks\\V2"
-    "\\GPBMetadata\352\002\022Anduril::Tasks::V2b\006proto"
-    "3"
+    "R\003max\"*\n\005Agent\022\033\n\tentity_id\030\002 \001(\tR\010entit"
+    "yIdJ\004\010\001\020\002\"y\n\013ControlArea\022\033\n\tentity_id\030\001 "
+    "\001(\tR\010entityId\022M\n\021control_area_type\030\002 \001(\016"
+    "2!.anduril.tasks.v2.ControlAreaTypeR\017con"
+    "trolAreaType*\233\001\n\017ControlAreaType\022\035\n\031CONT"
+    "ROL_AREA_TYPE_INVALID\020\000\022\"\n\036CONTROL_AREA_"
+    "TYPE_KEEP_IN_ZONE\020\001\022#\n\037CONTROL_AREA_TYPE"
+    "_KEEP_OUT_ZONE\020\002\022 \n\034CONTROL_AREA_TYPE_DI"
+    "TCH_ZONE\020\003B\307\001\n\024com.anduril.tasks.v2B\016Com"
+    "monPubProtoP\001Z=ghe.anduril.dev/anduril/a"
+    "ndurilapis-go/anduril/tasks/v2;tasks\242\002\003A"
+    "TX\252\002\020Anduril.Tasks.V2\312\002\020Anduril\\Tasks\\V2"
+    "\342\002\034Anduril\\Tasks\\V2\\GPBMetadata\352\002\022Anduri"
+    "l::Tasks::V2b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2ftasks_2fv2_2fcommon_2epub_2eproto_deps[1] =
     {
@@ -313,7 +308,7 @@ static ::absl::once_flag descriptor_table_anduril_2ftasks_2fv2_2fcommon_2epub_2e
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftasks_2fv2_2fcommon_2epub_2eproto = {
     false,
     false,
-    961,
+    940,
     descriptor_table_protodef_anduril_2ftasks_2fv2_2fcommon_2epub_2eproto,
     "anduril/tasks/v2/common.pub.proto",
     &descriptor_table_anduril_2ftasks_2fv2_2fcommon_2epub_2eproto_once,
@@ -1364,8 +1359,7 @@ Agent::Agent(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE Agent::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::anduril::tasks::v2::Agent& from_msg)
-      : asset_id_(arena, from.asset_id_),
-        entity_id_(arena, from.entity_id_),
+      : entity_id_(arena, from.entity_id_),
         _cached_size_{0} {}
 
 Agent::Agent(
@@ -1387,8 +1381,7 @@ Agent::Agent(
 inline PROTOBUF_NDEBUG_INLINE Agent::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : asset_id_(arena),
-        entity_id_(arena),
+      : entity_id_(arena),
         _cached_size_{0} {}
 
 inline void Agent::SharedCtor(::_pb::Arena* arena) {
@@ -1401,7 +1394,6 @@ Agent::~Agent() {
 }
 inline void Agent::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
-  _impl_.asset_id_.Destroy();
   _impl_.entity_id_.Destroy();
   _impl_.~Impl_();
 }
@@ -1435,15 +1427,15 @@ const ::google::protobuf::MessageLite::ClassData* Agent::GetClassData() const {
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 0, 48, 2> Agent::_table_ = {
+const ::_pbi::TcParseTable<0, 1, 0, 40, 2> Agent::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    2, 8,  // max_field_number, fast_idx_mask
+    2, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
+    4294967293,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
+    1,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     _class_data_.base(),
@@ -1456,24 +1448,17 @@ const ::_pbi::TcParseTable<1, 2, 0, 48, 2> Agent::_table_ = {
     // string entity_id = 2 [json_name = "entityId"];
     {::_pbi::TcParser::FastUS1,
      {18, 63, 0, PROTOBUF_FIELD_OFFSET(Agent, _impl_.entity_id_)}},
-    // string asset_id = 1 [json_name = "assetId"];
-    {::_pbi::TcParser::FastUS1,
-     {10, 63, 0, PROTOBUF_FIELD_OFFSET(Agent, _impl_.asset_id_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // string asset_id = 1 [json_name = "assetId"];
-    {PROTOBUF_FIELD_OFFSET(Agent, _impl_.asset_id_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // string entity_id = 2 [json_name = "entityId"];
     {PROTOBUF_FIELD_OFFSET(Agent, _impl_.entity_id_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
   }},
   // no aux_entries
   {{
-    "\26\10\11\0\0\0\0\0"
+    "\26\11\0\0\0\0\0\0"
     "anduril.tasks.v2.Agent"
-    "asset_id"
     "entity_id"
   }},
 };
@@ -1485,7 +1470,6 @@ PROTOBUF_NOINLINE void Agent::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.asset_id_.ClearToEmpty();
   _impl_.entity_id_.ClearToEmpty();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -1504,14 +1488,6 @@ PROTOBUF_NOINLINE void Agent::Clear() {
           // @@protoc_insertion_point(serialize_to_array_start:anduril.tasks.v2.Agent)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
-
-          // string asset_id = 1 [json_name = "assetId"];
-          if (!this_._internal_asset_id().empty()) {
-            const std::string& _s = this_._internal_asset_id();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.tasks.v2.Agent.asset_id");
-            target = stream->WriteStringMaybeAliased(1, _s, target);
-          }
 
           // string entity_id = 2 [json_name = "entityId"];
           if (!this_._internal_entity_id().empty()) {
@@ -1544,13 +1520,7 @@ PROTOBUF_NOINLINE void Agent::Clear() {
           // Prevent compiler warnings about cached_has_bits being unused
           (void)cached_has_bits;
 
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // string asset_id = 1 [json_name = "assetId"];
-            if (!this_._internal_asset_id().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_asset_id());
-            }
             // string entity_id = 2 [json_name = "entityId"];
             if (!this_._internal_entity_id().empty()) {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -1569,9 +1539,6 @@ void Agent::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::p
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_asset_id().empty()) {
-    _this->_internal_set_asset_id(from._internal_asset_id());
-  }
   if (!from._internal_entity_id().empty()) {
     _this->_internal_set_entity_id(from._internal_entity_id());
   }
@@ -1591,7 +1558,6 @@ void Agent::InternalSwap(Agent* PROTOBUF_RESTRICT other) {
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.asset_id_, &other->_impl_.asset_id_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.entity_id_, &other->_impl_.entity_id_, arena);
 }
 

@@ -98,12 +98,9 @@ enum GeoType : int {
   GEO_TYPE_GENERAL = 1,
   GEO_TYPE_HAZARD = 2,
   GEO_TYPE_EMERGENCY = 3,
-  GEO_TYPE_FSCM = 4,
   GEO_TYPE_ENGAGEMENT_ZONE = 5,
   GEO_TYPE_CONTROL_AREA = 6,
   GEO_TYPE_BULLSEYE = 7,
-  GEO_TYPE_ACM = 8,
-  GEO_TYPE_MCM = 9,
   GeoType_INT_MIN_SENTINEL_DO_NOT_USE_ =
       std::numeric_limits<::int32_t>::min(),
   GeoType_INT_MAX_SENTINEL_DO_NOT_USE_ =
@@ -113,8 +110,8 @@ enum GeoType : int {
 bool GeoType_IsValid(int value);
 extern const uint32_t GeoType_internal_data_[];
 constexpr GeoType GeoType_MIN = static_cast<GeoType>(0);
-constexpr GeoType GeoType_MAX = static_cast<GeoType>(9);
-constexpr int GeoType_ARRAYSIZE = 9 + 1;
+constexpr GeoType GeoType_MAX = static_cast<GeoType>(7);
+constexpr int GeoType_ARRAYSIZE = 7 + 1;
 const ::google::protobuf::EnumDescriptor*
 GeoType_descriptor();
 template <typename T>
@@ -127,7 +124,7 @@ const std::string& GeoType_Name(T value) {
 template <>
 inline const std::string& GeoType_Name(GeoType value) {
   return ::google::protobuf::internal::NameOfDenseEnum<GeoType_descriptor,
-                                                 0, 9>(
+                                                 0, 7>(
       static_cast<int>(value));
 }
 inline bool GeoType_Parse(absl::string_view name, GeoType* value) {

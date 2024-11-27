@@ -2835,42 +2835,8 @@ class Monitor final : public ::google::protobuf::Message
 
   // accessors -------------------------------------------------------
   enum : int {
-    kTrackIdFieldNumber = 2,
-    kTrackProducerFieldNumber = 3,
     kObjectiveFieldNumber = 1,
   };
-  // string track_id = 2 [json_name = "trackId"];
-  void clear_track_id() ;
-  const std::string& track_id() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_track_id(Arg_&& arg, Args_... args);
-  std::string* mutable_track_id();
-  PROTOBUF_NODISCARD std::string* release_track_id();
-  void set_allocated_track_id(std::string* value);
-
-  private:
-  const std::string& _internal_track_id() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_track_id(
-      const std::string& value);
-  std::string* _internal_mutable_track_id();
-
-  public:
-  // string track_producer = 3 [json_name = "trackProducer"];
-  void clear_track_producer() ;
-  const std::string& track_producer() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_track_producer(Arg_&& arg, Args_... args);
-  std::string* mutable_track_producer();
-  PROTOBUF_NODISCARD std::string* release_track_producer();
-  void set_allocated_track_producer(std::string* value);
-
-  private:
-  const std::string& _internal_track_producer() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_track_producer(
-      const std::string& value);
-  std::string* _internal_mutable_track_producer();
-
-  public:
   // .anduril.tasks.v2.Objective objective = 1 [json_name = "objective"];
   bool has_objective() const;
   void clear_objective() ;
@@ -2891,8 +2857,8 @@ class Monitor final : public ::google::protobuf::Message
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      2, 3, 1,
-      55, 2>
+      0, 1, 1,
+      0, 2>
       _table_;
 
   static constexpr const void* _raw_default_instance_ =
@@ -2914,8 +2880,6 @@ class Monitor final : public ::google::protobuf::Message
                           const Monitor& from_msg);
     ::google::protobuf::internal::HasBits<1> _has_bits_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
-    ::google::protobuf::internal::ArenaStringPtr track_id_;
-    ::google::protobuf::internal::ArenaStringPtr track_producer_;
     ::anduril::tasks::v2::Objective* objective_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -8313,106 +8277,6 @@ inline void Monitor::set_allocated_objective(::anduril::tasks::v2::Objective* va
 
   _impl_.objective_ = reinterpret_cast<::anduril::tasks::v2::Objective*>(value);
   // @@protoc_insertion_point(field_set_allocated:anduril.tasks.v2.Monitor.objective)
-}
-
-// string track_id = 2 [json_name = "trackId"];
-inline void Monitor::clear_track_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.track_id_.ClearToEmpty();
-}
-inline const std::string& Monitor::track_id() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.tasks.v2.Monitor.track_id)
-  return _internal_track_id();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void Monitor::set_track_id(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.track_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.tasks.v2.Monitor.track_id)
-}
-inline std::string* Monitor::mutable_track_id() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_track_id();
-  // @@protoc_insertion_point(field_mutable:anduril.tasks.v2.Monitor.track_id)
-  return _s;
-}
-inline const std::string& Monitor::_internal_track_id() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.track_id_.Get();
-}
-inline void Monitor::_internal_set_track_id(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.track_id_.Set(value, GetArena());
-}
-inline std::string* Monitor::_internal_mutable_track_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.track_id_.Mutable( GetArena());
-}
-inline std::string* Monitor::release_track_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.tasks.v2.Monitor.track_id)
-  return _impl_.track_id_.Release();
-}
-inline void Monitor::set_allocated_track_id(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.track_id_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.track_id_.IsDefault()) {
-          _impl_.track_id_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:anduril.tasks.v2.Monitor.track_id)
-}
-
-// string track_producer = 3 [json_name = "trackProducer"];
-inline void Monitor::clear_track_producer() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.track_producer_.ClearToEmpty();
-}
-inline const std::string& Monitor::track_producer() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.tasks.v2.Monitor.track_producer)
-  return _internal_track_producer();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void Monitor::set_track_producer(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.track_producer_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.tasks.v2.Monitor.track_producer)
-}
-inline std::string* Monitor::mutable_track_producer() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_track_producer();
-  // @@protoc_insertion_point(field_mutable:anduril.tasks.v2.Monitor.track_producer)
-  return _s;
-}
-inline const std::string& Monitor::_internal_track_producer() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.track_producer_.Get();
-}
-inline void Monitor::_internal_set_track_producer(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.track_producer_.Set(value, GetArena());
-}
-inline std::string* Monitor::_internal_mutable_track_producer() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.track_producer_.Mutable( GetArena());
-}
-inline std::string* Monitor::release_track_producer() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.tasks.v2.Monitor.track_producer)
-  return _impl_.track_producer_.Release();
-}
-inline void Monitor::set_allocated_track_producer(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.track_producer_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.track_producer_.IsDefault()) {
-          _impl_.track_producer_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:anduril.tasks.v2.Monitor.track_producer)
 }
 
 // -------------------------------------------------------------------

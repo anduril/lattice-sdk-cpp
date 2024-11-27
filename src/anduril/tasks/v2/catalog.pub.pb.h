@@ -429,7 +429,6 @@ class TaskCatalog final : public ::google::protobuf::Message
   // accessors -------------------------------------------------------
   enum : int {
     kTaskDefinitionsFieldNumber = 1,
-    kIsAssetInhibitedFieldNumber = 2,
   };
   // repeated .anduril.tasks.v2.TaskDefinition task_definitions = 1 [json_name = "taskDefinitions"];
   int task_definitions_size() const;
@@ -448,22 +447,12 @@ class TaskCatalog final : public ::google::protobuf::Message
   const ::anduril::tasks::v2::TaskDefinition& task_definitions(int index) const;
   ::anduril::tasks::v2::TaskDefinition* add_task_definitions();
   const ::google::protobuf::RepeatedPtrField<::anduril::tasks::v2::TaskDefinition>& task_definitions() const;
-  // bool is_asset_inhibited = 2 [json_name = "isAssetInhibited"];
-  void clear_is_asset_inhibited() ;
-  bool is_asset_inhibited() const;
-  void set_is_asset_inhibited(bool value);
-
-  private:
-  bool _internal_is_asset_inhibited() const;
-  void _internal_set_is_asset_inhibited(bool value);
-
-  public:
   // @@protoc_insertion_point(class_scope:anduril.tasks.v2.TaskCatalog)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 1,
+      0, 1, 1,
       0, 2>
       _table_;
 
@@ -485,7 +474,6 @@ class TaskCatalog final : public ::google::protobuf::Message
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const TaskCatalog& from_msg);
     ::google::protobuf::RepeatedPtrField< ::anduril::tasks::v2::TaskDefinition > task_definitions_;
-    bool is_asset_inhibited_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -556,28 +544,6 @@ inline ::google::protobuf::RepeatedPtrField<::anduril::tasks::v2::TaskDefinition
 TaskCatalog::_internal_mutable_task_definitions() {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return &_impl_.task_definitions_;
-}
-
-// bool is_asset_inhibited = 2 [json_name = "isAssetInhibited"];
-inline void TaskCatalog::clear_is_asset_inhibited() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.is_asset_inhibited_ = false;
-}
-inline bool TaskCatalog::is_asset_inhibited() const {
-  // @@protoc_insertion_point(field_get:anduril.tasks.v2.TaskCatalog.is_asset_inhibited)
-  return _internal_is_asset_inhibited();
-}
-inline void TaskCatalog::set_is_asset_inhibited(bool value) {
-  _internal_set_is_asset_inhibited(value);
-  // @@protoc_insertion_point(field_set:anduril.tasks.v2.TaskCatalog.is_asset_inhibited)
-}
-inline bool TaskCatalog::_internal_is_asset_inhibited() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.is_asset_inhibited_;
-}
-inline void TaskCatalog::_internal_set_is_asset_inhibited(bool value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.is_asset_inhibited_ = value;
 }
 
 // -------------------------------------------------------------------
