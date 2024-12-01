@@ -452,26 +452,9 @@ class Objective final : public ::google::protobuf::Message
 
   // accessors -------------------------------------------------------
   enum : int {
-    kProducedByAssetIdFieldNumber = 2,
     kEntityIdFieldNumber = 1,
     kPointFieldNumber = 5,
   };
-  // string produced_by_asset_id = 2 [json_name = "producedByAssetId"];
-  void clear_produced_by_asset_id() ;
-  const std::string& produced_by_asset_id() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_produced_by_asset_id(Arg_&& arg, Args_... args);
-  std::string* mutable_produced_by_asset_id();
-  PROTOBUF_NODISCARD std::string* release_produced_by_asset_id();
-  void set_allocated_produced_by_asset_id(std::string* value);
-
-  private:
-  const std::string& _internal_produced_by_asset_id() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_produced_by_asset_id(
-      const std::string& value);
-  std::string* _internal_mutable_produced_by_asset_id();
-
-  public:
   // string entity_id = 1 [json_name = "entityId"];
   bool has_entity_id() const;
   void clear_entity_id() ;
@@ -519,8 +502,8 @@ class Objective final : public ::google::protobuf::Message
   inline void clear_has_objective();
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      0, 3, 1,
-      64, 2>
+      0, 2, 1,
+      44, 2>
       _table_;
 
   static constexpr const void* _raw_default_instance_ =
@@ -540,7 +523,6 @@ class Objective final : public ::google::protobuf::Message
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const Objective& from_msg);
-    ::google::protobuf::internal::ArenaStringPtr produced_by_asset_id_;
     union ObjectiveUnion {
       constexpr ObjectiveUnion() : _constinit_{} {}
       ::google::protobuf::internal::ConstantInitialized _constinit_;
@@ -733,56 +715,6 @@ inline ::anduril::tasks::v2::Point* Objective::mutable_point() ABSL_ATTRIBUTE_LI
   ::anduril::tasks::v2::Point* _msg = _internal_mutable_point();
   // @@protoc_insertion_point(field_mutable:anduril.tasks.v2.Objective.point)
   return _msg;
-}
-
-// string produced_by_asset_id = 2 [json_name = "producedByAssetId"];
-inline void Objective::clear_produced_by_asset_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.produced_by_asset_id_.ClearToEmpty();
-}
-inline const std::string& Objective::produced_by_asset_id() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.tasks.v2.Objective.produced_by_asset_id)
-  return _internal_produced_by_asset_id();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void Objective::set_produced_by_asset_id(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.produced_by_asset_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.tasks.v2.Objective.produced_by_asset_id)
-}
-inline std::string* Objective::mutable_produced_by_asset_id() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_produced_by_asset_id();
-  // @@protoc_insertion_point(field_mutable:anduril.tasks.v2.Objective.produced_by_asset_id)
-  return _s;
-}
-inline const std::string& Objective::_internal_produced_by_asset_id() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.produced_by_asset_id_.Get();
-}
-inline void Objective::_internal_set_produced_by_asset_id(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.produced_by_asset_id_.Set(value, GetArena());
-}
-inline std::string* Objective::_internal_mutable_produced_by_asset_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.produced_by_asset_id_.Mutable( GetArena());
-}
-inline std::string* Objective::release_produced_by_asset_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.tasks.v2.Objective.produced_by_asset_id)
-  return _impl_.produced_by_asset_id_.Release();
-}
-inline void Objective::set_allocated_produced_by_asset_id(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.produced_by_asset_id_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.produced_by_asset_id_.IsDefault()) {
-          _impl_.produced_by_asset_id_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:anduril.tasks.v2.Objective.produced_by_asset_id)
 }
 
 inline bool Objective::has_objective() const {
