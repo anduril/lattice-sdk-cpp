@@ -81,7 +81,7 @@ developer credentials.
   - 6.1 In order to continually innovate and improve the SDK, Anduril may collect certain usage statistics from the software including but not 
 limited to a unique identifier, associated IP address, version number of the software, and information on which tools and/or services in 
 the SDK are being used and how they are being used.  
-  - 6.2 Anonymized and aggregated sets of the data may be used or shared by Andurilto improve the SDK.
+  - 6.2 Anonymized and aggregated sets of the data may be used or shared by Anduril to improve the SDK.
    
 7. **Third Party Applications**
  
