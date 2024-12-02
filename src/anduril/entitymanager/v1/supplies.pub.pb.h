@@ -28,7 +28,6 @@
 #include "google/protobuf/message_lite.h"
 #include "google/protobuf/repeated_field.h"  // IWYU pragma: export
 #include "google/protobuf/extension_set.h"  // IWYU pragma: export
-#include "google/protobuf/generated_enum_reflection.h"
 #include "google/protobuf/unknown_field_set.h"
 #include "anduril/entitymanager/v1/classification.pub.pb.h"
 #include "anduril/entitymanager/v1/options.pub.pb.h"
@@ -61,9 +60,6 @@ namespace v1 {
 class Fuel;
 struct FuelDefaultTypeInternal;
 extern FuelDefaultTypeInternal _Fuel_default_instance_;
-class Munition;
-struct MunitionDefaultTypeInternal;
-extern MunitionDefaultTypeInternal _Munition_default_instance_;
 class Supplies;
 struct SuppliesDefaultTypeInternal;
 extern SuppliesDefaultTypeInternal _Supplies_default_instance_;
@@ -78,352 +74,10 @@ namespace protobuf {
 namespace anduril {
 namespace entitymanager {
 namespace v1 {
-enum DODConditionCode : int {
-  DOD_CONDITION_CODE_INVALID = 0,
-  DOD_CONDITION_CODE_A = 1,
-  DOD_CONDITION_CODE_B = 2,
-  DOD_CONDITION_CODE_C = 3,
-  DOD_CONDITION_CODE_D = 4,
-  DOD_CONDITION_CODE_E = 5,
-  DOD_CONDITION_CODE_F = 6,
-  DOD_CONDITION_CODE_G = 7,
-  DOD_CONDITION_CODE_H = 8,
-  DOD_CONDITION_CODE_Q = 9,
-  DOD_CONDITION_CODE_S = 10,
-  DOD_CONDITION_CODE_J = 11,
-  DOD_CONDITION_CODE_K = 12,
-  DOD_CONDITION_CODE_L = 13,
-  DOD_CONDITION_CODE_M = 14,
-  DOD_CONDITION_CODE_N = 15,
-  DOD_CONDITION_CODE_P = 16,
-  DOD_CONDITION_CODE_R = 17,
-  DOD_CONDITION_CODE_T = 18,
-  DOD_CONDITION_CODE_V = 19,
-  DOD_CONDITION_CODE_X = 20,
-  DODConditionCode_INT_MIN_SENTINEL_DO_NOT_USE_ =
-      std::numeric_limits<::int32_t>::min(),
-  DODConditionCode_INT_MAX_SENTINEL_DO_NOT_USE_ =
-      std::numeric_limits<::int32_t>::max(),
-};
-
-bool DODConditionCode_IsValid(int value);
-extern const uint32_t DODConditionCode_internal_data_[];
-constexpr DODConditionCode DODConditionCode_MIN = static_cast<DODConditionCode>(0);
-constexpr DODConditionCode DODConditionCode_MAX = static_cast<DODConditionCode>(20);
-constexpr int DODConditionCode_ARRAYSIZE = 20 + 1;
-const ::google::protobuf::EnumDescriptor*
-DODConditionCode_descriptor();
-template <typename T>
-const std::string& DODConditionCode_Name(T value) {
-  static_assert(std::is_same<T, DODConditionCode>::value ||
-                    std::is_integral<T>::value,
-                "Incorrect type passed to DODConditionCode_Name().");
-  return DODConditionCode_Name(static_cast<DODConditionCode>(value));
-}
-template <>
-inline const std::string& DODConditionCode_Name(DODConditionCode value) {
-  return ::google::protobuf::internal::NameOfDenseEnum<DODConditionCode_descriptor,
-                                                 0, 20>(
-      static_cast<int>(value));
-}
-inline bool DODConditionCode_Parse(absl::string_view name, DODConditionCode* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<DODConditionCode>(
-      DODConditionCode_descriptor(), name, value);
-}
 
 // ===================================================================
 
 
-// -------------------------------------------------------------------
-
-class Munition final
-    : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.Munition) */ {
- public:
-  inline Munition() : Munition(nullptr) {}
-  ~Munition() PROTOBUF_FINAL;
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-  void operator delete(Munition* msg, std::destroying_delete_t) {
-    SharedDtor(*msg);
-    ::google::protobuf::internal::SizedDelete(msg, sizeof(Munition));
-  }
-#endif
-
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR Munition(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline Munition(const Munition& from) : Munition(nullptr, from) {}
-  inline Munition(Munition&& from) noexcept
-      : Munition(nullptr, std::move(from)) {}
-  inline Munition& operator=(const Munition& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Munition& operator=(Munition&& from) noexcept {
-    if (this == &from) return *this;
-    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const Munition& default_instance() {
-    return *internal_default_instance();
-  }
-  enum ConditionCase {
-    kDodConditionCode = 3,
-    CONDITION_NOT_SET = 0,
-  };
-  static inline const Munition* internal_default_instance() {
-    return reinterpret_cast<const Munition*>(
-        &_Munition_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 1;
-  friend void swap(Munition& a, Munition& b) { a.Swap(&b); }
-  inline void Swap(Munition* other) {
-    if (other == this) return;
-    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Munition* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  Munition* New(::google::protobuf::Arena* arena = nullptr) const {
-    return ::google::protobuf::Message::DefaultConstruct<Munition>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const Munition& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const Munition& from) { Munition::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  static void SharedDtor(MessageLite& self);
-  void InternalSwap(Munition* other);
- private:
-  template <typename T>
-  friend ::absl::string_view(
-      ::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.Munition"; }
-
- protected:
-  explicit Munition(::google::protobuf::Arena* arena);
-  Munition(::google::protobuf::Arena* arena, const Munition& from);
-  Munition(::google::protobuf::Arena* arena, Munition&& from) noexcept
-      : Munition(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static void* PlacementNew_(const void*, void* mem,
-                             ::google::protobuf::Arena* arena);
-  static constexpr auto InternalNewImpl_();
-  static const ::google::protobuf::internal::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kMunitionIdFieldNumber = 1,
-    kNameFieldNumber = 2,
-    kDataSourceFieldNumber = 6,
-    kDataClassificationFieldNumber = 5,
-    kQuantityUnitsFieldNumber = 4,
-    kDodConditionCodeFieldNumber = 3,
-  };
-  // string munition_id = 1 [json_name = "munitionId"];
-  void clear_munition_id() ;
-  const std::string& munition_id() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_munition_id(Arg_&& arg, Args_... args);
-  std::string* mutable_munition_id();
-  PROTOBUF_NODISCARD std::string* release_munition_id();
-  void set_allocated_munition_id(std::string* value);
-
-  private:
-  const std::string& _internal_munition_id() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_munition_id(
-      const std::string& value);
-  std::string* _internal_mutable_munition_id();
-
-  public:
-  // string name = 2 [json_name = "name"];
-  void clear_name() ;
-  const std::string& name() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_name(Arg_&& arg, Args_... args);
-  std::string* mutable_name();
-  PROTOBUF_NODISCARD std::string* release_name();
-  void set_allocated_name(std::string* value);
-
-  private:
-  const std::string& _internal_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(
-      const std::string& value);
-  std::string* _internal_mutable_name();
-
-  public:
-  // string data_source = 6 [json_name = "dataSource"];
-  void clear_data_source() ;
-  const std::string& data_source() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_data_source(Arg_&& arg, Args_... args);
-  std::string* mutable_data_source();
-  PROTOBUF_NODISCARD std::string* release_data_source();
-  void set_allocated_data_source(std::string* value);
-
-  private:
-  const std::string& _internal_data_source() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_data_source(
-      const std::string& value);
-  std::string* _internal_mutable_data_source();
-
-  public:
-  // .anduril.entitymanager.v1.Classification data_classification = 5 [json_name = "dataClassification"];
-  bool has_data_classification() const;
-  void clear_data_classification() ;
-  const ::anduril::entitymanager::v1::Classification& data_classification() const;
-  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::Classification* release_data_classification();
-  ::anduril::entitymanager::v1::Classification* mutable_data_classification();
-  void set_allocated_data_classification(::anduril::entitymanager::v1::Classification* value);
-  void unsafe_arena_set_allocated_data_classification(::anduril::entitymanager::v1::Classification* value);
-  ::anduril::entitymanager::v1::Classification* unsafe_arena_release_data_classification();
-
-  private:
-  const ::anduril::entitymanager::v1::Classification& _internal_data_classification() const;
-  ::anduril::entitymanager::v1::Classification* _internal_mutable_data_classification();
-
-  public:
-  // uint32 quantity_units = 4 [json_name = "quantityUnits"];
-  void clear_quantity_units() ;
-  ::uint32_t quantity_units() const;
-  void set_quantity_units(::uint32_t value);
-
-  private:
-  ::uint32_t _internal_quantity_units() const;
-  void _internal_set_quantity_units(::uint32_t value);
-
-  public:
-  // .anduril.entitymanager.v1.DODConditionCode dod_condition_code = 3 [json_name = "dodConditionCode"];
-  bool has_dod_condition_code() const;
-  void clear_dod_condition_code() ;
-  ::anduril::entitymanager::v1::DODConditionCode dod_condition_code() const;
-  void set_dod_condition_code(::anduril::entitymanager::v1::DODConditionCode value);
-
-  private:
-  ::anduril::entitymanager::v1::DODConditionCode _internal_dod_condition_code() const;
-  void _internal_set_dod_condition_code(::anduril::entitymanager::v1::DODConditionCode value);
-
-  public:
-  void clear_condition();
-  ConditionCase condition_case() const;
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.Munition)
- private:
-  class _Internal;
-  void set_has_dod_condition_code();
-  inline bool has_condition() const;
-  inline void clear_has_condition();
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      3, 6, 1,
-      68, 2>
-      _table_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const Munition& from_msg);
-    ::google::protobuf::internal::HasBits<1> _has_bits_;
-    ::google::protobuf::internal::CachedSize _cached_size_;
-    ::google::protobuf::internal::ArenaStringPtr munition_id_;
-    ::google::protobuf::internal::ArenaStringPtr name_;
-    ::google::protobuf::internal::ArenaStringPtr data_source_;
-    ::anduril::entitymanager::v1::Classification* data_classification_;
-    ::uint32_t quantity_units_;
-    union ConditionUnion {
-      constexpr ConditionUnion() : _constinit_{} {}
-      ::google::protobuf::internal::ConstantInitialized _constinit_;
-      int dod_condition_code_;
-    } condition_;
-    ::uint32_t _oneof_case_[1];
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fsupplies_2epub_2eproto;
-};
 // -------------------------------------------------------------------
 
 class Fuel final
@@ -486,7 +140,7 @@ class Fuel final
     return reinterpret_cast<const Fuel*>(
         &_Fuel_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 2;
+  static constexpr int kIndexInFileMessages = 1;
   friend void swap(Fuel& a, Fuel& b) { a.Swap(&b); }
   inline void Swap(Fuel* other) {
     if (other == this) return;
@@ -582,7 +236,7 @@ class Fuel final
     kMaxAuthorizedCapacityGallonsFieldNumber = 5,
     kOperationalRequirementGallonsFieldNumber = 6,
   };
-  // string fuel_id = 1 [json_name = "fuelId", (.anduril.entitymanager.v1.componentIdentifier) = true];
+  // string fuel_id = 1 [json_name = "fuelId"];
   void clear_fuel_id() ;
   const std::string& fuel_id() const;
   template <typename Arg_ = const std::string&, typename... Args_>
@@ -877,26 +531,8 @@ class Supplies final
 
   // accessors -------------------------------------------------------
   enum : int {
-    kMunitionsFieldNumber = 1,
     kFuelFieldNumber = 2,
   };
-  // repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];
-  int munitions_size() const;
-  private:
-  int _internal_munitions_size() const;
-
-  public:
-  void clear_munitions() ;
-  ::anduril::entitymanager::v1::Munition* mutable_munitions(int index);
-  ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Munition>* mutable_munitions();
-
-  private:
-  const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Munition>& _internal_munitions() const;
-  ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Munition>* _internal_mutable_munitions();
-  public:
-  const ::anduril::entitymanager::v1::Munition& munitions(int index) const;
-  ::anduril::entitymanager::v1::Munition* add_munitions();
-  const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Munition>& munitions() const;
   // repeated .anduril.entitymanager.v1.Fuel fuel = 2 [json_name = "fuel", (.anduril.entitymanager.v1.overridable) = true];
   int fuel_size() const;
   private:
@@ -919,7 +555,7 @@ class Supplies final
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 2,
+      0, 1, 1,
       0, 2>
       _table_;
 
@@ -937,7 +573,6 @@ class Supplies final
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const Supplies& from_msg);
-    ::google::protobuf::RepeatedPtrField< ::anduril::entitymanager::v1::Munition > munitions_;
     ::google::protobuf::RepeatedPtrField< ::anduril::entitymanager::v1::Fuel > fuel_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -961,55 +596,6 @@ class Supplies final
 // -------------------------------------------------------------------
 
 // Supplies
-
-// repeated .anduril.entitymanager.v1.Munition munitions = 1 [json_name = "munitions", (.anduril.entitymanager.v1.overridable) = true];
-inline int Supplies::_internal_munitions_size() const {
-  return _internal_munitions().size();
-}
-inline int Supplies::munitions_size() const {
-  return _internal_munitions_size();
-}
-inline void Supplies::clear_munitions() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.munitions_.Clear();
-}
-inline ::anduril::entitymanager::v1::Munition* Supplies::mutable_munitions(int index)
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Supplies.munitions)
-  return _internal_mutable_munitions()->Mutable(index);
-}
-inline ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Munition>* Supplies::mutable_munitions()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_list:anduril.entitymanager.v1.Supplies.munitions)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _internal_mutable_munitions();
-}
-inline const ::anduril::entitymanager::v1::Munition& Supplies::munitions(int index) const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Supplies.munitions)
-  return _internal_munitions().Get(index);
-}
-inline ::anduril::entitymanager::v1::Munition* Supplies::add_munitions() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::anduril::entitymanager::v1::Munition* _add = _internal_mutable_munitions()->Add();
-  // @@protoc_insertion_point(field_add:anduril.entitymanager.v1.Supplies.munitions)
-  return _add;
-}
-inline const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Munition>& Supplies::munitions() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_list:anduril.entitymanager.v1.Supplies.munitions)
-  return _internal_munitions();
-}
-inline const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Munition>&
-Supplies::_internal_munitions() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.munitions_;
-}
-inline ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Munition>*
-Supplies::_internal_mutable_munitions() {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return &_impl_.munitions_;
-}
 
 // repeated .anduril.entitymanager.v1.Fuel fuel = 2 [json_name = "fuel", (.anduril.entitymanager.v1.overridable) = true];
 inline int Supplies::_internal_fuel_size() const {
@@ -1062,312 +648,9 @@ Supplies::_internal_mutable_fuel() {
 
 // -------------------------------------------------------------------
 
-// Munition
-
-// string munition_id = 1 [json_name = "munitionId"];
-inline void Munition::clear_munition_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.munition_id_.ClearToEmpty();
-}
-inline const std::string& Munition::munition_id() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Munition.munition_id)
-  return _internal_munition_id();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void Munition::set_munition_id(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.munition_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.Munition.munition_id)
-}
-inline std::string* Munition::mutable_munition_id() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_munition_id();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Munition.munition_id)
-  return _s;
-}
-inline const std::string& Munition::_internal_munition_id() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.munition_id_.Get();
-}
-inline void Munition::_internal_set_munition_id(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.munition_id_.Set(value, GetArena());
-}
-inline std::string* Munition::_internal_mutable_munition_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.munition_id_.Mutable( GetArena());
-}
-inline std::string* Munition::release_munition_id() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Munition.munition_id)
-  return _impl_.munition_id_.Release();
-}
-inline void Munition::set_allocated_munition_id(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.munition_id_.SetAllocated(value, GetArena());
-  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.munition_id_.IsDefault()) {
-    _impl_.munition_id_.Set("", GetArena());
-  }
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Munition.munition_id)
-}
-
-// string name = 2 [json_name = "name"];
-inline void Munition::clear_name() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.name_.ClearToEmpty();
-}
-inline const std::string& Munition::name() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Munition.name)
-  return _internal_name();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void Munition::set_name(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.name_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.Munition.name)
-}
-inline std::string* Munition::mutable_name() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_name();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Munition.name)
-  return _s;
-}
-inline const std::string& Munition::_internal_name() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.name_.Get();
-}
-inline void Munition::_internal_set_name(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.name_.Set(value, GetArena());
-}
-inline std::string* Munition::_internal_mutable_name() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.name_.Mutable( GetArena());
-}
-inline std::string* Munition::release_name() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Munition.name)
-  return _impl_.name_.Release();
-}
-inline void Munition::set_allocated_name(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.name_.SetAllocated(value, GetArena());
-  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.name_.IsDefault()) {
-    _impl_.name_.Set("", GetArena());
-  }
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Munition.name)
-}
-
-// .anduril.entitymanager.v1.DODConditionCode dod_condition_code = 3 [json_name = "dodConditionCode"];
-inline bool Munition::has_dod_condition_code() const {
-  return condition_case() == kDodConditionCode;
-}
-inline void Munition::set_has_dod_condition_code() {
-  _impl_._oneof_case_[0] = kDodConditionCode;
-}
-inline void Munition::clear_dod_condition_code() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (condition_case() == kDodConditionCode) {
-    _impl_.condition_.dod_condition_code_ = 0;
-    clear_has_condition();
-  }
-}
-inline ::anduril::entitymanager::v1::DODConditionCode Munition::dod_condition_code() const {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Munition.dod_condition_code)
-  return _internal_dod_condition_code();
-}
-inline void Munition::set_dod_condition_code(::anduril::entitymanager::v1::DODConditionCode value) {
-  if (condition_case() != kDodConditionCode) {
-    clear_condition();
-    set_has_dod_condition_code();
-  }
-  _impl_.condition_.dod_condition_code_ = value;
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.Munition.dod_condition_code)
-}
-inline ::anduril::entitymanager::v1::DODConditionCode Munition::_internal_dod_condition_code() const {
-  if (condition_case() == kDodConditionCode) {
-    return static_cast<::anduril::entitymanager::v1::DODConditionCode>(_impl_.condition_.dod_condition_code_);
-  }
-  return static_cast<::anduril::entitymanager::v1::DODConditionCode>(0);
-}
-
-// uint32 quantity_units = 4 [json_name = "quantityUnits"];
-inline void Munition::clear_quantity_units() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.quantity_units_ = 0u;
-}
-inline ::uint32_t Munition::quantity_units() const {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Munition.quantity_units)
-  return _internal_quantity_units();
-}
-inline void Munition::set_quantity_units(::uint32_t value) {
-  _internal_set_quantity_units(value);
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.Munition.quantity_units)
-}
-inline ::uint32_t Munition::_internal_quantity_units() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.quantity_units_;
-}
-inline void Munition::_internal_set_quantity_units(::uint32_t value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.quantity_units_ = value;
-}
-
-// .anduril.entitymanager.v1.Classification data_classification = 5 [json_name = "dataClassification"];
-inline bool Munition::has_data_classification() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.data_classification_ != nullptr);
-  return value;
-}
-inline const ::anduril::entitymanager::v1::Classification& Munition::_internal_data_classification() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::anduril::entitymanager::v1::Classification* p = _impl_.data_classification_;
-  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::Classification&>(::anduril::entitymanager::v1::_Classification_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::Classification& Munition::data_classification() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Munition.data_classification)
-  return _internal_data_classification();
-}
-inline void Munition::unsafe_arena_set_allocated_data_classification(::anduril::entitymanager::v1::Classification* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.data_classification_);
-  }
-  _impl_.data_classification_ = reinterpret_cast<::anduril::entitymanager::v1::Classification*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Munition.data_classification)
-}
-inline ::anduril::entitymanager::v1::Classification* Munition::release_data_classification() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::Classification* released = _impl_.data_classification_;
-  _impl_.data_classification_ = nullptr;
-  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
-    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-    if (GetArena() == nullptr) {
-      delete old;
-    }
-  } else {
-    if (GetArena() != nullptr) {
-      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-    }
-  }
-  return released;
-}
-inline ::anduril::entitymanager::v1::Classification* Munition::unsafe_arena_release_data_classification() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Munition.data_classification)
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::Classification* temp = _impl_.data_classification_;
-  _impl_.data_classification_ = nullptr;
-  return temp;
-}
-inline ::anduril::entitymanager::v1::Classification* Munition::_internal_mutable_data_classification() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.data_classification_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Classification>(GetArena());
-    _impl_.data_classification_ = reinterpret_cast<::anduril::entitymanager::v1::Classification*>(p);
-  }
-  return _impl_.data_classification_;
-}
-inline ::anduril::entitymanager::v1::Classification* Munition::mutable_data_classification() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  ::anduril::entitymanager::v1::Classification* _msg = _internal_mutable_data_classification();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Munition.data_classification)
-  return _msg;
-}
-inline void Munition::set_allocated_data_classification(::anduril::entitymanager::v1::Classification* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.data_classification_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-
-  _impl_.data_classification_ = reinterpret_cast<::anduril::entitymanager::v1::Classification*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Munition.data_classification)
-}
-
-// string data_source = 6 [json_name = "dataSource"];
-inline void Munition::clear_data_source() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.data_source_.ClearToEmpty();
-}
-inline const std::string& Munition::data_source() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Munition.data_source)
-  return _internal_data_source();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void Munition::set_data_source(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.data_source_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.Munition.data_source)
-}
-inline std::string* Munition::mutable_data_source() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_data_source();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Munition.data_source)
-  return _s;
-}
-inline const std::string& Munition::_internal_data_source() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.data_source_.Get();
-}
-inline void Munition::_internal_set_data_source(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.data_source_.Set(value, GetArena());
-}
-inline std::string* Munition::_internal_mutable_data_source() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.data_source_.Mutable( GetArena());
-}
-inline std::string* Munition::release_data_source() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Munition.data_source)
-  return _impl_.data_source_.Release();
-}
-inline void Munition::set_allocated_data_source(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.data_source_.SetAllocated(value, GetArena());
-  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.data_source_.IsDefault()) {
-    _impl_.data_source_.Set("", GetArena());
-  }
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Munition.data_source)
-}
-
-inline bool Munition::has_condition() const {
-  return condition_case() != CONDITION_NOT_SET;
-}
-inline void Munition::clear_has_condition() {
-  _impl_._oneof_case_[0] = CONDITION_NOT_SET;
-}
-inline Munition::ConditionCase Munition::condition_case() const {
-  return Munition::ConditionCase(_impl_._oneof_case_[0]);
-}
-// -------------------------------------------------------------------
-
 // Fuel
 
-// string fuel_id = 1 [json_name = "fuelId", (.anduril.entitymanager.v1.componentIdentifier) = true];
+// string fuel_id = 1 [json_name = "fuelId"];
 inline void Fuel::clear_fuel_id() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.fuel_id_.ClearToEmpty();
@@ -1768,19 +1051,6 @@ inline void Fuel::set_allocated_data_source(std::string* value) {
 }  // namespace entitymanager
 }  // namespace anduril
 
-
-namespace google {
-namespace protobuf {
-
-template <>
-struct is_proto_enum<::anduril::entitymanager::v1::DODConditionCode> : std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor<::anduril::entitymanager::v1::DODConditionCode>() {
-  return ::anduril::entitymanager::v1::DODConditionCode_descriptor();
-}
-
-}  // namespace protobuf
-}  // namespace google
 
 // @@protoc_insertion_point(global_scope)
 

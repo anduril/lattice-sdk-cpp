@@ -86,8 +86,7 @@ inline constexpr Classification::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
         fields_{},
-        default__{nullptr},
-        level_{static_cast< ::anduril::entitymanager::v1::ClassificationLevels >(0)} {}
+        default__{nullptr} {}
 
 template <typename>
 PROTOBUF_CONSTEXPR Classification::Classification(::_pbi::ConstantInitialized)
@@ -125,10 +124,8 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Classification, _impl_.level_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Classification, _impl_.default__),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Classification, _impl_.fields_),
-        ~0u,
         0,
         ~0u,
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::FieldClassificationInformation, _impl_._has_bits_),
@@ -157,9 +154,9 @@ const ::uint32_t
 
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-        {0, 11, -1, sizeof(::anduril::entitymanager::v1::Classification)},
-        {14, 24, -1, sizeof(::anduril::entitymanager::v1::FieldClassificationInformation)},
-        {26, -1, -1, sizeof(::anduril::entitymanager::v1::ClassificationInformation)},
+        {0, 10, -1, sizeof(::anduril::entitymanager::v1::Classification)},
+        {12, 22, -1, sizeof(::anduril::entitymanager::v1::FieldClassificationInformation)},
+        {24, -1, -1, sizeof(::anduril::entitymanager::v1::ClassificationInformation)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::entitymanager::v1::_Classification_default_instance_._instance,
@@ -169,41 +166,39 @@ static const ::_pb::Message* const file_default_instances[] = {
 const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fclassification_2epub_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
     "\n1anduril/entitymanager/v1/classificatio"
-    "n.pub.proto\022\030anduril.entitymanager.v1\"\373\001"
-    "\n\016Classification\022H\n\005level\030\001 \001(\0162..anduri"
-    "l.entitymanager.v1.ClassificationLevelsB"
-    "\002\030\001R\005level\022M\n\007default\030\002 \001(\01323.anduril.en"
-    "titymanager.v1.ClassificationInformation"
-    "R\007default\022P\n\006fields\030\003 \003(\01328.anduril.enti"
-    "tymanager.v1.FieldClassificationInformat"
-    "ionR\006fields\"\263\001\n\036FieldClassificationInfor"
-    "mation\022\035\n\nfield_path\030\001 \001(\tR\tfieldPath\022r\n"
-    "\032classification_information\030\002 \001(\01323.andu"
+    "n.pub.proto\022\030anduril.entitymanager.v1\"\267\001"
+    "\n\016Classification\022M\n\007default\030\002 \001(\01323.andu"
     "ril.entitymanager.v1.ClassificationInfor"
-    "mationR\031classificationInformation\"{\n\031Cla"
-    "ssificationInformation\022D\n\005level\030\001 \001(\0162.."
-    "anduril.entitymanager.v1.ClassificationL"
-    "evelsR\005level\022\030\n\007caveats\030\002 \003(\tR\007caveats*\204"
-    "\002\n\024ClassificationLevels\022!\n\035CLASSIFICATIO"
-    "N_LEVELS_INVALID\020\000\022&\n\"CLASSIFICATION_LEV"
-    "ELS_UNCLASSIFIED\020\001\0221\n-CLASSIFICATION_LEV"
-    "ELS_CONTROLLED_UNCLASSIFIED\020\002\022&\n\"CLASSIF"
-    "ICATION_LEVELS_CONFIDENTIAL\020\003\022 \n\034CLASSIF"
-    "ICATION_LEVELS_SECRET\020\004\022$\n CLASSIFICATIO"
-    "N_LEVELS_TOP_SECRET\020\005B\207\002\n\034com.anduril.en"
-    "titymanager.v1B\026ClassificationPubProtoP\001"
-    "ZMghe.anduril.dev/anduril/andurilapis-go"
-    "/anduril/entitymanager/v1;entitymanager\242"
-    "\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Andur"
-    "il\\Entitymanager\\V1\342\002$Anduril\\Entitymana"
-    "ger\\V1\\GPBMetadata\352\002\032Anduril::Entitymana"
-    "ger::V1b\006proto3"
+    "mationR\007default\022P\n\006fields\030\003 \003(\01328.anduri"
+    "l.entitymanager.v1.FieldClassificationIn"
+    "formationR\006fieldsJ\004\010\001\020\002\"\263\001\n\036FieldClassif"
+    "icationInformation\022\035\n\nfield_path\030\001 \001(\tR\t"
+    "fieldPath\022r\n\032classification_information\030"
+    "\002 \001(\01323.anduril.entitymanager.v1.Classif"
+    "icationInformationR\031classificationInform"
+    "ation\"{\n\031ClassificationInformation\022D\n\005le"
+    "vel\030\001 \001(\0162..anduril.entitymanager.v1.Cla"
+    "ssificationLevelsR\005level\022\030\n\007caveats\030\002 \003("
+    "\tR\007caveats*\204\002\n\024ClassificationLevels\022!\n\035C"
+    "LASSIFICATION_LEVELS_INVALID\020\000\022&\n\"CLASSI"
+    "FICATION_LEVELS_UNCLASSIFIED\020\001\0221\n-CLASSI"
+    "FICATION_LEVELS_CONTROLLED_UNCLASSIFIED\020"
+    "\002\022&\n\"CLASSIFICATION_LEVELS_CONFIDENTIAL\020"
+    "\003\022 \n\034CLASSIFICATION_LEVELS_SECRET\020\004\022$\n C"
+    "LASSIFICATION_LEVELS_TOP_SECRET\020\005B\207\002\n\034co"
+    "m.anduril.entitymanager.v1B\026Classificati"
+    "onPubProtoP\001ZMghe.anduril.dev/anduril/an"
+    "durilapis-go/anduril/entitymanager/v1;en"
+    "titymanager\242\002\003AEX\252\002\030Anduril.Entitymanage"
+    "r.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduri"
+    "l\\Entitymanager\\V1\\GPBMetadata\352\002\032Anduril"
+    "::Entitymanager::V1b\006proto3"
 };
 static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fclassification_2epub_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fclassification_2epub_2eproto = {
     false,
     false,
-    1175,
+    1107,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fclassification_2epub_2eproto,
     "anduril/entitymanager/v1/classification.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fclassification_2epub_2eproto_once,
@@ -271,7 +266,6 @@ Classification::Classification(
   _impl_.default__ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::ClassificationInformation>(
                               arena, *from._impl_.default__)
                         : nullptr;
-  _impl_.level_ = from._impl_.level_;
 
   // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.Classification)
 }
@@ -283,12 +277,7 @@ inline PROTOBUF_NDEBUG_INLINE Classification::Impl_::Impl_(
 
 inline void Classification::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
-  ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, default__),
-           0,
-           offsetof(Impl_, level_) -
-               offsetof(Impl_, default__) +
-               sizeof(Impl_::level_));
+  _impl_.default__ = {};
 }
 Classification::~Classification() {
   // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.Classification)
@@ -350,15 +339,15 @@ const ::google::protobuf::internal::ClassData* Classification::GetClassData() co
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 2, 0, 2> Classification::_table_ = {
+const ::_pbi::TcParseTable<1, 2, 2, 0, 2> Classification::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(Classification, _impl_._has_bits_),
     0, // no _extensions_
-    3, 24,  // max_field_number, fast_idx_mask
+    3, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967288,  // skipmap
+    4294967289,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    3,  // num_field_entries
+    2,  // num_field_entries
     2,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
@@ -368,10 +357,6 @@ const ::_pbi::TcParseTable<2, 3, 2, 0, 2> Classification::_table_ = {
     ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Classification>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    {::_pbi::TcParser::MiniParse, {}},
-    // .anduril.entitymanager.v1.ClassificationLevels level = 1 [json_name = "level", deprecated = true];
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(Classification, _impl_.level_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(Classification, _impl_.level_)}},
     // .anduril.entitymanager.v1.ClassificationInformation default = 2 [json_name = "default"];
     {::_pbi::TcParser::FastMtS1,
      {18, 0, 0, PROTOBUF_FIELD_OFFSET(Classification, _impl_.default__)}},
@@ -381,9 +366,6 @@ const ::_pbi::TcParseTable<2, 3, 2, 0, 2> Classification::_table_ = {
   }}, {{
     65535, 65535
   }}, {{
-    // .anduril.entitymanager.v1.ClassificationLevels level = 1 [json_name = "level", deprecated = true];
-    {PROTOBUF_FIELD_OFFSET(Classification, _impl_.level_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
     // .anduril.entitymanager.v1.ClassificationInformation default = 2 [json_name = "default"];
     {PROTOBUF_FIELD_OFFSET(Classification, _impl_.default__), _Internal::kHasBitsOffset + 0, 0,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
@@ -410,7 +392,6 @@ PROTOBUF_NOINLINE void Classification::Clear() {
     ABSL_DCHECK(_impl_.default__ != nullptr);
     _impl_.default__->Clear();
   }
-  _impl_.level_ = 0;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -429,13 +410,6 @@ PROTOBUF_NOINLINE void Classification::Clear() {
           // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.Classification)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
-
-          // .anduril.entitymanager.v1.ClassificationLevels level = 1 [json_name = "level", deprecated = true];
-          if (this_._internal_level() != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteEnumToArray(
-                1, this_._internal_level(), target);
-          }
 
           cached_has_bits = this_._impl_._has_bits_[0];
           // .anduril.entitymanager.v1.ClassificationInformation default = 2 [json_name = "default"];
@@ -497,13 +471,6 @@ PROTOBUF_NOINLINE void Classification::Clear() {
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.default__);
             }
           }
-           {
-            // .anduril.entitymanager.v1.ClassificationLevels level = 1 [json_name = "level", deprecated = true];
-            if (this_._internal_level() != 0) {
-              total_size += 1 +
-                            ::_pbi::WireFormatLite::EnumSize(this_._internal_level());
-            }
-          }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
                                                      &this_._impl_._cached_size_);
         }
@@ -529,9 +496,6 @@ void Classification::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::
       _this->_impl_.default__->MergeFrom(*from._impl_.default__);
     }
   }
-  if (from._internal_level() != 0) {
-    _this->_impl_.level_ = from._impl_.level_;
-  }
   _this->_impl_._has_bits_[0] |= cached_has_bits;
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -549,12 +513,7 @@ void Classification::InternalSwap(Classification* PROTOBUF_RESTRICT other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.fields_.InternalSwap(&other->_impl_.fields_);
-  ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Classification, _impl_.level_)
-      + sizeof(Classification::_impl_.level_)
-      - PROTOBUF_FIELD_OFFSET(Classification, _impl_.default__)>(
-          reinterpret_cast<char*>(&_impl_.default__),
-          reinterpret_cast<char*>(&other->_impl_.default__));
+  swap(_impl_.default__, other->_impl_.default__);
 }
 
 ::google::protobuf::Metadata Classification::GetMetadata() const {

@@ -186,8 +186,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 
 inline constexpr LinearRing::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : points_{},
-        positions_{},
+      : positions_{},
         _cached_size_{0} {}
 
 template <typename>
@@ -360,7 +359,6 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::LinearRing, _impl_.points_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::LinearRing, _impl_.positions_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::GeoPolygonPosition, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::GeoPolygonPosition, _internal_metadata_),
@@ -386,7 +384,7 @@ static const ::_pbi::MigrationSchema
         {52, 64, -1, sizeof(::anduril::entitymanager::v1::GeoEllipse)},
         {68, 79, -1, sizeof(::anduril::entitymanager::v1::GeoEllipsoid)},
         {82, -1, -1, sizeof(::anduril::entitymanager::v1::LinearRing)},
-        {92, 102, -1, sizeof(::anduril::entitymanager::v1::GeoPolygonPosition)},
+        {91, 101, -1, sizeof(::anduril::entitymanager::v1::GeoPolygonPosition)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::entitymanager::v1::_GeoDetails_default_instance_._instance,
@@ -436,26 +434,24 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fgeoentity_2e
     "rdAxisM\022<\n\013side_axis_m\030\002 \001(\0132\034.google.pr"
     "otobuf.DoubleValueR\tsideAxisM\0228\n\tup_axis"
     "_m\030\003 \001(\0132\034.google.protobuf.DoubleValueR\007"
-    "upAxisM\"\230\001\n\nLinearRing\022>\n\006points\030\001 \003(\0132\""
-    ".anduril.entitymanager.v1.PositionB\002\030\001R\006"
-    "points\022J\n\tpositions\030\002 \003(\0132,.anduril.enti"
-    "tymanager.v1.GeoPolygonPositionR\tpositio"
-    "ns\"\214\001\n\022GeoPolygonPosition\022>\n\010position\030\001 "
-    "\001(\0132\".anduril.entitymanager.v1.PositionR"
-    "\010position\0226\n\010height_m\030\002 \001(\0132\033.google.pro"
-    "tobuf.FloatValueR\007heightM*\304\001\n\007GeoType\022\024\n"
-    "\020GEO_TYPE_INVALID\020\000\022\024\n\020GEO_TYPE_GENERAL\020"
-    "\001\022\023\n\017GEO_TYPE_HAZARD\020\002\022\026\n\022GEO_TYPE_EMERG"
-    "ENCY\020\003\022\034\n\030GEO_TYPE_ENGAGEMENT_ZONE\020\005\022\031\n\025"
-    "GEO_TYPE_CONTROL_AREA\020\006\022\025\n\021GEO_TYPE_BULL"
-    "SEYE\020\007\"\004\010\004\020\004\"\004\010\010\020\010\"\004\010\t\020\tB\202\002\n\034com.anduril"
-    ".entitymanager.v1B\021GeoentityPubProtoP\001ZM"
-    "ghe.anduril.dev/anduril/andurilapis-go/a"
-    "nduril/entitymanager/v1;entitymanager\242\002\003"
-    "AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Anduril"
-    "\\Entitymanager\\V1\342\002$Anduril\\Entitymanage"
-    "r\\V1\\GPBMetadata\352\002\032Anduril::Entitymanage"
-    "r::V1b\006proto3"
+    "upAxisM\"^\n\nLinearRing\022J\n\tpositions\030\002 \003(\013"
+    "2,.anduril.entitymanager.v1.GeoPolygonPo"
+    "sitionR\tpositionsJ\004\010\001\020\002\"\214\001\n\022GeoPolygonPo"
+    "sition\022>\n\010position\030\001 \001(\0132\".anduril.entit"
+    "ymanager.v1.PositionR\010position\0226\n\010height"
+    "_m\030\002 \001(\0132\033.google.protobuf.FloatValueR\007h"
+    "eightM*\304\001\n\007GeoType\022\024\n\020GEO_TYPE_INVALID\020\000"
+    "\022\024\n\020GEO_TYPE_GENERAL\020\001\022\023\n\017GEO_TYPE_HAZAR"
+    "D\020\002\022\026\n\022GEO_TYPE_EMERGENCY\020\003\022\034\n\030GEO_TYPE_"
+    "ENGAGEMENT_ZONE\020\005\022\031\n\025GEO_TYPE_CONTROL_AR"
+    "EA\020\006\022\025\n\021GEO_TYPE_BULLSEYE\020\007\"\004\010\004\020\004\"\004\010\010\020\010\""
+    "\004\010\t\020\tB\202\002\n\034com.anduril.entitymanager.v1B\021"
+    "GeoentityPubProtoP\001ZMghe.anduril.dev/and"
+    "uril/andurilapis-go/anduril/entitymanage"
+    "r/v1;entitymanager\242\002\003AEX\252\002\030Anduril.Entit"
+    "ymanager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002"
+    "$Anduril\\Entitymanager\\V1\\GPBMetadata\352\002\032"
+    "Anduril::Entitymanager::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto_deps[2] =
     {
@@ -466,7 +462,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fgeoenti
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto = {
     false,
     false,
-    2173,
+    2114,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto,
     "anduril/entitymanager/v1/geoentity.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto_once,
@@ -2714,10 +2710,6 @@ class LinearRing::_Internal {
  public:
 };
 
-void LinearRing::clear_points() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.points_.Clear();
-}
 LinearRing::LinearRing(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, _class_data_.base()) {
@@ -2730,8 +2722,7 @@ LinearRing::LinearRing(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE LinearRing::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::anduril::entitymanager::v1::LinearRing& from_msg)
-      : points_{visibility, arena, from.points_},
-        positions_{visibility, arena, from.positions_},
+      : positions_{visibility, arena, from.positions_},
         _cached_size_{0} {}
 
 LinearRing::LinearRing(
@@ -2753,8 +2744,7 @@ LinearRing::LinearRing(
 inline PROTOBUF_NDEBUG_INLINE LinearRing::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : points_{visibility, arena},
-        positions_{visibility, arena},
+      : positions_{visibility, arena},
         _cached_size_{0} {}
 
 inline void LinearRing::SharedCtor(::_pb::Arena* arena) {
@@ -2777,10 +2767,6 @@ inline void* LinearRing::PlacementNew_(const void*, void* mem,
 }
 constexpr auto LinearRing::InternalNewImpl_() {
   constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
-      PROTOBUF_FIELD_OFFSET(LinearRing, _impl_.points_) +
-          decltype(LinearRing::_impl_.points_)::
-              InternalGetArenaOffset(
-                  ::google::protobuf::Message::internal_visibility()),
       PROTOBUF_FIELD_OFFSET(LinearRing, _impl_.positions_) +
           decltype(LinearRing::_impl_.positions_)::
               InternalGetArenaOffset(
@@ -2823,16 +2809,16 @@ const ::google::protobuf::internal::ClassData* LinearRing::GetClassData() const 
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 2, 0, 2> LinearRing::_table_ = {
+const ::_pbi::TcParseTable<0, 1, 1, 0, 2> LinearRing::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    2, 8,  // max_field_number, fast_idx_mask
+    2, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
+    4294967293,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
-    2,  // num_aux_entries
+    1,  // num_field_entries
+    1,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
@@ -2843,21 +2829,14 @@ const ::_pbi::TcParseTable<1, 2, 2, 0, 2> LinearRing::_table_ = {
   }, {{
     // repeated .anduril.entitymanager.v1.GeoPolygonPosition positions = 2 [json_name = "positions"];
     {::_pbi::TcParser::FastMtR1,
-     {18, 63, 1, PROTOBUF_FIELD_OFFSET(LinearRing, _impl_.positions_)}},
-    // repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];
-    {::_pbi::TcParser::FastMtR1,
-     {10, 63, 0, PROTOBUF_FIELD_OFFSET(LinearRing, _impl_.points_)}},
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(LinearRing, _impl_.positions_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];
-    {PROTOBUF_FIELD_OFFSET(LinearRing, _impl_.points_), 0, 0,
-    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // repeated .anduril.entitymanager.v1.GeoPolygonPosition positions = 2 [json_name = "positions"];
-    {PROTOBUF_FIELD_OFFSET(LinearRing, _impl_.positions_), 0, 1,
+    {PROTOBUF_FIELD_OFFSET(LinearRing, _impl_.positions_), 0, 0,
     (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Position>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::GeoPolygonPosition>()},
   }}, {{
   }},
@@ -2870,7 +2849,6 @@ PROTOBUF_NOINLINE void LinearRing::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.points_.Clear();
   _impl_.positions_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -2889,17 +2867,6 @@ PROTOBUF_NOINLINE void LinearRing::Clear() {
           // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.LinearRing)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
-
-          // repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];
-          for (unsigned i = 0, n = static_cast<unsigned>(
-                                   this_._internal_points_size());
-               i < n; i++) {
-            const auto& repfield = this_._internal_points().Get(i);
-            target =
-                ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                    1, repfield, repfield.GetCachedSize(),
-                    target, stream);
-          }
 
           // repeated .anduril.entitymanager.v1.GeoPolygonPosition positions = 2 [json_name = "positions"];
           for (unsigned i = 0, n = static_cast<unsigned>(
@@ -2937,13 +2904,6 @@ PROTOBUF_NOINLINE void LinearRing::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];
-            {
-              total_size += 1UL * this_._internal_points_size();
-              for (const auto& msg : this_._internal_points()) {
-                total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
-              }
-            }
             // repeated .anduril.entitymanager.v1.GeoPolygonPosition positions = 2 [json_name = "positions"];
             {
               total_size += 1UL * this_._internal_positions_size();
@@ -2964,8 +2924,6 @@ void LinearRing::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::goog
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_internal_mutable_points()->MergeFrom(
-      from._internal_points());
   _this->_internal_mutable_positions()->MergeFrom(
       from._internal_positions());
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
@@ -2982,7 +2940,6 @@ void LinearRing::CopyFrom(const LinearRing& from) {
 void LinearRing::InternalSwap(LinearRing* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.points_.InternalSwap(&other->_impl_.points_);
   _impl_.positions_.InternalSwap(&other->_impl_.positions_);
 }
 

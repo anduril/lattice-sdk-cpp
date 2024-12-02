@@ -1565,26 +1565,8 @@ class LinearRing final
 
   // accessors -------------------------------------------------------
   enum : int {
-    kPointsFieldNumber = 1,
     kPositionsFieldNumber = 2,
   };
-  // repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];
-  [[deprecated]]  int points_size() const;
-  private:
-  int _internal_points_size() const;
-
-  public:
-  [[deprecated]]  void clear_points() ;
-  [[deprecated]] ::anduril::entitymanager::v1::Position* mutable_points(int index);
-  [[deprecated]] ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Position>* mutable_points();
-
-  private:
-  const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Position>& _internal_points() const;
-  ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Position>* _internal_mutable_points();
-  public:
-  [[deprecated]] const ::anduril::entitymanager::v1::Position& points(int index) const;
-  [[deprecated]] ::anduril::entitymanager::v1::Position* add_points();
-  [[deprecated]] const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Position>& points() const;
   // repeated .anduril.entitymanager.v1.GeoPolygonPosition positions = 2 [json_name = "positions"];
   int positions_size() const;
   private:
@@ -1607,7 +1589,7 @@ class LinearRing final
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 2,
+      0, 1, 1,
       0, 2>
       _table_;
 
@@ -1625,7 +1607,6 @@ class LinearRing final
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const LinearRing& from_msg);
-    ::google::protobuf::RepeatedPtrField< ::anduril::entitymanager::v1::Position > points_;
     ::google::protobuf::RepeatedPtrField< ::anduril::entitymanager::v1::GeoPolygonPosition > positions_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -3463,51 +3444,6 @@ inline void GeoEllipsoid::set_allocated_up_axis_m(::google::protobuf::DoubleValu
 // -------------------------------------------------------------------
 
 // LinearRing
-
-// repeated .anduril.entitymanager.v1.Position points = 1 [json_name = "points", deprecated = true];
-inline int LinearRing::_internal_points_size() const {
-  return _internal_points().size();
-}
-inline int LinearRing::points_size() const {
-  return _internal_points_size();
-}
-inline ::anduril::entitymanager::v1::Position* LinearRing::mutable_points(int index)
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.LinearRing.points)
-  return _internal_mutable_points()->Mutable(index);
-}
-inline ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Position>* LinearRing::mutable_points()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_list:anduril.entitymanager.v1.LinearRing.points)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _internal_mutable_points();
-}
-inline const ::anduril::entitymanager::v1::Position& LinearRing::points(int index) const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.LinearRing.points)
-  return _internal_points().Get(index);
-}
-inline ::anduril::entitymanager::v1::Position* LinearRing::add_points() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::anduril::entitymanager::v1::Position* _add = _internal_mutable_points()->Add();
-  // @@protoc_insertion_point(field_add:anduril.entitymanager.v1.LinearRing.points)
-  return _add;
-}
-inline const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Position>& LinearRing::points() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_list:anduril.entitymanager.v1.LinearRing.points)
-  return _internal_points();
-}
-inline const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Position>&
-LinearRing::_internal_points() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.points_;
-}
-inline ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::Position>*
-LinearRing::_internal_mutable_points() {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return &_impl_.points_;
-}
 
 // repeated .anduril.entitymanager.v1.GeoPolygonPosition positions = 2 [json_name = "positions"];
 inline int LinearRing::_internal_positions_size() const {

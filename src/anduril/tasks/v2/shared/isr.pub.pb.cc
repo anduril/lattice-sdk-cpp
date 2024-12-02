@@ -57,10 +57,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr ISRParameters::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
-        speed_{nullptr},
         speed_m_s_{nullptr},
         standoff_distance_m_{nullptr},
-        standoff_distance_{nullptr},
         standoff_angle_{nullptr},
         expiration_time_ms_{nullptr} {}
 
@@ -730,18 +728,14 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::ISRParameters, _impl_.speed_),
         PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::ISRParameters, _impl_.speed_m_s_),
         PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::ISRParameters, _impl_.standoff_distance_m_),
-        PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::ISRParameters, _impl_.standoff_distance_),
         PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::ISRParameters, _impl_.standoff_angle_),
         PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::ISRParameters, _impl_.expiration_time_ms_),
         0,
         1,
         2,
         3,
-        4,
-        5,
         PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::GimbalPoint, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::GimbalPoint, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -844,14 +838,14 @@ static const ::_pbi::MigrationSchema
         {118, 129, -1, sizeof(::anduril::tasks::v2::OrbitType)},
         {132, -1, -1, sizeof(::anduril::tasks::v2::OrbitDuration)},
         {143, -1, -1, sizeof(::anduril::tasks::v2::Prior)},
-        {154, 168, -1, sizeof(::anduril::tasks::v2::ISRParameters)},
-        {174, 187, -1, sizeof(::anduril::tasks::v2::GimbalPoint)},
-        {191, -1, -1, sizeof(::anduril::tasks::v2::AzimuthElevationPoint)},
-        {201, 212, -1, sizeof(::anduril::tasks::v2::FramePoint)},
-        {215, -1, -1, sizeof(::anduril::tasks::v2::GimbalZoom)},
-        {226, 235, -1, sizeof(::anduril::tasks::v2::Monitor)},
-        {236, 246, -1, sizeof(::anduril::tasks::v2::Scan)},
-        {248, 258, -1, sizeof(::anduril::tasks::v2::BattleDamageAssessment)},
+        {154, 166, -1, sizeof(::anduril::tasks::v2::ISRParameters)},
+        {170, 183, -1, sizeof(::anduril::tasks::v2::GimbalPoint)},
+        {187, -1, -1, sizeof(::anduril::tasks::v2::AzimuthElevationPoint)},
+        {197, 208, -1, sizeof(::anduril::tasks::v2::FramePoint)},
+        {211, -1, -1, sizeof(::anduril::tasks::v2::GimbalZoom)},
+        {222, 231, -1, sizeof(::anduril::tasks::v2::Monitor)},
+        {232, 242, -1, sizeof(::anduril::tasks::v2::Scan)},
+        {244, 254, -1, sizeof(::anduril::tasks::v2::BattleDamageAssessment)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::tasks::v2::_Investigate_default_instance_._instance,
@@ -931,55 +925,52 @@ const char descriptor_table_protodef_anduril_2ftasks_2fv2_2fshared_2fisr_2epub_2
     "ts\030\002 \001(\004H\000R\013numOfOrbitsB\n\n\010duration\"`\n\005P"
     "rior\022\035\n\tentity_id\030\001 \001(\tH\000R\010entityId\022/\n\005p"
     "oint\030\005 \001(\0132\027.anduril.tasks.v2.PointH\000R\005p"
-    "ointB\007\n\005prior\"\252\003\n\rISRParameters\0225\n\005speed"
-    "\030\001 \001(\0132\033.google.protobuf.FloatValueB\002\030\001R"
-    "\005speed\0227\n\tspeed_m_s\030\002 \001(\0132\033.google.proto"
-    "buf.FloatValueR\007speedMS\022K\n\023standoff_dist"
-    "ance_m\030\003 \001(\0132\033.google.protobuf.FloatValu"
-    "eR\021standoffDistanceM\022L\n\021standoff_distanc"
-    "e\030\004 \001(\0132\033.google.protobuf.FloatValueB\002\030\001"
-    "R\020standoffDistance\022B\n\016standoff_angle\030\005 \001"
-    "(\0132\033.google.protobuf.FloatValueR\rstandof"
-    "fAngle\022J\n\022expiration_time_ms\030\006 \001(\0132\034.goo"
-    "gle.protobuf.UInt64ValueR\020expirationTime"
-    "Ms\"\265\002\n\013GimbalPoint\0226\n\007look_at\030\001 \001(\0132\033.an"
-    "duril.tasks.v2.ObjectiveH\000R\006lookAt\022X\n\022ce"
-    "lestial_location\030\002 \001(\0132\'.anduril.tasks.v"
-    "2.AzimuthElevationPointH\000R\021celestialLoca"
-    "tion\022E\n\016frame_location\030\004 \001(\0132\034.anduril.t"
-    "asks.v2.FramePointH\000R\rframeLocation\022\?\n\np"
-    "arameters\030\003 \001(\0132\037.anduril.tasks.v2.ISRPa"
-    "rametersR\nparametersB\014\n\npoint_type\"O\n\025Az"
-    "imuthElevationPoint\022\030\n\007azimuth\030\001 \001(\001R\007az"
-    "imuth\022\034\n\televation\030\002 \001(\001R\televation\"b\n\nF"
-    "ramePoint\022\014\n\001x\030\001 \001(\002R\001x\022\014\n\001y\030\002 \001(\002R\001y\0228\n"
-    "\ttimestamp\030\003 \001(\0132\032.google.protobuf.Times"
-    "tampR\ttimestamp\"\256\001\n\nGimbalZoom\022L\n\022set_ho"
-    "rizontal_fov\030\001 \001(\0132\034.google.protobuf.Dou"
-    "bleValueH\000R\020setHorizontalFov\022J\n\021set_magn"
-    "ification\030\002 \001(\0132\033.google.protobuf.FloatV"
-    "alueH\000R\020setMagnificationB\006\n\004mode\"P\n\007Moni"
-    "tor\0229\n\tobjective\030\001 \001(\0132\033.anduril.tasks.v"
-    "2.ObjectiveR\tobjectiveJ\004\010\002\020\003J\004\010\003\020\004\"\202\001\n\004S"
-    "can\0229\n\tobjective\030\001 \001(\0132\033.anduril.tasks.v"
-    "2.ObjectiveR\tobjective\022\?\n\nparameters\030\002 \001"
-    "(\0132\037.anduril.tasks.v2.ISRParametersR\npar"
-    "ameters\"\224\001\n\026BattleDamageAssessment\0229\n\tob"
-    "jective\030\001 \001(\0132\033.anduril.tasks.v2.Objecti"
-    "veR\tobjective\022\?\n\nparameters\030\002 \001(\0132\037.andu"
-    "ril.tasks.v2.ISRParametersR\nparameters*l"
-    "\n\016OrbitDirection\022%\n!ORBIT_DIRECTION_DIRE"
-    "CTION_INVALID\020\000\022\031\n\025ORBIT_DIRECTION_RIGHT"
-    "\020\001\022\030\n\024ORBIT_DIRECTION_LEFT\020\002*\200\001\n\014OrbitPa"
-    "ttern\022\031\n\025ORBIT_PATTERN_INVALID\020\000\022\030\n\024ORBI"
-    "T_PATTERN_CIRCLE\020\001\022\033\n\027ORBIT_PATTERN_RACE"
-    "TRACK\020\002\022\036\n\032ORBIT_PATTERN_FIGURE_EIGHT\020\003B"
-    "\304\001\n\024com.anduril.tasks.v2B\013IsrPubProtoP\001Z"
-    "=ghe.anduril.dev/anduril/andurilapis-go/"
-    "anduril/tasks/v2;tasks\242\002\003ATX\252\002\020Anduril.T"
-    "asks.V2\312\002\020Anduril\\Tasks\\V2\342\002\034Anduril\\Tas"
-    "ks\\V2\\GPBMetadata\352\002\022Anduril::Tasks::V2b\006"
-    "proto3"
+    "ointB\007\n\005prior\"\261\002\n\rISRParameters\0227\n\tspeed"
+    "_m_s\030\002 \001(\0132\033.google.protobuf.FloatValueR"
+    "\007speedMS\022K\n\023standoff_distance_m\030\003 \001(\0132\033."
+    "google.protobuf.FloatValueR\021standoffDist"
+    "anceM\022B\n\016standoff_angle\030\005 \001(\0132\033.google.p"
+    "rotobuf.FloatValueR\rstandoffAngle\022J\n\022exp"
+    "iration_time_ms\030\006 \001(\0132\034.google.protobuf."
+    "UInt64ValueR\020expirationTimeMsJ\004\010\001\020\002J\004\010\004\020"
+    "\005\"\265\002\n\013GimbalPoint\0226\n\007look_at\030\001 \001(\0132\033.and"
+    "uril.tasks.v2.ObjectiveH\000R\006lookAt\022X\n\022cel"
+    "estial_location\030\002 \001(\0132\'.anduril.tasks.v2"
+    ".AzimuthElevationPointH\000R\021celestialLocat"
+    "ion\022E\n\016frame_location\030\004 \001(\0132\034.anduril.ta"
+    "sks.v2.FramePointH\000R\rframeLocation\022\?\n\npa"
+    "rameters\030\003 \001(\0132\037.anduril.tasks.v2.ISRPar"
+    "ametersR\nparametersB\014\n\npoint_type\"O\n\025Azi"
+    "muthElevationPoint\022\030\n\007azimuth\030\001 \001(\001R\007azi"
+    "muth\022\034\n\televation\030\002 \001(\001R\televation\"b\n\nFr"
+    "amePoint\022\014\n\001x\030\001 \001(\002R\001x\022\014\n\001y\030\002 \001(\002R\001y\0228\n\t"
+    "timestamp\030\003 \001(\0132\032.google.protobuf.Timest"
+    "ampR\ttimestamp\"\256\001\n\nGimbalZoom\022L\n\022set_hor"
+    "izontal_fov\030\001 \001(\0132\034.google.protobuf.Doub"
+    "leValueH\000R\020setHorizontalFov\022J\n\021set_magni"
+    "fication\030\002 \001(\0132\033.google.protobuf.FloatVa"
+    "lueH\000R\020setMagnificationB\006\n\004mode\"P\n\007Monit"
+    "or\0229\n\tobjective\030\001 \001(\0132\033.anduril.tasks.v2"
+    ".ObjectiveR\tobjectiveJ\004\010\002\020\003J\004\010\003\020\004\"\202\001\n\004Sc"
+    "an\0229\n\tobjective\030\001 \001(\0132\033.anduril.tasks.v2"
+    ".ObjectiveR\tobjective\022\?\n\nparameters\030\002 \001("
+    "\0132\037.anduril.tasks.v2.ISRParametersR\npara"
+    "meters\"\224\001\n\026BattleDamageAssessment\0229\n\tobj"
+    "ective\030\001 \001(\0132\033.anduril.tasks.v2.Objectiv"
+    "eR\tobjective\022\?\n\nparameters\030\002 \001(\0132\037.andur"
+    "il.tasks.v2.ISRParametersR\nparameters*l\n"
+    "\016OrbitDirection\022%\n!ORBIT_DIRECTION_DIREC"
+    "TION_INVALID\020\000\022\031\n\025ORBIT_DIRECTION_RIGHT\020"
+    "\001\022\030\n\024ORBIT_DIRECTION_LEFT\020\002*\200\001\n\014OrbitPat"
+    "tern\022\031\n\025ORBIT_PATTERN_INVALID\020\000\022\030\n\024ORBIT"
+    "_PATTERN_CIRCLE\020\001\022\033\n\027ORBIT_PATTERN_RACET"
+    "RACK\020\002\022\036\n\032ORBIT_PATTERN_FIGURE_EIGHT\020\003B\304"
+    "\001\n\024com.anduril.tasks.v2B\013IsrPubProtoP\001Z="
+    "ghe.anduril.dev/anduril/andurilapis-go/a"
+    "nduril/tasks/v2;tasks\242\002\003ATX\252\002\020Anduril.Ta"
+    "sks.V2\312\002\020Anduril\\Tasks\\V2\342\002\034Anduril\\Task"
+    "s\\V2\\GPBMetadata\352\002\022Anduril::Tasks::V2b\006p"
+    "roto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2ftasks_2fv2_2fshared_2fisr_2epub_2eproto_deps[4] =
     {
@@ -992,7 +983,7 @@ static ::absl::once_flag descriptor_table_anduril_2ftasks_2fv2_2fshared_2fisr_2e
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftasks_2fv2_2fshared_2fisr_2epub_2eproto = {
     false,
     false,
-    4086,
+    3965,
     descriptor_table_protodef_anduril_2ftasks_2fv2_2fshared_2fisr_2epub_2eproto,
     "anduril/tasks/v2/shared/isr.pub.proto",
     &descriptor_table_anduril_2ftasks_2fv2_2fshared_2fisr_2epub_2eproto_once,
@@ -4985,35 +4976,25 @@ class ISRParameters::_Internal {
       8 * PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_._has_bits_);
 };
 
-void ISRParameters::clear_speed() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.speed_ != nullptr) _impl_.speed_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
 void ISRParameters::clear_speed_m_s() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.speed_m_s_ != nullptr) _impl_.speed_m_s_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 void ISRParameters::clear_standoff_distance_m() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.standoff_distance_m_ != nullptr) _impl_.standoff_distance_m_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-void ISRParameters::clear_standoff_distance() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.standoff_distance_ != nullptr) _impl_.standoff_distance_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 void ISRParameters::clear_standoff_angle() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.standoff_angle_ != nullptr) _impl_.standoff_angle_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 void ISRParameters::clear_expiration_time_ms() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.expiration_time_ms_ != nullptr) _impl_.expiration_time_ms_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 ISRParameters::ISRParameters(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
@@ -5044,22 +5025,16 @@ ISRParameters::ISRParameters(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
   ::uint32_t cached_has_bits = _impl_._has_bits_[0];
-  _impl_.speed_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::FloatValue>(
-                              arena, *from._impl_.speed_)
-                        : nullptr;
-  _impl_.speed_m_s_ = (cached_has_bits & 0x00000002u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::FloatValue>(
+  _impl_.speed_m_s_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::FloatValue>(
                               arena, *from._impl_.speed_m_s_)
                         : nullptr;
-  _impl_.standoff_distance_m_ = (cached_has_bits & 0x00000004u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::FloatValue>(
+  _impl_.standoff_distance_m_ = (cached_has_bits & 0x00000002u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::FloatValue>(
                               arena, *from._impl_.standoff_distance_m_)
                         : nullptr;
-  _impl_.standoff_distance_ = (cached_has_bits & 0x00000008u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::FloatValue>(
-                              arena, *from._impl_.standoff_distance_)
-                        : nullptr;
-  _impl_.standoff_angle_ = (cached_has_bits & 0x00000010u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::FloatValue>(
+  _impl_.standoff_angle_ = (cached_has_bits & 0x00000004u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::FloatValue>(
                               arena, *from._impl_.standoff_angle_)
                         : nullptr;
-  _impl_.expiration_time_ms_ = (cached_has_bits & 0x00000020u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::UInt64Value>(
+  _impl_.expiration_time_ms_ = (cached_has_bits & 0x00000008u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::UInt64Value>(
                               arena, *from._impl_.expiration_time_ms_)
                         : nullptr;
 
@@ -5073,10 +5048,10 @@ inline PROTOBUF_NDEBUG_INLINE ISRParameters::Impl_::Impl_(
 inline void ISRParameters::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, speed_),
+               offsetof(Impl_, speed_m_s_),
            0,
            offsetof(Impl_, expiration_time_ms_) -
-               offsetof(Impl_, speed_) +
+               offsetof(Impl_, speed_m_s_) +
                sizeof(Impl_::expiration_time_ms_));
 }
 ISRParameters::~ISRParameters() {
@@ -5087,10 +5062,8 @@ inline void ISRParameters::SharedDtor(MessageLite& self) {
   ISRParameters& this_ = static_cast<ISRParameters&>(self);
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
-  delete this_._impl_.speed_;
   delete this_._impl_.speed_m_s_;
   delete this_._impl_.standoff_distance_m_;
-  delete this_._impl_.standoff_distance_;
   delete this_._impl_.standoff_angle_;
   delete this_._impl_.expiration_time_ms_;
   this_._impl_.~Impl_();
@@ -5132,16 +5105,16 @@ const ::google::protobuf::internal::ClassData* ISRParameters::GetClassData() con
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 6, 6, 0, 2> ISRParameters::_table_ = {
+const ::_pbi::TcParseTable<3, 4, 4, 0, 2> ISRParameters::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_._has_bits_),
     0, // no _extensions_
     6, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967232,  // skipmap
+    4294967241,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    6,  // num_field_entries
-    6,  // num_aux_entries
+    4,  // num_field_entries
+    4,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
@@ -5151,49 +5124,37 @@ const ::_pbi::TcParseTable<3, 6, 6, 0, 2> ISRParameters::_table_ = {
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
-    // .google.protobuf.FloatValue speed = 1 [json_name = "speed", deprecated = true];
-    {::_pbi::TcParser::FastMtS1,
-     {10, 0, 0, PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.speed_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // .google.protobuf.FloatValue speed_m_s = 2 [json_name = "speedMS"];
     {::_pbi::TcParser::FastMtS1,
-     {18, 1, 1, PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.speed_m_s_)}},
+     {18, 0, 0, PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.speed_m_s_)}},
     // .google.protobuf.FloatValue standoff_distance_m = 3 [json_name = "standoffDistanceM"];
     {::_pbi::TcParser::FastMtS1,
-     {26, 2, 2, PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.standoff_distance_m_)}},
-    // .google.protobuf.FloatValue standoff_distance = 4 [json_name = "standoffDistance", deprecated = true];
-    {::_pbi::TcParser::FastMtS1,
-     {34, 3, 3, PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.standoff_distance_)}},
+     {26, 1, 1, PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.standoff_distance_m_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // .google.protobuf.FloatValue standoff_angle = 5 [json_name = "standoffAngle"];
     {::_pbi::TcParser::FastMtS1,
-     {42, 4, 4, PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.standoff_angle_)}},
+     {42, 2, 2, PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.standoff_angle_)}},
     // .google.protobuf.UInt64Value expiration_time_ms = 6 [json_name = "expirationTimeMs"];
     {::_pbi::TcParser::FastMtS1,
-     {50, 5, 5, PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.expiration_time_ms_)}},
+     {50, 3, 3, PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.expiration_time_ms_)}},
     {::_pbi::TcParser::MiniParse, {}},
   }}, {{
     65535, 65535
   }}, {{
-    // .google.protobuf.FloatValue speed = 1 [json_name = "speed", deprecated = true];
-    {PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.speed_), _Internal::kHasBitsOffset + 0, 0,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .google.protobuf.FloatValue speed_m_s = 2 [json_name = "speedMS"];
-    {PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.speed_m_s_), _Internal::kHasBitsOffset + 1, 1,
+    {PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.speed_m_s_), _Internal::kHasBitsOffset + 0, 0,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .google.protobuf.FloatValue standoff_distance_m = 3 [json_name = "standoffDistanceM"];
-    {PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.standoff_distance_m_), _Internal::kHasBitsOffset + 2, 2,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .google.protobuf.FloatValue standoff_distance = 4 [json_name = "standoffDistance", deprecated = true];
-    {PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.standoff_distance_), _Internal::kHasBitsOffset + 3, 3,
+    {PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.standoff_distance_m_), _Internal::kHasBitsOffset + 1, 1,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .google.protobuf.FloatValue standoff_angle = 5 [json_name = "standoffAngle"];
-    {PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.standoff_angle_), _Internal::kHasBitsOffset + 4, 4,
+    {PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.standoff_angle_), _Internal::kHasBitsOffset + 2, 2,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .google.protobuf.UInt64Value expiration_time_ms = 6 [json_name = "expirationTimeMs"];
-    {PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.expiration_time_ms_), _Internal::kHasBitsOffset + 5, 5,
+    {PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.expiration_time_ms_), _Internal::kHasBitsOffset + 3, 3,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
-    {::_pbi::TcParser::GetTable<::google::protobuf::FloatValue>()},
-    {::_pbi::TcParser::GetTable<::google::protobuf::FloatValue>()},
     {::_pbi::TcParser::GetTable<::google::protobuf::FloatValue>()},
     {::_pbi::TcParser::GetTable<::google::protobuf::FloatValue>()},
     {::_pbi::TcParser::GetTable<::google::protobuf::FloatValue>()},
@@ -5210,28 +5171,20 @@ PROTOBUF_NOINLINE void ISRParameters::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000003fu) {
+  if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
-      ABSL_DCHECK(_impl_.speed_ != nullptr);
-      _impl_.speed_->Clear();
-    }
-    if (cached_has_bits & 0x00000002u) {
       ABSL_DCHECK(_impl_.speed_m_s_ != nullptr);
       _impl_.speed_m_s_->Clear();
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       ABSL_DCHECK(_impl_.standoff_distance_m_ != nullptr);
       _impl_.standoff_distance_m_->Clear();
     }
-    if (cached_has_bits & 0x00000008u) {
-      ABSL_DCHECK(_impl_.standoff_distance_ != nullptr);
-      _impl_.standoff_distance_->Clear();
-    }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000004u) {
       ABSL_DCHECK(_impl_.standoff_angle_ != nullptr);
       _impl_.standoff_angle_->Clear();
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000008u) {
       ABSL_DCHECK(_impl_.expiration_time_ms_ != nullptr);
       _impl_.expiration_time_ms_->Clear();
     }
@@ -5256,43 +5209,29 @@ PROTOBUF_NOINLINE void ISRParameters::Clear() {
           (void)cached_has_bits;
 
           cached_has_bits = this_._impl_._has_bits_[0];
-          // .google.protobuf.FloatValue speed = 1 [json_name = "speed", deprecated = true];
-          if (cached_has_bits & 0x00000001u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                1, *this_._impl_.speed_, this_._impl_.speed_->GetCachedSize(), target,
-                stream);
-          }
-
           // .google.protobuf.FloatValue speed_m_s = 2 [json_name = "speedMS"];
-          if (cached_has_bits & 0x00000002u) {
+          if (cached_has_bits & 0x00000001u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 2, *this_._impl_.speed_m_s_, this_._impl_.speed_m_s_->GetCachedSize(), target,
                 stream);
           }
 
           // .google.protobuf.FloatValue standoff_distance_m = 3 [json_name = "standoffDistanceM"];
-          if (cached_has_bits & 0x00000004u) {
+          if (cached_has_bits & 0x00000002u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 3, *this_._impl_.standoff_distance_m_, this_._impl_.standoff_distance_m_->GetCachedSize(), target,
                 stream);
           }
 
-          // .google.protobuf.FloatValue standoff_distance = 4 [json_name = "standoffDistance", deprecated = true];
-          if (cached_has_bits & 0x00000008u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                4, *this_._impl_.standoff_distance_, this_._impl_.standoff_distance_->GetCachedSize(), target,
-                stream);
-          }
-
           // .google.protobuf.FloatValue standoff_angle = 5 [json_name = "standoffAngle"];
-          if (cached_has_bits & 0x00000010u) {
+          if (cached_has_bits & 0x00000004u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 5, *this_._impl_.standoff_angle_, this_._impl_.standoff_angle_->GetCachedSize(), target,
                 stream);
           }
 
           // .google.protobuf.UInt64Value expiration_time_ms = 6 [json_name = "expirationTimeMs"];
-          if (cached_has_bits & 0x00000020u) {
+          if (cached_has_bits & 0x00000008u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 6, *this_._impl_.expiration_time_ms_, this_._impl_.expiration_time_ms_->GetCachedSize(), target,
                 stream);
@@ -5323,34 +5262,24 @@ PROTOBUF_NOINLINE void ISRParameters::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
           cached_has_bits = this_._impl_._has_bits_[0];
-          if (cached_has_bits & 0x0000003fu) {
-            // .google.protobuf.FloatValue speed = 1 [json_name = "speed", deprecated = true];
-            if (cached_has_bits & 0x00000001u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.speed_);
-            }
+          if (cached_has_bits & 0x0000000fu) {
             // .google.protobuf.FloatValue speed_m_s = 2 [json_name = "speedMS"];
-            if (cached_has_bits & 0x00000002u) {
+            if (cached_has_bits & 0x00000001u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.speed_m_s_);
             }
             // .google.protobuf.FloatValue standoff_distance_m = 3 [json_name = "standoffDistanceM"];
-            if (cached_has_bits & 0x00000004u) {
+            if (cached_has_bits & 0x00000002u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.standoff_distance_m_);
             }
-            // .google.protobuf.FloatValue standoff_distance = 4 [json_name = "standoffDistance", deprecated = true];
-            if (cached_has_bits & 0x00000008u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.standoff_distance_);
-            }
             // .google.protobuf.FloatValue standoff_angle = 5 [json_name = "standoffAngle"];
-            if (cached_has_bits & 0x00000010u) {
+            if (cached_has_bits & 0x00000004u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.standoff_angle_);
             }
             // .google.protobuf.UInt64Value expiration_time_ms = 6 [json_name = "expirationTimeMs"];
-            if (cached_has_bits & 0x00000020u) {
+            if (cached_has_bits & 0x00000008u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.expiration_time_ms_);
             }
@@ -5369,17 +5298,8 @@ void ISRParameters::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::g
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000003fu) {
+  if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
-      ABSL_DCHECK(from._impl_.speed_ != nullptr);
-      if (_this->_impl_.speed_ == nullptr) {
-        _this->_impl_.speed_ =
-            ::google::protobuf::Message::CopyConstruct<::google::protobuf::FloatValue>(arena, *from._impl_.speed_);
-      } else {
-        _this->_impl_.speed_->MergeFrom(*from._impl_.speed_);
-      }
-    }
-    if (cached_has_bits & 0x00000002u) {
       ABSL_DCHECK(from._impl_.speed_m_s_ != nullptr);
       if (_this->_impl_.speed_m_s_ == nullptr) {
         _this->_impl_.speed_m_s_ =
@@ -5388,7 +5308,7 @@ void ISRParameters::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::g
         _this->_impl_.speed_m_s_->MergeFrom(*from._impl_.speed_m_s_);
       }
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       ABSL_DCHECK(from._impl_.standoff_distance_m_ != nullptr);
       if (_this->_impl_.standoff_distance_m_ == nullptr) {
         _this->_impl_.standoff_distance_m_ =
@@ -5397,16 +5317,7 @@ void ISRParameters::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::g
         _this->_impl_.standoff_distance_m_->MergeFrom(*from._impl_.standoff_distance_m_);
       }
     }
-    if (cached_has_bits & 0x00000008u) {
-      ABSL_DCHECK(from._impl_.standoff_distance_ != nullptr);
-      if (_this->_impl_.standoff_distance_ == nullptr) {
-        _this->_impl_.standoff_distance_ =
-            ::google::protobuf::Message::CopyConstruct<::google::protobuf::FloatValue>(arena, *from._impl_.standoff_distance_);
-      } else {
-        _this->_impl_.standoff_distance_->MergeFrom(*from._impl_.standoff_distance_);
-      }
-    }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000004u) {
       ABSL_DCHECK(from._impl_.standoff_angle_ != nullptr);
       if (_this->_impl_.standoff_angle_ == nullptr) {
         _this->_impl_.standoff_angle_ =
@@ -5415,7 +5326,7 @@ void ISRParameters::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::g
         _this->_impl_.standoff_angle_->MergeFrom(*from._impl_.standoff_angle_);
       }
     }
-    if (cached_has_bits & 0x00000020u) {
+    if (cached_has_bits & 0x00000008u) {
       ABSL_DCHECK(from._impl_.expiration_time_ms_ != nullptr);
       if (_this->_impl_.expiration_time_ms_ == nullptr) {
         _this->_impl_.expiration_time_ms_ =
@@ -5444,9 +5355,9 @@ void ISRParameters::InternalSwap(ISRParameters* PROTOBUF_RESTRICT other) {
   ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.expiration_time_ms_)
       + sizeof(ISRParameters::_impl_.expiration_time_ms_)
-      - PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.speed_)>(
-          reinterpret_cast<char*>(&_impl_.speed_),
-          reinterpret_cast<char*>(&other->_impl_.speed_));
+      - PROTOBUF_FIELD_OFFSET(ISRParameters, _impl_.speed_m_s_)>(
+          reinterpret_cast<char*>(&_impl_.speed_m_s_),
+          reinterpret_cast<char*>(&other->_impl_.speed_m_s_));
 }
 
 ::google::protobuf::Metadata ISRParameters::GetMetadata() const {

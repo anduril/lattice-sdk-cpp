@@ -20,6 +20,7 @@
 #include "google/protobuf/io/coded_stream.h"
 #include "google/protobuf/arena.h"
 #include "google/protobuf/arenastring.h"
+#include "google/protobuf/generated_message_bases.h"
 #include "google/protobuf/generated_message_tctable_decl.h"
 #include "google/protobuf/generated_message_util.h"
 #include "google/protobuf/metadata_lite.h"
@@ -88,6 +89,9 @@ extern AlternateIdDefaultTypeInternal _AlternateId_default_instance_;
 class Correlation;
 struct CorrelationDefaultTypeInternal;
 extern CorrelationDefaultTypeInternal _Correlation_default_instance_;
+class CorrelationMembership;
+struct CorrelationMembershipDefaultTypeInternal;
+extern CorrelationMembershipDefaultTypeInternal _CorrelationMembership_default_instance_;
 class CorrelationMetadata;
 struct CorrelationMetadataDefaultTypeInternal;
 extern CorrelationMetadataDefaultTypeInternal _CorrelationMetadata_default_instance_;
@@ -106,6 +110,9 @@ extern EntityDefaultTypeInternal _Entity_default_instance_;
 class Indicators;
 struct IndicatorsDefaultTypeInternal;
 extern IndicatorsDefaultTypeInternal _Indicators_default_instance_;
+class NonPrimaryMembership;
+struct NonPrimaryMembershipDefaultTypeInternal;
+extern NonPrimaryMembershipDefaultTypeInternal _NonPrimaryMembership_default_instance_;
 class Override;
 struct OverrideDefaultTypeInternal;
 extern OverrideDefaultTypeInternal _Override_default_instance_;
@@ -115,6 +122,9 @@ extern OverridesDefaultTypeInternal _Overrides_default_instance_;
 class PrimaryCorrelation;
 struct PrimaryCorrelationDefaultTypeInternal;
 extern PrimaryCorrelationDefaultTypeInternal _PrimaryCorrelation_default_instance_;
+class PrimaryMembership;
+struct PrimaryMembershipDefaultTypeInternal;
+extern PrimaryMembershipDefaultTypeInternal _PrimaryMembership_default_instance_;
 class Provenance;
 struct ProvenanceDefaultTypeInternal;
 extern ProvenanceDefaultTypeInternal _Provenance_default_instance_;
@@ -433,6 +443,152 @@ class Status final
 };
 // -------------------------------------------------------------------
 
+class PrimaryMembership final
+    : public ::google::protobuf::internal::ZeroFieldsBase
+/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.PrimaryMembership) */ {
+ public:
+  inline PrimaryMembership() : PrimaryMembership(nullptr) {}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(PrimaryMembership* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(PrimaryMembership));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR PrimaryMembership(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline PrimaryMembership(const PrimaryMembership& from) : PrimaryMembership(nullptr, from) {}
+  inline PrimaryMembership(PrimaryMembership&& from) noexcept
+      : PrimaryMembership(nullptr, std::move(from)) {}
+  inline PrimaryMembership& operator=(const PrimaryMembership& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PrimaryMembership& operator=(PrimaryMembership&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const PrimaryMembership& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const PrimaryMembership* internal_default_instance() {
+    return reinterpret_cast<const PrimaryMembership*>(
+        &_PrimaryMembership_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 15;
+  friend void swap(PrimaryMembership& a, PrimaryMembership& b) { a.Swap(&b); }
+  inline void Swap(PrimaryMembership* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PrimaryMembership* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  PrimaryMembership* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::internal::ZeroFieldsBase::DefaultConstruct<PrimaryMembership>(arena);
+  }
+  using ::google::protobuf::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const PrimaryMembership& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::google::protobuf::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const PrimaryMembership& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.PrimaryMembership"; }
+
+ protected:
+  explicit PrimaryMembership(::google::protobuf::Arena* arena);
+  PrimaryMembership(::google::protobuf::Arena* arena, const PrimaryMembership& from);
+  PrimaryMembership(::google::protobuf::Arena* arena, PrimaryMembership&& from) noexcept
+      : PrimaryMembership(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.PrimaryMembership)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 0, 0,
+      0, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const PrimaryMembership& from_msg);
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto;
+};
+// -------------------------------------------------------------------
+
 class PrimaryCorrelation final
     : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.PrimaryCorrelation) */ {
@@ -636,6 +792,152 @@ class PrimaryCorrelation final
 };
 // -------------------------------------------------------------------
 
+class NonPrimaryMembership final
+    : public ::google::protobuf::internal::ZeroFieldsBase
+/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.NonPrimaryMembership) */ {
+ public:
+  inline NonPrimaryMembership() : NonPrimaryMembership(nullptr) {}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(NonPrimaryMembership* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(NonPrimaryMembership));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR NonPrimaryMembership(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline NonPrimaryMembership(const NonPrimaryMembership& from) : NonPrimaryMembership(nullptr, from) {}
+  inline NonPrimaryMembership(NonPrimaryMembership&& from) noexcept
+      : NonPrimaryMembership(nullptr, std::move(from)) {}
+  inline NonPrimaryMembership& operator=(const NonPrimaryMembership& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline NonPrimaryMembership& operator=(NonPrimaryMembership&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const NonPrimaryMembership& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const NonPrimaryMembership* internal_default_instance() {
+    return reinterpret_cast<const NonPrimaryMembership*>(
+        &_NonPrimaryMembership_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 16;
+  friend void swap(NonPrimaryMembership& a, NonPrimaryMembership& b) { a.Swap(&b); }
+  inline void Swap(NonPrimaryMembership* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(NonPrimaryMembership* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  NonPrimaryMembership* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::internal::ZeroFieldsBase::DefaultConstruct<NonPrimaryMembership>(arena);
+  }
+  using ::google::protobuf::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const NonPrimaryMembership& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::google::protobuf::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const NonPrimaryMembership& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.NonPrimaryMembership"; }
+
+ protected:
+  explicit NonPrimaryMembership(::google::protobuf::Arena* arena);
+  NonPrimaryMembership(::google::protobuf::Arena* arena, const NonPrimaryMembership& from);
+  NonPrimaryMembership(::google::protobuf::Arena* arena, NonPrimaryMembership&& from) noexcept
+      : NonPrimaryMembership(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.NonPrimaryMembership)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 0, 0,
+      0, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const NonPrimaryMembership& from_msg);
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto;
+};
+// -------------------------------------------------------------------
+
 class AlternateId final
     : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.AlternateId) */ {
@@ -802,7 +1104,7 @@ class AlternateId final
   std::string* _internal_mutable_id();
 
   public:
-  // .anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type", (.anduril.entitymanager.v1.componentIdentifier) = true];
+  // .anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type"];
   void clear_type() ;
   ::anduril::entitymanager::v1::AltIdType type() const;
   void set_type(::anduril::entitymanager::v1::AltIdType value);
@@ -997,7 +1299,6 @@ class Provenance final
     kIntegrationNameFieldNumber = 5,
     kDataTypeFieldNumber = 6,
     kSourceUpdateTimeFieldNumber = 2,
-    kSourceFieldNumber = 1,
   };
   // string source_id = 3 [json_name = "sourceId"];
   void clear_source_id() ;
@@ -1078,22 +1379,12 @@ class Provenance final
   ::google::protobuf::Timestamp* _internal_mutable_source_update_time();
 
   public:
-  // .anduril.entitymanager.v1.Source source = 1 [json_name = "source"];
-  void clear_source() ;
-  ::anduril::entitymanager::v1::Source source() const;
-  void set_source(::anduril::entitymanager::v1::Source value);
-
-  private:
-  ::anduril::entitymanager::v1::Source _internal_source() const;
-  void _internal_set_source(::anduril::entitymanager::v1::Source value);
-
-  public:
   // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.Provenance)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      3, 6, 1,
+      3, 5, 1,
       96, 2>
       _table_;
 
@@ -1118,7 +1409,6 @@ class Provenance final
     ::google::protobuf::internal::ArenaStringPtr integration_name_;
     ::google::protobuf::internal::ArenaStringPtr data_type_;
     ::google::protobuf::Timestamp* source_update_time_;
-    int source_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -1927,7 +2217,7 @@ class CorrelationMetadata final
     return reinterpret_cast<const CorrelationMetadata*>(
         &_CorrelationMetadata_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 17;
+  static constexpr int kIndexInFileMessages = 20;
   friend void swap(CorrelationMetadata& a, CorrelationMetadata& b) { a.Swap(&b); }
   inline void Swap(CorrelationMetadata* other) {
     if (other == this) return;
@@ -2560,7 +2850,7 @@ class DecorrelatedSingle final
     return reinterpret_cast<const DecorrelatedSingle*>(
         &_DecorrelatedSingle_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 16;
+  static constexpr int kIndexInFileMessages = 19;
   friend void swap(DecorrelatedSingle& a, DecorrelatedSingle& b) { a.Swap(&b); }
   inline void Swap(DecorrelatedSingle* other) {
     if (other == this) return;
@@ -2775,7 +3065,7 @@ class DecorrelatedAll final
     return reinterpret_cast<const DecorrelatedAll*>(
         &_DecorrelatedAll_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 15;
+  static constexpr int kIndexInFileMessages = 18;
   friend void swap(DecorrelatedAll& a, DecorrelatedAll& b) { a.Swap(&b); }
   inline void Swap(DecorrelatedAll* other) {
     if (other == this) return;
@@ -2905,6 +3195,279 @@ class DecorrelatedAll final
     ::google::protobuf::internal::HasBits<1> _has_bits_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     ::anduril::entitymanager::v1::CorrelationMetadata* metadata_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CorrelationMembership final
+    : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.CorrelationMembership) */ {
+ public:
+  inline CorrelationMembership() : CorrelationMembership(nullptr) {}
+  ~CorrelationMembership() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(CorrelationMembership* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(CorrelationMembership));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR CorrelationMembership(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline CorrelationMembership(const CorrelationMembership& from) : CorrelationMembership(nullptr, from) {}
+  inline CorrelationMembership(CorrelationMembership&& from) noexcept
+      : CorrelationMembership(nullptr, std::move(from)) {}
+  inline CorrelationMembership& operator=(const CorrelationMembership& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CorrelationMembership& operator=(CorrelationMembership&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CorrelationMembership& default_instance() {
+    return *internal_default_instance();
+  }
+  enum MembershipCase {
+    kPrimary = 2,
+    kNonPrimary = 3,
+    MEMBERSHIP_NOT_SET = 0,
+  };
+  static inline const CorrelationMembership* internal_default_instance() {
+    return reinterpret_cast<const CorrelationMembership*>(
+        &_CorrelationMembership_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 14;
+  friend void swap(CorrelationMembership& a, CorrelationMembership& b) { a.Swap(&b); }
+  inline void Swap(CorrelationMembership* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CorrelationMembership* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CorrelationMembership* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<CorrelationMembership>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const CorrelationMembership& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const CorrelationMembership& from) { CorrelationMembership::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(CorrelationMembership* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.CorrelationMembership"; }
+
+ protected:
+  explicit CorrelationMembership(::google::protobuf::Arena* arena);
+  CorrelationMembership(::google::protobuf::Arena* arena, const CorrelationMembership& from);
+  CorrelationMembership(::google::protobuf::Arena* arena, CorrelationMembership&& from) noexcept
+      : CorrelationMembership(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kCorrelationSetIdFieldNumber = 1,
+    kMetadataFieldNumber = 4,
+    kPrimaryFieldNumber = 2,
+    kNonPrimaryFieldNumber = 3,
+  };
+  // string correlation_set_id = 1 [json_name = "correlationSetId"];
+  void clear_correlation_set_id() ;
+  const std::string& correlation_set_id() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_correlation_set_id(Arg_&& arg, Args_... args);
+  std::string* mutable_correlation_set_id();
+  PROTOBUF_NODISCARD std::string* release_correlation_set_id();
+  void set_allocated_correlation_set_id(std::string* value);
+
+  private:
+  const std::string& _internal_correlation_set_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_correlation_set_id(
+      const std::string& value);
+  std::string* _internal_mutable_correlation_set_id();
+
+  public:
+  // .anduril.entitymanager.v1.CorrelationMetadata metadata = 4 [json_name = "metadata"];
+  bool has_metadata() const;
+  void clear_metadata() ;
+  const ::anduril::entitymanager::v1::CorrelationMetadata& metadata() const;
+  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::CorrelationMetadata* release_metadata();
+  ::anduril::entitymanager::v1::CorrelationMetadata* mutable_metadata();
+  void set_allocated_metadata(::anduril::entitymanager::v1::CorrelationMetadata* value);
+  void unsafe_arena_set_allocated_metadata(::anduril::entitymanager::v1::CorrelationMetadata* value);
+  ::anduril::entitymanager::v1::CorrelationMetadata* unsafe_arena_release_metadata();
+
+  private:
+  const ::anduril::entitymanager::v1::CorrelationMetadata& _internal_metadata() const;
+  ::anduril::entitymanager::v1::CorrelationMetadata* _internal_mutable_metadata();
+
+  public:
+  // .anduril.entitymanager.v1.PrimaryMembership primary = 2 [json_name = "primary"];
+  bool has_primary() const;
+  private:
+  bool _internal_has_primary() const;
+
+  public:
+  void clear_primary() ;
+  const ::anduril::entitymanager::v1::PrimaryMembership& primary() const;
+  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::PrimaryMembership* release_primary();
+  ::anduril::entitymanager::v1::PrimaryMembership* mutable_primary();
+  void set_allocated_primary(::anduril::entitymanager::v1::PrimaryMembership* value);
+  void unsafe_arena_set_allocated_primary(::anduril::entitymanager::v1::PrimaryMembership* value);
+  ::anduril::entitymanager::v1::PrimaryMembership* unsafe_arena_release_primary();
+
+  private:
+  const ::anduril::entitymanager::v1::PrimaryMembership& _internal_primary() const;
+  ::anduril::entitymanager::v1::PrimaryMembership* _internal_mutable_primary();
+
+  public:
+  // .anduril.entitymanager.v1.NonPrimaryMembership non_primary = 3 [json_name = "nonPrimary"];
+  bool has_non_primary() const;
+  private:
+  bool _internal_has_non_primary() const;
+
+  public:
+  void clear_non_primary() ;
+  const ::anduril::entitymanager::v1::NonPrimaryMembership& non_primary() const;
+  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::NonPrimaryMembership* release_non_primary();
+  ::anduril::entitymanager::v1::NonPrimaryMembership* mutable_non_primary();
+  void set_allocated_non_primary(::anduril::entitymanager::v1::NonPrimaryMembership* value);
+  void unsafe_arena_set_allocated_non_primary(::anduril::entitymanager::v1::NonPrimaryMembership* value);
+  ::anduril::entitymanager::v1::NonPrimaryMembership* unsafe_arena_release_non_primary();
+
+  private:
+  const ::anduril::entitymanager::v1::NonPrimaryMembership& _internal_non_primary() const;
+  ::anduril::entitymanager::v1::NonPrimaryMembership* _internal_mutable_non_primary();
+
+  public:
+  void clear_membership();
+  MembershipCase membership_case() const;
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.CorrelationMembership)
+ private:
+  class _Internal;
+  void set_has_primary();
+  void set_has_non_primary();
+  inline bool has_membership() const;
+  inline void clear_has_membership();
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      1, 4, 3,
+      73, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const CorrelationMembership& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::internal::ArenaStringPtr correlation_set_id_;
+    ::anduril::entitymanager::v1::CorrelationMetadata* metadata_;
+    union MembershipUnion {
+      constexpr MembershipUnion() : _constinit_{} {}
+      ::google::protobuf::internal::ConstantInitialized _constinit_;
+      ::anduril::entitymanager::v1::PrimaryMembership* primary_;
+      ::anduril::entitymanager::v1::NonPrimaryMembership* non_primary_;
+    } membership_;
+    ::uint32_t _oneof_case_[1];
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -3254,7 +3817,7 @@ class Decorrelation final
     return reinterpret_cast<const Decorrelation*>(
         &_Decorrelation_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 14;
+  static constexpr int kIndexInFileMessages = 17;
   friend void swap(Decorrelation& a, Decorrelation& b) { a.Swap(&b); }
   inline void Swap(Decorrelation* other) {
     if (other == this) return;
@@ -3563,6 +4126,7 @@ class Correlation final
   // accessors -------------------------------------------------------
   enum : int {
     kDecorrelationFieldNumber = 3,
+    kMembershipFieldNumber = 4,
     kPrimaryFieldNumber = 1,
     kSecondaryFieldNumber = 2,
   };
@@ -3579,6 +4143,21 @@ class Correlation final
   private:
   const ::anduril::entitymanager::v1::Decorrelation& _internal_decorrelation() const;
   ::anduril::entitymanager::v1::Decorrelation* _internal_mutable_decorrelation();
+
+  public:
+  // .anduril.entitymanager.v1.CorrelationMembership membership = 4 [json_name = "membership"];
+  bool has_membership() const;
+  void clear_membership() ;
+  const ::anduril::entitymanager::v1::CorrelationMembership& membership() const;
+  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::CorrelationMembership* release_membership();
+  ::anduril::entitymanager::v1::CorrelationMembership* mutable_membership();
+  void set_allocated_membership(::anduril::entitymanager::v1::CorrelationMembership* value);
+  void unsafe_arena_set_allocated_membership(::anduril::entitymanager::v1::CorrelationMembership* value);
+  ::anduril::entitymanager::v1::CorrelationMembership* unsafe_arena_release_membership();
+
+  private:
+  const ::anduril::entitymanager::v1::CorrelationMembership& _internal_membership() const;
+  ::anduril::entitymanager::v1::CorrelationMembership* _internal_mutable_membership();
 
   public:
   // .anduril.entitymanager.v1.PrimaryCorrelation primary = 1 [json_name = "primary"];
@@ -3630,7 +4209,7 @@ class Correlation final
   inline void clear_has_correlation();
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      0, 3, 3,
+      1, 4, 4,
       0, 2>
       _table_;
 
@@ -3651,6 +4230,7 @@ class Correlation final
     ::google::protobuf::internal::HasBits<1> _has_bits_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     ::anduril::entitymanager::v1::Decorrelation* decorrelation_;
+    ::anduril::entitymanager::v1::CorrelationMembership* membership_;
     union CorrelationUnion {
       constexpr CorrelationUnion() : _constinit_{} {}
       ::google::protobuf::internal::ConstantInitialized _constinit_;
@@ -8862,28 +9442,6 @@ inline void Provenance::set_allocated_data_type(std::string* value) {
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Provenance.data_type)
 }
 
-// .anduril.entitymanager.v1.Source source = 1 [json_name = "source"];
-inline void Provenance::clear_source() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.source_ = 0;
-}
-inline ::anduril::entitymanager::v1::Source Provenance::source() const {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Provenance.source)
-  return _internal_source();
-}
-inline void Provenance::set_source(::anduril::entitymanager::v1::Source value) {
-  _internal_set_source(value);
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.Provenance.source)
-}
-inline ::anduril::entitymanager::v1::Source Provenance::_internal_source() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return static_cast<::anduril::entitymanager::v1::Source>(_impl_.source_);
-}
-inline void Provenance::_internal_set_source(::anduril::entitymanager::v1::Source value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.source_ = value;
-}
-
 // string source_id = 3 [json_name = "sourceId"];
 inline void Provenance::clear_source_id() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
@@ -10153,7 +10711,7 @@ inline void AlternateId::set_allocated_id(std::string* value) {
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.AlternateId.id)
 }
 
-// .anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type", (.anduril.entitymanager.v1.componentIdentifier) = true];
+// .anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type"];
 inline void AlternateId::clear_type() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.type_ = 0;
@@ -10736,6 +11294,102 @@ inline ::anduril::entitymanager::v1::SecondaryCorrelation* Correlation::mutable_
   return _msg;
 }
 
+// .anduril.entitymanager.v1.CorrelationMembership membership = 4 [json_name = "membership"];
+inline bool Correlation::has_membership() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.membership_ != nullptr);
+  return value;
+}
+inline void Correlation::clear_membership() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.membership_ != nullptr) _impl_.membership_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline const ::anduril::entitymanager::v1::CorrelationMembership& Correlation::_internal_membership() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::anduril::entitymanager::v1::CorrelationMembership* p = _impl_.membership_;
+  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::CorrelationMembership&>(::anduril::entitymanager::v1::_CorrelationMembership_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::CorrelationMembership& Correlation::membership() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Correlation.membership)
+  return _internal_membership();
+}
+inline void Correlation::unsafe_arena_set_allocated_membership(::anduril::entitymanager::v1::CorrelationMembership* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.membership_);
+  }
+  _impl_.membership_ = reinterpret_cast<::anduril::entitymanager::v1::CorrelationMembership*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Correlation.membership)
+}
+inline ::anduril::entitymanager::v1::CorrelationMembership* Correlation::release_membership() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::anduril::entitymanager::v1::CorrelationMembership* released = _impl_.membership_;
+  _impl_.membership_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::anduril::entitymanager::v1::CorrelationMembership* Correlation::unsafe_arena_release_membership() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Correlation.membership)
+
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::anduril::entitymanager::v1::CorrelationMembership* temp = _impl_.membership_;
+  _impl_.membership_ = nullptr;
+  return temp;
+}
+inline ::anduril::entitymanager::v1::CorrelationMembership* Correlation::_internal_mutable_membership() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.membership_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::CorrelationMembership>(GetArena());
+    _impl_.membership_ = reinterpret_cast<::anduril::entitymanager::v1::CorrelationMembership*>(p);
+  }
+  return _impl_.membership_;
+}
+inline ::anduril::entitymanager::v1::CorrelationMembership* Correlation::mutable_membership() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  ::anduril::entitymanager::v1::CorrelationMembership* _msg = _internal_mutable_membership();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Correlation.membership)
+  return _msg;
+}
+inline void Correlation::set_allocated_membership(::anduril::entitymanager::v1::CorrelationMembership* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete (_impl_.membership_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+
+  _impl_.membership_ = reinterpret_cast<::anduril::entitymanager::v1::CorrelationMembership*>(value);
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Correlation.membership)
+}
+
 // .anduril.entitymanager.v1.Decorrelation decorrelation = 3 [json_name = "decorrelation"];
 inline bool Correlation::has_decorrelation() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
@@ -11056,6 +11710,329 @@ inline void SecondaryCorrelation::set_allocated_metadata(::anduril::entitymanage
   _impl_.metadata_ = reinterpret_cast<::anduril::entitymanager::v1::CorrelationMetadata*>(value);
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.SecondaryCorrelation.metadata)
 }
+
+// -------------------------------------------------------------------
+
+// CorrelationMembership
+
+// string correlation_set_id = 1 [json_name = "correlationSetId"];
+inline void CorrelationMembership::clear_correlation_set_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.correlation_set_id_.ClearToEmpty();
+}
+inline const std::string& CorrelationMembership::correlation_set_id() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.CorrelationMembership.correlation_set_id)
+  return _internal_correlation_set_id();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void CorrelationMembership::set_correlation_set_id(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.correlation_set_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.CorrelationMembership.correlation_set_id)
+}
+inline std::string* CorrelationMembership::mutable_correlation_set_id() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_correlation_set_id();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.CorrelationMembership.correlation_set_id)
+  return _s;
+}
+inline const std::string& CorrelationMembership::_internal_correlation_set_id() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.correlation_set_id_.Get();
+}
+inline void CorrelationMembership::_internal_set_correlation_set_id(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.correlation_set_id_.Set(value, GetArena());
+}
+inline std::string* CorrelationMembership::_internal_mutable_correlation_set_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.correlation_set_id_.Mutable( GetArena());
+}
+inline std::string* CorrelationMembership::release_correlation_set_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.CorrelationMembership.correlation_set_id)
+  return _impl_.correlation_set_id_.Release();
+}
+inline void CorrelationMembership::set_allocated_correlation_set_id(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.correlation_set_id_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.correlation_set_id_.IsDefault()) {
+    _impl_.correlation_set_id_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.CorrelationMembership.correlation_set_id)
+}
+
+// .anduril.entitymanager.v1.PrimaryMembership primary = 2 [json_name = "primary"];
+inline bool CorrelationMembership::has_primary() const {
+  return membership_case() == kPrimary;
+}
+inline bool CorrelationMembership::_internal_has_primary() const {
+  return membership_case() == kPrimary;
+}
+inline void CorrelationMembership::set_has_primary() {
+  _impl_._oneof_case_[0] = kPrimary;
+}
+inline void CorrelationMembership::clear_primary() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (membership_case() == kPrimary) {
+    if (GetArena() == nullptr) {
+      delete _impl_.membership_.primary_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.membership_.primary_);
+    }
+    clear_has_membership();
+  }
+}
+inline ::anduril::entitymanager::v1::PrimaryMembership* CorrelationMembership::release_primary() {
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.CorrelationMembership.primary)
+  if (membership_case() == kPrimary) {
+    clear_has_membership();
+    auto* temp = _impl_.membership_.primary_;
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.membership_.primary_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::anduril::entitymanager::v1::PrimaryMembership& CorrelationMembership::_internal_primary() const {
+  return membership_case() == kPrimary ? *_impl_.membership_.primary_ : reinterpret_cast<::anduril::entitymanager::v1::PrimaryMembership&>(::anduril::entitymanager::v1::_PrimaryMembership_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::PrimaryMembership& CorrelationMembership::primary() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.CorrelationMembership.primary)
+  return _internal_primary();
+}
+inline ::anduril::entitymanager::v1::PrimaryMembership* CorrelationMembership::unsafe_arena_release_primary() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:anduril.entitymanager.v1.CorrelationMembership.primary)
+  if (membership_case() == kPrimary) {
+    clear_has_membership();
+    auto* temp = _impl_.membership_.primary_;
+    _impl_.membership_.primary_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void CorrelationMembership::unsafe_arena_set_allocated_primary(::anduril::entitymanager::v1::PrimaryMembership* value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_membership();
+  if (value) {
+    set_has_primary();
+    _impl_.membership_.primary_ = value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.CorrelationMembership.primary)
+}
+inline ::anduril::entitymanager::v1::PrimaryMembership* CorrelationMembership::_internal_mutable_primary() {
+  if (membership_case() != kPrimary) {
+    clear_membership();
+    set_has_primary();
+    _impl_.membership_.primary_ =
+        ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::PrimaryMembership>(GetArena());
+  }
+  return _impl_.membership_.primary_;
+}
+inline ::anduril::entitymanager::v1::PrimaryMembership* CorrelationMembership::mutable_primary() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::anduril::entitymanager::v1::PrimaryMembership* _msg = _internal_mutable_primary();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.CorrelationMembership.primary)
+  return _msg;
+}
+
+// .anduril.entitymanager.v1.NonPrimaryMembership non_primary = 3 [json_name = "nonPrimary"];
+inline bool CorrelationMembership::has_non_primary() const {
+  return membership_case() == kNonPrimary;
+}
+inline bool CorrelationMembership::_internal_has_non_primary() const {
+  return membership_case() == kNonPrimary;
+}
+inline void CorrelationMembership::set_has_non_primary() {
+  _impl_._oneof_case_[0] = kNonPrimary;
+}
+inline void CorrelationMembership::clear_non_primary() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (membership_case() == kNonPrimary) {
+    if (GetArena() == nullptr) {
+      delete _impl_.membership_.non_primary_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.membership_.non_primary_);
+    }
+    clear_has_membership();
+  }
+}
+inline ::anduril::entitymanager::v1::NonPrimaryMembership* CorrelationMembership::release_non_primary() {
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.CorrelationMembership.non_primary)
+  if (membership_case() == kNonPrimary) {
+    clear_has_membership();
+    auto* temp = _impl_.membership_.non_primary_;
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.membership_.non_primary_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::anduril::entitymanager::v1::NonPrimaryMembership& CorrelationMembership::_internal_non_primary() const {
+  return membership_case() == kNonPrimary ? *_impl_.membership_.non_primary_ : reinterpret_cast<::anduril::entitymanager::v1::NonPrimaryMembership&>(::anduril::entitymanager::v1::_NonPrimaryMembership_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::NonPrimaryMembership& CorrelationMembership::non_primary() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.CorrelationMembership.non_primary)
+  return _internal_non_primary();
+}
+inline ::anduril::entitymanager::v1::NonPrimaryMembership* CorrelationMembership::unsafe_arena_release_non_primary() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:anduril.entitymanager.v1.CorrelationMembership.non_primary)
+  if (membership_case() == kNonPrimary) {
+    clear_has_membership();
+    auto* temp = _impl_.membership_.non_primary_;
+    _impl_.membership_.non_primary_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void CorrelationMembership::unsafe_arena_set_allocated_non_primary(::anduril::entitymanager::v1::NonPrimaryMembership* value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_membership();
+  if (value) {
+    set_has_non_primary();
+    _impl_.membership_.non_primary_ = value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.CorrelationMembership.non_primary)
+}
+inline ::anduril::entitymanager::v1::NonPrimaryMembership* CorrelationMembership::_internal_mutable_non_primary() {
+  if (membership_case() != kNonPrimary) {
+    clear_membership();
+    set_has_non_primary();
+    _impl_.membership_.non_primary_ =
+        ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::NonPrimaryMembership>(GetArena());
+  }
+  return _impl_.membership_.non_primary_;
+}
+inline ::anduril::entitymanager::v1::NonPrimaryMembership* CorrelationMembership::mutable_non_primary() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::anduril::entitymanager::v1::NonPrimaryMembership* _msg = _internal_mutable_non_primary();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.CorrelationMembership.non_primary)
+  return _msg;
+}
+
+// .anduril.entitymanager.v1.CorrelationMetadata metadata = 4 [json_name = "metadata"];
+inline bool CorrelationMembership::has_metadata() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.metadata_ != nullptr);
+  return value;
+}
+inline void CorrelationMembership::clear_metadata() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.metadata_ != nullptr) _impl_.metadata_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::anduril::entitymanager::v1::CorrelationMetadata& CorrelationMembership::_internal_metadata() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::anduril::entitymanager::v1::CorrelationMetadata* p = _impl_.metadata_;
+  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::CorrelationMetadata&>(::anduril::entitymanager::v1::_CorrelationMetadata_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::CorrelationMetadata& CorrelationMembership::metadata() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.CorrelationMembership.metadata)
+  return _internal_metadata();
+}
+inline void CorrelationMembership::unsafe_arena_set_allocated_metadata(::anduril::entitymanager::v1::CorrelationMetadata* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.metadata_);
+  }
+  _impl_.metadata_ = reinterpret_cast<::anduril::entitymanager::v1::CorrelationMetadata*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.CorrelationMembership.metadata)
+}
+inline ::anduril::entitymanager::v1::CorrelationMetadata* CorrelationMembership::release_metadata() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::anduril::entitymanager::v1::CorrelationMetadata* released = _impl_.metadata_;
+  _impl_.metadata_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::anduril::entitymanager::v1::CorrelationMetadata* CorrelationMembership::unsafe_arena_release_metadata() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.CorrelationMembership.metadata)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::anduril::entitymanager::v1::CorrelationMetadata* temp = _impl_.metadata_;
+  _impl_.metadata_ = nullptr;
+  return temp;
+}
+inline ::anduril::entitymanager::v1::CorrelationMetadata* CorrelationMembership::_internal_mutable_metadata() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.metadata_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::CorrelationMetadata>(GetArena());
+    _impl_.metadata_ = reinterpret_cast<::anduril::entitymanager::v1::CorrelationMetadata*>(p);
+  }
+  return _impl_.metadata_;
+}
+inline ::anduril::entitymanager::v1::CorrelationMetadata* CorrelationMembership::mutable_metadata() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  ::anduril::entitymanager::v1::CorrelationMetadata* _msg = _internal_mutable_metadata();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.CorrelationMembership.metadata)
+  return _msg;
+}
+inline void CorrelationMembership::set_allocated_metadata(::anduril::entitymanager::v1::CorrelationMetadata* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete (_impl_.metadata_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.metadata_ = reinterpret_cast<::anduril::entitymanager::v1::CorrelationMetadata*>(value);
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.CorrelationMembership.metadata)
+}
+
+inline bool CorrelationMembership::has_membership() const {
+  return membership_case() != MEMBERSHIP_NOT_SET;
+}
+inline void CorrelationMembership::clear_has_membership() {
+  _impl_._oneof_case_[0] = MEMBERSHIP_NOT_SET;
+}
+inline CorrelationMembership::MembershipCase CorrelationMembership::membership_case() const {
+  return CorrelationMembership::MembershipCase(_impl_._oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// PrimaryMembership
+
+// -------------------------------------------------------------------
+
+// NonPrimaryMembership
 
 // -------------------------------------------------------------------
 

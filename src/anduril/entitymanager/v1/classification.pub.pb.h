@@ -697,7 +697,6 @@ class Classification final
   enum : int {
     kFieldsFieldNumber = 3,
     kDefaultFieldNumber = 2,
-    kLevelFieldNumber = 1,
   };
   // repeated .anduril.entitymanager.v1.FieldClassificationInformation fields = 3 [json_name = "fields"];
   int fields_size() const;
@@ -731,22 +730,12 @@ class Classification final
   ::anduril::entitymanager::v1::ClassificationInformation* _internal_mutable_default_();
 
   public:
-  // .anduril.entitymanager.v1.ClassificationLevels level = 1 [json_name = "level", deprecated = true];
-  [[deprecated]]  void clear_level() ;
-  [[deprecated]] ::anduril::entitymanager::v1::ClassificationLevels level() const;
-  [[deprecated]] void set_level(::anduril::entitymanager::v1::ClassificationLevels value);
-
-  private:
-  ::anduril::entitymanager::v1::ClassificationLevels _internal_level() const;
-  void _internal_set_level(::anduril::entitymanager::v1::ClassificationLevels value);
-
-  public:
   // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.Classification)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      2, 3, 2,
+      1, 2, 2,
       0, 2>
       _table_;
 
@@ -768,7 +757,6 @@ class Classification final
     ::google::protobuf::internal::CachedSize _cached_size_;
     ::google::protobuf::RepeatedPtrField< ::anduril::entitymanager::v1::FieldClassificationInformation > fields_;
     ::anduril::entitymanager::v1::ClassificationInformation* default__;
-    int level_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -790,28 +778,6 @@ class Classification final
 // -------------------------------------------------------------------
 
 // Classification
-
-// .anduril.entitymanager.v1.ClassificationLevels level = 1 [json_name = "level", deprecated = true];
-inline void Classification::clear_level() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.level_ = 0;
-}
-inline ::anduril::entitymanager::v1::ClassificationLevels Classification::level() const {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Classification.level)
-  return _internal_level();
-}
-inline void Classification::set_level(::anduril::entitymanager::v1::ClassificationLevels value) {
-  _internal_set_level(value);
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.Classification.level)
-}
-inline ::anduril::entitymanager::v1::ClassificationLevels Classification::_internal_level() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return static_cast<::anduril::entitymanager::v1::ClassificationLevels>(_impl_.level_);
-}
-inline void Classification::_internal_set_level(::anduril::entitymanager::v1::ClassificationLevels value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.level_ = value;
-}
 
 // .anduril.entitymanager.v1.ClassificationInformation default = 2 [json_name = "default"];
 inline bool Classification::has_default_() const {

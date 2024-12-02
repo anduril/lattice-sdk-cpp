@@ -555,28 +555,11 @@ class ISRParameters final
 
   // accessors -------------------------------------------------------
   enum : int {
-    kSpeedFieldNumber = 1,
     kSpeedMSFieldNumber = 2,
     kStandoffDistanceMFieldNumber = 3,
-    kStandoffDistanceFieldNumber = 4,
     kStandoffAngleFieldNumber = 5,
     kExpirationTimeMsFieldNumber = 6,
   };
-  // .google.protobuf.FloatValue speed = 1 [json_name = "speed", deprecated = true];
-  [[deprecated]]  bool has_speed() const;
-  [[deprecated]]  void clear_speed() ;
-  [[deprecated]] const ::google::protobuf::FloatValue& speed() const;
-  [[deprecated]] PROTOBUF_NODISCARD ::google::protobuf::FloatValue* release_speed();
-  [[deprecated]] ::google::protobuf::FloatValue* mutable_speed();
-  [[deprecated]] void set_allocated_speed(::google::protobuf::FloatValue* value);
-  [[deprecated]] void unsafe_arena_set_allocated_speed(::google::protobuf::FloatValue* value);
-  [[deprecated]] ::google::protobuf::FloatValue* unsafe_arena_release_speed();
-
-  private:
-  const ::google::protobuf::FloatValue& _internal_speed() const;
-  ::google::protobuf::FloatValue* _internal_mutable_speed();
-
-  public:
   // .google.protobuf.FloatValue speed_m_s = 2 [json_name = "speedMS"];
   bool has_speed_m_s() const;
   void clear_speed_m_s() ;
@@ -605,21 +588,6 @@ class ISRParameters final
   private:
   const ::google::protobuf::FloatValue& _internal_standoff_distance_m() const;
   ::google::protobuf::FloatValue* _internal_mutable_standoff_distance_m();
-
-  public:
-  // .google.protobuf.FloatValue standoff_distance = 4 [json_name = "standoffDistance", deprecated = true];
-  [[deprecated]]  bool has_standoff_distance() const;
-  [[deprecated]]  void clear_standoff_distance() ;
-  [[deprecated]] const ::google::protobuf::FloatValue& standoff_distance() const;
-  [[deprecated]] PROTOBUF_NODISCARD ::google::protobuf::FloatValue* release_standoff_distance();
-  [[deprecated]] ::google::protobuf::FloatValue* mutable_standoff_distance();
-  [[deprecated]] void set_allocated_standoff_distance(::google::protobuf::FloatValue* value);
-  [[deprecated]] void unsafe_arena_set_allocated_standoff_distance(::google::protobuf::FloatValue* value);
-  [[deprecated]] ::google::protobuf::FloatValue* unsafe_arena_release_standoff_distance();
-
-  private:
-  const ::google::protobuf::FloatValue& _internal_standoff_distance() const;
-  ::google::protobuf::FloatValue* _internal_mutable_standoff_distance();
 
   public:
   // .google.protobuf.FloatValue standoff_angle = 5 [json_name = "standoffAngle"];
@@ -657,7 +625,7 @@ class ISRParameters final
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      3, 6, 6,
+      3, 4, 4,
       0, 2>
       _table_;
 
@@ -677,10 +645,8 @@ class ISRParameters final
                           const ISRParameters& from_msg);
     ::google::protobuf::internal::HasBits<1> _has_bits_;
     ::google::protobuf::internal::CachedSize _cached_size_;
-    ::google::protobuf::FloatValue* speed_;
     ::google::protobuf::FloatValue* speed_m_s_;
     ::google::protobuf::FloatValue* standoff_distance_m_;
-    ::google::protobuf::FloatValue* standoff_distance_;
     ::google::protobuf::FloatValue* standoff_angle_;
     ::google::protobuf::UInt64Value* expiration_time_ms_;
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -7029,100 +6995,9 @@ inline Prior::PriorCase Prior::prior_case() const {
 
 // ISRParameters
 
-// .google.protobuf.FloatValue speed = 1 [json_name = "speed", deprecated = true];
-inline bool ISRParameters::has_speed() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.speed_ != nullptr);
-  return value;
-}
-inline const ::google::protobuf::FloatValue& ISRParameters::_internal_speed() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::google::protobuf::FloatValue* p = _impl_.speed_;
-  return p != nullptr ? *p : reinterpret_cast<const ::google::protobuf::FloatValue&>(::google::protobuf::_FloatValue_default_instance_);
-}
-inline const ::google::protobuf::FloatValue& ISRParameters::speed() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.tasks.v2.ISRParameters.speed)
-  return _internal_speed();
-}
-inline void ISRParameters::unsafe_arena_set_allocated_speed(::google::protobuf::FloatValue* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.speed_);
-  }
-  _impl_.speed_ = reinterpret_cast<::google::protobuf::FloatValue*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.tasks.v2.ISRParameters.speed)
-}
-inline ::google::protobuf::FloatValue* ISRParameters::release_speed() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::google::protobuf::FloatValue* released = _impl_.speed_;
-  _impl_.speed_ = nullptr;
-  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
-    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-    if (GetArena() == nullptr) {
-      delete old;
-    }
-  } else {
-    if (GetArena() != nullptr) {
-      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-    }
-  }
-  return released;
-}
-inline ::google::protobuf::FloatValue* ISRParameters::unsafe_arena_release_speed() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.tasks.v2.ISRParameters.speed)
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::google::protobuf::FloatValue* temp = _impl_.speed_;
-  _impl_.speed_ = nullptr;
-  return temp;
-}
-inline ::google::protobuf::FloatValue* ISRParameters::_internal_mutable_speed() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.speed_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::google::protobuf::FloatValue>(GetArena());
-    _impl_.speed_ = reinterpret_cast<::google::protobuf::FloatValue*>(p);
-  }
-  return _impl_.speed_;
-}
-inline ::google::protobuf::FloatValue* ISRParameters::mutable_speed() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  ::google::protobuf::FloatValue* _msg = _internal_mutable_speed();
-  // @@protoc_insertion_point(field_mutable:anduril.tasks.v2.ISRParameters.speed)
-  return _msg;
-}
-inline void ISRParameters::set_allocated_speed(::google::protobuf::FloatValue* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.speed_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-
-  _impl_.speed_ = reinterpret_cast<::google::protobuf::FloatValue*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.tasks.v2.ISRParameters.speed)
-}
-
 // .google.protobuf.FloatValue speed_m_s = 2 [json_name = "speedMS"];
 inline bool ISRParameters::has_speed_m_s() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.speed_m_s_ != nullptr);
   return value;
 }
@@ -7142,16 +7017,16 @@ inline void ISRParameters::unsafe_arena_set_allocated_speed_m_s(::google::protob
   }
   _impl_.speed_m_s_ = reinterpret_cast<::google::protobuf::FloatValue*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000002u;
+    _impl_._has_bits_[0] |= 0x00000001u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
+    _impl_._has_bits_[0] &= ~0x00000001u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.tasks.v2.ISRParameters.speed_m_s)
 }
 inline ::google::protobuf::FloatValue* ISRParameters::release_speed_m_s() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
   ::google::protobuf::FloatValue* released = _impl_.speed_m_s_;
   _impl_.speed_m_s_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
@@ -7171,7 +7046,7 @@ inline ::google::protobuf::FloatValue* ISRParameters::unsafe_arena_release_speed
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.tasks.v2.ISRParameters.speed_m_s)
 
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
   ::google::protobuf::FloatValue* temp = _impl_.speed_m_s_;
   _impl_.speed_m_s_ = nullptr;
   return temp;
@@ -7185,7 +7060,7 @@ inline ::google::protobuf::FloatValue* ISRParameters::_internal_mutable_speed_m_
   return _impl_.speed_m_s_;
 }
 inline ::google::protobuf::FloatValue* ISRParameters::mutable_speed_m_s() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   ::google::protobuf::FloatValue* _msg = _internal_mutable_speed_m_s();
   // @@protoc_insertion_point(field_mutable:anduril.tasks.v2.ISRParameters.speed_m_s)
   return _msg;
@@ -7202,9 +7077,9 @@ inline void ISRParameters::set_allocated_speed_m_s(::google::protobuf::FloatValu
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000002u;
+    _impl_._has_bits_[0] |= 0x00000001u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
+    _impl_._has_bits_[0] &= ~0x00000001u;
   }
 
   _impl_.speed_m_s_ = reinterpret_cast<::google::protobuf::FloatValue*>(value);
@@ -7213,7 +7088,7 @@ inline void ISRParameters::set_allocated_speed_m_s(::google::protobuf::FloatValu
 
 // .google.protobuf.FloatValue standoff_distance_m = 3 [json_name = "standoffDistanceM"];
 inline bool ISRParameters::has_standoff_distance_m() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.standoff_distance_m_ != nullptr);
   return value;
 }
@@ -7233,16 +7108,16 @@ inline void ISRParameters::unsafe_arena_set_allocated_standoff_distance_m(::goog
   }
   _impl_.standoff_distance_m_ = reinterpret_cast<::google::protobuf::FloatValue*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000004u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000004u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.tasks.v2.ISRParameters.standoff_distance_m)
 }
 inline ::google::protobuf::FloatValue* ISRParameters::release_standoff_distance_m() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   ::google::protobuf::FloatValue* released = _impl_.standoff_distance_m_;
   _impl_.standoff_distance_m_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
@@ -7262,7 +7137,7 @@ inline ::google::protobuf::FloatValue* ISRParameters::unsafe_arena_release_stand
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.tasks.v2.ISRParameters.standoff_distance_m)
 
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   ::google::protobuf::FloatValue* temp = _impl_.standoff_distance_m_;
   _impl_.standoff_distance_m_ = nullptr;
   return temp;
@@ -7276,7 +7151,7 @@ inline ::google::protobuf::FloatValue* ISRParameters::_internal_mutable_standoff
   return _impl_.standoff_distance_m_;
 }
 inline ::google::protobuf::FloatValue* ISRParameters::mutable_standoff_distance_m() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   ::google::protobuf::FloatValue* _msg = _internal_mutable_standoff_distance_m();
   // @@protoc_insertion_point(field_mutable:anduril.tasks.v2.ISRParameters.standoff_distance_m)
   return _msg;
@@ -7293,109 +7168,18 @@ inline void ISRParameters::set_allocated_standoff_distance_m(::google::protobuf:
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000004u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000004u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
 
   _impl_.standoff_distance_m_ = reinterpret_cast<::google::protobuf::FloatValue*>(value);
   // @@protoc_insertion_point(field_set_allocated:anduril.tasks.v2.ISRParameters.standoff_distance_m)
 }
 
-// .google.protobuf.FloatValue standoff_distance = 4 [json_name = "standoffDistance", deprecated = true];
-inline bool ISRParameters::has_standoff_distance() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.standoff_distance_ != nullptr);
-  return value;
-}
-inline const ::google::protobuf::FloatValue& ISRParameters::_internal_standoff_distance() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::google::protobuf::FloatValue* p = _impl_.standoff_distance_;
-  return p != nullptr ? *p : reinterpret_cast<const ::google::protobuf::FloatValue&>(::google::protobuf::_FloatValue_default_instance_);
-}
-inline const ::google::protobuf::FloatValue& ISRParameters::standoff_distance() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.tasks.v2.ISRParameters.standoff_distance)
-  return _internal_standoff_distance();
-}
-inline void ISRParameters::unsafe_arena_set_allocated_standoff_distance(::google::protobuf::FloatValue* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.standoff_distance_);
-  }
-  _impl_.standoff_distance_ = reinterpret_cast<::google::protobuf::FloatValue*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000008u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000008u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.tasks.v2.ISRParameters.standoff_distance)
-}
-inline ::google::protobuf::FloatValue* ISRParameters::release_standoff_distance() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00000008u;
-  ::google::protobuf::FloatValue* released = _impl_.standoff_distance_;
-  _impl_.standoff_distance_ = nullptr;
-  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
-    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-    if (GetArena() == nullptr) {
-      delete old;
-    }
-  } else {
-    if (GetArena() != nullptr) {
-      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-    }
-  }
-  return released;
-}
-inline ::google::protobuf::FloatValue* ISRParameters::unsafe_arena_release_standoff_distance() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.tasks.v2.ISRParameters.standoff_distance)
-
-  _impl_._has_bits_[0] &= ~0x00000008u;
-  ::google::protobuf::FloatValue* temp = _impl_.standoff_distance_;
-  _impl_.standoff_distance_ = nullptr;
-  return temp;
-}
-inline ::google::protobuf::FloatValue* ISRParameters::_internal_mutable_standoff_distance() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.standoff_distance_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::google::protobuf::FloatValue>(GetArena());
-    _impl_.standoff_distance_ = reinterpret_cast<::google::protobuf::FloatValue*>(p);
-  }
-  return _impl_.standoff_distance_;
-}
-inline ::google::protobuf::FloatValue* ISRParameters::mutable_standoff_distance() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000008u;
-  ::google::protobuf::FloatValue* _msg = _internal_mutable_standoff_distance();
-  // @@protoc_insertion_point(field_mutable:anduril.tasks.v2.ISRParameters.standoff_distance)
-  return _msg;
-}
-inline void ISRParameters::set_allocated_standoff_distance(::google::protobuf::FloatValue* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.standoff_distance_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000008u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000008u;
-  }
-
-  _impl_.standoff_distance_ = reinterpret_cast<::google::protobuf::FloatValue*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.tasks.v2.ISRParameters.standoff_distance)
-}
-
 // .google.protobuf.FloatValue standoff_angle = 5 [json_name = "standoffAngle"];
 inline bool ISRParameters::has_standoff_angle() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.standoff_angle_ != nullptr);
   return value;
 }
@@ -7415,16 +7199,16 @@ inline void ISRParameters::unsafe_arena_set_allocated_standoff_angle(::google::p
   }
   _impl_.standoff_angle_ = reinterpret_cast<::google::protobuf::FloatValue*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000010u;
+    _impl_._has_bits_[0] |= 0x00000004u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000010u;
+    _impl_._has_bits_[0] &= ~0x00000004u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.tasks.v2.ISRParameters.standoff_angle)
 }
 inline ::google::protobuf::FloatValue* ISRParameters::release_standoff_angle() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
   ::google::protobuf::FloatValue* released = _impl_.standoff_angle_;
   _impl_.standoff_angle_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
@@ -7444,7 +7228,7 @@ inline ::google::protobuf::FloatValue* ISRParameters::unsafe_arena_release_stand
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.tasks.v2.ISRParameters.standoff_angle)
 
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
   ::google::protobuf::FloatValue* temp = _impl_.standoff_angle_;
   _impl_.standoff_angle_ = nullptr;
   return temp;
@@ -7458,7 +7242,7 @@ inline ::google::protobuf::FloatValue* ISRParameters::_internal_mutable_standoff
   return _impl_.standoff_angle_;
 }
 inline ::google::protobuf::FloatValue* ISRParameters::mutable_standoff_angle() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   ::google::protobuf::FloatValue* _msg = _internal_mutable_standoff_angle();
   // @@protoc_insertion_point(field_mutable:anduril.tasks.v2.ISRParameters.standoff_angle)
   return _msg;
@@ -7475,9 +7259,9 @@ inline void ISRParameters::set_allocated_standoff_angle(::google::protobuf::Floa
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000010u;
+    _impl_._has_bits_[0] |= 0x00000004u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000010u;
+    _impl_._has_bits_[0] &= ~0x00000004u;
   }
 
   _impl_.standoff_angle_ = reinterpret_cast<::google::protobuf::FloatValue*>(value);
@@ -7486,7 +7270,7 @@ inline void ISRParameters::set_allocated_standoff_angle(::google::protobuf::Floa
 
 // .google.protobuf.UInt64Value expiration_time_ms = 6 [json_name = "expirationTimeMs"];
 inline bool ISRParameters::has_expiration_time_ms() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.expiration_time_ms_ != nullptr);
   return value;
 }
@@ -7506,16 +7290,16 @@ inline void ISRParameters::unsafe_arena_set_allocated_expiration_time_ms(::googl
   }
   _impl_.expiration_time_ms_ = reinterpret_cast<::google::protobuf::UInt64Value*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000020u;
+    _impl_._has_bits_[0] |= 0x00000008u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000020u;
+    _impl_._has_bits_[0] &= ~0x00000008u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.tasks.v2.ISRParameters.expiration_time_ms)
 }
 inline ::google::protobuf::UInt64Value* ISRParameters::release_expiration_time_ms() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
   ::google::protobuf::UInt64Value* released = _impl_.expiration_time_ms_;
   _impl_.expiration_time_ms_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
@@ -7535,7 +7319,7 @@ inline ::google::protobuf::UInt64Value* ISRParameters::unsafe_arena_release_expi
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.tasks.v2.ISRParameters.expiration_time_ms)
 
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
   ::google::protobuf::UInt64Value* temp = _impl_.expiration_time_ms_;
   _impl_.expiration_time_ms_ = nullptr;
   return temp;
@@ -7549,7 +7333,7 @@ inline ::google::protobuf::UInt64Value* ISRParameters::_internal_mutable_expirat
   return _impl_.expiration_time_ms_;
 }
 inline ::google::protobuf::UInt64Value* ISRParameters::mutable_expiration_time_ms() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   ::google::protobuf::UInt64Value* _msg = _internal_mutable_expiration_time_ms();
   // @@protoc_insertion_point(field_mutable:anduril.tasks.v2.ISRParameters.expiration_time_ms)
   return _msg;
@@ -7566,9 +7350,9 @@ inline void ISRParameters::set_allocated_expiration_time_ms(::google::protobuf::
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000020u;
+    _impl_._has_bits_[0] |= 0x00000008u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000020u;
+    _impl_._has_bits_[0] &= ~0x00000008u;
   }
 
   _impl_.expiration_time_ms_ = reinterpret_cast<::google::protobuf::UInt64Value*>(value);

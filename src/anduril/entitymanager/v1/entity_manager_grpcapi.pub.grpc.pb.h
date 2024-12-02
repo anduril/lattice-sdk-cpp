@@ -29,9 +29,9 @@ namespace anduril {
 namespace entitymanager {
 namespace v1 {
 
-// Entity Manager manages the lifecycle of the entities that comprise the common operational picture.
+// Entity Manager manages the lifecycle of the entities that comprise the common operational picture (COP).
 //
-// Every object in a battle space is represented as an "Entity". Each Entity is essentially an ID, with a lifecycle
+// Every object in the COP is represented as an "Entity." Each Entity is essentially an ID, with a lifecycle
 // and a collection of data components. Each data component is a separate protobuf message definition.
 //
 // Entity Manager provides a way to query the currently live set of entities within a set of filter constraints,
@@ -44,10 +44,11 @@ class EntityManagerAPI final {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    // Publishes an entity for ingestion by Entity Manager. You "own" the entity you create using PublishEntity;
-    // other sources, such as the UI, may not edit or delete these entities.
-    // When called, PublishEntity validates the entity and returns an error if the entity is invalid. We recommend using PublishEntity to publish high- or
-    // low-update rate entities.
+    // Create or update an entity and get a response confirming whether the Entity Manager API succesfully processes
+    // the entity. Ideal for testing environments.
+    // When publishing an entity, only your integration can modify or delete that entity; other sources, such as the
+    // UI or other integrations, can't. If you're pushing entity updates so fast that your publish task can't keep
+    // up with your update rate (a rough estimate of >= 1 Hz), use the PublishEntities request instead.
     virtual ::grpc::Status PublishEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest& request, ::anduril::entitymanager::v1::PublishEntityResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::PublishEntityResponse>> AsyncPublishEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::PublishEntityResponse>>(AsyncPublishEntityRaw(context, request, cq));
@@ -55,9 +56,13 @@ class EntityManagerAPI final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::PublishEntityResponse>> PrepareAsyncPublishEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::PublishEntityResponse>>(PrepareAsyncPublishEntityRaw(context, request, cq));
     }
-    // Creates or updates one or more entities. You "own" the entity you create using PublishEntities; other sources may not edit or delete these entities.
-    // Note that PublishEntities doesn't return error messages for invalid entities or provide any other feedback from the server. We recommend using PublishEntity instead.
-    // We only recommend switching to PublishEntities if you publish at an extremely high rate and find that waiting for a response from the server causes your publishing task to fall behind.
+    // Create or update one or more entities rapidly using PublishEntities, which doesn't return error messages
+    // for invalid entities or provide server feedback. When publishing entities, only your integration can
+    // modify or delete those entities; other sources, such as the UI or other integrations, can't.
+    // When you use PublishEntities, you gain higher throughput at the expense of receiving no server responses or
+    // validation. In addition, due to gRPC stream mechanics, you risk losing messages queued on the outgoing gRPC
+    // buffer if the stream connection is lost prior to the messages being sent. If you need validation responses,
+    // are developing in testing environments, or have lower entity update rates, use PublishEntity.
     std::unique_ptr< ::grpc::ClientWriterInterface< ::anduril::entitymanager::v1::PublishEntitiesRequest>> PublishEntities(::grpc::ClientContext* context, ::anduril::entitymanager::v1::PublishEntitiesResponse* response) {
       return std::unique_ptr< ::grpc::ClientWriterInterface< ::anduril::entitymanager::v1::PublishEntitiesRequest>>(PublishEntitiesRaw(context, response));
     }
@@ -67,7 +72,7 @@ class EntityManagerAPI final {
     std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::anduril::entitymanager::v1::PublishEntitiesRequest>> PrepareAsyncPublishEntities(::grpc::ClientContext* context, ::anduril::entitymanager::v1::PublishEntitiesResponse* response, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncWriterInterface< ::anduril::entitymanager::v1::PublishEntitiesRequest>>(PrepareAsyncPublishEntitiesRaw(context, response, cq));
     }
-    // Get a entity based on an entityId.
+    // Get an entity using its entityId.
     virtual ::grpc::Status GetEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::anduril::entitymanager::v1::GetEntityResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::GetEntityResponse>> AsyncGetEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::GetEntityResponse>>(AsyncGetEntityRaw(context, request, cq));
@@ -94,7 +99,7 @@ class EntityManagerAPI final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::RemoveEntityOverrideResponse>> PrepareAsyncRemoveEntityOverride(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RemoveEntityOverrideRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::entitymanager::v1::RemoveEntityOverrideResponse>>(PrepareAsyncRemoveEntityOverrideRaw(context, request, cq));
     }
-    // Returns a stream of entity with specified components populated.
+    // Returns a stream of entities with specified components populated.
     std::unique_ptr< ::grpc::ClientReaderInterface< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>> StreamEntityComponents(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest& request) {
       return std::unique_ptr< ::grpc::ClientReaderInterface< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>>(StreamEntityComponentsRaw(context, request));
     }
@@ -107,17 +112,22 @@ class EntityManagerAPI final {
     class async_interface {
      public:
       virtual ~async_interface() {}
-      // Publishes an entity for ingestion by Entity Manager. You "own" the entity you create using PublishEntity;
-      // other sources, such as the UI, may not edit or delete these entities.
-      // When called, PublishEntity validates the entity and returns an error if the entity is invalid. We recommend using PublishEntity to publish high- or
-      // low-update rate entities.
+      // Create or update an entity and get a response confirming whether the Entity Manager API succesfully processes
+      // the entity. Ideal for testing environments.
+      // When publishing an entity, only your integration can modify or delete that entity; other sources, such as the
+      // UI or other integrations, can't. If you're pushing entity updates so fast that your publish task can't keep
+      // up with your update rate (a rough estimate of >= 1 Hz), use the PublishEntities request instead.
       virtual void PublishEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest* request, ::anduril::entitymanager::v1::PublishEntityResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void PublishEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest* request, ::anduril::entitymanager::v1::PublishEntityResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      // Creates or updates one or more entities. You "own" the entity you create using PublishEntities; other sources may not edit or delete these entities.
-      // Note that PublishEntities doesn't return error messages for invalid entities or provide any other feedback from the server. We recommend using PublishEntity instead.
-      // We only recommend switching to PublishEntities if you publish at an extremely high rate and find that waiting for a response from the server causes your publishing task to fall behind.
+      // Create or update one or more entities rapidly using PublishEntities, which doesn't return error messages
+      // for invalid entities or provide server feedback. When publishing entities, only your integration can
+      // modify or delete those entities; other sources, such as the UI or other integrations, can't.
+      // When you use PublishEntities, you gain higher throughput at the expense of receiving no server responses or
+      // validation. In addition, due to gRPC stream mechanics, you risk losing messages queued on the outgoing gRPC
+      // buffer if the stream connection is lost prior to the messages being sent. If you need validation responses,
+      // are developing in testing environments, or have lower entity update rates, use PublishEntity.
       virtual void PublishEntities(::grpc::ClientContext* context, ::anduril::entitymanager::v1::PublishEntitiesResponse* response, ::grpc::ClientWriteReactor< ::anduril::entitymanager::v1::PublishEntitiesRequest>* reactor) = 0;
-      // Get a entity based on an entityId.
+      // Get an entity using its entityId.
       virtual void GetEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest* request, ::anduril::entitymanager::v1::GetEntityResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GetEntity(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::GetEntityRequest* request, ::anduril::entitymanager::v1::GetEntityResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // Override an Entity Component. An override is a definitive change to entity data. Any authorized user of service
@@ -129,7 +139,7 @@ class EntityManagerAPI final {
       // Remove an override for an Entity component.
       virtual void RemoveEntityOverride(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RemoveEntityOverrideRequest* request, ::anduril::entitymanager::v1::RemoveEntityOverrideResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void RemoveEntityOverride(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::RemoveEntityOverrideRequest* request, ::anduril::entitymanager::v1::RemoveEntityOverrideResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      // Returns a stream of entity with specified components populated.
+      // Returns a stream of entities with specified components populated.
       virtual void StreamEntityComponents(::grpc::ClientContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest* request, ::grpc::ClientReadReactor< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
@@ -251,16 +261,21 @@ class EntityManagerAPI final {
    public:
     Service();
     virtual ~Service();
-    // Publishes an entity for ingestion by Entity Manager. You "own" the entity you create using PublishEntity;
-    // other sources, such as the UI, may not edit or delete these entities.
-    // When called, PublishEntity validates the entity and returns an error if the entity is invalid. We recommend using PublishEntity to publish high- or
-    // low-update rate entities.
+    // Create or update an entity and get a response confirming whether the Entity Manager API succesfully processes
+    // the entity. Ideal for testing environments.
+    // When publishing an entity, only your integration can modify or delete that entity; other sources, such as the
+    // UI or other integrations, can't. If you're pushing entity updates so fast that your publish task can't keep
+    // up with your update rate (a rough estimate of >= 1 Hz), use the PublishEntities request instead.
     virtual ::grpc::Status PublishEntity(::grpc::ServerContext* context, const ::anduril::entitymanager::v1::PublishEntityRequest* request, ::anduril::entitymanager::v1::PublishEntityResponse* response);
-    // Creates or updates one or more entities. You "own" the entity you create using PublishEntities; other sources may not edit or delete these entities.
-    // Note that PublishEntities doesn't return error messages for invalid entities or provide any other feedback from the server. We recommend using PublishEntity instead.
-    // We only recommend switching to PublishEntities if you publish at an extremely high rate and find that waiting for a response from the server causes your publishing task to fall behind.
+    // Create or update one or more entities rapidly using PublishEntities, which doesn't return error messages
+    // for invalid entities or provide server feedback. When publishing entities, only your integration can
+    // modify or delete those entities; other sources, such as the UI or other integrations, can't.
+    // When you use PublishEntities, you gain higher throughput at the expense of receiving no server responses or
+    // validation. In addition, due to gRPC stream mechanics, you risk losing messages queued on the outgoing gRPC
+    // buffer if the stream connection is lost prior to the messages being sent. If you need validation responses,
+    // are developing in testing environments, or have lower entity update rates, use PublishEntity.
     virtual ::grpc::Status PublishEntities(::grpc::ServerContext* context, ::grpc::ServerReader< ::anduril::entitymanager::v1::PublishEntitiesRequest>* reader, ::anduril::entitymanager::v1::PublishEntitiesResponse* response);
-    // Get a entity based on an entityId.
+    // Get an entity using its entityId.
     virtual ::grpc::Status GetEntity(::grpc::ServerContext* context, const ::anduril::entitymanager::v1::GetEntityRequest* request, ::anduril::entitymanager::v1::GetEntityResponse* response);
     // Override an Entity Component. An override is a definitive change to entity data. Any authorized user of service
     // can override overridable components on any entity. Only fields marked with overridable can be overridden.
@@ -269,7 +284,7 @@ class EntityManagerAPI final {
     virtual ::grpc::Status OverrideEntity(::grpc::ServerContext* context, const ::anduril::entitymanager::v1::OverrideEntityRequest* request, ::anduril::entitymanager::v1::OverrideEntityResponse* response);
     // Remove an override for an Entity component.
     virtual ::grpc::Status RemoveEntityOverride(::grpc::ServerContext* context, const ::anduril::entitymanager::v1::RemoveEntityOverrideRequest* request, ::anduril::entitymanager::v1::RemoveEntityOverrideResponse* response);
-    // Returns a stream of entity with specified components populated.
+    // Returns a stream of entities with specified components populated.
     virtual ::grpc::Status StreamEntityComponents(::grpc::ServerContext* context, const ::anduril::entitymanager::v1::StreamEntityComponentsRequest* request, ::grpc::ServerWriter< ::anduril::entitymanager::v1::StreamEntityComponentsResponse>* writer);
   };
   template <class BaseClass>

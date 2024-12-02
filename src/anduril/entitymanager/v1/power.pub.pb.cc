@@ -108,12 +108,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 
 inline constexpr PowerState::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        messages_{},
-        source_id_to_state_{},
-        power_level_{nullptr},
-        power_status_{static_cast< ::anduril::entitymanager::v1::PowerStatus >(0)},
-        power_type_{static_cast< ::anduril::entitymanager::v1::PowerType >(0)} {}
+      : source_id_to_state_{},
+        _cached_size_{0} {}
 
 template <typename>
 PROTOBUF_CONSTEXPR PowerState::PowerState(::_pbi::ConstantInitialized)
@@ -155,7 +151,7 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::PowerState_SourceIdToStateEntry_DoNotUse, _impl_.value_),
         0,
         1,
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::PowerState, _impl_._has_bits_),
+        ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::PowerState, _internal_metadata_),
         ~0u,  // no _extensions_
         ~0u,  // no _oneof_case_
@@ -164,15 +160,6 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::PowerState, _impl_.source_id_to_state_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::PowerState, _impl_.power_status_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::PowerState, _impl_.power_type_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::PowerState, _impl_.power_level_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::PowerState, _impl_.messages_),
-        ~0u,
-        ~0u,
-        ~0u,
-        0,
-        ~0u,
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::PowerSource, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::PowerSource, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -218,9 +205,9 @@ const ::uint32_t
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, 10, -1, sizeof(::anduril::entitymanager::v1::PowerState_SourceIdToStateEntry_DoNotUse)},
-        {12, 25, -1, sizeof(::anduril::entitymanager::v1::PowerState)},
-        {30, 43, -1, sizeof(::anduril::entitymanager::v1::PowerSource)},
-        {48, 63, -1, sizeof(::anduril::entitymanager::v1::PowerLevel)},
+        {12, -1, -1, sizeof(::anduril::entitymanager::v1::PowerState)},
+        {21, 34, -1, sizeof(::anduril::entitymanager::v1::PowerSource)},
+        {39, 54, -1, sizeof(::anduril::entitymanager::v1::PowerLevel)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::entitymanager::v1::_PowerState_SourceIdToStateEntry_DoNotUse_default_instance_._instance,
@@ -232,51 +219,45 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fpower_2epub_
     protodesc_cold) = {
     "\n(anduril/entitymanager/v1/power.pub.pro"
     "to\022\030anduril.entitymanager.v1\032\036google/pro"
-    "tobuf/wrappers.proto\"\340\003\n\nPowerState\022f\n\022s"
+    "tobuf/wrappers.proto\"\367\001\n\nPowerState\022f\n\022s"
     "ource_id_to_state\030\005 \003(\01329.anduril.entity"
     "manager.v1.PowerState.SourceIdToStateEnt"
-    "ryR\017sourceIdToState\022L\n\014power_status\030\001 \001("
-    "\0162%.anduril.entitymanager.v1.PowerStatus"
-    "B\002\030\001R\013powerStatus\022F\n\npower_type\030\002 \001(\0162#."
-    "anduril.entitymanager.v1.PowerTypeB\002\030\001R\t"
-    "powerType\022I\n\013power_level\030\003 \001(\0132$.anduril"
-    ".entitymanager.v1.PowerLevelB\002\030\001R\npowerL"
-    "evel\022\036\n\010messages\030\004 \003(\tB\002\030\001R\010messages\032i\n\024"
-    "SourceIdToStateEntry\022\020\n\003key\030\001 \001(\tR\003key\022;"
-    "\n\005value\030\002 \001(\0132%.anduril.entitymanager.v1"
-    ".PowerSourceR\005value:\0028\001\"\274\002\n\013PowerSource\022"
-    "H\n\014power_status\030\001 \001(\0162%.anduril.entityma"
-    "nager.v1.PowerStatusR\013powerStatus\022B\n\npow"
-    "er_type\030\002 \001(\0162#.anduril.entitymanager.v1"
-    ".PowerTypeR\tpowerType\022E\n\013power_level\030\003 \001"
-    "(\0132$.anduril.entitymanager.v1.PowerLevel"
-    "R\npowerLevel\022\032\n\010messages\030\004 \003(\tR\010messages"
-    "\022<\n\013offloadable\030\005 \001(\0132\032.google.protobuf."
-    "BoolValueR\013offloadable\"\224\003\n\nPowerLevel\022\032\n"
-    "\010capacity\030\001 \001(\002R\010capacity\022\034\n\tremaining\030\002"
-    " \001(\002R\tremaining\022+\n\021percent_remaining\030\003 \001"
-    "(\002R\020percentRemaining\0226\n\007voltage\030\004 \001(\0132\034."
-    "google.protobuf.DoubleValueR\007voltage\022\?\n\014"
-    "current_amps\030\005 \001(\0132\034.google.protobuf.Dou"
-    "bleValueR\013currentAmps\022P\n\026run_time_to_emp"
-    "ty_mins\030\006 \001(\0132\034.google.protobuf.DoubleVa"
-    "lueR\022runTimeToEmptyMins\022T\n\030consumption_r"
-    "ate_l_per_s\030\007 \001(\0132\034.google.protobuf.Doub"
-    "leValueR\024consumptionRateLPerS*\256\001\n\013PowerS"
-    "tatus\022\030\n\024POWER_STATUS_INVALID\020\000\022\030\n\024POWER"
-    "_STATUS_UNKNOWN\020\001\022\034\n\030POWER_STATUS_NOT_PR"
-    "ESENT\020\002\022\032\n\026POWER_STATUS_OPERATING\020\003\022\031\n\025P"
-    "OWER_STATUS_DISABLED\020\004\022\026\n\022POWER_STATUS_E"
-    "RROR\020\005*g\n\tPowerType\022\026\n\022POWER_TYPE_INVALI"
-    "D\020\000\022\026\n\022POWER_TYPE_UNKNOWN\020\001\022\022\n\016POWER_TYP"
-    "E_GAS\020\002\022\026\n\022POWER_TYPE_BATTERY\020\003B\376\001\n\034com."
-    "anduril.entitymanager.v1B\rPowerPubProtoP"
-    "\001ZMghe.anduril.dev/anduril/andurilapis-g"
-    "o/anduril/entitymanager/v1;entitymanager"
-    "\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Andu"
-    "ril\\Entitymanager\\V1\342\002$Anduril\\Entityman"
-    "ager\\V1\\GPBMetadata\352\002\032Anduril::Entityman"
-    "ager::V1b\006proto3"
+    "ryR\017sourceIdToState\032i\n\024SourceIdToStateEn"
+    "try\022\020\n\003key\030\001 \001(\tR\003key\022;\n\005value\030\002 \001(\0132%.a"
+    "nduril.entitymanager.v1.PowerSourceR\005val"
+    "ue:\0028\001J\004\010\001\020\002J\004\010\002\020\003J\004\010\003\020\004J\004\010\004\020\005\"\274\002\n\013Power"
+    "Source\022H\n\014power_status\030\001 \001(\0162%.anduril.e"
+    "ntitymanager.v1.PowerStatusR\013powerStatus"
+    "\022B\n\npower_type\030\002 \001(\0162#.anduril.entityman"
+    "ager.v1.PowerTypeR\tpowerType\022E\n\013power_le"
+    "vel\030\003 \001(\0132$.anduril.entitymanager.v1.Pow"
+    "erLevelR\npowerLevel\022\032\n\010messages\030\004 \003(\tR\010m"
+    "essages\022<\n\013offloadable\030\005 \001(\0132\032.google.pr"
+    "otobuf.BoolValueR\013offloadable\"\224\003\n\nPowerL"
+    "evel\022\032\n\010capacity\030\001 \001(\002R\010capacity\022\034\n\trema"
+    "ining\030\002 \001(\002R\tremaining\022+\n\021percent_remain"
+    "ing\030\003 \001(\002R\020percentRemaining\0226\n\007voltage\030\004"
+    " \001(\0132\034.google.protobuf.DoubleValueR\007volt"
+    "age\022\?\n\014current_amps\030\005 \001(\0132\034.google.proto"
+    "buf.DoubleValueR\013currentAmps\022P\n\026run_time"
+    "_to_empty_mins\030\006 \001(\0132\034.google.protobuf.D"
+    "oubleValueR\022runTimeToEmptyMins\022T\n\030consum"
+    "ption_rate_l_per_s\030\007 \001(\0132\034.google.protob"
+    "uf.DoubleValueR\024consumptionRateLPerS*\256\001\n"
+    "\013PowerStatus\022\030\n\024POWER_STATUS_INVALID\020\000\022\030"
+    "\n\024POWER_STATUS_UNKNOWN\020\001\022\034\n\030POWER_STATUS"
+    "_NOT_PRESENT\020\002\022\032\n\026POWER_STATUS_OPERATING"
+    "\020\003\022\031\n\025POWER_STATUS_DISABLED\020\004\022\026\n\022POWER_S"
+    "TATUS_ERROR\020\005*g\n\tPowerType\022\026\n\022POWER_TYPE"
+    "_INVALID\020\000\022\026\n\022POWER_TYPE_UNKNOWN\020\001\022\022\n\016PO"
+    "WER_TYPE_GAS\020\002\022\026\n\022POWER_TYPE_BATTERY\020\003B\376"
+    "\001\n\034com.anduril.entitymanager.v1B\rPowerPu"
+    "bProtoP\001ZMghe.anduril.dev/anduril/anduri"
+    "lapis-go/anduril/entitymanager/v1;entity"
+    "manager\242\002\003AEX\252\002\030Anduril.Entitymanager.V1"
+    "\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\En"
+    "titymanager\\V1\\GPBMetadata\352\002\032Anduril::En"
+    "titymanager::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fpower_2epub_2eproto_deps[1] =
     {
@@ -286,7 +267,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fpower_2
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fpower_2epub_2eproto = {
     false,
     false,
-    1856,
+    1623,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fpower_2epub_2eproto,
     "anduril/entitymanager/v1/power.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fpower_2epub_2eproto_once,
@@ -414,10 +395,6 @@ const ::_pbi::TcParseTable<1, 2, 1, 68, 2> PowerState_SourceIdToStateEntry_DoNot
 
 class PowerState::_Internal {
  public:
-  using HasBits =
-      decltype(std::declval<PowerState>()._impl_._has_bits_);
-  static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(PowerState, _impl_._has_bits_);
 };
 
 PowerState::PowerState(::google::protobuf::Arena* arena)
@@ -432,10 +409,8 @@ PowerState::PowerState(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE PowerState::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::anduril::entitymanager::v1::PowerState& from_msg)
-      : _has_bits_{from._has_bits_},
-        _cached_size_{0},
-        messages_{visibility, arena, from.messages_},
-        source_id_to_state_{visibility, arena, from.source_id_to_state_} {}
+      : source_id_to_state_{visibility, arena, from.source_id_to_state_},
+        _cached_size_{0} {}
 
 PowerState::PowerState(
     ::google::protobuf::Arena* arena,
@@ -450,35 +425,17 @@ PowerState::PowerState(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
-  _impl_.power_level_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::PowerLevel>(
-                              arena, *from._impl_.power_level_)
-                        : nullptr;
-  ::memcpy(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, power_status_),
-           reinterpret_cast<const char *>(&from._impl_) +
-               offsetof(Impl_, power_status_),
-           offsetof(Impl_, power_type_) -
-               offsetof(Impl_, power_status_) +
-               sizeof(Impl_::power_type_));
 
   // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.PowerState)
 }
 inline PROTOBUF_NDEBUG_INLINE PowerState::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : _cached_size_{0},
-        messages_{visibility, arena},
-        source_id_to_state_{visibility, arena} {}
+      : source_id_to_state_{visibility, arena},
+        _cached_size_{0} {}
 
 inline void PowerState::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
-  ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, power_level_),
-           0,
-           offsetof(Impl_, power_type_) -
-               offsetof(Impl_, power_level_) +
-               sizeof(Impl_::power_type_));
 }
 PowerState::~PowerState() {
   // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.PowerState)
@@ -488,7 +445,6 @@ inline void PowerState::SharedDtor(MessageLite& self) {
   PowerState& this_ = static_cast<PowerState&>(self);
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
-  delete this_._impl_.power_level_;
   this_._impl_.~Impl_();
 }
 
@@ -505,10 +461,6 @@ constexpr auto PowerState::InternalNewImpl_() {
       PROTOBUF_FIELD_OFFSET(PowerState, _impl_.source_id_to_state_) +
           decltype(PowerState::_impl_.source_id_to_state_)::
               InternalGetArenaOffsetAlt(
-                  ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(PowerState, _impl_.messages_) +
-          decltype(PowerState::_impl_.messages_)::
-              InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
   });
   if (arena_bits.has_value()) {
@@ -548,16 +500,16 @@ const ::google::protobuf::internal::ClassData* PowerState::GetClassData() const 
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 5, 3, 70, 2> PowerState::_table_ = {
+const ::_pbi::TcParseTable<0, 1, 2, 62, 2> PowerState::_table_ = {
   {
-    PROTOBUF_FIELD_OFFSET(PowerState, _impl_._has_bits_),
+    0,  // no _has_bits_
     0, // no _extensions_
-    5, 24,  // max_field_number, fast_idx_mask
+    5, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967264,  // skipmap
+    4294967279,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    5,  // num_field_entries
-    3,  // num_aux_entries
+    1,  // num_field_entries
+    2,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
@@ -566,47 +518,22 @@ const ::_pbi::TcParseTable<2, 5, 3, 70, 2> PowerState::_table_ = {
     ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::PowerState>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // repeated string messages = 4 [json_name = "messages", deprecated = true];
-    {::_pbi::TcParser::FastUR1,
-     {34, 63, 0, PROTOBUF_FIELD_OFFSET(PowerState, _impl_.messages_)}},
-    // .anduril.entitymanager.v1.PowerStatus power_status = 1 [json_name = "powerStatus", deprecated = true];
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PowerState, _impl_.power_status_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(PowerState, _impl_.power_status_)}},
-    // .anduril.entitymanager.v1.PowerType power_type = 2 [json_name = "powerType", deprecated = true];
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PowerState, _impl_.power_type_), 63>(),
-     {16, 63, 0, PROTOBUF_FIELD_OFFSET(PowerState, _impl_.power_type_)}},
-    // .anduril.entitymanager.v1.PowerLevel power_level = 3 [json_name = "powerLevel", deprecated = true];
-    {::_pbi::TcParser::FastMtS1,
-     {26, 0, 0, PROTOBUF_FIELD_OFFSET(PowerState, _impl_.power_level_)}},
+    {::_pbi::TcParser::MiniParse, {}},
   }}, {{
     65535, 65535
   }}, {{
-    // .anduril.entitymanager.v1.PowerStatus power_status = 1 [json_name = "powerStatus", deprecated = true];
-    {PROTOBUF_FIELD_OFFSET(PowerState, _impl_.power_status_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
-    // .anduril.entitymanager.v1.PowerType power_type = 2 [json_name = "powerType", deprecated = true];
-    {PROTOBUF_FIELD_OFFSET(PowerState, _impl_.power_type_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
-    // .anduril.entitymanager.v1.PowerLevel power_level = 3 [json_name = "powerLevel", deprecated = true];
-    {PROTOBUF_FIELD_OFFSET(PowerState, _impl_.power_level_), _Internal::kHasBitsOffset + 0, 0,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // repeated string messages = 4 [json_name = "messages", deprecated = true];
-    {PROTOBUF_FIELD_OFFSET(PowerState, _impl_.messages_), -1, 0,
-    (0 | ::_fl::kFcRepeated | ::_fl::kUtf8String | ::_fl::kRepSString)},
     // map<string, .anduril.entitymanager.v1.PowerSource> source_id_to_state = 5 [json_name = "sourceIdToState"];
-    {PROTOBUF_FIELD_OFFSET(PowerState, _impl_.source_id_to_state_), -1, 1,
+    {PROTOBUF_FIELD_OFFSET(PowerState, _impl_.source_id_to_state_), 0, 0,
     (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
   }}, {{
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::PowerLevel>()},
     {::_pbi::TcParser::GetMapAuxInfo<
         decltype(PowerState()._impl_.source_id_to_state_)>(
         1, 0, 0, 9,
         11)},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::PowerSource>()},
   }}, {{
-    "\43\0\0\0\10\22\0\0"
+    "\43\22\0\0\0\0\0\0"
     "anduril.entitymanager.v1.PowerState"
-    "messages"
     "source_id_to_state"
   }},
 };
@@ -618,17 +545,7 @@ PROTOBUF_NOINLINE void PowerState::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.messages_.Clear();
   _impl_.source_id_to_state_.Clear();
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    ABSL_DCHECK(_impl_.power_level_ != nullptr);
-    _impl_.power_level_->Clear();
-  }
-  ::memset(&_impl_.power_status_, 0, static_cast<::size_t>(
-      reinterpret_cast<char*>(&_impl_.power_type_) -
-      reinterpret_cast<char*>(&_impl_.power_status_)) + sizeof(_impl_.power_type_));
-  _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -646,36 +563,6 @@ PROTOBUF_NOINLINE void PowerState::Clear() {
           // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.PowerState)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
-
-          // .anduril.entitymanager.v1.PowerStatus power_status = 1 [json_name = "powerStatus", deprecated = true];
-          if (this_._internal_power_status() != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteEnumToArray(
-                1, this_._internal_power_status(), target);
-          }
-
-          // .anduril.entitymanager.v1.PowerType power_type = 2 [json_name = "powerType", deprecated = true];
-          if (this_._internal_power_type() != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteEnumToArray(
-                2, this_._internal_power_type(), target);
-          }
-
-          cached_has_bits = this_._impl_._has_bits_[0];
-          // .anduril.entitymanager.v1.PowerLevel power_level = 3 [json_name = "powerLevel", deprecated = true];
-          if (cached_has_bits & 0x00000001u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                3, *this_._impl_.power_level_, this_._impl_.power_level_->GetCachedSize(), target,
-                stream);
-          }
-
-          // repeated string messages = 4 [json_name = "messages", deprecated = true];
-          for (int i = 0, n = this_._internal_messages_size(); i < n; ++i) {
-            const auto& s = this_._internal_messages().Get(i);
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.PowerState.messages");
-            target = stream->WriteString(4, s, target);
-          }
 
           // map<string, .anduril.entitymanager.v1.PowerSource> source_id_to_state = 5 [json_name = "sourceIdToState"];
           if (!this_._internal_source_id_to_state().empty()) {
@@ -729,15 +616,6 @@ PROTOBUF_NOINLINE void PowerState::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // repeated string messages = 4 [json_name = "messages", deprecated = true];
-            {
-              total_size +=
-                  1 * ::google::protobuf::internal::FromIntSize(this_._internal_messages().size());
-              for (int i = 0, n = this_._internal_messages().size(); i < n; ++i) {
-                total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
-                    this_._internal_messages().Get(i));
-              }
-            }
             // map<string, .anduril.entitymanager.v1.PowerSource> source_id_to_state = 5 [json_name = "sourceIdToState"];
             {
               total_size +=
@@ -749,26 +627,6 @@ PROTOBUF_NOINLINE void PowerState::Clear() {
               }
             }
           }
-           {
-            // .anduril.entitymanager.v1.PowerLevel power_level = 3 [json_name = "powerLevel", deprecated = true];
-            cached_has_bits = this_._impl_._has_bits_[0];
-            if (cached_has_bits & 0x00000001u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.power_level_);
-            }
-          }
-           {
-            // .anduril.entitymanager.v1.PowerStatus power_status = 1 [json_name = "powerStatus", deprecated = true];
-            if (this_._internal_power_status() != 0) {
-              total_size += 1 +
-                            ::_pbi::WireFormatLite::EnumSize(this_._internal_power_status());
-            }
-            // .anduril.entitymanager.v1.PowerType power_type = 2 [json_name = "powerType", deprecated = true];
-            if (this_._internal_power_type() != 0) {
-              total_size += 1 +
-                            ::_pbi::WireFormatLite::EnumSize(this_._internal_power_type());
-            }
-          }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
                                                      &this_._impl_._cached_size_);
         }
@@ -776,31 +634,12 @@ PROTOBUF_NOINLINE void PowerState::Clear() {
 void PowerState::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
   auto* const _this = static_cast<PowerState*>(&to_msg);
   auto& from = static_cast<const PowerState&>(from_msg);
-  ::google::protobuf::Arena* arena = _this->GetArena();
   // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.PowerState)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_internal_mutable_messages()->MergeFrom(from._internal_messages());
   _this->_impl_.source_id_to_state_.MergeFrom(from._impl_.source_id_to_state_);
-  cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    ABSL_DCHECK(from._impl_.power_level_ != nullptr);
-    if (_this->_impl_.power_level_ == nullptr) {
-      _this->_impl_.power_level_ =
-          ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::PowerLevel>(arena, *from._impl_.power_level_);
-    } else {
-      _this->_impl_.power_level_->MergeFrom(*from._impl_.power_level_);
-    }
-  }
-  if (from._internal_power_status() != 0) {
-    _this->_impl_.power_status_ = from._impl_.power_status_;
-  }
-  if (from._internal_power_type() != 0) {
-    _this->_impl_.power_type_ = from._impl_.power_type_;
-  }
-  _this->_impl_._has_bits_[0] |= cached_has_bits;
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -815,15 +654,7 @@ void PowerState::CopyFrom(const PowerState& from) {
 void PowerState::InternalSwap(PowerState* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  _impl_.messages_.InternalSwap(&other->_impl_.messages_);
   _impl_.source_id_to_state_.InternalSwap(&other->_impl_.source_id_to_state_);
-  ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(PowerState, _impl_.power_type_)
-      + sizeof(PowerState::_impl_.power_type_)
-      - PROTOBUF_FIELD_OFFSET(PowerState, _impl_.power_level_)>(
-          reinterpret_cast<char*>(&_impl_.power_level_),
-          reinterpret_cast<char*>(&other->_impl_.power_level_));
 }
 
 ::google::protobuf::Metadata PowerState::GetMetadata() const {

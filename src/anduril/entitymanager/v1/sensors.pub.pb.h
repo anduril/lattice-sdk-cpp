@@ -31,9 +31,7 @@
 #include "google/protobuf/generated_enum_reflection.h"
 #include "google/protobuf/unknown_field_set.h"
 #include "anduril/entitymanager/v1/location.pub.pb.h"
-#include "anduril/entitymanager/v1/options.pub.pb.h"
 #include "anduril/entitymanager/v1/signal.pub.pb.h"
-#include "anduril/entitymanager/v1/types.pub.pb.h"
 #include "google/protobuf/timestamp.pb.h"
 #include "google/protobuf/wrappers.pb.h"
 // @@protoc_insertion_point(includes)
@@ -175,7 +173,6 @@ enum SensorType : int {
   SENSOR_TYPE_RF = 4,
   SENSOR_TYPE_GPS = 5,
   SENSOR_TYPE_PTU_POS = 6,
-  SENSOR_TYPE_WISP = 7,
   SENSOR_TYPE_PERIMETER = 8,
   SENSOR_TYPE_SONAR = 9,
   SensorType_INT_MIN_SENTINEL_DO_NOT_USE_ =
@@ -1334,45 +1331,9 @@ class RFConfiguration final
 
   // accessors -------------------------------------------------------
   enum : int {
-    kFrequencyRangeFieldNumber = 1,
-    kBandwidthRangeFieldNumber = 2,
     kFrequencyRangeHzFieldNumber = 3,
     kBandwidthRangeHzFieldNumber = 4,
   };
-  // repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];
-  [[deprecated]]  int frequency_range_size() const;
-  private:
-  int _internal_frequency_range_size() const;
-
-  public:
-  [[deprecated]]  void clear_frequency_range() ;
-  [[deprecated]] ::anduril::entitymanager::v1::FloatRange* mutable_frequency_range(int index);
-  [[deprecated]] ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::FloatRange>* mutable_frequency_range();
-
-  private:
-  const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::FloatRange>& _internal_frequency_range() const;
-  ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::FloatRange>* _internal_mutable_frequency_range();
-  public:
-  [[deprecated]] const ::anduril::entitymanager::v1::FloatRange& frequency_range(int index) const;
-  [[deprecated]] ::anduril::entitymanager::v1::FloatRange* add_frequency_range();
-  [[deprecated]] const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::FloatRange>& frequency_range() const;
-  // repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];
-  [[deprecated]]  int bandwidth_range_size() const;
-  private:
-  int _internal_bandwidth_range_size() const;
-
-  public:
-  [[deprecated]]  void clear_bandwidth_range() ;
-  [[deprecated]] ::anduril::entitymanager::v1::FloatRange* mutable_bandwidth_range(int index);
-  [[deprecated]] ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::FloatRange>* mutable_bandwidth_range();
-
-  private:
-  const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::FloatRange>& _internal_bandwidth_range() const;
-  ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::FloatRange>* _internal_mutable_bandwidth_range();
-  public:
-  [[deprecated]] const ::anduril::entitymanager::v1::FloatRange& bandwidth_range(int index) const;
-  [[deprecated]] ::anduril::entitymanager::v1::FloatRange* add_bandwidth_range();
-  [[deprecated]] const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::FloatRange>& bandwidth_range() const;
   // repeated .anduril.entitymanager.v1.FrequencyRange frequency_range_hz = 3 [json_name = "frequencyRangeHz"];
   int frequency_range_hz_size() const;
   private:
@@ -1412,7 +1373,7 @@ class RFConfiguration final
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      2, 4, 4,
+      1, 2, 2,
       0, 2>
       _table_;
 
@@ -1430,8 +1391,6 @@ class RFConfiguration final
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const RFConfiguration& from_msg);
-    ::google::protobuf::RepeatedPtrField< ::anduril::entitymanager::v1::FloatRange > frequency_range_;
-    ::google::protobuf::RepeatedPtrField< ::anduril::entitymanager::v1::FloatRange > bandwidth_range_;
     ::google::protobuf::RepeatedPtrField< ::anduril::entitymanager::v1::FrequencyRange > frequency_range_hz_;
     ::google::protobuf::RepeatedPtrField< ::anduril::entitymanager::v1::BandwidthRange > bandwidth_range_hz_;
     ::google::protobuf::internal::CachedSize _cached_size_;
@@ -1592,7 +1551,6 @@ class Sensor final
     kFieldsOfViewFieldNumber = 9,
     kSensorIdFieldNumber = 1,
     kSensorDescriptionFieldNumber = 6,
-    kFieldOfViewFieldNumber = 4,
     kRfConfiguratonFieldNumber = 7,
     kLastDetectionTimestampFieldNumber = 8,
     kOperationalStateFieldNumber = 3,
@@ -1615,7 +1573,7 @@ class Sensor final
   const ::anduril::entitymanager::v1::FieldOfView& fields_of_view(int index) const;
   ::anduril::entitymanager::v1::FieldOfView* add_fields_of_view();
   const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::FieldOfView>& fields_of_view() const;
-  // string sensor_id = 1 [json_name = "sensorId", (.anduril.entitymanager.v1.componentIdentifier) = true];
+  // string sensor_id = 1 [json_name = "sensorId"];
   void clear_sensor_id() ;
   const std::string& sensor_id() const;
   template <typename Arg_ = const std::string&, typename... Args_>
@@ -1645,21 +1603,6 @@ class Sensor final
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_sensor_description(
       const std::string& value);
   std::string* _internal_mutable_sensor_description();
-
-  public:
-  // .anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];
-  [[deprecated]]  bool has_field_of_view() const;
-  [[deprecated]]  void clear_field_of_view() ;
-  [[deprecated]] const ::anduril::entitymanager::v1::FieldOfView& field_of_view() const;
-  [[deprecated]] PROTOBUF_NODISCARD ::anduril::entitymanager::v1::FieldOfView* release_field_of_view();
-  [[deprecated]] ::anduril::entitymanager::v1::FieldOfView* mutable_field_of_view();
-  [[deprecated]] void set_allocated_field_of_view(::anduril::entitymanager::v1::FieldOfView* value);
-  [[deprecated]] void unsafe_arena_set_allocated_field_of_view(::anduril::entitymanager::v1::FieldOfView* value);
-  [[deprecated]] ::anduril::entitymanager::v1::FieldOfView* unsafe_arena_release_field_of_view();
-
-  private:
-  const ::anduril::entitymanager::v1::FieldOfView& _internal_field_of_view() const;
-  ::anduril::entitymanager::v1::FieldOfView* _internal_mutable_field_of_view();
 
   public:
   // .anduril.entitymanager.v1.RFConfiguration rf_configuraton = 7 [json_name = "rfConfiguraton"];
@@ -1717,8 +1660,8 @@ class Sensor final
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      4, 8, 4,
-      75, 2>
+      3, 7, 3,
+      67, 2>
       _table_;
 
   friend class ::google::protobuf::MessageLite;
@@ -1740,7 +1683,6 @@ class Sensor final
     ::google::protobuf::RepeatedPtrField< ::anduril::entitymanager::v1::FieldOfView > fields_of_view_;
     ::google::protobuf::internal::ArenaStringPtr sensor_id_;
     ::google::protobuf::internal::ArenaStringPtr sensor_description_;
-    ::anduril::entitymanager::v1::FieldOfView* field_of_view_;
     ::anduril::entitymanager::v1::RFConfiguration* rf_configuraton_;
     ::google::protobuf::Timestamp* last_detection_timestamp_;
     int operational_state_;
@@ -2018,7 +1960,7 @@ Sensors::_internal_mutable_sensors() {
 
 // Sensor
 
-// string sensor_id = 1 [json_name = "sensorId", (.anduril.entitymanager.v1.componentIdentifier) = true];
+// string sensor_id = 1 [json_name = "sensorId"];
 inline void Sensor::clear_sensor_id() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.sensor_id_.ClearToEmpty();
@@ -2086,102 +2028,6 @@ inline ::anduril::entitymanager::v1::OperationalState Sensor::_internal_operatio
 inline void Sensor::_internal_set_operational_state(::anduril::entitymanager::v1::OperationalState value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.operational_state_ = value;
-}
-
-// .anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];
-inline bool Sensor::has_field_of_view() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.field_of_view_ != nullptr);
-  return value;
-}
-inline void Sensor::clear_field_of_view() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.field_of_view_ != nullptr) _impl_.field_of_view_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline const ::anduril::entitymanager::v1::FieldOfView& Sensor::_internal_field_of_view() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::anduril::entitymanager::v1::FieldOfView* p = _impl_.field_of_view_;
-  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::FieldOfView&>(::anduril::entitymanager::v1::_FieldOfView_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::FieldOfView& Sensor::field_of_view() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Sensor.field_of_view)
-  return _internal_field_of_view();
-}
-inline void Sensor::unsafe_arena_set_allocated_field_of_view(::anduril::entitymanager::v1::FieldOfView* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.field_of_view_);
-  }
-  _impl_.field_of_view_ = reinterpret_cast<::anduril::entitymanager::v1::FieldOfView*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Sensor.field_of_view)
-}
-inline ::anduril::entitymanager::v1::FieldOfView* Sensor::release_field_of_view() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::FieldOfView* released = _impl_.field_of_view_;
-  _impl_.field_of_view_ = nullptr;
-  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
-    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-    if (GetArena() == nullptr) {
-      delete old;
-    }
-  } else {
-    if (GetArena() != nullptr) {
-      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-    }
-  }
-  return released;
-}
-inline ::anduril::entitymanager::v1::FieldOfView* Sensor::unsafe_arena_release_field_of_view() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Sensor.field_of_view)
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::FieldOfView* temp = _impl_.field_of_view_;
-  _impl_.field_of_view_ = nullptr;
-  return temp;
-}
-inline ::anduril::entitymanager::v1::FieldOfView* Sensor::_internal_mutable_field_of_view() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.field_of_view_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::FieldOfView>(GetArena());
-    _impl_.field_of_view_ = reinterpret_cast<::anduril::entitymanager::v1::FieldOfView*>(p);
-  }
-  return _impl_.field_of_view_;
-}
-inline ::anduril::entitymanager::v1::FieldOfView* Sensor::mutable_field_of_view() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  ::anduril::entitymanager::v1::FieldOfView* _msg = _internal_mutable_field_of_view();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Sensor.field_of_view)
-  return _msg;
-}
-inline void Sensor::set_allocated_field_of_view(::anduril::entitymanager::v1::FieldOfView* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete (_impl_.field_of_view_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-
-  _impl_.field_of_view_ = reinterpret_cast<::anduril::entitymanager::v1::FieldOfView*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Sensor.field_of_view)
 }
 
 // .anduril.entitymanager.v1.SensorType sensor_type = 5 [json_name = "sensorType"];
@@ -2256,14 +2102,14 @@ inline void Sensor::set_allocated_sensor_description(std::string* value) {
 
 // .anduril.entitymanager.v1.RFConfiguration rf_configuraton = 7 [json_name = "rfConfiguraton"];
 inline bool Sensor::has_rf_configuraton() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.rf_configuraton_ != nullptr);
   return value;
 }
 inline void Sensor::clear_rf_configuraton() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.rf_configuraton_ != nullptr) _impl_.rf_configuraton_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
 }
 inline const ::anduril::entitymanager::v1::RFConfiguration& Sensor::_internal_rf_configuraton() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -2281,16 +2127,16 @@ inline void Sensor::unsafe_arena_set_allocated_rf_configuraton(::anduril::entity
   }
   _impl_.rf_configuraton_ = reinterpret_cast<::anduril::entitymanager::v1::RFConfiguration*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000002u;
+    _impl_._has_bits_[0] |= 0x00000001u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
+    _impl_._has_bits_[0] &= ~0x00000001u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Sensor.rf_configuraton)
 }
 inline ::anduril::entitymanager::v1::RFConfiguration* Sensor::release_rf_configuraton() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
   ::anduril::entitymanager::v1::RFConfiguration* released = _impl_.rf_configuraton_;
   _impl_.rf_configuraton_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
@@ -2310,7 +2156,7 @@ inline ::anduril::entitymanager::v1::RFConfiguration* Sensor::unsafe_arena_relea
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Sensor.rf_configuraton)
 
-  _impl_._has_bits_[0] &= ~0x00000002u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
   ::anduril::entitymanager::v1::RFConfiguration* temp = _impl_.rf_configuraton_;
   _impl_.rf_configuraton_ = nullptr;
   return temp;
@@ -2324,7 +2170,7 @@ inline ::anduril::entitymanager::v1::RFConfiguration* Sensor::_internal_mutable_
   return _impl_.rf_configuraton_;
 }
 inline ::anduril::entitymanager::v1::RFConfiguration* Sensor::mutable_rf_configuraton() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_._has_bits_[0] |= 0x00000001u;
   ::anduril::entitymanager::v1::RFConfiguration* _msg = _internal_mutable_rf_configuraton();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Sensor.rf_configuraton)
   return _msg;
@@ -2341,9 +2187,9 @@ inline void Sensor::set_allocated_rf_configuraton(::anduril::entitymanager::v1::
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000002u;
+    _impl_._has_bits_[0] |= 0x00000001u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
+    _impl_._has_bits_[0] &= ~0x00000001u;
   }
 
   _impl_.rf_configuraton_ = reinterpret_cast<::anduril::entitymanager::v1::RFConfiguration*>(value);
@@ -2352,7 +2198,7 @@ inline void Sensor::set_allocated_rf_configuraton(::anduril::entitymanager::v1::
 
 // .google.protobuf.Timestamp last_detection_timestamp = 8 [json_name = "lastDetectionTimestamp"];
 inline bool Sensor::has_last_detection_timestamp() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.last_detection_timestamp_ != nullptr);
   return value;
 }
@@ -2372,16 +2218,16 @@ inline void Sensor::unsafe_arena_set_allocated_last_detection_timestamp(::google
   }
   _impl_.last_detection_timestamp_ = reinterpret_cast<::google::protobuf::Timestamp*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000004u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000004u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Sensor.last_detection_timestamp)
 }
 inline ::google::protobuf::Timestamp* Sensor::release_last_detection_timestamp() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   ::google::protobuf::Timestamp* released = _impl_.last_detection_timestamp_;
   _impl_.last_detection_timestamp_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
@@ -2401,7 +2247,7 @@ inline ::google::protobuf::Timestamp* Sensor::unsafe_arena_release_last_detectio
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Sensor.last_detection_timestamp)
 
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
   ::google::protobuf::Timestamp* temp = _impl_.last_detection_timestamp_;
   _impl_.last_detection_timestamp_ = nullptr;
   return temp;
@@ -2415,7 +2261,7 @@ inline ::google::protobuf::Timestamp* Sensor::_internal_mutable_last_detection_t
   return _impl_.last_detection_timestamp_;
 }
 inline ::google::protobuf::Timestamp* Sensor::mutable_last_detection_timestamp() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   ::google::protobuf::Timestamp* _msg = _internal_mutable_last_detection_timestamp();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Sensor.last_detection_timestamp)
   return _msg;
@@ -2432,9 +2278,9 @@ inline void Sensor::set_allocated_last_detection_timestamp(::google::protobuf::T
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000004u;
+    _impl_._has_bits_[0] |= 0x00000002u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00000004u;
+    _impl_._has_bits_[0] &= ~0x00000002u;
   }
 
   _impl_.last_detection_timestamp_ = reinterpret_cast<::google::protobuf::Timestamp*>(value);
@@ -3370,96 +3216,6 @@ inline void ProjectedFrustum::set_allocated_bottom_left(::anduril::entitymanager
 // -------------------------------------------------------------------
 
 // RFConfiguration
-
-// repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];
-inline int RFConfiguration::_internal_frequency_range_size() const {
-  return _internal_frequency_range().size();
-}
-inline int RFConfiguration::frequency_range_size() const {
-  return _internal_frequency_range_size();
-}
-inline ::anduril::entitymanager::v1::FloatRange* RFConfiguration::mutable_frequency_range(int index)
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.RFConfiguration.frequency_range)
-  return _internal_mutable_frequency_range()->Mutable(index);
-}
-inline ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::FloatRange>* RFConfiguration::mutable_frequency_range()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_list:anduril.entitymanager.v1.RFConfiguration.frequency_range)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _internal_mutable_frequency_range();
-}
-inline const ::anduril::entitymanager::v1::FloatRange& RFConfiguration::frequency_range(int index) const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.RFConfiguration.frequency_range)
-  return _internal_frequency_range().Get(index);
-}
-inline ::anduril::entitymanager::v1::FloatRange* RFConfiguration::add_frequency_range() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::anduril::entitymanager::v1::FloatRange* _add = _internal_mutable_frequency_range()->Add();
-  // @@protoc_insertion_point(field_add:anduril.entitymanager.v1.RFConfiguration.frequency_range)
-  return _add;
-}
-inline const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::FloatRange>& RFConfiguration::frequency_range() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_list:anduril.entitymanager.v1.RFConfiguration.frequency_range)
-  return _internal_frequency_range();
-}
-inline const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::FloatRange>&
-RFConfiguration::_internal_frequency_range() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.frequency_range_;
-}
-inline ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::FloatRange>*
-RFConfiguration::_internal_mutable_frequency_range() {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return &_impl_.frequency_range_;
-}
-
-// repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];
-inline int RFConfiguration::_internal_bandwidth_range_size() const {
-  return _internal_bandwidth_range().size();
-}
-inline int RFConfiguration::bandwidth_range_size() const {
-  return _internal_bandwidth_range_size();
-}
-inline ::anduril::entitymanager::v1::FloatRange* RFConfiguration::mutable_bandwidth_range(int index)
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.RFConfiguration.bandwidth_range)
-  return _internal_mutable_bandwidth_range()->Mutable(index);
-}
-inline ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::FloatRange>* RFConfiguration::mutable_bandwidth_range()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_list:anduril.entitymanager.v1.RFConfiguration.bandwidth_range)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _internal_mutable_bandwidth_range();
-}
-inline const ::anduril::entitymanager::v1::FloatRange& RFConfiguration::bandwidth_range(int index) const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.RFConfiguration.bandwidth_range)
-  return _internal_bandwidth_range().Get(index);
-}
-inline ::anduril::entitymanager::v1::FloatRange* RFConfiguration::add_bandwidth_range() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::anduril::entitymanager::v1::FloatRange* _add = _internal_mutable_bandwidth_range()->Add();
-  // @@protoc_insertion_point(field_add:anduril.entitymanager.v1.RFConfiguration.bandwidth_range)
-  return _add;
-}
-inline const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::FloatRange>& RFConfiguration::bandwidth_range() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_list:anduril.entitymanager.v1.RFConfiguration.bandwidth_range)
-  return _internal_bandwidth_range();
-}
-inline const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::FloatRange>&
-RFConfiguration::_internal_bandwidth_range() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.bandwidth_range_;
-}
-inline ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::FloatRange>*
-RFConfiguration::_internal_mutable_bandwidth_range() {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return &_impl_.bandwidth_range_;
-}
 
 // repeated .anduril.entitymanager.v1.FrequencyRange frequency_range_hz = 3 [json_name = "frequencyRangeHz"];
 inline int RFConfiguration::_internal_frequency_range_hz_size() const {

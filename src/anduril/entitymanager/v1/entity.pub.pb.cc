@@ -57,6 +57,24 @@ struct StatusDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StatusDefaultTypeInternal _Status_default_instance_;
+              template <typename>
+PROTOBUF_CONSTEXPR PrimaryMembership::PrimaryMembership(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::internal::ZeroFieldsBase(_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::internal::ZeroFieldsBase() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct PrimaryMembershipDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PrimaryMembershipDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PrimaryMembershipDefaultTypeInternal() {}
+  union {
+    PrimaryMembership _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PrimaryMembershipDefaultTypeInternal _PrimaryMembership_default_instance_;
 
 inline constexpr PrimaryCorrelation::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -82,6 +100,24 @@ struct PrimaryCorrelationDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PrimaryCorrelationDefaultTypeInternal _PrimaryCorrelation_default_instance_;
+              template <typename>
+PROTOBUF_CONSTEXPR NonPrimaryMembership::NonPrimaryMembership(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::internal::ZeroFieldsBase(_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::internal::ZeroFieldsBase() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct NonPrimaryMembershipDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR NonPrimaryMembershipDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~NonPrimaryMembershipDefaultTypeInternal() {}
+  union {
+    NonPrimaryMembership _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 NonPrimaryMembershipDefaultTypeInternal _NonPrimaryMembership_default_instance_;
 
 inline constexpr AlternateId::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -126,8 +162,7 @@ inline constexpr Provenance::Impl_::Impl_(
         data_type_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
-        source_update_time_{nullptr},
-        source_{static_cast< ::anduril::entitymanager::v1::Source >(0)} {}
+        source_update_time_{nullptr} {}
 
 template <typename>
 PROTOBUF_CONSTEXPR Provenance::Provenance(::_pbi::ConstantInitialized)
@@ -368,6 +403,36 @@ struct DecorrelatedAllDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DecorrelatedAllDefaultTypeInternal _DecorrelatedAll_default_instance_;
 
+inline constexpr CorrelationMembership::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        correlation_set_id_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        metadata_{nullptr},
+        membership_{},
+        _oneof_case_{} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR CorrelationMembership::CorrelationMembership(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct CorrelationMembershipDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CorrelationMembershipDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CorrelationMembershipDefaultTypeInternal() {}
+  union {
+    CorrelationMembership _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CorrelationMembershipDefaultTypeInternal _CorrelationMembership_default_instance_;
+
 inline constexpr Tracked::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -428,6 +493,7 @@ inline constexpr Correlation::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
         decorrelation_{nullptr},
+        membership_{nullptr},
         correlation_{},
         _oneof_case_{} {}
 
@@ -710,11 +776,9 @@ const ::uint32_t
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _impl_.integration_name_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _impl_.data_type_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _impl_.source_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _impl_.source_id_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _impl_.source_update_time_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Provenance, _impl_.source_description_),
-        ~0u,
         ~0u,
         ~0u,
         ~0u,
@@ -817,10 +881,12 @@ const ::uint32_t
         ~0u,  // no sizeof(Split)
         ::_pbi::kInvalidFieldOffsetTag,
         ::_pbi::kInvalidFieldOffsetTag,
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Correlation, _impl_.membership_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Correlation, _impl_.decorrelation_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Correlation, _impl_.correlation_),
         ~0u,
         ~0u,
+        1,
         0,
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::PrimaryCorrelation, _internal_metadata_),
@@ -843,6 +909,39 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::SecondaryCorrelation, _impl_.metadata_),
         ~0u,
         0,
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::CorrelationMembership, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::CorrelationMembership, _internal_metadata_),
+        ~0u,  // no _extensions_
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::CorrelationMembership, _impl_._oneof_case_[0]),
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::CorrelationMembership, _impl_.correlation_set_id_),
+        ::_pbi::kInvalidFieldOffsetTag,
+        ::_pbi::kInvalidFieldOffsetTag,
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::CorrelationMembership, _impl_.metadata_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::CorrelationMembership, _impl_.membership_),
+        ~0u,
+        ~0u,
+        ~0u,
+        0,
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::PrimaryMembership, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::NonPrimaryMembership, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Decorrelation, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Decorrelation, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -899,20 +998,23 @@ static const ::_pbi::MigrationSchema
         {78, -1, -1, sizeof(::anduril::entitymanager::v1::Status)},
         {88, -1, -1, sizeof(::anduril::entitymanager::v1::Aliases)},
         {98, 112, -1, sizeof(::anduril::entitymanager::v1::Tracked)},
-        {118, 132, -1, sizeof(::anduril::entitymanager::v1::Provenance)},
-        {138, 152, -1, sizeof(::anduril::entitymanager::v1::Indicators)},
-        {158, -1, -1, sizeof(::anduril::entitymanager::v1::Overrides)},
-        {167, 182, -1, sizeof(::anduril::entitymanager::v1::Override)},
-        {189, -1, -1, sizeof(::anduril::entitymanager::v1::AlternateId)},
-        {199, 208, -1, sizeof(::anduril::entitymanager::v1::VisualDetails)},
-        {209, 221, -1, sizeof(::anduril::entitymanager::v1::RangeRings)},
-        {225, 237, -1, sizeof(::anduril::entitymanager::v1::Correlation)},
+        {118, 131, -1, sizeof(::anduril::entitymanager::v1::Provenance)},
+        {136, 150, -1, sizeof(::anduril::entitymanager::v1::Indicators)},
+        {156, -1, -1, sizeof(::anduril::entitymanager::v1::Overrides)},
+        {165, 180, -1, sizeof(::anduril::entitymanager::v1::Override)},
+        {187, -1, -1, sizeof(::anduril::entitymanager::v1::AlternateId)},
+        {197, 206, -1, sizeof(::anduril::entitymanager::v1::VisualDetails)},
+        {207, 219, -1, sizeof(::anduril::entitymanager::v1::RangeRings)},
+        {223, 236, -1, sizeof(::anduril::entitymanager::v1::Correlation)},
         {240, -1, -1, sizeof(::anduril::entitymanager::v1::PrimaryCorrelation)},
         {249, 259, -1, sizeof(::anduril::entitymanager::v1::SecondaryCorrelation)},
-        {261, 271, -1, sizeof(::anduril::entitymanager::v1::Decorrelation)},
-        {273, 282, -1, sizeof(::anduril::entitymanager::v1::DecorrelatedAll)},
-        {283, 293, -1, sizeof(::anduril::entitymanager::v1::DecorrelatedSingle)},
-        {295, 306, -1, sizeof(::anduril::entitymanager::v1::CorrelationMetadata)},
+        {261, 274, -1, sizeof(::anduril::entitymanager::v1::CorrelationMembership)},
+        {278, -1, -1, sizeof(::anduril::entitymanager::v1::PrimaryMembership)},
+        {286, -1, -1, sizeof(::anduril::entitymanager::v1::NonPrimaryMembership)},
+        {294, 304, -1, sizeof(::anduril::entitymanager::v1::Decorrelation)},
+        {306, 315, -1, sizeof(::anduril::entitymanager::v1::DecorrelatedAll)},
+        {316, 326, -1, sizeof(::anduril::entitymanager::v1::DecorrelatedSingle)},
+        {328, 339, -1, sizeof(::anduril::entitymanager::v1::CorrelationMetadata)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::entitymanager::v1::_Entity_default_instance_._instance,
@@ -929,6 +1031,9 @@ static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::entitymanager::v1::_Correlation_default_instance_._instance,
     &::anduril::entitymanager::v1::_PrimaryCorrelation_default_instance_._instance,
     &::anduril::entitymanager::v1::_SecondaryCorrelation_default_instance_._instance,
+    &::anduril::entitymanager::v1::_CorrelationMembership_default_instance_._instance,
+    &::anduril::entitymanager::v1::_PrimaryMembership_default_instance_._instance,
+    &::anduril::entitymanager::v1::_NonPrimaryMembership_default_instance_._instance,
     &::anduril::entitymanager::v1::_Decorrelation_default_instance_._instance,
     &::anduril::entitymanager::v1::_DecorrelatedAll_default_instance_._instance,
     &::anduril::entitymanager::v1::_DecorrelatedSingle_default_instance_._instance,
@@ -1043,90 +1148,99 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fentity_2epub
     "e\022O\n\017line_of_bearing\030\t \001(\0132\'.anduril.ent"
     "itymanager.v1.LineOfBearingR\rlineOfBeari"
     "ngJ\004\010\001\020\002J\004\010\005\020\006J\004\010\010\020\tR\rtrack_qualityR\016sen"
-    "sor_detailsR\021relative_position\"\244\002\n\nProve"
+    "sor_detailsR\021relative_position\"\360\001\n\nProve"
     "nance\022)\n\020integration_name\030\005 \001(\tR\017integra"
-    "tionName\022\033\n\tdata_type\030\006 \001(\tR\010dataType\0228\n"
-    "\006source\030\001 \001(\0162 .anduril.entitymanager.v1"
-    ".SourceR\006source\022\033\n\tsource_id\030\003 \001(\tR\010sour"
-    "ceId\022H\n\022source_update_time\030\002 \001(\0132\032.googl"
-    "e.protobuf.TimestampR\020sourceUpdateTime\022-"
-    "\n\022source_description\030\004 \001(\tR\021sourceDescri"
-    "ption\"\361\002\n\nIndicators\0228\n\tsimulated\030\001 \001(\0132"
-    "\032.google.protobuf.BoolValueR\tsimulated\0226"
-    "\n\010exercise\030\002 \001(\0132\032.google.protobuf.BoolV"
-    "alueR\010exercise\0228\n\temergency\030\003 \001(\0132\032.goog"
-    "le.protobuf.BoolValueR\temergency\022*\n\002c2\030\004"
-    " \001(\0132\032.google.protobuf.BoolValueR\002c2\022\?\n\n"
-    "egressable\030\006 \001(\0132\032.google.protobuf.BoolV"
-    "alueB\003\310>\001R\negressable\0229\n\007starred\030\007 \001(\0132\032"
-    ".google.protobuf.BoolValueB\003\310>\001R\007starred"
-    "J\004\010\005\020\006R\tdeletable\"]\n\tOverrides\022>\n\010overri"
-    "de\030\002 \003(\0132\".anduril.entitymanager.v1.Over"
-    "rideR\010overrideJ\004\010\001\020\002R\nprovenance\"\245\003\n\010Ove"
-    "rride\022\035\n\nrequest_id\030\001 \001(\tR\trequestId\022\035\n\n"
-    "field_path\030\002 \001(\tR\tfieldPath\022N\n\022masked_fi"
-    "eld_value\030\003 \001(\0132 .anduril.entitymanager."
-    "v1.EntityR\020maskedFieldValue\022@\n\006status\030\004 "
-    "\001(\0162(.anduril.entitymanager.v1.OverrideS"
-    "tatusR\006status\022D\n\nprovenance\030\005 \001(\0132$.andu"
-    "ril.entitymanager.v1.ProvenanceR\nprovena"
-    "nce\022:\n\004type\030\006 \001(\0162&.anduril.entitymanage"
-    "r.v1.OverrideTypeR\004type\022G\n\021request_times"
-    "tamp\030\007 \001(\0132\032.google.protobuf.TimestampR\020"
-    "requestTimestamp\"i\n\013AlternateId\022\016\n\002id\030\002 "
-    "\001(\tR\002id\022<\n\004type\030\003 \001(\0162#.anduril.entityma"
-    "nager.v1.AltIdTypeB\003\320>\001R\004typeJ\004\010\001\020\002R\006sou"
-    "rce\"[\n\rVisualDetails\022J\n\013range_rings\030\001 \001("
-    "\0132$.anduril.entitymanager.v1.RangeRingsB"
-    "\003\310>\001R\nrangeRings\"\360\001\n\nRangeRings\022B\n\016min_d"
-    "istance_m\030\001 \001(\0132\034.google.protobuf.Double"
-    "ValueR\014minDistanceM\022B\n\016max_distance_m\030\002 "
-    "\001(\0132\034.google.protobuf.DoubleValueR\014maxDi"
-    "stanceM\022\035\n\nring_count\030\003 \001(\rR\tringCount\022;"
-    "\n\017ring_line_color\030\004 \001(\0132\023.anduril.type.C"
-    "olorR\rringLineColor\"\205\002\n\013Correlation\022H\n\007p"
-    "rimary\030\001 \001(\0132,.anduril.entitymanager.v1."
-    "PrimaryCorrelationH\000R\007primary\022N\n\tseconda"
-    "ry\030\002 \001(\0132..anduril.entitymanager.v1.Seco"
-    "ndaryCorrelationH\000R\tsecondary\022M\n\rdecorre"
-    "lation\030\003 \001(\0132\'.anduril.entitymanager.v1."
-    "DecorrelationR\rdecorrelationB\r\n\013correlat"
-    "ion\"F\n\022PrimaryCorrelation\0220\n\024secondary_e"
-    "ntity_ids\030\001 \003(\tR\022secondaryEntityIds\"\215\001\n\024"
-    "SecondaryCorrelation\022*\n\021primary_entity_i"
-    "d\030\001 \001(\tR\017primaryEntityId\022I\n\010metadata\030\002 \001"
-    "(\0132-.anduril.entitymanager.v1.Correlatio"
-    "nMetadataR\010metadata\"\257\001\n\rDecorrelation\022;\n"
-    "\003all\030\001 \001(\0132).anduril.entitymanager.v1.De"
-    "correlatedAllR\003all\022a\n\025decorrelated_entit"
-    "ies\030\002 \003(\0132,.anduril.entitymanager.v1.Dec"
-    "orrelatedSingleR\024decorrelatedEntities\"\\\n"
-    "\017DecorrelatedAll\022I\n\010metadata\030\001 \001(\0132-.and"
-    "uril.entitymanager.v1.CorrelationMetadat"
-    "aR\010metadata\"|\n\022DecorrelatedSingle\022\033\n\tent"
-    "ity_id\030\001 \001(\tR\010entityId\022I\n\010metadata\030\002 \001(\013"
-    "2-.anduril.entitymanager.v1.CorrelationM"
-    "etadataR\010metadata\"\373\001\n\023CorrelationMetadat"
-    "a\022D\n\nprovenance\030\001 \001(\0132$.anduril.entityma"
-    "nager.v1.ProvenanceR\nprovenance\022_\n\020repli"
-    "cation_mode\030\002 \001(\01624.anduril.entitymanage"
-    "r.v1.CorrelationReplicationModeR\017replica"
-    "tionMode\022=\n\004type\030\003 \001(\0162).anduril.entitym"
-    "anager.v1.CorrelationTypeR\004type*l\n\017Corre"
-    "lationType\022\034\n\030CORRELATION_TYPE_INVALID\020\000"
-    "\022\033\n\027CORRELATION_TYPE_MANUAL\020\001\022\036\n\032CORRELA"
-    "TION_TYPE_AUTOMATED\020\002*\227\001\n\032CorrelationRep"
-    "licationMode\022(\n$CORRELATION_REPLICATION_"
-    "MODE_INVALID\020\000\022&\n\"CORRELATION_REPLICATIO"
-    "N_MODE_LOCAL\020\001\022\'\n#CORRELATION_REPLICATIO"
-    "N_MODE_GLOBAL\020\002B\377\001\n\034com.anduril.entityma"
-    "nager.v1B\016EntityPubProtoP\001ZMghe.anduril."
-    "dev/anduril/andurilapis-go/anduril/entit"
-    "ymanager/v1;entitymanager\242\002\003AEX\252\002\030Anduri"
-    "l.Entitymanager.V1\312\002\030Anduril\\Entitymanag"
-    "er\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBMeta"
-    "data\352\002\032Anduril::Entitymanager::V1b\006proto"
-    "3"
+    "tionName\022\033\n\tdata_type\030\006 \001(\tR\010dataType\022\033\n"
+    "\tsource_id\030\003 \001(\tR\010sourceId\022H\n\022source_upd"
+    "ate_time\030\002 \001(\0132\032.google.protobuf.Timesta"
+    "mpR\020sourceUpdateTime\022-\n\022source_descripti"
+    "on\030\004 \001(\tR\021sourceDescriptionJ\004\010\001\020\002\"\361\002\n\nIn"
+    "dicators\0228\n\tsimulated\030\001 \001(\0132\032.google.pro"
+    "tobuf.BoolValueR\tsimulated\0226\n\010exercise\030\002"
+    " \001(\0132\032.google.protobuf.BoolValueR\010exerci"
+    "se\0228\n\temergency\030\003 \001(\0132\032.google.protobuf."
+    "BoolValueR\temergency\022*\n\002c2\030\004 \001(\0132\032.googl"
+    "e.protobuf.BoolValueR\002c2\022\?\n\negressable\030\006"
+    " \001(\0132\032.google.protobuf.BoolValueB\003\310>\001R\ne"
+    "gressable\0229\n\007starred\030\007 \001(\0132\032.google.prot"
+    "obuf.BoolValueB\003\310>\001R\007starredJ\004\010\005\020\006R\tdele"
+    "table\"]\n\tOverrides\022>\n\010override\030\002 \003(\0132\".a"
+    "nduril.entitymanager.v1.OverrideR\010overri"
+    "deJ\004\010\001\020\002R\nprovenance\"\245\003\n\010Override\022\035\n\nreq"
+    "uest_id\030\001 \001(\tR\trequestId\022\035\n\nfield_path\030\002"
+    " \001(\tR\tfieldPath\022N\n\022masked_field_value\030\003 "
+    "\001(\0132 .anduril.entitymanager.v1.EntityR\020m"
+    "askedFieldValue\022@\n\006status\030\004 \001(\0162(.anduri"
+    "l.entitymanager.v1.OverrideStatusR\006statu"
+    "s\022D\n\nprovenance\030\005 \001(\0132$.anduril.entityma"
+    "nager.v1.ProvenanceR\nprovenance\022:\n\004type\030"
+    "\006 \001(\0162&.anduril.entitymanager.v1.Overrid"
+    "eTypeR\004type\022G\n\021request_timestamp\030\007 \001(\0132\032"
+    ".google.protobuf.TimestampR\020requestTimes"
+    "tamp\"d\n\013AlternateId\022\016\n\002id\030\002 \001(\tR\002id\0227\n\004t"
+    "ype\030\003 \001(\0162#.anduril.entitymanager.v1.Alt"
+    "IdTypeR\004typeJ\004\010\001\020\002R\006source\"[\n\rVisualDeta"
+    "ils\022J\n\013range_rings\030\001 \001(\0132$.anduril.entit"
+    "ymanager.v1.RangeRingsB\003\310>\001R\nrangeRings\""
+    "\360\001\n\nRangeRings\022B\n\016min_distance_m\030\001 \001(\0132\034"
+    ".google.protobuf.DoubleValueR\014minDistanc"
+    "eM\022B\n\016max_distance_m\030\002 \001(\0132\034.google.prot"
+    "obuf.DoubleValueR\014maxDistanceM\022\035\n\nring_c"
+    "ount\030\003 \001(\rR\tringCount\022;\n\017ring_line_color"
+    "\030\004 \001(\0132\023.anduril.type.ColorR\rringLineCol"
+    "or\"\326\002\n\013Correlation\022H\n\007primary\030\001 \001(\0132,.an"
+    "duril.entitymanager.v1.PrimaryCorrelatio"
+    "nH\000R\007primary\022N\n\tsecondary\030\002 \001(\0132..anduri"
+    "l.entitymanager.v1.SecondaryCorrelationH"
+    "\000R\tsecondary\022O\n\nmembership\030\004 \001(\0132/.andur"
+    "il.entitymanager.v1.CorrelationMembershi"
+    "pR\nmembership\022M\n\rdecorrelation\030\003 \001(\0132\'.a"
+    "nduril.entitymanager.v1.DecorrelationR\rd"
+    "ecorrelationB\r\n\013correlation\"F\n\022PrimaryCo"
+    "rrelation\0220\n\024secondary_entity_ids\030\001 \003(\tR"
+    "\022secondaryEntityIds\"\215\001\n\024SecondaryCorrela"
+    "tion\022*\n\021primary_entity_id\030\001 \001(\tR\017primary"
+    "EntityId\022I\n\010metadata\030\002 \001(\0132-.anduril.ent"
+    "itymanager.v1.CorrelationMetadataR\010metad"
+    "ata\"\272\002\n\025CorrelationMembership\022,\n\022correla"
+    "tion_set_id\030\001 \001(\tR\020correlationSetId\022G\n\007p"
+    "rimary\030\002 \001(\0132+.anduril.entitymanager.v1."
+    "PrimaryMembershipH\000R\007primary\022Q\n\013non_prim"
+    "ary\030\003 \001(\0132..anduril.entitymanager.v1.Non"
+    "PrimaryMembershipH\000R\nnonPrimary\022I\n\010metad"
+    "ata\030\004 \001(\0132-.anduril.entitymanager.v1.Cor"
+    "relationMetadataR\010metadataB\014\n\nmembership"
+    "\"\023\n\021PrimaryMembership\"\026\n\024NonPrimaryMembe"
+    "rship\"\257\001\n\rDecorrelation\022;\n\003all\030\001 \001(\0132).a"
+    "nduril.entitymanager.v1.DecorrelatedAllR"
+    "\003all\022a\n\025decorrelated_entities\030\002 \003(\0132,.an"
+    "duril.entitymanager.v1.DecorrelatedSingl"
+    "eR\024decorrelatedEntities\"\\\n\017DecorrelatedA"
+    "ll\022I\n\010metadata\030\001 \001(\0132-.anduril.entityman"
+    "ager.v1.CorrelationMetadataR\010metadata\"|\n"
+    "\022DecorrelatedSingle\022\033\n\tentity_id\030\001 \001(\tR\010"
+    "entityId\022I\n\010metadata\030\002 \001(\0132-.anduril.ent"
+    "itymanager.v1.CorrelationMetadataR\010metad"
+    "ata\"\373\001\n\023CorrelationMetadata\022D\n\nprovenanc"
+    "e\030\001 \001(\0132$.anduril.entitymanager.v1.Prove"
+    "nanceR\nprovenance\022_\n\020replication_mode\030\002 "
+    "\001(\01624.anduril.entitymanager.v1.Correlati"
+    "onReplicationModeR\017replicationMode\022=\n\004ty"
+    "pe\030\003 \001(\0162).anduril.entitymanager.v1.Corr"
+    "elationTypeR\004type*l\n\017CorrelationType\022\034\n\030"
+    "CORRELATION_TYPE_INVALID\020\000\022\033\n\027CORRELATIO"
+    "N_TYPE_MANUAL\020\001\022\036\n\032CORRELATION_TYPE_AUTO"
+    "MATED\020\002*\227\001\n\032CorrelationReplicationMode\022("
+    "\n$CORRELATION_REPLICATION_MODE_INVALID\020\000"
+    "\022&\n\"CORRELATION_REPLICATION_MODE_LOCAL\020\001"
+    "\022\'\n#CORRELATION_REPLICATION_MODE_GLOBAL\020"
+    "\002B\377\001\n\034com.anduril.entitymanager.v1B\016Enti"
+    "tyPubProtoP\001ZMghe.anduril.dev/anduril/an"
+    "durilapis-go/anduril/entitymanager/v1;en"
+    "titymanager\242\002\003AEX\252\002\030Anduril.Entitymanage"
+    "r.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduri"
+    "l\\Entitymanager\\V1\\GPBMetadata\352\002\032Anduril"
+    "::Entitymanager::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto_deps[24] =
     {
@@ -1159,13 +1273,13 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fentity_
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto = {
     false,
     false,
-    7601,
+    7987,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto,
     "anduril/entitymanager/v1/entity.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto_once,
     descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto_deps,
     24,
-    18,
+    21,
     schemas,
     file_default_instances,
     TableStruct_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto::offsets,
@@ -3845,7 +3959,6 @@ Provenance::Provenance(
   _impl_.source_update_time_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::Timestamp>(
                               arena, *from._impl_.source_update_time_)
                         : nullptr;
-  _impl_.source_ = from._impl_.source_;
 
   // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.Provenance)
 }
@@ -3860,12 +3973,7 @@ inline PROTOBUF_NDEBUG_INLINE Provenance::Impl_::Impl_(
 
 inline void Provenance::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
-  ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, source_update_time_),
-           0,
-           offsetof(Impl_, source_) -
-               offsetof(Impl_, source_update_time_) +
-               sizeof(Impl_::source_));
+  _impl_.source_update_time_ = {};
 }
 Provenance::~Provenance() {
   // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.Provenance)
@@ -3919,15 +4027,15 @@ const ::google::protobuf::internal::ClassData* Provenance::GetClassData() const 
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 6, 1, 96, 2> Provenance::_table_ = {
+const ::_pbi::TcParseTable<3, 5, 1, 96, 2> Provenance::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(Provenance, _impl_._has_bits_),
     0, // no _extensions_
     6, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967232,  // skipmap
+    4294967233,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    6,  // num_field_entries
+    5,  // num_field_entries
     1,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
@@ -3938,9 +4046,7 @@ const ::_pbi::TcParseTable<3, 6, 1, 96, 2> Provenance::_table_ = {
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
-    // .anduril.entitymanager.v1.Source source = 1 [json_name = "source"];
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(Provenance, _impl_.source_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(Provenance, _impl_.source_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // .google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];
     {::_pbi::TcParser::FastMtS1,
      {18, 0, 0, PROTOBUF_FIELD_OFFSET(Provenance, _impl_.source_update_time_)}},
@@ -3960,9 +4066,6 @@ const ::_pbi::TcParseTable<3, 6, 1, 96, 2> Provenance::_table_ = {
   }}, {{
     65535, 65535
   }}, {{
-    // .anduril.entitymanager.v1.Source source = 1 [json_name = "source"];
-    {PROTOBUF_FIELD_OFFSET(Provenance, _impl_.source_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
     // .google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];
     {PROTOBUF_FIELD_OFFSET(Provenance, _impl_.source_update_time_), _Internal::kHasBitsOffset + 0, 0,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
@@ -3981,7 +4084,7 @@ const ::_pbi::TcParseTable<3, 6, 1, 96, 2> Provenance::_table_ = {
   }}, {{
     {::_pbi::TcParser::GetTable<::google::protobuf::Timestamp>()},
   }}, {{
-    "\43\0\0\11\22\20\11\0"
+    "\43\0\11\22\20\11\0\0"
     "anduril.entitymanager.v1.Provenance"
     "source_id"
     "source_description"
@@ -4006,7 +4109,6 @@ PROTOBUF_NOINLINE void Provenance::Clear() {
     ABSL_DCHECK(_impl_.source_update_time_ != nullptr);
     _impl_.source_update_time_->Clear();
   }
-  _impl_.source_ = 0;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -4025,13 +4127,6 @@ PROTOBUF_NOINLINE void Provenance::Clear() {
           // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.Provenance)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
-
-          // .anduril.entitymanager.v1.Source source = 1 [json_name = "source"];
-          if (this_._internal_source() != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteEnumToArray(
-                1, this_._internal_source(), target);
-          }
 
           cached_has_bits = this_._impl_._has_bits_[0];
           // .google.protobuf.Timestamp source_update_time = 2 [json_name = "sourceUpdateTime"];
@@ -4127,13 +4222,6 @@ PROTOBUF_NOINLINE void Provenance::Clear() {
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.source_update_time_);
             }
           }
-           {
-            // .anduril.entitymanager.v1.Source source = 1 [json_name = "source"];
-            if (this_._internal_source() != 0) {
-              total_size += 1 +
-                            ::_pbi::WireFormatLite::EnumSize(this_._internal_source());
-            }
-          }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
                                                      &this_._impl_._cached_size_);
         }
@@ -4169,9 +4257,6 @@ void Provenance::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::goog
       _this->_impl_.source_update_time_->MergeFrom(*from._impl_.source_update_time_);
     }
   }
-  if (from._internal_source() != 0) {
-    _this->_impl_.source_ = from._impl_.source_;
-  }
   _this->_impl_._has_bits_[0] |= cached_has_bits;
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -4194,12 +4279,7 @@ void Provenance::InternalSwap(Provenance* PROTOBUF_RESTRICT other) {
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.source_description_, &other->_impl_.source_description_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.integration_name_, &other->_impl_.integration_name_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.data_type_, &other->_impl_.data_type_, arena);
-  ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Provenance, _impl_.source_)
-      + sizeof(Provenance::_impl_.source_)
-      - PROTOBUF_FIELD_OFFSET(Provenance, _impl_.source_update_time_)>(
-          reinterpret_cast<char*>(&_impl_.source_update_time_),
-          reinterpret_cast<char*>(&other->_impl_.source_update_time_));
+  swap(_impl_.source_update_time_, other->_impl_.source_update_time_);
 }
 
 ::google::protobuf::Metadata Provenance::GetMetadata() const {
@@ -5500,7 +5580,7 @@ const ::_pbi::TcParseTable<1, 2, 0, 47, 2> AlternateId::_table_ = {
     // string id = 2 [json_name = "id"];
     {::_pbi::TcParser::FastUS1,
      {18, 63, 0, PROTOBUF_FIELD_OFFSET(AlternateId, _impl_.id_)}},
-    // .anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type", (.anduril.entitymanager.v1.componentIdentifier) = true];
+    // .anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type"];
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(AlternateId, _impl_.type_), 63>(),
      {24, 63, 0, PROTOBUF_FIELD_OFFSET(AlternateId, _impl_.type_)}},
   }}, {{
@@ -5509,7 +5589,7 @@ const ::_pbi::TcParseTable<1, 2, 0, 47, 2> AlternateId::_table_ = {
     // string id = 2 [json_name = "id"];
     {PROTOBUF_FIELD_OFFSET(AlternateId, _impl_.id_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // .anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type", (.anduril.entitymanager.v1.componentIdentifier) = true];
+    // .anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type"];
     {PROTOBUF_FIELD_OFFSET(AlternateId, _impl_.type_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
   }},
@@ -5556,7 +5636,7 @@ PROTOBUF_NOINLINE void AlternateId::Clear() {
             target = stream->WriteStringMaybeAliased(2, _s, target);
           }
 
-          // .anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type", (.anduril.entitymanager.v1.componentIdentifier) = true];
+          // .anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type"];
           if (this_._internal_type() != 0) {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteEnumToArray(
@@ -5593,7 +5673,7 @@ PROTOBUF_NOINLINE void AlternateId::Clear() {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                               this_._internal_id());
             }
-            // .anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type", (.anduril.entitymanager.v1.componentIdentifier) = true];
+            // .anduril.entitymanager.v1.AltIdType type = 3 [json_name = "type"];
             if (this_._internal_type() != 0) {
               total_size += 1 +
                             ::_pbi::WireFormatLite::EnumSize(this_._internal_type());
@@ -6339,6 +6419,9 @@ Correlation::Correlation(
   _impl_.decorrelation_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Decorrelation>(
                               arena, *from._impl_.decorrelation_)
                         : nullptr;
+  _impl_.membership_ = (cached_has_bits & 0x00000002u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::CorrelationMembership>(
+                              arena, *from._impl_.membership_)
+                        : nullptr;
   switch (correlation_case()) {
     case CORRELATION_NOT_SET:
       break;
@@ -6361,7 +6444,12 @@ inline PROTOBUF_NDEBUG_INLINE Correlation::Impl_::Impl_(
 
 inline void Correlation::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
-  _impl_.decorrelation_ = {};
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, decorrelation_),
+           0,
+           offsetof(Impl_, membership_) -
+               offsetof(Impl_, decorrelation_) +
+               sizeof(Impl_::membership_));
 }
 Correlation::~Correlation() {
   // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.Correlation)
@@ -6372,6 +6460,7 @@ inline void Correlation::SharedDtor(MessageLite& self) {
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
   delete this_._impl_.decorrelation_;
+  delete this_._impl_.membership_;
   if (this_.has_correlation()) {
     this_.clear_correlation();
   }
@@ -6442,16 +6531,16 @@ const ::google::protobuf::internal::ClassData* Correlation::GetClassData() const
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 3, 3, 0, 2> Correlation::_table_ = {
+const ::_pbi::TcParseTable<1, 4, 4, 0, 2> Correlation::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(Correlation, _impl_._has_bits_),
     0, // no _extensions_
-    3, 0,  // max_field_number, fast_idx_mask
+    4, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967288,  // skipmap
+    4294967280,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    3,  // num_field_entries
-    3,  // num_aux_entries
+    4,  // num_field_entries
+    4,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
@@ -6460,6 +6549,9 @@ const ::_pbi::TcParseTable<0, 3, 3, 0, 2> Correlation::_table_ = {
     ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Correlation>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
+    // .anduril.entitymanager.v1.CorrelationMembership membership = 4 [json_name = "membership"];
+    {::_pbi::TcParser::FastMtS1,
+     {34, 1, 3, PROTOBUF_FIELD_OFFSET(Correlation, _impl_.membership_)}},
     // .anduril.entitymanager.v1.Decorrelation decorrelation = 3 [json_name = "decorrelation"];
     {::_pbi::TcParser::FastMtS1,
      {26, 0, 2, PROTOBUF_FIELD_OFFSET(Correlation, _impl_.decorrelation_)}},
@@ -6475,10 +6567,14 @@ const ::_pbi::TcParseTable<0, 3, 3, 0, 2> Correlation::_table_ = {
     // .anduril.entitymanager.v1.Decorrelation decorrelation = 3 [json_name = "decorrelation"];
     {PROTOBUF_FIELD_OFFSET(Correlation, _impl_.decorrelation_), _Internal::kHasBitsOffset + 0, 2,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .anduril.entitymanager.v1.CorrelationMembership membership = 4 [json_name = "membership"];
+    {PROTOBUF_FIELD_OFFSET(Correlation, _impl_.membership_), _Internal::kHasBitsOffset + 1, 3,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::PrimaryCorrelation>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::SecondaryCorrelation>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Decorrelation>()},
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::CorrelationMembership>()},
   }}, {{
   }},
 };
@@ -6491,9 +6587,15 @@ PROTOBUF_NOINLINE void Correlation::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    ABSL_DCHECK(_impl_.decorrelation_ != nullptr);
-    _impl_.decorrelation_->Clear();
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      ABSL_DCHECK(_impl_.decorrelation_ != nullptr);
+      _impl_.decorrelation_->Clear();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      ABSL_DCHECK(_impl_.membership_ != nullptr);
+      _impl_.membership_->Clear();
+    }
   }
   clear_correlation();
   _impl_._has_bits_.Clear();
@@ -6539,6 +6641,13 @@ PROTOBUF_NOINLINE void Correlation::Clear() {
                 stream);
           }
 
+          // .anduril.entitymanager.v1.CorrelationMembership membership = 4 [json_name = "membership"];
+          if (cached_has_bits & 0x00000002u) {
+            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                4, *this_._impl_.membership_, this_._impl_.membership_->GetCachedSize(), target,
+                stream);
+          }
+
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
             target =
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -6562,12 +6671,18 @@ PROTOBUF_NOINLINE void Correlation::Clear() {
           // Prevent compiler warnings about cached_has_bits being unused
           (void)cached_has_bits;
 
-           {
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+          cached_has_bits = this_._impl_._has_bits_[0];
+          if (cached_has_bits & 0x00000003u) {
             // .anduril.entitymanager.v1.Decorrelation decorrelation = 3 [json_name = "decorrelation"];
-            cached_has_bits = this_._impl_._has_bits_[0];
             if (cached_has_bits & 0x00000001u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.decorrelation_);
+            }
+            // .anduril.entitymanager.v1.CorrelationMembership membership = 4 [json_name = "membership"];
+            if (cached_has_bits & 0x00000002u) {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.membership_);
             }
           }
           switch (this_.correlation_case()) {
@@ -6601,13 +6716,24 @@ void Correlation::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::goo
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    ABSL_DCHECK(from._impl_.decorrelation_ != nullptr);
-    if (_this->_impl_.decorrelation_ == nullptr) {
-      _this->_impl_.decorrelation_ =
-          ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Decorrelation>(arena, *from._impl_.decorrelation_);
-    } else {
-      _this->_impl_.decorrelation_->MergeFrom(*from._impl_.decorrelation_);
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      ABSL_DCHECK(from._impl_.decorrelation_ != nullptr);
+      if (_this->_impl_.decorrelation_ == nullptr) {
+        _this->_impl_.decorrelation_ =
+            ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Decorrelation>(arena, *from._impl_.decorrelation_);
+      } else {
+        _this->_impl_.decorrelation_->MergeFrom(*from._impl_.decorrelation_);
+      }
+    }
+    if (cached_has_bits & 0x00000002u) {
+      ABSL_DCHECK(from._impl_.membership_ != nullptr);
+      if (_this->_impl_.membership_ == nullptr) {
+        _this->_impl_.membership_ =
+            ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::CorrelationMembership>(arena, *from._impl_.membership_);
+      } else {
+        _this->_impl_.membership_->MergeFrom(*from._impl_.membership_);
+      }
     }
   }
   _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -6659,7 +6785,12 @@ void Correlation::InternalSwap(Correlation* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  swap(_impl_.decorrelation_, other->_impl_.decorrelation_);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Correlation, _impl_.membership_)
+      + sizeof(Correlation::_impl_.membership_)
+      - PROTOBUF_FIELD_OFFSET(Correlation, _impl_.decorrelation_)>(
+          reinterpret_cast<char*>(&_impl_.decorrelation_),
+          reinterpret_cast<char*>(&other->_impl_.decorrelation_));
   swap(_impl_.correlation_, other->_impl_.correlation_);
   swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
 }
@@ -7194,6 +7325,647 @@ void SecondaryCorrelation::InternalSwap(SecondaryCorrelation* PROTOBUF_RESTRICT 
 
 ::google::protobuf::Metadata SecondaryCorrelation::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class CorrelationMembership::_Internal {
+ public:
+  using HasBits =
+      decltype(std::declval<CorrelationMembership>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(CorrelationMembership, _impl_._has_bits_);
+  static constexpr ::int32_t kOneofCaseOffset =
+      PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::CorrelationMembership, _impl_._oneof_case_);
+};
+
+void CorrelationMembership::set_allocated_primary(::anduril::entitymanager::v1::PrimaryMembership* primary) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_membership();
+  if (primary) {
+    ::google::protobuf::Arena* submessage_arena = primary->GetArena();
+    if (message_arena != submessage_arena) {
+      primary = ::google::protobuf::internal::GetOwnedMessage(message_arena, primary, submessage_arena);
+    }
+    set_has_primary();
+    _impl_.membership_.primary_ = primary;
+  }
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.CorrelationMembership.primary)
+}
+void CorrelationMembership::set_allocated_non_primary(::anduril::entitymanager::v1::NonPrimaryMembership* non_primary) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_membership();
+  if (non_primary) {
+    ::google::protobuf::Arena* submessage_arena = non_primary->GetArena();
+    if (message_arena != submessage_arena) {
+      non_primary = ::google::protobuf::internal::GetOwnedMessage(message_arena, non_primary, submessage_arena);
+    }
+    set_has_non_primary();
+    _impl_.membership_.non_primary_ = non_primary;
+  }
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.CorrelationMembership.non_primary)
+}
+CorrelationMembership::CorrelationMembership(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.CorrelationMembership)
+}
+inline PROTOBUF_NDEBUG_INLINE CorrelationMembership::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::entitymanager::v1::CorrelationMembership& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        correlation_set_id_(arena, from.correlation_set_id_),
+        membership_{},
+        _oneof_case_{from._oneof_case_[0]} {}
+
+CorrelationMembership::CorrelationMembership(
+    ::google::protobuf::Arena* arena,
+    const CorrelationMembership& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  CorrelationMembership* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.metadata_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::CorrelationMetadata>(
+                              arena, *from._impl_.metadata_)
+                        : nullptr;
+  switch (membership_case()) {
+    case MEMBERSHIP_NOT_SET:
+      break;
+      case kPrimary:
+        _impl_.membership_.primary_ = ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::PrimaryMembership>(arena, *from._impl_.membership_.primary_);
+        break;
+      case kNonPrimary:
+        _impl_.membership_.non_primary_ = ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::NonPrimaryMembership>(arena, *from._impl_.membership_.non_primary_);
+        break;
+  }
+
+  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.CorrelationMembership)
+}
+inline PROTOBUF_NDEBUG_INLINE CorrelationMembership::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : _cached_size_{0},
+        correlation_set_id_(arena),
+        membership_{},
+        _oneof_case_{} {}
+
+inline void CorrelationMembership::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.metadata_ = {};
+}
+CorrelationMembership::~CorrelationMembership() {
+  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.CorrelationMembership)
+  SharedDtor(*this);
+}
+inline void CorrelationMembership::SharedDtor(MessageLite& self) {
+  CorrelationMembership& this_ = static_cast<CorrelationMembership&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.correlation_set_id_.Destroy();
+  delete this_._impl_.metadata_;
+  if (this_.has_membership()) {
+    this_.clear_membership();
+  }
+  this_._impl_.~Impl_();
+}
+
+void CorrelationMembership::clear_membership() {
+// @@protoc_insertion_point(one_of_clear_start:anduril.entitymanager.v1.CorrelationMembership)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  switch (membership_case()) {
+    case kPrimary: {
+      if (GetArena() == nullptr) {
+        delete _impl_.membership_.primary_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.membership_.primary_);
+      }
+      break;
+    }
+    case kNonPrimary: {
+      if (GetArena() == nullptr) {
+        delete _impl_.membership_.non_primary_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.membership_.non_primary_);
+      }
+      break;
+    }
+    case MEMBERSHIP_NOT_SET: {
+      break;
+    }
+  }
+  _impl_._oneof_case_[0] = MEMBERSHIP_NOT_SET;
+}
+
+
+inline void* CorrelationMembership::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) CorrelationMembership(arena);
+}
+constexpr auto CorrelationMembership::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(CorrelationMembership),
+                                            alignof(CorrelationMembership));
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull CorrelationMembership::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_CorrelationMembership_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &CorrelationMembership::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<CorrelationMembership>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &CorrelationMembership::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<CorrelationMembership>(), &CorrelationMembership::ByteSizeLong,
+            &CorrelationMembership::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(CorrelationMembership, _impl_._cached_size_),
+        false,
+    },
+    &CorrelationMembership::kDescriptorMethods,
+    &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* CorrelationMembership::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 4, 3, 73, 2> CorrelationMembership::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(CorrelationMembership, _impl_._has_bits_),
+    0, // no _extensions_
+    4, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967280,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    4,  // num_field_entries
+    3,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::CorrelationMembership>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .anduril.entitymanager.v1.CorrelationMetadata metadata = 4 [json_name = "metadata"];
+    {::_pbi::TcParser::FastMtS1,
+     {34, 0, 2, PROTOBUF_FIELD_OFFSET(CorrelationMembership, _impl_.metadata_)}},
+    // string correlation_set_id = 1 [json_name = "correlationSetId"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(CorrelationMembership, _impl_.correlation_set_id_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string correlation_set_id = 1 [json_name = "correlationSetId"];
+    {PROTOBUF_FIELD_OFFSET(CorrelationMembership, _impl_.correlation_set_id_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .anduril.entitymanager.v1.PrimaryMembership primary = 2 [json_name = "primary"];
+    {PROTOBUF_FIELD_OFFSET(CorrelationMembership, _impl_.membership_.primary_), _Internal::kOneofCaseOffset + 0, 0,
+    (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .anduril.entitymanager.v1.NonPrimaryMembership non_primary = 3 [json_name = "nonPrimary"];
+    {PROTOBUF_FIELD_OFFSET(CorrelationMembership, _impl_.membership_.non_primary_), _Internal::kOneofCaseOffset + 0, 1,
+    (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .anduril.entitymanager.v1.CorrelationMetadata metadata = 4 [json_name = "metadata"];
+    {PROTOBUF_FIELD_OFFSET(CorrelationMembership, _impl_.metadata_), _Internal::kHasBitsOffset + 0, 2,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::PrimaryMembership>()},
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::NonPrimaryMembership>()},
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::CorrelationMetadata>()},
+  }}, {{
+    "\56\22\0\0\0\0\0\0"
+    "anduril.entitymanager.v1.CorrelationMembership"
+    "correlation_set_id"
+  }},
+};
+
+PROTOBUF_NOINLINE void CorrelationMembership::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.CorrelationMembership)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.correlation_set_id_.ClearToEmpty();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.metadata_ != nullptr);
+    _impl_.metadata_->Clear();
+  }
+  clear_membership();
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* CorrelationMembership::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const CorrelationMembership& this_ = static_cast<const CorrelationMembership&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* CorrelationMembership::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const CorrelationMembership& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.CorrelationMembership)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // string correlation_set_id = 1 [json_name = "correlationSetId"];
+          if (!this_._internal_correlation_set_id().empty()) {
+            const std::string& _s = this_._internal_correlation_set_id();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.CorrelationMembership.correlation_set_id");
+            target = stream->WriteStringMaybeAliased(1, _s, target);
+          }
+
+          switch (this_.membership_case()) {
+            case kPrimary: {
+              target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                  2, *this_._impl_.membership_.primary_, this_._impl_.membership_.primary_->GetCachedSize(), target,
+                  stream);
+              break;
+            }
+            case kNonPrimary: {
+              target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                  3, *this_._impl_.membership_.non_primary_, this_._impl_.membership_.non_primary_->GetCachedSize(), target,
+                  stream);
+              break;
+            }
+            default:
+              break;
+          }
+          cached_has_bits = this_._impl_._has_bits_[0];
+          // .anduril.entitymanager.v1.CorrelationMetadata metadata = 4 [json_name = "metadata"];
+          if (cached_has_bits & 0x00000001u) {
+            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                4, *this_._impl_.metadata_, this_._impl_.metadata_->GetCachedSize(), target,
+                stream);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.CorrelationMembership)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t CorrelationMembership::ByteSizeLong(const MessageLite& base) {
+          const CorrelationMembership& this_ = static_cast<const CorrelationMembership&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t CorrelationMembership::ByteSizeLong() const {
+          const CorrelationMembership& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.CorrelationMembership)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // string correlation_set_id = 1 [json_name = "correlationSetId"];
+            if (!this_._internal_correlation_set_id().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_correlation_set_id());
+            }
+          }
+           {
+            // .anduril.entitymanager.v1.CorrelationMetadata metadata = 4 [json_name = "metadata"];
+            cached_has_bits = this_._impl_._has_bits_[0];
+            if (cached_has_bits & 0x00000001u) {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.metadata_);
+            }
+          }
+          switch (this_.membership_case()) {
+            // .anduril.entitymanager.v1.PrimaryMembership primary = 2 [json_name = "primary"];
+            case kPrimary: {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.membership_.primary_);
+              break;
+            }
+            // .anduril.entitymanager.v1.NonPrimaryMembership non_primary = 3 [json_name = "nonPrimary"];
+            case kNonPrimary: {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.membership_.non_primary_);
+              break;
+            }
+            case MEMBERSHIP_NOT_SET: {
+              break;
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void CorrelationMembership::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<CorrelationMembership*>(&to_msg);
+  auto& from = static_cast<const CorrelationMembership&>(from_msg);
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.CorrelationMembership)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_correlation_set_id().empty()) {
+    _this->_internal_set_correlation_set_id(from._internal_correlation_set_id());
+  }
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(from._impl_.metadata_ != nullptr);
+    if (_this->_impl_.metadata_ == nullptr) {
+      _this->_impl_.metadata_ =
+          ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::CorrelationMetadata>(arena, *from._impl_.metadata_);
+    } else {
+      _this->_impl_.metadata_->MergeFrom(*from._impl_.metadata_);
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  if (const uint32_t oneof_from_case = from._impl_._oneof_case_[0]) {
+    const uint32_t oneof_to_case = _this->_impl_._oneof_case_[0];
+    const bool oneof_needs_init = oneof_to_case != oneof_from_case;
+    if (oneof_needs_init) {
+      if (oneof_to_case != 0) {
+        _this->clear_membership();
+      }
+      _this->_impl_._oneof_case_[0] = oneof_from_case;
+    }
+
+    switch (oneof_from_case) {
+      case kPrimary: {
+        if (oneof_needs_init) {
+          _this->_impl_.membership_.primary_ =
+              ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::PrimaryMembership>(arena, *from._impl_.membership_.primary_);
+        } else {
+          _this->_impl_.membership_.primary_->MergeFrom(from._internal_primary());
+        }
+        break;
+      }
+      case kNonPrimary: {
+        if (oneof_needs_init) {
+          _this->_impl_.membership_.non_primary_ =
+              ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::NonPrimaryMembership>(arena, *from._impl_.membership_.non_primary_);
+        } else {
+          _this->_impl_.membership_.non_primary_->MergeFrom(from._internal_non_primary());
+        }
+        break;
+      }
+      case MEMBERSHIP_NOT_SET:
+        break;
+    }
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CorrelationMembership::CopyFrom(const CorrelationMembership& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.CorrelationMembership)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void CorrelationMembership::InternalSwap(CorrelationMembership* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.correlation_set_id_, &other->_impl_.correlation_set_id_, arena);
+  swap(_impl_.metadata_, other->_impl_.metadata_);
+  swap(_impl_.membership_, other->_impl_.membership_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
+}
+
+::google::protobuf::Metadata CorrelationMembership::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class PrimaryMembership::_Internal {
+ public:
+};
+
+PrimaryMembership::PrimaryMembership(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::internal::ZeroFieldsBase(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.PrimaryMembership)
+}
+PrimaryMembership::PrimaryMembership(
+    ::google::protobuf::Arena* arena,
+    const PrimaryMembership& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::internal::ZeroFieldsBase(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  PrimaryMembership* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+
+  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.PrimaryMembership)
+}
+
+inline void* PrimaryMembership::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) PrimaryMembership(arena);
+}
+constexpr auto PrimaryMembership::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(PrimaryMembership),
+                                            alignof(PrimaryMembership));
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull PrimaryMembership::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_PrimaryMembership_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &PrimaryMembership::MergeImpl,
+        ::google::protobuf::internal::ZeroFieldsBase::GetNewImpl<PrimaryMembership>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &PrimaryMembership::SharedDtor,
+        ::google::protobuf::internal::ZeroFieldsBase::GetClearImpl<PrimaryMembership>(), &PrimaryMembership::ByteSizeLong,
+            &PrimaryMembership::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(PrimaryMembership, _impl_._cached_size_),
+        false,
+    },
+    &PrimaryMembership::kDescriptorMethods,
+    &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* PrimaryMembership::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 0, 0, 0, 2> PrimaryMembership::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    0, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967295,  // skipmap
+    offsetof(decltype(_table_), field_names),  // no field_entries
+    0,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::PrimaryMembership>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }},
+  // no field_entries, or aux_entries
+  {{
+  }},
+};
+
+
+
+
+
+
+
+
+::google::protobuf::Metadata PrimaryMembership::GetMetadata() const {
+  return ::google::protobuf::internal::ZeroFieldsBase::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class NonPrimaryMembership::_Internal {
+ public:
+};
+
+NonPrimaryMembership::NonPrimaryMembership(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::internal::ZeroFieldsBase(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.NonPrimaryMembership)
+}
+NonPrimaryMembership::NonPrimaryMembership(
+    ::google::protobuf::Arena* arena,
+    const NonPrimaryMembership& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::internal::ZeroFieldsBase(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  NonPrimaryMembership* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+
+  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.NonPrimaryMembership)
+}
+
+inline void* NonPrimaryMembership::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) NonPrimaryMembership(arena);
+}
+constexpr auto NonPrimaryMembership::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(NonPrimaryMembership),
+                                            alignof(NonPrimaryMembership));
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull NonPrimaryMembership::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_NonPrimaryMembership_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &NonPrimaryMembership::MergeImpl,
+        ::google::protobuf::internal::ZeroFieldsBase::GetNewImpl<NonPrimaryMembership>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &NonPrimaryMembership::SharedDtor,
+        ::google::protobuf::internal::ZeroFieldsBase::GetClearImpl<NonPrimaryMembership>(), &NonPrimaryMembership::ByteSizeLong,
+            &NonPrimaryMembership::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(NonPrimaryMembership, _impl_._cached_size_),
+        false,
+    },
+    &NonPrimaryMembership::kDescriptorMethods,
+    &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* NonPrimaryMembership::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 0, 0, 0, 2> NonPrimaryMembership::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    0, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967295,  // skipmap
+    offsetof(decltype(_table_), field_names),  // no field_entries
+    0,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::NonPrimaryMembership>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }},
+  // no field_entries, or aux_entries
+  {{
+  }},
+};
+
+
+
+
+
+
+
+
+::google::protobuf::Metadata NonPrimaryMembership::GetMetadata() const {
+  return ::google::protobuf::internal::ZeroFieldsBase::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 

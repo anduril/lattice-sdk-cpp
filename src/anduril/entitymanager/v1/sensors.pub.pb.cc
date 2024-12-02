@@ -144,9 +144,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 
 inline constexpr RFConfiguration::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : frequency_range_{},
-        bandwidth_range_{},
-        frequency_range_hz_{},
+      : frequency_range_hz_{},
         bandwidth_range_hz_{},
         _cached_size_{0} {}
 
@@ -180,7 +178,6 @@ inline constexpr Sensor::Impl_::Impl_(
         sensor_description_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
-        field_of_view_{nullptr},
         rf_configuraton_{nullptr},
         last_detection_timestamp_{nullptr},
         operational_state_{static_cast< ::anduril::entitymanager::v1::OperationalState >(0)},
@@ -258,7 +255,6 @@ const ::uint32_t
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Sensor, _impl_.sensor_id_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Sensor, _impl_.operational_state_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Sensor, _impl_.field_of_view_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Sensor, _impl_.sensor_type_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Sensor, _impl_.sensor_description_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Sensor, _impl_.rf_configuraton_),
@@ -266,11 +262,10 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Sensor, _impl_.fields_of_view_),
         ~0u,
         ~0u,
+        ~0u,
+        ~0u,
         0,
-        ~0u,
-        ~0u,
         1,
-        2,
         ~0u,
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::FieldOfView, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::FieldOfView, _internal_metadata_),
@@ -322,8 +317,6 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RFConfiguration, _impl_.frequency_range_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RFConfiguration, _impl_.bandwidth_range_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RFConfiguration, _impl_.frequency_range_hz_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RFConfiguration, _impl_.bandwidth_range_hz_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::BandwidthRange, _impl_._has_bits_),
@@ -353,12 +346,12 @@ const ::uint32_t
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, -1, -1, sizeof(::anduril::entitymanager::v1::Sensors)},
-        {9, 25, -1, sizeof(::anduril::entitymanager::v1::Sensor)},
-        {33, 50, -1, sizeof(::anduril::entitymanager::v1::FieldOfView)},
-        {59, 71, -1, sizeof(::anduril::entitymanager::v1::ProjectedFrustum)},
-        {75, -1, -1, sizeof(::anduril::entitymanager::v1::RFConfiguration)},
-        {87, 97, -1, sizeof(::anduril::entitymanager::v1::BandwidthRange)},
-        {99, 108, -1, sizeof(::anduril::entitymanager::v1::Bandwidth)},
+        {9, 24, -1, sizeof(::anduril::entitymanager::v1::Sensor)},
+        {31, 48, -1, sizeof(::anduril::entitymanager::v1::FieldOfView)},
+        {57, 69, -1, sizeof(::anduril::entitymanager::v1::ProjectedFrustum)},
+        {73, -1, -1, sizeof(::anduril::entitymanager::v1::RFConfiguration)},
+        {83, 93, -1, sizeof(::anduril::entitymanager::v1::BandwidthRange)},
+        {95, 104, -1, sizeof(::anduril::entitymanager::v1::Bandwidth)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::entitymanager::v1::_Sensors_default_instance_._instance,
@@ -373,93 +366,83 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fsensors_2epu
     protodesc_cold) = {
     "\n*anduril/entitymanager/v1/sensors.pub.p"
     "roto\022\030anduril.entitymanager.v1\032+anduril/"
-    "entitymanager/v1/location.pub.proto\032*and"
-    "uril/entitymanager/v1/options.pub.proto\032"
-    ")anduril/entitymanager/v1/signal.pub.pro"
-    "to\032(anduril/entitymanager/v1/types.pub.p"
-    "roto\032\037google/protobuf/timestamp.proto\032\036g"
-    "oogle/protobuf/wrappers.proto\"E\n\007Sensors"
-    "\022:\n\007sensors\030\001 \003(\0132 .anduril.entitymanage"
-    "r.v1.SensorR\007sensors\"\277\004\n\006Sensor\022 \n\tsenso"
-    "r_id\030\001 \001(\tB\003\320>\001R\010sensorId\022W\n\021operational"
-    "_state\030\003 \001(\0162*.anduril.entitymanager.v1."
-    "OperationalStateR\020operationalState\022M\n\rfi"
-    "eld_of_view\030\004 \001(\0132%.anduril.entitymanage"
-    "r.v1.FieldOfViewB\002\030\001R\013fieldOfView\022E\n\013sen"
-    "sor_type\030\005 \001(\0162$.anduril.entitymanager.v"
-    "1.SensorTypeR\nsensorType\022-\n\022sensor_descr"
-    "iption\030\006 \001(\tR\021sensorDescription\022R\n\017rf_co"
-    "nfiguraton\030\007 \001(\0132).anduril.entitymanager"
-    ".v1.RFConfigurationR\016rfConfiguraton\022T\n\030l"
-    "ast_detection_timestamp\030\010 \001(\0132\032.google.p"
-    "rotobuf.TimestampR\026lastDetectionTimestam"
-    "p\022K\n\016fields_of_view\030\t \003(\0132%.anduril.enti"
-    "tymanager.v1.FieldOfViewR\014fieldsOfView\"\355"
-    "\003\n\013FieldOfView\022\025\n\006fov_id\030\001 \001(\005R\005fovId\022\031\n"
-    "\010mount_id\030\002 \001(\tR\007mountId\022W\n\021projected_fr"
-    "ustum\030\003 \001(\0132*.anduril.entitymanager.v1.P"
-    "rojectedFrustumR\020projectedFrustum\022T\n\024pro"
-    "jected_center_ray\030\004 \001(\0132\".anduril.entity"
-    "manager.v1.PositionR\022projectedCenterRay\022"
-    "F\n\017center_ray_pose\030\005 \001(\0132\036.anduril.entit"
-    "ymanager.v1.PoseR\rcenterRayPose\022%\n\016horiz"
-    "ontal_fov\030\006 \001(\002R\rhorizontalFov\022!\n\014vertic"
-    "al_fov\030\007 \001(\002R\013verticalFov\0221\n\005range\030\010 \001(\013"
-    "2\033.google.protobuf.FloatValueR\005range\0228\n\004"
-    "mode\030\t \001(\0162$.anduril.entitymanager.v1.Se"
-    "nsorModeR\004mode\"\246\002\n\020ProjectedFrustum\022A\n\nu"
-    "pper_left\030\001 \001(\0132\".anduril.entitymanager."
-    "v1.PositionR\tupperLeft\022C\n\013upper_right\030\002 "
-    "\001(\0132\".anduril.entitymanager.v1.PositionR"
-    "\nupperRight\022E\n\014bottom_right\030\003 \001(\0132\".andu"
-    "ril.entitymanager.v1.PositionR\013bottomRig"
-    "ht\022C\n\013bottom_left\030\004 \001(\0132\".anduril.entity"
-    "manager.v1.PositionR\nbottomLeft\"\347\002\n\017RFCo"
-    "nfiguration\022Q\n\017frequency_range\030\001 \003(\0132$.a"
-    "nduril.entitymanager.v1.FloatRangeB\002\030\001R\016"
-    "frequencyRange\022Q\n\017bandwidth_range\030\002 \003(\0132"
-    "$.anduril.entitymanager.v1.FloatRangeB\002\030"
-    "\001R\016bandwidthRange\022V\n\022frequency_range_hz\030"
-    "\003 \003(\0132(.anduril.entitymanager.v1.Frequen"
-    "cyRangeR\020frequencyRangeHz\022V\n\022bandwidth_r"
-    "ange_hz\030\004 \003(\0132(.anduril.entitymanager.v1"
-    ".BandwidthRangeR\020bandwidthRangeHz\"\264\001\n\016Ba"
-    "ndwidthRange\022P\n\021minimum_bandwidth\030\001 \001(\0132"
-    "#.anduril.entitymanager.v1.BandwidthR\020mi"
-    "nimumBandwidth\022P\n\021maximum_bandwidth\030\002 \001("
+    "entitymanager/v1/location.pub.proto\032)and"
+    "uril/entitymanager/v1/signal.pub.proto\032\037"
+    "google/protobuf/timestamp.proto\032\036google/"
+    "protobuf/wrappers.proto\"E\n\007Sensors\022:\n\007se"
+    "nsors\030\001 \003(\0132 .anduril.entitymanager.v1.S"
+    "ensorR\007sensors\"\361\003\n\006Sensor\022\033\n\tsensor_id\030\001"
+    " \001(\tR\010sensorId\022W\n\021operational_state\030\003 \001("
+    "\0162*.anduril.entitymanager.v1.Operational"
+    "StateR\020operationalState\022E\n\013sensor_type\030\005"
+    " \001(\0162$.anduril.entitymanager.v1.SensorTy"
+    "peR\nsensorType\022-\n\022sensor_description\030\006 \001"
+    "(\tR\021sensorDescription\022R\n\017rf_configuraton"
+    "\030\007 \001(\0132).anduril.entitymanager.v1.RFConf"
+    "igurationR\016rfConfiguraton\022T\n\030last_detect"
+    "ion_timestamp\030\010 \001(\0132\032.google.protobuf.Ti"
+    "mestampR\026lastDetectionTimestamp\022K\n\016field"
+    "s_of_view\030\t \003(\0132%.anduril.entitymanager."
+    "v1.FieldOfViewR\014fieldsOfViewJ\004\010\004\020\005\"\355\003\n\013F"
+    "ieldOfView\022\025\n\006fov_id\030\001 \001(\005R\005fovId\022\031\n\010mou"
+    "nt_id\030\002 \001(\tR\007mountId\022W\n\021projected_frustu"
+    "m\030\003 \001(\0132*.anduril.entitymanager.v1.Proje"
+    "ctedFrustumR\020projectedFrustum\022T\n\024project"
+    "ed_center_ray\030\004 \001(\0132\".anduril.entitymana"
+    "ger.v1.PositionR\022projectedCenterRay\022F\n\017c"
+    "enter_ray_pose\030\005 \001(\0132\036.anduril.entityman"
+    "ager.v1.PoseR\rcenterRayPose\022%\n\016horizonta"
+    "l_fov\030\006 \001(\002R\rhorizontalFov\022!\n\014vertical_f"
+    "ov\030\007 \001(\002R\013verticalFov\0221\n\005range\030\010 \001(\0132\033.g"
+    "oogle.protobuf.FloatValueR\005range\0228\n\004mode"
+    "\030\t \001(\0162$.anduril.entitymanager.v1.Sensor"
+    "ModeR\004mode\"\246\002\n\020ProjectedFrustum\022A\n\nupper"
+    "_left\030\001 \001(\0132\".anduril.entitymanager.v1.P"
+    "ositionR\tupperLeft\022C\n\013upper_right\030\002 \001(\0132"
+    "\".anduril.entitymanager.v1.PositionR\nupp"
+    "erRight\022E\n\014bottom_right\030\003 \001(\0132\".anduril."
+    "entitymanager.v1.PositionR\013bottomRight\022C"
+    "\n\013bottom_left\030\004 \001(\0132\".anduril.entitymana"
+    "ger.v1.PositionR\nbottomLeft\"\315\001\n\017RFConfig"
+    "uration\022V\n\022frequency_range_hz\030\003 \003(\0132(.an"
+    "duril.entitymanager.v1.FrequencyRangeR\020f"
+    "requencyRangeHz\022V\n\022bandwidth_range_hz\030\004 "
+    "\003(\0132(.anduril.entitymanager.v1.Bandwidth"
+    "RangeR\020bandwidthRangeHzJ\004\010\001\020\002J\004\010\002\020\003\"\264\001\n\016"
+    "BandwidthRange\022P\n\021minimum_bandwidth\030\001 \001("
     "\0132#.anduril.entitymanager.v1.BandwidthR\020"
-    "maximumBandwidth\"L\n\tBandwidth\022\?\n\014bandwid"
-    "th_hz\030\001 \001(\0132\034.google.protobuf.DoubleValu"
-    "eR\013bandwidthHz*\324\001\n\020OperationalState\022\035\n\031O"
-    "PERATIONAL_STATE_INVALID\020\000\022\031\n\025OPERATIONA"
-    "L_STATE_OFF\020\001\022%\n!OPERATIONAL_STATE_NON_O"
-    "PERATIONAL\020\002\022\036\n\032OPERATIONAL_STATE_DEGRAD"
-    "ED\020\003\022!\n\035OPERATIONAL_STATE_OPERATIONAL\020\004\022"
-    "\034\n\030OPERATIONAL_STATE_DENIED\020\005*\240\001\n\nSensor"
-    "Mode\022\027\n\023SENSOR_MODE_INVALID\020\000\022\026\n\022SENSOR_"
-    "MODE_SEARCH\020\001\022\025\n\021SENSOR_MODE_TRACK\020\002\022\036\n\032"
-    "SENSOR_MODE_WEAPON_SUPPORT\020\003\022\024\n\020SENSOR_M"
-    "ODE_AUTO\020\004\022\024\n\020SENSOR_MODE_MUTE\020\005*\373\001\n\nSen"
-    "sorType\022\027\n\023SENSOR_TYPE_INVALID\020\000\022\025\n\021SENS"
-    "OR_TYPE_RADAR\020\001\022\026\n\022SENSOR_TYPE_CAMERA\020\002\022"
-    "\033\n\027SENSOR_TYPE_TRANSPONDER\020\003\022\022\n\016SENSOR_T"
-    "YPE_RF\020\004\022\023\n\017SENSOR_TYPE_GPS\020\005\022\027\n\023SENSOR_"
-    "TYPE_PTU_POS\020\006\022\024\n\020SENSOR_TYPE_WISP\020\007\022\031\n\025"
-    "SENSOR_TYPE_PERIMETER\020\010\022\025\n\021SENSOR_TYPE_S"
-    "ONAR\020\tB\200\002\n\034com.anduril.entitymanager.v1B"
-    "\017SensorsPubProtoP\001ZMghe.anduril.dev/andu"
-    "ril/andurilapis-go/anduril/entitymanager"
-    "/v1;entitymanager\242\002\003AEX\252\002\030Anduril.Entity"
-    "manager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$"
-    "Anduril\\Entitymanager\\V1\\GPBMetadata\352\002\032A"
-    "nduril::Entitymanager::V1b\006proto3"
+    "minimumBandwidth\022P\n\021maximum_bandwidth\030\002 "
+    "\001(\0132#.anduril.entitymanager.v1.Bandwidth"
+    "R\020maximumBandwidth\"L\n\tBandwidth\022\?\n\014bandw"
+    "idth_hz\030\001 \001(\0132\034.google.protobuf.DoubleVa"
+    "lueR\013bandwidthHz*\324\001\n\020OperationalState\022\035\n"
+    "\031OPERATIONAL_STATE_INVALID\020\000\022\031\n\025OPERATIO"
+    "NAL_STATE_OFF\020\001\022%\n!OPERATIONAL_STATE_NON"
+    "_OPERATIONAL\020\002\022\036\n\032OPERATIONAL_STATE_DEGR"
+    "ADED\020\003\022!\n\035OPERATIONAL_STATE_OPERATIONAL\020"
+    "\004\022\034\n\030OPERATIONAL_STATE_DENIED\020\005*\240\001\n\nSens"
+    "orMode\022\027\n\023SENSOR_MODE_INVALID\020\000\022\026\n\022SENSO"
+    "R_MODE_SEARCH\020\001\022\025\n\021SENSOR_MODE_TRACK\020\002\022\036"
+    "\n\032SENSOR_MODE_WEAPON_SUPPORT\020\003\022\024\n\020SENSOR"
+    "_MODE_AUTO\020\004\022\024\n\020SENSOR_MODE_MUTE\020\005*\353\001\n\nS"
+    "ensorType\022\027\n\023SENSOR_TYPE_INVALID\020\000\022\025\n\021SE"
+    "NSOR_TYPE_RADAR\020\001\022\026\n\022SENSOR_TYPE_CAMERA\020"
+    "\002\022\033\n\027SENSOR_TYPE_TRANSPONDER\020\003\022\022\n\016SENSOR"
+    "_TYPE_RF\020\004\022\023\n\017SENSOR_TYPE_GPS\020\005\022\027\n\023SENSO"
+    "R_TYPE_PTU_POS\020\006\022\031\n\025SENSOR_TYPE_PERIMETE"
+    "R\020\010\022\025\n\021SENSOR_TYPE_SONAR\020\t\"\004\010\007\020\007B\200\002\n\034com"
+    ".anduril.entitymanager.v1B\017SensorsPubPro"
+    "toP\001ZMghe.anduril.dev/anduril/andurilapi"
+    "s-go/anduril/entitymanager/v1;entitymana"
+    "ger\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030A"
+    "nduril\\Entitymanager\\V1\342\002$Anduril\\Entity"
+    "manager\\V1\\GPBMetadata\352\002\032Anduril::Entity"
+    "manager::V1b\006proto3"
 };
-static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fsensors_2epub_2eproto_deps[6] =
+static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fsensors_2epub_2eproto_deps[4] =
     {
         &::descriptor_table_anduril_2fentitymanager_2fv1_2flocation_2epub_2eproto,
-        &::descriptor_table_anduril_2fentitymanager_2fv1_2foptions_2epub_2eproto,
         &::descriptor_table_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto,
-        &::descriptor_table_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto,
         &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
         &::descriptor_table_google_2fprotobuf_2fwrappers_2eproto,
 };
@@ -467,12 +450,12 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fsensors
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fsensors_2epub_2eproto = {
     false,
     false,
-    3273,
+    2939,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fsensors_2epub_2eproto,
     "anduril/entitymanager/v1/sensors.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fsensors_2epub_2eproto_once,
     descriptor_table_anduril_2fentitymanager_2fv1_2fsensors_2epub_2eproto_deps,
-    6,
+    4,
     7,
     schemas,
     file_default_instances,
@@ -506,9 +489,9 @@ const ::google::protobuf::EnumDescriptor* SensorType_descriptor() {
   return file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2fsensors_2epub_2eproto[2];
 }
 PROTOBUF_CONSTINIT const uint32_t SensorType_internal_data_[] = {
-    655360u, 0u, };
+    458752u, 32u, 6u, };
 bool SensorType_IsValid(int value) {
-  return 0 <= value && value <= 9;
+  return 0 <= value && value <= 9 && ((895u >> value) & 1) != 0;
 }
 // ===================================================================
 
@@ -765,7 +748,7 @@ class Sensor::_Internal {
 void Sensor::clear_last_detection_timestamp() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.last_detection_timestamp_ != nullptr) _impl_.last_detection_timestamp_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 Sensor::Sensor(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
@@ -799,13 +782,10 @@ Sensor::Sensor(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
   ::uint32_t cached_has_bits = _impl_._has_bits_[0];
-  _impl_.field_of_view_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::FieldOfView>(
-                              arena, *from._impl_.field_of_view_)
-                        : nullptr;
-  _impl_.rf_configuraton_ = (cached_has_bits & 0x00000002u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::RFConfiguration>(
+  _impl_.rf_configuraton_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::RFConfiguration>(
                               arena, *from._impl_.rf_configuraton_)
                         : nullptr;
-  _impl_.last_detection_timestamp_ = (cached_has_bits & 0x00000004u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::Timestamp>(
+  _impl_.last_detection_timestamp_ = (cached_has_bits & 0x00000002u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::Timestamp>(
                               arena, *from._impl_.last_detection_timestamp_)
                         : nullptr;
   ::memcpy(reinterpret_cast<char *>(&_impl_) +
@@ -829,10 +809,10 @@ inline PROTOBUF_NDEBUG_INLINE Sensor::Impl_::Impl_(
 inline void Sensor::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, field_of_view_),
+               offsetof(Impl_, rf_configuraton_),
            0,
            offsetof(Impl_, sensor_type_) -
-               offsetof(Impl_, field_of_view_) +
+               offsetof(Impl_, rf_configuraton_) +
                sizeof(Impl_::sensor_type_));
 }
 Sensor::~Sensor() {
@@ -845,7 +825,6 @@ inline void Sensor::SharedDtor(MessageLite& self) {
   ABSL_DCHECK(this_.GetArena() == nullptr);
   this_._impl_.sensor_id_.Destroy();
   this_._impl_.sensor_description_.Destroy();
-  delete this_._impl_.field_of_view_;
   delete this_._impl_.rf_configuraton_;
   delete this_._impl_.last_detection_timestamp_;
   this_._impl_.~Impl_();
@@ -899,16 +878,16 @@ const ::google::protobuf::internal::ClassData* Sensor::GetClassData() const {
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<4, 8, 4, 75, 2> Sensor::_table_ = {
+const ::_pbi::TcParseTable<3, 7, 3, 67, 2> Sensor::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(Sensor, _impl_._has_bits_),
     0, // no _extensions_
-    9, 120,  // max_field_number, fast_idx_mask
+    9, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294966786,  // skipmap
+    4294966794,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    8,  // num_field_entries
-    4,  // num_aux_entries
+    7,  // num_field_entries
+    3,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
@@ -917,17 +896,17 @@ const ::_pbi::TcParseTable<4, 8, 4, 75, 2> Sensor::_table_ = {
     ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Sensor>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    {::_pbi::TcParser::MiniParse, {}},
-    // string sensor_id = 1 [json_name = "sensorId", (.anduril.entitymanager.v1.componentIdentifier) = true];
+    // .google.protobuf.Timestamp last_detection_timestamp = 8 [json_name = "lastDetectionTimestamp"];
+    {::_pbi::TcParser::FastMtS1,
+     {66, 1, 1, PROTOBUF_FIELD_OFFSET(Sensor, _impl_.last_detection_timestamp_)}},
+    // string sensor_id = 1 [json_name = "sensorId"];
     {::_pbi::TcParser::FastUS1,
      {10, 63, 0, PROTOBUF_FIELD_OFFSET(Sensor, _impl_.sensor_id_)}},
     {::_pbi::TcParser::MiniParse, {}},
     // .anduril.entitymanager.v1.OperationalState operational_state = 3 [json_name = "operationalState"];
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(Sensor, _impl_.operational_state_), 63>(),
      {24, 63, 0, PROTOBUF_FIELD_OFFSET(Sensor, _impl_.operational_state_)}},
-    // .anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];
-    {::_pbi::TcParser::FastMtS1,
-     {34, 0, 0, PROTOBUF_FIELD_OFFSET(Sensor, _impl_.field_of_view_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // .anduril.entitymanager.v1.SensorType sensor_type = 5 [json_name = "sensorType"];
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(Sensor, _impl_.sensor_type_), 63>(),
      {40, 63, 0, PROTOBUF_FIELD_OFFSET(Sensor, _impl_.sensor_type_)}},
@@ -936,31 +915,16 @@ const ::_pbi::TcParseTable<4, 8, 4, 75, 2> Sensor::_table_ = {
      {50, 63, 0, PROTOBUF_FIELD_OFFSET(Sensor, _impl_.sensor_description_)}},
     // .anduril.entitymanager.v1.RFConfiguration rf_configuraton = 7 [json_name = "rfConfiguraton"];
     {::_pbi::TcParser::FastMtS1,
-     {58, 1, 1, PROTOBUF_FIELD_OFFSET(Sensor, _impl_.rf_configuraton_)}},
-    // .google.protobuf.Timestamp last_detection_timestamp = 8 [json_name = "lastDetectionTimestamp"];
-    {::_pbi::TcParser::FastMtS1,
-     {66, 2, 2, PROTOBUF_FIELD_OFFSET(Sensor, _impl_.last_detection_timestamp_)}},
-    // repeated .anduril.entitymanager.v1.FieldOfView fields_of_view = 9 [json_name = "fieldsOfView"];
-    {::_pbi::TcParser::FastMtR1,
-     {74, 63, 3, PROTOBUF_FIELD_OFFSET(Sensor, _impl_.fields_of_view_)}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
+     {58, 0, 0, PROTOBUF_FIELD_OFFSET(Sensor, _impl_.rf_configuraton_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // string sensor_id = 1 [json_name = "sensorId", (.anduril.entitymanager.v1.componentIdentifier) = true];
+    // string sensor_id = 1 [json_name = "sensorId"];
     {PROTOBUF_FIELD_OFFSET(Sensor, _impl_.sensor_id_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // .anduril.entitymanager.v1.OperationalState operational_state = 3 [json_name = "operationalState"];
     {PROTOBUF_FIELD_OFFSET(Sensor, _impl_.operational_state_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
-    // .anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];
-    {PROTOBUF_FIELD_OFFSET(Sensor, _impl_.field_of_view_), _Internal::kHasBitsOffset + 0, 0,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.SensorType sensor_type = 5 [json_name = "sensorType"];
     {PROTOBUF_FIELD_OFFSET(Sensor, _impl_.sensor_type_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
@@ -968,21 +932,20 @@ const ::_pbi::TcParseTable<4, 8, 4, 75, 2> Sensor::_table_ = {
     {PROTOBUF_FIELD_OFFSET(Sensor, _impl_.sensor_description_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // .anduril.entitymanager.v1.RFConfiguration rf_configuraton = 7 [json_name = "rfConfiguraton"];
-    {PROTOBUF_FIELD_OFFSET(Sensor, _impl_.rf_configuraton_), _Internal::kHasBitsOffset + 1, 1,
+    {PROTOBUF_FIELD_OFFSET(Sensor, _impl_.rf_configuraton_), _Internal::kHasBitsOffset + 0, 0,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .google.protobuf.Timestamp last_detection_timestamp = 8 [json_name = "lastDetectionTimestamp"];
-    {PROTOBUF_FIELD_OFFSET(Sensor, _impl_.last_detection_timestamp_), _Internal::kHasBitsOffset + 2, 2,
+    {PROTOBUF_FIELD_OFFSET(Sensor, _impl_.last_detection_timestamp_), _Internal::kHasBitsOffset + 1, 1,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // repeated .anduril.entitymanager.v1.FieldOfView fields_of_view = 9 [json_name = "fieldsOfView"];
-    {PROTOBUF_FIELD_OFFSET(Sensor, _impl_.fields_of_view_), -1, 3,
+    {PROTOBUF_FIELD_OFFSET(Sensor, _impl_.fields_of_view_), -1, 2,
     (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::FieldOfView>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::RFConfiguration>()},
     {::_pbi::TcParser::GetTable<::google::protobuf::Timestamp>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::FieldOfView>()},
   }}, {{
-    "\37\11\0\0\0\22\0\0\0\0\0\0\0\0\0\0"
+    "\37\11\0\0\22\0\0\0"
     "anduril.entitymanager.v1.Sensor"
     "sensor_id"
     "sensor_description"
@@ -1000,16 +963,12 @@ PROTOBUF_NOINLINE void Sensor::Clear() {
   _impl_.sensor_id_.ClearToEmpty();
   _impl_.sensor_description_.ClearToEmpty();
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      ABSL_DCHECK(_impl_.field_of_view_ != nullptr);
-      _impl_.field_of_view_->Clear();
-    }
-    if (cached_has_bits & 0x00000002u) {
       ABSL_DCHECK(_impl_.rf_configuraton_ != nullptr);
       _impl_.rf_configuraton_->Clear();
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       ABSL_DCHECK(_impl_.last_detection_timestamp_ != nullptr);
       _impl_.last_detection_timestamp_->Clear();
     }
@@ -1036,7 +995,7 @@ PROTOBUF_NOINLINE void Sensor::Clear() {
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
 
-          // string sensor_id = 1 [json_name = "sensorId", (.anduril.entitymanager.v1.componentIdentifier) = true];
+          // string sensor_id = 1 [json_name = "sensorId"];
           if (!this_._internal_sensor_id().empty()) {
             const std::string& _s = this_._internal_sensor_id();
             ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -1049,14 +1008,6 @@ PROTOBUF_NOINLINE void Sensor::Clear() {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteEnumToArray(
                 3, this_._internal_operational_state(), target);
-          }
-
-          cached_has_bits = this_._impl_._has_bits_[0];
-          // .anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];
-          if (cached_has_bits & 0x00000001u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                4, *this_._impl_.field_of_view_, this_._impl_.field_of_view_->GetCachedSize(), target,
-                stream);
           }
 
           // .anduril.entitymanager.v1.SensorType sensor_type = 5 [json_name = "sensorType"];
@@ -1074,15 +1025,16 @@ PROTOBUF_NOINLINE void Sensor::Clear() {
             target = stream->WriteStringMaybeAliased(6, _s, target);
           }
 
+          cached_has_bits = this_._impl_._has_bits_[0];
           // .anduril.entitymanager.v1.RFConfiguration rf_configuraton = 7 [json_name = "rfConfiguraton"];
-          if (cached_has_bits & 0x00000002u) {
+          if (cached_has_bits & 0x00000001u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 7, *this_._impl_.rf_configuraton_, this_._impl_.rf_configuraton_->GetCachedSize(), target,
                 stream);
           }
 
           // .google.protobuf.Timestamp last_detection_timestamp = 8 [json_name = "lastDetectionTimestamp"];
-          if (cached_has_bits & 0x00000004u) {
+          if (cached_has_bits & 0x00000002u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 8, *this_._impl_.last_detection_timestamp_, this_._impl_.last_detection_timestamp_->GetCachedSize(), target,
                 stream);
@@ -1133,7 +1085,7 @@ PROTOBUF_NOINLINE void Sensor::Clear() {
             }
           }
            {
-            // string sensor_id = 1 [json_name = "sensorId", (.anduril.entitymanager.v1.componentIdentifier) = true];
+            // string sensor_id = 1 [json_name = "sensorId"];
             if (!this_._internal_sensor_id().empty()) {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                               this_._internal_sensor_id());
@@ -1145,19 +1097,14 @@ PROTOBUF_NOINLINE void Sensor::Clear() {
             }
           }
           cached_has_bits = this_._impl_._has_bits_[0];
-          if (cached_has_bits & 0x00000007u) {
-            // .anduril.entitymanager.v1.FieldOfView field_of_view = 4 [json_name = "fieldOfView", deprecated = true];
-            if (cached_has_bits & 0x00000001u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.field_of_view_);
-            }
+          if (cached_has_bits & 0x00000003u) {
             // .anduril.entitymanager.v1.RFConfiguration rf_configuraton = 7 [json_name = "rfConfiguraton"];
-            if (cached_has_bits & 0x00000002u) {
+            if (cached_has_bits & 0x00000001u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.rf_configuraton_);
             }
             // .google.protobuf.Timestamp last_detection_timestamp = 8 [json_name = "lastDetectionTimestamp"];
-            if (cached_has_bits & 0x00000004u) {
+            if (cached_has_bits & 0x00000002u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.last_detection_timestamp_);
             }
@@ -1196,17 +1143,8 @@ void Sensor::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
     _this->_internal_set_sensor_description(from._internal_sensor_description());
   }
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      ABSL_DCHECK(from._impl_.field_of_view_ != nullptr);
-      if (_this->_impl_.field_of_view_ == nullptr) {
-        _this->_impl_.field_of_view_ =
-            ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::FieldOfView>(arena, *from._impl_.field_of_view_);
-      } else {
-        _this->_impl_.field_of_view_->MergeFrom(*from._impl_.field_of_view_);
-      }
-    }
-    if (cached_has_bits & 0x00000002u) {
       ABSL_DCHECK(from._impl_.rf_configuraton_ != nullptr);
       if (_this->_impl_.rf_configuraton_ == nullptr) {
         _this->_impl_.rf_configuraton_ =
@@ -1215,7 +1153,7 @@ void Sensor::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
         _this->_impl_.rf_configuraton_->MergeFrom(*from._impl_.rf_configuraton_);
       }
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       ABSL_DCHECK(from._impl_.last_detection_timestamp_ != nullptr);
       if (_this->_impl_.last_detection_timestamp_ == nullptr) {
         _this->_impl_.last_detection_timestamp_ =
@@ -1255,9 +1193,9 @@ void Sensor::InternalSwap(Sensor* PROTOBUF_RESTRICT other) {
   ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Sensor, _impl_.sensor_type_)
       + sizeof(Sensor::_impl_.sensor_type_)
-      - PROTOBUF_FIELD_OFFSET(Sensor, _impl_.field_of_view_)>(
-          reinterpret_cast<char*>(&_impl_.field_of_view_),
-          reinterpret_cast<char*>(&other->_impl_.field_of_view_));
+      - PROTOBUF_FIELD_OFFSET(Sensor, _impl_.rf_configuraton_)>(
+          reinterpret_cast<char*>(&_impl_.rf_configuraton_),
+          reinterpret_cast<char*>(&other->_impl_.rf_configuraton_));
 }
 
 ::google::protobuf::Metadata Sensor::GetMetadata() const {
@@ -2185,14 +2123,6 @@ class RFConfiguration::_Internal {
  public:
 };
 
-void RFConfiguration::clear_frequency_range() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.frequency_range_.Clear();
-}
-void RFConfiguration::clear_bandwidth_range() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.bandwidth_range_.Clear();
-}
 void RFConfiguration::clear_frequency_range_hz() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.frequency_range_hz_.Clear();
@@ -2209,9 +2139,7 @@ RFConfiguration::RFConfiguration(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE RFConfiguration::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::anduril::entitymanager::v1::RFConfiguration& from_msg)
-      : frequency_range_{visibility, arena, from.frequency_range_},
-        bandwidth_range_{visibility, arena, from.bandwidth_range_},
-        frequency_range_hz_{visibility, arena, from.frequency_range_hz_},
+      : frequency_range_hz_{visibility, arena, from.frequency_range_hz_},
         bandwidth_range_hz_{visibility, arena, from.bandwidth_range_hz_},
         _cached_size_{0} {}
 
@@ -2234,9 +2162,7 @@ RFConfiguration::RFConfiguration(
 inline PROTOBUF_NDEBUG_INLINE RFConfiguration::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : frequency_range_{visibility, arena},
-        bandwidth_range_{visibility, arena},
-        frequency_range_hz_{visibility, arena},
+      : frequency_range_hz_{visibility, arena},
         bandwidth_range_hz_{visibility, arena},
         _cached_size_{0} {}
 
@@ -2260,14 +2186,6 @@ inline void* RFConfiguration::PlacementNew_(const void*, void* mem,
 }
 constexpr auto RFConfiguration::InternalNewImpl_() {
   constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
-      PROTOBUF_FIELD_OFFSET(RFConfiguration, _impl_.frequency_range_) +
-          decltype(RFConfiguration::_impl_.frequency_range_)::
-              InternalGetArenaOffset(
-                  ::google::protobuf::Message::internal_visibility()),
-      PROTOBUF_FIELD_OFFSET(RFConfiguration, _impl_.bandwidth_range_) +
-          decltype(RFConfiguration::_impl_.bandwidth_range_)::
-              InternalGetArenaOffset(
-                  ::google::protobuf::Message::internal_visibility()),
       PROTOBUF_FIELD_OFFSET(RFConfiguration, _impl_.frequency_range_hz_) +
           decltype(RFConfiguration::_impl_.frequency_range_hz_)::
               InternalGetArenaOffset(
@@ -2314,16 +2232,16 @@ const ::google::protobuf::internal::ClassData* RFConfiguration::GetClassData() c
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 4, 4, 0, 2> RFConfiguration::_table_ = {
+const ::_pbi::TcParseTable<1, 2, 2, 0, 2> RFConfiguration::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    4, 24,  // max_field_number, fast_idx_mask
+    4, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967280,  // skipmap
+    4294967283,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    4,  // num_field_entries
-    4,  // num_aux_entries
+    2,  // num_field_entries
+    2,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
@@ -2334,34 +2252,20 @@ const ::_pbi::TcParseTable<2, 4, 4, 0, 2> RFConfiguration::_table_ = {
   }, {{
     // repeated .anduril.entitymanager.v1.BandwidthRange bandwidth_range_hz = 4 [json_name = "bandwidthRangeHz"];
     {::_pbi::TcParser::FastMtR1,
-     {34, 63, 3, PROTOBUF_FIELD_OFFSET(RFConfiguration, _impl_.bandwidth_range_hz_)}},
-    // repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];
-    {::_pbi::TcParser::FastMtR1,
-     {10, 63, 0, PROTOBUF_FIELD_OFFSET(RFConfiguration, _impl_.frequency_range_)}},
-    // repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];
-    {::_pbi::TcParser::FastMtR1,
-     {18, 63, 1, PROTOBUF_FIELD_OFFSET(RFConfiguration, _impl_.bandwidth_range_)}},
+     {34, 63, 1, PROTOBUF_FIELD_OFFSET(RFConfiguration, _impl_.bandwidth_range_hz_)}},
     // repeated .anduril.entitymanager.v1.FrequencyRange frequency_range_hz = 3 [json_name = "frequencyRangeHz"];
     {::_pbi::TcParser::FastMtR1,
-     {26, 63, 2, PROTOBUF_FIELD_OFFSET(RFConfiguration, _impl_.frequency_range_hz_)}},
+     {26, 63, 0, PROTOBUF_FIELD_OFFSET(RFConfiguration, _impl_.frequency_range_hz_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];
-    {PROTOBUF_FIELD_OFFSET(RFConfiguration, _impl_.frequency_range_), 0, 0,
-    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
-    // repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];
-    {PROTOBUF_FIELD_OFFSET(RFConfiguration, _impl_.bandwidth_range_), 0, 1,
-    (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // repeated .anduril.entitymanager.v1.FrequencyRange frequency_range_hz = 3 [json_name = "frequencyRangeHz"];
-    {PROTOBUF_FIELD_OFFSET(RFConfiguration, _impl_.frequency_range_hz_), 0, 2,
+    {PROTOBUF_FIELD_OFFSET(RFConfiguration, _impl_.frequency_range_hz_), 0, 0,
     (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // repeated .anduril.entitymanager.v1.BandwidthRange bandwidth_range_hz = 4 [json_name = "bandwidthRangeHz"];
-    {PROTOBUF_FIELD_OFFSET(RFConfiguration, _impl_.bandwidth_range_hz_), 0, 3,
+    {PROTOBUF_FIELD_OFFSET(RFConfiguration, _impl_.bandwidth_range_hz_), 0, 1,
     (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::FloatRange>()},
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::FloatRange>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::FrequencyRange>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::BandwidthRange>()},
   }}, {{
@@ -2375,8 +2279,6 @@ PROTOBUF_NOINLINE void RFConfiguration::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.frequency_range_.Clear();
-  _impl_.bandwidth_range_.Clear();
   _impl_.frequency_range_hz_.Clear();
   _impl_.bandwidth_range_hz_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
@@ -2396,28 +2298,6 @@ PROTOBUF_NOINLINE void RFConfiguration::Clear() {
           // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.RFConfiguration)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
-
-          // repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];
-          for (unsigned i = 0, n = static_cast<unsigned>(
-                                   this_._internal_frequency_range_size());
-               i < n; i++) {
-            const auto& repfield = this_._internal_frequency_range().Get(i);
-            target =
-                ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                    1, repfield, repfield.GetCachedSize(),
-                    target, stream);
-          }
-
-          // repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];
-          for (unsigned i = 0, n = static_cast<unsigned>(
-                                   this_._internal_bandwidth_range_size());
-               i < n; i++) {
-            const auto& repfield = this_._internal_bandwidth_range().Get(i);
-            target =
-                ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                    2, repfield, repfield.GetCachedSize(),
-                    target, stream);
-          }
 
           // repeated .anduril.entitymanager.v1.FrequencyRange frequency_range_hz = 3 [json_name = "frequencyRangeHz"];
           for (unsigned i = 0, n = static_cast<unsigned>(
@@ -2466,20 +2346,6 @@ PROTOBUF_NOINLINE void RFConfiguration::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // repeated .anduril.entitymanager.v1.FloatRange frequency_range = 1 [json_name = "frequencyRange", deprecated = true];
-            {
-              total_size += 1UL * this_._internal_frequency_range_size();
-              for (const auto& msg : this_._internal_frequency_range()) {
-                total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
-              }
-            }
-            // repeated .anduril.entitymanager.v1.FloatRange bandwidth_range = 2 [json_name = "bandwidthRange", deprecated = true];
-            {
-              total_size += 1UL * this_._internal_bandwidth_range_size();
-              for (const auto& msg : this_._internal_bandwidth_range()) {
-                total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
-              }
-            }
             // repeated .anduril.entitymanager.v1.FrequencyRange frequency_range_hz = 3 [json_name = "frequencyRangeHz"];
             {
               total_size += 1UL * this_._internal_frequency_range_hz_size();
@@ -2507,10 +2373,6 @@ void RFConfiguration::MergeImpl(::google::protobuf::MessageLite& to_msg, const :
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_internal_mutable_frequency_range()->MergeFrom(
-      from._internal_frequency_range());
-  _this->_internal_mutable_bandwidth_range()->MergeFrom(
-      from._internal_bandwidth_range());
   _this->_internal_mutable_frequency_range_hz()->MergeFrom(
       from._internal_frequency_range_hz());
   _this->_internal_mutable_bandwidth_range_hz()->MergeFrom(
@@ -2529,8 +2391,6 @@ void RFConfiguration::CopyFrom(const RFConfiguration& from) {
 void RFConfiguration::InternalSwap(RFConfiguration* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.frequency_range_.InternalSwap(&other->_impl_.frequency_range_);
-  _impl_.bandwidth_range_.InternalSwap(&other->_impl_.bandwidth_range_);
   _impl_.frequency_range_hz_.InternalSwap(&other->_impl_.frequency_range_hz_);
   _impl_.bandwidth_range_hz_.InternalSwap(&other->_impl_.bandwidth_range_hz_);
 }

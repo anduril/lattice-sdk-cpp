@@ -163,77 +163,6 @@ inline bool Template_Parse(absl::string_view name, Template* value) {
   return ::google::protobuf::internal::ParseNamedEnum<Template>(
       Template_descriptor(), name, value);
 }
-enum Source : int {
-  SOURCE_INVALID = 0,
-  SOURCE_ANDURIL = 1,
-  SOURCE_LINK_16 = 2,
-  SOURCE_VMF = 3,
-  SOURCE_ADSB = 4,
-  SOURCE_CURSOR_ON_TARGET = 5,
-  SOURCE_MAXAR = 6,
-  SOURCE_MARTAC = 7,
-  SOURCE_SAILDRONE = 8,
-  SOURCE_HE_360 = 9,
-  SOURCE_OFX = 10,
-  SOURCE_BAS_T = 11,
-  SOURCE_KINETICA = 12,
-  SOURCE_USER = 13,
-  SOURCE_NCCT = 14,
-  SOURCE_AIS = 15,
-  SOURCE_KLV = 16,
-  SOURCE_NITF = 17,
-  SOURCE_TAK = 18,
-  SOURCE_SPIRE_AIS = 19,
-  SOURCE_SEFI = 20,
-  SOURCE_ADSB_EXCHANGE = 21,
-  SOURCE_LIVE_UA_MAP = 22,
-  SOURCE_CRUCIBLE = 23,
-  SOURCE_IBS = 24,
-  SOURCE_ADVANA = 25,
-  SOURCE_THRESHER = 26,
-  SOURCE_SEATRACKS = 27,
-  SOURCE_TASS = 28,
-  SOURCE_SMART_SENSOR = 30,
-  SOURCE_STRIVEWORKS = 31,
-  SOURCE_L3H_THEIA = 32,
-  SOURCE_TALON_POWDERHORN = 33,
-  SOURCE_IDT_VIRTUAL_TWIN = 34,
-  SOURCE_MISSION_AUTONOMY = 35,
-  SOURCE_GCCS = 36,
-  SOURCE_FOUNDRY = 37,
-  SOURCE_MIDB = 38,
-  SOURCE_FOM = 39,
-  SOURCE_GALE = 40,
-  Source_INT_MIN_SENTINEL_DO_NOT_USE_ =
-      std::numeric_limits<::int32_t>::min(),
-  Source_INT_MAX_SENTINEL_DO_NOT_USE_ =
-      std::numeric_limits<::int32_t>::max(),
-};
-
-bool Source_IsValid(int value);
-extern const uint32_t Source_internal_data_[];
-constexpr Source Source_MIN = static_cast<Source>(0);
-constexpr Source Source_MAX = static_cast<Source>(40);
-constexpr int Source_ARRAYSIZE = 40 + 1;
-const ::google::protobuf::EnumDescriptor*
-Source_descriptor();
-template <typename T>
-const std::string& Source_Name(T value) {
-  static_assert(std::is_same<T, Source>::value ||
-                    std::is_integral<T>::value,
-                "Incorrect type passed to Source_Name().");
-  return Source_Name(static_cast<Source>(value));
-}
-template <>
-inline const std::string& Source_Name(Source value) {
-  return ::google::protobuf::internal::NameOfDenseEnum<Source_descriptor,
-                                                 0, 40>(
-      static_cast<int>(value));
-}
-inline bool Source_Parse(absl::string_view name, Source* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<Source>(
-      Source_descriptor(), name, value);
-}
 enum OverrideStatus : int {
   OVERRIDE_STATUS_INVALID = 0,
   OVERRIDE_STATUS_APPLIED = 1,
@@ -848,12 +777,6 @@ struct is_proto_enum<::anduril::entitymanager::v1::Template> : std::true_type {}
 template <>
 inline const EnumDescriptor* GetEnumDescriptor<::anduril::entitymanager::v1::Template>() {
   return ::anduril::entitymanager::v1::Template_descriptor();
-}
-template <>
-struct is_proto_enum<::anduril::entitymanager::v1::Source> : std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor<::anduril::entitymanager::v1::Source>() {
-  return ::anduril::entitymanager::v1::Source_descriptor();
 }
 template <>
 struct is_proto_enum<::anduril::entitymanager::v1::OverrideStatus> : std::true_type {};

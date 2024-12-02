@@ -72,7 +72,7 @@ class TaskManagerAPI final {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::anduril::taskmanager::v1::UpdateStatusResponse>>(PrepareAsyncUpdateStatusRaw(context, request, cq));
     }
     // Stream Tasks ready for RPC Agent execution that match agent selector (ex: entity_ids).
-    // Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC
+    // Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC.
     std::unique_ptr< ::grpc::ClientReaderInterface< ::anduril::taskmanager::v1::ListenAsAgentResponse>> ListenAsAgent(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::ListenAsAgentRequest& request) {
       return std::unique_ptr< ::grpc::ClientReaderInterface< ::anduril::taskmanager::v1::ListenAsAgentResponse>>(ListenAsAgentRaw(context, request));
     }
@@ -98,7 +98,7 @@ class TaskManagerAPI final {
       virtual void UpdateStatus(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::UpdateStatusRequest* request, ::anduril::taskmanager::v1::UpdateStatusResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void UpdateStatus(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::UpdateStatusRequest* request, ::anduril::taskmanager::v1::UpdateStatusResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // Stream Tasks ready for RPC Agent execution that match agent selector (ex: entity_ids).
-      // Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC
+      // Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC.
       virtual void ListenAsAgent(::grpc::ClientContext* context, const ::anduril::taskmanager::v1::ListenAsAgentRequest* request, ::grpc::ClientReadReactor< ::anduril::taskmanager::v1::ListenAsAgentResponse>* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
@@ -212,7 +212,7 @@ class TaskManagerAPI final {
     // Update the status of a Task.
     virtual ::grpc::Status UpdateStatus(::grpc::ServerContext* context, const ::anduril::taskmanager::v1::UpdateStatusRequest* request, ::anduril::taskmanager::v1::UpdateStatusResponse* response);
     // Stream Tasks ready for RPC Agent execution that match agent selector (ex: entity_ids).
-    // Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC
+    // Intended for use by Taskable Agents that need to receive Tasks ready for execution by RPC.
     virtual ::grpc::Status ListenAsAgent(::grpc::ServerContext* context, const ::anduril::taskmanager::v1::ListenAsAgentRequest* request, ::grpc::ServerWriter< ::anduril::taskmanager::v1::ListenAsAgentResponse>* writer);
   };
   template <class BaseClass>

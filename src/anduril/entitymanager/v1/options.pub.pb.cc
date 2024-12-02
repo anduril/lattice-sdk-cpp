@@ -43,15 +43,13 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2foptions_2epu
     "roto\022\030anduril.entitymanager.v1\032 google/p"
     "rotobuf/descriptor.proto:@\n\013overridable\022"
     "\035.google.protobuf.FieldOptions\030\351\007 \001(\010R\013o"
-    "verridable:P\n\023componentIdentifier\022\035.goog"
-    "le.protobuf.FieldOptions\030\352\007 \001(\010R\023compone"
-    "ntIdentifierB\200\002\n\034com.anduril.entitymanag"
-    "er.v1B\017OptionsPubProtoP\001ZMghe.anduril.de"
-    "v/anduril/andurilapis-go/anduril/entitym"
-    "anager/v1;entitymanager\242\002\003AEX\252\002\030Anduril."
-    "Entitymanager.V1\312\002\030Anduril\\Entitymanager"
-    "\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBMetada"
-    "ta\352\002\032Anduril::Entitymanager::V1b\006proto3"
+    "verridableB\200\002\n\034com.anduril.entitymanager"
+    ".v1B\017OptionsPubProtoP\001ZMghe.anduril.dev/"
+    "anduril/andurilapis-go/anduril/entityman"
+    "ager/v1;entitymanager\242\002\003AEX\252\002\030Anduril.En"
+    "titymanager.V1\312\002\030Anduril\\Entitymanager\\V"
+    "1\342\002$Anduril\\Entitymanager\\V1\\GPBMetadata"
+    "\352\002\032Anduril::Entitymanager::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2foptions_2epub_2eproto_deps[1] =
     {
@@ -61,7 +59,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2foptions
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2foptions_2epub_2eproto = {
     false,
     false,
-    519,
+    437,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2foptions_2epub_2eproto,
     "anduril/entitymanager/v1/options.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2foptions_2epub_2eproto_once,
@@ -82,11 +80,6 @@ PROTOBUF_CONSTINIT
         ExtensionIdentifier<::google::protobuf::FieldOptions, ::_pbi::PrimitiveTypeTraits< bool >,
                             8, false>
             overridable(kOverridableFieldNumber, false);
-PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 ::_pbi::
-        ExtensionIdentifier<::google::protobuf::FieldOptions, ::_pbi::PrimitiveTypeTraits< bool >,
-                            8, false>
-            componentIdentifier(kComponentIdentifierFieldNumber, false);
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace v1
 }  // namespace entitymanager
@@ -101,9 +94,6 @@ PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::std::false_type
         (::_pbi::AddDescriptors(&descriptor_table_anduril_2fentitymanager_2fv1_2foptions_2epub_2eproto),
         ::_pbi::ExtensionSet::RegisterExtension(
             &::google::protobuf::FieldOptions::default_instance(), 1001, 8,
-            false, false),
-        ::_pbi::ExtensionSet::RegisterExtension(
-            &::google::protobuf::FieldOptions::default_instance(), 1002, 8,
             false, false),
          ::std::false_type{});
 #include "google/protobuf/port_undef.inc"

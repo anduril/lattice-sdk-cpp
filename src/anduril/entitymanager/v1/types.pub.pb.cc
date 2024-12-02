@@ -82,7 +82,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 }  // namespace v1
 }  // namespace entitymanager
 }  // namespace anduril
-static const ::_pb::EnumDescriptor* file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto[5];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto[4];
 static constexpr const ::_pb::ServiceDescriptor**
     file_level_service_descriptors_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto = nullptr;
 const ::uint32_t
@@ -147,48 +147,27 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2ftypes_2epub_
     "E_INVALID\020\000\022\022\n\016TEMPLATE_TRACK\020\001\022%\n!TEMPL"
     "ATE_SENSOR_POINT_OF_INTEREST\020\002\022\022\n\016TEMPLA"
     "TE_ASSET\020\003\022\020\n\014TEMPLATE_GEO\020\004\022\037\n\033TEMPLATE"
-    "_SIGNAL_OF_INTEREST\020\005*\254\006\n\006Source\022\022\n\016SOUR"
-    "CE_INVALID\020\000\022\022\n\016SOURCE_ANDURIL\020\001\022\022\n\016SOUR"
-    "CE_LINK_16\020\002\022\016\n\nSOURCE_VMF\020\003\022\017\n\013SOURCE_A"
-    "DSB\020\004\022\033\n\027SOURCE_CURSOR_ON_TARGET\020\005\022\020\n\014SO"
-    "URCE_MAXAR\020\006\022\021\n\rSOURCE_MARTAC\020\007\022\024\n\020SOURC"
-    "E_SAILDRONE\020\010\022\021\n\rSOURCE_HE_360\020\t\022\016\n\nSOUR"
-    "CE_OFX\020\n\022\020\n\014SOURCE_BAS_T\020\013\022\023\n\017SOURCE_KIN"
-    "ETICA\020\014\022\017\n\013SOURCE_USER\020\r\022\017\n\013SOURCE_NCCT\020"
-    "\016\022\016\n\nSOURCE_AIS\020\017\022\016\n\nSOURCE_KLV\020\020\022\017\n\013SOU"
-    "RCE_NITF\020\021\022\016\n\nSOURCE_TAK\020\022\022\024\n\020SOURCE_SPI"
-    "RE_AIS\020\023\022\017\n\013SOURCE_SEFI\020\024\022\030\n\024SOURCE_ADSB"
-    "_EXCHANGE\020\025\022\026\n\022SOURCE_LIVE_UA_MAP\020\026\022\023\n\017S"
-    "OURCE_CRUCIBLE\020\027\022\016\n\nSOURCE_IBS\020\030\022\021\n\rSOUR"
-    "CE_ADVANA\020\031\022\023\n\017SOURCE_THRESHER\020\032\022\024\n\020SOUR"
-    "CE_SEATRACKS\020\033\022\017\n\013SOURCE_TASS\020\034\022\027\n\023SOURC"
-    "E_SMART_SENSOR\020\036\022\026\n\022SOURCE_STRIVEWORKS\020\037"
-    "\022\024\n\020SOURCE_L3H_THEIA\020 \022\033\n\027SOURCE_TALON_P"
-    "OWDERHORN\020!\022\033\n\027SOURCE_IDT_VIRTUAL_TWIN\020\""
-    "\022\033\n\027SOURCE_MISSION_AUTONOMY\020#\022\017\n\013SOURCE_"
-    "GCCS\020$\022\022\n\016SOURCE_FOUNDRY\020%\022\017\n\013SOURCE_MID"
-    "B\020&\022\016\n\nSOURCE_FOM\020\'\022\017\n\013SOURCE_GALE\020(*\310\001\n"
-    "\016OverrideStatus\022\033\n\027OVERRIDE_STATUS_INVAL"
-    "ID\020\000\022\033\n\027OVERRIDE_STATUS_APPLIED\020\001\022\033\n\027OVE"
-    "RRIDE_STATUS_PENDING\020\002\022\033\n\027OVERRIDE_STATU"
-    "S_TIMEOUT\020\003\022\034\n\030OVERRIDE_STATUS_REJECTED\020"
-    "\004\022$\n OVERRIDE_STATUS_DELETION_PENDING\020\005*"
-    "`\n\014OverrideType\022\031\n\025OVERRIDE_TYPE_INVALID"
-    "\020\000\022\026\n\022OVERRIDE_TYPE_LIVE\020\001\022\035\n\031OVERRIDE_T"
-    "YPE_POST_EXPIRY\020\002B\376\001\n\034com.anduril.entity"
-    "manager.v1B\rTypesPubProtoP\001ZMghe.anduril"
-    ".dev/anduril/andurilapis-go/anduril/enti"
-    "tymanager/v1;entitymanager\242\002\003AEX\252\002\030Andur"
-    "il.Entitymanager.V1\312\002\030Anduril\\Entitymana"
-    "ger\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBMet"
-    "adata\352\002\032Anduril::Entitymanager::V1b\006prot"
-    "o3"
+    "_SIGNAL_OF_INTEREST\020\005*\310\001\n\016OverrideStatus"
+    "\022\033\n\027OVERRIDE_STATUS_INVALID\020\000\022\033\n\027OVERRID"
+    "E_STATUS_APPLIED\020\001\022\033\n\027OVERRIDE_STATUS_PE"
+    "NDING\020\002\022\033\n\027OVERRIDE_STATUS_TIMEOUT\020\003\022\034\n\030"
+    "OVERRIDE_STATUS_REJECTED\020\004\022$\n OVERRIDE_S"
+    "TATUS_DELETION_PENDING\020\005*`\n\014OverrideType"
+    "\022\031\n\025OVERRIDE_TYPE_INVALID\020\000\022\026\n\022OVERRIDE_"
+    "TYPE_LIVE\020\001\022\035\n\031OVERRIDE_TYPE_POST_EXPIRY"
+    "\020\002B\376\001\n\034com.anduril.entitymanager.v1B\rTyp"
+    "esPubProtoP\001ZMghe.anduril.dev/anduril/an"
+    "durilapis-go/anduril/entitymanager/v1;en"
+    "titymanager\242\002\003AEX\252\002\030Anduril.Entitymanage"
+    "r.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduri"
+    "l\\Entitymanager\\V1\\GPBMetadata\352\002\032Anduril"
+    "::Entitymanager::V1b\006proto3"
 };
 static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto = {
     false,
     false,
-    2442,
+    1627,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto,
     "anduril/entitymanager/v1/types.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto_once,
@@ -222,18 +201,9 @@ PROTOBUF_CONSTINIT const uint32_t Template_internal_data_[] = {
 bool Template_IsValid(int value) {
   return 0 <= value && value <= 5;
 }
-const ::google::protobuf::EnumDescriptor* Source_descriptor() {
-  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto);
-  return file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto[2];
-}
-PROTOBUF_CONSTINIT const uint32_t Source_internal_data_[] = {
-    1900544u, 32u, 4094u, };
-bool Source_IsValid(int value) {
-  return 0 <= value && value <= 40 && ((2198486384639u >> value) & 1) != 0;
-}
 const ::google::protobuf::EnumDescriptor* OverrideStatus_descriptor() {
   ::google::protobuf::internal::AssignDescriptors(&descriptor_table_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto);
-  return file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto[3];
+  return file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto[2];
 }
 PROTOBUF_CONSTINIT const uint32_t OverrideStatus_internal_data_[] = {
     393216u, 0u, };
@@ -242,7 +212,7 @@ bool OverrideStatus_IsValid(int value) {
 }
 const ::google::protobuf::EnumDescriptor* OverrideType_descriptor() {
   ::google::protobuf::internal::AssignDescriptors(&descriptor_table_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto);
-  return file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto[4];
+  return file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto[3];
 }
 PROTOBUF_CONSTINIT const uint32_t OverrideType_internal_data_[] = {
     196608u, 0u, };

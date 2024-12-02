@@ -71,11 +71,6 @@ extern ::google::protobuf::internal::ExtensionIdentifier<
     ::google::protobuf::FieldOptions, ::google::protobuf::internal::PrimitiveTypeTraits< bool >, 8,
     false>
     overridable;
-static const int kComponentIdentifierFieldNumber = 1002;
-extern ::google::protobuf::internal::ExtensionIdentifier<
-    ::google::protobuf::FieldOptions, ::google::protobuf::internal::PrimitiveTypeTraits< bool >, 8,
-    false>
-    componentIdentifier;
 
 // ===================================================================
 

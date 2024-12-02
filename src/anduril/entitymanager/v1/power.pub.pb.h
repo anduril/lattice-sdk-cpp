@@ -892,34 +892,8 @@ class PowerState final
 
   // accessors -------------------------------------------------------
   enum : int {
-    kMessagesFieldNumber = 4,
     kSourceIdToStateFieldNumber = 5,
-    kPowerLevelFieldNumber = 3,
-    kPowerStatusFieldNumber = 1,
-    kPowerTypeFieldNumber = 2,
   };
-  // repeated string messages = 4 [json_name = "messages", deprecated = true];
-  [[deprecated]]  int messages_size() const;
-  private:
-  int _internal_messages_size() const;
-
-  public:
-  [[deprecated]]  void clear_messages() ;
-  [[deprecated]] const std::string& messages(int index) const;
-  [[deprecated]] std::string* mutable_messages(int index);
-  template <typename Arg_ = const std::string&, typename... Args_>
-  [[deprecated]] void set_messages(int index, Arg_&& value, Args_... args);
-  [[deprecated]] std::string* add_messages();
-  template <typename Arg_ = const std::string&, typename... Args_>
-  [[deprecated]] void add_messages(Arg_&& value, Args_... args);
-  [[deprecated]] const ::google::protobuf::RepeatedPtrField<std::string>& messages() const;
-  [[deprecated]] ::google::protobuf::RepeatedPtrField<std::string>* mutable_messages();
-
-  private:
-  const ::google::protobuf::RepeatedPtrField<std::string>& _internal_messages() const;
-  ::google::protobuf::RepeatedPtrField<std::string>* _internal_mutable_messages();
-
-  public:
   // map<string, .anduril.entitymanager.v1.PowerSource> source_id_to_state = 5 [json_name = "sourceIdToState"];
   int source_id_to_state_size() const;
   private:
@@ -935,48 +909,13 @@ class PowerState final
   ::google::protobuf::Map<std::string, ::anduril::entitymanager::v1::PowerSource>* _internal_mutable_source_id_to_state();
 
   public:
-  // .anduril.entitymanager.v1.PowerLevel power_level = 3 [json_name = "powerLevel", deprecated = true];
-  [[deprecated]]  bool has_power_level() const;
-  [[deprecated]]  void clear_power_level() ;
-  [[deprecated]] const ::anduril::entitymanager::v1::PowerLevel& power_level() const;
-  [[deprecated]] PROTOBUF_NODISCARD ::anduril::entitymanager::v1::PowerLevel* release_power_level();
-  [[deprecated]] ::anduril::entitymanager::v1::PowerLevel* mutable_power_level();
-  [[deprecated]] void set_allocated_power_level(::anduril::entitymanager::v1::PowerLevel* value);
-  [[deprecated]] void unsafe_arena_set_allocated_power_level(::anduril::entitymanager::v1::PowerLevel* value);
-  [[deprecated]] ::anduril::entitymanager::v1::PowerLevel* unsafe_arena_release_power_level();
-
-  private:
-  const ::anduril::entitymanager::v1::PowerLevel& _internal_power_level() const;
-  ::anduril::entitymanager::v1::PowerLevel* _internal_mutable_power_level();
-
-  public:
-  // .anduril.entitymanager.v1.PowerStatus power_status = 1 [json_name = "powerStatus", deprecated = true];
-  [[deprecated]]  void clear_power_status() ;
-  [[deprecated]] ::anduril::entitymanager::v1::PowerStatus power_status() const;
-  [[deprecated]] void set_power_status(::anduril::entitymanager::v1::PowerStatus value);
-
-  private:
-  ::anduril::entitymanager::v1::PowerStatus _internal_power_status() const;
-  void _internal_set_power_status(::anduril::entitymanager::v1::PowerStatus value);
-
-  public:
-  // .anduril.entitymanager.v1.PowerType power_type = 2 [json_name = "powerType", deprecated = true];
-  [[deprecated]]  void clear_power_type() ;
-  [[deprecated]] ::anduril::entitymanager::v1::PowerType power_type() const;
-  [[deprecated]] void set_power_type(::anduril::entitymanager::v1::PowerType value);
-
-  private:
-  ::anduril::entitymanager::v1::PowerType _internal_power_type() const;
-  void _internal_set_power_type(::anduril::entitymanager::v1::PowerType value);
-
-  public:
   // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.PowerState)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      2, 5, 3,
-      70, 2>
+      0, 1, 2,
+      62, 2>
       _table_;
 
   friend class ::google::protobuf::MessageLite;
@@ -993,16 +932,11 @@ class PowerState final
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const PowerState& from_msg);
-    ::google::protobuf::internal::HasBits<1> _has_bits_;
-    ::google::protobuf::internal::CachedSize _cached_size_;
-    ::google::protobuf::RepeatedPtrField<std::string> messages_;
     ::google::protobuf::internal::MapField<PowerState_SourceIdToStateEntry_DoNotUse, std::string, ::anduril::entitymanager::v1::PowerSource,
                       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
                       ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>
         source_id_to_state_;
-    ::anduril::entitymanager::v1::PowerLevel* power_level_;
-    int power_status_;
-    int power_type_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -1053,210 +987,6 @@ inline ::google::protobuf::Map<std::string, ::anduril::entitymanager::v1::PowerS
 inline ::google::protobuf::Map<std::string, ::anduril::entitymanager::v1::PowerSource>* PowerState::mutable_source_id_to_state() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_map:anduril.entitymanager.v1.PowerState.source_id_to_state)
   return _internal_mutable_source_id_to_state();
-}
-
-// .anduril.entitymanager.v1.PowerStatus power_status = 1 [json_name = "powerStatus", deprecated = true];
-inline void PowerState::clear_power_status() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.power_status_ = 0;
-}
-inline ::anduril::entitymanager::v1::PowerStatus PowerState::power_status() const {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.PowerState.power_status)
-  return _internal_power_status();
-}
-inline void PowerState::set_power_status(::anduril::entitymanager::v1::PowerStatus value) {
-  _internal_set_power_status(value);
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.PowerState.power_status)
-}
-inline ::anduril::entitymanager::v1::PowerStatus PowerState::_internal_power_status() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return static_cast<::anduril::entitymanager::v1::PowerStatus>(_impl_.power_status_);
-}
-inline void PowerState::_internal_set_power_status(::anduril::entitymanager::v1::PowerStatus value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.power_status_ = value;
-}
-
-// .anduril.entitymanager.v1.PowerType power_type = 2 [json_name = "powerType", deprecated = true];
-inline void PowerState::clear_power_type() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.power_type_ = 0;
-}
-inline ::anduril::entitymanager::v1::PowerType PowerState::power_type() const {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.PowerState.power_type)
-  return _internal_power_type();
-}
-inline void PowerState::set_power_type(::anduril::entitymanager::v1::PowerType value) {
-  _internal_set_power_type(value);
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.PowerState.power_type)
-}
-inline ::anduril::entitymanager::v1::PowerType PowerState::_internal_power_type() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return static_cast<::anduril::entitymanager::v1::PowerType>(_impl_.power_type_);
-}
-inline void PowerState::_internal_set_power_type(::anduril::entitymanager::v1::PowerType value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.power_type_ = value;
-}
-
-// .anduril.entitymanager.v1.PowerLevel power_level = 3 [json_name = "powerLevel", deprecated = true];
-inline bool PowerState::has_power_level() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.power_level_ != nullptr);
-  return value;
-}
-inline void PowerState::clear_power_level() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.power_level_ != nullptr) _impl_.power_level_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline const ::anduril::entitymanager::v1::PowerLevel& PowerState::_internal_power_level() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  const ::anduril::entitymanager::v1::PowerLevel* p = _impl_.power_level_;
-  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::PowerLevel&>(::anduril::entitymanager::v1::_PowerLevel_default_instance_);
-}
-inline const ::anduril::entitymanager::v1::PowerLevel& PowerState::power_level() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.PowerState.power_level)
-  return _internal_power_level();
-}
-inline void PowerState::unsafe_arena_set_allocated_power_level(::anduril::entitymanager::v1::PowerLevel* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.power_level_);
-  }
-  _impl_.power_level_ = reinterpret_cast<::anduril::entitymanager::v1::PowerLevel*>(value);
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.PowerState.power_level)
-}
-inline ::anduril::entitymanager::v1::PowerLevel* PowerState::release_power_level() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::PowerLevel* released = _impl_.power_level_;
-  _impl_.power_level_ = nullptr;
-  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
-    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
-    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-    if (GetArena() == nullptr) {
-      delete old;
-    }
-  } else {
-    if (GetArena() != nullptr) {
-      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
-    }
-  }
-  return released;
-}
-inline ::anduril::entitymanager::v1::PowerLevel* PowerState::unsafe_arena_release_power_level() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.PowerState.power_level)
-
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  ::anduril::entitymanager::v1::PowerLevel* temp = _impl_.power_level_;
-  _impl_.power_level_ = nullptr;
-  return temp;
-}
-inline ::anduril::entitymanager::v1::PowerLevel* PowerState::_internal_mutable_power_level() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.power_level_ == nullptr) {
-    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::PowerLevel>(GetArena());
-    _impl_.power_level_ = reinterpret_cast<::anduril::entitymanager::v1::PowerLevel*>(p);
-  }
-  return _impl_.power_level_;
-}
-inline ::anduril::entitymanager::v1::PowerLevel* PowerState::mutable_power_level() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  ::anduril::entitymanager::v1::PowerLevel* _msg = _internal_mutable_power_level();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.PowerState.power_level)
-  return _msg;
-}
-inline void PowerState::set_allocated_power_level(::anduril::entitymanager::v1::PowerLevel* value) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (message_arena == nullptr) {
-    delete (_impl_.power_level_);
-  }
-
-  if (value != nullptr) {
-    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
-    if (message_arena != submessage_arena) {
-      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
-    }
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-
-  _impl_.power_level_ = reinterpret_cast<::anduril::entitymanager::v1::PowerLevel*>(value);
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.PowerState.power_level)
-}
-
-// repeated string messages = 4 [json_name = "messages", deprecated = true];
-inline int PowerState::_internal_messages_size() const {
-  return _internal_messages().size();
-}
-inline int PowerState::messages_size() const {
-  return _internal_messages_size();
-}
-inline void PowerState::clear_messages() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.messages_.Clear();
-}
-inline std::string* PowerState::add_messages() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  std::string* _s = _internal_mutable_messages()->Add();
-  // @@protoc_insertion_point(field_add_mutable:anduril.entitymanager.v1.PowerState.messages)
-  return _s;
-}
-inline const std::string& PowerState::messages(int index) const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.PowerState.messages)
-  return _internal_messages().Get(index);
-}
-inline std::string* PowerState::mutable_messages(int index)
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.PowerState.messages)
-  return _internal_mutable_messages()->Mutable(index);
-}
-template <typename Arg_, typename... Args_>
-inline void PowerState::set_messages(int index, Arg_&& value, Args_... args) {
-  ::google::protobuf::internal::AssignToString(
-      *_internal_mutable_messages()->Mutable(index),
-      std::forward<Arg_>(value), args... );
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.PowerState.messages)
-}
-template <typename Arg_, typename... Args_>
-inline void PowerState::add_messages(Arg_&& value, Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::google::protobuf::internal::AddToRepeatedPtrField(*_internal_mutable_messages(),
-                               std::forward<Arg_>(value),
-                               args... );
-  // @@protoc_insertion_point(field_add:anduril.entitymanager.v1.PowerState.messages)
-}
-inline const ::google::protobuf::RepeatedPtrField<std::string>&
-PowerState::messages() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_list:anduril.entitymanager.v1.PowerState.messages)
-  return _internal_messages();
-}
-inline ::google::protobuf::RepeatedPtrField<std::string>*
-PowerState::mutable_messages() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_list:anduril.entitymanager.v1.PowerState.messages)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _internal_mutable_messages();
-}
-inline const ::google::protobuf::RepeatedPtrField<std::string>&
-PowerState::_internal_messages() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.messages_;
-}
-inline ::google::protobuf::RepeatedPtrField<std::string>*
-PowerState::_internal_mutable_messages() {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return &_impl_.messages_;
 }
 
 // -------------------------------------------------------------------

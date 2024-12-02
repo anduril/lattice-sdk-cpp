@@ -24,12 +24,9 @@
 #include "google/protobuf/generated_message_util.h"
 #include "google/protobuf/metadata_lite.h"
 #include "google/protobuf/generated_message_reflection.h"
-#include "google/protobuf/message.h"
-#include "google/protobuf/message_lite.h"
 #include "google/protobuf/repeated_field.h"  // IWYU pragma: export
 #include "google/protobuf/extension_set.h"  // IWYU pragma: export
 #include "google/protobuf/generated_enum_reflection.h"
-#include "google/protobuf/unknown_field_set.h"
 // @@protoc_insertion_point(includes)
 
 // Must be included last.
@@ -52,15 +49,6 @@ struct TableStruct_anduril_2fontology_2fv1_2ftype_2epub_2eproto {
 };
 extern const ::google::protobuf::internal::DescriptorTable
     descriptor_table_anduril_2fontology_2fv1_2ftype_2epub_2eproto;
-namespace anduril {
-namespace ontology {
-namespace v1 {
-class ObjectType;
-struct ObjectTypeDefaultTypeInternal;
-extern ObjectTypeDefaultTypeInternal _ObjectType_default_instance_;
-}  // namespace v1
-}  // namespace ontology
-}  // namespace anduril
 namespace google {
 namespace protobuf {
 }  // namespace protobuf
@@ -69,49 +57,6 @@ namespace protobuf {
 namespace anduril {
 namespace ontology {
 namespace v1 {
-enum Class : int {
-  CLASS_UNKNOWN = 0,
-  CLASS_PERSON = 1,
-  CLASS_CAR = 2,
-  CLASS_ANIMAL = 3,
-  CLASS_AIR_VEHICLE = 4,
-  CLASS_BICYCLE = 5,
-  CLASS_WATER_VEHICLE = 6,
-  CLASS_UNKNOWN_VEHICLE = 7,
-  CLASS_MISSILE = 8,
-  CLASS_UNKNOWN_AIR_VEHICLE = 9,
-  CLASS_BIRD = 10,
-  CLASS_BACKGROUND = 11,
-  Class_INT_MIN_SENTINEL_DO_NOT_USE_ =
-      std::numeric_limits<::int32_t>::min(),
-  Class_INT_MAX_SENTINEL_DO_NOT_USE_ =
-      std::numeric_limits<::int32_t>::max(),
-};
-
-bool Class_IsValid(int value);
-extern const uint32_t Class_internal_data_[];
-constexpr Class Class_MIN = static_cast<Class>(0);
-constexpr Class Class_MAX = static_cast<Class>(11);
-constexpr int Class_ARRAYSIZE = 11 + 1;
-const ::google::protobuf::EnumDescriptor*
-Class_descriptor();
-template <typename T>
-const std::string& Class_Name(T value) {
-  static_assert(std::is_same<T, Class>::value ||
-                    std::is_integral<T>::value,
-                "Incorrect type passed to Class_Name().");
-  return Class_Name(static_cast<Class>(value));
-}
-template <>
-inline const std::string& Class_Name(Class value) {
-  return ::google::protobuf::internal::NameOfDenseEnum<Class_descriptor,
-                                                 0, 11>(
-      static_cast<int>(value));
-}
-inline bool Class_Parse(absl::string_view name, Class* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<Class>(
-      Class_descriptor(), name, value);
-}
 enum Disposition : int {
   DISPOSITION_UNKNOWN = 0,
   DISPOSITION_FRIENDLY = 1,
@@ -283,7 +228,7 @@ enum Nationality : int {
   NATIONALITY_SWEDEN = 43,
   NATIONALITY_SWITZERLAND = 44,
   NATIONALITY_SYRIAN_ARAB_REPUBLIC = 61,
-  NATIONALITY_TAIWAN_PROVINCE_OF_CHINA = 73,
+  NATIONALITY_TAIWAN = 73,
   NATIONALITY_TAJIKISTAN = 45,
   NATIONALITY_THAILAND = 70,
   NATIONALITY_THE_FORMER_YUGOSLAV_REPUBLIC_OF_MACEDONIA = 46,
@@ -336,221 +281,6 @@ inline bool Nationality_Parse(absl::string_view name, Nationality* value) {
 // ===================================================================
 
 
-// -------------------------------------------------------------------
-
-class ObjectType final
-    : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:anduril.ontology.v1.ObjectType) */ {
- public:
-  inline ObjectType() : ObjectType(nullptr) {}
-  ~ObjectType() PROTOBUF_FINAL;
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-  void operator delete(ObjectType* msg, std::destroying_delete_t) {
-    SharedDtor(*msg);
-    ::google::protobuf::internal::SizedDelete(msg, sizeof(ObjectType));
-  }
-#endif
-
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR ObjectType(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline ObjectType(const ObjectType& from) : ObjectType(nullptr, from) {}
-  inline ObjectType(ObjectType&& from) noexcept
-      : ObjectType(nullptr, std::move(from)) {}
-  inline ObjectType& operator=(const ObjectType& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline ObjectType& operator=(ObjectType&& from) noexcept {
-    if (this == &from) return *this;
-    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const ObjectType& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const ObjectType* internal_default_instance() {
-    return reinterpret_cast<const ObjectType*>(
-        &_ObjectType_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 0;
-  friend void swap(ObjectType& a, ObjectType& b) { a.Swap(&b); }
-  inline void Swap(ObjectType* other) {
-    if (other == this) return;
-    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(ObjectType* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  ObjectType* New(::google::protobuf::Arena* arena = nullptr) const {
-    return ::google::protobuf::Message::DefaultConstruct<ObjectType>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const ObjectType& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const ObjectType& from) { ObjectType::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  static void SharedDtor(MessageLite& self);
-  void InternalSwap(ObjectType* other);
- private:
-  template <typename T>
-  friend ::absl::string_view(
-      ::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "anduril.ontology.v1.ObjectType"; }
-
- protected:
-  explicit ObjectType(::google::protobuf::Arena* arena);
-  ObjectType(::google::protobuf::Arena* arena, const ObjectType& from);
-  ObjectType(::google::protobuf::Arena* arena, ObjectType&& from) noexcept
-      : ObjectType(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static void* PlacementNew_(const void*, void* mem,
-                             ::google::protobuf::Arena* arena);
-  static constexpr auto InternalNewImpl_();
-  static const ::google::protobuf::internal::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kClassFieldNumber = 1,
-    kDispositionFieldNumber = 2,
-    kEnvironmentFieldNumber = 3,
-  };
-  // .anduril.ontology.v1.Class class = 1 [json_name = "class"];
-  void clear_class_() ;
-  ::anduril::ontology::v1::Class class_() const;
-  void set_class_(::anduril::ontology::v1::Class value);
-
-  private:
-  ::anduril::ontology::v1::Class _internal_class_() const;
-  void _internal_set_class_(::anduril::ontology::v1::Class value);
-
-  public:
-  // .anduril.ontology.v1.Disposition disposition = 2 [json_name = "disposition"];
-  void clear_disposition() ;
-  ::anduril::ontology::v1::Disposition disposition() const;
-  void set_disposition(::anduril::ontology::v1::Disposition value);
-
-  private:
-  ::anduril::ontology::v1::Disposition _internal_disposition() const;
-  void _internal_set_disposition(::anduril::ontology::v1::Disposition value);
-
-  public:
-  // .anduril.ontology.v1.Environment environment = 3 [json_name = "environment"];
-  void clear_environment() ;
-  ::anduril::ontology::v1::Environment environment() const;
-  void set_environment(::anduril::ontology::v1::Environment value);
-
-  private:
-  ::anduril::ontology::v1::Environment _internal_environment() const;
-  void _internal_set_environment(::anduril::ontology::v1::Environment value);
-
-  public:
-  // @@protoc_insertion_point(class_scope:anduril.ontology.v1.ObjectType)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      2, 3, 0,
-      0, 2>
-      _table_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const ObjectType& from_msg);
-    int class__;
-    int disposition_;
-    int environment_;
-    ::google::protobuf::internal::CachedSize _cached_size_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_anduril_2fontology_2fv1_2ftype_2epub_2eproto;
-};
 
 // ===================================================================
 
@@ -564,76 +294,6 @@ class ObjectType final
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// ObjectType
-
-// .anduril.ontology.v1.Class class = 1 [json_name = "class"];
-inline void ObjectType::clear_class_() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.class__ = 0;
-}
-inline ::anduril::ontology::v1::Class ObjectType::class_() const {
-  // @@protoc_insertion_point(field_get:anduril.ontology.v1.ObjectType.class)
-  return _internal_class_();
-}
-inline void ObjectType::set_class_(::anduril::ontology::v1::Class value) {
-  _internal_set_class_(value);
-  // @@protoc_insertion_point(field_set:anduril.ontology.v1.ObjectType.class)
-}
-inline ::anduril::ontology::v1::Class ObjectType::_internal_class_() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return static_cast<::anduril::ontology::v1::Class>(_impl_.class__);
-}
-inline void ObjectType::_internal_set_class_(::anduril::ontology::v1::Class value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.class__ = value;
-}
-
-// .anduril.ontology.v1.Disposition disposition = 2 [json_name = "disposition"];
-inline void ObjectType::clear_disposition() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.disposition_ = 0;
-}
-inline ::anduril::ontology::v1::Disposition ObjectType::disposition() const {
-  // @@protoc_insertion_point(field_get:anduril.ontology.v1.ObjectType.disposition)
-  return _internal_disposition();
-}
-inline void ObjectType::set_disposition(::anduril::ontology::v1::Disposition value) {
-  _internal_set_disposition(value);
-  // @@protoc_insertion_point(field_set:anduril.ontology.v1.ObjectType.disposition)
-}
-inline ::anduril::ontology::v1::Disposition ObjectType::_internal_disposition() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return static_cast<::anduril::ontology::v1::Disposition>(_impl_.disposition_);
-}
-inline void ObjectType::_internal_set_disposition(::anduril::ontology::v1::Disposition value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.disposition_ = value;
-}
-
-// .anduril.ontology.v1.Environment environment = 3 [json_name = "environment"];
-inline void ObjectType::clear_environment() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.environment_ = 0;
-}
-inline ::anduril::ontology::v1::Environment ObjectType::environment() const {
-  // @@protoc_insertion_point(field_get:anduril.ontology.v1.ObjectType.environment)
-  return _internal_environment();
-}
-inline void ObjectType::set_environment(::anduril::ontology::v1::Environment value) {
-  _internal_set_environment(value);
-  // @@protoc_insertion_point(field_set:anduril.ontology.v1.ObjectType.environment)
-}
-inline ::anduril::ontology::v1::Environment ObjectType::_internal_environment() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return static_cast<::anduril::ontology::v1::Environment>(_impl_.environment_);
-}
-inline void ObjectType::_internal_set_environment(::anduril::ontology::v1::Environment value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.environment_ = value;
-}
-
 #ifdef __GNUC__
 #pragma GCC diagnostic pop
 #endif  // __GNUC__
@@ -647,12 +307,6 @@ inline void ObjectType::_internal_set_environment(::anduril::ontology::v1::Envir
 namespace google {
 namespace protobuf {
 
-template <>
-struct is_proto_enum<::anduril::ontology::v1::Class> : std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor<::anduril::ontology::v1::Class>() {
-  return ::anduril::ontology::v1::Class_descriptor();
-}
 template <>
 struct is_proto_enum<::anduril::ontology::v1::Disposition> : std::true_type {};
 template <>

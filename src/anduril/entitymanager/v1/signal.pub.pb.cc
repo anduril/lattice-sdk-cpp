@@ -98,33 +98,6 @@ struct MeasurementDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MeasurementDefaultTypeInternal _Measurement_default_instance_;
 
-inline constexpr Encoding::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        chip_hop_rate_num_sec_{nullptr},
-        hop_dwell_time_sec_{nullptr},
-        baud_rate_num_sec_{nullptr} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR Encoding::Encoding(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct EncodingDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR EncodingDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~EncodingDefaultTypeInternal() {}
-  union {
-    Encoding _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 EncodingDefaultTypeInternal _Encoding_default_instance_;
-
 inline constexpr EmitterNotation::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -153,32 +126,6 @@ struct EmitterNotationDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 EmitterNotationDefaultTypeInternal _EmitterNotation_default_instance_;
 
-inline constexpr RangeBearing::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        range_m_{nullptr},
-        range_angle_d_{nullptr} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR RangeBearing::RangeBearing(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct RangeBearingDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR RangeBearingDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~RangeBearingDefaultTypeInternal() {}
-  union {
-    RangeBearing _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RangeBearingDefaultTypeInternal _RangeBearing_default_instance_;
-
 inline constexpr PulseRepetitionInterval::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -203,36 +150,6 @@ struct PulseRepetitionIntervalDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PulseRepetitionIntervalDefaultTypeInternal _PulseRepetitionInterval_default_instance_;
-
-inline constexpr Modulation::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        interpulse_modulation_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        symbols_{nullptr},
-        encoding_{nullptr},
-        modulation_type_{static_cast< ::anduril::entitymanager::v1::ModulationType >(0)} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR Modulation::Modulation(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct ModulationDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR ModulationDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~ModulationDefaultTypeInternal() {}
-  union {
-    Modulation _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModulationDefaultTypeInternal _Modulation_default_instance_;
 
 inline constexpr Frequency::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -288,8 +205,6 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr LineOfBearing::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
-        origin_{nullptr},
-        range_bearing_{nullptr},
         angle_of_arrival_{nullptr},
         detection_range_{},
         _oneof_case_{} {}
@@ -348,7 +263,6 @@ inline constexpr Signal::Impl_::Impl_(
         signal_to_noise_ratio_{nullptr},
         pulse_width_s_{nullptr},
         pulse_repetition_interval_{nullptr},
-        modulation_{nullptr},
         scan_characteristics_{nullptr},
         frequency_measurement_{},
         report_{},
@@ -376,7 +290,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 }  // namespace v1
 }  // namespace entitymanager
 }  // namespace anduril
-static const ::_pb::EnumDescriptor* file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto[2];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto[1];
 static constexpr const ::_pb::ServiceDescriptor**
     file_level_service_descriptors_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto = nullptr;
 const ::uint32_t
@@ -399,7 +313,6 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Signal, _impl_.emitter_notations_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Signal, _impl_.pulse_width_s_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Signal, _impl_.pulse_repetition_interval_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Signal, _impl_.modulation_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Signal, _impl_.scan_characteristics_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Signal, _impl_.frequency_measurement_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Signal, _impl_.report_),
@@ -413,7 +326,6 @@ const ::uint32_t
         2,
         3,
         4,
-        5,
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::EmitterNotation, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::EmitterNotation, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -468,15 +380,11 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::LineOfBearing, _impl_.origin_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::LineOfBearing, _impl_.range_bearing_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::LineOfBearing, _impl_.angle_of_arrival_),
         ::_pbi::kInvalidFieldOffsetTag,
         ::_pbi::kInvalidFieldOffsetTag,
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::LineOfBearing, _impl_.detection_range_),
         0,
-        1,
-        2,
         ~0u,
         ~0u,
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::AngleOfArrival, _impl_._has_bits_),
@@ -499,18 +407,6 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RangeBearing, _impl_._has_bits_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RangeBearing, _internal_metadata_),
-        ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
-        ~0u,  // no _weak_field_map_
-        ~0u,  // no _inlined_string_donated_
-        ~0u,  // no _split_
-        ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RangeBearing, _impl_.range_m_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RangeBearing, _impl_.range_angle_d_),
-        0,
-        1,
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::PulseRepetitionInterval, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::PulseRepetitionInterval, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -521,36 +417,6 @@ const ::uint32_t
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::PulseRepetitionInterval, _impl_.pulse_repetition_interval_s_),
         0,
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Modulation, _impl_._has_bits_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Modulation, _internal_metadata_),
-        ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
-        ~0u,  // no _weak_field_map_
-        ~0u,  // no _inlined_string_donated_
-        ~0u,  // no _split_
-        ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Modulation, _impl_.modulation_type_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Modulation, _impl_.symbols_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Modulation, _impl_.interpulse_modulation_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Modulation, _impl_.encoding_),
-        ~0u,
-        0,
-        ~0u,
-        1,
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Encoding, _impl_._has_bits_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Encoding, _internal_metadata_),
-        ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
-        ~0u,  // no _weak_field_map_
-        ~0u,  // no _inlined_string_donated_
-        ~0u,  // no _split_
-        ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Encoding, _impl_.chip_hop_rate_num_sec_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Encoding, _impl_.hop_dwell_time_sec_),
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Encoding, _impl_.baud_rate_num_sec_),
-        0,
-        1,
-        2,
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::ScanCharacteristics, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::ScanCharacteristics, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -567,19 +433,16 @@ const ::uint32_t
 
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-        {0, 21, -1, sizeof(::anduril::entitymanager::v1::Signal)},
-        {32, 42, -1, sizeof(::anduril::entitymanager::v1::EmitterNotation)},
-        {44, 54, -1, sizeof(::anduril::entitymanager::v1::Measurement)},
-        {56, 65, -1, sizeof(::anduril::entitymanager::v1::Frequency)},
-        {66, 76, -1, sizeof(::anduril::entitymanager::v1::FrequencyRange)},
-        {78, 92, -1, sizeof(::anduril::entitymanager::v1::LineOfBearing)},
-        {97, 107, -1, sizeof(::anduril::entitymanager::v1::AngleOfArrival)},
-        {109, -1, -1, sizeof(::anduril::entitymanager::v1::Fixed)},
-        {117, 127, -1, sizeof(::anduril::entitymanager::v1::RangeBearing)},
-        {129, 138, -1, sizeof(::anduril::entitymanager::v1::PulseRepetitionInterval)},
-        {139, 151, -1, sizeof(::anduril::entitymanager::v1::Modulation)},
-        {155, 166, -1, sizeof(::anduril::entitymanager::v1::Encoding)},
-        {169, 179, -1, sizeof(::anduril::entitymanager::v1::ScanCharacteristics)},
+        {0, 20, -1, sizeof(::anduril::entitymanager::v1::Signal)},
+        {30, 40, -1, sizeof(::anduril::entitymanager::v1::EmitterNotation)},
+        {42, 52, -1, sizeof(::anduril::entitymanager::v1::Measurement)},
+        {54, 63, -1, sizeof(::anduril::entitymanager::v1::Frequency)},
+        {64, 74, -1, sizeof(::anduril::entitymanager::v1::FrequencyRange)},
+        {76, 88, -1, sizeof(::anduril::entitymanager::v1::LineOfBearing)},
+        {91, 101, -1, sizeof(::anduril::entitymanager::v1::AngleOfArrival)},
+        {103, -1, -1, sizeof(::anduril::entitymanager::v1::Fixed)},
+        {111, 120, -1, sizeof(::anduril::entitymanager::v1::PulseRepetitionInterval)},
+        {121, 131, -1, sizeof(::anduril::entitymanager::v1::ScanCharacteristics)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::entitymanager::v1::_Signal_default_instance_._instance,
@@ -590,170 +453,92 @@ static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::entitymanager::v1::_LineOfBearing_default_instance_._instance,
     &::anduril::entitymanager::v1::_AngleOfArrival_default_instance_._instance,
     &::anduril::entitymanager::v1::_Fixed_default_instance_._instance,
-    &::anduril::entitymanager::v1::_RangeBearing_default_instance_._instance,
     &::anduril::entitymanager::v1::_PulseRepetitionInterval_default_instance_._instance,
-    &::anduril::entitymanager::v1::_Modulation_default_instance_._instance,
-    &::anduril::entitymanager::v1::_Encoding_default_instance_._instance,
     &::anduril::entitymanager::v1::_ScanCharacteristics_default_instance_._instance,
 };
 const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
     "\n)anduril/entitymanager/v1/signal.pub.pr"
-    "oto\022\030anduril.entitymanager.v1\032+anduril/e"
-    "ntitymanager/v1/location.pub.proto\032\035andu"
-    "ril/type/coords.pub.proto\032\036google/protob"
-    "uf/wrappers.proto\"\241\007\n\006Signal\022P\n\020frequenc"
-    "y_center\030\001 \001(\0132#.anduril.entitymanager.v"
-    "1.FrequencyH\000R\017frequencyCenter\022S\n\017freque"
-    "ncy_range\030\002 \001(\0132(.anduril.entitymanager."
-    "v1.FrequencyRangeH\000R\016frequencyRange\022\?\n\014b"
-    "andwidth_hz\030\003 \001(\0132\034.google.protobuf.Doub"
-    "leValueR\013bandwidthHz\022O\n\025signal_to_noise_"
-    "ratio\030\004 \001(\0132\034.google.protobuf.DoubleValu"
-    "eR\022signalToNoiseRatio\022Q\n\017line_of_bearing"
-    "\030\005 \001(\0132\'.anduril.entitymanager.v1.LineOf"
-    "BearingH\001R\rlineOfBearing\0227\n\005fixed\030\006 \001(\0132"
-    "\037.anduril.entitymanager.v1.FixedH\001R\005fixe"
-    "d\022V\n\021emitter_notations\030\007 \003(\0132).anduril.e"
-    "ntitymanager.v1.EmitterNotationR\020emitter"
-    "Notations\022@\n\rpulse_width_s\030\010 \001(\0132\034.googl"
-    "e.protobuf.DoubleValueR\013pulseWidthS\022m\n\031p"
-    "ulse_repetition_interval\030\t \001(\01321.anduril"
-    ".entitymanager.v1.PulseRepetitionInterva"
-    "lR\027pulseRepetitionInterval\022D\n\nmodulation"
-    "\030\n \001(\0132$.anduril.entitymanager.v1.Modula"
-    "tionR\nmodulation\022`\n\024scan_characteristics"
-    "\030\013 \001(\0132-.anduril.entitymanager.v1.ScanCh"
-    "aracteristicsR\023scanCharacteristicsB\027\n\025fr"
-    "equency_measurementB\010\n\006report\"z\n\017Emitter"
-    "Notation\022)\n\020emitter_notation\030\001 \001(\tR\017emit"
-    "terNotation\022<\n\nconfidence\030\002 \001(\0132\034.google"
-    ".protobuf.DoubleValueR\nconfidence\"u\n\013Mea"
-    "surement\0222\n\005value\030\001 \001(\0132\034.google.protobu"
-    "f.DoubleValueR\005value\0222\n\005sigma\030\002 \001(\0132\034.go"
-    "ogle.protobuf.DoubleValueR\005sigma\"U\n\tFreq"
-    "uency\022H\n\014frequency_hz\030\001 \001(\0132%.anduril.en"
-    "titymanager.v1.MeasurementR\013frequencyHz\""
-    "\276\001\n\016FrequencyRange\022U\n\024minimum_frequency_"
-    "hz\030\001 \001(\0132#.anduril.entitymanager.v1.Freq"
-    "uencyR\022minimumFrequencyHz\022U\n\024maximum_fre"
-    "quency_hz\030\002 \001(\0132#.anduril.entitymanager."
-    "v1.FrequencyR\022maximumFrequencyHz\"\243\003\n\rLin"
-    "eOfBearing\022>\n\006origin\030\001 \001(\0132\".anduril.ent"
-    "itymanager.v1.PositionB\002\030\001R\006origin\022O\n\rra"
-    "nge_bearing\030\002 \001(\0132&.anduril.entitymanage"
-    "r.v1.RangeBearingB\002\030\001R\014rangeBearing\022R\n\020a"
-    "ngle_of_arrival\030\003 \001(\0132(.anduril.entityma"
-    "nager.v1.AngleOfArrivalR\016angleOfArrival\022"
-    "Q\n\020range_estimate_m\030\004 \001(\0132%.anduril.enti"
-    "tymanager.v1.MeasurementH\000R\016rangeEstimat"
-    "eM\022G\n\013max_range_m\030\005 \001(\0132%.anduril.entity"
-    "manager.v1.MeasurementH\000R\tmaxRangeMB\021\n\017d"
-    "etection_range\"\251\001\n\016AngleOfArrival\0227\n\rrel"
-    "ative_pose\030\001 \001(\0132\022.anduril.type.PoseR\014re"
-    "lativePose\022^\n!bearing_elevation_covarian"
-    "ce_rad2\030\002 \001(\0132\023.anduril.type.TMat2R\036bear"
-    "ingElevationCovarianceRad2\"\007\n\005Fixed\"\231\001\n\014"
-    "RangeBearing\022>\n\007range_m\030\001 \001(\0132%.anduril."
-    "entitymanager.v1.MeasurementR\006rangeM\022I\n\r"
-    "range_angle_d\030\002 \001(\0132%.anduril.entitymana"
-    "ger.v1.MeasurementR\013rangeAngleD\"\177\n\027Pulse"
-    "RepetitionInterval\022d\n\033pulse_repetition_i"
-    "nterval_s\030\001 \001(\0132%.anduril.entitymanager."
-    "v1.MeasurementR\030pulseRepetitionIntervalS"
-    "\"\213\002\n\nModulation\022Q\n\017modulation_type\030\001 \001(\016"
-    "2(.anduril.entitymanager.v1.ModulationTy"
-    "peR\016modulationType\0225\n\007symbols\030\002 \001(\0132\033.go"
-    "ogle.protobuf.Int32ValueR\007symbols\0223\n\025int"
-    "erpulse_modulation\030\003 \001(\tR\024interpulseModu"
-    "lation\022>\n\010encoding\030\004 \001(\0132\".anduril.entit"
-    "ymanager.v1.EncodingR\010encoding\"\356\001\n\010Encod"
-    "ing\022N\n\025chip_hop_rate_num_sec\030\001 \001(\0132\034.goo"
-    "gle.protobuf.DoubleValueR\021chipHopRateNum"
-    "Sec\022I\n\022hop_dwell_time_sec\030\002 \001(\0132\034.google"
-    ".protobuf.DoubleValueR\017hopDwellTimeSec\022G"
-    "\n\021baud_rate_num_sec\030\003 \001(\0132\034.google.proto"
-    "buf.DoubleValueR\016baudRateNumSec\"\230\001\n\023Scan"
-    "Characteristics\022\?\n\tscan_type\030\001 \001(\0162\".and"
-    "uril.entitymanager.v1.ScanTypeR\010scanType"
-    "\022@\n\rscan_period_s\030\002 \001(\0132\034.google.protobu"
-    "f.DoubleValueR\013scanPeriodS*\360\017\n\016Modulatio"
-    "nType\022\033\n\027MODULATION_TYPE_INVALID\020\000\022\035\n\031MO"
-    "DULATION_TYPE_AMPLITUDE\020\001\022\035\n\031MODULATION_"
-    "TYPE_FREQUENCY\020\002\022\031\n\025MODULATION_TYPE_PHAS"
-    "E\020\003\022\032\n\026MODULATION_TYPE_SPACED\020\004\022*\n&MODUL"
-    "ATION_TYPE_AMPLITUDE_SHIFT_KEYING\020\005\022*\n&M"
-    "ODULATION_TYPE_FREQUENCY_SHIFT_KEYING\020\006\022"
-    "&\n\"MODULATION_TYPE_PHASE_SHIFT_KEYING\020\007\022"
-    "(\n$MODULATION_TYPE_MINIMUM_SHIFT_KEYING\020"
-    "\010\0221\n-MODULATION_TYPE_MINIMUM_SHIFT_KEYIN"
-    "G_GAUSSIAN\020\t\022*\n&MODULATION_TYPE_SINGLE_S"
-    "IDE_BAND_UPPER\020\n\022*\n&MODULATION_TYPE_SING"
-    "LE_SIDE_BAND_LOWER\020\013\0221\n-MODULATION_TYPE_"
-    "SINGLE_SIDE_BAND_FULL_CARRIER\020\014\0227\n3MODUL"
-    "ATION_TYPE_SINGLE_SIDE_BAND_SUPPRESSED_C"
-    "ARRIER\020\r\0224\n0MODULATION_TYPE_SINGLE_SIDE_"
-    "BAND_REDUCED_CARRIER\020\016\0224\n0MODULATION_TYP"
-    "E_SINGLE_SIDE_BAND_WITHOUT_CARRIER\020\017\022/\n+"
-    "MODULATION_TYPE_DUAL_SIDE_BAND_FULL_CARR"
-    "IER\020\020\0225\n1MODULATION_TYPE_DUAL_SIDE_BAND_"
-    "SUPPRESSED_CARRIER\020\021\0222\n.MODULATION_TYPE_"
-    "DUAL_SIDE_BAND_REDUCED_CARRIER\020\022\0222\n.MODU"
-    "LATION_TYPE_DUAL_SIDE_BAND_WITHOUT_CARRI"
-    "ER\020\023\022)\n%MODULATION_TYPE_INDEPENDENT_SIDE"
-    "_BAND\020\024\022\'\n#MODULATION_TYPE_VESTIGIAL_SID"
-    "E_BAND\020\025\022!\n\035MODULATION_TYPE_ON_OFF_KEYIN"
-    "G\020\026\0220\n,MODULATION_TYPE_MULTI_FREQUENCY_S"
-    "HIFT_KEYING\020\027\0220\n,MODULATION_TYPE_AUDIO_F"
-    "REQUENCY_SHIFT_KEYING\020\030\022;\n7MODULATION_TY"
-    "PE_CONTINUOUS_PHASE_FREQUENCY_SHIFT_KEYI"
-    "NG\020\031\022(\n$MODULATION_TYPE_C_PHASE_SHIFT_KE"
-    "YING\020\032\022D\n@MODULATION_TYPE_DIFFERENTIALLY"
-    "_ENCODED_BINARY_PHASE_SHIFT_KEYING\020\033\022H\nD"
-    "MODULATION_TYPE_DIFFERENTIALLY_ENCODED_Q"
-    "UADRATURE_PHASE_SHIFT_KEYING\020\034\0228\n4MODULA"
-    "TION_TYPE_OFFSET_QUADRATURE_PHASE_SHIFT_"
-    "KEYING\020\035\0223\n/MODULATION_TYPE_DIFFERENTIAL"
-    "_PHASE_SHIFT_KEYING\020\036\0226\n2MODULATION_TYPE"
-    "_PI_4_QUADRATURE_PHASE_SHIFT_KEYING\020\037\022E\n"
-    "AMODULATION_TYPE_STACKED_OVERLAPPING_QUA"
-    "DRATURE_PHASE_SHIFT_KEYING\020 \0223\n/MODULATI"
-    "ON_TYPE_F_QUADRATURE_PHASE_SHIFT_KEYING\020"
-    "!\022/\n+MODULATION_TYPE_QUADRATURE_AMPLITUD"
-    "E_ANALOG\020\"\0220\n,MODULATION_TYPE_QUADRATURE"
-    "_AMPLITUDE_DIGITAL\020#\022$\n MODULATION_TYPE_"
-    "CONTINUOUS_PHASE\020$\022\"\n\036MODULATION_TYPE_PU"
-    "LSE_POSITION\020%\022 \n\034MODULATION_TYPE_TRELLI"
-    "S_CODE\020&\022>\n:MODULATION_TYPE_ORTHOGONAL_F"
-    "REQUENCY_DIVISION_MULTIPLEXING\020\'\0225\n1MODU"
-    "LATION_TYPE_FREQUENCY_HOPPING_SPREAD_SPE"
-    "CTRUM\020(\0224\n0MODULATION_TYPE_DIGITAL_SEQUE"
-    "NCE_SPREAD_SPECTRUM\020)*\274\004\n\010ScanType\022\025\n\021SC"
-    "AN_TYPE_INVALID\020\000\022\026\n\022SCAN_TYPE_CIRCULAR\020"
-    "\001\022-\n)SCAN_TYPE_BIDIRECTIONAL_HORIZONTAL_"
-    "SECTOR\020\002\022+\n\'SCAN_TYPE_BIDIRECTIONAL_VERT"
-    "ICAL_SECTOR\020\003\022\032\n\026SCAN_TYPE_NON_SCANNING\020"
-    "\004\022\027\n\023SCAN_TYPE_IRREGULAR\020\005\022\025\n\021SCAN_TYPE_"
-    "CONICAL\020\006\022\034\n\030SCAN_TYPE_LOBE_SWITCHING\020\007\022"
-    "\024\n\020SCAN_TYPE_RASTER\020\010\022&\n\"SCAN_TYPE_CIRCU"
-    "LAR_VERTICAL_SECTOR\020\t\022\036\n\032SCAN_TYPE_CIRCU"
-    "LAR_CONICAL\020\n\022\034\n\030SCAN_TYPE_SECTOR_CONICA"
-    "L\020\013\022\030\n\024SCAN_TYPE_AGILE_BEAM\020\014\022,\n(SCAN_TY"
-    "PE_UNIDIRECTIONAL_VERTICAL_SECTOR\020\r\022.\n*S"
-    "CAN_TYPE_UNIDIRECTIONAL_HORIZONTAL_SECTO"
-    "R\020\016\022#\n\037SCAN_TYPE_UNIDIRECTIONAL_SECTOR\020\017"
-    "\022\"\n\036SCAN_TYPE_BIDIRECTIONAL_SECTOR\020\020B\377\001\n"
-    "\034com.anduril.entitymanager.v1B\016SignalPub"
-    "ProtoP\001ZMghe.anduril.dev/anduril/anduril"
-    "apis-go/anduril/entitymanager/v1;entitym"
-    "anager\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312"
-    "\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\Ent"
-    "itymanager\\V1\\GPBMetadata\352\002\032Anduril::Ent"
-    "itymanager::V1b\006proto3"
+    "oto\022\030anduril.entitymanager.v1\032\035anduril/t"
+    "ype/coords.pub.proto\032\036google/protobuf/wr"
+    "appers.proto\"\341\006\n\006Signal\022P\n\020frequency_cen"
+    "ter\030\001 \001(\0132#.anduril.entitymanager.v1.Fre"
+    "quencyH\000R\017frequencyCenter\022S\n\017frequency_r"
+    "ange\030\002 \001(\0132(.anduril.entitymanager.v1.Fr"
+    "equencyRangeH\000R\016frequencyRange\022\?\n\014bandwi"
+    "dth_hz\030\003 \001(\0132\034.google.protobuf.DoubleVal"
+    "ueR\013bandwidthHz\022O\n\025signal_to_noise_ratio"
+    "\030\004 \001(\0132\034.google.protobuf.DoubleValueR\022si"
+    "gnalToNoiseRatio\022Q\n\017line_of_bearing\030\005 \001("
+    "\0132\'.anduril.entitymanager.v1.LineOfBeari"
+    "ngH\001R\rlineOfBearing\0227\n\005fixed\030\006 \001(\0132\037.and"
+    "uril.entitymanager.v1.FixedH\001R\005fixed\022V\n\021"
+    "emitter_notations\030\007 \003(\0132).anduril.entity"
+    "manager.v1.EmitterNotationR\020emitterNotat"
+    "ions\022@\n\rpulse_width_s\030\010 \001(\0132\034.google.pro"
+    "tobuf.DoubleValueR\013pulseWidthS\022m\n\031pulse_"
+    "repetition_interval\030\t \001(\01321.anduril.enti"
+    "tymanager.v1.PulseRepetitionIntervalR\027pu"
+    "lseRepetitionInterval\022`\n\024scan_characteri"
+    "stics\030\013 \001(\0132-.anduril.entitymanager.v1.S"
+    "canCharacteristicsR\023scanCharacteristicsB"
+    "\027\n\025frequency_measurementB\010\n\006reportJ\004\010\n\020\013"
+    "\"z\n\017EmitterNotation\022)\n\020emitter_notation\030"
+    "\001 \001(\tR\017emitterNotation\022<\n\nconfidence\030\002 \001"
+    "(\0132\034.google.protobuf.DoubleValueR\nconfid"
+    "ence\"u\n\013Measurement\0222\n\005value\030\001 \001(\0132\034.goo"
+    "gle.protobuf.DoubleValueR\005value\0222\n\005sigma"
+    "\030\002 \001(\0132\034.google.protobuf.DoubleValueR\005si"
+    "gma\"U\n\tFrequency\022H\n\014frequency_hz\030\001 \001(\0132%"
+    ".anduril.entitymanager.v1.MeasurementR\013f"
+    "requencyHz\"\276\001\n\016FrequencyRange\022U\n\024minimum"
+    "_frequency_hz\030\001 \001(\0132#.anduril.entitymana"
+    "ger.v1.FrequencyR\022minimumFrequencyHz\022U\n\024"
+    "maximum_frequency_hz\030\002 \001(\0132#.anduril.ent"
+    "itymanager.v1.FrequencyR\022maximumFrequenc"
+    "yHz\"\236\002\n\rLineOfBearing\022R\n\020angle_of_arriva"
+    "l\030\003 \001(\0132(.anduril.entitymanager.v1.Angle"
+    "OfArrivalR\016angleOfArrival\022Q\n\020range_estim"
+    "ate_m\030\004 \001(\0132%.anduril.entitymanager.v1.M"
+    "easurementH\000R\016rangeEstimateM\022G\n\013max_rang"
+    "e_m\030\005 \001(\0132%.anduril.entitymanager.v1.Mea"
+    "surementH\000R\tmaxRangeMB\021\n\017detection_range"
+    "J\004\010\001\020\002J\004\010\002\020\003\"\251\001\n\016AngleOfArrival\0227\n\rrelat"
+    "ive_pose\030\001 \001(\0132\022.anduril.type.PoseR\014rela"
+    "tivePose\022^\n!bearing_elevation_covariance"
+    "_rad2\030\002 \001(\0132\023.anduril.type.TMat2R\036bearin"
+    "gElevationCovarianceRad2\"\007\n\005Fixed\"\177\n\027Pul"
+    "seRepetitionInterval\022d\n\033pulse_repetition"
+    "_interval_s\030\001 \001(\0132%.anduril.entitymanage"
+    "r.v1.MeasurementR\030pulseRepetitionInterva"
+    "lS\"\230\001\n\023ScanCharacteristics\022\?\n\tscan_type\030"
+    "\001 \001(\0162\".anduril.entitymanager.v1.ScanTyp"
+    "eR\010scanType\022@\n\rscan_period_s\030\002 \001(\0132\034.goo"
+    "gle.protobuf.DoubleValueR\013scanPeriodS*\274\004"
+    "\n\010ScanType\022\025\n\021SCAN_TYPE_INVALID\020\000\022\026\n\022SCA"
+    "N_TYPE_CIRCULAR\020\001\022-\n)SCAN_TYPE_BIDIRECTI"
+    "ONAL_HORIZONTAL_SECTOR\020\002\022+\n\'SCAN_TYPE_BI"
+    "DIRECTIONAL_VERTICAL_SECTOR\020\003\022\032\n\026SCAN_TY"
+    "PE_NON_SCANNING\020\004\022\027\n\023SCAN_TYPE_IRREGULAR"
+    "\020\005\022\025\n\021SCAN_TYPE_CONICAL\020\006\022\034\n\030SCAN_TYPE_L"
+    "OBE_SWITCHING\020\007\022\024\n\020SCAN_TYPE_RASTER\020\010\022&\n"
+    "\"SCAN_TYPE_CIRCULAR_VERTICAL_SECTOR\020\t\022\036\n"
+    "\032SCAN_TYPE_CIRCULAR_CONICAL\020\n\022\034\n\030SCAN_TY"
+    "PE_SECTOR_CONICAL\020\013\022\030\n\024SCAN_TYPE_AGILE_B"
+    "EAM\020\014\022,\n(SCAN_TYPE_UNIDIRECTIONAL_VERTIC"
+    "AL_SECTOR\020\r\022.\n*SCAN_TYPE_UNIDIRECTIONAL_"
+    "HORIZONTAL_SECTOR\020\016\022#\n\037SCAN_TYPE_UNIDIRE"
+    "CTIONAL_SECTOR\020\017\022\"\n\036SCAN_TYPE_BIDIRECTIO"
+    "NAL_SECTOR\020\020B\377\001\n\034com.anduril.entitymanag"
+    "er.v1B\016SignalPubProtoP\001ZMghe.anduril.dev"
+    "/anduril/andurilapis-go/anduril/entityma"
+    "nager/v1;entitymanager\242\002\003AEX\252\002\030Anduril.E"
+    "ntitymanager.V1\312\002\030Anduril\\Entitymanager\\"
+    "V1\342\002$Anduril\\Entitymanager\\V1\\GPBMetadat"
+    "a\352\002\032Anduril::Entitymanager::V1b\006proto3"
 };
-static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto_deps[3] =
+static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto_deps[2] =
     {
-        &::descriptor_table_anduril_2fentitymanager_2fv1_2flocation_2epub_2eproto,
         &::descriptor_table_anduril_2ftype_2fcoords_2epub_2eproto,
         &::descriptor_table_google_2fprotobuf_2fwrappers_2eproto,
 };
@@ -761,13 +546,13 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fsignal_
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto = {
     false,
     false,
-    6062,
+    3118,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto,
     "anduril/entitymanager/v1/signal.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto_once,
     descriptor_table_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto_deps,
-    3,
-    13,
+    2,
+    10,
     schemas,
     file_default_instances,
     TableStruct_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto::offsets,
@@ -777,18 +562,9 @@ PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fenti
 namespace anduril {
 namespace entitymanager {
 namespace v1 {
-const ::google::protobuf::EnumDescriptor* ModulationType_descriptor() {
-  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto);
-  return file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto[0];
-}
-PROTOBUF_CONSTINIT const uint32_t ModulationType_internal_data_[] = {
-    2752512u, 0u, };
-bool ModulationType_IsValid(int value) {
-  return 0 <= value && value <= 41;
-}
 const ::google::protobuf::EnumDescriptor* ScanType_descriptor() {
   ::google::protobuf::internal::AssignDescriptors(&descriptor_table_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto);
-  return file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto[1];
+  return file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto[0];
 }
 PROTOBUF_CONSTINIT const uint32_t ScanType_internal_data_[] = {
     1114112u, 0u, };
@@ -919,10 +695,7 @@ Signal::Signal(
   _impl_.pulse_repetition_interval_ = (cached_has_bits & 0x00000008u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::PulseRepetitionInterval>(
                               arena, *from._impl_.pulse_repetition_interval_)
                         : nullptr;
-  _impl_.modulation_ = (cached_has_bits & 0x00000010u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Modulation>(
-                              arena, *from._impl_.modulation_)
-                        : nullptr;
-  _impl_.scan_characteristics_ = (cached_has_bits & 0x00000020u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::ScanCharacteristics>(
+  _impl_.scan_characteristics_ = (cached_has_bits & 0x00000010u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::ScanCharacteristics>(
                               arena, *from._impl_.scan_characteristics_)
                         : nullptr;
   switch (frequency_measurement_case()) {
@@ -978,7 +751,6 @@ inline void Signal::SharedDtor(MessageLite& self) {
   delete this_._impl_.signal_to_noise_ratio_;
   delete this_._impl_.pulse_width_s_;
   delete this_._impl_.pulse_repetition_interval_;
-  delete this_._impl_.modulation_;
   delete this_._impl_.scan_characteristics_;
   if (this_.has_frequency_measurement()) {
     this_.clear_frequency_measurement();
@@ -1092,16 +864,16 @@ const ::google::protobuf::internal::ClassData* Signal::GetClassData() const {
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<4, 11, 11, 0, 2> Signal::_table_ = {
+const ::_pbi::TcParseTable<4, 10, 10, 0, 2> Signal::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(Signal, _impl_._has_bits_),
     0, // no _extensions_
     11, 120,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294965248,  // skipmap
+    4294965760,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    11,  // num_field_entries
-    11,  // num_aux_entries
+    10,  // num_field_entries
+    10,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
@@ -1130,12 +902,10 @@ const ::_pbi::TcParseTable<4, 11, 11, 0, 2> Signal::_table_ = {
     // .anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];
     {::_pbi::TcParser::FastMtS1,
      {74, 3, 8, PROTOBUF_FIELD_OFFSET(Signal, _impl_.pulse_repetition_interval_)}},
-    // .anduril.entitymanager.v1.Modulation modulation = 10 [json_name = "modulation"];
-    {::_pbi::TcParser::FastMtS1,
-     {82, 4, 9, PROTOBUF_FIELD_OFFSET(Signal, _impl_.modulation_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // .anduril.entitymanager.v1.ScanCharacteristics scan_characteristics = 11 [json_name = "scanCharacteristics"];
     {::_pbi::TcParser::FastMtS1,
-     {90, 5, 10, PROTOBUF_FIELD_OFFSET(Signal, _impl_.scan_characteristics_)}},
+     {90, 4, 9, PROTOBUF_FIELD_OFFSET(Signal, _impl_.scan_characteristics_)}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
@@ -1170,11 +940,8 @@ const ::_pbi::TcParseTable<4, 11, 11, 0, 2> Signal::_table_ = {
     // .anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];
     {PROTOBUF_FIELD_OFFSET(Signal, _impl_.pulse_repetition_interval_), _Internal::kHasBitsOffset + 3, 8,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .anduril.entitymanager.v1.Modulation modulation = 10 [json_name = "modulation"];
-    {PROTOBUF_FIELD_OFFSET(Signal, _impl_.modulation_), _Internal::kHasBitsOffset + 4, 9,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.ScanCharacteristics scan_characteristics = 11 [json_name = "scanCharacteristics"];
-    {PROTOBUF_FIELD_OFFSET(Signal, _impl_.scan_characteristics_), _Internal::kHasBitsOffset + 5, 10,
+    {PROTOBUF_FIELD_OFFSET(Signal, _impl_.scan_characteristics_), _Internal::kHasBitsOffset + 4, 9,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Frequency>()},
@@ -1186,7 +953,6 @@ const ::_pbi::TcParseTable<4, 11, 11, 0, 2> Signal::_table_ = {
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::EmitterNotation>()},
     {::_pbi::TcParser::GetTable<::google::protobuf::DoubleValue>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::PulseRepetitionInterval>()},
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Modulation>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::ScanCharacteristics>()},
   }}, {{
   }},
@@ -1201,7 +967,7 @@ PROTOBUF_NOINLINE void Signal::Clear() {
 
   _impl_.emitter_notations_.Clear();
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000003fu) {
+  if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
       ABSL_DCHECK(_impl_.bandwidth_hz_ != nullptr);
       _impl_.bandwidth_hz_->Clear();
@@ -1219,10 +985,6 @@ PROTOBUF_NOINLINE void Signal::Clear() {
       _impl_.pulse_repetition_interval_->Clear();
     }
     if (cached_has_bits & 0x00000010u) {
-      ABSL_DCHECK(_impl_.modulation_ != nullptr);
-      _impl_.modulation_->Clear();
-    }
-    if (cached_has_bits & 0x00000020u) {
       ABSL_DCHECK(_impl_.scan_characteristics_ != nullptr);
       _impl_.scan_characteristics_->Clear();
     }
@@ -1320,15 +1082,8 @@ PROTOBUF_NOINLINE void Signal::Clear() {
                 stream);
           }
 
-          // .anduril.entitymanager.v1.Modulation modulation = 10 [json_name = "modulation"];
-          if (cached_has_bits & 0x00000010u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                10, *this_._impl_.modulation_, this_._impl_.modulation_->GetCachedSize(), target,
-                stream);
-          }
-
           // .anduril.entitymanager.v1.ScanCharacteristics scan_characteristics = 11 [json_name = "scanCharacteristics"];
-          if (cached_has_bits & 0x00000020u) {
+          if (cached_has_bits & 0x00000010u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 11, *this_._impl_.scan_characteristics_, this_._impl_.scan_characteristics_->GetCachedSize(), target,
                 stream);
@@ -1368,7 +1123,7 @@ PROTOBUF_NOINLINE void Signal::Clear() {
             }
           }
           cached_has_bits = this_._impl_._has_bits_[0];
-          if (cached_has_bits & 0x0000003fu) {
+          if (cached_has_bits & 0x0000001fu) {
             // .google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];
             if (cached_has_bits & 0x00000001u) {
               total_size += 1 +
@@ -1389,13 +1144,8 @@ PROTOBUF_NOINLINE void Signal::Clear() {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.pulse_repetition_interval_);
             }
-            // .anduril.entitymanager.v1.Modulation modulation = 10 [json_name = "modulation"];
-            if (cached_has_bits & 0x00000010u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.modulation_);
-            }
             // .anduril.entitymanager.v1.ScanCharacteristics scan_characteristics = 11 [json_name = "scanCharacteristics"];
-            if (cached_has_bits & 0x00000020u) {
+            if (cached_has_bits & 0x00000010u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.scan_characteristics_);
             }
@@ -1450,7 +1200,7 @@ void Signal::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
   _this->_internal_mutable_emitter_notations()->MergeFrom(
       from._internal_emitter_notations());
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000003fu) {
+  if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
       ABSL_DCHECK(from._impl_.bandwidth_hz_ != nullptr);
       if (_this->_impl_.bandwidth_hz_ == nullptr) {
@@ -1488,15 +1238,6 @@ void Signal::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::
       }
     }
     if (cached_has_bits & 0x00000010u) {
-      ABSL_DCHECK(from._impl_.modulation_ != nullptr);
-      if (_this->_impl_.modulation_ == nullptr) {
-        _this->_impl_.modulation_ =
-            ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Modulation>(arena, *from._impl_.modulation_);
-      } else {
-        _this->_impl_.modulation_->MergeFrom(*from._impl_.modulation_);
-      }
-    }
-    if (cached_has_bits & 0x00000020u) {
       ABSL_DCHECK(from._impl_.scan_characteristics_ != nullptr);
       if (_this->_impl_.scan_characteristics_ == nullptr) {
         _this->_impl_.scan_characteristics_ =
@@ -2768,11 +2509,6 @@ class LineOfBearing::_Internal {
       PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::LineOfBearing, _impl_._oneof_case_);
 };
 
-void LineOfBearing::clear_origin() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.origin_ != nullptr) _impl_.origin_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
 void LineOfBearing::set_allocated_range_estimate_m(::anduril::entitymanager::v1::Measurement* range_estimate_m) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_detection_range();
@@ -2830,13 +2566,7 @@ LineOfBearing::LineOfBearing(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
   ::uint32_t cached_has_bits = _impl_._has_bits_[0];
-  _impl_.origin_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Position>(
-                              arena, *from._impl_.origin_)
-                        : nullptr;
-  _impl_.range_bearing_ = (cached_has_bits & 0x00000002u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::RangeBearing>(
-                              arena, *from._impl_.range_bearing_)
-                        : nullptr;
-  _impl_.angle_of_arrival_ = (cached_has_bits & 0x00000004u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::AngleOfArrival>(
+  _impl_.angle_of_arrival_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::AngleOfArrival>(
                               arena, *from._impl_.angle_of_arrival_)
                         : nullptr;
   switch (detection_range_case()) {
@@ -2861,12 +2591,7 @@ inline PROTOBUF_NDEBUG_INLINE LineOfBearing::Impl_::Impl_(
 
 inline void LineOfBearing::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
-  ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, origin_),
-           0,
-           offsetof(Impl_, angle_of_arrival_) -
-               offsetof(Impl_, origin_) +
-               sizeof(Impl_::angle_of_arrival_));
+  _impl_.angle_of_arrival_ = {};
 }
 LineOfBearing::~LineOfBearing() {
   // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.LineOfBearing)
@@ -2876,8 +2601,6 @@ inline void LineOfBearing::SharedDtor(MessageLite& self) {
   LineOfBearing& this_ = static_cast<LineOfBearing&>(self);
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
-  delete this_._impl_.origin_;
-  delete this_._impl_.range_bearing_;
   delete this_._impl_.angle_of_arrival_;
   if (this_.has_detection_range()) {
     this_.clear_detection_range();
@@ -2949,16 +2672,16 @@ const ::google::protobuf::internal::ClassData* LineOfBearing::GetClassData() con
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 5, 5, 0, 2> LineOfBearing::_table_ = {
+const ::_pbi::TcParseTable<0, 3, 3, 0, 2> LineOfBearing::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(LineOfBearing, _impl_._has_bits_),
     0, // no _extensions_
-    5, 24,  // max_field_number, fast_idx_mask
+    5, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967264,  // skipmap
+    4294967267,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    5,  // num_field_entries
-    5,  // num_aux_entries
+    3,  // num_field_entries
+    3,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
@@ -2967,37 +2690,22 @@ const ::_pbi::TcParseTable<2, 5, 5, 0, 2> LineOfBearing::_table_ = {
     ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::LineOfBearing>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    {::_pbi::TcParser::MiniParse, {}},
-    // .anduril.entitymanager.v1.Position origin = 1 [json_name = "origin", deprecated = true];
-    {::_pbi::TcParser::FastMtS1,
-     {10, 0, 0, PROTOBUF_FIELD_OFFSET(LineOfBearing, _impl_.origin_)}},
-    // .anduril.entitymanager.v1.RangeBearing range_bearing = 2 [json_name = "rangeBearing", deprecated = true];
-    {::_pbi::TcParser::FastMtS1,
-     {18, 1, 1, PROTOBUF_FIELD_OFFSET(LineOfBearing, _impl_.range_bearing_)}},
     // .anduril.entitymanager.v1.AngleOfArrival angle_of_arrival = 3 [json_name = "angleOfArrival"];
     {::_pbi::TcParser::FastMtS1,
-     {26, 2, 2, PROTOBUF_FIELD_OFFSET(LineOfBearing, _impl_.angle_of_arrival_)}},
+     {26, 0, 0, PROTOBUF_FIELD_OFFSET(LineOfBearing, _impl_.angle_of_arrival_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // .anduril.entitymanager.v1.Position origin = 1 [json_name = "origin", deprecated = true];
-    {PROTOBUF_FIELD_OFFSET(LineOfBearing, _impl_.origin_), _Internal::kHasBitsOffset + 0, 0,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .anduril.entitymanager.v1.RangeBearing range_bearing = 2 [json_name = "rangeBearing", deprecated = true];
-    {PROTOBUF_FIELD_OFFSET(LineOfBearing, _impl_.range_bearing_), _Internal::kHasBitsOffset + 1, 1,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.AngleOfArrival angle_of_arrival = 3 [json_name = "angleOfArrival"];
-    {PROTOBUF_FIELD_OFFSET(LineOfBearing, _impl_.angle_of_arrival_), _Internal::kHasBitsOffset + 2, 2,
+    {PROTOBUF_FIELD_OFFSET(LineOfBearing, _impl_.angle_of_arrival_), _Internal::kHasBitsOffset + 0, 0,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.Measurement range_estimate_m = 4 [json_name = "rangeEstimateM"];
-    {PROTOBUF_FIELD_OFFSET(LineOfBearing, _impl_.detection_range_.range_estimate_m_), _Internal::kOneofCaseOffset + 0, 3,
+    {PROTOBUF_FIELD_OFFSET(LineOfBearing, _impl_.detection_range_.range_estimate_m_), _Internal::kOneofCaseOffset + 0, 1,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.Measurement max_range_m = 5 [json_name = "maxRangeM"];
-    {PROTOBUF_FIELD_OFFSET(LineOfBearing, _impl_.detection_range_.max_range_m_), _Internal::kOneofCaseOffset + 0, 4,
+    {PROTOBUF_FIELD_OFFSET(LineOfBearing, _impl_.detection_range_.max_range_m_), _Internal::kOneofCaseOffset + 0, 2,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Position>()},
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::RangeBearing>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::AngleOfArrival>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Measurement>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Measurement>()},
@@ -3013,19 +2721,9 @@ PROTOBUF_NOINLINE void LineOfBearing::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    if (cached_has_bits & 0x00000001u) {
-      ABSL_DCHECK(_impl_.origin_ != nullptr);
-      _impl_.origin_->Clear();
-    }
-    if (cached_has_bits & 0x00000002u) {
-      ABSL_DCHECK(_impl_.range_bearing_ != nullptr);
-      _impl_.range_bearing_->Clear();
-    }
-    if (cached_has_bits & 0x00000004u) {
-      ABSL_DCHECK(_impl_.angle_of_arrival_ != nullptr);
-      _impl_.angle_of_arrival_->Clear();
-    }
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(_impl_.angle_of_arrival_ != nullptr);
+    _impl_.angle_of_arrival_->Clear();
   }
   clear_detection_range();
   _impl_._has_bits_.Clear();
@@ -3048,22 +2746,8 @@ PROTOBUF_NOINLINE void LineOfBearing::Clear() {
           (void)cached_has_bits;
 
           cached_has_bits = this_._impl_._has_bits_[0];
-          // .anduril.entitymanager.v1.Position origin = 1 [json_name = "origin", deprecated = true];
-          if (cached_has_bits & 0x00000001u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                1, *this_._impl_.origin_, this_._impl_.origin_->GetCachedSize(), target,
-                stream);
-          }
-
-          // .anduril.entitymanager.v1.RangeBearing range_bearing = 2 [json_name = "rangeBearing", deprecated = true];
-          if (cached_has_bits & 0x00000002u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                2, *this_._impl_.range_bearing_, this_._impl_.range_bearing_->GetCachedSize(), target,
-                stream);
-          }
-
           // .anduril.entitymanager.v1.AngleOfArrival angle_of_arrival = 3 [json_name = "angleOfArrival"];
-          if (cached_has_bits & 0x00000004u) {
+          if (cached_has_bits & 0x00000001u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 3, *this_._impl_.angle_of_arrival_, this_._impl_.angle_of_arrival_->GetCachedSize(), target,
                 stream);
@@ -3108,21 +2792,10 @@ PROTOBUF_NOINLINE void LineOfBearing::Clear() {
           // Prevent compiler warnings about cached_has_bits being unused
           (void)cached_has_bits;
 
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
-          cached_has_bits = this_._impl_._has_bits_[0];
-          if (cached_has_bits & 0x00000007u) {
-            // .anduril.entitymanager.v1.Position origin = 1 [json_name = "origin", deprecated = true];
-            if (cached_has_bits & 0x00000001u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.origin_);
-            }
-            // .anduril.entitymanager.v1.RangeBearing range_bearing = 2 [json_name = "rangeBearing", deprecated = true];
-            if (cached_has_bits & 0x00000002u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.range_bearing_);
-            }
+           {
             // .anduril.entitymanager.v1.AngleOfArrival angle_of_arrival = 3 [json_name = "angleOfArrival"];
-            if (cached_has_bits & 0x00000004u) {
+            cached_has_bits = this_._impl_._has_bits_[0];
+            if (cached_has_bits & 0x00000001u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.angle_of_arrival_);
             }
@@ -3158,33 +2831,13 @@ void LineOfBearing::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::g
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    if (cached_has_bits & 0x00000001u) {
-      ABSL_DCHECK(from._impl_.origin_ != nullptr);
-      if (_this->_impl_.origin_ == nullptr) {
-        _this->_impl_.origin_ =
-            ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Position>(arena, *from._impl_.origin_);
-      } else {
-        _this->_impl_.origin_->MergeFrom(*from._impl_.origin_);
-      }
-    }
-    if (cached_has_bits & 0x00000002u) {
-      ABSL_DCHECK(from._impl_.range_bearing_ != nullptr);
-      if (_this->_impl_.range_bearing_ == nullptr) {
-        _this->_impl_.range_bearing_ =
-            ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::RangeBearing>(arena, *from._impl_.range_bearing_);
-      } else {
-        _this->_impl_.range_bearing_->MergeFrom(*from._impl_.range_bearing_);
-      }
-    }
-    if (cached_has_bits & 0x00000004u) {
-      ABSL_DCHECK(from._impl_.angle_of_arrival_ != nullptr);
-      if (_this->_impl_.angle_of_arrival_ == nullptr) {
-        _this->_impl_.angle_of_arrival_ =
-            ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::AngleOfArrival>(arena, *from._impl_.angle_of_arrival_);
-      } else {
-        _this->_impl_.angle_of_arrival_->MergeFrom(*from._impl_.angle_of_arrival_);
-      }
+  if (cached_has_bits & 0x00000001u) {
+    ABSL_DCHECK(from._impl_.angle_of_arrival_ != nullptr);
+    if (_this->_impl_.angle_of_arrival_ == nullptr) {
+      _this->_impl_.angle_of_arrival_ =
+          ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::AngleOfArrival>(arena, *from._impl_.angle_of_arrival_);
+    } else {
+      _this->_impl_.angle_of_arrival_->MergeFrom(*from._impl_.angle_of_arrival_);
     }
   }
   _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -3236,12 +2889,7 @@ void LineOfBearing::InternalSwap(LineOfBearing* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(LineOfBearing, _impl_.angle_of_arrival_)
-      + sizeof(LineOfBearing::_impl_.angle_of_arrival_)
-      - PROTOBUF_FIELD_OFFSET(LineOfBearing, _impl_.origin_)>(
-          reinterpret_cast<char*>(&_impl_.origin_),
-          reinterpret_cast<char*>(&other->_impl_.origin_));
+  swap(_impl_.angle_of_arrival_, other->_impl_.angle_of_arrival_);
   swap(_impl_.detection_range_, other->_impl_.detection_range_);
   swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
 }
@@ -3665,307 +3313,6 @@ const ::_pbi::TcParseTable<0, 0, 0, 0, 2> Fixed::_table_ = {
 }
 // ===================================================================
 
-class RangeBearing::_Internal {
- public:
-  using HasBits =
-      decltype(std::declval<RangeBearing>()._impl_._has_bits_);
-  static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(RangeBearing, _impl_._has_bits_);
-};
-
-RangeBearing::RangeBearing(::google::protobuf::Arena* arena)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.RangeBearing)
-}
-inline PROTOBUF_NDEBUG_INLINE RangeBearing::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
-    const Impl_& from, const ::anduril::entitymanager::v1::RangeBearing& from_msg)
-      : _has_bits_{from._has_bits_},
-        _cached_size_{0} {}
-
-RangeBearing::RangeBearing(
-    ::google::protobuf::Arena* arena,
-    const RangeBearing& from)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  RangeBearing* const _this = this;
-  (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
-      from._internal_metadata_);
-  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
-  _impl_.range_m_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Measurement>(
-                              arena, *from._impl_.range_m_)
-                        : nullptr;
-  _impl_.range_angle_d_ = (cached_has_bits & 0x00000002u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Measurement>(
-                              arena, *from._impl_.range_angle_d_)
-                        : nullptr;
-
-  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.RangeBearing)
-}
-inline PROTOBUF_NDEBUG_INLINE RangeBearing::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility,
-    ::google::protobuf::Arena* arena)
-      : _cached_size_{0} {}
-
-inline void RangeBearing::SharedCtor(::_pb::Arena* arena) {
-  new (&_impl_) Impl_(internal_visibility(), arena);
-  ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, range_m_),
-           0,
-           offsetof(Impl_, range_angle_d_) -
-               offsetof(Impl_, range_m_) +
-               sizeof(Impl_::range_angle_d_));
-}
-RangeBearing::~RangeBearing() {
-  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.RangeBearing)
-  SharedDtor(*this);
-}
-inline void RangeBearing::SharedDtor(MessageLite& self) {
-  RangeBearing& this_ = static_cast<RangeBearing&>(self);
-  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
-  ABSL_DCHECK(this_.GetArena() == nullptr);
-  delete this_._impl_.range_m_;
-  delete this_._impl_.range_angle_d_;
-  this_._impl_.~Impl_();
-}
-
-inline void* RangeBearing::PlacementNew_(const void*, void* mem,
-                                        ::google::protobuf::Arena* arena) {
-  return ::new (mem) RangeBearing(arena);
-}
-constexpr auto RangeBearing::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(RangeBearing),
-                                            alignof(RangeBearing));
-}
-PROTOBUF_CONSTINIT
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::internal::ClassDataFull RangeBearing::_class_data_ = {
-    ::google::protobuf::internal::ClassData{
-        &_RangeBearing_default_instance_._instance,
-        &_table_.header,
-        nullptr,  // OnDemandRegisterArenaDtor
-        nullptr,  // IsInitialized
-        &RangeBearing::MergeImpl,
-        ::google::protobuf::Message::GetNewImpl<RangeBearing>(),
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        &RangeBearing::SharedDtor,
-        ::google::protobuf::Message::GetClearImpl<RangeBearing>(), &RangeBearing::ByteSizeLong,
-            &RangeBearing::_InternalSerialize,
-#endif  // PROTOBUF_CUSTOM_VTABLE
-        PROTOBUF_FIELD_OFFSET(RangeBearing, _impl_._cached_size_),
-        false,
-    },
-    &RangeBearing::kDescriptorMethods,
-    &descriptor_table_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto,
-    nullptr,  // tracker
-};
-const ::google::protobuf::internal::ClassData* RangeBearing::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
-  return _class_data_.base();
-}
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 2, 0, 2> RangeBearing::_table_ = {
-  {
-    PROTOBUF_FIELD_OFFSET(RangeBearing, _impl_._has_bits_),
-    0, // no _extensions_
-    2, 8,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
-    offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
-    2,  // num_aux_entries
-    offsetof(decltype(_table_), aux_entries),
-    _class_data_.base(),
-    nullptr,  // post_loop_handler
-    ::_pbi::TcParser::GenericFallback,  // fallback
-    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::RangeBearing>(),  // to_prefetch
-    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
-  }, {{
-    // .anduril.entitymanager.v1.Measurement range_angle_d = 2 [json_name = "rangeAngleD"];
-    {::_pbi::TcParser::FastMtS1,
-     {18, 1, 1, PROTOBUF_FIELD_OFFSET(RangeBearing, _impl_.range_angle_d_)}},
-    // .anduril.entitymanager.v1.Measurement range_m = 1 [json_name = "rangeM"];
-    {::_pbi::TcParser::FastMtS1,
-     {10, 0, 0, PROTOBUF_FIELD_OFFSET(RangeBearing, _impl_.range_m_)}},
-  }}, {{
-    65535, 65535
-  }}, {{
-    // .anduril.entitymanager.v1.Measurement range_m = 1 [json_name = "rangeM"];
-    {PROTOBUF_FIELD_OFFSET(RangeBearing, _impl_.range_m_), _Internal::kHasBitsOffset + 0, 0,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .anduril.entitymanager.v1.Measurement range_angle_d = 2 [json_name = "rangeAngleD"];
-    {PROTOBUF_FIELD_OFFSET(RangeBearing, _impl_.range_angle_d_), _Internal::kHasBitsOffset + 1, 1,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-  }}, {{
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Measurement>()},
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Measurement>()},
-  }}, {{
-  }},
-};
-
-PROTOBUF_NOINLINE void RangeBearing::Clear() {
-// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.RangeBearing)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      ABSL_DCHECK(_impl_.range_m_ != nullptr);
-      _impl_.range_m_->Clear();
-    }
-    if (cached_has_bits & 0x00000002u) {
-      ABSL_DCHECK(_impl_.range_angle_d_ != nullptr);
-      _impl_.range_angle_d_->Clear();
-    }
-  }
-  _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
-}
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* RangeBearing::_InternalSerialize(
-            const MessageLite& base, ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const RangeBearing& this_ = static_cast<const RangeBearing&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* RangeBearing::_InternalSerialize(
-            ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const RangeBearing& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.RangeBearing)
-          ::uint32_t cached_has_bits = 0;
-          (void)cached_has_bits;
-
-          cached_has_bits = this_._impl_._has_bits_[0];
-          // .anduril.entitymanager.v1.Measurement range_m = 1 [json_name = "rangeM"];
-          if (cached_has_bits & 0x00000001u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                1, *this_._impl_.range_m_, this_._impl_.range_m_->GetCachedSize(), target,
-                stream);
-          }
-
-          // .anduril.entitymanager.v1.Measurement range_angle_d = 2 [json_name = "rangeAngleD"];
-          if (cached_has_bits & 0x00000002u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                2, *this_._impl_.range_angle_d_, this_._impl_.range_angle_d_->GetCachedSize(), target,
-                stream);
-          }
-
-          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
-            target =
-                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
-          }
-          // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.RangeBearing)
-          return target;
-        }
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t RangeBearing::ByteSizeLong(const MessageLite& base) {
-          const RangeBearing& this_ = static_cast<const RangeBearing&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t RangeBearing::ByteSizeLong() const {
-          const RangeBearing& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.RangeBearing)
-          ::size_t total_size = 0;
-
-          ::uint32_t cached_has_bits = 0;
-          // Prevent compiler warnings about cached_has_bits being unused
-          (void)cached_has_bits;
-
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
-          cached_has_bits = this_._impl_._has_bits_[0];
-          if (cached_has_bits & 0x00000003u) {
-            // .anduril.entitymanager.v1.Measurement range_m = 1 [json_name = "rangeM"];
-            if (cached_has_bits & 0x00000001u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.range_m_);
-            }
-            // .anduril.entitymanager.v1.Measurement range_angle_d = 2 [json_name = "rangeAngleD"];
-            if (cached_has_bits & 0x00000002u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.range_angle_d_);
-            }
-          }
-          return this_.MaybeComputeUnknownFieldsSize(total_size,
-                                                     &this_._impl_._cached_size_);
-        }
-
-void RangeBearing::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<RangeBearing*>(&to_msg);
-  auto& from = static_cast<const RangeBearing&>(from_msg);
-  ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.RangeBearing)
-  ABSL_DCHECK_NE(&from, _this);
-  ::uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      ABSL_DCHECK(from._impl_.range_m_ != nullptr);
-      if (_this->_impl_.range_m_ == nullptr) {
-        _this->_impl_.range_m_ =
-            ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Measurement>(arena, *from._impl_.range_m_);
-      } else {
-        _this->_impl_.range_m_->MergeFrom(*from._impl_.range_m_);
-      }
-    }
-    if (cached_has_bits & 0x00000002u) {
-      ABSL_DCHECK(from._impl_.range_angle_d_ != nullptr);
-      if (_this->_impl_.range_angle_d_ == nullptr) {
-        _this->_impl_.range_angle_d_ =
-            ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Measurement>(arena, *from._impl_.range_angle_d_);
-      } else {
-        _this->_impl_.range_angle_d_->MergeFrom(*from._impl_.range_angle_d_);
-      }
-    }
-  }
-  _this->_impl_._has_bits_[0] |= cached_has_bits;
-  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void RangeBearing::CopyFrom(const RangeBearing& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.RangeBearing)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-
-void RangeBearing::InternalSwap(RangeBearing* PROTOBUF_RESTRICT other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RangeBearing, _impl_.range_angle_d_)
-      + sizeof(RangeBearing::_impl_.range_angle_d_)
-      - PROTOBUF_FIELD_OFFSET(RangeBearing, _impl_.range_m_)>(
-          reinterpret_cast<char*>(&_impl_.range_m_),
-          reinterpret_cast<char*>(&other->_impl_.range_m_));
-}
-
-::google::protobuf::Metadata RangeBearing::GetMetadata() const {
-  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
-}
-// ===================================================================
-
 class PulseRepetitionInterval::_Internal {
  public:
   using HasBits =
@@ -4212,724 +3559,6 @@ void PulseRepetitionInterval::InternalSwap(PulseRepetitionInterval* PROTOBUF_RES
 }
 
 ::google::protobuf::Metadata PulseRepetitionInterval::GetMetadata() const {
-  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
-}
-// ===================================================================
-
-class Modulation::_Internal {
- public:
-  using HasBits =
-      decltype(std::declval<Modulation>()._impl_._has_bits_);
-  static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(Modulation, _impl_._has_bits_);
-};
-
-void Modulation::clear_symbols() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.symbols_ != nullptr) _impl_.symbols_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-Modulation::Modulation(::google::protobuf::Arena* arena)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.Modulation)
-}
-inline PROTOBUF_NDEBUG_INLINE Modulation::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
-    const Impl_& from, const ::anduril::entitymanager::v1::Modulation& from_msg)
-      : _has_bits_{from._has_bits_},
-        _cached_size_{0},
-        interpulse_modulation_(arena, from.interpulse_modulation_) {}
-
-Modulation::Modulation(
-    ::google::protobuf::Arena* arena,
-    const Modulation& from)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  Modulation* const _this = this;
-  (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
-      from._internal_metadata_);
-  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
-  _impl_.symbols_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::Int32Value>(
-                              arena, *from._impl_.symbols_)
-                        : nullptr;
-  _impl_.encoding_ = (cached_has_bits & 0x00000002u) ? ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Encoding>(
-                              arena, *from._impl_.encoding_)
-                        : nullptr;
-  _impl_.modulation_type_ = from._impl_.modulation_type_;
-
-  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.Modulation)
-}
-inline PROTOBUF_NDEBUG_INLINE Modulation::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility,
-    ::google::protobuf::Arena* arena)
-      : _cached_size_{0},
-        interpulse_modulation_(arena) {}
-
-inline void Modulation::SharedCtor(::_pb::Arena* arena) {
-  new (&_impl_) Impl_(internal_visibility(), arena);
-  ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, symbols_),
-           0,
-           offsetof(Impl_, modulation_type_) -
-               offsetof(Impl_, symbols_) +
-               sizeof(Impl_::modulation_type_));
-}
-Modulation::~Modulation() {
-  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.Modulation)
-  SharedDtor(*this);
-}
-inline void Modulation::SharedDtor(MessageLite& self) {
-  Modulation& this_ = static_cast<Modulation&>(self);
-  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
-  ABSL_DCHECK(this_.GetArena() == nullptr);
-  this_._impl_.interpulse_modulation_.Destroy();
-  delete this_._impl_.symbols_;
-  delete this_._impl_.encoding_;
-  this_._impl_.~Impl_();
-}
-
-inline void* Modulation::PlacementNew_(const void*, void* mem,
-                                        ::google::protobuf::Arena* arena) {
-  return ::new (mem) Modulation(arena);
-}
-constexpr auto Modulation::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(Modulation),
-                                            alignof(Modulation));
-}
-PROTOBUF_CONSTINIT
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::internal::ClassDataFull Modulation::_class_data_ = {
-    ::google::protobuf::internal::ClassData{
-        &_Modulation_default_instance_._instance,
-        &_table_.header,
-        nullptr,  // OnDemandRegisterArenaDtor
-        nullptr,  // IsInitialized
-        &Modulation::MergeImpl,
-        ::google::protobuf::Message::GetNewImpl<Modulation>(),
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        &Modulation::SharedDtor,
-        ::google::protobuf::Message::GetClearImpl<Modulation>(), &Modulation::ByteSizeLong,
-            &Modulation::_InternalSerialize,
-#endif  // PROTOBUF_CUSTOM_VTABLE
-        PROTOBUF_FIELD_OFFSET(Modulation, _impl_._cached_size_),
-        false,
-    },
-    &Modulation::kDescriptorMethods,
-    &descriptor_table_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto,
-    nullptr,  // tracker
-};
-const ::google::protobuf::internal::ClassData* Modulation::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
-  return _class_data_.base();
-}
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 4, 2, 65, 2> Modulation::_table_ = {
-  {
-    PROTOBUF_FIELD_OFFSET(Modulation, _impl_._has_bits_),
-    0, // no _extensions_
-    4, 24,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294967280,  // skipmap
-    offsetof(decltype(_table_), field_entries),
-    4,  // num_field_entries
-    2,  // num_aux_entries
-    offsetof(decltype(_table_), aux_entries),
-    _class_data_.base(),
-    nullptr,  // post_loop_handler
-    ::_pbi::TcParser::GenericFallback,  // fallback
-    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Modulation>(),  // to_prefetch
-    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
-  }, {{
-    // .anduril.entitymanager.v1.Encoding encoding = 4 [json_name = "encoding"];
-    {::_pbi::TcParser::FastMtS1,
-     {34, 1, 1, PROTOBUF_FIELD_OFFSET(Modulation, _impl_.encoding_)}},
-    // .anduril.entitymanager.v1.ModulationType modulation_type = 1 [json_name = "modulationType"];
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(Modulation, _impl_.modulation_type_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(Modulation, _impl_.modulation_type_)}},
-    // .google.protobuf.Int32Value symbols = 2 [json_name = "symbols"];
-    {::_pbi::TcParser::FastMtS1,
-     {18, 0, 0, PROTOBUF_FIELD_OFFSET(Modulation, _impl_.symbols_)}},
-    // string interpulse_modulation = 3 [json_name = "interpulseModulation"];
-    {::_pbi::TcParser::FastUS1,
-     {26, 63, 0, PROTOBUF_FIELD_OFFSET(Modulation, _impl_.interpulse_modulation_)}},
-  }}, {{
-    65535, 65535
-  }}, {{
-    // .anduril.entitymanager.v1.ModulationType modulation_type = 1 [json_name = "modulationType"];
-    {PROTOBUF_FIELD_OFFSET(Modulation, _impl_.modulation_type_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
-    // .google.protobuf.Int32Value symbols = 2 [json_name = "symbols"];
-    {PROTOBUF_FIELD_OFFSET(Modulation, _impl_.symbols_), _Internal::kHasBitsOffset + 0, 0,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // string interpulse_modulation = 3 [json_name = "interpulseModulation"];
-    {PROTOBUF_FIELD_OFFSET(Modulation, _impl_.interpulse_modulation_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // .anduril.entitymanager.v1.Encoding encoding = 4 [json_name = "encoding"];
-    {PROTOBUF_FIELD_OFFSET(Modulation, _impl_.encoding_), _Internal::kHasBitsOffset + 1, 1,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-  }}, {{
-    {::_pbi::TcParser::GetTable<::google::protobuf::Int32Value>()},
-    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Encoding>()},
-  }}, {{
-    "\43\0\0\25\0\0\0\0"
-    "anduril.entitymanager.v1.Modulation"
-    "interpulse_modulation"
-  }},
-};
-
-PROTOBUF_NOINLINE void Modulation::Clear() {
-// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.Modulation)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.interpulse_modulation_.ClearToEmpty();
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      ABSL_DCHECK(_impl_.symbols_ != nullptr);
-      _impl_.symbols_->Clear();
-    }
-    if (cached_has_bits & 0x00000002u) {
-      ABSL_DCHECK(_impl_.encoding_ != nullptr);
-      _impl_.encoding_->Clear();
-    }
-  }
-  _impl_.modulation_type_ = 0;
-  _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
-}
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* Modulation::_InternalSerialize(
-            const MessageLite& base, ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const Modulation& this_ = static_cast<const Modulation&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* Modulation::_InternalSerialize(
-            ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const Modulation& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.Modulation)
-          ::uint32_t cached_has_bits = 0;
-          (void)cached_has_bits;
-
-          // .anduril.entitymanager.v1.ModulationType modulation_type = 1 [json_name = "modulationType"];
-          if (this_._internal_modulation_type() != 0) {
-            target = stream->EnsureSpace(target);
-            target = ::_pbi::WireFormatLite::WriteEnumToArray(
-                1, this_._internal_modulation_type(), target);
-          }
-
-          cached_has_bits = this_._impl_._has_bits_[0];
-          // .google.protobuf.Int32Value symbols = 2 [json_name = "symbols"];
-          if (cached_has_bits & 0x00000001u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                2, *this_._impl_.symbols_, this_._impl_.symbols_->GetCachedSize(), target,
-                stream);
-          }
-
-          // string interpulse_modulation = 3 [json_name = "interpulseModulation"];
-          if (!this_._internal_interpulse_modulation().empty()) {
-            const std::string& _s = this_._internal_interpulse_modulation();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.Modulation.interpulse_modulation");
-            target = stream->WriteStringMaybeAliased(3, _s, target);
-          }
-
-          // .anduril.entitymanager.v1.Encoding encoding = 4 [json_name = "encoding"];
-          if (cached_has_bits & 0x00000002u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                4, *this_._impl_.encoding_, this_._impl_.encoding_->GetCachedSize(), target,
-                stream);
-          }
-
-          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
-            target =
-                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
-          }
-          // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.Modulation)
-          return target;
-        }
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t Modulation::ByteSizeLong(const MessageLite& base) {
-          const Modulation& this_ = static_cast<const Modulation&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t Modulation::ByteSizeLong() const {
-          const Modulation& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.Modulation)
-          ::size_t total_size = 0;
-
-          ::uint32_t cached_has_bits = 0;
-          // Prevent compiler warnings about cached_has_bits being unused
-          (void)cached_has_bits;
-
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
-           {
-            // string interpulse_modulation = 3 [json_name = "interpulseModulation"];
-            if (!this_._internal_interpulse_modulation().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_interpulse_modulation());
-            }
-          }
-          cached_has_bits = this_._impl_._has_bits_[0];
-          if (cached_has_bits & 0x00000003u) {
-            // .google.protobuf.Int32Value symbols = 2 [json_name = "symbols"];
-            if (cached_has_bits & 0x00000001u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.symbols_);
-            }
-            // .anduril.entitymanager.v1.Encoding encoding = 4 [json_name = "encoding"];
-            if (cached_has_bits & 0x00000002u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.encoding_);
-            }
-          }
-           {
-            // .anduril.entitymanager.v1.ModulationType modulation_type = 1 [json_name = "modulationType"];
-            if (this_._internal_modulation_type() != 0) {
-              total_size += 1 +
-                            ::_pbi::WireFormatLite::EnumSize(this_._internal_modulation_type());
-            }
-          }
-          return this_.MaybeComputeUnknownFieldsSize(total_size,
-                                                     &this_._impl_._cached_size_);
-        }
-
-void Modulation::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<Modulation*>(&to_msg);
-  auto& from = static_cast<const Modulation&>(from_msg);
-  ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.Modulation)
-  ABSL_DCHECK_NE(&from, _this);
-  ::uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (!from._internal_interpulse_modulation().empty()) {
-    _this->_internal_set_interpulse_modulation(from._internal_interpulse_modulation());
-  }
-  cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      ABSL_DCHECK(from._impl_.symbols_ != nullptr);
-      if (_this->_impl_.symbols_ == nullptr) {
-        _this->_impl_.symbols_ =
-            ::google::protobuf::Message::CopyConstruct<::google::protobuf::Int32Value>(arena, *from._impl_.symbols_);
-      } else {
-        _this->_impl_.symbols_->MergeFrom(*from._impl_.symbols_);
-      }
-    }
-    if (cached_has_bits & 0x00000002u) {
-      ABSL_DCHECK(from._impl_.encoding_ != nullptr);
-      if (_this->_impl_.encoding_ == nullptr) {
-        _this->_impl_.encoding_ =
-            ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Encoding>(arena, *from._impl_.encoding_);
-      } else {
-        _this->_impl_.encoding_->MergeFrom(*from._impl_.encoding_);
-      }
-    }
-  }
-  if (from._internal_modulation_type() != 0) {
-    _this->_impl_.modulation_type_ = from._impl_.modulation_type_;
-  }
-  _this->_impl_._has_bits_[0] |= cached_has_bits;
-  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void Modulation::CopyFrom(const Modulation& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.Modulation)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-
-void Modulation::InternalSwap(Modulation* PROTOBUF_RESTRICT other) {
-  using std::swap;
-  auto* arena = GetArena();
-  ABSL_DCHECK_EQ(arena, other->GetArena());
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.interpulse_modulation_, &other->_impl_.interpulse_modulation_, arena);
-  ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Modulation, _impl_.modulation_type_)
-      + sizeof(Modulation::_impl_.modulation_type_)
-      - PROTOBUF_FIELD_OFFSET(Modulation, _impl_.symbols_)>(
-          reinterpret_cast<char*>(&_impl_.symbols_),
-          reinterpret_cast<char*>(&other->_impl_.symbols_));
-}
-
-::google::protobuf::Metadata Modulation::GetMetadata() const {
-  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
-}
-// ===================================================================
-
-class Encoding::_Internal {
- public:
-  using HasBits =
-      decltype(std::declval<Encoding>()._impl_._has_bits_);
-  static constexpr ::int32_t kHasBitsOffset =
-      8 * PROTOBUF_FIELD_OFFSET(Encoding, _impl_._has_bits_);
-};
-
-void Encoding::clear_chip_hop_rate_num_sec() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.chip_hop_rate_num_sec_ != nullptr) _impl_.chip_hop_rate_num_sec_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-void Encoding::clear_hop_dwell_time_sec() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.hop_dwell_time_sec_ != nullptr) _impl_.hop_dwell_time_sec_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-void Encoding::clear_baud_rate_num_sec() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (_impl_.baud_rate_num_sec_ != nullptr) _impl_.baud_rate_num_sec_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000004u;
-}
-Encoding::Encoding(::google::protobuf::Arena* arena)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  SharedCtor(arena);
-  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.Encoding)
-}
-inline PROTOBUF_NDEBUG_INLINE Encoding::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
-    const Impl_& from, const ::anduril::entitymanager::v1::Encoding& from_msg)
-      : _has_bits_{from._has_bits_},
-        _cached_size_{0} {}
-
-Encoding::Encoding(
-    ::google::protobuf::Arena* arena,
-    const Encoding& from)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(arena, _class_data_.base()) {
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(arena) {
-#endif  // PROTOBUF_CUSTOM_VTABLE
-  Encoding* const _this = this;
-  (void)_this;
-  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
-      from._internal_metadata_);
-  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
-  _impl_.chip_hop_rate_num_sec_ = (cached_has_bits & 0x00000001u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::DoubleValue>(
-                              arena, *from._impl_.chip_hop_rate_num_sec_)
-                        : nullptr;
-  _impl_.hop_dwell_time_sec_ = (cached_has_bits & 0x00000002u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::DoubleValue>(
-                              arena, *from._impl_.hop_dwell_time_sec_)
-                        : nullptr;
-  _impl_.baud_rate_num_sec_ = (cached_has_bits & 0x00000004u) ? ::google::protobuf::Message::CopyConstruct<::google::protobuf::DoubleValue>(
-                              arena, *from._impl_.baud_rate_num_sec_)
-                        : nullptr;
-
-  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.Encoding)
-}
-inline PROTOBUF_NDEBUG_INLINE Encoding::Impl_::Impl_(
-    ::google::protobuf::internal::InternalVisibility visibility,
-    ::google::protobuf::Arena* arena)
-      : _cached_size_{0} {}
-
-inline void Encoding::SharedCtor(::_pb::Arena* arena) {
-  new (&_impl_) Impl_(internal_visibility(), arena);
-  ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, chip_hop_rate_num_sec_),
-           0,
-           offsetof(Impl_, baud_rate_num_sec_) -
-               offsetof(Impl_, chip_hop_rate_num_sec_) +
-               sizeof(Impl_::baud_rate_num_sec_));
-}
-Encoding::~Encoding() {
-  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.Encoding)
-  SharedDtor(*this);
-}
-inline void Encoding::SharedDtor(MessageLite& self) {
-  Encoding& this_ = static_cast<Encoding&>(self);
-  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
-  ABSL_DCHECK(this_.GetArena() == nullptr);
-  delete this_._impl_.chip_hop_rate_num_sec_;
-  delete this_._impl_.hop_dwell_time_sec_;
-  delete this_._impl_.baud_rate_num_sec_;
-  this_._impl_.~Impl_();
-}
-
-inline void* Encoding::PlacementNew_(const void*, void* mem,
-                                        ::google::protobuf::Arena* arena) {
-  return ::new (mem) Encoding(arena);
-}
-constexpr auto Encoding::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(Encoding),
-                                            alignof(Encoding));
-}
-PROTOBUF_CONSTINIT
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::google::protobuf::internal::ClassDataFull Encoding::_class_data_ = {
-    ::google::protobuf::internal::ClassData{
-        &_Encoding_default_instance_._instance,
-        &_table_.header,
-        nullptr,  // OnDemandRegisterArenaDtor
-        nullptr,  // IsInitialized
-        &Encoding::MergeImpl,
-        ::google::protobuf::Message::GetNewImpl<Encoding>(),
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        &Encoding::SharedDtor,
-        ::google::protobuf::Message::GetClearImpl<Encoding>(), &Encoding::ByteSizeLong,
-            &Encoding::_InternalSerialize,
-#endif  // PROTOBUF_CUSTOM_VTABLE
-        PROTOBUF_FIELD_OFFSET(Encoding, _impl_._cached_size_),
-        false,
-    },
-    &Encoding::kDescriptorMethods,
-    &descriptor_table_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto,
-    nullptr,  // tracker
-};
-const ::google::protobuf::internal::ClassData* Encoding::GetClassData() const {
-  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
-  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
-  return _class_data_.base();
-}
-PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 3, 0, 2> Encoding::_table_ = {
-  {
-    PROTOBUF_FIELD_OFFSET(Encoding, _impl_._has_bits_),
-    0, // no _extensions_
-    3, 24,  // max_field_number, fast_idx_mask
-    offsetof(decltype(_table_), field_lookup_table),
-    4294967288,  // skipmap
-    offsetof(decltype(_table_), field_entries),
-    3,  // num_field_entries
-    3,  // num_aux_entries
-    offsetof(decltype(_table_), aux_entries),
-    _class_data_.base(),
-    nullptr,  // post_loop_handler
-    ::_pbi::TcParser::GenericFallback,  // fallback
-    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
-    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Encoding>(),  // to_prefetch
-    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
-  }, {{
-    {::_pbi::TcParser::MiniParse, {}},
-    // .google.protobuf.DoubleValue chip_hop_rate_num_sec = 1 [json_name = "chipHopRateNumSec"];
-    {::_pbi::TcParser::FastMtS1,
-     {10, 0, 0, PROTOBUF_FIELD_OFFSET(Encoding, _impl_.chip_hop_rate_num_sec_)}},
-    // .google.protobuf.DoubleValue hop_dwell_time_sec = 2 [json_name = "hopDwellTimeSec"];
-    {::_pbi::TcParser::FastMtS1,
-     {18, 1, 1, PROTOBUF_FIELD_OFFSET(Encoding, _impl_.hop_dwell_time_sec_)}},
-    // .google.protobuf.DoubleValue baud_rate_num_sec = 3 [json_name = "baudRateNumSec"];
-    {::_pbi::TcParser::FastMtS1,
-     {26, 2, 2, PROTOBUF_FIELD_OFFSET(Encoding, _impl_.baud_rate_num_sec_)}},
-  }}, {{
-    65535, 65535
-  }}, {{
-    // .google.protobuf.DoubleValue chip_hop_rate_num_sec = 1 [json_name = "chipHopRateNumSec"];
-    {PROTOBUF_FIELD_OFFSET(Encoding, _impl_.chip_hop_rate_num_sec_), _Internal::kHasBitsOffset + 0, 0,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .google.protobuf.DoubleValue hop_dwell_time_sec = 2 [json_name = "hopDwellTimeSec"];
-    {PROTOBUF_FIELD_OFFSET(Encoding, _impl_.hop_dwell_time_sec_), _Internal::kHasBitsOffset + 1, 1,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .google.protobuf.DoubleValue baud_rate_num_sec = 3 [json_name = "baudRateNumSec"];
-    {PROTOBUF_FIELD_OFFSET(Encoding, _impl_.baud_rate_num_sec_), _Internal::kHasBitsOffset + 2, 2,
-    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-  }}, {{
-    {::_pbi::TcParser::GetTable<::google::protobuf::DoubleValue>()},
-    {::_pbi::TcParser::GetTable<::google::protobuf::DoubleValue>()},
-    {::_pbi::TcParser::GetTable<::google::protobuf::DoubleValue>()},
-  }}, {{
-  }},
-};
-
-PROTOBUF_NOINLINE void Encoding::Clear() {
-// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.Encoding)
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    if (cached_has_bits & 0x00000001u) {
-      ABSL_DCHECK(_impl_.chip_hop_rate_num_sec_ != nullptr);
-      _impl_.chip_hop_rate_num_sec_->Clear();
-    }
-    if (cached_has_bits & 0x00000002u) {
-      ABSL_DCHECK(_impl_.hop_dwell_time_sec_ != nullptr);
-      _impl_.hop_dwell_time_sec_->Clear();
-    }
-    if (cached_has_bits & 0x00000004u) {
-      ABSL_DCHECK(_impl_.baud_rate_num_sec_ != nullptr);
-      _impl_.baud_rate_num_sec_->Clear();
-    }
-  }
-  _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
-}
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::uint8_t* Encoding::_InternalSerialize(
-            const MessageLite& base, ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) {
-          const Encoding& this_ = static_cast<const Encoding&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::uint8_t* Encoding::_InternalSerialize(
-            ::uint8_t* target,
-            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-          const Encoding& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.Encoding)
-          ::uint32_t cached_has_bits = 0;
-          (void)cached_has_bits;
-
-          cached_has_bits = this_._impl_._has_bits_[0];
-          // .google.protobuf.DoubleValue chip_hop_rate_num_sec = 1 [json_name = "chipHopRateNumSec"];
-          if (cached_has_bits & 0x00000001u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                1, *this_._impl_.chip_hop_rate_num_sec_, this_._impl_.chip_hop_rate_num_sec_->GetCachedSize(), target,
-                stream);
-          }
-
-          // .google.protobuf.DoubleValue hop_dwell_time_sec = 2 [json_name = "hopDwellTimeSec"];
-          if (cached_has_bits & 0x00000002u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                2, *this_._impl_.hop_dwell_time_sec_, this_._impl_.hop_dwell_time_sec_->GetCachedSize(), target,
-                stream);
-          }
-
-          // .google.protobuf.DoubleValue baud_rate_num_sec = 3 [json_name = "baudRateNumSec"];
-          if (cached_has_bits & 0x00000004u) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                3, *this_._impl_.baud_rate_num_sec_, this_._impl_.baud_rate_num_sec_->GetCachedSize(), target,
-                stream);
-          }
-
-          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
-            target =
-                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
-          }
-          // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.Encoding)
-          return target;
-        }
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-        ::size_t Encoding::ByteSizeLong(const MessageLite& base) {
-          const Encoding& this_ = static_cast<const Encoding&>(base);
-#else   // PROTOBUF_CUSTOM_VTABLE
-        ::size_t Encoding::ByteSizeLong() const {
-          const Encoding& this_ = *this;
-#endif  // PROTOBUF_CUSTOM_VTABLE
-          // @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.Encoding)
-          ::size_t total_size = 0;
-
-          ::uint32_t cached_has_bits = 0;
-          // Prevent compiler warnings about cached_has_bits being unused
-          (void)cached_has_bits;
-
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
-          cached_has_bits = this_._impl_._has_bits_[0];
-          if (cached_has_bits & 0x00000007u) {
-            // .google.protobuf.DoubleValue chip_hop_rate_num_sec = 1 [json_name = "chipHopRateNumSec"];
-            if (cached_has_bits & 0x00000001u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.chip_hop_rate_num_sec_);
-            }
-            // .google.protobuf.DoubleValue hop_dwell_time_sec = 2 [json_name = "hopDwellTimeSec"];
-            if (cached_has_bits & 0x00000002u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.hop_dwell_time_sec_);
-            }
-            // .google.protobuf.DoubleValue baud_rate_num_sec = 3 [json_name = "baudRateNumSec"];
-            if (cached_has_bits & 0x00000004u) {
-              total_size += 1 +
-                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.baud_rate_num_sec_);
-            }
-          }
-          return this_.MaybeComputeUnknownFieldsSize(total_size,
-                                                     &this_._impl_._cached_size_);
-        }
-
-void Encoding::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
-  auto* const _this = static_cast<Encoding*>(&to_msg);
-  auto& from = static_cast<const Encoding&>(from_msg);
-  ::google::protobuf::Arena* arena = _this->GetArena();
-  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.Encoding)
-  ABSL_DCHECK_NE(&from, _this);
-  ::uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    if (cached_has_bits & 0x00000001u) {
-      ABSL_DCHECK(from._impl_.chip_hop_rate_num_sec_ != nullptr);
-      if (_this->_impl_.chip_hop_rate_num_sec_ == nullptr) {
-        _this->_impl_.chip_hop_rate_num_sec_ =
-            ::google::protobuf::Message::CopyConstruct<::google::protobuf::DoubleValue>(arena, *from._impl_.chip_hop_rate_num_sec_);
-      } else {
-        _this->_impl_.chip_hop_rate_num_sec_->MergeFrom(*from._impl_.chip_hop_rate_num_sec_);
-      }
-    }
-    if (cached_has_bits & 0x00000002u) {
-      ABSL_DCHECK(from._impl_.hop_dwell_time_sec_ != nullptr);
-      if (_this->_impl_.hop_dwell_time_sec_ == nullptr) {
-        _this->_impl_.hop_dwell_time_sec_ =
-            ::google::protobuf::Message::CopyConstruct<::google::protobuf::DoubleValue>(arena, *from._impl_.hop_dwell_time_sec_);
-      } else {
-        _this->_impl_.hop_dwell_time_sec_->MergeFrom(*from._impl_.hop_dwell_time_sec_);
-      }
-    }
-    if (cached_has_bits & 0x00000004u) {
-      ABSL_DCHECK(from._impl_.baud_rate_num_sec_ != nullptr);
-      if (_this->_impl_.baud_rate_num_sec_ == nullptr) {
-        _this->_impl_.baud_rate_num_sec_ =
-            ::google::protobuf::Message::CopyConstruct<::google::protobuf::DoubleValue>(arena, *from._impl_.baud_rate_num_sec_);
-      } else {
-        _this->_impl_.baud_rate_num_sec_->MergeFrom(*from._impl_.baud_rate_num_sec_);
-      }
-    }
-  }
-  _this->_impl_._has_bits_[0] |= cached_has_bits;
-  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void Encoding::CopyFrom(const Encoding& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.Encoding)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-
-void Encoding::InternalSwap(Encoding* PROTOBUF_RESTRICT other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::google::protobuf::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Encoding, _impl_.baud_rate_num_sec_)
-      + sizeof(Encoding::_impl_.baud_rate_num_sec_)
-      - PROTOBUF_FIELD_OFFSET(Encoding, _impl_.chip_hop_rate_num_sec_)>(
-          reinterpret_cast<char*>(&_impl_.chip_hop_rate_num_sec_),
-          reinterpret_cast<char*>(&other->_impl_.chip_hop_rate_num_sec_));
-}
-
-::google::protobuf::Metadata Encoding::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
