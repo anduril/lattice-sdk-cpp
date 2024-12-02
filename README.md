@@ -29,7 +29,7 @@ include(FetchContent)
 FetchContent_Declare(
   lattice-sdk-cpp
   GIT_REPOSITORY https://github.com/anduril/lattice-sdk-cpp.git
-  GIT_TAG 1.0.0
+  GIT_TAG v1.0.0
 )
 set(FETCHCONTENT_QUIET OFF)
 FetchContent_MakeAvailable(lattice-sdk-cpp)
