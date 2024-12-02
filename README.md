@@ -1,5 +1,10 @@
 # Lattice SDK C++
 
+https://img.shields.io/github/v/release/anduril/lattice-sdk-cpp
+
+[![Version](https://img.shields.io/github/v/release/anduril/lattice-sdk-cpp)](https://github.com/anduril/lattice-sdk-cpp/releases)
+
+
 The official [Anduril](https://www.anduril.com/) Lattice SDK for C++.
 
 ## Documentation
