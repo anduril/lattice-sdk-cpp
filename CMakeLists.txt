@@ -9,12 +9,9 @@ set(CMAKE_POSITION_INDEPENDENT_CODE True)
 find_package(protobuf 29.0.0 CONFIG REQUIRED)
 find_package(gRPC 1.68.0 CONFIG REQUIRED)
 
-add_library(grpc ALIAS gRPC::grpc)
-add_library(grpc++ ALIAS gRPC::grpc++)
-
 ## Get all the Proto generated files
 file(GLOB_RECURSE lattice-sdk-sources ${PROJECT_SOURCE_DIR}/*.cc)
 add_library(lattice-sdk-cpp STATIC ${lattice-sdk-sources})
 
 target_include_directories(lattice-sdk-cpp PUBLIC src)
-target_link_libraries(lattice-sdk-cpp PUBLIC grpc++ protobuf::libprotobuf)
+target_link_libraries(lattice-sdk-cpp PUBLIC gRPC::grpc++ protobuf::libprotobuf)
