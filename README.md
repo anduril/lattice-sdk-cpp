@@ -19,7 +19,7 @@ See the documentation for [Lattice C++ SDK](https://docs.anduril.com/sdks/cpp).
 ## Installation
 
 The only supported way of install the C++ SDK is by fetching the package using CMake. Please use a fixed version of `GIT_TAG` to ensure that
-you are not impacted by dependency updates of `gRPC` or `Protobuf`. 
+you are not impacted by dependency updates of `gRPC` or `Protobuf`. The latest version is available [here](https://github.com/anduril/lattice-sdk-cpp/releases/latest).
 
 ### CMakeLists.txt
 
@@ -29,7 +29,7 @@ include(FetchContent)
 FetchContent_Declare(
   lattice-sdk-cpp
   GIT_REPOSITORY https://github.com/anduril/lattice-sdk-cpp.git
-  GIT_TAG v1.0.0
+  GIT_TAG v1.1.0
 )
 set(FETCHCONTENT_QUIET OFF)
 FetchContent_MakeAvailable(lattice-sdk-cpp)
