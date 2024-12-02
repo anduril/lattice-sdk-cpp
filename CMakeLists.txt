@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED on)
 set(CMAKE_POSITION_INDEPENDENT_CODE True)
 
 # Specify the dependencies
-find_package(protobuf 28.3.0 CONFIG REQUIRED)
+find_package(protobuf 29.0.0 CONFIG REQUIRED)
 find_package(gRPC 1.68.0 CONFIG REQUIRED)
 
 add_library(grpc ALIAS gRPC::grpc)
