@@ -1,16 +1,13 @@
 cmake_minimum_required(VERSION 3.16)
-project(
-  lattice-sdk-cpp
-  VERSION 1.0
-  LANGUAGES CXX)
+project(lattice-sdk-cpp LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED on)
 set(CMAKE_POSITION_INDEPENDENT_CODE True)
 
 # Specify the dependencies
-find_package(protobuf 28.2.0 CONFIG REQUIRED)
-find_package(gRPC 1.62.2 CONFIG REQUIRED)
+find_package(protobuf 28.3.0 CONFIG REQUIRED)
+find_package(gRPC 1.68.0 CONFIG REQUIRED)
 
 add_library(grpc ALIAS gRPC::grpc)
 add_library(grpc++ ALIAS gRPC::grpc++)
