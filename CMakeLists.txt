@@ -32,7 +32,7 @@ else()
   set(protobuf_BUILD_TESTS OFF)
   set(protobuf_BUILD_CONFORMANCE OFF)
   set(protobuf_BUILD_EXAMPLES OFF)
-  set(protobuf_BUILD_PROTOC_BINARIES ON)
+  set(protobuf_BUILD_PROTOC_BINARIES OFF)
   set(protobuf_DISABLE_RTTI ON)
   set(protobuf_MSVC_STATIC_RUNTIME ON)
   set(protobuf_WITH_ZLIB ON CACHE BOOL "" FORCE)
@@ -53,11 +53,10 @@ else()
       "third_party/re2"
       "third_party/abseil-cpp"  
   )
-  FetchContent_MakeAvailable(gRPC)
   
   set(gRPC_BUILD_TESTS OFF)
   set(gRPC_BUILD_CODEGEN OFF) # for grpc_cpp_plugin
-  set(gRPC_BUILD_GRPC_CPP_PLUGIN ON) # we want to use only C++ plugin
+  set(gRPC_BUILD_GRPC_CPP_PLUGIN OFF) # we want to use only C++ plugin
   set(gRPC_BUILD_CSHARP_EXT OFF)
   set(gRPC_BUILD_GRPC_CSHARP_PLUGIN OFF)
   set(gRPC_BUILD_GRPC_NODE_PLUGIN OFF)
@@ -73,6 +72,21 @@ else()
   # use lite protobuf version, unless we start using features
   # that require full protobuf
   set(gRPC_USE_PROTO_LITE ON CACHE BOOL "" FORCE)
+
+  # workaround until https://github.com/grpc/grpc/issues/35922 is fixed
+  # get the current interface include directories for libprotoc
+  get_target_property(protobuf_include_dirs libprotoc INTERFACE_INCLUDE_DIRECTORIES)
+
+  if(NOT protobuf_include_dirs STREQUAL "")
+    # remove the unwanted directory from the list
+    string(REPLACE ";$<INSTALL_INTERFACE:include>" "" modified_include_dirs "${protobuf_include_dirs}")
+    # set the modified list back on the target
+    set_target_properties(libprotoc PROPERTIES INTERFACE_INCLUDE_DIRECTORIES "${modified_include_dirs}")
+  endif()
+
+  FetchContent_MakeAvailable(gRPC)
+  
+  set_target_properties(libprotoc PROPERTIES INTERFACE_INCLUDE_DIRECTORIES "${protobuf_include_dirs}")
 endif()
 
 ## Get all the Proto generated files
