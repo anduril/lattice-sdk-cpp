@@ -26,7 +26,7 @@ else()
       GIT_PROGRESS   TRUE
       GIT_SHALLOW    TRUE
       USES_TERMINAL_DOWNLOAD TRUE
-      GIT_SUBMODULES_RECURSE FALSE
+      GIT_SUBMODULES_RECURSE TRUE
       GIT_SUBMODULES ""
   )
   set(protobuf_BUILD_TESTS OFF)
@@ -46,7 +46,7 @@ else()
     GIT_PROGRESS   TRUE
     GIT_SHALLOW    TRUE
     USES_TERMINAL_DOWNLOAD TRUE
-    GIT_SUBMODULES_RECURSE FALSE
+    GIT_SUBMODULES_RECURSE TRUE
     GIT_SUBMODULES
       "third_party/cares"
       "third_party/boringssl-with-bazel"
@@ -56,7 +56,7 @@ else()
   FetchContent_MakeAvailable(gRPC)
   
   set(gRPC_BUILD_TESTS OFF)
-  set(gRPC_BUILD_CODEGEN ON) # for grpc_cpp_plugin
+  set(gRPC_BUILD_CODEGEN OFF) # for grpc_cpp_plugin
   set(gRPC_BUILD_GRPC_CPP_PLUGIN ON) # we want to use only C++ plugin
   set(gRPC_BUILD_CSHARP_EXT OFF)
   set(gRPC_BUILD_GRPC_CSHARP_PLUGIN OFF)
