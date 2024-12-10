@@ -45,4 +45,4 @@ target_link_libraries(sample_app lattice-sdk-cpp)
 
 ## Support
 
-For support with this library please [file an issue](https://github.com/anduril/lattice-sdk-cpp/issues/new) or reach out to your Anduril representative. 
+For support with this library please reach out to your Anduril representative. 
