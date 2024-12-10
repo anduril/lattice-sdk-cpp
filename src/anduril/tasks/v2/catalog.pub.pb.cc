@@ -33,9 +33,6 @@ inline constexpr TaskDefinition::Impl_::Impl_(
       : task_specification_url_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
-        display_name_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
         _cached_size_{0} {}
 
 template <typename>
@@ -110,7 +107,6 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::TaskDefinition, _impl_.task_specification_url_),
-        PROTOBUF_FIELD_OFFSET(::anduril::tasks::v2::TaskDefinition, _impl_.display_name_),
 };
 
 static const ::_pbi::MigrationSchema
@@ -127,21 +123,20 @@ const char descriptor_table_protodef_anduril_2ftasks_2fv2_2fcatalog_2epub_2eprot
     "\n\"anduril/tasks/v2/catalog.pub.proto\022\020an"
     "duril.tasks.v2\"`\n\013TaskCatalog\022K\n\020task_de"
     "finitions\030\001 \003(\0132 .anduril.tasks.v2.TaskD"
-    "efinitionR\017taskDefinitionsJ\004\010\002\020\003\"i\n\016Task"
+    "efinitionR\017taskDefinitionsJ\004\010\002\020\003\"F\n\016Task"
     "Definition\0224\n\026task_specification_url\030\001 \001"
-    "(\tR\024taskSpecificationUrl\022!\n\014display_name"
-    "\030\002 \001(\tR\013displayNameB\310\001\n\024com.anduril.task"
-    "s.v2B\017CatalogPubProtoP\001Z=ghe.anduril.dev"
-    "/anduril/andurilapis-go/anduril/tasks/v2"
-    ";tasks\242\002\003ATX\252\002\020Anduril.Tasks.V2\312\002\020Anduri"
-    "l\\Tasks\\V2\342\002\034Anduril\\Tasks\\V2\\GPBMetadat"
-    "a\352\002\022Anduril::Tasks::V2b\006proto3"
+    "(\tR\024taskSpecificationUrlB\310\001\n\024com.anduril"
+    ".tasks.v2B\017CatalogPubProtoP\001Z=ghe.anduri"
+    "l.dev/anduril/andurilapis-go/anduril/tas"
+    "ks/v2;tasks\242\002\003ATX\252\002\020Anduril.Tasks.V2\312\002\020A"
+    "nduril\\Tasks\\V2\342\002\034Anduril\\Tasks\\V2\\GPBMe"
+    "tadata\352\002\022Anduril::Tasks::V2b\006proto3"
 };
 static ::absl::once_flag descriptor_table_anduril_2ftasks_2fv2_2fcatalog_2epub_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftasks_2fv2_2fcatalog_2epub_2eproto = {
     false,
     false,
-    470,
+    435,
     descriptor_table_protodef_anduril_2ftasks_2fv2_2fcatalog_2epub_2eproto,
     "anduril/tasks/v2/catalog.pub.proto",
     &descriptor_table_anduril_2ftasks_2fv2_2fcatalog_2epub_2eproto_once,
@@ -418,7 +413,6 @@ inline PROTOBUF_NDEBUG_INLINE TaskDefinition::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::anduril::tasks::v2::TaskDefinition& from_msg)
       : task_specification_url_(arena, from.task_specification_url_),
-        display_name_(arena, from.display_name_),
         _cached_size_{0} {}
 
 TaskDefinition::TaskDefinition(
@@ -441,7 +435,6 @@ inline PROTOBUF_NDEBUG_INLINE TaskDefinition::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
       : task_specification_url_(arena),
-        display_name_(arena),
         _cached_size_{0} {}
 
 inline void TaskDefinition::SharedCtor(::_pb::Arena* arena) {
@@ -456,7 +449,6 @@ inline void TaskDefinition::SharedDtor(MessageLite& self) {
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
   this_._impl_.task_specification_url_.Destroy();
-  this_._impl_.display_name_.Destroy();
   this_._impl_.~Impl_();
 }
 
@@ -496,15 +488,15 @@ const ::google::protobuf::internal::ClassData* TaskDefinition::GetClassData() co
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 0, 74, 2> TaskDefinition::_table_ = {
+const ::_pbi::TcParseTable<0, 1, 0, 62, 2> TaskDefinition::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    2, 8,  // max_field_number, fast_idx_mask
+    1, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
+    4294967294,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
+    1,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     _class_data_.base(),
@@ -514,9 +506,6 @@ const ::_pbi::TcParseTable<1, 2, 0, 74, 2> TaskDefinition::_table_ = {
     ::_pbi::TcParser::GetTable<::anduril::tasks::v2::TaskDefinition>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // string display_name = 2 [json_name = "displayName"];
-    {::_pbi::TcParser::FastUS1,
-     {18, 63, 0, PROTOBUF_FIELD_OFFSET(TaskDefinition, _impl_.display_name_)}},
     // string task_specification_url = 1 [json_name = "taskSpecificationUrl"];
     {::_pbi::TcParser::FastUS1,
      {10, 63, 0, PROTOBUF_FIELD_OFFSET(TaskDefinition, _impl_.task_specification_url_)}},
@@ -526,16 +515,12 @@ const ::_pbi::TcParseTable<1, 2, 0, 74, 2> TaskDefinition::_table_ = {
     // string task_specification_url = 1 [json_name = "taskSpecificationUrl"];
     {PROTOBUF_FIELD_OFFSET(TaskDefinition, _impl_.task_specification_url_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // string display_name = 2 [json_name = "displayName"];
-    {PROTOBUF_FIELD_OFFSET(TaskDefinition, _impl_.display_name_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
   }},
   // no aux_entries
   {{
-    "\37\26\14\0\0\0\0\0"
+    "\37\26\0\0\0\0\0\0"
     "anduril.tasks.v2.TaskDefinition"
     "task_specification_url"
-    "display_name"
   }},
 };
 
@@ -547,7 +532,6 @@ PROTOBUF_NOINLINE void TaskDefinition::Clear() {
   (void) cached_has_bits;
 
   _impl_.task_specification_url_.ClearToEmpty();
-  _impl_.display_name_.ClearToEmpty();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -574,14 +558,6 @@ PROTOBUF_NOINLINE void TaskDefinition::Clear() {
             target = stream->WriteStringMaybeAliased(1, _s, target);
           }
 
-          // string display_name = 2 [json_name = "displayName"];
-          if (!this_._internal_display_name().empty()) {
-            const std::string& _s = this_._internal_display_name();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.tasks.v2.TaskDefinition.display_name");
-            target = stream->WriteStringMaybeAliased(2, _s, target);
-          }
-
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
             target =
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -605,17 +581,11 @@ PROTOBUF_NOINLINE void TaskDefinition::Clear() {
           // Prevent compiler warnings about cached_has_bits being unused
           (void)cached_has_bits;
 
-          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
             // string task_specification_url = 1 [json_name = "taskSpecificationUrl"];
             if (!this_._internal_task_specification_url().empty()) {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                               this_._internal_task_specification_url());
-            }
-            // string display_name = 2 [json_name = "displayName"];
-            if (!this_._internal_display_name().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_display_name());
             }
           }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
@@ -632,9 +602,6 @@ void TaskDefinition::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::
 
   if (!from._internal_task_specification_url().empty()) {
     _this->_internal_set_task_specification_url(from._internal_task_specification_url());
-  }
-  if (!from._internal_display_name().empty()) {
-    _this->_internal_set_display_name(from._internal_display_name());
   }
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -653,7 +620,6 @@ void TaskDefinition::InternalSwap(TaskDefinition* PROTOBUF_RESTRICT other) {
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.task_specification_url_, &other->_impl_.task_specification_url_, arena);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.display_name_, &other->_impl_.display_name_, arena);
 }
 
 ::google::protobuf::Metadata TaskDefinition::GetMetadata() const {
