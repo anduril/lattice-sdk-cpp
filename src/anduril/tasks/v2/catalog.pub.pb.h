@@ -225,7 +225,6 @@ class TaskDefinition final
   // accessors -------------------------------------------------------
   enum : int {
     kTaskSpecificationUrlFieldNumber = 1,
-    kDisplayNameFieldNumber = 2,
   };
   // string task_specification_url = 1 [json_name = "taskSpecificationUrl"];
   void clear_task_specification_url() ;
@@ -243,29 +242,13 @@ class TaskDefinition final
   std::string* _internal_mutable_task_specification_url();
 
   public:
-  // string display_name = 2 [json_name = "displayName"];
-  void clear_display_name() ;
-  const std::string& display_name() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_display_name(Arg_&& arg, Args_... args);
-  std::string* mutable_display_name();
-  PROTOBUF_NODISCARD std::string* release_display_name();
-  void set_allocated_display_name(std::string* value);
-
-  private:
-  const std::string& _internal_display_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_display_name(
-      const std::string& value);
-  std::string* _internal_mutable_display_name();
-
-  public:
   // @@protoc_insertion_point(class_scope:anduril.tasks.v2.TaskDefinition)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 0,
-      74, 2>
+      0, 1, 0,
+      62, 2>
       _table_;
 
   friend class ::google::protobuf::MessageLite;
@@ -283,7 +266,6 @@ class TaskDefinition final
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const TaskDefinition& from_msg);
     ::google::protobuf::internal::ArenaStringPtr task_specification_url_;
-    ::google::protobuf::internal::ArenaStringPtr display_name_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -604,54 +586,6 @@ inline void TaskDefinition::set_allocated_task_specification_url(std::string* va
     _impl_.task_specification_url_.Set("", GetArena());
   }
   // @@protoc_insertion_point(field_set_allocated:anduril.tasks.v2.TaskDefinition.task_specification_url)
-}
-
-// string display_name = 2 [json_name = "displayName"];
-inline void TaskDefinition::clear_display_name() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.display_name_.ClearToEmpty();
-}
-inline const std::string& TaskDefinition::display_name() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.tasks.v2.TaskDefinition.display_name)
-  return _internal_display_name();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void TaskDefinition::set_display_name(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.display_name_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.tasks.v2.TaskDefinition.display_name)
-}
-inline std::string* TaskDefinition::mutable_display_name() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_display_name();
-  // @@protoc_insertion_point(field_mutable:anduril.tasks.v2.TaskDefinition.display_name)
-  return _s;
-}
-inline const std::string& TaskDefinition::_internal_display_name() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.display_name_.Get();
-}
-inline void TaskDefinition::_internal_set_display_name(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.display_name_.Set(value, GetArena());
-}
-inline std::string* TaskDefinition::_internal_mutable_display_name() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.display_name_.Mutable( GetArena());
-}
-inline std::string* TaskDefinition::release_display_name() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.tasks.v2.TaskDefinition.display_name)
-  return _impl_.display_name_.Release();
-}
-inline void TaskDefinition::set_allocated_display_name(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.display_name_.SetAllocated(value, GetArena());
-  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.display_name_.IsDefault()) {
-    _impl_.display_name_.Set("", GetArena());
-  }
-  // @@protoc_insertion_point(field_set_allocated:anduril.tasks.v2.TaskDefinition.display_name)
 }
 
 #ifdef __GNUC__
