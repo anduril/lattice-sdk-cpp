@@ -20,6 +20,8 @@ The current requirements are:
 
 As an alternative, we also provide the underlying Protobuf files in the `protos` directory if you wish to compile these yourselves with specific versions of Protobuf/gRPC.
 
+Alternatively, use specific versions of Protobuf or gRPC by compiling the Protobuf files in the [`protos` directory](https://github.com/anduril/lattice-sdk-cpp/tree/master/protos).
+
 ## Installation
 
 The only supported way of install the C++ SDK is by fetching the package using CMake. Please use a fixed version of `GIT_TAG` to ensure that
