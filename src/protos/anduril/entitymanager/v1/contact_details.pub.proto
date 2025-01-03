@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package anduril.entitymanager.v1;
+
+option csharp_namespace = "Anduril.Entitymanager.V1";
+option go_package = "ghe.anduril.dev/anduril/andurilapis-go/anduril/entitymanager/v1;entitymanager";
+option java_multiple_files = true;
+option java_outer_classname = "ContactDetailsProto";
+option java_package = "com.anduril.entitymanager.v1";
+option objc_class_prefix = "AEX";
+
+// Contains details on how to make contact with an entity.
+message ContactDetails {
+  // The primary phone number for this entity.
+  string phone_number = 1;
+}
