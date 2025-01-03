@@ -11,13 +11,14 @@ See the documentation for [Lattice C++ SDK](https://docs.anduril.com/sdks/cpp).
 ## Requirements
 
 > [!WARNING]  
-> It's very important that the versions of libprotobuf match the version that it was compiled with as C++ requires very specific [guarantees](https://protobuf.dev/support/cross-version-runtime-guarantee/#cpp). The current requirements are:
-> * `gRPC == 1.68.0`
-> * `Protobuf == 29.0.0`
-> * `CMake >= 3.16`
+> It's very important that the versions of libprotobuf match the version that it was compiled with as C++ requires very specific [guarantees](https://protobuf.dev/support/cross-version-runtime-guarantee/#cpp).
+> 
+The current requirements are:
+* `gRPC == 1.68.0`
+* `Protobuf == 29.0.0`
+* `CMake >= 3.16`
 
-> [!TIP]
-> As an alternative, we also provide the underlying Protobuf files in the `protos` directory if you wish to compile these yourselves with specific versions of Protobuf/gRPC.
+As an alternative, we also provide the underlying Protobuf files in the `protos` directory if you wish to compile these yourselves with specific versions of Protobuf/gRPC.
 
 ## Installation
 
