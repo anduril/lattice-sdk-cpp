@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package anduril.tasks.jadc2.thirdparty.v1;
+
+// Set the power state of a robot. It is up to the robot to interpret the power state and act accordingly.
+message SetPowerState {
+  PowerState power_state = 1;
+}
+
+enum PowerState {
+  POWER_STATE_INVALID = 0;
+  POWER_STATE_ON = 1;
+  POWER_STATE_OFF = 2;
+}

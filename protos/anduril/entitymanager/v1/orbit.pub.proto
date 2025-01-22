@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package anduril.entitymanager.v1;
+
+import "anduril/type/orbit.pub.proto";
+
+message Orbit {
+  // Orbit Mean Elements data, analogous to the Orbit Mean Elements Message in CCSDS 502.0-B-3
+  anduril.type.OrbitMeanElements orbit_mean_elements = 1;
+}

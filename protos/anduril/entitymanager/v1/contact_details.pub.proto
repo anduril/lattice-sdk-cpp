@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package anduril.entitymanager.v1;
+
+// Contains details on how to make contact with an entity.
+message ContactDetails {
+  // The primary phone number for this entity.
+  string phone_number = 1;
+}

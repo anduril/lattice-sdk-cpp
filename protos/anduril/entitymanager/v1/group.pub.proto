@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+package anduril.entitymanager.v1;
+
+// Details related to grouping for this entity
+message GroupDetails {}
