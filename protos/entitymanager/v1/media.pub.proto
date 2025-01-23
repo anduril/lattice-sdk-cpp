@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package anduril.entitymanager.v1;
+
+import "anduril/entitymanager/v1/options.pub.proto";
+
+option csharp_namespace = "Anduril.Entitymanager.V1";
+option go_package = "ghe.anduril.dev/anduril/andurilapis-go/anduril/entitymanager/v1;entitymanager";
+option java_multiple_files = true;
+option java_outer_classname = "MediaProto";
+option java_package = "com.anduril.entitymanager.v1";
+option objc_class_prefix = "AEX";
+
+// Media associated with an entity.
+message Media {
+  repeated MediaItem media = 1 [(anduril.entitymanager.v1.overridable) = true];
+}
+
+message MediaItem {
+  // To Be Deprecated, use relative_path.
+  // The url where the media related to an entity can be accessed
+  string url = 1;
+  MediaType type = 2;
+  // The relative path where the media related to an entity can be accessed when used to query against a blobs service
+  // node.
+  string relative_path = 3;
+}
+
+enum MediaType {
+  MEDIA_TYPE_INVALID = 0;
+  MEDIA_TYPE_THUMBNAIL = 1;
+  MEDIA_TYPE_IMAGE = 2;
+  MEDIA_TYPE_VIDEO = 3;
+  MEDIA_TYPE_SLIPPY_TILES = 4;
+}
