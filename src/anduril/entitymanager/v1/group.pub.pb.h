@@ -20,7 +20,6 @@
 #include "google/protobuf/io/coded_stream.h"
 #include "google/protobuf/arena.h"
 #include "google/protobuf/arenastring.h"
-#include "google/protobuf/generated_message_bases.h"
 #include "google/protobuf/generated_message_tctable_decl.h"
 #include "google/protobuf/generated_message_util.h"
 #include "google/protobuf/metadata_lite.h"
@@ -29,6 +28,7 @@
 #include "google/protobuf/message_lite.h"
 #include "google/protobuf/repeated_field.h"  // IWYU pragma: export
 #include "google/protobuf/extension_set.h"  // IWYU pragma: export
+#include "google/protobuf/generated_enum_reflection.h"
 #include "google/protobuf/unknown_field_set.h"
 // @@protoc_insertion_point(includes)
 
@@ -55,6 +55,9 @@ extern const ::google::protobuf::internal::DescriptorTable
 namespace anduril {
 namespace entitymanager {
 namespace v1 {
+class Echelon;
+struct EchelonDefaultTypeInternal;
+extern EchelonDefaultTypeInternal _Echelon_default_instance_;
 class GroupDetails;
 struct GroupDetailsDefaultTypeInternal;
 extern GroupDetailsDefaultTypeInternal _GroupDetails_default_instance_;
@@ -69,17 +72,266 @@ namespace protobuf {
 namespace anduril {
 namespace entitymanager {
 namespace v1 {
+enum ArmyEchelon : int {
+  ARMY_ECHELON_INVALID = 0,
+  ARMY_ECHELON_FIRE_TEAM = 1,
+  ARMY_ECHELON_SQUAD = 2,
+  ARMY_ECHELON_PLATOON = 3,
+  ARMY_ECHELON_COMPANY = 4,
+  ARMY_ECHELON_BATTALION = 5,
+  ARMY_ECHELON_REGIMENT = 6,
+  ARMY_ECHELON_BRIGADE = 7,
+  ARMY_ECHELON_DIVISION = 8,
+  ARMY_ECHELON_CORPS = 9,
+  ARMY_ECHELON_ARMY = 10,
+  ArmyEchelon_INT_MIN_SENTINEL_DO_NOT_USE_ =
+      std::numeric_limits<::int32_t>::min(),
+  ArmyEchelon_INT_MAX_SENTINEL_DO_NOT_USE_ =
+      std::numeric_limits<::int32_t>::max(),
+};
+
+bool ArmyEchelon_IsValid(int value);
+extern const uint32_t ArmyEchelon_internal_data_[];
+constexpr ArmyEchelon ArmyEchelon_MIN = static_cast<ArmyEchelon>(0);
+constexpr ArmyEchelon ArmyEchelon_MAX = static_cast<ArmyEchelon>(10);
+constexpr int ArmyEchelon_ARRAYSIZE = 10 + 1;
+const ::google::protobuf::EnumDescriptor*
+ArmyEchelon_descriptor();
+template <typename T>
+const std::string& ArmyEchelon_Name(T value) {
+  static_assert(std::is_same<T, ArmyEchelon>::value ||
+                    std::is_integral<T>::value,
+                "Incorrect type passed to ArmyEchelon_Name().");
+  return ArmyEchelon_Name(static_cast<ArmyEchelon>(value));
+}
+template <>
+inline const std::string& ArmyEchelon_Name(ArmyEchelon value) {
+  return ::google::protobuf::internal::NameOfDenseEnum<ArmyEchelon_descriptor,
+                                                 0, 10>(
+      static_cast<int>(value));
+}
+inline bool ArmyEchelon_Parse(absl::string_view name, ArmyEchelon* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ArmyEchelon>(
+      ArmyEchelon_descriptor(), name, value);
+}
 
 // ===================================================================
 
 
 // -------------------------------------------------------------------
 
+class Echelon final
+    : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.Echelon) */ {
+ public:
+  inline Echelon() : Echelon(nullptr) {}
+  ~Echelon() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(Echelon* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(Echelon));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR Echelon(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline Echelon(const Echelon& from) : Echelon(nullptr, from) {}
+  inline Echelon(Echelon&& from) noexcept
+      : Echelon(nullptr, std::move(from)) {}
+  inline Echelon& operator=(const Echelon& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Echelon& operator=(Echelon&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Echelon& default_instance() {
+    return *internal_default_instance();
+  }
+  enum EchelonTypeCase {
+    kArmyEchelon = 1,
+    ECHELON_TYPE_NOT_SET = 0,
+  };
+  static inline const Echelon* internal_default_instance() {
+    return reinterpret_cast<const Echelon*>(
+        &_Echelon_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 1;
+  friend void swap(Echelon& a, Echelon& b) { a.Swap(&b); }
+  inline void Swap(Echelon* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Echelon* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Echelon* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<Echelon>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const Echelon& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const Echelon& from) { Echelon::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(Echelon* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.Echelon"; }
+
+ protected:
+  explicit Echelon(::google::protobuf::Arena* arena);
+  Echelon(::google::protobuf::Arena* arena, const Echelon& from);
+  Echelon(::google::protobuf::Arena* arena, Echelon&& from) noexcept
+      : Echelon(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kArmyEchelonFieldNumber = 1,
+  };
+  // .anduril.entitymanager.v1.ArmyEchelon army_echelon = 1 [json_name = "armyEchelon"];
+  bool has_army_echelon() const;
+  void clear_army_echelon() ;
+  ::anduril::entitymanager::v1::ArmyEchelon army_echelon() const;
+  void set_army_echelon(::anduril::entitymanager::v1::ArmyEchelon value);
+
+  private:
+  ::anduril::entitymanager::v1::ArmyEchelon _internal_army_echelon() const;
+  void _internal_set_army_echelon(::anduril::entitymanager::v1::ArmyEchelon value);
+
+  public:
+  void clear_echelon_type();
+  EchelonTypeCase echelon_type_case() const;
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.Echelon)
+ private:
+  class _Internal;
+  void set_has_army_echelon();
+  inline bool has_echelon_type() const;
+  inline void clear_has_echelon_type();
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 1, 0,
+      0, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const Echelon& from_msg);
+    union EchelonTypeUnion {
+      constexpr EchelonTypeUnion() : _constinit_{} {}
+      ::google::protobuf::internal::ConstantInitialized _constinit_;
+      int army_echelon_;
+    } echelon_type_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::uint32_t _oneof_case_[1];
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fgroup_2epub_2eproto;
+};
+// -------------------------------------------------------------------
+
 class GroupDetails final
-    : public ::google::protobuf::internal::ZeroFieldsBase
+    : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.GroupDetails) */ {
  public:
   inline GroupDetails() : GroupDetails(nullptr) {}
+  ~GroupDetails() PROTOBUF_FINAL;
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
   void operator delete(GroupDetails* msg, std::destroying_delete_t) {
@@ -130,6 +382,10 @@ class GroupDetails final
   static const GroupDetails& default_instance() {
     return *internal_default_instance();
   }
+  enum GroupTypeCase {
+    kEchelon = 3,
+    GROUP_TYPE_NOT_SET = 0,
+  };
   static inline const GroupDetails* internal_default_instance() {
     return reinterpret_cast<const GroupDetails*>(
         &_GroupDetails_default_instance_);
@@ -153,21 +409,49 @@ class GroupDetails final
   // implements Message ----------------------------------------------
 
   GroupDetails* New(::google::protobuf::Arena* arena = nullptr) const {
-    return ::google::protobuf::internal::ZeroFieldsBase::DefaultConstruct<GroupDetails>(arena);
+    return ::google::protobuf::Message::DefaultConstruct<GroupDetails>(arena);
   }
-  using ::google::protobuf::internal::ZeroFieldsBase::CopyFrom;
-  inline void CopyFrom(const GroupDetails& from) {
-    ::google::protobuf::internal::ZeroFieldsBase::CopyImpl(*this, from);
-  }
-  using ::google::protobuf::internal::ZeroFieldsBase::MergeFrom;
-  void MergeFrom(const GroupDetails& from) {
-    ::google::protobuf::internal::ZeroFieldsBase::MergeImpl(*this, from);
-  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const GroupDetails& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const GroupDetails& from) { GroupDetails::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
 
   public:
   bool IsInitialized() const {
     return true;
   }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(GroupDetails* other);
  private:
   template <typename T>
   friend ::absl::string_view(
@@ -192,12 +476,39 @@ class GroupDetails final
   // nested types ----------------------------------------------------
 
   // accessors -------------------------------------------------------
+  enum : int {
+    kEchelonFieldNumber = 3,
+  };
+  // .anduril.entitymanager.v1.Echelon echelon = 3 [json_name = "echelon"];
+  bool has_echelon() const;
+  private:
+  bool _internal_has_echelon() const;
+
+  public:
+  void clear_echelon() ;
+  const ::anduril::entitymanager::v1::Echelon& echelon() const;
+  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::Echelon* release_echelon();
+  ::anduril::entitymanager::v1::Echelon* mutable_echelon();
+  void set_allocated_echelon(::anduril::entitymanager::v1::Echelon* value);
+  void unsafe_arena_set_allocated_echelon(::anduril::entitymanager::v1::Echelon* value);
+  ::anduril::entitymanager::v1::Echelon* unsafe_arena_release_echelon();
+
+  private:
+  const ::anduril::entitymanager::v1::Echelon& _internal_echelon() const;
+  ::anduril::entitymanager::v1::Echelon* _internal_mutable_echelon();
+
+  public:
+  void clear_group_type();
+  GroupTypeCase group_type_case() const;
   // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.GroupDetails)
  private:
   class _Internal;
+  void set_has_echelon();
+  inline bool has_group_type() const;
+  inline void clear_has_group_type();
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      0, 0, 0,
+      0, 1, 1,
       0, 2>
       _table_;
 
@@ -215,8 +526,16 @@ class GroupDetails final
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const GroupDetails& from_msg);
+    union GroupTypeUnion {
+      constexpr GroupTypeUnion() : _constinit_{} {}
+      ::google::protobuf::internal::ConstantInitialized _constinit_;
+      ::anduril::entitymanager::v1::Echelon* echelon_;
+    } group_type_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::uint32_t _oneof_case_[1];
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
+  union { Impl_ _impl_; };
   friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fgroup_2epub_2eproto;
 };
 
@@ -236,6 +555,140 @@ class GroupDetails final
 
 // GroupDetails
 
+// .anduril.entitymanager.v1.Echelon echelon = 3 [json_name = "echelon"];
+inline bool GroupDetails::has_echelon() const {
+  return group_type_case() == kEchelon;
+}
+inline bool GroupDetails::_internal_has_echelon() const {
+  return group_type_case() == kEchelon;
+}
+inline void GroupDetails::set_has_echelon() {
+  _impl_._oneof_case_[0] = kEchelon;
+}
+inline void GroupDetails::clear_echelon() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (group_type_case() == kEchelon) {
+    if (GetArena() == nullptr) {
+      delete _impl_.group_type_.echelon_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.group_type_.echelon_);
+    }
+    clear_has_group_type();
+  }
+}
+inline ::anduril::entitymanager::v1::Echelon* GroupDetails::release_echelon() {
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.GroupDetails.echelon)
+  if (group_type_case() == kEchelon) {
+    clear_has_group_type();
+    auto* temp = _impl_.group_type_.echelon_;
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.group_type_.echelon_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::anduril::entitymanager::v1::Echelon& GroupDetails::_internal_echelon() const {
+  return group_type_case() == kEchelon ? *_impl_.group_type_.echelon_ : reinterpret_cast<::anduril::entitymanager::v1::Echelon&>(::anduril::entitymanager::v1::_Echelon_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::Echelon& GroupDetails::echelon() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.GroupDetails.echelon)
+  return _internal_echelon();
+}
+inline ::anduril::entitymanager::v1::Echelon* GroupDetails::unsafe_arena_release_echelon() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:anduril.entitymanager.v1.GroupDetails.echelon)
+  if (group_type_case() == kEchelon) {
+    clear_has_group_type();
+    auto* temp = _impl_.group_type_.echelon_;
+    _impl_.group_type_.echelon_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void GroupDetails::unsafe_arena_set_allocated_echelon(::anduril::entitymanager::v1::Echelon* value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_group_type();
+  if (value) {
+    set_has_echelon();
+    _impl_.group_type_.echelon_ = value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.GroupDetails.echelon)
+}
+inline ::anduril::entitymanager::v1::Echelon* GroupDetails::_internal_mutable_echelon() {
+  if (group_type_case() != kEchelon) {
+    clear_group_type();
+    set_has_echelon();
+    _impl_.group_type_.echelon_ =
+        ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Echelon>(GetArena());
+  }
+  return _impl_.group_type_.echelon_;
+}
+inline ::anduril::entitymanager::v1::Echelon* GroupDetails::mutable_echelon() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::anduril::entitymanager::v1::Echelon* _msg = _internal_mutable_echelon();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.GroupDetails.echelon)
+  return _msg;
+}
+
+inline bool GroupDetails::has_group_type() const {
+  return group_type_case() != GROUP_TYPE_NOT_SET;
+}
+inline void GroupDetails::clear_has_group_type() {
+  _impl_._oneof_case_[0] = GROUP_TYPE_NOT_SET;
+}
+inline GroupDetails::GroupTypeCase GroupDetails::group_type_case() const {
+  return GroupDetails::GroupTypeCase(_impl_._oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// Echelon
+
+// .anduril.entitymanager.v1.ArmyEchelon army_echelon = 1 [json_name = "armyEchelon"];
+inline bool Echelon::has_army_echelon() const {
+  return echelon_type_case() == kArmyEchelon;
+}
+inline void Echelon::set_has_army_echelon() {
+  _impl_._oneof_case_[0] = kArmyEchelon;
+}
+inline void Echelon::clear_army_echelon() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (echelon_type_case() == kArmyEchelon) {
+    _impl_.echelon_type_.army_echelon_ = 0;
+    clear_has_echelon_type();
+  }
+}
+inline ::anduril::entitymanager::v1::ArmyEchelon Echelon::army_echelon() const {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Echelon.army_echelon)
+  return _internal_army_echelon();
+}
+inline void Echelon::set_army_echelon(::anduril::entitymanager::v1::ArmyEchelon value) {
+  if (echelon_type_case() != kArmyEchelon) {
+    clear_echelon_type();
+    set_has_army_echelon();
+  }
+  _impl_.echelon_type_.army_echelon_ = value;
+  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.Echelon.army_echelon)
+}
+inline ::anduril::entitymanager::v1::ArmyEchelon Echelon::_internal_army_echelon() const {
+  if (echelon_type_case() == kArmyEchelon) {
+    return static_cast<::anduril::entitymanager::v1::ArmyEchelon>(_impl_.echelon_type_.army_echelon_);
+  }
+  return static_cast<::anduril::entitymanager::v1::ArmyEchelon>(0);
+}
+
+inline bool Echelon::has_echelon_type() const {
+  return echelon_type_case() != ECHELON_TYPE_NOT_SET;
+}
+inline void Echelon::clear_has_echelon_type() {
+  _impl_._oneof_case_[0] = ECHELON_TYPE_NOT_SET;
+}
+inline Echelon::EchelonTypeCase Echelon::echelon_type_case() const {
+  return Echelon::EchelonTypeCase(_impl_._oneof_case_[0]);
+}
 #ifdef __GNUC__
 #pragma GCC diagnostic pop
 #endif  // __GNUC__
@@ -245,6 +698,19 @@ class GroupDetails final
 }  // namespace entitymanager
 }  // namespace anduril
 
+
+namespace google {
+namespace protobuf {
+
+template <>
+struct is_proto_enum<::anduril::entitymanager::v1::ArmyEchelon> : std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor<::anduril::entitymanager::v1::ArmyEchelon>() {
+  return ::anduril::entitymanager::v1::ArmyEchelon_descriptor();
+}
+
+}  // namespace protobuf
+}  // namespace google
 
 // @@protoc_insertion_point(global_scope)
 

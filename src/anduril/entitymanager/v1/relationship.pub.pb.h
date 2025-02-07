@@ -57,6 +57,9 @@ extern const ::google::protobuf::internal::DescriptorTable
 namespace anduril {
 namespace entitymanager {
 namespace v1 {
+class ActiveTarget;
+struct ActiveTargetDefaultTypeInternal;
+extern ActiveTargetDefaultTypeInternal _ActiveTarget_default_instance_;
 class GroupChild;
 struct GroupChildDefaultTypeInternal;
 extern GroupChildDefaultTypeInternal _GroupChild_default_instance_;
@@ -533,6 +536,152 @@ class GroupChild final
 };
 // -------------------------------------------------------------------
 
+class ActiveTarget final
+    : public ::google::protobuf::internal::ZeroFieldsBase
+/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.ActiveTarget) */ {
+ public:
+  inline ActiveTarget() : ActiveTarget(nullptr) {}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(ActiveTarget* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(ActiveTarget));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR ActiveTarget(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline ActiveTarget(const ActiveTarget& from) : ActiveTarget(nullptr, from) {}
+  inline ActiveTarget(ActiveTarget&& from) noexcept
+      : ActiveTarget(nullptr, std::move(from)) {}
+  inline ActiveTarget& operator=(const ActiveTarget& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ActiveTarget& operator=(ActiveTarget&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ActiveTarget& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ActiveTarget* internal_default_instance() {
+    return reinterpret_cast<const ActiveTarget*>(
+        &_ActiveTarget_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 7;
+  friend void swap(ActiveTarget& a, ActiveTarget& b) { a.Swap(&b); }
+  inline void Swap(ActiveTarget* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ActiveTarget* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ActiveTarget* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::internal::ZeroFieldsBase::DefaultConstruct<ActiveTarget>(arena);
+  }
+  using ::google::protobuf::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const ActiveTarget& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::google::protobuf::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const ActiveTarget& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.ActiveTarget"; }
+
+ protected:
+  explicit ActiveTarget(::google::protobuf::Arena* arena);
+  ActiveTarget(::google::protobuf::Arena* arena, const ActiveTarget& from);
+  ActiveTarget(::google::protobuf::Arena* arena, ActiveTarget&& from) noexcept
+      : ActiveTarget(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.ActiveTarget)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 0, 0,
+      0, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const ActiveTarget& from_msg);
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2frelationship_2epub_2eproto;
+};
+// -------------------------------------------------------------------
+
 class TrackedBy final
     : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.TrackedBy) */ {
@@ -808,6 +957,7 @@ class RelationshipType final
     kGroupChild = 4,
     kGroupParent = 5,
     kMergedFrom = 6,
+    kActiveTarget = 7,
     TYPE_NOT_SET = 0,
   };
   static inline const RelationshipType* internal_default_instance() {
@@ -905,6 +1055,7 @@ class RelationshipType final
     kGroupChildFieldNumber = 4,
     kGroupParentFieldNumber = 5,
     kMergedFromFieldNumber = 6,
+    kActiveTargetFieldNumber = 7,
   };
   // .anduril.entitymanager.v1.TrackedBy tracked_by = 2 [json_name = "trackedBy"];
   bool has_tracked_by() const;
@@ -982,6 +1133,25 @@ class RelationshipType final
   ::anduril::entitymanager::v1::MergedFrom* _internal_mutable_merged_from();
 
   public:
+  // .anduril.entitymanager.v1.ActiveTarget active_target = 7 [json_name = "activeTarget"];
+  bool has_active_target() const;
+  private:
+  bool _internal_has_active_target() const;
+
+  public:
+  void clear_active_target() ;
+  const ::anduril::entitymanager::v1::ActiveTarget& active_target() const;
+  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::ActiveTarget* release_active_target();
+  ::anduril::entitymanager::v1::ActiveTarget* mutable_active_target();
+  void set_allocated_active_target(::anduril::entitymanager::v1::ActiveTarget* value);
+  void unsafe_arena_set_allocated_active_target(::anduril::entitymanager::v1::ActiveTarget* value);
+  ::anduril::entitymanager::v1::ActiveTarget* unsafe_arena_release_active_target();
+
+  private:
+  const ::anduril::entitymanager::v1::ActiveTarget& _internal_active_target() const;
+  ::anduril::entitymanager::v1::ActiveTarget* _internal_mutable_active_target();
+
+  public:
   void clear_type();
   TypeCase type_case() const;
   // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.RelationshipType)
@@ -991,11 +1161,12 @@ class RelationshipType final
   void set_has_group_child();
   void set_has_group_parent();
   void set_has_merged_from();
+  void set_has_active_target();
   inline bool has_type() const;
   inline void clear_has_type();
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      0, 4, 4,
+      0, 5, 5,
       0, 2>
       _table_;
 
@@ -1020,6 +1191,7 @@ class RelationshipType final
       ::anduril::entitymanager::v1::GroupChild* group_child_;
       ::anduril::entitymanager::v1::GroupParent* group_parent_;
       ::anduril::entitymanager::v1::MergedFrom* merged_from_;
+      ::anduril::entitymanager::v1::ActiveTarget* active_target_;
     } type_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     ::uint32_t _oneof_case_[1];
@@ -2041,6 +2213,85 @@ inline ::anduril::entitymanager::v1::MergedFrom* RelationshipType::mutable_merge
   return _msg;
 }
 
+// .anduril.entitymanager.v1.ActiveTarget active_target = 7 [json_name = "activeTarget"];
+inline bool RelationshipType::has_active_target() const {
+  return type_case() == kActiveTarget;
+}
+inline bool RelationshipType::_internal_has_active_target() const {
+  return type_case() == kActiveTarget;
+}
+inline void RelationshipType::set_has_active_target() {
+  _impl_._oneof_case_[0] = kActiveTarget;
+}
+inline void RelationshipType::clear_active_target() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (type_case() == kActiveTarget) {
+    if (GetArena() == nullptr) {
+      delete _impl_.type_.active_target_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.type_.active_target_);
+    }
+    clear_has_type();
+  }
+}
+inline ::anduril::entitymanager::v1::ActiveTarget* RelationshipType::release_active_target() {
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.RelationshipType.active_target)
+  if (type_case() == kActiveTarget) {
+    clear_has_type();
+    auto* temp = _impl_.type_.active_target_;
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.type_.active_target_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::anduril::entitymanager::v1::ActiveTarget& RelationshipType::_internal_active_target() const {
+  return type_case() == kActiveTarget ? *_impl_.type_.active_target_ : reinterpret_cast<::anduril::entitymanager::v1::ActiveTarget&>(::anduril::entitymanager::v1::_ActiveTarget_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::ActiveTarget& RelationshipType::active_target() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.RelationshipType.active_target)
+  return _internal_active_target();
+}
+inline ::anduril::entitymanager::v1::ActiveTarget* RelationshipType::unsafe_arena_release_active_target() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:anduril.entitymanager.v1.RelationshipType.active_target)
+  if (type_case() == kActiveTarget) {
+    clear_has_type();
+    auto* temp = _impl_.type_.active_target_;
+    _impl_.type_.active_target_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void RelationshipType::unsafe_arena_set_allocated_active_target(::anduril::entitymanager::v1::ActiveTarget* value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_type();
+  if (value) {
+    set_has_active_target();
+    _impl_.type_.active_target_ = value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.RelationshipType.active_target)
+}
+inline ::anduril::entitymanager::v1::ActiveTarget* RelationshipType::_internal_mutable_active_target() {
+  if (type_case() != kActiveTarget) {
+    clear_type();
+    set_has_active_target();
+    _impl_.type_.active_target_ =
+        ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::ActiveTarget>(GetArena());
+  }
+  return _impl_.type_.active_target_;
+}
+inline ::anduril::entitymanager::v1::ActiveTarget* RelationshipType::mutable_active_target() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::anduril::entitymanager::v1::ActiveTarget* _msg = _internal_mutable_active_target();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.RelationshipType.active_target)
+  return _msg;
+}
+
 inline bool RelationshipType::has_type() const {
   return type_case() != TYPE_NOT_SET;
 }
@@ -2247,6 +2498,10 @@ inline void TrackedBy::set_allocated_last_measurement_timestamp(::google::protob
 // -------------------------------------------------------------------
 
 // MergedFrom
+
+// -------------------------------------------------------------------
+
+// ActiveTarget
 
 #ifdef __GNUC__
 #pragma GCC diagnostic pop
