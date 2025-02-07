@@ -5,6 +5,7 @@ package anduril.entitymanager.v1;
 import "anduril/entitymanager/v1/location.pub.proto";
 import "google/protobuf/wrappers.proto";
 
+
 // A component that describes a geo-entity.
 message GeoDetails {
   GeoType type = 1;
@@ -96,11 +97,9 @@ message LinearRing {
   reserved 1;
 }
 
-// A position in a GeoPolygon with an optional extruded height.
 message GeoPolygonPosition {
   // base position. if no altitude set, its on the ground.
   Position position = 1;
-  // optional height above base position to extrude in meters.
   // for a given polygon, all points should have a height or none of them.
   // strictly GeoJSON compatible polygons will not have this set.
   google.protobuf.FloatValue height_m = 2;

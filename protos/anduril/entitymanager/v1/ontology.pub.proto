@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package anduril.entitymanager.v1;
 
-import "anduril/entitymanager/v1/options.pub.proto";
 import "anduril/entitymanager/v1/types.pub.proto";
 import "anduril/ontology/v1/type.pub.proto";
+
 
 // Provides the disposition, environment, and nationality of an Entity.
 message MilView {

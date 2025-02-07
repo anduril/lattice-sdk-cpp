@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package anduril.entitymanager.v1;
 
+
 message Dimensions {
   // Length of the entity in meters
   float length_m = 1;

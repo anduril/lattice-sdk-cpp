@@ -4,6 +4,7 @@ package anduril.tasks.v2;
 
 import "google/protobuf/duration.proto";
 
+
 // Maps to the UCI DurationRangeType.
 message DurationRange {
   google.protobuf.Duration min = 1;

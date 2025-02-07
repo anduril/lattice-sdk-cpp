@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package anduril.entitymanager.v1;
 
+
 // rate-limiting / down-sampling parameters.
 message RateLimit {
   // Specifies a minimum duration in milliseconds after an update for a given entity before another one

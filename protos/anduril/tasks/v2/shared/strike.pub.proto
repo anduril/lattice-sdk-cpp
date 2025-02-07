@@ -7,6 +7,7 @@ import "anduril/tasks/v2/objective.pub.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/empty.proto";
 
+
 // Maps to BREVITY code SMACK.
 message Smack {
   // Objective to SMACK.

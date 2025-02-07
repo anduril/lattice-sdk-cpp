@@ -5,6 +5,7 @@ package anduril.entitymanager.v1;
 import "anduril/type/coords.pub.proto";
 import "google/protobuf/wrappers.proto";
 
+
 // A component that describes an entity's signal characteristics.
 message Signal {
   // Indicates either a frequency range or a center frequency of this signal.

@@ -4,6 +4,7 @@ package anduril.entitymanager.v1;
 
 import "google/protobuf/wrappers.proto";
 
+
 // Represents the state of power sources connected to this entity.
 message PowerState {
   // This is a map where the key is a unique id of the power source and the value is additional information about the

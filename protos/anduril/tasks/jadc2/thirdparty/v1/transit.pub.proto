@@ -5,6 +5,7 @@ package anduril.tasks.jadc2.thirdparty.v1;
 import "anduril/type/coords.pub.proto";
 import "google/protobuf/wrappers.proto";
 
+
 // Transit represents moving a vehicle on a path through one or more points.
 message Transit {
   // The path consisting of all segments to be taken for this transit task.

@@ -6,6 +6,7 @@ import "anduril/entitymanager/v1/geoentity.pub.proto";
 import "anduril/entitymanager/v1/location.pub.proto";
 import "google/protobuf/timestamp.proto";
 
+
 // A Statement is the building block of the entity filter. The outermost statement is conceptually
 // the root node of an "expression tree" which allows for the construction of complete boolean
 // logic statements. Statements are formed by grouping sets of children statement(s) or predicate(s)

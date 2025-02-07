@@ -5,6 +5,7 @@ package anduril.tasks.v2;
 import "anduril/tasks/v2/objective.pub.proto";
 import "anduril/tasks/v2/shared/isr.pub.proto";
 
+
 // Maps to BREVITY code Marshal.
 // Establish(ed) at a specific point, typically used to posture forces in preparation for an offensive operation.
 message Marshal {

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package anduril.entitymanager.v1;
 
-import "anduril/entitymanager/v1/options.pub.proto";
+
 
 // A message describing any transponder codes associated with Mode 1, 2, 3, 4, 5, S interrogations.
 message TransponderCodes {

@@ -4,6 +4,7 @@ package anduril.type;
 
 import "anduril/type/coords.pub.proto";
 
+
 // A 2d grid with binary values for each grid cell.
 message Grid {
   // The bottom left extent of the 2d grid. This represents the

@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package anduril.entitymanager.v1;
 
+
 // Schedules associated with this entity
 message Schedules {
   repeated Schedule schedules = 1;

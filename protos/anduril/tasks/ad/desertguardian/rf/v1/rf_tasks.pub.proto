@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package anduril.tasks.ad.desertguardian.rf.v1;
 
+
 // Set the transmit state of an RF Platform such as a Radar, Beacon, or Radio.
 message SetTransmitState {
   TransmitState transmit_state = 1;

@@ -50,6 +50,12 @@ paths:
                                 $ref: '#/components/schemas/Status'
 components:
     schemas:
+        ActiveTarget:
+            type: object
+            properties: {}
+            description: |-
+                A target relationship is the inverse of TrackedBy; a one-way relation
+                 from sensor to target, indicating track(s) currently prioritized by a robot.
         Agent:
             type: object
             properties:
@@ -492,6 +498,28 @@ components:
                 u:
                     type: number
                     format: double
+        Echelon:
+            type: object
+            properties:
+                armyEchelon:
+                    enum:
+                        - ARMY_ECHELON_INVALID
+                        - ARMY_ECHELON_FIRE_TEAM
+                        - ARMY_ECHELON_SQUAD
+                        - ARMY_ECHELON_PLATOON
+                        - ARMY_ECHELON_COMPANY
+                        - ARMY_ECHELON_BATTALION
+                        - ARMY_ECHELON_REGIMENT
+                        - ARMY_ECHELON_BRIGADE
+                        - ARMY_ECHELON_DIVISION
+                        - ARMY_ECHELON_CORPS
+                        - ARMY_ECHELON_ARMY
+                    type: string
+                    format: enum
+            description: |-
+                Describes a Echelon group type.  Comprised of entities which are members of the
+                 same unit or echelon. Ex: A group of tanks within a armored company or that same company
+                 as a member of a battalion.
         EmitterNotation:
             type: object
             properties:
@@ -925,11 +953,9 @@ components:
                 heightM:
                     type: number
                     description: |-
-                        optional height above base position to extrude in meters.
                          for a given polygon, all points should have a height or none of them.
                          strictly GeoJSON compatible polygons will not have this set.
                     format: float
-            description: A position in a GeoPolygon with an optional extruded height.
         GeoShape:
             type: object
             properties:
@@ -966,7 +992,9 @@ components:
                  relationship alone determines that the type of group is an Entity Group.
         GroupDetails:
             type: object
-            properties: {}
+            properties:
+                echelon:
+                    $ref: '#/components/schemas/Echelon'
             description: Details related to grouping for this entity
         GroupParent:
             type: object
@@ -1634,7 +1662,6 @@ components:
                 altitudeHaeMeters:
                     type: number
                     description: |-
-                        altitude as height above ellipsoid (WGS84) in meters. DoubleValue wrapper is used to distinguish optional from
                          default 0.
                     format: double
                 altitudeAglMeters:
@@ -1800,7 +1827,6 @@ components:
                     description: Bottom left point of the frustum.
             description: |-
                 Represents a frustum in which which all four corner points project onto the ground. All points in this message
-                 are optional, if the projection to the ground fails then they will not be populated.
         Provenance:
             type: object
             properties:
@@ -1916,6 +1942,8 @@ components:
                     $ref: '#/components/schemas/GroupParent'
                 mergedFrom:
                     $ref: '#/components/schemas/MergedFrom'
+                activeTarget:
+                    $ref: '#/components/schemas/ActiveTarget'
             description: Determines the type of relationship between this entity and another.
         Relationships:
             type: object

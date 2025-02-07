@@ -4,6 +4,7 @@ package anduril.entitymanager.v1;
 
 import "anduril/entitymanager/v1/filter.pub.proto";
 
+
 // A DynamicStatement is the building block of a "runtime aware" entity filter - that is, any filter
 // which needs to perform operations against a series of entities that will need to be evaluated against
 // on demand. The DynamicStatement allows you to perform a set intersection operation across a static

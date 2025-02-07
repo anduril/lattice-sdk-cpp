@@ -2,8 +2,8 @@ syntax = "proto3";
 
 package anduril.entitymanager.v1;
 
-import "anduril/entitymanager/v1/options.pub.proto";
 import "anduril/ontology/v1/type.pub.proto";
+
 
 // List of payloads available for an entity.
 message Payloads {

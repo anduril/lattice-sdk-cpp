@@ -9,7 +9,6 @@ import "anduril/entitymanager/v1/group.pub.proto";
 import "anduril/entitymanager/v1/health_status.pub.proto";
 import "anduril/entitymanager/v1/location.pub.proto";
 import "anduril/entitymanager/v1/ontology.pub.proto";
-import "anduril/entitymanager/v1/options.pub.proto";
 import "anduril/entitymanager/v1/orbit.pub.proto";
 import "anduril/entitymanager/v1/payloads.pub.proto";
 import "anduril/entitymanager/v1/power.pub.proto";
@@ -26,6 +25,7 @@ import "anduril/tasks/v2/catalog.pub.proto";
 import "anduril/type/color.pub.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
+
 
 // The entity object represents a single known object within the Lattice operational environment. It contains
 // all data associated with the entity, such as its name, ID, and other relevant components.
