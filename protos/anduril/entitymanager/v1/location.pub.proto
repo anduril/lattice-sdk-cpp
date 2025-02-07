@@ -5,6 +5,13 @@ package anduril.entitymanager.v1;
 import "anduril/type/coords.pub.proto";
 import "google/protobuf/wrappers.proto";
 
+option csharp_namespace = "Anduril.Entitymanager.V1";
+option go_package = "ghe.anduril.dev/anduril/andurilapis-go/anduril/entitymanager/v1;entitymanager";
+option java_multiple_files = true;
+option java_outer_classname = "LocationProto";
+option java_package = "com.anduril.entitymanager.v1";
+option objc_class_prefix = "AEX";
+
 // Available for Entities that have a single or primary Location.
 message Location {
   // see Position definition for details.

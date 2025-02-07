@@ -2,6 +2,11 @@ syntax = "proto3";
 
 package anduril.tasks.v2;
 
+option go_package = "ghe.anduril.dev/anduril/andurilapis-go/anduril/tasks/v2;tasks";
+option java_multiple_files = true;
+option java_outer_classname = "TaskCatalogProto";
+option java_package = "com.anduril.tasks.v2";
+
 // Catalog of supported tasks.
 message TaskCatalog {
   repeated TaskDefinition task_definitions = 1;

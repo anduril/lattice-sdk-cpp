@@ -4,6 +4,13 @@ package anduril.entitymanager.v1;
 
 import "anduril/entitymanager/v1/options.pub.proto";
 
+option csharp_namespace = "Anduril.Entitymanager.V1";
+option go_package = "ghe.anduril.dev/anduril/andurilapis-go/anduril/entitymanager/v1;entitymanager";
+option java_multiple_files = true;
+option java_outer_classname = "TransponderCodesProto";
+option java_package = "com.anduril.entitymanager.v1";
+option objc_class_prefix = "AEX";
+
 // A message describing any transponder codes associated with Mode 1, 2, 3, 4, 5, S interrogations.
 message TransponderCodes {
   // The mode 1 code assigned to military assets.

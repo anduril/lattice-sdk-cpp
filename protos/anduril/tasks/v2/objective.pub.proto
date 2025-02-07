@@ -4,6 +4,10 @@ package anduril.tasks.v2;
 
 import "anduril/type/coords.pub.proto";
 
+option go_package = "ghe.anduril.dev/anduril/andurilapis-go/anduril/tasks/v2;tasks";
+option java_multiple_files = true;
+option java_package = "com.anduril.tasks.v2";
+
 // Describes the objective of a task.
 message Objective {
   oneof objective {

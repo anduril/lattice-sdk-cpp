@@ -5,6 +5,13 @@ package anduril.entitymanager.v1;
 import "anduril/entitymanager/v1/location.pub.proto";
 import "google/protobuf/wrappers.proto";
 
+option csharp_namespace = "Anduril.Entitymanager.V1";
+option go_package = "ghe.anduril.dev/anduril/andurilapis-go/anduril/entitymanager/v1;entitymanager";
+option java_multiple_files = true;
+option java_outer_classname = "GeoentityProto";
+option java_package = "com.anduril.entitymanager.v1";
+option objc_class_prefix = "AEX";
+
 // A component that describes a geo-entity.
 message GeoDetails {
   GeoType type = 1;

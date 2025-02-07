@@ -2,6 +2,9 @@ syntax = "proto3";
 
 package anduril.ontology.v1;
 
+option go_package = "ghe.anduril.dev/anduril/andurilapis-go/anduril/ontology/v1;ontology";
+option java_multiple_files = true;
+option java_package = "com.anduril.ontology.v1.api";
 
 // Refers to the relationship of the tracker to the operational object being represented.
 // Maps 1 to 1 with mil-std affiliation. Pending is a default, yet to be classified object.

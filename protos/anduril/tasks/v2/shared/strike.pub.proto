@@ -7,6 +7,10 @@ import "anduril/tasks/v2/objective.pub.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/empty.proto";
 
+option go_package = "ghe.anduril.dev/anduril/andurilapis-go/anduril/tasks/v2;tasks";
+option java_multiple_files = true;
+option java_package = "com.anduril.tasks.v2";
+
 // Maps to BREVITY code SMACK.
 message Smack {
   // Objective to SMACK.

@@ -50,6 +50,12 @@ paths:
                                 $ref: '#/components/schemas/Status'
 components:
     schemas:
+        ActiveTarget:
+            type: object
+            properties: {}
+            description: |-
+                A target relationship is the inverse of TrackedBy; a one-way relation
+                 from sensor to target, indicating track(s) currently prioritized by a robot.
         Agent:
             type: object
             properties:
@@ -492,6 +498,28 @@ components:
                 u:
                     type: number
                     format: double
+        Echelon:
+            type: object
+            properties:
+                armyEchelon:
+                    enum:
+                        - ARMY_ECHELON_INVALID
+                        - ARMY_ECHELON_FIRE_TEAM
+                        - ARMY_ECHELON_SQUAD
+                        - ARMY_ECHELON_PLATOON
+                        - ARMY_ECHELON_COMPANY
+                        - ARMY_ECHELON_BATTALION
+                        - ARMY_ECHELON_REGIMENT
+                        - ARMY_ECHELON_BRIGADE
+                        - ARMY_ECHELON_DIVISION
+                        - ARMY_ECHELON_CORPS
+                        - ARMY_ECHELON_ARMY
+                    type: string
+                    format: enum
+            description: |-
+                Describes a Echelon group type.  Comprised of entities which are members of the
+                 same unit or echelon. Ex: A group of tanks within a armored company or that same company
+                 as a member of a battalion.
         EmitterNotation:
             type: object
             properties:
@@ -966,7 +994,9 @@ components:
                  relationship alone determines that the type of group is an Entity Group.
         GroupDetails:
             type: object
-            properties: {}
+            properties:
+                echelon:
+                    $ref: '#/components/schemas/Echelon'
             description: Details related to grouping for this entity
         GroupParent:
             type: object
@@ -1916,6 +1946,8 @@ components:
                     $ref: '#/components/schemas/GroupParent'
                 mergedFrom:
                     $ref: '#/components/schemas/MergedFrom'
+                activeTarget:
+                    $ref: '#/components/schemas/ActiveTarget'
             description: Determines the type of relationship between this entity and another.
         Relationships:
             type: object

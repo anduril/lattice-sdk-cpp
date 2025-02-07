@@ -5,6 +5,13 @@ package anduril.entitymanager.v1;
 import "anduril/entitymanager/v1/sensors.pub.proto";
 import "google/protobuf/timestamp.proto";
 
+option csharp_namespace = "Anduril.Entitymanager.V1";
+option go_package = "ghe.anduril.dev/anduril/andurilapis-go/anduril/entitymanager/v1;entitymanager";
+option java_multiple_files = true;
+option java_outer_classname = "RelationshipProto";
+option java_package = "com.anduril.entitymanager.v1";
+option objc_class_prefix = "AEX";
+
 // The relationships between this entity and other entities in the common operational picture.
 message Relationships {
   repeated Relationship relationships = 1;
@@ -27,6 +34,7 @@ message RelationshipType {
     GroupChild group_child = 4;
     GroupParent group_parent = 5;
     MergedFrom merged_from = 6;
+    ActiveTarget active_target = 7;
   }
 }
 
@@ -53,3 +61,7 @@ message GroupParent {}
 // A MergedFrom relationship is a uni-directional relationship indicating that this entity is a merged entity whose
 // data has at least partially been merged from the related entity.
 message MergedFrom {}
+
+// A target relationship is the inverse of TrackedBy; a one-way relation
+// from sensor to target, indicating track(s) currently prioritized by a robot.
+message ActiveTarget {}

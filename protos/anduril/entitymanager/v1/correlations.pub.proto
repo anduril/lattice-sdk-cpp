@@ -4,6 +4,13 @@ package anduril.entitymanager.v1;
 
 import "google/protobuf/timestamp.proto";
 
+option csharp_namespace = "Anduril.Entitymanager.V1";
+option go_package = "ghe.anduril.dev/anduril/andurilapis-go/anduril/entitymanager/v1;entitymanager";
+option java_multiple_files = true;
+option java_outer_classname = "CorrelationsProto";
+option java_package = "com.anduril.entitymanager.v1";
+option objc_class_prefix = "AEX";
+
 // Available for Entities that are a correlated (N to 1) set of entities. This will be present on each entity in the
 // set.
 message Correlated {

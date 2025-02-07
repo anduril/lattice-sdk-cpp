@@ -4,6 +4,13 @@ package anduril.entitymanager.v1;
 
 import "anduril/entitymanager/v1/options.pub.proto";
 
+option csharp_namespace = "Anduril.Entitymanager.V1";
+option go_package = "ghe.anduril.dev/anduril/andurilapis-go/anduril/entitymanager/v1;entitymanager";
+option java_multiple_files = true;
+option java_outer_classname = "MediaProto";
+option java_package = "com.anduril.entitymanager.v1";
+option objc_class_prefix = "AEX";
+
 // Media associated with an entity.
 message Media {
   repeated MediaItem media = 1 [(anduril.entitymanager.v1.overridable) = true];
