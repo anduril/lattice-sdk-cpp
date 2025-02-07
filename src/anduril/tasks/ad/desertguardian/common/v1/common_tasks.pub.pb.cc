@@ -212,22 +212,20 @@ const char descriptor_table_protodef_anduril_2ftasks_2fad_2fdesertguardian_2fcom
     "eHighPriorityTrack\022\033\n\tentity_id\030\001 \001(\tR\010e"
     "ntityId*N\n\nPowerState\022\027\n\023POWER_STATE_INV"
     "ALID\020\000\022\022\n\016POWER_STATE_ON\020\001\022\023\n\017POWER_STAT"
-    "E_OFF\020\002B\351\002\n-com.anduril.tasks.ad.desertg"
+    "E_OFF\020\002B\217\002\n-com.anduril.tasks.ad.desertg"
     "uardian.common.v1B\023CommonTasksPubProtoP\001"
-    "ZXghe.anduril.dev/anduril/andurilapis-go"
-    "/anduril/tasks/ad/desertguardian/common/"
-    "v1;tasksv1\242\002\005ATADC\252\002)Anduril.Tasks.Ad.De"
-    "sertguardian.Common.V1\312\002)Anduril\\Tasks\\A"
-    "d\\Desertguardian\\Common\\V1\342\0025Anduril\\Tas"
-    "ks\\Ad\\Desertguardian\\Common\\V1\\GPBMetada"
-    "ta\352\002.Anduril::Tasks::Ad::Desertguardian:"
-    ":Common::V1b\006proto3"
+    "\242\002\005ATADC\252\002)Anduril.Tasks.Ad.Desertguardi"
+    "an.Common.V1\312\002)Anduril\\Tasks\\Ad\\Desertgu"
+    "ardian\\Common\\V1\342\0025Anduril\\Tasks\\Ad\\Dese"
+    "rtguardian\\Common\\V1\\GPBMetadata\352\002.Andur"
+    "il::Tasks::Ad::Desertguardian::Common::V"
+    "1b\006proto3"
 };
 static ::absl::once_flag descriptor_table_anduril_2ftasks_2fad_2fdesertguardian_2fcommon_2fv1_2fcommon_5ftasks_2epub_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftasks_2fad_2fdesertguardian_2fcommon_2fv1_2fcommon_5ftasks_2epub_2eproto = {
     false,
     false,
-    819,
+    729,
     descriptor_table_protodef_anduril_2ftasks_2fad_2fdesertguardian_2fcommon_2fv1_2fcommon_5ftasks_2epub_2eproto,
     "anduril/tasks/ad/desertguardian/common/v1/common_tasks.pub.proto",
     &descriptor_table_anduril_2ftasks_2fad_2fdesertguardian_2fcommon_2fv1_2fcommon_5ftasks_2epub_2eproto_once,

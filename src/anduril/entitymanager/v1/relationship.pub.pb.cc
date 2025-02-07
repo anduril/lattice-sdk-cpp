@@ -81,6 +81,24 @@ struct GroupChildDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GroupChildDefaultTypeInternal _GroupChild_default_instance_;
+              template <typename>
+PROTOBUF_CONSTEXPR ActiveTarget::ActiveTarget(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::internal::ZeroFieldsBase(_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::internal::ZeroFieldsBase() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct ActiveTargetDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ActiveTargetDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ActiveTargetDefaultTypeInternal() {}
+  union {
+    ActiveTarget _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ActiveTargetDefaultTypeInternal _ActiveTarget_default_instance_;
 
 inline constexpr TrackedBy::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -234,6 +252,7 @@ const ::uint32_t
         ::_pbi::kInvalidFieldOffsetTag,
         ::_pbi::kInvalidFieldOffsetTag,
         ::_pbi::kInvalidFieldOffsetTag,
+        ::_pbi::kInvalidFieldOffsetTag,
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::RelationshipType, _impl_.type_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::TrackedBy, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::TrackedBy, _internal_metadata_),
@@ -271,6 +290,14 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::ActiveTarget, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
 };
 
 static const ::_pbi::MigrationSchema
@@ -278,10 +305,11 @@ static const ::_pbi::MigrationSchema
         {0, -1, -1, sizeof(::anduril::entitymanager::v1::Relationships)},
         {9, 20, -1, sizeof(::anduril::entitymanager::v1::Relationship)},
         {23, -1, -1, sizeof(::anduril::entitymanager::v1::RelationshipType)},
-        {36, 46, -1, sizeof(::anduril::entitymanager::v1::TrackedBy)},
-        {48, -1, -1, sizeof(::anduril::entitymanager::v1::GroupChild)},
-        {56, -1, -1, sizeof(::anduril::entitymanager::v1::GroupParent)},
-        {64, -1, -1, sizeof(::anduril::entitymanager::v1::MergedFrom)},
+        {37, 47, -1, sizeof(::anduril::entitymanager::v1::TrackedBy)},
+        {49, -1, -1, sizeof(::anduril::entitymanager::v1::GroupChild)},
+        {57, -1, -1, sizeof(::anduril::entitymanager::v1::GroupParent)},
+        {65, -1, -1, sizeof(::anduril::entitymanager::v1::MergedFrom)},
+        {73, -1, -1, sizeof(::anduril::entitymanager::v1::ActiveTarget)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::entitymanager::v1::_Relationships_default_instance_._instance,
@@ -291,6 +319,7 @@ static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::entitymanager::v1::_GroupChild_default_instance_._instance,
     &::anduril::entitymanager::v1::_GroupParent_default_instance_._instance,
     &::anduril::entitymanager::v1::_MergedFrom_default_instance_._instance,
+    &::anduril::entitymanager::v1::_ActiveTarget_default_instance_._instance,
 };
 const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2frelationship_2epub_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
@@ -304,28 +333,29 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2frelationship
     "ty_id\030\001 \001(\tR\017relatedEntityId\022\'\n\017relation"
     "ship_id\030\002 \001(\tR\016relationshipId\022W\n\021relatio"
     "nship_type\030\003 \001(\0132*.anduril.entitymanager"
-    ".v1.RelationshipTypeR\020relationshipType\"\276"
-    "\002\n\020RelationshipType\022D\n\ntracked_by\030\002 \001(\0132"
+    ".v1.RelationshipTypeR\020relationshipType\"\215"
+    "\003\n\020RelationshipType\022D\n\ntracked_by\030\002 \001(\0132"
     "#.anduril.entitymanager.v1.TrackedByH\000R\t"
     "trackedBy\022G\n\013group_child\030\004 \001(\0132$.anduril"
     ".entitymanager.v1.GroupChildH\000R\ngroupChi"
     "ld\022J\n\014group_parent\030\005 \001(\0132%.anduril.entit"
     "ymanager.v1.GroupParentH\000R\013groupParent\022G"
     "\n\013merged_from\030\006 \001(\0132$.anduril.entitymana"
-    "ger.v1.MergedFromH\000R\nmergedFromB\006\n\004type\""
-    "\304\001\n\tTrackedBy\022]\n\031actively_tracking_senso"
-    "rs\030\001 \001(\0132!.anduril.entitymanager.v1.Sens"
-    "orsR\027activelyTrackingSensors\022X\n\032last_mea"
-    "surement_timestamp\030\002 \001(\0132\032.google.protob"
-    "uf.TimestampR\030lastMeasurementTimestamp\"\014"
-    "\n\nGroupChild\"\r\n\013GroupParent\"\014\n\nMergedFro"
-    "mB\205\002\n\034com.anduril.entitymanager.v1B\024Rela"
-    "tionshipPubProtoP\001ZMghe.anduril.dev/andu"
-    "ril/andurilapis-go/anduril/entitymanager"
-    "/v1;entitymanager\242\002\003AEX\252\002\030Anduril.Entity"
-    "manager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$"
-    "Anduril\\Entitymanager\\V1\\GPBMetadata\352\002\032A"
-    "nduril::Entitymanager::V1b\006proto3"
+    "ger.v1.MergedFromH\000R\nmergedFrom\022M\n\ractiv"
+    "e_target\030\007 \001(\0132&.anduril.entitymanager.v"
+    "1.ActiveTargetH\000R\014activeTargetB\006\n\004type\"\304"
+    "\001\n\tTrackedBy\022]\n\031actively_tracking_sensor"
+    "s\030\001 \001(\0132!.anduril.entitymanager.v1.Senso"
+    "rsR\027activelyTrackingSensors\022X\n\032last_meas"
+    "urement_timestamp\030\002 \001(\0132\032.google.protobu"
+    "f.TimestampR\030lastMeasurementTimestamp\"\014\n"
+    "\nGroupChild\"\r\n\013GroupParent\"\014\n\nMergedFrom"
+    "\"\016\n\014ActiveTargetB\266\001\n\034com.anduril.entitym"
+    "anager.v1B\024RelationshipPubProtoP\001\242\002\003AEX\252"
+    "\002\030Anduril.Entitymanager.V1\312\002\030Anduril\\Ent"
+    "itymanager\\V1\342\002$Anduril\\Entitymanager\\V1"
+    "\\GPBMetadata\352\002\032Anduril::Entitymanager::V"
+    "1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2frelationship_2epub_2eproto_deps[2] =
     {
@@ -336,13 +366,13 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2frelatio
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2frelationship_2epub_2eproto = {
     false,
     false,
-    1273,
+    1289,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2frelationship_2epub_2eproto,
     "anduril/entitymanager/v1/relationship.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2frelationship_2epub_2eproto_once,
     descriptor_table_anduril_2fentitymanager_2fv1_2frelationship_2epub_2eproto_deps,
     2,
-    7,
+    8,
     schemas,
     file_default_instances,
     TableStruct_anduril_2fentitymanager_2fv1_2frelationship_2epub_2eproto::offsets,
@@ -968,6 +998,19 @@ void RelationshipType::set_allocated_merged_from(::anduril::entitymanager::v1::M
   }
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.RelationshipType.merged_from)
 }
+void RelationshipType::set_allocated_active_target(::anduril::entitymanager::v1::ActiveTarget* active_target) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_type();
+  if (active_target) {
+    ::google::protobuf::Arena* submessage_arena = active_target->GetArena();
+    if (message_arena != submessage_arena) {
+      active_target = ::google::protobuf::internal::GetOwnedMessage(message_arena, active_target, submessage_arena);
+    }
+    set_has_active_target();
+    _impl_.type_.active_target_ = active_target;
+  }
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.RelationshipType.active_target)
+}
 RelationshipType::RelationshipType(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, _class_data_.base()) {
@@ -1011,6 +1054,9 @@ RelationshipType::RelationshipType(
         break;
       case kMergedFrom:
         _impl_.type_.merged_from_ = ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::MergedFrom>(arena, *from._impl_.type_.merged_from_);
+        break;
+      case kActiveTarget:
+        _impl_.type_.active_target_ = ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::ActiveTarget>(arena, *from._impl_.type_.active_target_);
         break;
   }
 
@@ -1076,6 +1122,14 @@ void RelationshipType::clear_type() {
       }
       break;
     }
+    case kActiveTarget: {
+      if (GetArena() == nullptr) {
+        delete _impl_.type_.active_target_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.type_.active_target_);
+      }
+      break;
+    }
     case TYPE_NOT_SET: {
       break;
     }
@@ -1120,16 +1174,16 @@ const ::google::protobuf::internal::ClassData* RelationshipType::GetClassData() 
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 4, 4, 0, 2> RelationshipType::_table_ = {
+const ::_pbi::TcParseTable<0, 5, 5, 0, 2> RelationshipType::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    6, 0,  // max_field_number, fast_idx_mask
+    7, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967237,  // skipmap
+    4294967173,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    4,  // num_field_entries
-    4,  // num_aux_entries
+    5,  // num_field_entries
+    5,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
@@ -1154,11 +1208,15 @@ const ::_pbi::TcParseTable<0, 4, 4, 0, 2> RelationshipType::_table_ = {
     // .anduril.entitymanager.v1.MergedFrom merged_from = 6 [json_name = "mergedFrom"];
     {PROTOBUF_FIELD_OFFSET(RelationshipType, _impl_.type_.merged_from_), _Internal::kOneofCaseOffset + 0, 3,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .anduril.entitymanager.v1.ActiveTarget active_target = 7 [json_name = "activeTarget"];
+    {PROTOBUF_FIELD_OFFSET(RelationshipType, _impl_.type_.active_target_), _Internal::kOneofCaseOffset + 0, 4,
+    (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::TrackedBy>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::GroupChild>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::GroupParent>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::MergedFrom>()},
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::ActiveTarget>()},
   }}, {{
   }},
 };
@@ -1214,6 +1272,12 @@ PROTOBUF_NOINLINE void RelationshipType::Clear() {
                   stream);
               break;
             }
+            case kActiveTarget: {
+              target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                  7, *this_._impl_.type_.active_target_, this_._impl_.type_.active_target_->GetCachedSize(), target,
+                  stream);
+              break;
+            }
             default:
               break;
           }
@@ -1263,6 +1327,12 @@ PROTOBUF_NOINLINE void RelationshipType::Clear() {
             case kMergedFrom: {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.type_.merged_from_);
+              break;
+            }
+            // .anduril.entitymanager.v1.ActiveTarget active_target = 7 [json_name = "activeTarget"];
+            case kActiveTarget: {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.type_.active_target_);
               break;
             }
             case TYPE_NOT_SET: {
@@ -1326,6 +1396,15 @@ void RelationshipType::MergeImpl(::google::protobuf::MessageLite& to_msg, const 
               ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::MergedFrom>(arena, *from._impl_.type_.merged_from_);
         } else {
           _this->_impl_.type_.merged_from_->MergeFrom(from._internal_merged_from());
+        }
+        break;
+      }
+      case kActiveTarget: {
+        if (oneof_needs_init) {
+          _this->_impl_.type_.active_target_ =
+              ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::ActiveTarget>(arena, *from._impl_.type_.active_target_);
+        } else {
+          _this->_impl_.type_.active_target_->MergeFrom(from._internal_active_target());
         }
         break;
       }
@@ -1972,6 +2051,109 @@ const ::_pbi::TcParseTable<0, 0, 0, 0, 2> MergedFrom::_table_ = {
 
 
 ::google::protobuf::Metadata MergedFrom::GetMetadata() const {
+  return ::google::protobuf::internal::ZeroFieldsBase::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class ActiveTarget::_Internal {
+ public:
+};
+
+ActiveTarget::ActiveTarget(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::internal::ZeroFieldsBase(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.ActiveTarget)
+}
+ActiveTarget::ActiveTarget(
+    ::google::protobuf::Arena* arena,
+    const ActiveTarget& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::internal::ZeroFieldsBase(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  ActiveTarget* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+
+  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.ActiveTarget)
+}
+
+inline void* ActiveTarget::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) ActiveTarget(arena);
+}
+constexpr auto ActiveTarget::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(ActiveTarget),
+                                            alignof(ActiveTarget));
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull ActiveTarget::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_ActiveTarget_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &ActiveTarget::MergeImpl,
+        ::google::protobuf::internal::ZeroFieldsBase::GetNewImpl<ActiveTarget>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &ActiveTarget::SharedDtor,
+        ::google::protobuf::internal::ZeroFieldsBase::GetClearImpl<ActiveTarget>(), &ActiveTarget::ByteSizeLong,
+            &ActiveTarget::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(ActiveTarget, _impl_._cached_size_),
+        false,
+    },
+    &ActiveTarget::kDescriptorMethods,
+    &descriptor_table_anduril_2fentitymanager_2fv1_2frelationship_2epub_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* ActiveTarget::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 0, 0, 0, 2> ActiveTarget::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    0, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967295,  // skipmap
+    offsetof(decltype(_table_), field_names),  // no field_entries
+    0,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::ActiveTarget>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }},
+  // no field_entries, or aux_entries
+  {{
+  }},
+};
+
+
+
+
+
+
+
+
+::google::protobuf::Metadata ActiveTarget::GetMetadata() const {
   return ::google::protobuf::internal::ZeroFieldsBase::GetMetadataImpl(GetClassData()->full());
 }
 // @@protoc_insertion_point(namespace_scope)

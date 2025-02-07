@@ -87,14 +87,12 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2forbit_2epub_
     "to\022\030anduril.entitymanager.v1\032\034anduril/ty"
     "pe/orbit.pub.proto\"X\n\005Orbit\022O\n\023orbit_mea"
     "n_elements\030\001 \001(\0132\037.anduril.type.OrbitMea"
-    "nElementsR\021orbitMeanElementsB\376\001\n\034com.and"
-    "uril.entitymanager.v1B\rOrbitPubProtoP\001ZM"
-    "ghe.anduril.dev/anduril/andurilapis-go/a"
-    "nduril/entitymanager/v1;entitymanager\242\002\003"
-    "AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Anduril"
-    "\\Entitymanager\\V1\342\002$Anduril\\Entitymanage"
-    "r\\V1\\GPBMetadata\352\002\032Anduril::Entitymanage"
-    "r::V1b\006proto3"
+    "nElementsR\021orbitMeanElementsB\257\001\n\034com.and"
+    "uril.entitymanager.v1B\rOrbitPubProtoP\001\242\002"
+    "\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Anduri"
+    "l\\Entitymanager\\V1\342\002$Anduril\\Entitymanag"
+    "er\\V1\\GPBMetadata\352\002\032Anduril::Entitymanag"
+    "er::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2forbit_2epub_2eproto_deps[1] =
     {
@@ -104,7 +102,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2forbit_2
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2forbit_2epub_2eproto = {
     false,
     false,
-    453,
+    374,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2forbit_2epub_2eproto,
     "anduril/entitymanager/v1/orbit.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2forbit_2epub_2eproto_once,

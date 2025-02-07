@@ -3,8 +3,8 @@ syntax = "proto3";
 package anduril.entitymanager.v1;
 
 import "anduril/entitymanager/v1/classification.pub.proto";
-import "anduril/entitymanager/v1/options.pub.proto";
 import "google/protobuf/timestamp.proto";
+
 
 // Represents the state of supplies associated with an entity (available but not in condition to use immediately)
 message Supplies {

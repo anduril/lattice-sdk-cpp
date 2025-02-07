@@ -126,19 +126,17 @@ const char descriptor_table_protodef_anduril_2fontology_2fv1_2ftype_2epub_2eprot
     "\n\023NATIONALITY_URUGUAY\020o\022\032\n\026NATIONALITY_U"
     "ZBEKISTAN\0204\022\031\n\025NATIONALITY_VENEZUELA\020V\022\027"
     "\n\023NATIONALITY_VIETNAM\020G\022\025\n\021NATIONALITY_Y"
-    "EMEN\020[\022\030\n\024NATIONALITY_ZIMBABWE\020aB\332\001\n\027com"
-    ".anduril.ontology.v1B\014TypePubProtoP\001ZCgh"
-    "e.anduril.dev/anduril/andurilapis-go/and"
-    "uril/ontology/v1;ontology\242\002\003AOX\252\002\023Anduri"
-    "l.Ontology.V1\312\002\023Anduril\\Ontology\\V1\342\002\037An"
-    "duril\\Ontology\\V1\\GPBMetadata\352\002\025Anduril:"
-    ":Ontology::V1b\006proto3"
+    "EMEN\020[\022\030\n\024NATIONALITY_ZIMBABWE\020aB\225\001\n\027com"
+    ".anduril.ontology.v1B\014TypePubProtoP\001\242\002\003A"
+    "OX\252\002\023Anduril.Ontology.V1\312\002\023Anduril\\Ontol"
+    "ogy\\V1\342\002\037Anduril\\Ontology\\V1\\GPBMetadata"
+    "\352\002\025Anduril::Ontology::V1b\006proto3"
 };
 static ::absl::once_flag descriptor_table_anduril_2fontology_2fv1_2ftype_2epub_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fontology_2fv1_2ftype_2epub_2eproto = {
     false,
     false,
-    3781,
+    3712,
     descriptor_table_protodef_anduril_2fontology_2fv1_2ftype_2epub_2eproto,
     "anduril/ontology/v1/type.pub.proto",
     &descriptor_table_anduril_2fontology_2fv1_2ftype_2epub_2eproto_once,

@@ -4,6 +4,7 @@ package anduril.entitymanager.v1;
 
 import "google/protobuf/timestamp.proto";
 
+
 // Enumeration of possible connection states.
 enum ConnectionStatus {
   CONNECTION_STATUS_INVALID = 0;

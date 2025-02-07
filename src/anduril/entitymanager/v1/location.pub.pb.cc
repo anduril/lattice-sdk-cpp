@@ -363,14 +363,12 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2flocation_2ep
     "aternionR\013orientation\"s\n\005TMat3\022\020\n\003mxx\030\001 "
     "\001(\002R\003mxx\022\020\n\003mxy\030\002 \001(\002R\003mxy\022\020\n\003mxz\030\003 \001(\002R"
     "\003mxz\022\020\n\003myy\030\004 \001(\002R\003myy\022\020\n\003myz\030\005 \001(\002R\003myz"
-    "\022\020\n\003mzz\030\006 \001(\002R\003mzzB\201\002\n\034com.anduril.entit"
-    "ymanager.v1B\020LocationPubProtoP\001ZMghe.and"
-    "uril.dev/anduril/andurilapis-go/anduril/"
-    "entitymanager/v1;entitymanager\242\002\003AEX\252\002\030A"
-    "nduril.Entitymanager.V1\312\002\030Anduril\\Entity"
-    "manager\\V1\342\002$Anduril\\Entitymanager\\V1\\GP"
-    "BMetadata\352\002\032Anduril::Entitymanager::V1b\006"
-    "proto3"
+    "\022\020\n\003mzz\030\006 \001(\002R\003mzzB\262\001\n\034com.anduril.entit"
+    "ymanager.v1B\020LocationPubProtoP\001\242\002\003AEX\252\002\030"
+    "Anduril.Entitymanager.V1\312\002\030Anduril\\Entit"
+    "ymanager\\V1\342\002$Anduril\\Entitymanager\\V1\\G"
+    "PBMetadata\352\002\032Anduril::Entitymanager::V1b"
+    "\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2flocation_2epub_2eproto_deps[2] =
     {
@@ -381,7 +379,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2flocatio
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2flocation_2epub_2eproto = {
     false,
     false,
-    1926,
+    1847,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2flocation_2epub_2eproto,
     "anduril/entitymanager/v1/location.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2flocation_2epub_2eproto_once,

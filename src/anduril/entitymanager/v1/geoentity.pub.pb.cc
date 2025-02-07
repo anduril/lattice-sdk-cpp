@@ -445,13 +445,11 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fgeoentity_2e
     "D\020\002\022\026\n\022GEO_TYPE_EMERGENCY\020\003\022\034\n\030GEO_TYPE_"
     "ENGAGEMENT_ZONE\020\005\022\031\n\025GEO_TYPE_CONTROL_AR"
     "EA\020\006\022\025\n\021GEO_TYPE_BULLSEYE\020\007\"\004\010\004\020\004\"\004\010\010\020\010\""
-    "\004\010\t\020\tB\202\002\n\034com.anduril.entitymanager.v1B\021"
-    "GeoentityPubProtoP\001ZMghe.anduril.dev/and"
-    "uril/andurilapis-go/anduril/entitymanage"
-    "r/v1;entitymanager\242\002\003AEX\252\002\030Anduril.Entit"
-    "ymanager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002"
-    "$Anduril\\Entitymanager\\V1\\GPBMetadata\352\002\032"
-    "Anduril::Entitymanager::V1b\006proto3"
+    "\004\010\t\020\tB\263\001\n\034com.anduril.entitymanager.v1B\021"
+    "GeoentityPubProtoP\001\242\002\003AEX\252\002\030Anduril.Enti"
+    "tymanager.V1\312\002\030Anduril\\Entitymanager\\V1\342"
+    "\002$Anduril\\Entitymanager\\V1\\GPBMetadata\352\002"
+    "\032Anduril::Entitymanager::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto_deps[2] =
     {
@@ -462,7 +460,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fgeoenti
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto = {
     false,
     false,
-    2114,
+    2035,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto,
     "anduril/entitymanager/v1/geoentity.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto_once,

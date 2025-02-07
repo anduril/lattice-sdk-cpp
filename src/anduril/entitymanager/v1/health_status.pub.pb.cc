@@ -322,14 +322,12 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fhealth_5fsta
     "TUS_OFFLINE\020\004\022\033\n\027HEALTH_STATUS_NOT_READY"
     "\020\005*q\n\nAlertLevel\022\027\n\023ALERT_LEVEL_INVALID\020"
     "\000\022\030\n\024ALERT_LEVEL_ADVISORY\020\001\022\027\n\023ALERT_LEV"
-    "EL_CAUTION\020\002\022\027\n\023ALERT_LEVEL_WARNING\020\003B\205\002"
+    "EL_CAUTION\020\002\022\027\n\023ALERT_LEVEL_WARNING\020\003B\266\001"
     "\n\034com.anduril.entitymanager.v1B\024HealthSt"
-    "atusPubProtoP\001ZMghe.anduril.dev/anduril/"
-    "andurilapis-go/anduril/entitymanager/v1;"
-    "entitymanager\242\002\003AEX\252\002\030Anduril.Entitymana"
-    "ger.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Andu"
-    "ril\\Entitymanager\\V1\\GPBMetadata\352\002\032Andur"
-    "il::Entitymanager::V1b\006proto3"
+    "atusPubProtoP\001\242\002\003AEX\252\002\030Anduril.Entityman"
+    "ager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$And"
+    "uril\\Entitymanager\\V1\\GPBMetadata\352\002\032Andu"
+    "ril::Entitymanager::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fhealth_5fstatus_2epub_2eproto_deps[1] =
     {
@@ -339,7 +337,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fhealth_
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fhealth_5fstatus_2epub_2eproto = {
     false,
     false,
-    1909,
+    1830,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fhealth_5fstatus_2epub_2eproto,
     "anduril/entitymanager/v1/health_status.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fhealth_5fstatus_2epub_2eproto_once,

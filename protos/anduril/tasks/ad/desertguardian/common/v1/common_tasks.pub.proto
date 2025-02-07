@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package anduril.tasks.ad.desertguardian.common.v1;
 
+
 // Set the power state of a Platform. It is up to the Platform to interpret the power state and act accordingly.
 message SetPowerState {
   PowerState power_state = 1;

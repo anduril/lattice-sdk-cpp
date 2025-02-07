@@ -140,12 +140,10 @@ const char descriptor_table_protodef_anduril_2ftasks_2fv2_2fobjective_2epub_2epr
     "\177\n\005Point\022%\n\016reference_name\030\001 \001(\tR\rrefere"
     "nceName\022#\n\003lla\030\002 \001(\0132\021.anduril.type.LLAR"
     "\003lla\022*\n\021backing_entity_id\030\003 \001(\tR\017backing"
-    "EntityIdB\312\001\n\024com.anduril.tasks.v2B\021Objec"
-    "tivePubProtoP\001Z=ghe.anduril.dev/anduril/"
-    "andurilapis-go/anduril/tasks/v2;tasks\242\002\003"
-    "ATX\252\002\020Anduril.Tasks.V2\312\002\020Anduril\\Tasks\\V"
-    "2\342\002\034Anduril\\Tasks\\V2\\GPBMetadata\352\002\022Andur"
-    "il::Tasks::V2b\006proto3"
+    "EntityIdB\213\001\n\024com.anduril.tasks.v2B\021Objec"
+    "tivePubProtoP\001\242\002\003ATX\252\002\020Anduril.Tasks.V2\312"
+    "\002\020Anduril\\Tasks\\V2\342\002\034Anduril\\Tasks\\V2\\GP"
+    "BMetadata\352\002\022Anduril::Tasks::V2b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2ftasks_2fv2_2fobjective_2epub_2eproto_deps[1] =
     {
@@ -155,7 +153,7 @@ static ::absl::once_flag descriptor_table_anduril_2ftasks_2fv2_2fobjective_2epub
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftasks_2fv2_2fobjective_2epub_2eproto = {
     false,
     false,
-    541,
+    478,
     descriptor_table_protodef_anduril_2ftasks_2fv2_2fobjective_2epub_2eproto,
     "anduril/tasks/v2/objective.pub.proto",
     &descriptor_table_anduril_2ftasks_2fv2_2fobjective_2epub_2eproto_once,

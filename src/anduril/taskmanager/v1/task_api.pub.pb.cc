@@ -171,13 +171,11 @@ const char descriptor_table_protodef_anduril_2ftaskmanager_2fv1_2ftask_5fapi_2ep
     "id\030\001 \001(\tR\006taskId\022=\n\010assignee\030\002 \001(\0132!.and"
     "uril.taskmanager.v1.PrincipalR\010assignee\""
     "*\n\017CompleteRequest\022\027\n\007task_id\030\001 \001(\tR\006tas"
-    "kIdB\362\001\n\032com.anduril.taskmanager.v1B\017Task"
-    "ApiPubProtoP\001ZIghe.anduril.dev/anduril/a"
-    "ndurilapis-go/anduril/taskmanager/v1;tas"
-    "kmanager\242\002\003ATX\252\002\026Anduril.Taskmanager.V1\312"
-    "\002\026Anduril\\Taskmanager\\V1\342\002\"Anduril\\Taskm"
-    "anager\\V1\\GPBMetadata\352\002\030Anduril::Taskman"
-    "ager::V1b\006proto3"
+    "kIdB\247\001\n\032com.anduril.taskmanager.v1B\017Task"
+    "ApiPubProtoP\001\242\002\003ATX\252\002\026Anduril.Taskmanage"
+    "r.V1\312\002\026Anduril\\Taskmanager\\V1\342\002\"Anduril\\"
+    "Taskmanager\\V1\\GPBMetadata\352\002\030Anduril::Ta"
+    "skmanager::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fapi_2epub_2eproto_deps[1] =
     {
@@ -187,7 +185,7 @@ static ::absl::once_flag descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fap
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fapi_2epub_2eproto = {
     false,
     false,
-    576,
+    501,
     descriptor_table_protodef_anduril_2ftaskmanager_2fv1_2ftask_5fapi_2epub_2eproto,
     "anduril/taskmanager/v1/task_api.pub.proto",
     &descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fapi_2epub_2eproto_once,

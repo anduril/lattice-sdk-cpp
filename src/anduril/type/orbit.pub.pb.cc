@@ -314,11 +314,10 @@ const char descriptor_table_protodef_anduril_2ftype_2forbit_2epub_2eproto[] ABSL
     "T_THEORY_INVALID\020\000\022\034\n\030MEAN_ELEMENT_THEOR"
     "Y_SGP4\020\001*R\n\021EciReferenceFrame\022\037\n\033ECI_REF"
     "ERENCE_FRAME_INVALID\020\000\022\034\n\030ECI_REFERENCE_"
-    "FRAME_TEME\020\001B\256\001\n\020com.anduril.typeB\rOrbit"
-    "PubProtoP\001Z:ghe.anduril.dev/anduril/andu"
-    "rilapis-go/anduril/type;atypes\242\002\003ATX\252\002\014A"
-    "nduril.Type\312\002\014Anduril\\Type\342\002\030Anduril\\Typ"
-    "e\\GPBMetadata\352\002\rAnduril::Typeb\006proto3"
+    "FRAME_TEME\020\001Br\n\020com.anduril.typeB\rOrbitP"
+    "ubProtoP\001\242\002\003ATX\252\002\014Anduril.Type\312\002\014Anduril"
+    "\\Type\342\002\030Anduril\\Type\\GPBMetadata\352\002\rAndur"
+    "il::Typeb\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2ftype_2forbit_2epub_2eproto_deps[2] =
     {
@@ -329,7 +328,7 @@ static ::absl::once_flag descriptor_table_anduril_2ftype_2forbit_2epub_2eproto_o
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftype_2forbit_2epub_2eproto = {
     false,
     false,
-    2157,
+    2096,
     descriptor_table_protodef_anduril_2ftype_2forbit_2epub_2eproto,
     "anduril/type/orbit.pub.proto",
     &descriptor_table_anduril_2ftype_2forbit_2epub_2eproto_once,

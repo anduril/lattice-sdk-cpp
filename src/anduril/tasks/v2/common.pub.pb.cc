@@ -294,12 +294,10 @@ const char descriptor_table_protodef_anduril_2ftasks_2fv2_2fcommon_2epub_2eproto
     "ROL_AREA_TYPE_INVALID\020\000\022\"\n\036CONTROL_AREA_"
     "TYPE_KEEP_IN_ZONE\020\001\022#\n\037CONTROL_AREA_TYPE"
     "_KEEP_OUT_ZONE\020\002\022 \n\034CONTROL_AREA_TYPE_DI"
-    "TCH_ZONE\020\003B\307\001\n\024com.anduril.tasks.v2B\016Com"
-    "monPubProtoP\001Z=ghe.anduril.dev/anduril/a"
-    "ndurilapis-go/anduril/tasks/v2;tasks\242\002\003A"
-    "TX\252\002\020Anduril.Tasks.V2\312\002\020Anduril\\Tasks\\V2"
-    "\342\002\034Anduril\\Tasks\\V2\\GPBMetadata\352\002\022Anduri"
-    "l::Tasks::V2b\006proto3"
+    "TCH_ZONE\020\003B\210\001\n\024com.anduril.tasks.v2B\016Com"
+    "monPubProtoP\001\242\002\003ATX\252\002\020Anduril.Tasks.V2\312\002"
+    "\020Anduril\\Tasks\\V2\342\002\034Anduril\\Tasks\\V2\\GPB"
+    "Metadata\352\002\022Anduril::Tasks::V2b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2ftasks_2fv2_2fcommon_2epub_2eproto_deps[1] =
     {
@@ -309,7 +307,7 @@ static ::absl::once_flag descriptor_table_anduril_2ftasks_2fv2_2fcommon_2epub_2e
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftasks_2fv2_2fcommon_2epub_2eproto = {
     false,
     false,
-    940,
+    877,
     descriptor_table_protodef_anduril_2ftasks_2fv2_2fcommon_2epub_2eproto,
     "anduril/tasks/v2/common.pub.proto",
     &descriptor_table_anduril_2ftasks_2fv2_2fcommon_2epub_2eproto_once,

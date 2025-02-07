@@ -181,15 +181,13 @@ const char descriptor_table_protodef_anduril_2ftasks_2fjadc2_2fthirdparty_2fv1_2
     "point\"\212\001\n\013TeamTransit\0223\n\026transit_zone_en"
     "tity_id\030\001 \001(\tR\023transitZoneEntityId\022F\n\020su"
     "rface_speed_ms\030\002 \001(\0132\034.google.protobuf.D"
-    "oubleValueR\016surfaceSpeedMsB\263\002\n%com.andur"
+    "oubleValueR\016surfaceSpeedMsB\341\001\n%com.andur"
     "il.tasks.jadc2.thirdparty.v1B\017TransitPub"
-    "ProtoP\001ZPghe.anduril.dev/anduril/anduril"
-    "apis-go/anduril/tasks/jadc2/thirdparty/v"
-    "1;tasksv1\242\002\004ATJT\252\002!Anduril.Tasks.Jadc2.T"
-    "hirdparty.V1\312\002!Anduril\\Tasks\\Jadc2\\Third"
-    "party\\V1\342\002-Anduril\\Tasks\\Jadc2\\Thirdpart"
-    "y\\V1\\GPBMetadata\352\002%Anduril::Tasks::Jadc2"
-    "::Thirdparty::V1b\006proto3"
+    "ProtoP\001\242\002\004ATJT\252\002!Anduril.Tasks.Jadc2.Thi"
+    "rdparty.V1\312\002!Anduril\\Tasks\\Jadc2\\Thirdpa"
+    "rty\\V1\342\002-Anduril\\Tasks\\Jadc2\\Thirdparty\\"
+    "V1\\GPBMetadata\352\002%Anduril::Tasks::Jadc2::"
+    "Thirdparty::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2ftasks_2fjadc2_2fthirdparty_2fv1_2ftransit_2epub_2eproto_deps[2] =
     {
@@ -200,7 +198,7 @@ static ::absl::once_flag descriptor_table_anduril_2ftasks_2fjadc2_2fthirdparty_2
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftasks_2fjadc2_2fthirdparty_2fv1_2ftransit_2epub_2eproto = {
     false,
     false,
-    824,
+    742,
     descriptor_table_protodef_anduril_2ftasks_2fjadc2_2fthirdparty_2fv1_2ftransit_2epub_2eproto,
     "anduril/tasks/jadc2/thirdparty/v1/transit.pub.proto",
     &descriptor_table_anduril_2ftasks_2fjadc2_2fthirdparty_2fv1_2ftransit_2epub_2eproto_once,

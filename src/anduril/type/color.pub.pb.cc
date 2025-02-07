@@ -94,12 +94,10 @@ const char descriptor_table_protodef_anduril_2ftype_2fcolor_2epub_2eproto[] ABSL
     "type\032\036google/protobuf/wrappers.proto\"v\n\005"
     "Color\022\020\n\003red\030\001 \001(\002R\003red\022\024\n\005green\030\002 \001(\002R\005"
     "green\022\022\n\004blue\030\003 \001(\002R\004blue\0221\n\005alpha\030\004 \001(\013"
-    "2\033.google.protobuf.FloatValueR\005alphaB\256\001\n"
-    "\020com.anduril.typeB\rColorPubProtoP\001Z:ghe."
-    "anduril.dev/anduril/andurilapis-go/andur"
-    "il/type;atypes\242\002\003ATX\252\002\014Anduril.Type\312\002\014An"
-    "duril\\Type\342\002\030Anduril\\Type\\GPBMetadata\352\002\r"
-    "Anduril::Typeb\006proto3"
+    "2\033.google.protobuf.FloatValueR\005alphaBr\n\020"
+    "com.anduril.typeB\rColorPubProtoP\001\242\002\003ATX\252"
+    "\002\014Anduril.Type\312\002\014Anduril\\Type\342\002\030Anduril\\"
+    "Type\\GPBMetadata\352\002\rAnduril::Typeb\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2ftype_2fcolor_2epub_2eproto_deps[1] =
     {
@@ -109,7 +107,7 @@ static ::absl::once_flag descriptor_table_anduril_2ftype_2fcolor_2epub_2eproto_o
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftype_2fcolor_2epub_2eproto = {
     false,
     false,
-    381,
+    320,
     descriptor_table_protodef_anduril_2ftype_2fcolor_2epub_2eproto,
     "anduril/type/color.pub.proto",
     &descriptor_table_anduril_2ftype_2fcolor_2epub_2eproto_once,

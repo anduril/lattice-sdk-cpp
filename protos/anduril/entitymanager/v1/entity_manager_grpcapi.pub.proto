@@ -8,6 +8,7 @@ import "anduril/entitymanager/v1/rate_limit.pub.proto";
 import "anduril/entitymanager/v1/types.pub.proto";
 import "google/protobuf/timestamp.proto";
 
+
 // Entity Manager manages the lifecycle of the entities that comprise the common operational picture (COP).
 //
 // Every object in the COP is represented as an "Entity." Each Entity is essentially an ID, with a lifecycle
@@ -119,7 +120,6 @@ message RemoveEntityOverrideRequest {
   repeated string field_path = 2;
 }
 
-// void response but with placeholder for future optional fields.
 message RemoveEntityOverrideResponse {}
 
 message StreamEntityComponentsRequest {

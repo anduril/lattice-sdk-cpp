@@ -964,13 +964,11 @@ const char descriptor_table_protodef_anduril_2ftasks_2fv2_2fshared_2fisr_2epub_2
     "\001\022\030\n\024ORBIT_DIRECTION_LEFT\020\002*\200\001\n\014OrbitPat"
     "tern\022\031\n\025ORBIT_PATTERN_INVALID\020\000\022\030\n\024ORBIT"
     "_PATTERN_CIRCLE\020\001\022\033\n\027ORBIT_PATTERN_RACET"
-    "RACK\020\002\022\036\n\032ORBIT_PATTERN_FIGURE_EIGHT\020\003B\304"
-    "\001\n\024com.anduril.tasks.v2B\013IsrPubProtoP\001Z="
-    "ghe.anduril.dev/anduril/andurilapis-go/a"
-    "nduril/tasks/v2;tasks\242\002\003ATX\252\002\020Anduril.Ta"
-    "sks.V2\312\002\020Anduril\\Tasks\\V2\342\002\034Anduril\\Task"
-    "s\\V2\\GPBMetadata\352\002\022Anduril::Tasks::V2b\006p"
-    "roto3"
+    "RACK\020\002\022\036\n\032ORBIT_PATTERN_FIGURE_EIGHT\020\003B\205"
+    "\001\n\024com.anduril.tasks.v2B\013IsrPubProtoP\001\242\002"
+    "\003ATX\252\002\020Anduril.Tasks.V2\312\002\020Anduril\\Tasks\\"
+    "V2\342\002\034Anduril\\Tasks\\V2\\GPBMetadata\352\002\022Andu"
+    "ril::Tasks::V2b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2ftasks_2fv2_2fshared_2fisr_2epub_2eproto_deps[4] =
     {
@@ -983,7 +981,7 @@ static ::absl::once_flag descriptor_table_anduril_2ftasks_2fv2_2fshared_2fisr_2e
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftasks_2fv2_2fshared_2fisr_2epub_2eproto = {
     false,
     false,
-    3965,
+    3902,
     descriptor_table_protodef_anduril_2ftasks_2fv2_2fshared_2fisr_2epub_2eproto,
     "anduril/tasks/v2/shared/isr.pub.proto",
     &descriptor_table_anduril_2ftasks_2fv2_2fshared_2fisr_2epub_2eproto_once,

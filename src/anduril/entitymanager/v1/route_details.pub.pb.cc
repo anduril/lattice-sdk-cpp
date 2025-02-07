@@ -94,14 +94,12 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2froute_5fdeta
     "etails\022)\n\020destination_name\030\001 \001(\tR\017destin"
     "ationName\022P\n\026estimated_arrival_time\030\002 \001("
     "\0132\032.google.protobuf.TimestampR\024estimated"
-    "ArrivalTimeB\205\002\n\034com.anduril.entitymanage"
-    "r.v1B\024RouteDetailsPubProtoP\001ZMghe.anduri"
-    "l.dev/anduril/andurilapis-go/anduril/ent"
-    "itymanager/v1;entitymanager\242\002\003AEX\252\002\030Andu"
-    "ril.Entitymanager.V1\312\002\030Anduril\\Entityman"
-    "ager\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBMe"
-    "tadata\352\002\032Anduril::Entitymanager::V1b\006pro"
-    "to3"
+    "ArrivalTimeB\266\001\n\034com.anduril.entitymanage"
+    "r.v1B\024RouteDetailsPubProtoP\001\242\002\003AEX\252\002\030And"
+    "uril.Entitymanager.V1\312\002\030Anduril\\Entityma"
+    "nager\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBM"
+    "etadata\352\002\032Anduril::Entitymanager::V1b\006pr"
+    "oto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2froute_5fdetails_2epub_2eproto_deps[1] =
     {
@@ -111,7 +109,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2froute_5
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2froute_5fdetails_2epub_2eproto = {
     false,
     false,
-    523,
+    444,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2froute_5fdetails_2epub_2eproto,
     "anduril/entitymanager/v1/route_details.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2froute_5fdetails_2epub_2eproto_once,

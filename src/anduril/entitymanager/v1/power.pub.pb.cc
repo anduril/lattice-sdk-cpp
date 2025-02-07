@@ -250,14 +250,12 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fpower_2epub_
     "\020\003\022\031\n\025POWER_STATUS_DISABLED\020\004\022\026\n\022POWER_S"
     "TATUS_ERROR\020\005*g\n\tPowerType\022\026\n\022POWER_TYPE"
     "_INVALID\020\000\022\026\n\022POWER_TYPE_UNKNOWN\020\001\022\022\n\016PO"
-    "WER_TYPE_GAS\020\002\022\026\n\022POWER_TYPE_BATTERY\020\003B\376"
+    "WER_TYPE_GAS\020\002\022\026\n\022POWER_TYPE_BATTERY\020\003B\257"
     "\001\n\034com.anduril.entitymanager.v1B\rPowerPu"
-    "bProtoP\001ZMghe.anduril.dev/anduril/anduri"
-    "lapis-go/anduril/entitymanager/v1;entity"
-    "manager\242\002\003AEX\252\002\030Anduril.Entitymanager.V1"
-    "\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\En"
-    "titymanager\\V1\\GPBMetadata\352\002\032Anduril::En"
-    "titymanager::V1b\006proto3"
+    "bProtoP\001\242\002\003AEX\252\002\030Anduril.Entitymanager.V"
+    "1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\E"
+    "ntitymanager\\V1\\GPBMetadata\352\002\032Anduril::E"
+    "ntitymanager::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fpower_2epub_2eproto_deps[1] =
     {
@@ -267,7 +265,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fpower_2
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fpower_2epub_2eproto = {
     false,
     false,
-    1623,
+    1544,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fpower_2epub_2eproto,
     "anduril/entitymanager/v1/power.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fpower_2epub_2eproto_once,

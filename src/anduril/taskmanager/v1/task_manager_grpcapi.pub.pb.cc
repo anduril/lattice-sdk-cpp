@@ -735,13 +735,12 @@ const char descriptor_table_protodef_anduril_2ftaskmanager_2fv1_2ftask_5fmanager
     ".v1.UpdateStatusResponse\022n\n\rListenAsAgen"
     "t\022,.anduril.taskmanager.v1.ListenAsAgent"
     "Request\032-.anduril.taskmanager.v1.ListenA"
-    "sAgentResponse0\001B\375\001\n\032com.anduril.taskman"
-    "ager.v1B\032TaskManagerGrpcapiPubProtoP\001ZIg"
-    "he.anduril.dev/anduril/andurilapis-go/an"
-    "duril/taskmanager/v1;taskmanager\242\002\003ATX\252\002"
-    "\026Anduril.Taskmanager.V1\312\002\026Anduril\\Taskma"
-    "nager\\V1\342\002\"Anduril\\Taskmanager\\V1\\GPBMet"
-    "adata\352\002\030Anduril::Taskmanager::V1b\006proto3"
+    "sAgentResponse0\001B\262\001\n\032com.anduril.taskman"
+    "ager.v1B\032TaskManagerGrpcapiPubProtoP\001\242\002\003"
+    "ATX\252\002\026Anduril.Taskmanager.V1\312\002\026Anduril\\T"
+    "askmanager\\V1\342\002\"Anduril\\Taskmanager\\V1\\G"
+    "PBMetadata\352\002\030Anduril::Taskmanager::V1b\006p"
+    "roto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fgrpcapi_2epub_2eproto_deps[4] =
     {
@@ -754,7 +753,7 @@ static ::absl::once_flag descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fma
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fgrpcapi_2epub_2eproto = {
     false,
     false,
-    3360,
+    3285,
     descriptor_table_protodef_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fgrpcapi_2epub_2eproto,
     "anduril/taskmanager/v1/task_manager_grpcapi.pub.proto",
     &descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_5fmanager_5fgrpcapi_2epub_2eproto_once,

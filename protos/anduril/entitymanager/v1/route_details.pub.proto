@@ -4,6 +4,7 @@ package anduril.entitymanager.v1;
 
 import "google/protobuf/timestamp.proto";
 
+
 message RouteDetails {
   // Free form text giving the name of the entity's destination
   string destination_name = 1;

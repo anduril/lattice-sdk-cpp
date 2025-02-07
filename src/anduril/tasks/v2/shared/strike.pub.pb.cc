@@ -334,13 +334,11 @@ const char descriptor_table_protodef_anduril_2ftasks_2fv2_2fshared_2fstrike_2epu
     "yloads\0229\n\tobjective\030\002 \001(\0132\033.anduril.task"
     "s.v2.ObjectiveR\tobjective\022E\n\021precision_r"
     "elease\030\003 \001(\0132\026.google.protobuf.EmptyH\000R\020"
-    "precisionReleaseB\020\n\016release_methodB\307\001\n\024c"
-    "om.anduril.tasks.v2B\016StrikePubProtoP\001Z=g"
-    "he.anduril.dev/anduril/andurilapis-go/an"
-    "duril/tasks/v2;tasks\242\002\003ATX\252\002\020Anduril.Tas"
-    "ks.V2\312\002\020Anduril\\Tasks\\V2\342\002\034Anduril\\Tasks"
-    "\\V2\\GPBMetadata\352\002\022Anduril::Tasks::V2b\006pr"
-    "oto3"
+    "precisionReleaseB\020\n\016release_methodB\210\001\n\024c"
+    "om.anduril.tasks.v2B\016StrikePubProtoP\001\242\002\003"
+    "ATX\252\002\020Anduril.Tasks.V2\312\002\020Anduril\\Tasks\\V"
+    "2\342\002\034Anduril\\Tasks\\V2\\GPBMetadata\352\002\022Andur"
+    "il::Tasks::V2b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2ftasks_2fv2_2fshared_2fstrike_2epub_2eproto_deps[4] =
     {
@@ -353,7 +351,7 @@ static ::absl::once_flag descriptor_table_anduril_2ftasks_2fv2_2fshared_2fstrike
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftasks_2fv2_2fshared_2fstrike_2epub_2eproto = {
     false,
     false,
-    1564,
+    1501,
     descriptor_table_protodef_anduril_2ftasks_2fv2_2fshared_2fstrike_2epub_2eproto,
     "anduril/tasks/v2/shared/strike.pub.proto",
     &descriptor_table_anduril_2ftasks_2fv2_2fshared_2fstrike_2epub_2eproto_once,

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package anduril.entitymanager.v1;
 
-import "anduril/entitymanager/v1/options.pub.proto";
+
 
 // The target prioritization associated with an entity.
 message TargetPriority {

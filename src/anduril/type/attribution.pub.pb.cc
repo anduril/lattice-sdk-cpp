@@ -87,17 +87,16 @@ const char descriptor_table_protodef_anduril_2ftype_2fattribution_2epub_2eproto[
     "\n\"anduril/type/attribution.pub.proto\022\014an"
     "duril.type\"D\n\013Attribution\022\034\n\ttimestamp\030\001"
     " \001(\003R\ttimestamp\022\027\n\007user_id\030\002 \001(\tR\006userId"
-    "B\264\001\n\020com.anduril.typeB\023AttributionPubPro"
-    "toP\001Z:ghe.anduril.dev/anduril/andurilapi"
-    "s-go/anduril/type;atypes\242\002\003ATX\252\002\014Anduril"
-    ".Type\312\002\014Anduril\\Type\342\002\030Anduril\\Type\\GPBM"
-    "etadata\352\002\rAnduril::Typeb\006proto3"
+    "Bx\n\020com.anduril.typeB\023AttributionPubProt"
+    "oP\001\242\002\003ATX\252\002\014Anduril.Type\312\002\014Anduril\\Type\342"
+    "\002\030Anduril\\Type\\GPBMetadata\352\002\rAnduril::Ty"
+    "peb\006proto3"
 };
 static ::absl::once_flag descriptor_table_anduril_2ftype_2fattribution_2epub_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftype_2fattribution_2epub_2eproto = {
     false,
     false,
-    311,
+    250,
     descriptor_table_protodef_anduril_2ftype_2fattribution_2epub_2eproto,
     "anduril/type/attribution.pub.proto",
     &descriptor_table_anduril_2ftype_2fattribution_2epub_2eproto_once,

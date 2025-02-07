@@ -7,6 +7,7 @@ import "anduril/entitymanager/v1/signal.pub.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
+
 // List of sensors available for an entity.
 message Sensors {
   repeated Sensor sensors = 1;
@@ -60,7 +61,6 @@ message FieldOfView {
 }
 
 // Represents a frustum in which which all four corner points project onto the ground. All points in this message
-// are optional, if the projection to the ground fails then they will not be populated.
 message ProjectedFrustum {
   // Upper left point of the frustum.
   Position upper_left = 1;

@@ -185,20 +185,18 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fclassificati
     "FICATION_LEVELS_CONTROLLED_UNCLASSIFIED\020"
     "\002\022&\n\"CLASSIFICATION_LEVELS_CONFIDENTIAL\020"
     "\003\022 \n\034CLASSIFICATION_LEVELS_SECRET\020\004\022$\n C"
-    "LASSIFICATION_LEVELS_TOP_SECRET\020\005B\207\002\n\034co"
+    "LASSIFICATION_LEVELS_TOP_SECRET\020\005B\270\001\n\034co"
     "m.anduril.entitymanager.v1B\026Classificati"
-    "onPubProtoP\001ZMghe.anduril.dev/anduril/an"
-    "durilapis-go/anduril/entitymanager/v1;en"
-    "titymanager\242\002\003AEX\252\002\030Anduril.Entitymanage"
-    "r.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduri"
-    "l\\Entitymanager\\V1\\GPBMetadata\352\002\032Anduril"
-    "::Entitymanager::V1b\006proto3"
+    "onPubProtoP\001\242\002\003AEX\252\002\030Anduril.Entitymanag"
+    "er.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Andur"
+    "il\\Entitymanager\\V1\\GPBMetadata\352\002\032Anduri"
+    "l::Entitymanager::V1b\006proto3"
 };
 static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fclassification_2epub_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fclassification_2epub_2eproto = {
     false,
     false,
-    1107,
+    1028,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fclassification_2epub_2eproto,
     "anduril/entitymanager/v1/classification.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fclassification_2epub_2eproto_once,

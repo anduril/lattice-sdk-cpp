@@ -191,14 +191,12 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fpayloads_2ep
     "PERATIONAL_STATE_DEGRADED\020\003\022)\n%PAYLOAD_O"
     "PERATIONAL_STATE_OPERATIONAL\020\004\022,\n(PAYLOA"
     "D_OPERATIONAL_STATE_OUT_OF_SERVICE\020\005\022%\n!"
-    "PAYLOAD_OPERATIONAL_STATE_UNKNOWN\020\006B\201\002\n\034"
+    "PAYLOAD_OPERATIONAL_STATE_UNKNOWN\020\006B\262\001\n\034"
     "com.anduril.entitymanager.v1B\020PayloadsPu"
-    "bProtoP\001ZMghe.anduril.dev/anduril/anduri"
-    "lapis-go/anduril/entitymanager/v1;entity"
-    "manager\242\002\003AEX\252\002\030Anduril.Entitymanager.V1"
-    "\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\En"
-    "titymanager\\V1\\GPBMetadata\352\002\032Anduril::En"
-    "titymanager::V1b\006proto3"
+    "bProtoP\001\242\002\003AEX\252\002\030Anduril.Entitymanager.V"
+    "1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduril\\E"
+    "ntitymanager\\V1\\GPBMetadata\352\002\032Anduril::E"
+    "ntitymanager::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fpayloads_2epub_2eproto_deps[2] =
     {
@@ -209,7 +207,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fpayload
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fpayloads_2epub_2eproto = {
     false,
     false,
-    1263,
+    1184,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fpayloads_2epub_2eproto,
     "anduril/entitymanager/v1/payloads.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fpayloads_2epub_2eproto_once,

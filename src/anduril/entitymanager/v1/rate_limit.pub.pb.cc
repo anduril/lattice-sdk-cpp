@@ -85,20 +85,18 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2frate_5flimit
     "\n-anduril/entitymanager/v1/rate_limit.pu"
     "b.proto\022\030anduril.entitymanager.v1\"G\n\tRat"
     "eLimit\022:\n\032update_per_entity_limit_ms\030\001 \001"
-    "(\rR\026updatePerEntityLimitMsB\202\002\n\034com.andur"
+    "(\rR\026updatePerEntityLimitMsB\263\001\n\034com.andur"
     "il.entitymanager.v1B\021RateLimitPubProtoP\001"
-    "ZMghe.anduril.dev/anduril/andurilapis-go"
-    "/anduril/entitymanager/v1;entitymanager\242"
-    "\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Andur"
-    "il\\Entitymanager\\V1\342\002$Anduril\\Entitymana"
-    "ger\\V1\\GPBMetadata\352\002\032Anduril::Entitymana"
-    "ger::V1b\006proto3"
+    "\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Andu"
+    "ril\\Entitymanager\\V1\342\002$Anduril\\Entityman"
+    "ager\\V1\\GPBMetadata\352\002\032Anduril::Entityman"
+    "ager::V1b\006proto3"
 };
 static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2frate_5flimit_2epub_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2frate_5flimit_2epub_2eproto = {
     false,
     false,
-    415,
+    336,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2frate_5flimit_2epub_2eproto,
     "anduril/entitymanager/v1/rate_limit.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2frate_5flimit_2epub_2eproto_once,

@@ -4,6 +4,7 @@ package anduril.type;
 
 import "google/protobuf/wrappers.proto";
 
+
 message Color {
   // The amount of red in the color as a value in the interval [0, 1].
   float red = 1;

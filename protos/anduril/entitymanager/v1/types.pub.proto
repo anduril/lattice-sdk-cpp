@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package anduril.entitymanager.v1;
 
+
 // The type of alternate id.
 enum AltIdType {
   ALT_ID_TYPE_INVALID = 0;

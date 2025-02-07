@@ -125,18 +125,17 @@ const char descriptor_table_protodef_anduril_2ftasks_2fv2_2fcatalog_2epub_2eprot
     "finitions\030\001 \003(\0132 .anduril.tasks.v2.TaskD"
     "efinitionR\017taskDefinitionsJ\004\010\002\020\003\"F\n\016Task"
     "Definition\0224\n\026task_specification_url\030\001 \001"
-    "(\tR\024taskSpecificationUrlB\310\001\n\024com.anduril"
-    ".tasks.v2B\017CatalogPubProtoP\001Z=ghe.anduri"
-    "l.dev/anduril/andurilapis-go/anduril/tas"
-    "ks/v2;tasks\242\002\003ATX\252\002\020Anduril.Tasks.V2\312\002\020A"
-    "nduril\\Tasks\\V2\342\002\034Anduril\\Tasks\\V2\\GPBMe"
-    "tadata\352\002\022Anduril::Tasks::V2b\006proto3"
+    "(\tR\024taskSpecificationUrlB\211\001\n\024com.anduril"
+    ".tasks.v2B\017CatalogPubProtoP\001\242\002\003ATX\252\002\020And"
+    "uril.Tasks.V2\312\002\020Anduril\\Tasks\\V2\342\002\034Andur"
+    "il\\Tasks\\V2\\GPBMetadata\352\002\022Anduril::Tasks"
+    "::V2b\006proto3"
 };
 static ::absl::once_flag descriptor_table_anduril_2ftasks_2fv2_2fcatalog_2epub_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftasks_2fv2_2fcatalog_2epub_2eproto = {
     false,
     false,
-    435,
+    372,
     descriptor_table_protodef_anduril_2ftasks_2fv2_2fcatalog_2epub_2eproto,
     "anduril/tasks/v2/catalog.pub.proto",
     &descriptor_table_anduril_2ftasks_2fv2_2fcatalog_2epub_2eproto_once,

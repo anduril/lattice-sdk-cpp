@@ -43,13 +43,11 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2foptions_2epu
     "roto\022\030anduril.entitymanager.v1\032 google/p"
     "rotobuf/descriptor.proto:@\n\013overridable\022"
     "\035.google.protobuf.FieldOptions\030\351\007 \001(\010R\013o"
-    "verridableB\200\002\n\034com.anduril.entitymanager"
-    ".v1B\017OptionsPubProtoP\001ZMghe.anduril.dev/"
-    "anduril/andurilapis-go/anduril/entityman"
-    "ager/v1;entitymanager\242\002\003AEX\252\002\030Anduril.En"
-    "titymanager.V1\312\002\030Anduril\\Entitymanager\\V"
-    "1\342\002$Anduril\\Entitymanager\\V1\\GPBMetadata"
-    "\352\002\032Anduril::Entitymanager::V1b\006proto3"
+    "verridableB\261\001\n\034com.anduril.entitymanager"
+    ".v1B\017OptionsPubProtoP\001\242\002\003AEX\252\002\030Anduril.E"
+    "ntitymanager.V1\312\002\030Anduril\\Entitymanager\\"
+    "V1\342\002$Anduril\\Entitymanager\\V1\\GPBMetadat"
+    "a\352\002\032Anduril::Entitymanager::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2foptions_2epub_2eproto_deps[1] =
     {
@@ -59,7 +57,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2foptions
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2foptions_2epub_2eproto = {
     false,
     false,
-    437,
+    358,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2foptions_2epub_2eproto,
     "anduril/entitymanager/v1/options.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2foptions_2epub_2eproto_once,

@@ -898,13 +898,12 @@ const char descriptor_table_protodef_anduril_2ftaskmanager_2fv1_2ftask_2epub_2ep
     "EVENT_TYPE_CREATED\020\001\022\025\n\021EVENT_TYPE_UPDAT"
     "E\020\002\022\032\n\026EVENT_TYPE_PREEXISTING\020\003*M\n\010TaskV"
     "iew\022\025\n\021TASK_VIEW_INVALID\020\000\022\025\n\021TASK_VIEW_"
-    "MANAGER\020\001\022\023\n\017TASK_VIEW_AGENT\020\002B\357\001\n\032com.a"
-    "nduril.taskmanager.v1B\014TaskPubProtoP\001ZIg"
-    "he.anduril.dev/anduril/andurilapis-go/an"
-    "duril/taskmanager/v1;taskmanager\242\002\003ATX\252\002"
-    "\026Anduril.Taskmanager.V1\312\002\026Anduril\\Taskma"
-    "nager\\V1\342\002\"Anduril\\Taskmanager\\V1\\GPBMet"
-    "adata\352\002\030Anduril::Taskmanager::V1b\006proto3"
+    "MANAGER\020\001\022\023\n\017TASK_VIEW_AGENT\020\002B\244\001\n\032com.a"
+    "nduril.taskmanager.v1B\014TaskPubProtoP\001\242\002\003"
+    "ATX\252\002\026Anduril.Taskmanager.V1\312\002\026Anduril\\T"
+    "askmanager\\V1\342\002\"Anduril\\Taskmanager\\V1\\G"
+    "PBMetadata\352\002\030Anduril::Taskmanager::V1b\006p"
+    "roto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_2epub_2eproto_deps[3] =
     {
@@ -916,7 +915,7 @@ static ::absl::once_flag descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_2epu
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_2epub_2eproto = {
     false,
     false,
-    4280,
+    4205,
     descriptor_table_protodef_anduril_2ftaskmanager_2fv1_2ftask_2epub_2eproto,
     "anduril/taskmanager/v1/task.pub.proto",
     &descriptor_table_anduril_2ftaskmanager_2fv1_2ftask_2epub_2eproto_once,

@@ -199,14 +199,12 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2ftransponder_
     "E_INVALID\020\000\022\"\n\036INTERROGATION_RESPONSE_CO"
     "RRECT\020\001\022$\n INTERROGATION_RESPONSE_INCORR"
     "ECT\020\002\022&\n\"INTERROGATION_RESPONSE_NO_RESPO"
-    "NSE\020\003B\211\002\n\034com.anduril.entitymanager.v1B\030"
-    "TransponderCodesPubProtoP\001ZMghe.anduril."
-    "dev/anduril/andurilapis-go/anduril/entit"
-    "ymanager/v1;entitymanager\242\002\003AEX\252\002\030Anduri"
-    "l.Entitymanager.V1\312\002\030Anduril\\Entitymanag"
-    "er\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBMeta"
-    "data\352\002\032Anduril::Entitymanager::V1b\006proto"
-    "3"
+    "NSE\020\003B\272\001\n\034com.anduril.entitymanager.v1B\030"
+    "TransponderCodesPubProtoP\001\242\002\003AEX\252\002\030Andur"
+    "il.Entitymanager.V1\312\002\030Anduril\\Entitymana"
+    "ger\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBMet"
+    "adata\352\002\032Anduril::Entitymanager::V1b\006prot"
+    "o3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2ftransponder_5fcodes_2epub_2eproto_deps[1] =
     {
@@ -216,7 +214,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2ftranspo
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2ftransponder_5fcodes_2epub_2eproto = {
     false,
     false,
-    1161,
+    1082,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2ftransponder_5fcodes_2epub_2eproto,
     "anduril/entitymanager/v1/transponder_codes.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2ftransponder_5fcodes_2epub_2eproto_once,

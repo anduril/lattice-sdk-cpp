@@ -638,14 +638,12 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fentity_5fman
     "mEntityComponents\0227.anduril.entitymanage"
     "r.v1.StreamEntityComponentsRequest\0328.and"
     "uril.entitymanager.v1.StreamEntityCompon"
-    "entsResponse0\001B\215\002\n\034com.anduril.entityman"
-    "ager.v1B\034EntityManagerGrpcapiPubProtoP\001Z"
-    "Mghe.anduril.dev/anduril/andurilapis-go/"
-    "anduril/entitymanager/v1;entitymanager\242\002"
-    "\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Anduri"
-    "l\\Entitymanager\\V1\342\002$Anduril\\Entitymanag"
-    "er\\V1\\GPBMetadata\352\002\032Anduril::Entitymanag"
-    "er::V1b\006proto3"
+    "entsResponse0\001B\276\001\n\034com.anduril.entityman"
+    "ager.v1B\034EntityManagerGrpcapiPubProtoP\001\242"
+    "\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Andur"
+    "il\\Entitymanager\\V1\342\002$Anduril\\Entitymana"
+    "ger\\V1\\GPBMetadata\352\002\032Anduril::Entitymana"
+    "ger::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fgrpcapi_2epub_2eproto_deps[5] =
     {
@@ -659,7 +657,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fentity_
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fgrpcapi_2epub_2eproto = {
     false,
     false,
-    3054,
+    2975,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fgrpcapi_2epub_2eproto,
     "anduril/entitymanager/v1/entity_manager_grpcapi.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_5fmanager_5fgrpcapi_2epub_2eproto_once,

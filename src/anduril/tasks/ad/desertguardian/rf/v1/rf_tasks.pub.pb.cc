@@ -180,21 +180,19 @@ const char descriptor_table_protodef_anduril_2ftasks_2fad_2fdesertguardian_2frf_
     "trolState\022\"\n\036EMISSION_CONTROL_STATE_INVA"
     "LID\020\000\022\"\n\036EMISSION_CONTROL_STATE_ALLOWED\020"
     "\001\022&\n\"EMISSION_CONTROL_STATE_NOT_ALLOWED\020"
-    "\002B\315\002\n)com.anduril.tasks.ad.desertguardia"
-    "n.rf.v1B\017RfTasksPubProtoP\001ZTghe.anduril."
-    "dev/anduril/andurilapis-go/anduril/tasks"
-    "/ad/desertguardian/rf/v1;tasksv1\242\002\005ATADR"
-    "\252\002%Anduril.Tasks.Ad.Desertguardian.Rf.V1"
-    "\312\002%Anduril\\Tasks\\Ad\\Desertguardian\\Rf\\V1"
-    "\342\0021Anduril\\Tasks\\Ad\\Desertguardian\\Rf\\V1"
-    "\\GPBMetadata\352\002*Anduril::Tasks::Ad::Deser"
-    "tguardian::Rf::V1b\006proto3"
+    "\002B\367\001\n)com.anduril.tasks.ad.desertguardia"
+    "n.rf.v1B\017RfTasksPubProtoP\001\242\002\005ATADR\252\002%And"
+    "uril.Tasks.Ad.Desertguardian.Rf.V1\312\002%And"
+    "uril\\Tasks\\Ad\\Desertguardian\\Rf\\V1\342\0021And"
+    "uril\\Tasks\\Ad\\Desertguardian\\Rf\\V1\\GPBMe"
+    "tadata\352\002*Anduril::Tasks::Ad::Desertguard"
+    "ian::Rf::V1b\006proto3"
 };
 static ::absl::once_flag descriptor_table_anduril_2ftasks_2fad_2fdesertguardian_2frf_2fv1_2frf_5ftasks_2epub_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftasks_2fad_2fdesertguardian_2frf_2fv1_2frf_5ftasks_2epub_2eproto = {
     false,
     false,
-    1185,
+    1099,
     descriptor_table_protodef_anduril_2ftasks_2fad_2fdesertguardian_2frf_2fv1_2frf_5ftasks_2epub_2eproto,
     "anduril/tasks/ad/desertguardian/rf/v1/rf_tasks.pub.proto",
     &descriptor_table_anduril_2ftasks_2fad_2fdesertguardian_2frf_2fv1_2frf_5ftasks_2epub_2eproto_once,

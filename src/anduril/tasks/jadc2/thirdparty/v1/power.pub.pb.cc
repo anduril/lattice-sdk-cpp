@@ -91,21 +91,19 @@ const char descriptor_table_protodef_anduril_2ftasks_2fjadc2_2fthirdparty_2fv1_2
     " \001(\0162-.anduril.tasks.jadc2.thirdparty.v1"
     ".PowerStateR\npowerState*N\n\nPowerState\022\027\n"
     "\023POWER_STATE_INVALID\020\000\022\022\n\016POWER_STATE_ON"
-    "\020\001\022\023\n\017POWER_STATE_OFF\020\002B\261\002\n%com.anduril."
+    "\020\001\022\023\n\017POWER_STATE_OFF\020\002B\337\001\n%com.anduril."
     "tasks.jadc2.thirdparty.v1B\rPowerPubProto"
-    "P\001ZPghe.anduril.dev/anduril/andurilapis-"
-    "go/anduril/tasks/jadc2/thirdparty/v1;tas"
-    "ksv1\242\002\004ATJT\252\002!Anduril.Tasks.Jadc2.Thirdp"
-    "arty.V1\312\002!Anduril\\Tasks\\Jadc2\\Thirdparty"
-    "\\V1\342\002-Anduril\\Tasks\\Jadc2\\Thirdparty\\V1\\"
-    "GPBMetadata\352\002%Anduril::Tasks::Jadc2::Thi"
-    "rdparty::V1b\006proto3"
+    "P\001\242\002\004ATJT\252\002!Anduril.Tasks.Jadc2.Thirdpar"
+    "ty.V1\312\002!Anduril\\Tasks\\Jadc2\\Thirdparty\\V"
+    "1\342\002-Anduril\\Tasks\\Jadc2\\Thirdparty\\V1\\GP"
+    "BMetadata\352\002%Anduril::Tasks::Jadc2::Third"
+    "party::V1b\006proto3"
 };
 static ::absl::once_flag descriptor_table_anduril_2ftasks_2fjadc2_2fthirdparty_2fv1_2fpower_2epub_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftasks_2fjadc2_2fthirdparty_2fv1_2fpower_2epub_2eproto = {
     false,
     false,
-    579,
+    497,
     descriptor_table_protodef_anduril_2ftasks_2fjadc2_2fthirdparty_2fv1_2fpower_2epub_2eproto,
     "anduril/tasks/jadc2/thirdparty/v1/power.pub.proto",
     &descriptor_table_anduril_2ftasks_2fjadc2_2fthirdparty_2fv1_2fpower_2epub_2eproto_once,

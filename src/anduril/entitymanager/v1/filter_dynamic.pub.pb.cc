@@ -167,14 +167,12 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2ffilter_5fdyn
     "ectionComparator\022Y\n\021within_comparison\030\001 "
     "\001(\0132*.anduril.entitymanager.v1.WithinCom"
     "parisonH\000R\020withinComparisonB\014\n\ncompariso"
-    "n\"\022\n\020WithinComparisonB\206\002\n\034com.anduril.en"
-    "titymanager.v1B\025FilterDynamicPubProtoP\001Z"
-    "Mghe.anduril.dev/anduril/andurilapis-go/"
-    "anduril/entitymanager/v1;entitymanager\242\002"
-    "\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Anduri"
-    "l\\Entitymanager\\V1\342\002$Anduril\\Entitymanag"
-    "er\\V1\\GPBMetadata\352\002\032Anduril::Entitymanag"
-    "er::V1b\006proto3"
+    "n\"\022\n\020WithinComparisonB\267\001\n\034com.anduril.en"
+    "titymanager.v1B\025FilterDynamicPubProtoP\001\242"
+    "\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Andur"
+    "il\\Entitymanager\\V1\342\002$Anduril\\Entitymana"
+    "ger\\V1\\GPBMetadata\352\002\032Anduril::Entitymana"
+    "ger::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2ffilter_5fdynamic_2epub_2eproto_deps[1] =
     {
@@ -184,7 +182,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2ffilter_
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2ffilter_5fdynamic_2epub_2eproto = {
     false,
     false,
-    774,
+    695,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2ffilter_5fdynamic_2epub_2eproto,
     "anduril/entitymanager/v1/filter_dynamic.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2ffilter_5fdynamic_2epub_2eproto_once,

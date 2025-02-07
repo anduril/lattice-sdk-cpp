@@ -5,6 +5,7 @@ package anduril.entitymanager.v1;
 import "anduril/type/coords.pub.proto";
 import "google/protobuf/wrappers.proto";
 
+
 // Available for Entities that have a single or primary Location.
 message Location {
   // see Position definition for details.
@@ -29,7 +30,6 @@ message Position {
   double latitude_degrees = 1;
   // WGS84 longitude in decimal degrees.
   double longitude_degrees = 2;
-  // altitude as height above ellipsoid (WGS84) in meters. DoubleValue wrapper is used to distinguish optional from
   // default 0.
   google.protobuf.DoubleValue altitude_hae_meters = 3;
   // Altitude as AGL (Above Ground Level) if the upstream data source has this value set. This value represents the

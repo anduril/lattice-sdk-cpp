@@ -1234,13 +1234,11 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fentity_2epub
     "\n$CORRELATION_REPLICATION_MODE_INVALID\020\000"
     "\022&\n\"CORRELATION_REPLICATION_MODE_LOCAL\020\001"
     "\022\'\n#CORRELATION_REPLICATION_MODE_GLOBAL\020"
-    "\002B\377\001\n\034com.anduril.entitymanager.v1B\016Enti"
-    "tyPubProtoP\001ZMghe.anduril.dev/anduril/an"
-    "durilapis-go/anduril/entitymanager/v1;en"
-    "titymanager\242\002\003AEX\252\002\030Anduril.Entitymanage"
-    "r.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduri"
-    "l\\Entitymanager\\V1\\GPBMetadata\352\002\032Anduril"
-    "::Entitymanager::V1b\006proto3"
+    "\002B\260\001\n\034com.anduril.entitymanager.v1B\016Enti"
+    "tyPubProtoP\001\242\002\003AEX\252\002\030Anduril.Entitymanag"
+    "er.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Andur"
+    "il\\Entitymanager\\V1\\GPBMetadata\352\002\032Anduri"
+    "l::Entitymanager::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto_deps[24] =
     {
@@ -1273,7 +1271,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fentity_
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto = {
     false,
     false,
-    7987,
+    7908,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto,
     "anduril/entitymanager/v1/entity.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fentity_2epub_2eproto_once,

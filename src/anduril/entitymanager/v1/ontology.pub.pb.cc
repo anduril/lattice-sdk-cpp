@@ -145,13 +145,11 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fontology_2ep
     "(\n\rspecific_type\030\004 \001(\tB\003\310>\001R\014specificTyp"
     "e\022>\n\010template\030\002 \001(\0162\".anduril.entitymana"
     "ger.v1.TemplateR\010templateJ\004\010\001\020\002R\013descrip"
-    "torsB\201\002\n\034com.anduril.entitymanager.v1B\020O"
-    "ntologyPubProtoP\001ZMghe.anduril.dev/andur"
-    "il/andurilapis-go/anduril/entitymanager/"
-    "v1;entitymanager\242\002\003AEX\252\002\030Anduril.Entitym"
-    "anager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$A"
-    "nduril\\Entitymanager\\V1\\GPBMetadata\352\002\032An"
-    "duril::Entitymanager::V1b\006proto3"
+    "torsB\262\001\n\034com.anduril.entitymanager.v1B\020O"
+    "ntologyPubProtoP\001\242\002\003AEX\252\002\030Anduril.Entity"
+    "manager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$"
+    "Anduril\\Entitymanager\\V1\\GPBMetadata\352\002\032A"
+    "nduril::Entitymanager::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fontology_2epub_2eproto_deps[3] =
     {
@@ -163,7 +161,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fontolog
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fontology_2epub_2eproto = {
     false,
     false,
-    872,
+    793,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fontology_2epub_2eproto,
     "anduril/entitymanager/v1/ontology.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fontology_2epub_2eproto_once,

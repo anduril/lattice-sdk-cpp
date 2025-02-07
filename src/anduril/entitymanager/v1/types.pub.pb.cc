@@ -155,19 +155,17 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2ftypes_2epub_
     "TATUS_DELETION_PENDING\020\005*`\n\014OverrideType"
     "\022\031\n\025OVERRIDE_TYPE_INVALID\020\000\022\026\n\022OVERRIDE_"
     "TYPE_LIVE\020\001\022\035\n\031OVERRIDE_TYPE_POST_EXPIRY"
-    "\020\002B\376\001\n\034com.anduril.entitymanager.v1B\rTyp"
-    "esPubProtoP\001ZMghe.anduril.dev/anduril/an"
-    "durilapis-go/anduril/entitymanager/v1;en"
-    "titymanager\242\002\003AEX\252\002\030Anduril.Entitymanage"
-    "r.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Anduri"
-    "l\\Entitymanager\\V1\\GPBMetadata\352\002\032Anduril"
-    "::Entitymanager::V1b\006proto3"
+    "\020\002B\257\001\n\034com.anduril.entitymanager.v1B\rTyp"
+    "esPubProtoP\001\242\002\003AEX\252\002\030Anduril.Entitymanag"
+    "er.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$Andur"
+    "il\\Entitymanager\\V1\\GPBMetadata\352\002\032Anduri"
+    "l::Entitymanager::V1b\006proto3"
 };
 static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto = {
     false,
     false,
-    1627,
+    1548,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto,
     "anduril/entitymanager/v1/types.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2ftypes_2epub_2eproto_once,

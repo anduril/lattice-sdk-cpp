@@ -6,6 +6,7 @@ import "anduril/entitymanager/v1/entity.pub.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";
 
+
 // A Task is something an agent can be asked to do.
 message Task {
   // Version of this Task.

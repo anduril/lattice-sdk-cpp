@@ -163,14 +163,12 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fsupplies_2ep
     "ntGallons\022Y\n\023data_classification\030\007 \001(\0132("
     ".anduril.entitymanager.v1.Classification"
     "R\022dataClassification\022\037\n\013data_source\030\010 \001("
-    "\tR\ndataSourceB\201\002\n\034com.anduril.entitymana"
-    "ger.v1B\020SuppliesPubProtoP\001ZMghe.anduril."
-    "dev/anduril/andurilapis-go/anduril/entit"
-    "ymanager/v1;entitymanager\242\002\003AEX\252\002\030Anduri"
-    "l.Entitymanager.V1\312\002\030Anduril\\Entitymanag"
-    "er\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBMeta"
-    "data\352\002\032Anduril::Entitymanager::V1b\006proto"
-    "3"
+    "\tR\ndataSourceB\262\001\n\034com.anduril.entitymana"
+    "ger.v1B\020SuppliesPubProtoP\001\242\002\003AEX\252\002\030Andur"
+    "il.Entitymanager.V1\312\002\030Anduril\\Entitymana"
+    "ger\\V1\342\002$Anduril\\Entitymanager\\V1\\GPBMet"
+    "adata\352\002\032Anduril::Entitymanager::V1b\006prot"
+    "o3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fsupplies_2epub_2eproto_deps[3] =
     {
@@ -182,7 +180,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fsupplie
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fsupplies_2epub_2eproto = {
     false,
     false,
-    961,
+    882,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fsupplies_2epub_2eproto,
     "anduril/entitymanager/v1/supplies.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fsupplies_2epub_2eproto_once,

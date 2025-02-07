@@ -430,14 +430,12 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fsensors_2epu
     "\002\022\033\n\027SENSOR_TYPE_TRANSPONDER\020\003\022\022\n\016SENSOR"
     "_TYPE_RF\020\004\022\023\n\017SENSOR_TYPE_GPS\020\005\022\027\n\023SENSO"
     "R_TYPE_PTU_POS\020\006\022\031\n\025SENSOR_TYPE_PERIMETE"
-    "R\020\010\022\025\n\021SENSOR_TYPE_SONAR\020\t\"\004\010\007\020\007B\200\002\n\034com"
+    "R\020\010\022\025\n\021SENSOR_TYPE_SONAR\020\t\"\004\010\007\020\007B\261\001\n\034com"
     ".anduril.entitymanager.v1B\017SensorsPubPro"
-    "toP\001ZMghe.anduril.dev/anduril/andurilapi"
-    "s-go/anduril/entitymanager/v1;entitymana"
-    "ger\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030A"
-    "nduril\\Entitymanager\\V1\342\002$Anduril\\Entity"
-    "manager\\V1\\GPBMetadata\352\002\032Anduril::Entity"
-    "manager::V1b\006proto3"
+    "toP\001\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030"
+    "Anduril\\Entitymanager\\V1\342\002$Anduril\\Entit"
+    "ymanager\\V1\\GPBMetadata\352\002\032Anduril::Entit"
+    "ymanager::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fsensors_2epub_2eproto_deps[4] =
     {
@@ -450,7 +448,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fsensors
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fsensors_2epub_2eproto = {
     false,
     false,
-    2939,
+    2860,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fsensors_2epub_2eproto,
     "anduril/entitymanager/v1/sensors.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fsensors_2epub_2eproto_once,

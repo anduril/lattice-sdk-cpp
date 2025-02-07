@@ -102,12 +102,10 @@ const char descriptor_table_protodef_anduril_2ftype_2fgeometry_2epub_2eproto[] A
     "pos\030\002 \001(\0132\021.anduril.type.LLAR\013topRightPo"
     "s\022\035\n\ngrid_width\030\003 \001(\rR\tgridWidth\022\037\n\013grid"
     "_height\030\004 \001(\rR\ngridHeight\022\037\n\013cell_values"
-    "\030\005 \001(\014R\ncellValuesB\261\001\n\020com.anduril.typeB"
-    "\020GeometryPubProtoP\001Z:ghe.anduril.dev/and"
-    "uril/andurilapis-go/anduril/type;atypes\242"
-    "\002\003ATX\252\002\014Anduril.Type\312\002\014Anduril\\Type\342\002\030An"
-    "duril\\Type\\GPBMetadata\352\002\rAnduril::Typeb\006"
-    "proto3"
+    "\030\005 \001(\014R\ncellValuesBu\n\020com.anduril.typeB\020"
+    "GeometryPubProtoP\001\242\002\003ATX\252\002\014Anduril.Type\312"
+    "\002\014Anduril\\Type\342\002\030Anduril\\Type\\GPBMetadat"
+    "a\352\002\rAnduril::Typeb\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2ftype_2fgeometry_2epub_2eproto_deps[1] =
     {
@@ -117,7 +115,7 @@ static ::absl::once_flag descriptor_table_anduril_2ftype_2fgeometry_2epub_2eprot
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2ftype_2fgeometry_2epub_2eproto = {
     false,
     false,
-    486,
+    425,
     descriptor_table_protodef_anduril_2ftype_2fgeometry_2epub_2eproto,
     "anduril/type/geometry.pub.proto",
     &descriptor_table_anduril_2ftype_2fgeometry_2epub_2eproto_once,
