@@ -4,6 +4,12 @@ package anduril.entitymanager.v1;
 
 import "anduril/entitymanager/v1/filter.pub.proto";
 
+option csharp_namespace = "Anduril.Entitymanager.V1";
+option java_multiple_files = true;
+option java_outer_classname = "FilterDynamicProto";
+option java_package = "com.anduril.entitymanager.v1";
+option objc_class_prefix = "AEX";
+
 // A DynamicStatement is the building block of a "runtime aware" entity filter - that is, any filter
 // which needs to perform operations against a series of entities that will need to be evaluated against
 // on demand. The DynamicStatement allows you to perform a set intersection operation across a static

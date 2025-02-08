@@ -4,6 +4,12 @@ package anduril.taskmanager.v1;
 
 import "anduril/taskmanager/v1/task.pub.proto";
 
+option csharp_namespace = "Anduril.Taskmanager.V1";
+option java_multiple_files = true;
+option java_outer_classname = "TaskApiProto";
+option java_package = "com.anduril.taskmanager.v1";
+option objc_class_prefix = "ATX";
+
 // Request to execute a Task.
 message ExecuteRequest {
   // Task to execute.

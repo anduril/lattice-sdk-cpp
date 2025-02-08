@@ -7,6 +7,12 @@ import "anduril/taskmanager/v1/task_api.pub.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";
 
+option csharp_namespace = "Anduril.Taskmanager.V1";
+option java_multiple_files = true;
+option java_outer_classname = "TaskManagerApiProto";
+option java_package = "com.anduril.taskmanager.v1";
+option objc_class_prefix = "ATX";
+
 // Task Manager is a service that performs state management associated with Tasks, and also the execution of Tasks
 // on their designated agents.
 service TaskManagerAPI {

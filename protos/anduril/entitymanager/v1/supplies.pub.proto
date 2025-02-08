@@ -6,6 +6,12 @@ import "anduril/entitymanager/v1/classification.pub.proto";
 import "anduril/entitymanager/v1/options.pub.proto";
 import "google/protobuf/timestamp.proto";
 
+option csharp_namespace = "Anduril.Entitymanager.V1";
+option java_multiple_files = true;
+option java_outer_classname = "SuppliesProto";
+option java_package = "com.anduril.entitymanager.v1";
+option objc_class_prefix = "AEX";
+
 // Represents the state of supplies associated with an entity (available but not in condition to use immediately)
 message Supplies {
   repeated Fuel fuel = 2 [(anduril.entitymanager.v1.overridable) = true];

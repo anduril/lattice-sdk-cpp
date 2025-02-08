@@ -4,6 +4,12 @@ package anduril.entitymanager.v1;
 
 import "anduril/entitymanager/v1/entity.pub.proto";
 
+option csharp_namespace = "Anduril.Entitymanager.V1";
+option java_multiple_files = true;
+option java_outer_classname = "NotificationProto";
+option java_package = "com.anduril.entitymanager.v1";
+option objc_class_prefix = "AEX";
+
 // A notification to indicate when a field is overridden on an entity.
 message OverrideNotificationPayload {
   // The entity containing the values to override and the entityID being overriden.

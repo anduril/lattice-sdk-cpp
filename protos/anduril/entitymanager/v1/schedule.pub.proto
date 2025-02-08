@@ -2,6 +2,12 @@ syntax = "proto3";
 
 package anduril.entitymanager.v1;
 
+option csharp_namespace = "Anduril.Entitymanager.V1";
+option java_multiple_files = true;
+option java_outer_classname = "ScheduleProto";
+option java_package = "com.anduril.entitymanager.v1";
+option objc_class_prefix = "AEX";
+
 // Schedules associated with this entity
 message Schedules {
   repeated Schedule schedules = 1;

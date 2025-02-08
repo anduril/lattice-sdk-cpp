@@ -8,6 +8,12 @@ import "anduril/entitymanager/v1/rate_limit.pub.proto";
 import "anduril/entitymanager/v1/types.pub.proto";
 import "google/protobuf/timestamp.proto";
 
+option csharp_namespace = "Anduril.Entitymanager.V1";
+option java_multiple_files = true;
+option java_outer_classname = "EntityManagerApiProto";
+option java_package = "com.anduril.entitymanager.v1";
+option objc_class_prefix = "AEX";
+
 // Entity Manager manages the lifecycle of the entities that comprise the common operational picture (COP).
 //
 // Every object in the COP is represented as an "Entity." Each Entity is essentially an ID, with a lifecycle
