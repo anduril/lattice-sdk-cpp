@@ -2,6 +2,9 @@ syntax = "proto3";
 
 package anduril.type;
 
+option java_multiple_files = true;
+option java_package = "com.anduril.type";
+
 message Attribution {
   // The timestamp at which the event occurred, in UTC epoch microseconds.
   int64 timestamp = 1;

@@ -4,6 +4,12 @@ package anduril.entitymanager.v1;
 
 import "anduril/entitymanager/v1/options.pub.proto";
 
+option csharp_namespace = "Anduril.Entitymanager.V1";
+option java_multiple_files = true;
+option java_outer_classname = "TargetPriorityProto";
+option java_package = "com.anduril.entitymanager.v1";
+option objc_class_prefix = "AEX";
+
 // The target prioritization associated with an entity.
 message TargetPriority {
   // Describes the target priority in relation to high value target lists.

@@ -6,6 +6,12 @@ import "anduril/entitymanager/v1/entity.pub.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";
 
+option csharp_namespace = "Anduril.Taskmanager.V1";
+option java_multiple_files = true;
+option java_outer_classname = "TaskProto";
+option java_package = "com.anduril.taskmanager.v1";
+option objc_class_prefix = "ATX";
+
 // A Task is something an agent can be asked to do.
 message Task {
   // Version of this Task.

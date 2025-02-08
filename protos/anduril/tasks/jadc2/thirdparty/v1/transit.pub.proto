@@ -5,6 +5,13 @@ package anduril.tasks.jadc2.thirdparty.v1;
 import "anduril/type/coords.pub.proto";
 import "google/protobuf/wrappers.proto";
 
+option csharp_namespace = "Anduril.Tasks.JADC2.ThirdParty.v1";
+option java_multiple_files = true;
+option java_outer_classname = "JADC2ThirdPartyTasksProto";
+option java_package = "com.anduril.tasks.jadc2.thirdparty.v1";
+option objc_class_prefix = "JADC2ThirdParty";
+option php_namespace = "Anduril\\Tasks\\JADC2\\ThirdParty\\v1";
+
 // Transit represents moving a vehicle on a path through one or more points.
 message Transit {
   // The path consisting of all segments to be taken for this transit task.

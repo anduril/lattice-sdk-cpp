@@ -4,6 +4,12 @@ package anduril.entitymanager.v1;
 
 import "google/protobuf/timestamp.proto";
 
+option csharp_namespace = "Anduril.Entitymanager.V1";
+option java_multiple_files = true;
+option java_outer_classname = "EntityHealthStatusProto";
+option java_package = "com.anduril.entitymanager.v1";
+option objc_class_prefix = "AEX";
+
 // Enumeration of possible connection states.
 enum ConnectionStatus {
   CONNECTION_STATUS_INVALID = 0;

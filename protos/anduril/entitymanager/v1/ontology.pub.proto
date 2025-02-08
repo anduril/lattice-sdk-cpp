@@ -6,6 +6,12 @@ import "anduril/entitymanager/v1/options.pub.proto";
 import "anduril/entitymanager/v1/types.pub.proto";
 import "anduril/ontology/v1/type.pub.proto";
 
+option csharp_namespace = "Anduril.Entitymanager.V1";
+option java_multiple_files = true;
+option java_outer_classname = "OntologyProto";
+option java_package = "com.anduril.entitymanager.v1";
+option objc_class_prefix = "AEX";
+
 // Provides the disposition, environment, and nationality of an Entity.
 message MilView {
   anduril.ontology.v1.Disposition disposition = 1 [(anduril.entitymanager.v1.overridable) = true];

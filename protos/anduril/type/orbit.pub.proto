@@ -5,6 +5,9 @@ package anduril.type;
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
+option java_multiple_files = true;
+option java_package = "com.anduril.type";
+
 // Orbit Mean Elements data, analogous to the Orbit Mean Elements Message in CCSDS 502.0-B-3
 message OrbitMeanElements {
   anduril.type.OrbitMeanElementsMetadata metadata = 1;
