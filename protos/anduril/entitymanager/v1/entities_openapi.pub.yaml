@@ -12,8 +12,11 @@ info:
 security:
   - bearerHttpAuthentication: []
 servers:
-  - url: "/api/v1"
-    description: Base url path for the Entities v1 API.
+- url: "{server}/api/v1"
+  variables:
+    server:
+      default: "developer.anduril.com"
+      description: The Lattice server instance to connect to.
 paths:
   /entities:
     put:

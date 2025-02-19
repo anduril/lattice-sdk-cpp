@@ -8,8 +8,11 @@ info:
     Manager to receive tasks and report status updates.
   version: '1.0.0'
 servers:
-  - url: "/api/v1"
-    description: Base url path for the Tasks v1 API.
+- url: "{server}/api/v1"
+  variables:
+    server:
+      default: "developer.anduril.com"
+      description: The Lattice server instance to connect to.
 paths:
   /tasks:
     post:

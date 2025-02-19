@@ -16,8 +16,8 @@ option objc_class_prefix = "ATX";
 message Task {
   // Version of this Task.
   TaskVersion version = 1;
-  // Human readable display name for this Task, should be short (<100 chars).
-  string display_name = 2;
+  // DEPRECATED: Human readable display name for this Task, should be short (<100 chars).
+  string display_name = 2 [deprecated = true];
   // Full Task parameterization, must be a message under anduril/tasks/v*/
   google.protobuf.Any specification = 3;
   // Records who created this Task. This field will not change after the Task has been created.
