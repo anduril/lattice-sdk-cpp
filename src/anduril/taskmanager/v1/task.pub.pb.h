@@ -3578,14 +3578,14 @@ class Task final
   const ::anduril::taskmanager::v1::TaskEntity& initial_entities(int index) const;
   ::anduril::taskmanager::v1::TaskEntity* add_initial_entities();
   const ::google::protobuf::RepeatedPtrField<::anduril::taskmanager::v1::TaskEntity>& initial_entities() const;
-  // string display_name = 2 [json_name = "displayName"];
-  void clear_display_name() ;
-  const std::string& display_name() const;
+  // string display_name = 2 [json_name = "displayName", deprecated = true];
+  [[deprecated]]  void clear_display_name() ;
+  [[deprecated]] const std::string& display_name() const;
   template <typename Arg_ = const std::string&, typename... Args_>
-  void set_display_name(Arg_&& arg, Args_... args);
-  std::string* mutable_display_name();
-  PROTOBUF_NODISCARD std::string* release_display_name();
-  void set_allocated_display_name(std::string* value);
+  [[deprecated]] void set_display_name(Arg_&& arg, Args_... args);
+  [[deprecated]] std::string* mutable_display_name();
+  [[deprecated]] PROTOBUF_NODISCARD std::string* release_display_name();
+  [[deprecated]] void set_allocated_display_name(std::string* value);
 
   private:
   const std::string& _internal_display_name() const;
@@ -4378,7 +4378,7 @@ inline void Task::set_allocated_version(::anduril::taskmanager::v1::TaskVersion*
   // @@protoc_insertion_point(field_set_allocated:anduril.taskmanager.v1.Task.version)
 }
 
-// string display_name = 2 [json_name = "displayName"];
+// string display_name = 2 [json_name = "displayName", deprecated = true];
 inline void Task::clear_display_name() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.display_name_.ClearToEmpty();

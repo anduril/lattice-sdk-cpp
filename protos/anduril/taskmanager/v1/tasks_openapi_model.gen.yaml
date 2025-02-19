@@ -2233,7 +2233,7 @@ components:
                     description: Version of this Task.
                 displayName:
                     type: string
-                    description: Human readable display name for this Task, should be short (<100 chars).
+                    description: 'DEPRECATED: Human readable display name for this Task, should be short (<100 chars).'
                 specification:
                     allOf:
                         - $ref: '#/components/schemas/GoogleProtobufAny'
