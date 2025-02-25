@@ -6,7 +6,7 @@ The official [Anduril](https://www.anduril.com/) Lattice SDK for C++.
 
 ## Documentation
 
-See the documentation for [Lattice C++ SDK](https://docs.anduril.com/sdks/cpp).
+See the documentation for [Lattice C++ SDK](https://docs.anduril.com/guide/sdks/cpp).
 
 ## Requirements
 
