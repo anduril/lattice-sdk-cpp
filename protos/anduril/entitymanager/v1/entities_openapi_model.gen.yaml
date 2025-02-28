@@ -977,6 +977,8 @@ components:
         GroupDetails:
             type: object
             properties:
+                team:
+                    $ref: '#/components/schemas/Team'
                 echelon:
                     $ref: '#/components/schemas/Echelon'
             description: Details related to grouping for this entity
@@ -2160,6 +2162,12 @@ components:
                     type: string
                     description: Url path must be prefixed with `type.googleapis.com/`.
             description: Defines a supported task by the task specification URL of its "Any" type.
+        Team:
+            type: object
+            properties: {}
+            description: |-
+                Describes a Team group type. Comprised of autonomous entities where an entity
+                 in a Team can only be a part of a single Team at a time.
         Threat:
             type: object
             properties:

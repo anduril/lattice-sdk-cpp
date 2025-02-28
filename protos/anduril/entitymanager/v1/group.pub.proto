@@ -11,9 +11,14 @@ option objc_class_prefix = "AEX";
 // Details related to grouping for this entity
 message GroupDetails {
   oneof group_type {
+    Team team = 1;
     Echelon echelon = 3;
   }
 }
+
+// Describes a Team group type. Comprised of autonomous entities where an entity
+// in a Team can only be a part of a single Team at a time.
+message Team {}
 
 // Describes a Echelon group type.  Comprised of entities which are members of the
 // same unit or echelon. Ex: A group of tanks within a armored company or that same company
