@@ -27,6 +27,24 @@ namespace _fl = ::google::protobuf::internal::field_layout;
 namespace anduril {
 namespace entitymanager {
 namespace v1 {
+              template <typename>
+PROTOBUF_CONSTEXPR Team::Team(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::internal::ZeroFieldsBase(_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::internal::ZeroFieldsBase() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct TeamDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR TeamDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~TeamDefaultTypeInternal() {}
+  union {
+    Team _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TeamDefaultTypeInternal _Team_default_instance_;
 
 inline constexpr Echelon::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -97,7 +115,16 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         ::_pbi::kInvalidFieldOffsetTag,
+        ::_pbi::kInvalidFieldOffsetTag,
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::GroupDetails, _impl_.group_type_),
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Team, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::Echelon, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -113,47 +140,51 @@ const ::uint32_t
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, -1, -1, sizeof(::anduril::entitymanager::v1::GroupDetails)},
-        {10, -1, -1, sizeof(::anduril::entitymanager::v1::Echelon)},
+        {11, -1, -1, sizeof(::anduril::entitymanager::v1::Team)},
+        {19, -1, -1, sizeof(::anduril::entitymanager::v1::Echelon)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::entitymanager::v1::_GroupDetails_default_instance_._instance,
+    &::anduril::entitymanager::v1::_Team_default_instance_._instance,
     &::anduril::entitymanager::v1::_Echelon_default_instance_._instance,
 };
 const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fgroup_2epub_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
     "\n(anduril/entitymanager/v1/group.pub.pro"
-    "to\022\030anduril.entitymanager.v1\"[\n\014GroupDet"
-    "ails\022=\n\007echelon\030\003 \001(\0132!.anduril.entityma"
-    "nager.v1.EchelonH\000R\007echelonB\014\n\ngroup_typ"
-    "e\"e\n\007Echelon\022J\n\014army_echelon\030\001 \001(\0162%.and"
-    "uril.entitymanager.v1.ArmyEchelonH\000R\013arm"
-    "yEchelonB\016\n\014echelon_type*\252\002\n\013ArmyEchelon"
-    "\022\030\n\024ARMY_ECHELON_INVALID\020\000\022\032\n\026ARMY_ECHEL"
-    "ON_FIRE_TEAM\020\001\022\026\n\022ARMY_ECHELON_SQUAD\020\002\022\030"
-    "\n\024ARMY_ECHELON_PLATOON\020\003\022\030\n\024ARMY_ECHELON"
-    "_COMPANY\020\004\022\032\n\026ARMY_ECHELON_BATTALION\020\005\022\031"
-    "\n\025ARMY_ECHELON_REGIMENT\020\006\022\030\n\024ARMY_ECHELO"
-    "N_BRIGADE\020\007\022\031\n\025ARMY_ECHELON_DIVISION\020\010\022\026"
-    "\n\022ARMY_ECHELON_CORPS\020\t\022\025\n\021ARMY_ECHELON_A"
-    "RMY\020\nB\376\001\n\034com.anduril.entitymanager.v1B\r"
-    "GroupPubProtoP\001ZMghe.anduril.dev/anduril"
-    "/andurilapis-go/anduril/entitymanager/v1"
-    ";entitymanager\242\002\003AEX\252\002\030Anduril.Entityman"
-    "ager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$And"
-    "uril\\Entitymanager\\V1\\GPBMetadata\352\002\032Andu"
-    "ril::Entitymanager::V1b\006proto3"
+    "to\022\030anduril.entitymanager.v1\"\221\001\n\014GroupDe"
+    "tails\0224\n\004team\030\001 \001(\0132\036.anduril.entitymana"
+    "ger.v1.TeamH\000R\004team\022=\n\007echelon\030\003 \001(\0132!.a"
+    "nduril.entitymanager.v1.EchelonH\000R\007echel"
+    "onB\014\n\ngroup_type\"\006\n\004Team\"e\n\007Echelon\022J\n\014a"
+    "rmy_echelon\030\001 \001(\0162%.anduril.entitymanage"
+    "r.v1.ArmyEchelonH\000R\013armyEchelonB\016\n\014echel"
+    "on_type*\252\002\n\013ArmyEchelon\022\030\n\024ARMY_ECHELON_"
+    "INVALID\020\000\022\032\n\026ARMY_ECHELON_FIRE_TEAM\020\001\022\026\n"
+    "\022ARMY_ECHELON_SQUAD\020\002\022\030\n\024ARMY_ECHELON_PL"
+    "ATOON\020\003\022\030\n\024ARMY_ECHELON_COMPANY\020\004\022\032\n\026ARM"
+    "Y_ECHELON_BATTALION\020\005\022\031\n\025ARMY_ECHELON_RE"
+    "GIMENT\020\006\022\030\n\024ARMY_ECHELON_BRIGADE\020\007\022\031\n\025AR"
+    "MY_ECHELON_DIVISION\020\010\022\026\n\022ARMY_ECHELON_CO"
+    "RPS\020\t\022\025\n\021ARMY_ECHELON_ARMY\020\nB\376\001\n\034com.and"
+    "uril.entitymanager.v1B\rGroupPubProtoP\001ZM"
+    "ghe.anduril.dev/anduril/andurilapis-go/a"
+    "nduril/entitymanager/v1;entitymanager\242\002\003"
+    "AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Anduril"
+    "\\Entitymanager\\V1\342\002$Anduril\\Entitymanage"
+    "r\\V1\\GPBMetadata\352\002\032Anduril::Entitymanage"
+    "r::V1b\006proto3"
 };
 static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fgroup_2epub_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fgroup_2epub_2eproto = {
     false,
     false,
-    830,
+    893,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fgroup_2epub_2eproto,
     "anduril/entitymanager/v1/group.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fgroup_2epub_2eproto_once,
     nullptr,
     0,
-    2,
+    3,
     schemas,
     file_default_instances,
     TableStruct_anduril_2fentitymanager_2fv1_2fgroup_2epub_2eproto::offsets,
@@ -180,6 +211,19 @@ class GroupDetails::_Internal {
       PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::GroupDetails, _impl_._oneof_case_);
 };
 
+void GroupDetails::set_allocated_team(::anduril::entitymanager::v1::Team* team) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_group_type();
+  if (team) {
+    ::google::protobuf::Arena* submessage_arena = team->GetArena();
+    if (message_arena != submessage_arena) {
+      team = ::google::protobuf::internal::GetOwnedMessage(message_arena, team, submessage_arena);
+    }
+    set_has_team();
+    _impl_.group_type_.team_ = team;
+  }
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.GroupDetails.team)
+}
 void GroupDetails::set_allocated_echelon(::anduril::entitymanager::v1::Echelon* echelon) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_group_type();
@@ -225,6 +269,9 @@ GroupDetails::GroupDetails(
   switch (group_type_case()) {
     case GROUP_TYPE_NOT_SET:
       break;
+      case kTeam:
+        _impl_.group_type_.team_ = ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Team>(arena, *from._impl_.group_type_.team_);
+        break;
       case kEchelon:
         _impl_.group_type_.echelon_ = ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Echelon>(arena, *from._impl_.group_type_.echelon_);
         break;
@@ -260,6 +307,14 @@ void GroupDetails::clear_group_type() {
 // @@protoc_insertion_point(one_of_clear_start:anduril.entitymanager.v1.GroupDetails)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   switch (group_type_case()) {
+    case kTeam: {
+      if (GetArena() == nullptr) {
+        delete _impl_.group_type_.team_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.group_type_.team_);
+      }
+      break;
+    }
     case kEchelon: {
       if (GetArena() == nullptr) {
         delete _impl_.group_type_.echelon_;
@@ -312,16 +367,16 @@ const ::google::protobuf::internal::ClassData* GroupDetails::GetClassData() cons
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 1, 1, 0, 2> GroupDetails::_table_ = {
+const ::_pbi::TcParseTable<0, 2, 2, 0, 2> GroupDetails::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
     3, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967291,  // skipmap
+    4294967290,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    1,  // num_field_entries
-    1,  // num_aux_entries
+    2,  // num_field_entries
+    2,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
@@ -334,10 +389,14 @@ const ::_pbi::TcParseTable<0, 1, 1, 0, 2> GroupDetails::_table_ = {
   }}, {{
     65535, 65535
   }}, {{
+    // .anduril.entitymanager.v1.Team team = 1 [json_name = "team"];
+    {PROTOBUF_FIELD_OFFSET(GroupDetails, _impl_.group_type_.team_), _Internal::kOneofCaseOffset + 0, 0,
+    (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.Echelon echelon = 3 [json_name = "echelon"];
-    {PROTOBUF_FIELD_OFFSET(GroupDetails, _impl_.group_type_.echelon_), _Internal::kOneofCaseOffset + 0, 0,
+    {PROTOBUF_FIELD_OFFSET(GroupDetails, _impl_.group_type_.echelon_), _Internal::kOneofCaseOffset + 0, 1,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Team>()},
     {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Echelon>()},
   }}, {{
   }},
@@ -369,13 +428,22 @@ PROTOBUF_NOINLINE void GroupDetails::Clear() {
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
 
-          // .anduril.entitymanager.v1.Echelon echelon = 3 [json_name = "echelon"];
-          if (this_.group_type_case() == kEchelon) {
-            target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-                3, *this_._impl_.group_type_.echelon_, this_._impl_.group_type_.echelon_->GetCachedSize(), target,
-                stream);
+          switch (this_.group_type_case()) {
+            case kTeam: {
+              target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                  1, *this_._impl_.group_type_.team_, this_._impl_.group_type_.team_->GetCachedSize(), target,
+                  stream);
+              break;
+            }
+            case kEchelon: {
+              target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                  3, *this_._impl_.group_type_.echelon_, this_._impl_.group_type_.echelon_->GetCachedSize(), target,
+                  stream);
+              break;
+            }
+            default:
+              break;
           }
-
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
             target =
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -400,6 +468,12 @@ PROTOBUF_NOINLINE void GroupDetails::Clear() {
           (void)cached_has_bits;
 
           switch (this_.group_type_case()) {
+            // .anduril.entitymanager.v1.Team team = 1 [json_name = "team"];
+            case kTeam: {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.group_type_.team_);
+              break;
+            }
             // .anduril.entitymanager.v1.Echelon echelon = 3 [json_name = "echelon"];
             case kEchelon: {
               total_size += 1 +
@@ -434,6 +508,15 @@ void GroupDetails::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::go
     }
 
     switch (oneof_from_case) {
+      case kTeam: {
+        if (oneof_needs_init) {
+          _this->_impl_.group_type_.team_ =
+              ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::Team>(arena, *from._impl_.group_type_.team_);
+        } else {
+          _this->_impl_.group_type_.team_->MergeFrom(from._internal_team());
+        }
+        break;
+      }
       case kEchelon: {
         if (oneof_needs_init) {
           _this->_impl_.group_type_.echelon_ =
@@ -467,6 +550,109 @@ void GroupDetails::InternalSwap(GroupDetails* PROTOBUF_RESTRICT other) {
 
 ::google::protobuf::Metadata GroupDetails::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class Team::_Internal {
+ public:
+};
+
+Team::Team(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::internal::ZeroFieldsBase(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.Team)
+}
+Team::Team(
+    ::google::protobuf::Arena* arena,
+    const Team& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::internal::ZeroFieldsBase(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  Team* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+
+  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.Team)
+}
+
+inline void* Team::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) Team(arena);
+}
+constexpr auto Team::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(Team),
+                                            alignof(Team));
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull Team::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_Team_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &Team::MergeImpl,
+        ::google::protobuf::internal::ZeroFieldsBase::GetNewImpl<Team>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &Team::SharedDtor,
+        ::google::protobuf::internal::ZeroFieldsBase::GetClearImpl<Team>(), &Team::ByteSizeLong,
+            &Team::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(Team, _impl_._cached_size_),
+        false,
+    },
+    &Team::kDescriptorMethods,
+    &descriptor_table_anduril_2fentitymanager_2fv1_2fgroup_2epub_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* Team::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 0, 0, 0, 2> Team::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    0, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967295,  // skipmap
+    offsetof(decltype(_table_), field_names),  // no field_entries
+    0,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::Team>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }},
+  // no field_entries, or aux_entries
+  {{
+  }},
+};
+
+
+
+
+
+
+
+
+::google::protobuf::Metadata Team::GetMetadata() const {
+  return ::google::protobuf::internal::ZeroFieldsBase::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================
 

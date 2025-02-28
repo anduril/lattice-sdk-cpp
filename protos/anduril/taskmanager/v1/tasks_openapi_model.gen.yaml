@@ -995,6 +995,8 @@ components:
         GroupDetails:
             type: object
             properties:
+                team:
+                    $ref: '#/components/schemas/Team'
                 echelon:
                     $ref: '#/components/schemas/Echelon'
             description: Details related to grouping for this entity
