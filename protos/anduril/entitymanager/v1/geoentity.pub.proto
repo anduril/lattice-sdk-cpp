@@ -14,9 +14,13 @@ option objc_class_prefix = "AEX";
 // A component that describes a geo-entity.
 message GeoDetails {
   GeoType type = 1;
+  oneof type_details {
+    ControlAreaDetails control_area = 5;
+    ACMDetails acm = 6;
+  }
 
-  reserved 2, 3, 4, 5, 6, 7;
-  reserved "emergency", "visual_details", "fscm", "control_area", "acm", "mcm";
+  reserved 2, 3, 4, 7;
+  reserved "emergency", "visual_details", "fscm", "mcm";
 }
 
 // The type of geo entity.
@@ -29,8 +33,40 @@ enum GeoType {
   GEO_TYPE_ENGAGEMENT_ZONE = 5;
   GEO_TYPE_CONTROL_AREA = 6;
   GEO_TYPE_BULLSEYE = 7;
+  // Airspace Coordinating Measure
+  GEO_TYPE_ACM = 8;
 
-  reserved 4, 8, 9;
+  reserved 4, 9;
+}
+
+// Determines the type of control area being represented by the geo-entity,
+// in which an asset can, or cannot, operate.
+message ControlAreaDetails {
+  ControlAreaType type = 1;
+}
+
+message ACMDetails {
+  ACMDetailType acm_type = 1;
+  // Used for loosely typed associations, such as assignment to a specific fires unit.
+  // Limit to 150 characters.
+  string acm_description = 2;
+}
+
+enum ControlAreaType {
+  CONTROL_AREA_TYPE_INVALID = 0;
+  CONTROL_AREA_TYPE_KEEP_IN_ZONE = 1;
+  CONTROL_AREA_TYPE_KEEP_OUT_ZONE = 2;
+  // The zone for an autonomous asset to nose-dive into
+  // when its assignment has been concluded.
+  CONTROL_AREA_TYPE_DITCH_ZONE = 3;
+  // The area where an asset is able to loiter.
+  CONTROL_AREA_TYPE_LOITER_ZONE = 7;
+}
+
+enum ACMDetailType {
+  ACM_DETAIL_TYPE_INVALID = 0;
+  // The zone that the autonomous asset is configured to land in.
+  ACM_DETAIL_TYPE_LANDING_ZONE = 16;
 }
 
 // A component that describes the shape of a geo-entity.

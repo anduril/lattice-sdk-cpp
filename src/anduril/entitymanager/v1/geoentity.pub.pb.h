@@ -57,6 +57,12 @@ extern const ::google::protobuf::internal::DescriptorTable
 namespace anduril {
 namespace entitymanager {
 namespace v1 {
+class ACMDetails;
+struct ACMDetailsDefaultTypeInternal;
+extern ACMDetailsDefaultTypeInternal _ACMDetails_default_instance_;
+class ControlAreaDetails;
+struct ControlAreaDetailsDefaultTypeInternal;
+extern ControlAreaDetailsDefaultTypeInternal _ControlAreaDetails_default_instance_;
 class GeoDetails;
 struct GeoDetailsDefaultTypeInternal;
 extern GeoDetailsDefaultTypeInternal _GeoDetails_default_instance_;
@@ -103,6 +109,7 @@ enum GeoType : int {
   GEO_TYPE_ENGAGEMENT_ZONE = 5,
   GEO_TYPE_CONTROL_AREA = 6,
   GEO_TYPE_BULLSEYE = 7,
+  GEO_TYPE_ACM = 8,
   GeoType_INT_MIN_SENTINEL_DO_NOT_USE_ =
       std::numeric_limits<::int32_t>::min(),
   GeoType_INT_MAX_SENTINEL_DO_NOT_USE_ =
@@ -112,8 +119,8 @@ enum GeoType : int {
 bool GeoType_IsValid(int value);
 extern const uint32_t GeoType_internal_data_[];
 constexpr GeoType GeoType_MIN = static_cast<GeoType>(0);
-constexpr GeoType GeoType_MAX = static_cast<GeoType>(7);
-constexpr int GeoType_ARRAYSIZE = 7 + 1;
+constexpr GeoType GeoType_MAX = static_cast<GeoType>(8);
+constexpr int GeoType_ARRAYSIZE = 8 + 1;
 const ::google::protobuf::EnumDescriptor*
 GeoType_descriptor();
 template <typename T>
@@ -126,12 +133,75 @@ const std::string& GeoType_Name(T value) {
 template <>
 inline const std::string& GeoType_Name(GeoType value) {
   return ::google::protobuf::internal::NameOfDenseEnum<GeoType_descriptor,
-                                                 0, 7>(
+                                                 0, 8>(
       static_cast<int>(value));
 }
 inline bool GeoType_Parse(absl::string_view name, GeoType* value) {
   return ::google::protobuf::internal::ParseNamedEnum<GeoType>(
       GeoType_descriptor(), name, value);
+}
+enum ControlAreaType : int {
+  CONTROL_AREA_TYPE_INVALID = 0,
+  CONTROL_AREA_TYPE_KEEP_IN_ZONE = 1,
+  CONTROL_AREA_TYPE_KEEP_OUT_ZONE = 2,
+  CONTROL_AREA_TYPE_DITCH_ZONE = 3,
+  CONTROL_AREA_TYPE_LOITER_ZONE = 7,
+  ControlAreaType_INT_MIN_SENTINEL_DO_NOT_USE_ =
+      std::numeric_limits<::int32_t>::min(),
+  ControlAreaType_INT_MAX_SENTINEL_DO_NOT_USE_ =
+      std::numeric_limits<::int32_t>::max(),
+};
+
+bool ControlAreaType_IsValid(int value);
+extern const uint32_t ControlAreaType_internal_data_[];
+constexpr ControlAreaType ControlAreaType_MIN = static_cast<ControlAreaType>(0);
+constexpr ControlAreaType ControlAreaType_MAX = static_cast<ControlAreaType>(7);
+constexpr int ControlAreaType_ARRAYSIZE = 7 + 1;
+const ::google::protobuf::EnumDescriptor*
+ControlAreaType_descriptor();
+template <typename T>
+const std::string& ControlAreaType_Name(T value) {
+  static_assert(std::is_same<T, ControlAreaType>::value ||
+                    std::is_integral<T>::value,
+                "Incorrect type passed to ControlAreaType_Name().");
+  return ControlAreaType_Name(static_cast<ControlAreaType>(value));
+}
+template <>
+inline const std::string& ControlAreaType_Name(ControlAreaType value) {
+  return ::google::protobuf::internal::NameOfDenseEnum<ControlAreaType_descriptor,
+                                                 0, 7>(
+      static_cast<int>(value));
+}
+inline bool ControlAreaType_Parse(absl::string_view name, ControlAreaType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ControlAreaType>(
+      ControlAreaType_descriptor(), name, value);
+}
+enum ACMDetailType : int {
+  ACM_DETAIL_TYPE_INVALID = 0,
+  ACM_DETAIL_TYPE_LANDING_ZONE = 16,
+  ACMDetailType_INT_MIN_SENTINEL_DO_NOT_USE_ =
+      std::numeric_limits<::int32_t>::min(),
+  ACMDetailType_INT_MAX_SENTINEL_DO_NOT_USE_ =
+      std::numeric_limits<::int32_t>::max(),
+};
+
+bool ACMDetailType_IsValid(int value);
+extern const uint32_t ACMDetailType_internal_data_[];
+constexpr ACMDetailType ACMDetailType_MIN = static_cast<ACMDetailType>(0);
+constexpr ACMDetailType ACMDetailType_MAX = static_cast<ACMDetailType>(16);
+constexpr int ACMDetailType_ARRAYSIZE = 16 + 1;
+const ::google::protobuf::EnumDescriptor*
+ACMDetailType_descriptor();
+template <typename T>
+const std::string& ACMDetailType_Name(T value) {
+  static_assert(std::is_same<T, ACMDetailType>::value ||
+                    std::is_integral<T>::value,
+                "Incorrect type passed to ACMDetailType_Name().");
+  return ::google::protobuf::internal::NameOfEnum(ACMDetailType_descriptor(), value);
+}
+inline bool ACMDetailType_Parse(absl::string_view name, ACMDetailType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ACMDetailType>(
+      ACMDetailType_descriptor(), name, value);
 }
 
 // ===================================================================
@@ -139,32 +209,32 @@ inline bool GeoType_Parse(absl::string_view name, GeoType* value) {
 
 // -------------------------------------------------------------------
 
-class GeoDetails final
+class ControlAreaDetails final
     : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.GeoDetails) */ {
+/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.ControlAreaDetails) */ {
  public:
-  inline GeoDetails() : GeoDetails(nullptr) {}
-  ~GeoDetails() PROTOBUF_FINAL;
+  inline ControlAreaDetails() : ControlAreaDetails(nullptr) {}
+  ~ControlAreaDetails() PROTOBUF_FINAL;
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-  void operator delete(GeoDetails* msg, std::destroying_delete_t) {
+  void operator delete(ControlAreaDetails* msg, std::destroying_delete_t) {
     SharedDtor(*msg);
-    ::google::protobuf::internal::SizedDelete(msg, sizeof(GeoDetails));
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(ControlAreaDetails));
   }
 #endif
 
   template <typename = void>
-  explicit PROTOBUF_CONSTEXPR GeoDetails(
+  explicit PROTOBUF_CONSTEXPR ControlAreaDetails(
       ::google::protobuf::internal::ConstantInitialized);
 
-  inline GeoDetails(const GeoDetails& from) : GeoDetails(nullptr, from) {}
-  inline GeoDetails(GeoDetails&& from) noexcept
-      : GeoDetails(nullptr, std::move(from)) {}
-  inline GeoDetails& operator=(const GeoDetails& from) {
+  inline ControlAreaDetails(const ControlAreaDetails& from) : ControlAreaDetails(nullptr, from) {}
+  inline ControlAreaDetails(ControlAreaDetails&& from) noexcept
+      : ControlAreaDetails(nullptr, std::move(from)) {}
+  inline ControlAreaDetails& operator=(const ControlAreaDetails& from) {
     CopyFrom(from);
     return *this;
   }
-  inline GeoDetails& operator=(GeoDetails&& from) noexcept {
+  inline ControlAreaDetails& operator=(ControlAreaDetails&& from) noexcept {
     if (this == &from) return *this;
     if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
       InternalSwap(&from);
@@ -192,16 +262,16 @@ class GeoDetails final
   static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const GeoDetails& default_instance() {
+  static const ControlAreaDetails& default_instance() {
     return *internal_default_instance();
   }
-  static inline const GeoDetails* internal_default_instance() {
-    return reinterpret_cast<const GeoDetails*>(
-        &_GeoDetails_default_instance_);
+  static inline const ControlAreaDetails* internal_default_instance() {
+    return reinterpret_cast<const ControlAreaDetails*>(
+        &_ControlAreaDetails_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 0;
-  friend void swap(GeoDetails& a, GeoDetails& b) { a.Swap(&b); }
-  inline void Swap(GeoDetails* other) {
+  static constexpr int kIndexInFileMessages = 1;
+  friend void swap(ControlAreaDetails& a, ControlAreaDetails& b) { a.Swap(&b); }
+  inline void Swap(ControlAreaDetails* other) {
     if (other == this) return;
     if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
       InternalSwap(other);
@@ -209,7 +279,7 @@ class GeoDetails final
       ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(GeoDetails* other) {
+  void UnsafeArenaSwap(ControlAreaDetails* other) {
     if (other == this) return;
     ABSL_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -217,13 +287,13 @@ class GeoDetails final
 
   // implements Message ----------------------------------------------
 
-  GeoDetails* New(::google::protobuf::Arena* arena = nullptr) const {
-    return ::google::protobuf::Message::DefaultConstruct<GeoDetails>(arena);
+  ControlAreaDetails* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<ControlAreaDetails>(arena);
   }
   using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const GeoDetails& from);
+  void CopyFrom(const ControlAreaDetails& from);
   using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const GeoDetails& from) { GeoDetails::MergeImpl(*this, from); }
+  void MergeFrom(const ControlAreaDetails& from) { ControlAreaDetails::MergeImpl(*this, from); }
 
   private:
   static void MergeImpl(
@@ -260,18 +330,18 @@ class GeoDetails final
   private:
   void SharedCtor(::google::protobuf::Arena* arena);
   static void SharedDtor(MessageLite& self);
-  void InternalSwap(GeoDetails* other);
+  void InternalSwap(ControlAreaDetails* other);
  private:
   template <typename T>
   friend ::absl::string_view(
       ::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.GeoDetails"; }
+  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.ControlAreaDetails"; }
 
  protected:
-  explicit GeoDetails(::google::protobuf::Arena* arena);
-  GeoDetails(::google::protobuf::Arena* arena, const GeoDetails& from);
-  GeoDetails(::google::protobuf::Arena* arena, GeoDetails&& from) noexcept
-      : GeoDetails(arena) {
+  explicit ControlAreaDetails(::google::protobuf::Arena* arena);
+  ControlAreaDetails(::google::protobuf::Arena* arena, const ControlAreaDetails& from);
+  ControlAreaDetails(::google::protobuf::Arena* arena, ControlAreaDetails&& from) noexcept
+      : ControlAreaDetails(arena) {
     *this = ::std::move(from);
   }
   const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
@@ -288,17 +358,17 @@ class GeoDetails final
   enum : int {
     kTypeFieldNumber = 1,
   };
-  // .anduril.entitymanager.v1.GeoType type = 1 [json_name = "type"];
+  // .anduril.entitymanager.v1.ControlAreaType type = 1 [json_name = "type"];
   void clear_type() ;
-  ::anduril::entitymanager::v1::GeoType type() const;
-  void set_type(::anduril::entitymanager::v1::GeoType value);
+  ::anduril::entitymanager::v1::ControlAreaType type() const;
+  void set_type(::anduril::entitymanager::v1::ControlAreaType value);
 
   private:
-  ::anduril::entitymanager::v1::GeoType _internal_type() const;
-  void _internal_set_type(::anduril::entitymanager::v1::GeoType value);
+  ::anduril::entitymanager::v1::ControlAreaType _internal_type() const;
+  void _internal_set_type(::anduril::entitymanager::v1::ControlAreaType value);
 
   public:
-  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.GeoDetails)
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.ControlAreaDetails)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
@@ -320,8 +390,217 @@ class GeoDetails final
                           ::google::protobuf::Arena* arena);
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
-                          const GeoDetails& from_msg);
+                          const ControlAreaDetails& from_msg);
     int type_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ACMDetails final
+    : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.ACMDetails) */ {
+ public:
+  inline ACMDetails() : ACMDetails(nullptr) {}
+  ~ACMDetails() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(ACMDetails* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(ACMDetails));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR ACMDetails(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline ACMDetails(const ACMDetails& from) : ACMDetails(nullptr, from) {}
+  inline ACMDetails(ACMDetails&& from) noexcept
+      : ACMDetails(nullptr, std::move(from)) {}
+  inline ACMDetails& operator=(const ACMDetails& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ACMDetails& operator=(ACMDetails&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ACMDetails& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ACMDetails* internal_default_instance() {
+    return reinterpret_cast<const ACMDetails*>(
+        &_ACMDetails_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 2;
+  friend void swap(ACMDetails& a, ACMDetails& b) { a.Swap(&b); }
+  inline void Swap(ACMDetails* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ACMDetails* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ACMDetails* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<ACMDetails>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const ACMDetails& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const ACMDetails& from) { ACMDetails::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(ACMDetails* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.ACMDetails"; }
+
+ protected:
+  explicit ACMDetails(::google::protobuf::Arena* arena);
+  ACMDetails(::google::protobuf::Arena* arena, const ACMDetails& from);
+  ACMDetails(::google::protobuf::Arena* arena, ACMDetails&& from) noexcept
+      : ACMDetails(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kAcmDescriptionFieldNumber = 2,
+    kAcmTypeFieldNumber = 1,
+  };
+  // string acm_description = 2 [json_name = "acmDescription"];
+  void clear_acm_description() ;
+  const std::string& acm_description() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_acm_description(Arg_&& arg, Args_... args);
+  std::string* mutable_acm_description();
+  PROTOBUF_NODISCARD std::string* release_acm_description();
+  void set_allocated_acm_description(std::string* value);
+
+  private:
+  const std::string& _internal_acm_description() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_acm_description(
+      const std::string& value);
+  std::string* _internal_mutable_acm_description();
+
+  public:
+  // .anduril.entitymanager.v1.ACMDetailType acm_type = 1 [json_name = "acmType"];
+  void clear_acm_type() ;
+  ::anduril::entitymanager::v1::ACMDetailType acm_type() const;
+  void set_acm_type(::anduril::entitymanager::v1::ACMDetailType value);
+
+  private:
+  ::anduril::entitymanager::v1::ACMDetailType _internal_acm_type() const;
+  void _internal_set_acm_type(::anduril::entitymanager::v1::ACMDetailType value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.ACMDetails)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      1, 2, 0,
+      59, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const ACMDetails& from_msg);
+    ::google::protobuf::internal::ArenaStringPtr acm_description_;
+    int acm_type_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -390,7 +669,7 @@ class GeoEllipsoid final
     return reinterpret_cast<const GeoEllipsoid*>(
         &_GeoEllipsoid_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 6;
+  static constexpr int kIndexInFileMessages = 8;
   friend void swap(GeoEllipsoid& a, GeoEllipsoid& b) { a.Swap(&b); }
   inline void Swap(GeoEllipsoid* other) {
     if (other == this) return;
@@ -621,7 +900,7 @@ class GeoEllipse final
     return reinterpret_cast<const GeoEllipse*>(
         &_GeoEllipse_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 5;
+  static constexpr int kIndexInFileMessages = 7;
   friend void swap(GeoEllipse& a, GeoEllipse& b) { a.Swap(&b); }
   inline void Swap(GeoEllipse* other) {
     if (other == this) return;
@@ -809,6 +1088,255 @@ class GeoEllipse final
 };
 // -------------------------------------------------------------------
 
+class GeoDetails final
+    : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.GeoDetails) */ {
+ public:
+  inline GeoDetails() : GeoDetails(nullptr) {}
+  ~GeoDetails() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(GeoDetails* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(GeoDetails));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR GeoDetails(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline GeoDetails(const GeoDetails& from) : GeoDetails(nullptr, from) {}
+  inline GeoDetails(GeoDetails&& from) noexcept
+      : GeoDetails(nullptr, std::move(from)) {}
+  inline GeoDetails& operator=(const GeoDetails& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GeoDetails& operator=(GeoDetails&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GeoDetails& default_instance() {
+    return *internal_default_instance();
+  }
+  enum TypeDetailsCase {
+    kControlArea = 5,
+    kAcm = 6,
+    TYPE_DETAILS_NOT_SET = 0,
+  };
+  static inline const GeoDetails* internal_default_instance() {
+    return reinterpret_cast<const GeoDetails*>(
+        &_GeoDetails_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 0;
+  friend void swap(GeoDetails& a, GeoDetails& b) { a.Swap(&b); }
+  inline void Swap(GeoDetails* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GeoDetails* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GeoDetails* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<GeoDetails>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const GeoDetails& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const GeoDetails& from) { GeoDetails::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(GeoDetails* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "anduril.entitymanager.v1.GeoDetails"; }
+
+ protected:
+  explicit GeoDetails(::google::protobuf::Arena* arena);
+  GeoDetails(::google::protobuf::Arena* arena, const GeoDetails& from);
+  GeoDetails(::google::protobuf::Arena* arena, GeoDetails&& from) noexcept
+      : GeoDetails(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kTypeFieldNumber = 1,
+    kControlAreaFieldNumber = 5,
+    kAcmFieldNumber = 6,
+  };
+  // .anduril.entitymanager.v1.GeoType type = 1 [json_name = "type"];
+  void clear_type() ;
+  ::anduril::entitymanager::v1::GeoType type() const;
+  void set_type(::anduril::entitymanager::v1::GeoType value);
+
+  private:
+  ::anduril::entitymanager::v1::GeoType _internal_type() const;
+  void _internal_set_type(::anduril::entitymanager::v1::GeoType value);
+
+  public:
+  // .anduril.entitymanager.v1.ControlAreaDetails control_area = 5 [json_name = "controlArea"];
+  bool has_control_area() const;
+  private:
+  bool _internal_has_control_area() const;
+
+  public:
+  void clear_control_area() ;
+  const ::anduril::entitymanager::v1::ControlAreaDetails& control_area() const;
+  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::ControlAreaDetails* release_control_area();
+  ::anduril::entitymanager::v1::ControlAreaDetails* mutable_control_area();
+  void set_allocated_control_area(::anduril::entitymanager::v1::ControlAreaDetails* value);
+  void unsafe_arena_set_allocated_control_area(::anduril::entitymanager::v1::ControlAreaDetails* value);
+  ::anduril::entitymanager::v1::ControlAreaDetails* unsafe_arena_release_control_area();
+
+  private:
+  const ::anduril::entitymanager::v1::ControlAreaDetails& _internal_control_area() const;
+  ::anduril::entitymanager::v1::ControlAreaDetails* _internal_mutable_control_area();
+
+  public:
+  // .anduril.entitymanager.v1.ACMDetails acm = 6 [json_name = "acm"];
+  bool has_acm() const;
+  private:
+  bool _internal_has_acm() const;
+
+  public:
+  void clear_acm() ;
+  const ::anduril::entitymanager::v1::ACMDetails& acm() const;
+  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::ACMDetails* release_acm();
+  ::anduril::entitymanager::v1::ACMDetails* mutable_acm();
+  void set_allocated_acm(::anduril::entitymanager::v1::ACMDetails* value);
+  void unsafe_arena_set_allocated_acm(::anduril::entitymanager::v1::ACMDetails* value);
+  ::anduril::entitymanager::v1::ACMDetails* unsafe_arena_release_acm();
+
+  private:
+  const ::anduril::entitymanager::v1::ACMDetails& _internal_acm() const;
+  ::anduril::entitymanager::v1::ACMDetails* _internal_mutable_acm();
+
+  public:
+  void clear_type_details();
+  TypeDetailsCase type_details_case() const;
+  // @@protoc_insertion_point(class_scope:anduril.entitymanager.v1.GeoDetails)
+ private:
+  class _Internal;
+  void set_has_control_area();
+  void set_has_acm();
+  inline bool has_type_details() const;
+  inline void clear_has_type_details();
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 3, 2,
+      0, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const GeoDetails& from_msg);
+    int type_;
+    union TypeDetailsUnion {
+      constexpr TypeDetailsUnion() : _constinit_{} {}
+      ::google::protobuf::internal::ConstantInitialized _constinit_;
+      ::anduril::entitymanager::v1::ControlAreaDetails* control_area_;
+      ::anduril::entitymanager::v1::ACMDetails* acm_;
+    } type_details_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::uint32_t _oneof_case_[1];
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto;
+};
+// -------------------------------------------------------------------
+
 class GeoPolygonPosition final
     : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:anduril.entitymanager.v1.GeoPolygonPosition) */ {
@@ -869,7 +1397,7 @@ class GeoPolygonPosition final
     return reinterpret_cast<const GeoPolygonPosition*>(
         &_GeoPolygonPosition_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 8;
+  static constexpr int kIndexInFileMessages = 10;
   friend void swap(GeoPolygonPosition& a, GeoPolygonPosition& b) { a.Swap(&b); }
   inline void Swap(GeoPolygonPosition* other) {
     if (other == this) return;
@@ -1083,7 +1611,7 @@ class GeoPoint final
     return reinterpret_cast<const GeoPoint*>(
         &_GeoPoint_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 2;
+  static constexpr int kIndexInFileMessages = 4;
   friend void swap(GeoPoint& a, GeoPoint& b) { a.Swap(&b); }
   inline void Swap(GeoPoint* other) {
     if (other == this) return;
@@ -1280,7 +1808,7 @@ class GeoLine final
     return reinterpret_cast<const GeoLine*>(
         &_GeoLine_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 3;
+  static constexpr int kIndexInFileMessages = 5;
   friend void swap(GeoLine& a, GeoLine& b) { a.Swap(&b); }
   inline void Swap(GeoLine* other) {
     if (other == this) return;
@@ -1478,7 +2006,7 @@ class LinearRing final
     return reinterpret_cast<const LinearRing*>(
         &_LinearRing_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 7;
+  static constexpr int kIndexInFileMessages = 9;
   friend void swap(LinearRing& a, LinearRing& b) { a.Swap(&b); }
   inline void Swap(LinearRing* other) {
     if (other == this) return;
@@ -1676,7 +2204,7 @@ class GeoPolygon final
     return reinterpret_cast<const GeoPolygon*>(
         &_GeoPolygon_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 4;
+  static constexpr int kIndexInFileMessages = 6;
   friend void swap(GeoPolygon& a, GeoPolygon& b) { a.Swap(&b); }
   inline void Swap(GeoPolygon* other) {
     if (other == this) return;
@@ -1894,7 +2422,7 @@ class GeoShape final
     return reinterpret_cast<const GeoShape*>(
         &_GeoShape_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 1;
+  static constexpr int kIndexInFileMessages = 3;
   friend void swap(GeoShape& a, GeoShape& b) { a.Swap(&b); }
   inline void Swap(GeoShape* other) {
     if (other == this) return;
@@ -2167,6 +2695,273 @@ inline ::anduril::entitymanager::v1::GeoType GeoDetails::_internal_type() const 
 inline void GeoDetails::_internal_set_type(::anduril::entitymanager::v1::GeoType value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.type_ = value;
+}
+
+// .anduril.entitymanager.v1.ControlAreaDetails control_area = 5 [json_name = "controlArea"];
+inline bool GeoDetails::has_control_area() const {
+  return type_details_case() == kControlArea;
+}
+inline bool GeoDetails::_internal_has_control_area() const {
+  return type_details_case() == kControlArea;
+}
+inline void GeoDetails::set_has_control_area() {
+  _impl_._oneof_case_[0] = kControlArea;
+}
+inline void GeoDetails::clear_control_area() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (type_details_case() == kControlArea) {
+    if (GetArena() == nullptr) {
+      delete _impl_.type_details_.control_area_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.type_details_.control_area_);
+    }
+    clear_has_type_details();
+  }
+}
+inline ::anduril::entitymanager::v1::ControlAreaDetails* GeoDetails::release_control_area() {
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.GeoDetails.control_area)
+  if (type_details_case() == kControlArea) {
+    clear_has_type_details();
+    auto* temp = _impl_.type_details_.control_area_;
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.type_details_.control_area_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::anduril::entitymanager::v1::ControlAreaDetails& GeoDetails::_internal_control_area() const {
+  return type_details_case() == kControlArea ? *_impl_.type_details_.control_area_ : reinterpret_cast<::anduril::entitymanager::v1::ControlAreaDetails&>(::anduril::entitymanager::v1::_ControlAreaDetails_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::ControlAreaDetails& GeoDetails::control_area() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.GeoDetails.control_area)
+  return _internal_control_area();
+}
+inline ::anduril::entitymanager::v1::ControlAreaDetails* GeoDetails::unsafe_arena_release_control_area() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:anduril.entitymanager.v1.GeoDetails.control_area)
+  if (type_details_case() == kControlArea) {
+    clear_has_type_details();
+    auto* temp = _impl_.type_details_.control_area_;
+    _impl_.type_details_.control_area_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void GeoDetails::unsafe_arena_set_allocated_control_area(::anduril::entitymanager::v1::ControlAreaDetails* value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_type_details();
+  if (value) {
+    set_has_control_area();
+    _impl_.type_details_.control_area_ = value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.GeoDetails.control_area)
+}
+inline ::anduril::entitymanager::v1::ControlAreaDetails* GeoDetails::_internal_mutable_control_area() {
+  if (type_details_case() != kControlArea) {
+    clear_type_details();
+    set_has_control_area();
+    _impl_.type_details_.control_area_ =
+        ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::ControlAreaDetails>(GetArena());
+  }
+  return _impl_.type_details_.control_area_;
+}
+inline ::anduril::entitymanager::v1::ControlAreaDetails* GeoDetails::mutable_control_area() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::anduril::entitymanager::v1::ControlAreaDetails* _msg = _internal_mutable_control_area();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.GeoDetails.control_area)
+  return _msg;
+}
+
+// .anduril.entitymanager.v1.ACMDetails acm = 6 [json_name = "acm"];
+inline bool GeoDetails::has_acm() const {
+  return type_details_case() == kAcm;
+}
+inline bool GeoDetails::_internal_has_acm() const {
+  return type_details_case() == kAcm;
+}
+inline void GeoDetails::set_has_acm() {
+  _impl_._oneof_case_[0] = kAcm;
+}
+inline void GeoDetails::clear_acm() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (type_details_case() == kAcm) {
+    if (GetArena() == nullptr) {
+      delete _impl_.type_details_.acm_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.type_details_.acm_);
+    }
+    clear_has_type_details();
+  }
+}
+inline ::anduril::entitymanager::v1::ACMDetails* GeoDetails::release_acm() {
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.GeoDetails.acm)
+  if (type_details_case() == kAcm) {
+    clear_has_type_details();
+    auto* temp = _impl_.type_details_.acm_;
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.type_details_.acm_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::anduril::entitymanager::v1::ACMDetails& GeoDetails::_internal_acm() const {
+  return type_details_case() == kAcm ? *_impl_.type_details_.acm_ : reinterpret_cast<::anduril::entitymanager::v1::ACMDetails&>(::anduril::entitymanager::v1::_ACMDetails_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::ACMDetails& GeoDetails::acm() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.GeoDetails.acm)
+  return _internal_acm();
+}
+inline ::anduril::entitymanager::v1::ACMDetails* GeoDetails::unsafe_arena_release_acm() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:anduril.entitymanager.v1.GeoDetails.acm)
+  if (type_details_case() == kAcm) {
+    clear_has_type_details();
+    auto* temp = _impl_.type_details_.acm_;
+    _impl_.type_details_.acm_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void GeoDetails::unsafe_arena_set_allocated_acm(::anduril::entitymanager::v1::ACMDetails* value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_type_details();
+  if (value) {
+    set_has_acm();
+    _impl_.type_details_.acm_ = value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.GeoDetails.acm)
+}
+inline ::anduril::entitymanager::v1::ACMDetails* GeoDetails::_internal_mutable_acm() {
+  if (type_details_case() != kAcm) {
+    clear_type_details();
+    set_has_acm();
+    _impl_.type_details_.acm_ =
+        ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::ACMDetails>(GetArena());
+  }
+  return _impl_.type_details_.acm_;
+}
+inline ::anduril::entitymanager::v1::ACMDetails* GeoDetails::mutable_acm() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::anduril::entitymanager::v1::ACMDetails* _msg = _internal_mutable_acm();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.GeoDetails.acm)
+  return _msg;
+}
+
+inline bool GeoDetails::has_type_details() const {
+  return type_details_case() != TYPE_DETAILS_NOT_SET;
+}
+inline void GeoDetails::clear_has_type_details() {
+  _impl_._oneof_case_[0] = TYPE_DETAILS_NOT_SET;
+}
+inline GeoDetails::TypeDetailsCase GeoDetails::type_details_case() const {
+  return GeoDetails::TypeDetailsCase(_impl_._oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// ControlAreaDetails
+
+// .anduril.entitymanager.v1.ControlAreaType type = 1 [json_name = "type"];
+inline void ControlAreaDetails::clear_type() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.type_ = 0;
+}
+inline ::anduril::entitymanager::v1::ControlAreaType ControlAreaDetails::type() const {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.ControlAreaDetails.type)
+  return _internal_type();
+}
+inline void ControlAreaDetails::set_type(::anduril::entitymanager::v1::ControlAreaType value) {
+  _internal_set_type(value);
+  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.ControlAreaDetails.type)
+}
+inline ::anduril::entitymanager::v1::ControlAreaType ControlAreaDetails::_internal_type() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return static_cast<::anduril::entitymanager::v1::ControlAreaType>(_impl_.type_);
+}
+inline void ControlAreaDetails::_internal_set_type(::anduril::entitymanager::v1::ControlAreaType value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// ACMDetails
+
+// .anduril.entitymanager.v1.ACMDetailType acm_type = 1 [json_name = "acmType"];
+inline void ACMDetails::clear_acm_type() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.acm_type_ = 0;
+}
+inline ::anduril::entitymanager::v1::ACMDetailType ACMDetails::acm_type() const {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.ACMDetails.acm_type)
+  return _internal_acm_type();
+}
+inline void ACMDetails::set_acm_type(::anduril::entitymanager::v1::ACMDetailType value) {
+  _internal_set_acm_type(value);
+  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.ACMDetails.acm_type)
+}
+inline ::anduril::entitymanager::v1::ACMDetailType ACMDetails::_internal_acm_type() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return static_cast<::anduril::entitymanager::v1::ACMDetailType>(_impl_.acm_type_);
+}
+inline void ACMDetails::_internal_set_acm_type(::anduril::entitymanager::v1::ACMDetailType value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.acm_type_ = value;
+}
+
+// string acm_description = 2 [json_name = "acmDescription"];
+inline void ACMDetails::clear_acm_description() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.acm_description_.ClearToEmpty();
+}
+inline const std::string& ACMDetails::acm_description() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.ACMDetails.acm_description)
+  return _internal_acm_description();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void ACMDetails::set_acm_description(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.acm_description_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.ACMDetails.acm_description)
+}
+inline std::string* ACMDetails::mutable_acm_description() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_acm_description();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.ACMDetails.acm_description)
+  return _s;
+}
+inline const std::string& ACMDetails::_internal_acm_description() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.acm_description_.Get();
+}
+inline void ACMDetails::_internal_set_acm_description(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.acm_description_.Set(value, GetArena());
+}
+inline std::string* ACMDetails::_internal_mutable_acm_description() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.acm_description_.Mutable( GetArena());
+}
+inline std::string* ACMDetails::release_acm_description() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.ACMDetails.acm_description)
+  return _impl_.acm_description_.Release();
+}
+inline void ACMDetails::set_allocated_acm_description(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.acm_description_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.acm_description_.IsDefault()) {
+    _impl_.acm_description_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.ACMDetails.acm_description)
 }
 
 // -------------------------------------------------------------------
@@ -3698,6 +4493,18 @@ struct is_proto_enum<::anduril::entitymanager::v1::GeoType> : std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor<::anduril::entitymanager::v1::GeoType>() {
   return ::anduril::entitymanager::v1::GeoType_descriptor();
+}
+template <>
+struct is_proto_enum<::anduril::entitymanager::v1::ControlAreaType> : std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor<::anduril::entitymanager::v1::ControlAreaType>() {
+  return ::anduril::entitymanager::v1::ControlAreaType_descriptor();
+}
+template <>
+struct is_proto_enum<::anduril::entitymanager::v1::ACMDetailType> : std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor<::anduril::entitymanager::v1::ACMDetailType>() {
+  return ::anduril::entitymanager::v1::ACMDetailType_descriptor();
 }
 
 }  // namespace protobuf

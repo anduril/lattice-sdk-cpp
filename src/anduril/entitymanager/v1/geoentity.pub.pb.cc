@@ -28,13 +28,13 @@ namespace anduril {
 namespace entitymanager {
 namespace v1 {
 
-inline constexpr GeoDetails::Impl_::Impl_(
+inline constexpr ControlAreaDetails::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : type_{static_cast< ::anduril::entitymanager::v1::GeoType >(0)},
+      : type_{static_cast< ::anduril::entitymanager::v1::ControlAreaType >(0)},
         _cached_size_{0} {}
 
 template <typename>
-PROTOBUF_CONSTEXPR GeoDetails::GeoDetails(::_pbi::ConstantInitialized)
+PROTOBUF_CONSTEXPR ControlAreaDetails::ControlAreaDetails(::_pbi::ConstantInitialized)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(_class_data_.base()),
 #else   // PROTOBUF_CUSTOM_VTABLE
@@ -42,16 +42,44 @@ PROTOBUF_CONSTEXPR GeoDetails::GeoDetails(::_pbi::ConstantInitialized)
 #endif  // PROTOBUF_CUSTOM_VTABLE
       _impl_(::_pbi::ConstantInitialized()) {
 }
-struct GeoDetailsDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR GeoDetailsDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~GeoDetailsDefaultTypeInternal() {}
+struct ControlAreaDetailsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ControlAreaDetailsDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ControlAreaDetailsDefaultTypeInternal() {}
   union {
-    GeoDetails _instance;
+    ControlAreaDetails _instance;
   };
 };
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GeoDetailsDefaultTypeInternal _GeoDetails_default_instance_;
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ControlAreaDetailsDefaultTypeInternal _ControlAreaDetails_default_instance_;
+
+inline constexpr ACMDetails::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : acm_description_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        acm_type_{static_cast< ::anduril::entitymanager::v1::ACMDetailType >(0)},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ACMDetails::ACMDetails(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct ACMDetailsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ACMDetailsDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ACMDetailsDefaultTypeInternal() {}
+  union {
+    ACMDetails _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ACMDetailsDefaultTypeInternal _ACMDetails_default_instance_;
 
 inline constexpr GeoEllipsoid::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -107,6 +135,33 @@ struct GeoEllipseDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GeoEllipseDefaultTypeInternal _GeoEllipse_default_instance_;
+
+inline constexpr GeoDetails::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : type_{static_cast< ::anduril::entitymanager::v1::GeoType >(0)},
+        type_details_{},
+        _cached_size_{0},
+        _oneof_case_{} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR GeoDetails::GeoDetails(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct GeoDetailsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GeoDetailsDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GeoDetailsDefaultTypeInternal() {}
+  union {
+    GeoDetails _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GeoDetailsDefaultTypeInternal _GeoDetails_default_instance_;
 
 inline constexpr GeoPolygonPosition::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -263,7 +318,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 }  // namespace v1
 }  // namespace entitymanager
 }  // namespace anduril
-static const ::_pb::EnumDescriptor* file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto[1];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto[3];
 static constexpr const ::_pb::ServiceDescriptor**
     file_level_service_descriptors_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto = nullptr;
 const ::uint32_t
@@ -272,12 +327,34 @@ const ::uint32_t
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::GeoDetails, _internal_metadata_),
         ~0u,  // no _extensions_
-        ~0u,  // no _oneof_case_
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::GeoDetails, _impl_._oneof_case_[0]),
         ~0u,  // no _weak_field_map_
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::GeoDetails, _impl_.type_),
+        ::_pbi::kInvalidFieldOffsetTag,
+        ::_pbi::kInvalidFieldOffsetTag,
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::GeoDetails, _impl_.type_details_),
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::ControlAreaDetails, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::ControlAreaDetails, _impl_.type_),
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::ACMDetails, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::ACMDetails, _impl_.acm_type_),
+        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::ACMDetails, _impl_.acm_description_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::GeoShape, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -377,17 +454,21 @@ const ::uint32_t
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, -1, -1, sizeof(::anduril::entitymanager::v1::GeoDetails)},
-        {9, -1, -1, sizeof(::anduril::entitymanager::v1::GeoShape)},
-        {23, 32, -1, sizeof(::anduril::entitymanager::v1::GeoPoint)},
-        {33, -1, -1, sizeof(::anduril::entitymanager::v1::GeoLine)},
-        {42, -1, -1, sizeof(::anduril::entitymanager::v1::GeoPolygon)},
-        {52, 64, -1, sizeof(::anduril::entitymanager::v1::GeoEllipse)},
-        {68, 79, -1, sizeof(::anduril::entitymanager::v1::GeoEllipsoid)},
-        {82, -1, -1, sizeof(::anduril::entitymanager::v1::LinearRing)},
-        {91, 101, -1, sizeof(::anduril::entitymanager::v1::GeoPolygonPosition)},
+        {12, -1, -1, sizeof(::anduril::entitymanager::v1::ControlAreaDetails)},
+        {21, -1, -1, sizeof(::anduril::entitymanager::v1::ACMDetails)},
+        {31, -1, -1, sizeof(::anduril::entitymanager::v1::GeoShape)},
+        {45, 54, -1, sizeof(::anduril::entitymanager::v1::GeoPoint)},
+        {55, -1, -1, sizeof(::anduril::entitymanager::v1::GeoLine)},
+        {64, -1, -1, sizeof(::anduril::entitymanager::v1::GeoPolygon)},
+        {74, 86, -1, sizeof(::anduril::entitymanager::v1::GeoEllipse)},
+        {90, 101, -1, sizeof(::anduril::entitymanager::v1::GeoEllipsoid)},
+        {104, -1, -1, sizeof(::anduril::entitymanager::v1::LinearRing)},
+        {113, 123, -1, sizeof(::anduril::entitymanager::v1::GeoPolygonPosition)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::anduril::entitymanager::v1::_GeoDetails_default_instance_._instance,
+    &::anduril::entitymanager::v1::_ControlAreaDetails_default_instance_._instance,
+    &::anduril::entitymanager::v1::_ACMDetails_default_instance_._instance,
     &::anduril::entitymanager::v1::_GeoShape_default_instance_._instance,
     &::anduril::entitymanager::v1::_GeoPoint_default_instance_._instance,
     &::anduril::entitymanager::v1::_GeoLine_default_instance_._instance,
@@ -402,56 +483,72 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fgeoentity_2e
     "\n,anduril/entitymanager/v1/geoentity.pub"
     ".proto\022\030anduril.entitymanager.v1\032+anduri"
     "l/entitymanager/v1/location.pub.proto\032\036g"
-    "oogle/protobuf/wrappers.proto\"\240\001\n\nGeoDet"
+    "oogle/protobuf/wrappers.proto\"\236\002\n\nGeoDet"
     "ails\0225\n\004type\030\001 \001(\0162!.anduril.entitymanag"
-    "er.v1.GeoTypeR\004typeJ\004\010\002\020\003J\004\010\003\020\004J\004\010\004\020\005J\004\010"
-    "\005\020\006J\004\010\006\020\007J\004\010\007\020\010R\temergencyR\016visual_detai"
-    "lsR\004fscmR\014control_areaR\003acmR\003mcm\"\324\002\n\010Geo"
-    "Shape\022:\n\005point\030\001 \001(\0132\".anduril.entityman"
-    "ager.v1.GeoPointH\000R\005point\0227\n\004line\030\002 \001(\0132"
-    "!.anduril.entitymanager.v1.GeoLineH\000R\004li"
-    "ne\022@\n\007polygon\030\003 \001(\0132$.anduril.entitymana"
-    "ger.v1.GeoPolygonH\000R\007polygon\022@\n\007ellipse\030"
-    "\004 \001(\0132$.anduril.entitymanager.v1.GeoElli"
-    "pseH\000R\007ellipse\022F\n\tellipsoid\030\005 \001(\0132&.andu"
-    "ril.entitymanager.v1.GeoEllipsoidH\000R\tell"
-    "ipsoidB\007\n\005shape\"J\n\010GeoPoint\022>\n\010position\030"
-    "\001 \001(\0132\".anduril.entitymanager.v1.Positio"
-    "nR\010position\"K\n\007GeoLine\022@\n\tpositions\030\001 \003("
-    "\0132\".anduril.entitymanager.v1.PositionR\tp"
-    "ositions\"k\n\nGeoPolygon\022:\n\005rings\030\001 \003(\0132$."
-    "anduril.entitymanager.v1.LinearRingR\005rin"
-    "gs\022!\n\014is_rectangle\030\002 \001(\010R\013isRectangle\"\232\002"
-    "\n\nGeoEllipse\022G\n\021semi_major_axis_m\030\002 \001(\0132"
-    "\034.google.protobuf.DoubleValueR\016semiMajor"
-    "AxisM\022G\n\021semi_minor_axis_m\030\003 \001(\0132\034.googl"
-    "e.protobuf.DoubleValueR\016semiMinorAxisM\022A"
-    "\n\rorientation_d\030\004 \001(\0132\034.google.protobuf."
-    "DoubleValueR\014orientationD\0227\n\010height_m\030\005 "
-    "\001(\0132\034.google.protobuf.DoubleValueR\007heigh"
-    "tM\"\312\001\n\014GeoEllipsoid\022B\n\016forward_axis_m\030\001 "
-    "\001(\0132\034.google.protobuf.DoubleValueR\014forwa"
-    "rdAxisM\022<\n\013side_axis_m\030\002 \001(\0132\034.google.pr"
-    "otobuf.DoubleValueR\tsideAxisM\0228\n\tup_axis"
-    "_m\030\003 \001(\0132\034.google.protobuf.DoubleValueR\007"
-    "upAxisM\"^\n\nLinearRing\022J\n\tpositions\030\002 \003(\013"
-    "2,.anduril.entitymanager.v1.GeoPolygonPo"
-    "sitionR\tpositionsJ\004\010\001\020\002\"\214\001\n\022GeoPolygonPo"
-    "sition\022>\n\010position\030\001 \001(\0132\".anduril.entit"
-    "ymanager.v1.PositionR\010position\0226\n\010height"
-    "_m\030\002 \001(\0132\033.google.protobuf.FloatValueR\007h"
-    "eightM*\304\001\n\007GeoType\022\024\n\020GEO_TYPE_INVALID\020\000"
-    "\022\024\n\020GEO_TYPE_GENERAL\020\001\022\023\n\017GEO_TYPE_HAZAR"
-    "D\020\002\022\026\n\022GEO_TYPE_EMERGENCY\020\003\022\034\n\030GEO_TYPE_"
-    "ENGAGEMENT_ZONE\020\005\022\031\n\025GEO_TYPE_CONTROL_AR"
-    "EA\020\006\022\025\n\021GEO_TYPE_BULLSEYE\020\007\"\004\010\004\020\004\"\004\010\010\020\010\""
-    "\004\010\t\020\tB\202\002\n\034com.anduril.entitymanager.v1B\021"
-    "GeoentityPubProtoP\001ZMghe.anduril.dev/and"
-    "uril/andurilapis-go/anduril/entitymanage"
-    "r/v1;entitymanager\242\002\003AEX\252\002\030Anduril.Entit"
-    "ymanager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002"
-    "$Anduril\\Entitymanager\\V1\\GPBMetadata\352\002\032"
-    "Anduril::Entitymanager::V1b\006proto3"
+    "er.v1.GeoTypeR\004type\022Q\n\014control_area\030\005 \001("
+    "\0132,.anduril.entitymanager.v1.ControlArea"
+    "DetailsH\000R\013controlArea\0228\n\003acm\030\006 \001(\0132$.an"
+    "duril.entitymanager.v1.ACMDetailsH\000R\003acm"
+    "B\016\n\014type_detailsJ\004\010\002\020\003J\004\010\003\020\004J\004\010\004\020\005J\004\010\007\020\010"
+    "R\temergencyR\016visual_detailsR\004fscmR\003mcm\"S"
+    "\n\022ControlAreaDetails\022=\n\004type\030\001 \001(\0162).and"
+    "uril.entitymanager.v1.ControlAreaTypeR\004t"
+    "ype\"y\n\nACMDetails\022B\n\010acm_type\030\001 \001(\0162\'.an"
+    "duril.entitymanager.v1.ACMDetailTypeR\007ac"
+    "mType\022\'\n\017acm_description\030\002 \001(\tR\016acmDescr"
+    "iption\"\324\002\n\010GeoShape\022:\n\005point\030\001 \001(\0132\".and"
+    "uril.entitymanager.v1.GeoPointH\000R\005point\022"
+    "7\n\004line\030\002 \001(\0132!.anduril.entitymanager.v1"
+    ".GeoLineH\000R\004line\022@\n\007polygon\030\003 \001(\0132$.andu"
+    "ril.entitymanager.v1.GeoPolygonH\000R\007polyg"
+    "on\022@\n\007ellipse\030\004 \001(\0132$.anduril.entitymana"
+    "ger.v1.GeoEllipseH\000R\007ellipse\022F\n\tellipsoi"
+    "d\030\005 \001(\0132&.anduril.entitymanager.v1.GeoEl"
+    "lipsoidH\000R\tellipsoidB\007\n\005shape\"J\n\010GeoPoin"
+    "t\022>\n\010position\030\001 \001(\0132\".anduril.entitymana"
+    "ger.v1.PositionR\010position\"K\n\007GeoLine\022@\n\t"
+    "positions\030\001 \003(\0132\".anduril.entitymanager."
+    "v1.PositionR\tpositions\"k\n\nGeoPolygon\022:\n\005"
+    "rings\030\001 \003(\0132$.anduril.entitymanager.v1.L"
+    "inearRingR\005rings\022!\n\014is_rectangle\030\002 \001(\010R\013"
+    "isRectangle\"\232\002\n\nGeoEllipse\022G\n\021semi_major"
+    "_axis_m\030\002 \001(\0132\034.google.protobuf.DoubleVa"
+    "lueR\016semiMajorAxisM\022G\n\021semi_minor_axis_m"
+    "\030\003 \001(\0132\034.google.protobuf.DoubleValueR\016se"
+    "miMinorAxisM\022A\n\rorientation_d\030\004 \001(\0132\034.go"
+    "ogle.protobuf.DoubleValueR\014orientationD\022"
+    "7\n\010height_m\030\005 \001(\0132\034.google.protobuf.Doub"
+    "leValueR\007heightM\"\312\001\n\014GeoEllipsoid\022B\n\016for"
+    "ward_axis_m\030\001 \001(\0132\034.google.protobuf.Doub"
+    "leValueR\014forwardAxisM\022<\n\013side_axis_m\030\002 \001"
+    "(\0132\034.google.protobuf.DoubleValueR\tsideAx"
+    "isM\0228\n\tup_axis_m\030\003 \001(\0132\034.google.protobuf"
+    ".DoubleValueR\007upAxisM\"^\n\nLinearRing\022J\n\tp"
+    "ositions\030\002 \003(\0132,.anduril.entitymanager.v"
+    "1.GeoPolygonPositionR\tpositionsJ\004\010\001\020\002\"\214\001"
+    "\n\022GeoPolygonPosition\022>\n\010position\030\001 \001(\0132\""
+    ".anduril.entitymanager.v1.PositionR\010posi"
+    "tion\0226\n\010height_m\030\002 \001(\0132\033.google.protobuf"
+    ".FloatValueR\007heightM*\320\001\n\007GeoType\022\024\n\020GEO_"
+    "TYPE_INVALID\020\000\022\024\n\020GEO_TYPE_GENERAL\020\001\022\023\n\017"
+    "GEO_TYPE_HAZARD\020\002\022\026\n\022GEO_TYPE_EMERGENCY\020"
+    "\003\022\034\n\030GEO_TYPE_ENGAGEMENT_ZONE\020\005\022\031\n\025GEO_T"
+    "YPE_CONTROL_AREA\020\006\022\025\n\021GEO_TYPE_BULLSEYE\020"
+    "\007\022\020\n\014GEO_TYPE_ACM\020\010\"\004\010\004\020\004\"\004\010\t\020\t*\276\001\n\017Cont"
+    "rolAreaType\022\035\n\031CONTROL_AREA_TYPE_INVALID"
+    "\020\000\022\"\n\036CONTROL_AREA_TYPE_KEEP_IN_ZONE\020\001\022#"
+    "\n\037CONTROL_AREA_TYPE_KEEP_OUT_ZONE\020\002\022 \n\034C"
+    "ONTROL_AREA_TYPE_DITCH_ZONE\020\003\022!\n\035CONTROL"
+    "_AREA_TYPE_LOITER_ZONE\020\007*N\n\rACMDetailTyp"
+    "e\022\033\n\027ACM_DETAIL_TYPE_INVALID\020\000\022 \n\034ACM_DE"
+    "TAIL_TYPE_LANDING_ZONE\020\020B\202\002\n\034com.anduril"
+    ".entitymanager.v1B\021GeoentityPubProtoP\001ZM"
+    "ghe.anduril.dev/anduril/andurilapis-go/a"
+    "nduril/entitymanager/v1;entitymanager\242\002\003"
+    "AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Anduril"
+    "\\Entitymanager\\V1\342\002$Anduril\\Entitymanage"
+    "r\\V1\\GPBMetadata\352\002\032Anduril::Entitymanage"
+    "r::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto_deps[2] =
     {
@@ -462,13 +559,13 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fgeoenti
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto = {
     false,
     false,
-    2114,
+    2733,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto,
     "anduril/entitymanager/v1/geoentity.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto_once,
     descriptor_table_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto_deps,
     2,
-    9,
+    11,
     schemas,
     file_default_instances,
     TableStruct_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto::offsets,
@@ -483,16 +580,62 @@ const ::google::protobuf::EnumDescriptor* GeoType_descriptor() {
   return file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto[0];
 }
 PROTOBUF_CONSTINIT const uint32_t GeoType_internal_data_[] = {
-    262144u, 32u, 14u, };
+    262144u, 32u, 30u, };
 bool GeoType_IsValid(int value) {
-  return 0 <= value && value <= 7 && ((239u >> value) & 1) != 0;
+  return 0 <= value && value <= 8 && ((495u >> value) & 1) != 0;
+}
+const ::google::protobuf::EnumDescriptor* ControlAreaType_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto);
+  return file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto[1];
+}
+PROTOBUF_CONSTINIT const uint32_t ControlAreaType_internal_data_[] = {
+    262144u, 32u, 8u, };
+bool ControlAreaType_IsValid(int value) {
+  return 0 <= value && value <= 7 && ((143u >> value) & 1) != 0;
+}
+const ::google::protobuf::EnumDescriptor* ACMDetailType_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto);
+  return file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto[2];
+}
+PROTOBUF_CONSTINIT const uint32_t ACMDetailType_internal_data_[] = {
+    65536u, 32u, 32768u, };
+bool ACMDetailType_IsValid(int value) {
+  return 0 <= value && value <= 16 && ((65537u >> value) & 1) != 0;
 }
 // ===================================================================
 
 class GeoDetails::_Internal {
  public:
+  static constexpr ::int32_t kOneofCaseOffset =
+      PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::GeoDetails, _impl_._oneof_case_);
 };
 
+void GeoDetails::set_allocated_control_area(::anduril::entitymanager::v1::ControlAreaDetails* control_area) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_type_details();
+  if (control_area) {
+    ::google::protobuf::Arena* submessage_arena = control_area->GetArena();
+    if (message_arena != submessage_arena) {
+      control_area = ::google::protobuf::internal::GetOwnedMessage(message_arena, control_area, submessage_arena);
+    }
+    set_has_control_area();
+    _impl_.type_details_.control_area_ = control_area;
+  }
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.GeoDetails.control_area)
+}
+void GeoDetails::set_allocated_acm(::anduril::entitymanager::v1::ACMDetails* acm) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_type_details();
+  if (acm) {
+    ::google::protobuf::Arena* submessage_arena = acm->GetArena();
+    if (message_arena != submessage_arena) {
+      acm = ::google::protobuf::internal::GetOwnedMessage(message_arena, acm, submessage_arena);
+    }
+    set_has_acm();
+    _impl_.type_details_.acm_ = acm;
+  }
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.GeoDetails.acm)
+}
 GeoDetails::GeoDetails(::google::protobuf::Arena* arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, _class_data_.base()) {
@@ -502,15 +645,46 @@ GeoDetails::GeoDetails(::google::protobuf::Arena* arena)
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.GeoDetails)
 }
+inline PROTOBUF_NDEBUG_INLINE GeoDetails::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::entitymanager::v1::GeoDetails& from_msg)
+      : type_details_{},
+        _cached_size_{0},
+        _oneof_case_{from._oneof_case_[0]} {}
+
 GeoDetails::GeoDetails(
-    ::google::protobuf::Arena* arena, const GeoDetails& from)
-    : GeoDetails(arena) {
-  MergeFrom(from);
+    ::google::protobuf::Arena* arena,
+    const GeoDetails& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  GeoDetails* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  _impl_.type_ = from._impl_.type_;
+  switch (type_details_case()) {
+    case TYPE_DETAILS_NOT_SET:
+      break;
+      case kControlArea:
+        _impl_.type_details_.control_area_ = ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::ControlAreaDetails>(arena, *from._impl_.type_details_.control_area_);
+        break;
+      case kAcm:
+        _impl_.type_details_.acm_ = ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::ACMDetails>(arena, *from._impl_.type_details_.acm_);
+        break;
+  }
+
+  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.GeoDetails)
 }
 inline PROTOBUF_NDEBUG_INLINE GeoDetails::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : _cached_size_{0} {}
+      : type_details_{},
+        _cached_size_{0},
+        _oneof_case_{} {}
 
 inline void GeoDetails::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
@@ -524,8 +698,39 @@ inline void GeoDetails::SharedDtor(MessageLite& self) {
   GeoDetails& this_ = static_cast<GeoDetails&>(self);
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
+  if (this_.has_type_details()) {
+    this_.clear_type_details();
+  }
   this_._impl_.~Impl_();
 }
+
+void GeoDetails::clear_type_details() {
+// @@protoc_insertion_point(one_of_clear_start:anduril.entitymanager.v1.GeoDetails)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  switch (type_details_case()) {
+    case kControlArea: {
+      if (GetArena() == nullptr) {
+        delete _impl_.type_details_.control_area_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.type_details_.control_area_);
+      }
+      break;
+    }
+    case kAcm: {
+      if (GetArena() == nullptr) {
+        delete _impl_.type_details_.acm_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.type_details_.acm_);
+      }
+      break;
+    }
+    case TYPE_DETAILS_NOT_SET: {
+      break;
+    }
+  }
+  _impl_._oneof_case_[0] = TYPE_DETAILS_NOT_SET;
+}
+
 
 inline void* GeoDetails::PlacementNew_(const void*, void* mem,
                                         ::google::protobuf::Arena* arena) {
@@ -563,17 +768,17 @@ const ::google::protobuf::internal::ClassData* GeoDetails::GetClassData() const 
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 1, 0, 0, 2> GeoDetails::_table_ = {
+const ::_pbi::TcParseTable<0, 3, 2, 0, 2> GeoDetails::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    1, 0,  // max_field_number, fast_idx_mask
+    6, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967294,  // skipmap
+    4294967246,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    1,  // num_field_entries
-    0,  // num_aux_entries
-    offsetof(decltype(_table_), field_names),  // no aux_entries
+    3,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
     _class_data_.base(),
     nullptr,  // post_loop_handler
     ::_pbi::TcParser::GenericFallback,  // fallback
@@ -590,9 +795,16 @@ const ::_pbi::TcParseTable<0, 1, 0, 0, 2> GeoDetails::_table_ = {
     // .anduril.entitymanager.v1.GeoType type = 1 [json_name = "type"];
     {PROTOBUF_FIELD_OFFSET(GeoDetails, _impl_.type_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
-  }},
-  // no aux_entries
-  {{
+    // .anduril.entitymanager.v1.ControlAreaDetails control_area = 5 [json_name = "controlArea"];
+    {PROTOBUF_FIELD_OFFSET(GeoDetails, _impl_.type_details_.control_area_), _Internal::kOneofCaseOffset + 0, 0,
+    (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .anduril.entitymanager.v1.ACMDetails acm = 6 [json_name = "acm"];
+    {PROTOBUF_FIELD_OFFSET(GeoDetails, _impl_.type_details_.acm_), _Internal::kOneofCaseOffset + 0, 1,
+    (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::ControlAreaDetails>()},
+    {::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::ACMDetails>()},
+  }}, {{
   }},
 };
 
@@ -604,6 +816,7 @@ PROTOBUF_NOINLINE void GeoDetails::Clear() {
   (void) cached_has_bits;
 
   _impl_.type_ = 0;
+  clear_type_details();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -629,6 +842,22 @@ PROTOBUF_NOINLINE void GeoDetails::Clear() {
                 1, this_._internal_type(), target);
           }
 
+          switch (this_.type_details_case()) {
+            case kControlArea: {
+              target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                  5, *this_._impl_.type_details_.control_area_, this_._impl_.type_details_.control_area_->GetCachedSize(), target,
+                  stream);
+              break;
+            }
+            case kAcm: {
+              target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+                  6, *this_._impl_.type_details_.acm_, this_._impl_.type_details_.acm_->GetCachedSize(), target,
+                  stream);
+              break;
+            }
+            default:
+              break;
+          }
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
             target =
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -659,6 +888,23 @@ PROTOBUF_NOINLINE void GeoDetails::Clear() {
                             ::_pbi::WireFormatLite::EnumSize(this_._internal_type());
             }
           }
+          switch (this_.type_details_case()) {
+            // .anduril.entitymanager.v1.ControlAreaDetails control_area = 5 [json_name = "controlArea"];
+            case kControlArea: {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.type_details_.control_area_);
+              break;
+            }
+            // .anduril.entitymanager.v1.ACMDetails acm = 6 [json_name = "acm"];
+            case kAcm: {
+              total_size += 1 +
+                            ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.type_details_.acm_);
+              break;
+            }
+            case TYPE_DETAILS_NOT_SET: {
+              break;
+            }
+          }
           return this_.MaybeComputeUnknownFieldsSize(total_size,
                                                      &this_._impl_._cached_size_);
         }
@@ -666,6 +912,7 @@ PROTOBUF_NOINLINE void GeoDetails::Clear() {
 void GeoDetails::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
   auto* const _this = static_cast<GeoDetails*>(&to_msg);
   auto& from = static_cast<const GeoDetails&>(from_msg);
+  ::google::protobuf::Arena* arena = _this->GetArena();
   // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.GeoDetails)
   ABSL_DCHECK_NE(&from, _this);
   ::uint32_t cached_has_bits = 0;
@@ -673,6 +920,39 @@ void GeoDetails::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::goog
 
   if (from._internal_type() != 0) {
     _this->_impl_.type_ = from._impl_.type_;
+  }
+  if (const uint32_t oneof_from_case = from._impl_._oneof_case_[0]) {
+    const uint32_t oneof_to_case = _this->_impl_._oneof_case_[0];
+    const bool oneof_needs_init = oneof_to_case != oneof_from_case;
+    if (oneof_needs_init) {
+      if (oneof_to_case != 0) {
+        _this->clear_type_details();
+      }
+      _this->_impl_._oneof_case_[0] = oneof_from_case;
+    }
+
+    switch (oneof_from_case) {
+      case kControlArea: {
+        if (oneof_needs_init) {
+          _this->_impl_.type_details_.control_area_ =
+              ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::ControlAreaDetails>(arena, *from._impl_.type_details_.control_area_);
+        } else {
+          _this->_impl_.type_details_.control_area_->MergeFrom(from._internal_control_area());
+        }
+        break;
+      }
+      case kAcm: {
+        if (oneof_needs_init) {
+          _this->_impl_.type_details_.acm_ =
+              ::google::protobuf::Message::CopyConstruct<::anduril::entitymanager::v1::ACMDetails>(arena, *from._impl_.type_details_.acm_);
+        } else {
+          _this->_impl_.type_details_.acm_->MergeFrom(from._internal_acm());
+        }
+        break;
+      }
+      case TYPE_DETAILS_NOT_SET:
+        break;
+    }
   }
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -689,9 +969,475 @@ void GeoDetails::InternalSwap(GeoDetails* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_.type_, other->_impl_.type_);
+  swap(_impl_.type_details_, other->_impl_.type_details_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
 }
 
 ::google::protobuf::Metadata GeoDetails::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class ControlAreaDetails::_Internal {
+ public:
+};
+
+ControlAreaDetails::ControlAreaDetails(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.ControlAreaDetails)
+}
+ControlAreaDetails::ControlAreaDetails(
+    ::google::protobuf::Arena* arena, const ControlAreaDetails& from)
+    : ControlAreaDetails(arena) {
+  MergeFrom(from);
+}
+inline PROTOBUF_NDEBUG_INLINE ControlAreaDetails::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : _cached_size_{0} {}
+
+inline void ControlAreaDetails::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.type_ = {};
+}
+ControlAreaDetails::~ControlAreaDetails() {
+  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.ControlAreaDetails)
+  SharedDtor(*this);
+}
+inline void ControlAreaDetails::SharedDtor(MessageLite& self) {
+  ControlAreaDetails& this_ = static_cast<ControlAreaDetails&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.~Impl_();
+}
+
+inline void* ControlAreaDetails::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) ControlAreaDetails(arena);
+}
+constexpr auto ControlAreaDetails::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(ControlAreaDetails),
+                                            alignof(ControlAreaDetails));
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull ControlAreaDetails::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_ControlAreaDetails_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &ControlAreaDetails::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<ControlAreaDetails>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &ControlAreaDetails::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<ControlAreaDetails>(), &ControlAreaDetails::ByteSizeLong,
+            &ControlAreaDetails::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(ControlAreaDetails, _impl_._cached_size_),
+        false,
+    },
+    &ControlAreaDetails::kDescriptorMethods,
+    &descriptor_table_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* ControlAreaDetails::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 0, 2> ControlAreaDetails::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::ControlAreaDetails>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .anduril.entitymanager.v1.ControlAreaType type = 1 [json_name = "type"];
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ControlAreaDetails, _impl_.type_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(ControlAreaDetails, _impl_.type_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .anduril.entitymanager.v1.ControlAreaType type = 1 [json_name = "type"];
+    {PROTOBUF_FIELD_OFFSET(ControlAreaDetails, _impl_.type_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
+  }},
+  // no aux_entries
+  {{
+  }},
+};
+
+PROTOBUF_NOINLINE void ControlAreaDetails::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.ControlAreaDetails)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.type_ = 0;
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* ControlAreaDetails::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const ControlAreaDetails& this_ = static_cast<const ControlAreaDetails&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* ControlAreaDetails::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const ControlAreaDetails& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.ControlAreaDetails)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // .anduril.entitymanager.v1.ControlAreaType type = 1 [json_name = "type"];
+          if (this_._internal_type() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteEnumToArray(
+                1, this_._internal_type(), target);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.ControlAreaDetails)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t ControlAreaDetails::ByteSizeLong(const MessageLite& base) {
+          const ControlAreaDetails& this_ = static_cast<const ControlAreaDetails&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t ControlAreaDetails::ByteSizeLong() const {
+          const ControlAreaDetails& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.ControlAreaDetails)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+           {
+            // .anduril.entitymanager.v1.ControlAreaType type = 1 [json_name = "type"];
+            if (this_._internal_type() != 0) {
+              total_size += 1 +
+                            ::_pbi::WireFormatLite::EnumSize(this_._internal_type());
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void ControlAreaDetails::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<ControlAreaDetails*>(&to_msg);
+  auto& from = static_cast<const ControlAreaDetails&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.ControlAreaDetails)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_type() != 0) {
+    _this->_impl_.type_ = from._impl_.type_;
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ControlAreaDetails::CopyFrom(const ControlAreaDetails& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.ControlAreaDetails)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void ControlAreaDetails::InternalSwap(ControlAreaDetails* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_.type_, other->_impl_.type_);
+}
+
+::google::protobuf::Metadata ControlAreaDetails::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class ACMDetails::_Internal {
+ public:
+};
+
+ACMDetails::ACMDetails(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:anduril.entitymanager.v1.ACMDetails)
+}
+inline PROTOBUF_NDEBUG_INLINE ACMDetails::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::anduril::entitymanager::v1::ACMDetails& from_msg)
+      : acm_description_(arena, from.acm_description_),
+        _cached_size_{0} {}
+
+ACMDetails::ACMDetails(
+    ::google::protobuf::Arena* arena,
+    const ACMDetails& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  ACMDetails* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  _impl_.acm_type_ = from._impl_.acm_type_;
+
+  // @@protoc_insertion_point(copy_constructor:anduril.entitymanager.v1.ACMDetails)
+}
+inline PROTOBUF_NDEBUG_INLINE ACMDetails::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : acm_description_(arena),
+        _cached_size_{0} {}
+
+inline void ACMDetails::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.acm_type_ = {};
+}
+ACMDetails::~ACMDetails() {
+  // @@protoc_insertion_point(destructor:anduril.entitymanager.v1.ACMDetails)
+  SharedDtor(*this);
+}
+inline void ACMDetails::SharedDtor(MessageLite& self) {
+  ACMDetails& this_ = static_cast<ACMDetails&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.acm_description_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* ACMDetails::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) ACMDetails(arena);
+}
+constexpr auto ACMDetails::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(ACMDetails),
+                                            alignof(ACMDetails));
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull ACMDetails::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_ACMDetails_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &ACMDetails::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<ACMDetails>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &ACMDetails::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<ACMDetails>(), &ACMDetails::ByteSizeLong,
+            &ACMDetails::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(ACMDetails, _impl_._cached_size_),
+        false,
+    },
+    &ACMDetails::kDescriptorMethods,
+    &descriptor_table_anduril_2fentitymanager_2fv1_2fgeoentity_2epub_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* ACMDetails::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 59, 2> ACMDetails::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::ACMDetails>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // string acm_description = 2 [json_name = "acmDescription"];
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(ACMDetails, _impl_.acm_description_)}},
+    // .anduril.entitymanager.v1.ACMDetailType acm_type = 1 [json_name = "acmType"];
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ACMDetails, _impl_.acm_type_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(ACMDetails, _impl_.acm_type_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .anduril.entitymanager.v1.ACMDetailType acm_type = 1 [json_name = "acmType"];
+    {PROTOBUF_FIELD_OFFSET(ACMDetails, _impl_.acm_type_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
+    // string acm_description = 2 [json_name = "acmDescription"];
+    {PROTOBUF_FIELD_OFFSET(ACMDetails, _impl_.acm_description_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\43\0\17\0\0\0\0\0"
+    "anduril.entitymanager.v1.ACMDetails"
+    "acm_description"
+  }},
+};
+
+PROTOBUF_NOINLINE void ACMDetails::Clear() {
+// @@protoc_insertion_point(message_clear_start:anduril.entitymanager.v1.ACMDetails)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.acm_description_.ClearToEmpty();
+  _impl_.acm_type_ = 0;
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* ACMDetails::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const ACMDetails& this_ = static_cast<const ACMDetails&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* ACMDetails::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const ACMDetails& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.ACMDetails)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // .anduril.entitymanager.v1.ACMDetailType acm_type = 1 [json_name = "acmType"];
+          if (this_._internal_acm_type() != 0) {
+            target = stream->EnsureSpace(target);
+            target = ::_pbi::WireFormatLite::WriteEnumToArray(
+                1, this_._internal_acm_type(), target);
+          }
+
+          // string acm_description = 2 [json_name = "acmDescription"];
+          if (!this_._internal_acm_description().empty()) {
+            const std::string& _s = this_._internal_acm_description();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.ACMDetails.acm_description");
+            target = stream->WriteStringMaybeAliased(2, _s, target);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:anduril.entitymanager.v1.ACMDetails)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t ACMDetails::ByteSizeLong(const MessageLite& base) {
+          const ACMDetails& this_ = static_cast<const ACMDetails&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t ACMDetails::ByteSizeLong() const {
+          const ACMDetails& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:anduril.entitymanager.v1.ACMDetails)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // string acm_description = 2 [json_name = "acmDescription"];
+            if (!this_._internal_acm_description().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_acm_description());
+            }
+            // .anduril.entitymanager.v1.ACMDetailType acm_type = 1 [json_name = "acmType"];
+            if (this_._internal_acm_type() != 0) {
+              total_size += 1 +
+                            ::_pbi::WireFormatLite::EnumSize(this_._internal_acm_type());
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void ACMDetails::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<ACMDetails*>(&to_msg);
+  auto& from = static_cast<const ACMDetails&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:anduril.entitymanager.v1.ACMDetails)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_acm_description().empty()) {
+    _this->_internal_set_acm_description(from._internal_acm_description());
+  }
+  if (from._internal_acm_type() != 0) {
+    _this->_impl_.acm_type_ = from._impl_.acm_type_;
+  }
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ACMDetails::CopyFrom(const ACMDetails& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:anduril.entitymanager.v1.ACMDetails)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void ACMDetails::InternalSwap(ACMDetails* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.acm_description_, &other->_impl_.acm_description_, arena);
+  swap(_impl_.acm_type_, other->_impl_.acm_type_);
+}
+
+::google::protobuf::Metadata ACMDetails::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // ===================================================================

@@ -50,6 +50,20 @@ paths:
                                 $ref: '#/components/schemas/Status'
 components:
     schemas:
+        ACMDetails:
+            type: object
+            properties:
+                acmType:
+                    enum:
+                        - ACM_DETAIL_TYPE_INVALID
+                        - ACM_DETAIL_TYPE_LANDING_ZONE
+                    type: string
+                    format: enum
+                acmDescription:
+                    type: string
+                    description: |-
+                        Used for loosely typed associations, such as assignment to a specific fires unit.
+                         Limit to 150 characters.
         ActiveTarget:
             type: object
             properties: {}
@@ -342,6 +356,21 @@ components:
                     type: string
                     description: The human-readable content of the message.
             description: A message describing the component's health status.
+        ControlAreaDetails:
+            type: object
+            properties:
+                type:
+                    enum:
+                        - CONTROL_AREA_TYPE_INVALID
+                        - CONTROL_AREA_TYPE_KEEP_IN_ZONE
+                        - CONTROL_AREA_TYPE_KEEP_OUT_ZONE
+                        - CONTROL_AREA_TYPE_DITCH_ZONE
+                        - CONTROL_AREA_TYPE_LOITER_ZONE
+                    type: string
+                    format: enum
+            description: |-
+                Determines the type of control area being represented by the geo-entity,
+                 in which an asset can, or cannot, operate.
         Correlation:
             type: object
             properties:
@@ -862,8 +891,13 @@ components:
                         - GEO_TYPE_ENGAGEMENT_ZONE
                         - GEO_TYPE_CONTROL_AREA
                         - GEO_TYPE_BULLSEYE
+                        - GEO_TYPE_ACM
                     type: string
                     format: enum
+                controlArea:
+                    $ref: '#/components/schemas/ControlAreaDetails'
+                acm:
+                    $ref: '#/components/schemas/ACMDetails'
             description: A component that describes a geo-entity.
         GeoEllipse:
             type: object
