@@ -21,7 +21,7 @@ enum AltIdType {
   ALT_ID_TYPE_NITF_FILE_TITLE = 3;
   // Track repo alert ID
   ALT_ID_TYPE_TRACK_REPO_ALERT_ID = 4;
-  // an Anduril AssetId
+  // an Anduril AssetId v2
   ALT_ID_TYPE_ASSET_ID = 5;
   // Use for Link 16 track identifiers for non-JTIDS Unit entities.
   ALT_ID_TYPE_LINK16_TRACK_NUMBER = 6;

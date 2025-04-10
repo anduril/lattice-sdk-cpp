@@ -2273,7 +2273,7 @@ components:
                 specification:
                     allOf:
                         - $ref: '#/components/schemas/GoogleProtobufAny'
-                    description: Full Task parameterization, must be a message under anduril/tasks/v*/
+                    description: Full Task parameterization.
                 createdBy:
                     allOf:
                         - $ref: '#/components/schemas/Principal'

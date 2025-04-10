@@ -4475,7 +4475,7 @@ class Entity final
   ::google::protobuf::Timestamp* _internal_mutable_created_time();
 
   public:
-  // .google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime"];
+  // .google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime", (.anduril.entitymanager.v1.overridable) = true];
   bool has_expiry_time() const;
   void clear_expiry_time() ;
   const ::google::protobuf::Timestamp& expiry_time() const;
@@ -4775,7 +4775,7 @@ class Entity final
   ::anduril::entitymanager::v1::PowerState* _internal_mutable_power_state();
 
   public:
-  // .anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];
+  // .anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog", (.anduril.entitymanager.v1.overridable) = true];
   bool has_task_catalog() const;
   void clear_task_catalog() ;
   const ::anduril::tasks::v2::TaskCatalog& task_catalog() const;
@@ -5730,7 +5730,7 @@ inline void Entity::set_allocated_created_time(::google::protobuf::Timestamp* va
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Entity.created_time)
 }
 
-// .google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime"];
+// .google.protobuf.Timestamp expiry_time = 5 [json_name = "expiryTime", (.anduril.entitymanager.v1.overridable) = true];
 inline bool Entity::has_expiry_time() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.expiry_time_ != nullptr);
@@ -7676,7 +7676,7 @@ inline void Entity::set_allocated_data_classification(::anduril::entitymanager::
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Entity.data_classification)
 }
 
-// .anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog"];
+// .anduril.tasks.v2.TaskCatalog task_catalog = 31 [json_name = "taskCatalog", (.anduril.entitymanager.v1.overridable) = true];
 inline bool Entity::has_task_catalog() const {
   bool value = (_impl_._has_bits_[0] & 0x00200000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.task_catalog_ != nullptr);
