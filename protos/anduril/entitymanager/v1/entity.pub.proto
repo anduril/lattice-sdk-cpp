@@ -57,7 +57,7 @@ message Entity {
   // active even after they expire.
   // This field is required when publishing a prepopulated entity.
   // The expiry time must be in the future, but less than 30 days from the current time.
-  google.protobuf.Timestamp expiry_time = 5;
+  google.protobuf.Timestamp expiry_time = 5 [(anduril.entitymanager.v1.overridable) = true];
   // Human-readable descriptions of what the entity is currently doing.
   Status status = 19;
   // Geospatial data related to the entity, including its position, kinematics, and orientation.
@@ -102,7 +102,7 @@ message Entity {
   // field level.
   Classification data_classification = 29;
   // A catalog of tasks that can be performed by an entity.
-  anduril.tasks.v2.TaskCatalog task_catalog = 31;
+  anduril.tasks.v2.TaskCatalog task_catalog = 31 [(anduril.entitymanager.v1.overridable) = true];
   // The relationships between this entity and other entities in the common operational picture (COP).
   Relationships relationships = 33;
   // Visual details associated with the display of an entity in the client.

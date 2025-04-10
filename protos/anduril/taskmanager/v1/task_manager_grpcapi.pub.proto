@@ -37,7 +37,7 @@ service TaskManagerAPI {
 message CreateTaskRequest {
   // Human-readable display name for this Task, should be short (<100 chars).
   string display_name = 1;
-  // Full task parameterization, must be a message under anduril/tasks/v*/.
+  // Full task parameterization.
   google.protobuf.Any specification = 2;
   // Who or what is creating this Task. For example, if a user created this Task via a UI, it would
   //  contain the "user" Principal type with the user ID of that user. Or if a service is calling the
