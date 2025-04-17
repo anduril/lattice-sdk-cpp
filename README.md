@@ -15,7 +15,7 @@ See the documentation for [Lattice C++ SDK](https://docs.anduril.com/guide/sdks/
 > 
 The current requirements are:
 * `gRPC == 1.68.0`
-* `Protobuf == 29.0.0`
+* `Protobuf == 29.3.0`
 * `CMake >= 3.16`
 
 As an alternative, we also provide the underlying Protobuf files in the `protos` directory if you wish to compile these yourselves with specific versions of Protobuf/gRPC.
