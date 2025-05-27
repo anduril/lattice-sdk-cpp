@@ -37,6 +37,7 @@
 #include "anduril/entitymanager/v1/group.pub.pb.h"
 #include "anduril/entitymanager/v1/health_status.pub.pb.h"
 #include "anduril/entitymanager/v1/location.pub.pb.h"
+#include "anduril/entitymanager/v1/media.pub.pb.h"
 #include "anduril/entitymanager/v1/ontology.pub.pb.h"
 #include "anduril/entitymanager/v1/options.pub.pb.h"
 #include "anduril/entitymanager/v1/orbit.pub.pb.h"
@@ -4416,6 +4417,7 @@ class Entity final
     kDataClassificationFieldNumber = 29,
     kPowerStateFieldNumber = 30,
     kTaskCatalogFieldNumber = 31,
+    kMediaFieldNumber = 32,
     kRelationshipsFieldNumber = 33,
     kVisualDetailsFieldNumber = 34,
     kDimensionsFieldNumber = 36,
@@ -4790,6 +4792,21 @@ class Entity final
   ::anduril::tasks::v2::TaskCatalog* _internal_mutable_task_catalog();
 
   public:
+  // .anduril.entitymanager.v1.Media media = 32 [json_name = "media"];
+  bool has_media() const;
+  void clear_media() ;
+  const ::anduril::entitymanager::v1::Media& media() const;
+  PROTOBUF_NODISCARD ::anduril::entitymanager::v1::Media* release_media();
+  ::anduril::entitymanager::v1::Media* mutable_media();
+  void set_allocated_media(::anduril::entitymanager::v1::Media* value);
+  void unsafe_arena_set_allocated_media(::anduril::entitymanager::v1::Media* value);
+  ::anduril::entitymanager::v1::Media* unsafe_arena_release_media();
+
+  private:
+  const ::anduril::entitymanager::v1::Media& _internal_media() const;
+  ::anduril::entitymanager::v1::Media* _internal_mutable_media();
+
+  public:
   // .anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];
   bool has_relationships() const;
   void clear_relationships() ;
@@ -4955,7 +4972,7 @@ class Entity final
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      5, 35, 32,
+      5, 36, 33,
       92, 7>
       _table_;
 
@@ -4973,7 +4990,7 @@ class Entity final
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const Entity& from_msg);
-    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::HasBits<2> _has_bits_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     ::google::protobuf::internal::ArenaStringPtr entity_id_;
     ::google::protobuf::internal::ArenaStringPtr description_;
@@ -4999,6 +5016,7 @@ class Entity final
     ::anduril::entitymanager::v1::Classification* data_classification_;
     ::anduril::entitymanager::v1::PowerState* power_state_;
     ::anduril::tasks::v2::TaskCatalog* task_catalog_;
+    ::anduril::entitymanager::v1::Media* media_;
     ::anduril::entitymanager::v1::Relationships* relationships_;
     ::anduril::entitymanager::v1::VisualDetails* visual_details_;
     ::anduril::entitymanager::v1::Dimensions* dimensions_;
@@ -6475,14 +6493,14 @@ inline void Entity::set_allocated_tracked(::anduril::entitymanager::v1::Tracked*
 
 // .anduril.entitymanager.v1.Correlation correlation = 47 [json_name = "correlation"];
 inline bool Entity::has_correlation() const {
-  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000001u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.correlation_ != nullptr);
   return value;
 }
 inline void Entity::clear_correlation() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.correlation_ != nullptr) _impl_.correlation_->Clear();
-  _impl_._has_bits_[0] &= ~0x80000000u;
+  _impl_._has_bits_[1] &= ~0x00000001u;
 }
 inline const ::anduril::entitymanager::v1::Correlation& Entity::_internal_correlation() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -6500,16 +6518,16 @@ inline void Entity::unsafe_arena_set_allocated_correlation(::anduril::entitymana
   }
   _impl_.correlation_ = reinterpret_cast<::anduril::entitymanager::v1::Correlation*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x80000000u;
+    _impl_._has_bits_[1] |= 0x00000001u;
   } else {
-    _impl_._has_bits_[0] &= ~0x80000000u;
+    _impl_._has_bits_[1] &= ~0x00000001u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.correlation)
 }
 inline ::anduril::entitymanager::v1::Correlation* Entity::release_correlation() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x80000000u;
+  _impl_._has_bits_[1] &= ~0x00000001u;
   ::anduril::entitymanager::v1::Correlation* released = _impl_.correlation_;
   _impl_.correlation_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
@@ -6529,7 +6547,7 @@ inline ::anduril::entitymanager::v1::Correlation* Entity::unsafe_arena_release_c
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.correlation)
 
-  _impl_._has_bits_[0] &= ~0x80000000u;
+  _impl_._has_bits_[1] &= ~0x00000001u;
   ::anduril::entitymanager::v1::Correlation* temp = _impl_.correlation_;
   _impl_.correlation_ = nullptr;
   return temp;
@@ -6543,7 +6561,7 @@ inline ::anduril::entitymanager::v1::Correlation* Entity::_internal_mutable_corr
   return _impl_.correlation_;
 }
 inline ::anduril::entitymanager::v1::Correlation* Entity::mutable_correlation() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x80000000u;
+  _impl_._has_bits_[1] |= 0x00000001u;
   ::anduril::entitymanager::v1::Correlation* _msg = _internal_mutable_correlation();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.correlation)
   return _msg;
@@ -6560,9 +6578,9 @@ inline void Entity::set_allocated_correlation(::anduril::entitymanager::v1::Corr
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x80000000u;
+    _impl_._has_bits_[1] |= 0x00000001u;
   } else {
-    _impl_._has_bits_[0] &= ~0x80000000u;
+    _impl_._has_bits_[1] &= ~0x00000001u;
   }
 
   _impl_.correlation_ = reinterpret_cast<::anduril::entitymanager::v1::Correlation*>(value);
@@ -7767,9 +7785,100 @@ inline void Entity::set_allocated_task_catalog(::anduril::tasks::v2::TaskCatalog
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Entity.task_catalog)
 }
 
+// .anduril.entitymanager.v1.Media media = 32 [json_name = "media"];
+inline bool Entity::has_media() const {
+  bool value = (_impl_._has_bits_[0] & 0x00400000u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.media_ != nullptr);
+  return value;
+}
+inline const ::anduril::entitymanager::v1::Media& Entity::_internal_media() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::anduril::entitymanager::v1::Media* p = _impl_.media_;
+  return p != nullptr ? *p : reinterpret_cast<const ::anduril::entitymanager::v1::Media&>(::anduril::entitymanager::v1::_Media_default_instance_);
+}
+inline const ::anduril::entitymanager::v1::Media& Entity::media() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.Entity.media)
+  return _internal_media();
+}
+inline void Entity::unsafe_arena_set_allocated_media(::anduril::entitymanager::v1::Media* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.media_);
+  }
+  _impl_.media_ = reinterpret_cast<::anduril::entitymanager::v1::Media*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00400000u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00400000u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.media)
+}
+inline ::anduril::entitymanager::v1::Media* Entity::release_media() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00400000u;
+  ::anduril::entitymanager::v1::Media* released = _impl_.media_;
+  _impl_.media_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::anduril::entitymanager::v1::Media* Entity::unsafe_arena_release_media() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.media)
+
+  _impl_._has_bits_[0] &= ~0x00400000u;
+  ::anduril::entitymanager::v1::Media* temp = _impl_.media_;
+  _impl_.media_ = nullptr;
+  return temp;
+}
+inline ::anduril::entitymanager::v1::Media* Entity::_internal_mutable_media() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.media_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::anduril::entitymanager::v1::Media>(GetArena());
+    _impl_.media_ = reinterpret_cast<::anduril::entitymanager::v1::Media*>(p);
+  }
+  return _impl_.media_;
+}
+inline ::anduril::entitymanager::v1::Media* Entity::mutable_media() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00400000u;
+  ::anduril::entitymanager::v1::Media* _msg = _internal_mutable_media();
+  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.media)
+  return _msg;
+}
+inline void Entity::set_allocated_media(::anduril::entitymanager::v1::Media* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.media_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::MessageLite*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00400000u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00400000u;
+  }
+
+  _impl_.media_ = reinterpret_cast<::anduril::entitymanager::v1::Media*>(value);
+  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Entity.media)
+}
+
 // .anduril.entitymanager.v1.Relationships relationships = 33 [json_name = "relationships"];
 inline bool Entity::has_relationships() const {
-  bool value = (_impl_._has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00800000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.relationships_ != nullptr);
   return value;
 }
@@ -7789,16 +7898,16 @@ inline void Entity::unsafe_arena_set_allocated_relationships(::anduril::entityma
   }
   _impl_.relationships_ = reinterpret_cast<::anduril::entitymanager::v1::Relationships*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00400000u;
+    _impl_._has_bits_[0] |= 0x00800000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00400000u;
+    _impl_._has_bits_[0] &= ~0x00800000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.relationships)
 }
 inline ::anduril::entitymanager::v1::Relationships* Entity::release_relationships() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00400000u;
+  _impl_._has_bits_[0] &= ~0x00800000u;
   ::anduril::entitymanager::v1::Relationships* released = _impl_.relationships_;
   _impl_.relationships_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
@@ -7818,7 +7927,7 @@ inline ::anduril::entitymanager::v1::Relationships* Entity::unsafe_arena_release
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.relationships)
 
-  _impl_._has_bits_[0] &= ~0x00400000u;
+  _impl_._has_bits_[0] &= ~0x00800000u;
   ::anduril::entitymanager::v1::Relationships* temp = _impl_.relationships_;
   _impl_.relationships_ = nullptr;
   return temp;
@@ -7832,7 +7941,7 @@ inline ::anduril::entitymanager::v1::Relationships* Entity::_internal_mutable_re
   return _impl_.relationships_;
 }
 inline ::anduril::entitymanager::v1::Relationships* Entity::mutable_relationships() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00400000u;
+  _impl_._has_bits_[0] |= 0x00800000u;
   ::anduril::entitymanager::v1::Relationships* _msg = _internal_mutable_relationships();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.relationships)
   return _msg;
@@ -7849,9 +7958,9 @@ inline void Entity::set_allocated_relationships(::anduril::entitymanager::v1::Re
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00400000u;
+    _impl_._has_bits_[0] |= 0x00800000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00400000u;
+    _impl_._has_bits_[0] &= ~0x00800000u;
   }
 
   _impl_.relationships_ = reinterpret_cast<::anduril::entitymanager::v1::Relationships*>(value);
@@ -7860,14 +7969,14 @@ inline void Entity::set_allocated_relationships(::anduril::entitymanager::v1::Re
 
 // .anduril.entitymanager.v1.VisualDetails visual_details = 34 [json_name = "visualDetails"];
 inline bool Entity::has_visual_details() const {
-  bool value = (_impl_._has_bits_[0] & 0x00800000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x01000000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.visual_details_ != nullptr);
   return value;
 }
 inline void Entity::clear_visual_details() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (_impl_.visual_details_ != nullptr) _impl_.visual_details_->Clear();
-  _impl_._has_bits_[0] &= ~0x00800000u;
+  _impl_._has_bits_[0] &= ~0x01000000u;
 }
 inline const ::anduril::entitymanager::v1::VisualDetails& Entity::_internal_visual_details() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
@@ -7885,16 +7994,16 @@ inline void Entity::unsafe_arena_set_allocated_visual_details(::anduril::entitym
   }
   _impl_.visual_details_ = reinterpret_cast<::anduril::entitymanager::v1::VisualDetails*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00800000u;
+    _impl_._has_bits_[0] |= 0x01000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00800000u;
+    _impl_._has_bits_[0] &= ~0x01000000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.visual_details)
 }
 inline ::anduril::entitymanager::v1::VisualDetails* Entity::release_visual_details() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x00800000u;
+  _impl_._has_bits_[0] &= ~0x01000000u;
   ::anduril::entitymanager::v1::VisualDetails* released = _impl_.visual_details_;
   _impl_.visual_details_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
@@ -7914,7 +8023,7 @@ inline ::anduril::entitymanager::v1::VisualDetails* Entity::unsafe_arena_release
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.visual_details)
 
-  _impl_._has_bits_[0] &= ~0x00800000u;
+  _impl_._has_bits_[0] &= ~0x01000000u;
   ::anduril::entitymanager::v1::VisualDetails* temp = _impl_.visual_details_;
   _impl_.visual_details_ = nullptr;
   return temp;
@@ -7928,7 +8037,7 @@ inline ::anduril::entitymanager::v1::VisualDetails* Entity::_internal_mutable_vi
   return _impl_.visual_details_;
 }
 inline ::anduril::entitymanager::v1::VisualDetails* Entity::mutable_visual_details() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x00800000u;
+  _impl_._has_bits_[0] |= 0x01000000u;
   ::anduril::entitymanager::v1::VisualDetails* _msg = _internal_mutable_visual_details();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.visual_details)
   return _msg;
@@ -7945,9 +8054,9 @@ inline void Entity::set_allocated_visual_details(::anduril::entitymanager::v1::V
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00800000u;
+    _impl_._has_bits_[0] |= 0x01000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x00800000u;
+    _impl_._has_bits_[0] &= ~0x01000000u;
   }
 
   _impl_.visual_details_ = reinterpret_cast<::anduril::entitymanager::v1::VisualDetails*>(value);
@@ -7956,7 +8065,7 @@ inline void Entity::set_allocated_visual_details(::anduril::entitymanager::v1::V
 
 // .anduril.entitymanager.v1.Dimensions dimensions = 36 [json_name = "dimensions"];
 inline bool Entity::has_dimensions() const {
-  bool value = (_impl_._has_bits_[0] & 0x01000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.dimensions_ != nullptr);
   return value;
 }
@@ -7976,16 +8085,16 @@ inline void Entity::unsafe_arena_set_allocated_dimensions(::anduril::entitymanag
   }
   _impl_.dimensions_ = reinterpret_cast<::anduril::entitymanager::v1::Dimensions*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x01000000u;
+    _impl_._has_bits_[0] |= 0x02000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x01000000u;
+    _impl_._has_bits_[0] &= ~0x02000000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.dimensions)
 }
 inline ::anduril::entitymanager::v1::Dimensions* Entity::release_dimensions() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x01000000u;
+  _impl_._has_bits_[0] &= ~0x02000000u;
   ::anduril::entitymanager::v1::Dimensions* released = _impl_.dimensions_;
   _impl_.dimensions_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
@@ -8005,7 +8114,7 @@ inline ::anduril::entitymanager::v1::Dimensions* Entity::unsafe_arena_release_di
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.dimensions)
 
-  _impl_._has_bits_[0] &= ~0x01000000u;
+  _impl_._has_bits_[0] &= ~0x02000000u;
   ::anduril::entitymanager::v1::Dimensions* temp = _impl_.dimensions_;
   _impl_.dimensions_ = nullptr;
   return temp;
@@ -8019,7 +8128,7 @@ inline ::anduril::entitymanager::v1::Dimensions* Entity::_internal_mutable_dimen
   return _impl_.dimensions_;
 }
 inline ::anduril::entitymanager::v1::Dimensions* Entity::mutable_dimensions() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x01000000u;
+  _impl_._has_bits_[0] |= 0x02000000u;
   ::anduril::entitymanager::v1::Dimensions* _msg = _internal_mutable_dimensions();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.dimensions)
   return _msg;
@@ -8036,9 +8145,9 @@ inline void Entity::set_allocated_dimensions(::anduril::entitymanager::v1::Dimen
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x01000000u;
+    _impl_._has_bits_[0] |= 0x02000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x01000000u;
+    _impl_._has_bits_[0] &= ~0x02000000u;
   }
 
   _impl_.dimensions_ = reinterpret_cast<::anduril::entitymanager::v1::Dimensions*>(value);
@@ -8047,7 +8156,7 @@ inline void Entity::set_allocated_dimensions(::anduril::entitymanager::v1::Dimen
 
 // .anduril.entitymanager.v1.RouteDetails route_details = 37 [json_name = "routeDetails"];
 inline bool Entity::has_route_details() const {
-  bool value = (_impl_._has_bits_[0] & 0x02000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.route_details_ != nullptr);
   return value;
 }
@@ -8067,16 +8176,16 @@ inline void Entity::unsafe_arena_set_allocated_route_details(::anduril::entityma
   }
   _impl_.route_details_ = reinterpret_cast<::anduril::entitymanager::v1::RouteDetails*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x02000000u;
+    _impl_._has_bits_[0] |= 0x04000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x02000000u;
+    _impl_._has_bits_[0] &= ~0x04000000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.route_details)
 }
 inline ::anduril::entitymanager::v1::RouteDetails* Entity::release_route_details() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x02000000u;
+  _impl_._has_bits_[0] &= ~0x04000000u;
   ::anduril::entitymanager::v1::RouteDetails* released = _impl_.route_details_;
   _impl_.route_details_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
@@ -8096,7 +8205,7 @@ inline ::anduril::entitymanager::v1::RouteDetails* Entity::unsafe_arena_release_
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.route_details)
 
-  _impl_._has_bits_[0] &= ~0x02000000u;
+  _impl_._has_bits_[0] &= ~0x04000000u;
   ::anduril::entitymanager::v1::RouteDetails* temp = _impl_.route_details_;
   _impl_.route_details_ = nullptr;
   return temp;
@@ -8110,7 +8219,7 @@ inline ::anduril::entitymanager::v1::RouteDetails* Entity::_internal_mutable_rou
   return _impl_.route_details_;
 }
 inline ::anduril::entitymanager::v1::RouteDetails* Entity::mutable_route_details() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x02000000u;
+  _impl_._has_bits_[0] |= 0x04000000u;
   ::anduril::entitymanager::v1::RouteDetails* _msg = _internal_mutable_route_details();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.route_details)
   return _msg;
@@ -8127,9 +8236,9 @@ inline void Entity::set_allocated_route_details(::anduril::entitymanager::v1::Ro
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x02000000u;
+    _impl_._has_bits_[0] |= 0x04000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x02000000u;
+    _impl_._has_bits_[0] &= ~0x04000000u;
   }
 
   _impl_.route_details_ = reinterpret_cast<::anduril::entitymanager::v1::RouteDetails*>(value);
@@ -8138,7 +8247,7 @@ inline void Entity::set_allocated_route_details(::anduril::entitymanager::v1::Ro
 
 // .anduril.entitymanager.v1.Schedules schedules = 38 [json_name = "schedules"];
 inline bool Entity::has_schedules() const {
-  bool value = (_impl_._has_bits_[0] & 0x04000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.schedules_ != nullptr);
   return value;
 }
@@ -8158,16 +8267,16 @@ inline void Entity::unsafe_arena_set_allocated_schedules(::anduril::entitymanage
   }
   _impl_.schedules_ = reinterpret_cast<::anduril::entitymanager::v1::Schedules*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x04000000u;
+    _impl_._has_bits_[0] |= 0x08000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x04000000u;
+    _impl_._has_bits_[0] &= ~0x08000000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.schedules)
 }
 inline ::anduril::entitymanager::v1::Schedules* Entity::release_schedules() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x04000000u;
+  _impl_._has_bits_[0] &= ~0x08000000u;
   ::anduril::entitymanager::v1::Schedules* released = _impl_.schedules_;
   _impl_.schedules_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
@@ -8187,7 +8296,7 @@ inline ::anduril::entitymanager::v1::Schedules* Entity::unsafe_arena_release_sch
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.schedules)
 
-  _impl_._has_bits_[0] &= ~0x04000000u;
+  _impl_._has_bits_[0] &= ~0x08000000u;
   ::anduril::entitymanager::v1::Schedules* temp = _impl_.schedules_;
   _impl_.schedules_ = nullptr;
   return temp;
@@ -8201,7 +8310,7 @@ inline ::anduril::entitymanager::v1::Schedules* Entity::_internal_mutable_schedu
   return _impl_.schedules_;
 }
 inline ::anduril::entitymanager::v1::Schedules* Entity::mutable_schedules() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x04000000u;
+  _impl_._has_bits_[0] |= 0x08000000u;
   ::anduril::entitymanager::v1::Schedules* _msg = _internal_mutable_schedules();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.schedules)
   return _msg;
@@ -8218,9 +8327,9 @@ inline void Entity::set_allocated_schedules(::anduril::entitymanager::v1::Schedu
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x04000000u;
+    _impl_._has_bits_[0] |= 0x08000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x04000000u;
+    _impl_._has_bits_[0] &= ~0x08000000u;
   }
 
   _impl_.schedules_ = reinterpret_cast<::anduril::entitymanager::v1::Schedules*>(value);
@@ -8229,7 +8338,7 @@ inline void Entity::set_allocated_schedules(::anduril::entitymanager::v1::Schedu
 
 // .anduril.entitymanager.v1.Health health = 39 [json_name = "health"];
 inline bool Entity::has_health() const {
-  bool value = (_impl_._has_bits_[0] & 0x08000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.health_ != nullptr);
   return value;
 }
@@ -8249,16 +8358,16 @@ inline void Entity::unsafe_arena_set_allocated_health(::anduril::entitymanager::
   }
   _impl_.health_ = reinterpret_cast<::anduril::entitymanager::v1::Health*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x08000000u;
+    _impl_._has_bits_[0] |= 0x10000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x08000000u;
+    _impl_._has_bits_[0] &= ~0x10000000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.health)
 }
 inline ::anduril::entitymanager::v1::Health* Entity::release_health() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x08000000u;
+  _impl_._has_bits_[0] &= ~0x10000000u;
   ::anduril::entitymanager::v1::Health* released = _impl_.health_;
   _impl_.health_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
@@ -8278,7 +8387,7 @@ inline ::anduril::entitymanager::v1::Health* Entity::unsafe_arena_release_health
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.health)
 
-  _impl_._has_bits_[0] &= ~0x08000000u;
+  _impl_._has_bits_[0] &= ~0x10000000u;
   ::anduril::entitymanager::v1::Health* temp = _impl_.health_;
   _impl_.health_ = nullptr;
   return temp;
@@ -8292,7 +8401,7 @@ inline ::anduril::entitymanager::v1::Health* Entity::_internal_mutable_health() 
   return _impl_.health_;
 }
 inline ::anduril::entitymanager::v1::Health* Entity::mutable_health() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x08000000u;
+  _impl_._has_bits_[0] |= 0x10000000u;
   ::anduril::entitymanager::v1::Health* _msg = _internal_mutable_health();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.health)
   return _msg;
@@ -8309,9 +8418,9 @@ inline void Entity::set_allocated_health(::anduril::entitymanager::v1::Health* v
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x08000000u;
+    _impl_._has_bits_[0] |= 0x10000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x08000000u;
+    _impl_._has_bits_[0] &= ~0x10000000u;
   }
 
   _impl_.health_ = reinterpret_cast<::anduril::entitymanager::v1::Health*>(value);
@@ -8320,7 +8429,7 @@ inline void Entity::set_allocated_health(::anduril::entitymanager::v1::Health* v
 
 // .anduril.entitymanager.v1.GroupDetails group_details = 40 [json_name = "groupDetails"];
 inline bool Entity::has_group_details() const {
-  bool value = (_impl_._has_bits_[0] & 0x10000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.group_details_ != nullptr);
   return value;
 }
@@ -8340,16 +8449,16 @@ inline void Entity::unsafe_arena_set_allocated_group_details(::anduril::entityma
   }
   _impl_.group_details_ = reinterpret_cast<::anduril::entitymanager::v1::GroupDetails*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x10000000u;
+    _impl_._has_bits_[0] |= 0x20000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x10000000u;
+    _impl_._has_bits_[0] &= ~0x20000000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.group_details)
 }
 inline ::anduril::entitymanager::v1::GroupDetails* Entity::release_group_details() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x10000000u;
+  _impl_._has_bits_[0] &= ~0x20000000u;
   ::anduril::entitymanager::v1::GroupDetails* released = _impl_.group_details_;
   _impl_.group_details_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
@@ -8369,7 +8478,7 @@ inline ::anduril::entitymanager::v1::GroupDetails* Entity::unsafe_arena_release_
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.group_details)
 
-  _impl_._has_bits_[0] &= ~0x10000000u;
+  _impl_._has_bits_[0] &= ~0x20000000u;
   ::anduril::entitymanager::v1::GroupDetails* temp = _impl_.group_details_;
   _impl_.group_details_ = nullptr;
   return temp;
@@ -8383,7 +8492,7 @@ inline ::anduril::entitymanager::v1::GroupDetails* Entity::_internal_mutable_gro
   return _impl_.group_details_;
 }
 inline ::anduril::entitymanager::v1::GroupDetails* Entity::mutable_group_details() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x10000000u;
+  _impl_._has_bits_[0] |= 0x20000000u;
   ::anduril::entitymanager::v1::GroupDetails* _msg = _internal_mutable_group_details();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.group_details)
   return _msg;
@@ -8400,9 +8509,9 @@ inline void Entity::set_allocated_group_details(::anduril::entitymanager::v1::Gr
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x10000000u;
+    _impl_._has_bits_[0] |= 0x20000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x10000000u;
+    _impl_._has_bits_[0] &= ~0x20000000u;
   }
 
   _impl_.group_details_ = reinterpret_cast<::anduril::entitymanager::v1::GroupDetails*>(value);
@@ -8411,7 +8520,7 @@ inline void Entity::set_allocated_group_details(::anduril::entitymanager::v1::Gr
 
 // .anduril.entitymanager.v1.Supplies supplies = 42 [json_name = "supplies"];
 inline bool Entity::has_supplies() const {
-  bool value = (_impl_._has_bits_[0] & 0x20000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.supplies_ != nullptr);
   return value;
 }
@@ -8431,16 +8540,16 @@ inline void Entity::unsafe_arena_set_allocated_supplies(::anduril::entitymanager
   }
   _impl_.supplies_ = reinterpret_cast<::anduril::entitymanager::v1::Supplies*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x20000000u;
+    _impl_._has_bits_[0] |= 0x40000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x20000000u;
+    _impl_._has_bits_[0] &= ~0x40000000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.supplies)
 }
 inline ::anduril::entitymanager::v1::Supplies* Entity::release_supplies() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x20000000u;
+  _impl_._has_bits_[0] &= ~0x40000000u;
   ::anduril::entitymanager::v1::Supplies* released = _impl_.supplies_;
   _impl_.supplies_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
@@ -8460,7 +8569,7 @@ inline ::anduril::entitymanager::v1::Supplies* Entity::unsafe_arena_release_supp
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.supplies)
 
-  _impl_._has_bits_[0] &= ~0x20000000u;
+  _impl_._has_bits_[0] &= ~0x40000000u;
   ::anduril::entitymanager::v1::Supplies* temp = _impl_.supplies_;
   _impl_.supplies_ = nullptr;
   return temp;
@@ -8474,7 +8583,7 @@ inline ::anduril::entitymanager::v1::Supplies* Entity::_internal_mutable_supplie
   return _impl_.supplies_;
 }
 inline ::anduril::entitymanager::v1::Supplies* Entity::mutable_supplies() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x20000000u;
+  _impl_._has_bits_[0] |= 0x40000000u;
   ::anduril::entitymanager::v1::Supplies* _msg = _internal_mutable_supplies();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.supplies)
   return _msg;
@@ -8491,9 +8600,9 @@ inline void Entity::set_allocated_supplies(::anduril::entitymanager::v1::Supplie
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x20000000u;
+    _impl_._has_bits_[0] |= 0x40000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x20000000u;
+    _impl_._has_bits_[0] &= ~0x40000000u;
   }
 
   _impl_.supplies_ = reinterpret_cast<::anduril::entitymanager::v1::Supplies*>(value);
@@ -8502,7 +8611,7 @@ inline void Entity::set_allocated_supplies(::anduril::entitymanager::v1::Supplie
 
 // .anduril.entitymanager.v1.Orbit orbit = 46 [json_name = "orbit"];
 inline bool Entity::has_orbit() const {
-  bool value = (_impl_._has_bits_[0] & 0x40000000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x80000000u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.orbit_ != nullptr);
   return value;
 }
@@ -8522,16 +8631,16 @@ inline void Entity::unsafe_arena_set_allocated_orbit(::anduril::entitymanager::v
   }
   _impl_.orbit_ = reinterpret_cast<::anduril::entitymanager::v1::Orbit*>(value);
   if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x40000000u;
+    _impl_._has_bits_[0] |= 0x80000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x40000000u;
+    _impl_._has_bits_[0] &= ~0x80000000u;
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:anduril.entitymanager.v1.Entity.orbit)
 }
 inline ::anduril::entitymanager::v1::Orbit* Entity::release_orbit() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
 
-  _impl_._has_bits_[0] &= ~0x40000000u;
+  _impl_._has_bits_[0] &= ~0x80000000u;
   ::anduril::entitymanager::v1::Orbit* released = _impl_.orbit_;
   _impl_.orbit_ = nullptr;
   if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
@@ -8551,7 +8660,7 @@ inline ::anduril::entitymanager::v1::Orbit* Entity::unsafe_arena_release_orbit()
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.Entity.orbit)
 
-  _impl_._has_bits_[0] &= ~0x40000000u;
+  _impl_._has_bits_[0] &= ~0x80000000u;
   ::anduril::entitymanager::v1::Orbit* temp = _impl_.orbit_;
   _impl_.orbit_ = nullptr;
   return temp;
@@ -8565,7 +8674,7 @@ inline ::anduril::entitymanager::v1::Orbit* Entity::_internal_mutable_orbit() {
   return _impl_.orbit_;
 }
 inline ::anduril::entitymanager::v1::Orbit* Entity::mutable_orbit() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  _impl_._has_bits_[0] |= 0x40000000u;
+  _impl_._has_bits_[0] |= 0x80000000u;
   ::anduril::entitymanager::v1::Orbit* _msg = _internal_mutable_orbit();
   // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.Entity.orbit)
   return _msg;
@@ -8582,9 +8691,9 @@ inline void Entity::set_allocated_orbit(::anduril::entitymanager::v1::Orbit* val
     if (message_arena != submessage_arena) {
       value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x40000000u;
+    _impl_._has_bits_[0] |= 0x80000000u;
   } else {
-    _impl_._has_bits_[0] &= ~0x40000000u;
+    _impl_._has_bits_[0] &= ~0x80000000u;
   }
 
   _impl_.orbit_ = reinterpret_cast<::anduril::entitymanager::v1::Orbit*>(value);

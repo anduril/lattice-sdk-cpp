@@ -31,6 +31,7 @@
 #include "google/protobuf/extension_set.h"  // IWYU pragma: export
 #include "google/protobuf/generated_enum_reflection.h"
 #include "google/protobuf/unknown_field_set.h"
+#include "anduril/entitymanager/v1/options.pub.pb.h"
 #include "anduril/type/coords.pub.pb.h"
 #include "google/protobuf/wrappers.pb.h"
 // @@protoc_insertion_point(includes)
@@ -2182,7 +2183,7 @@ class Signal final
     kLineOfBearingFieldNumber = 5,
     kFixedFieldNumber = 6,
   };
-  // repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];
+  // repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];
   int emitter_notations_size() const;
   private:
   int _internal_emitter_notations_size() const;
@@ -2199,7 +2200,7 @@ class Signal final
   const ::anduril::entitymanager::v1::EmitterNotation& emitter_notations(int index) const;
   ::anduril::entitymanager::v1::EmitterNotation* add_emitter_notations();
   const ::google::protobuf::RepeatedPtrField<::anduril::entitymanager::v1::EmitterNotation>& emitter_notations() const;
-  // .google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];
+  // .google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz", (.anduril.entitymanager.v1.overridable) = true];
   bool has_bandwidth_hz() const;
   void clear_bandwidth_hz() ;
   const ::google::protobuf::DoubleValue& bandwidth_hz() const;
@@ -2229,7 +2230,7 @@ class Signal final
   ::google::protobuf::DoubleValue* _internal_mutable_signal_to_noise_ratio();
 
   public:
-  // .google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS"];
+  // .google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS", (.anduril.entitymanager.v1.overridable) = true];
   bool has_pulse_width_s() const;
   void clear_pulse_width_s() ;
   const ::google::protobuf::DoubleValue& pulse_width_s() const;
@@ -2244,7 +2245,7 @@ class Signal final
   ::google::protobuf::DoubleValue* _internal_mutable_pulse_width_s();
 
   public:
-  // .anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];
+  // .anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval", (.anduril.entitymanager.v1.overridable) = true];
   bool has_pulse_repetition_interval() const;
   void clear_pulse_repetition_interval() ;
   const ::anduril::entitymanager::v1::PulseRepetitionInterval& pulse_repetition_interval() const;
@@ -2274,7 +2275,7 @@ class Signal final
   ::anduril::entitymanager::v1::ScanCharacteristics* _internal_mutable_scan_characteristics();
 
   public:
-  // .anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter"];
+  // .anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter", (.anduril.entitymanager.v1.overridable) = true];
   bool has_frequency_center() const;
   private:
   bool _internal_has_frequency_center() const;
@@ -2293,7 +2294,7 @@ class Signal final
   ::anduril::entitymanager::v1::Frequency* _internal_mutable_frequency_center();
 
   public:
-  // .anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange"];
+  // .anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange", (.anduril.entitymanager.v1.overridable) = true];
   bool has_frequency_range() const;
   private:
   bool _internal_has_frequency_range() const;
@@ -2428,7 +2429,7 @@ class Signal final
 
 // Signal
 
-// .anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter"];
+// .anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter", (.anduril.entitymanager.v1.overridable) = true];
 inline bool Signal::has_frequency_center() const {
   return frequency_measurement_case() == kFrequencyCenter;
 }
@@ -2507,7 +2508,7 @@ inline ::anduril::entitymanager::v1::Frequency* Signal::mutable_frequency_center
   return _msg;
 }
 
-// .anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange"];
+// .anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange", (.anduril.entitymanager.v1.overridable) = true];
 inline bool Signal::has_frequency_range() const {
   return frequency_measurement_case() == kFrequencyRange;
 }
@@ -2586,7 +2587,7 @@ inline ::anduril::entitymanager::v1::FrequencyRange* Signal::mutable_frequency_r
   return _msg;
 }
 
-// .google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];
+// .google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz", (.anduril.entitymanager.v1.overridable) = true];
 inline bool Signal::has_bandwidth_hz() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.bandwidth_hz_ != nullptr);
@@ -2926,7 +2927,7 @@ inline ::anduril::entitymanager::v1::Fixed* Signal::mutable_fixed() ABSL_ATTRIBU
   return _msg;
 }
 
-// repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];
+// repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];
 inline int Signal::_internal_emitter_notations_size() const {
   return _internal_emitter_notations().size();
 }
@@ -2975,7 +2976,7 @@ Signal::_internal_mutable_emitter_notations() {
   return &_impl_.emitter_notations_;
 }
 
-// .google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS"];
+// .google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS", (.anduril.entitymanager.v1.overridable) = true];
 inline bool Signal::has_pulse_width_s() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.pulse_width_s_ != nullptr);
@@ -3066,7 +3067,7 @@ inline void Signal::set_allocated_pulse_width_s(::google::protobuf::DoubleValue*
   // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.Signal.pulse_width_s)
 }
 
-// .anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];
+// .anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval", (.anduril.entitymanager.v1.overridable) = true];
 inline bool Signal::has_pulse_repetition_interval() const {
   bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   PROTOBUF_ASSUME(!value || _impl_.pulse_repetition_interval_ != nullptr);

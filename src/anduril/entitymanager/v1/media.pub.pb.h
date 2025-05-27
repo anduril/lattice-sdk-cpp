@@ -75,10 +75,8 @@ namespace entitymanager {
 namespace v1 {
 enum MediaType : int {
   MEDIA_TYPE_INVALID = 0,
-  MEDIA_TYPE_THUMBNAIL = 1,
   MEDIA_TYPE_IMAGE = 2,
   MEDIA_TYPE_VIDEO = 3,
-  MEDIA_TYPE_SLIPPY_TILES = 4,
   MediaType_INT_MIN_SENTINEL_DO_NOT_USE_ =
       std::numeric_limits<::int32_t>::min(),
   MediaType_INT_MAX_SENTINEL_DO_NOT_USE_ =
@@ -88,8 +86,8 @@ enum MediaType : int {
 bool MediaType_IsValid(int value);
 extern const uint32_t MediaType_internal_data_[];
 constexpr MediaType MediaType_MIN = static_cast<MediaType>(0);
-constexpr MediaType MediaType_MAX = static_cast<MediaType>(4);
-constexpr int MediaType_ARRAYSIZE = 4 + 1;
+constexpr MediaType MediaType_MAX = static_cast<MediaType>(3);
+constexpr int MediaType_ARRAYSIZE = 3 + 1;
 const ::google::protobuf::EnumDescriptor*
 MediaType_descriptor();
 template <typename T>
@@ -102,7 +100,7 @@ const std::string& MediaType_Name(T value) {
 template <>
 inline const std::string& MediaType_Name(MediaType value) {
   return ::google::protobuf::internal::NameOfDenseEnum<MediaType_descriptor,
-                                                 0, 4>(
+                                                 0, 3>(
       static_cast<int>(value));
 }
 inline bool MediaType_Parse(absl::string_view name, MediaType* value) {
@@ -262,26 +260,9 @@ class MediaItem final
 
   // accessors -------------------------------------------------------
   enum : int {
-    kUrlFieldNumber = 1,
     kRelativePathFieldNumber = 3,
     kTypeFieldNumber = 2,
   };
-  // string url = 1 [json_name = "url"];
-  void clear_url() ;
-  const std::string& url() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_url(Arg_&& arg, Args_... args);
-  std::string* mutable_url();
-  PROTOBUF_NODISCARD std::string* release_url();
-  void set_allocated_url(std::string* value);
-
-  private:
-  const std::string& _internal_url() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_url(
-      const std::string& value);
-  std::string* _internal_mutable_url();
-
-  public:
   // string relative_path = 3 [json_name = "relativePath"];
   void clear_relative_path() ;
   const std::string& relative_path() const;
@@ -313,8 +294,8 @@ class MediaItem final
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      2, 3, 0,
-      59, 2>
+      1, 2, 0,
+      56, 2>
       _table_;
 
   friend class ::google::protobuf::MessageLite;
@@ -331,7 +312,6 @@ class MediaItem final
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const MediaItem& from_msg);
-    ::google::protobuf::internal::ArenaStringPtr url_;
     ::google::protobuf::internal::ArenaStringPtr relative_path_;
     int type_;
     ::google::protobuf::internal::CachedSize _cached_size_;
@@ -607,54 +587,6 @@ Media::_internal_mutable_media() {
 // -------------------------------------------------------------------
 
 // MediaItem
-
-// string url = 1 [json_name = "url"];
-inline void MediaItem::clear_url() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.url_.ClearToEmpty();
-}
-inline const std::string& MediaItem::url() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:anduril.entitymanager.v1.MediaItem.url)
-  return _internal_url();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void MediaItem::set_url(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.url_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:anduril.entitymanager.v1.MediaItem.url)
-}
-inline std::string* MediaItem::mutable_url() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_url();
-  // @@protoc_insertion_point(field_mutable:anduril.entitymanager.v1.MediaItem.url)
-  return _s;
-}
-inline const std::string& MediaItem::_internal_url() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.url_.Get();
-}
-inline void MediaItem::_internal_set_url(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.url_.Set(value, GetArena());
-}
-inline std::string* MediaItem::_internal_mutable_url() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.url_.Mutable( GetArena());
-}
-inline std::string* MediaItem::release_url() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:anduril.entitymanager.v1.MediaItem.url)
-  return _impl_.url_.Release();
-}
-inline void MediaItem::set_allocated_url(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.url_.SetAllocated(value, GetArena());
-  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.url_.IsDefault()) {
-    _impl_.url_.Set("", GetArena());
-  }
-  // @@protoc_insertion_point(field_set_allocated:anduril.entitymanager.v1.MediaItem.url)
-}
 
 // .anduril.entitymanager.v1.MediaType type = 2 [json_name = "type"];
 inline void MediaItem::clear_type() {
