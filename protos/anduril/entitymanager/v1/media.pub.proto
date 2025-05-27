@@ -16,19 +16,17 @@ message Media {
 }
 
 message MediaItem {
-  // To Be Deprecated, use relative_path.
-  // The url where the media related to an entity can be accessed
-  string url = 1;
   MediaType type = 2;
-  // The relative path where the media related to an entity can be accessed when used to query against a blobs service
-  // node.
+  // The path, relative to the environment base URL, where media related to an entity can be accessed
   string relative_path = 3;
+
+  reserved 1;
 }
 
 enum MediaType {
   MEDIA_TYPE_INVALID = 0;
-  MEDIA_TYPE_THUMBNAIL = 1;
   MEDIA_TYPE_IMAGE = 2;
   MEDIA_TYPE_VIDEO = 3;
-  MEDIA_TYPE_SLIPPY_TILES = 4;
+
+  reserved 1, 4;
 }

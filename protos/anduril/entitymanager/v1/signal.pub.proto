@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package anduril.entitymanager.v1;
 
+import "anduril/entitymanager/v1/options.pub.proto";
 import "anduril/type/coords.pub.proto";
 import "google/protobuf/wrappers.proto";
 
@@ -15,11 +16,11 @@ option objc_class_prefix = "AEX";
 message Signal {
   // Indicates either a frequency range or a center frequency of this signal.
   oneof frequency_measurement {
-    Frequency frequency_center = 1;
-    FrequencyRange frequency_range = 2;
+    Frequency frequency_center = 1 [(anduril.entitymanager.v1.overridable) = true];
+    FrequencyRange frequency_range = 2 [(anduril.entitymanager.v1.overridable) = true];
   }
   // Indicates the bandwidth of a signal (Hz).
-  google.protobuf.DoubleValue bandwidth_hz = 3;
+  google.protobuf.DoubleValue bandwidth_hz = 3 [(anduril.entitymanager.v1.overridable) = true];
   // Indicates the signal to noise (SNR) of this signal.
   google.protobuf.DoubleValue signal_to_noise_ratio = 4;
   // Indicates the signal report.
@@ -28,11 +29,11 @@ message Signal {
     Fixed fixed = 6;
   }
   // Emitter notations associated with this entity.
-  repeated EmitterNotation emitter_notations = 7;
+  repeated EmitterNotation emitter_notations = 7 [(anduril.entitymanager.v1.overridable) = true];
   // length in time of a single pulse
-  google.protobuf.DoubleValue pulse_width_s = 8;
+  google.protobuf.DoubleValue pulse_width_s = 8 [(anduril.entitymanager.v1.overridable) = true];
   // length in time between the start of two pulses
-  PulseRepetitionInterval pulse_repetition_interval = 9;
+  PulseRepetitionInterval pulse_repetition_interval = 9 [(anduril.entitymanager.v1.overridable) = true];
   // describes how a signal is observing the environment
   ScanCharacteristics scan_characteristics = 11;
 

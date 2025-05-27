@@ -459,86 +459,89 @@ static const ::_pb::Message* const file_default_instances[] = {
 const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
     "\n)anduril/entitymanager/v1/signal.pub.pr"
-    "oto\022\030anduril.entitymanager.v1\032\035anduril/t"
-    "ype/coords.pub.proto\032\036google/protobuf/wr"
-    "appers.proto\"\341\006\n\006Signal\022P\n\020frequency_cen"
-    "ter\030\001 \001(\0132#.anduril.entitymanager.v1.Fre"
-    "quencyH\000R\017frequencyCenter\022S\n\017frequency_r"
-    "ange\030\002 \001(\0132(.anduril.entitymanager.v1.Fr"
-    "equencyRangeH\000R\016frequencyRange\022\?\n\014bandwi"
-    "dth_hz\030\003 \001(\0132\034.google.protobuf.DoubleVal"
-    "ueR\013bandwidthHz\022O\n\025signal_to_noise_ratio"
-    "\030\004 \001(\0132\034.google.protobuf.DoubleValueR\022si"
-    "gnalToNoiseRatio\022Q\n\017line_of_bearing\030\005 \001("
-    "\0132\'.anduril.entitymanager.v1.LineOfBeari"
-    "ngH\001R\rlineOfBearing\0227\n\005fixed\030\006 \001(\0132\037.and"
-    "uril.entitymanager.v1.FixedH\001R\005fixed\022V\n\021"
-    "emitter_notations\030\007 \003(\0132).anduril.entity"
-    "manager.v1.EmitterNotationR\020emitterNotat"
-    "ions\022@\n\rpulse_width_s\030\010 \001(\0132\034.google.pro"
-    "tobuf.DoubleValueR\013pulseWidthS\022m\n\031pulse_"
-    "repetition_interval\030\t \001(\01321.anduril.enti"
-    "tymanager.v1.PulseRepetitionIntervalR\027pu"
-    "lseRepetitionInterval\022`\n\024scan_characteri"
-    "stics\030\013 \001(\0132-.anduril.entitymanager.v1.S"
-    "canCharacteristicsR\023scanCharacteristicsB"
-    "\027\n\025frequency_measurementB\010\n\006reportJ\004\010\n\020\013"
-    "\"z\n\017EmitterNotation\022)\n\020emitter_notation\030"
-    "\001 \001(\tR\017emitterNotation\022<\n\nconfidence\030\002 \001"
-    "(\0132\034.google.protobuf.DoubleValueR\nconfid"
-    "ence\"u\n\013Measurement\0222\n\005value\030\001 \001(\0132\034.goo"
-    "gle.protobuf.DoubleValueR\005value\0222\n\005sigma"
-    "\030\002 \001(\0132\034.google.protobuf.DoubleValueR\005si"
-    "gma\"U\n\tFrequency\022H\n\014frequency_hz\030\001 \001(\0132%"
-    ".anduril.entitymanager.v1.MeasurementR\013f"
-    "requencyHz\"\276\001\n\016FrequencyRange\022U\n\024minimum"
-    "_frequency_hz\030\001 \001(\0132#.anduril.entitymana"
-    "ger.v1.FrequencyR\022minimumFrequencyHz\022U\n\024"
-    "maximum_frequency_hz\030\002 \001(\0132#.anduril.ent"
-    "itymanager.v1.FrequencyR\022maximumFrequenc"
-    "yHz\"\236\002\n\rLineOfBearing\022R\n\020angle_of_arriva"
-    "l\030\003 \001(\0132(.anduril.entitymanager.v1.Angle"
-    "OfArrivalR\016angleOfArrival\022Q\n\020range_estim"
-    "ate_m\030\004 \001(\0132%.anduril.entitymanager.v1.M"
-    "easurementH\000R\016rangeEstimateM\022G\n\013max_rang"
-    "e_m\030\005 \001(\0132%.anduril.entitymanager.v1.Mea"
-    "surementH\000R\tmaxRangeMB\021\n\017detection_range"
-    "J\004\010\001\020\002J\004\010\002\020\003\"\251\001\n\016AngleOfArrival\0227\n\rrelat"
-    "ive_pose\030\001 \001(\0132\022.anduril.type.PoseR\014rela"
-    "tivePose\022^\n!bearing_elevation_covariance"
-    "_rad2\030\002 \001(\0132\023.anduril.type.TMat2R\036bearin"
-    "gElevationCovarianceRad2\"\007\n\005Fixed\"\177\n\027Pul"
-    "seRepetitionInterval\022d\n\033pulse_repetition"
-    "_interval_s\030\001 \001(\0132%.anduril.entitymanage"
-    "r.v1.MeasurementR\030pulseRepetitionInterva"
-    "lS\"\230\001\n\023ScanCharacteristics\022\?\n\tscan_type\030"
-    "\001 \001(\0162\".anduril.entitymanager.v1.ScanTyp"
-    "eR\010scanType\022@\n\rscan_period_s\030\002 \001(\0132\034.goo"
-    "gle.protobuf.DoubleValueR\013scanPeriodS*\274\004"
-    "\n\010ScanType\022\025\n\021SCAN_TYPE_INVALID\020\000\022\026\n\022SCA"
-    "N_TYPE_CIRCULAR\020\001\022-\n)SCAN_TYPE_BIDIRECTI"
-    "ONAL_HORIZONTAL_SECTOR\020\002\022+\n\'SCAN_TYPE_BI"
-    "DIRECTIONAL_VERTICAL_SECTOR\020\003\022\032\n\026SCAN_TY"
-    "PE_NON_SCANNING\020\004\022\027\n\023SCAN_TYPE_IRREGULAR"
-    "\020\005\022\025\n\021SCAN_TYPE_CONICAL\020\006\022\034\n\030SCAN_TYPE_L"
-    "OBE_SWITCHING\020\007\022\024\n\020SCAN_TYPE_RASTER\020\010\022&\n"
-    "\"SCAN_TYPE_CIRCULAR_VERTICAL_SECTOR\020\t\022\036\n"
-    "\032SCAN_TYPE_CIRCULAR_CONICAL\020\n\022\034\n\030SCAN_TY"
-    "PE_SECTOR_CONICAL\020\013\022\030\n\024SCAN_TYPE_AGILE_B"
-    "EAM\020\014\022,\n(SCAN_TYPE_UNIDIRECTIONAL_VERTIC"
-    "AL_SECTOR\020\r\022.\n*SCAN_TYPE_UNIDIRECTIONAL_"
-    "HORIZONTAL_SECTOR\020\016\022#\n\037SCAN_TYPE_UNIDIRE"
-    "CTIONAL_SECTOR\020\017\022\"\n\036SCAN_TYPE_BIDIRECTIO"
-    "NAL_SECTOR\020\020B\377\001\n\034com.anduril.entitymanag"
-    "er.v1B\016SignalPubProtoP\001ZMghe.anduril.dev"
-    "/anduril/andurilapis-go/anduril/entityma"
-    "nager/v1;entitymanager\242\002\003AEX\252\002\030Anduril.E"
-    "ntitymanager.V1\312\002\030Anduril\\Entitymanager\\"
-    "V1\342\002$Anduril\\Entitymanager\\V1\\GPBMetadat"
-    "a\352\002\032Anduril::Entitymanager::V1b\006proto3"
+    "oto\022\030anduril.entitymanager.v1\032*anduril/e"
+    "ntitymanager/v1/options.pub.proto\032\035andur"
+    "il/type/coords.pub.proto\032\036google/protobu"
+    "f/wrappers.proto\"\377\006\n\006Signal\022U\n\020frequency"
+    "_center\030\001 \001(\0132#.anduril.entitymanager.v1"
+    ".FrequencyB\003\310>\001H\000R\017frequencyCenter\022X\n\017fr"
+    "equency_range\030\002 \001(\0132(.anduril.entitymana"
+    "ger.v1.FrequencyRangeB\003\310>\001H\000R\016frequencyR"
+    "ange\022D\n\014bandwidth_hz\030\003 \001(\0132\034.google.prot"
+    "obuf.DoubleValueB\003\310>\001R\013bandwidthHz\022O\n\025si"
+    "gnal_to_noise_ratio\030\004 \001(\0132\034.google.proto"
+    "buf.DoubleValueR\022signalToNoiseRatio\022Q\n\017l"
+    "ine_of_bearing\030\005 \001(\0132\'.anduril.entityman"
+    "ager.v1.LineOfBearingH\001R\rlineOfBearing\0227"
+    "\n\005fixed\030\006 \001(\0132\037.anduril.entitymanager.v1"
+    ".FixedH\001R\005fixed\022[\n\021emitter_notations\030\007 \003"
+    "(\0132).anduril.entitymanager.v1.EmitterNot"
+    "ationB\003\310>\001R\020emitterNotations\022E\n\rpulse_wi"
+    "dth_s\030\010 \001(\0132\034.google.protobuf.DoubleValu"
+    "eB\003\310>\001R\013pulseWidthS\022r\n\031pulse_repetition_"
+    "interval\030\t \001(\01321.anduril.entitymanager.v"
+    "1.PulseRepetitionIntervalB\003\310>\001R\027pulseRep"
+    "etitionInterval\022`\n\024scan_characteristics\030"
+    "\013 \001(\0132-.anduril.entitymanager.v1.ScanCha"
+    "racteristicsR\023scanCharacteristicsB\027\n\025fre"
+    "quency_measurementB\010\n\006reportJ\004\010\n\020\013\"z\n\017Em"
+    "itterNotation\022)\n\020emitter_notation\030\001 \001(\tR"
+    "\017emitterNotation\022<\n\nconfidence\030\002 \001(\0132\034.g"
+    "oogle.protobuf.DoubleValueR\nconfidence\"u"
+    "\n\013Measurement\0222\n\005value\030\001 \001(\0132\034.google.pr"
+    "otobuf.DoubleValueR\005value\0222\n\005sigma\030\002 \001(\013"
+    "2\034.google.protobuf.DoubleValueR\005sigma\"U\n"
+    "\tFrequency\022H\n\014frequency_hz\030\001 \001(\0132%.andur"
+    "il.entitymanager.v1.MeasurementR\013frequen"
+    "cyHz\"\276\001\n\016FrequencyRange\022U\n\024minimum_frequ"
+    "ency_hz\030\001 \001(\0132#.anduril.entitymanager.v1"
+    ".FrequencyR\022minimumFrequencyHz\022U\n\024maximu"
+    "m_frequency_hz\030\002 \001(\0132#.anduril.entityman"
+    "ager.v1.FrequencyR\022maximumFrequencyHz\"\236\002"
+    "\n\rLineOfBearing\022R\n\020angle_of_arrival\030\003 \001("
+    "\0132(.anduril.entitymanager.v1.AngleOfArri"
+    "valR\016angleOfArrival\022Q\n\020range_estimate_m\030"
+    "\004 \001(\0132%.anduril.entitymanager.v1.Measure"
+    "mentH\000R\016rangeEstimateM\022G\n\013max_range_m\030\005 "
+    "\001(\0132%.anduril.entitymanager.v1.Measureme"
+    "ntH\000R\tmaxRangeMB\021\n\017detection_rangeJ\004\010\001\020\002"
+    "J\004\010\002\020\003\"\251\001\n\016AngleOfArrival\0227\n\rrelative_po"
+    "se\030\001 \001(\0132\022.anduril.type.PoseR\014relativePo"
+    "se\022^\n!bearing_elevation_covariance_rad2\030"
+    "\002 \001(\0132\023.anduril.type.TMat2R\036bearingEleva"
+    "tionCovarianceRad2\"\007\n\005Fixed\"\177\n\027PulseRepe"
+    "titionInterval\022d\n\033pulse_repetition_inter"
+    "val_s\030\001 \001(\0132%.anduril.entitymanager.v1.M"
+    "easurementR\030pulseRepetitionIntervalS\"\230\001\n"
+    "\023ScanCharacteristics\022\?\n\tscan_type\030\001 \001(\0162"
+    "\".anduril.entitymanager.v1.ScanTypeR\010sca"
+    "nType\022@\n\rscan_period_s\030\002 \001(\0132\034.google.pr"
+    "otobuf.DoubleValueR\013scanPeriodS*\274\004\n\010Scan"
+    "Type\022\025\n\021SCAN_TYPE_INVALID\020\000\022\026\n\022SCAN_TYPE"
+    "_CIRCULAR\020\001\022-\n)SCAN_TYPE_BIDIRECTIONAL_H"
+    "ORIZONTAL_SECTOR\020\002\022+\n\'SCAN_TYPE_BIDIRECT"
+    "IONAL_VERTICAL_SECTOR\020\003\022\032\n\026SCAN_TYPE_NON"
+    "_SCANNING\020\004\022\027\n\023SCAN_TYPE_IRREGULAR\020\005\022\025\n\021"
+    "SCAN_TYPE_CONICAL\020\006\022\034\n\030SCAN_TYPE_LOBE_SW"
+    "ITCHING\020\007\022\024\n\020SCAN_TYPE_RASTER\020\010\022&\n\"SCAN_"
+    "TYPE_CIRCULAR_VERTICAL_SECTOR\020\t\022\036\n\032SCAN_"
+    "TYPE_CIRCULAR_CONICAL\020\n\022\034\n\030SCAN_TYPE_SEC"
+    "TOR_CONICAL\020\013\022\030\n\024SCAN_TYPE_AGILE_BEAM\020\014\022"
+    ",\n(SCAN_TYPE_UNIDIRECTIONAL_VERTICAL_SEC"
+    "TOR\020\r\022.\n*SCAN_TYPE_UNIDIRECTIONAL_HORIZO"
+    "NTAL_SECTOR\020\016\022#\n\037SCAN_TYPE_UNIDIRECTIONA"
+    "L_SECTOR\020\017\022\"\n\036SCAN_TYPE_BIDIRECTIONAL_SE"
+    "CTOR\020\020B\377\001\n\034com.anduril.entitymanager.v1B"
+    "\016SignalPubProtoP\001ZMghe.anduril.dev/andur"
+    "il/andurilapis-go/anduril/entitymanager/"
+    "v1;entitymanager\242\002\003AEX\252\002\030Anduril.Entitym"
+    "anager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$A"
+    "nduril\\Entitymanager\\V1\\GPBMetadata\352\002\032An"
+    "duril::Entitymanager::V1b\006proto3"
 };
-static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto_deps[2] =
+static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto_deps[3] =
     {
+        &::descriptor_table_anduril_2fentitymanager_2fv1_2foptions_2epub_2eproto,
         &::descriptor_table_anduril_2ftype_2fcoords_2epub_2eproto,
         &::descriptor_table_google_2fprotobuf_2fwrappers_2eproto,
 };
@@ -546,12 +549,12 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fsignal_
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto = {
     false,
     false,
-    3118,
+    3192,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto,
     "anduril/entitymanager/v1/signal.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto_once,
     descriptor_table_anduril_2fentitymanager_2fv1_2fsignal_2epub_2eproto_deps,
-    2,
+    3,
     10,
     schemas,
     file_default_instances,
@@ -885,7 +888,7 @@ const ::_pbi::TcParseTable<4, 10, 10, 0, 2> Signal::_table_ = {
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
-    // .google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];
+    // .google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz", (.anduril.entitymanager.v1.overridable) = true];
     {::_pbi::TcParser::FastMtS1,
      {26, 0, 2, PROTOBUF_FIELD_OFFSET(Signal, _impl_.bandwidth_hz_)}},
     // .google.protobuf.DoubleValue signal_to_noise_ratio = 4 [json_name = "signalToNoiseRatio"];
@@ -893,13 +896,13 @@ const ::_pbi::TcParseTable<4, 10, 10, 0, 2> Signal::_table_ = {
      {34, 1, 3, PROTOBUF_FIELD_OFFSET(Signal, _impl_.signal_to_noise_ratio_)}},
     {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
-    // repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];
+    // repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];
     {::_pbi::TcParser::FastMtR1,
      {58, 63, 6, PROTOBUF_FIELD_OFFSET(Signal, _impl_.emitter_notations_)}},
-    // .google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS"];
+    // .google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS", (.anduril.entitymanager.v1.overridable) = true];
     {::_pbi::TcParser::FastMtS1,
      {66, 2, 7, PROTOBUF_FIELD_OFFSET(Signal, _impl_.pulse_width_s_)}},
-    // .anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];
+    // .anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval", (.anduril.entitymanager.v1.overridable) = true];
     {::_pbi::TcParser::FastMtS1,
      {74, 3, 8, PROTOBUF_FIELD_OFFSET(Signal, _impl_.pulse_repetition_interval_)}},
     {::_pbi::TcParser::MiniParse, {}},
@@ -913,13 +916,13 @@ const ::_pbi::TcParseTable<4, 10, 10, 0, 2> Signal::_table_ = {
   }}, {{
     65535, 65535
   }}, {{
-    // .anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter"];
+    // .anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter", (.anduril.entitymanager.v1.overridable) = true];
     {PROTOBUF_FIELD_OFFSET(Signal, _impl_.frequency_measurement_.frequency_center_), _Internal::kOneofCaseOffset + 0, 0,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange"];
+    // .anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange", (.anduril.entitymanager.v1.overridable) = true];
     {PROTOBUF_FIELD_OFFSET(Signal, _impl_.frequency_measurement_.frequency_range_), _Internal::kOneofCaseOffset + 0, 1,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];
+    // .google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz", (.anduril.entitymanager.v1.overridable) = true];
     {PROTOBUF_FIELD_OFFSET(Signal, _impl_.bandwidth_hz_), _Internal::kHasBitsOffset + 0, 2,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .google.protobuf.DoubleValue signal_to_noise_ratio = 4 [json_name = "signalToNoiseRatio"];
@@ -931,13 +934,13 @@ const ::_pbi::TcParseTable<4, 10, 10, 0, 2> Signal::_table_ = {
     // .anduril.entitymanager.v1.Fixed fixed = 6 [json_name = "fixed"];
     {PROTOBUF_FIELD_OFFSET(Signal, _impl_.report_.fixed_), _Internal::kOneofCaseOffset + 4, 5,
     (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
-    // repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];
+    // repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];
     {PROTOBUF_FIELD_OFFSET(Signal, _impl_.emitter_notations_), -1, 6,
     (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS"];
+    // .google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS", (.anduril.entitymanager.v1.overridable) = true];
     {PROTOBUF_FIELD_OFFSET(Signal, _impl_.pulse_width_s_), _Internal::kHasBitsOffset + 2, 7,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
-    // .anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];
+    // .anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval", (.anduril.entitymanager.v1.overridable) = true];
     {PROTOBUF_FIELD_OFFSET(Signal, _impl_.pulse_repetition_interval_), _Internal::kHasBitsOffset + 3, 8,
     (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
     // .anduril.entitymanager.v1.ScanCharacteristics scan_characteristics = 11 [json_name = "scanCharacteristics"];
@@ -1027,7 +1030,7 @@ PROTOBUF_NOINLINE void Signal::Clear() {
               break;
           }
           cached_has_bits = this_._impl_._has_bits_[0];
-          // .google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];
+          // .google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz", (.anduril.entitymanager.v1.overridable) = true];
           if (cached_has_bits & 0x00000001u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 3, *this_._impl_.bandwidth_hz_, this_._impl_.bandwidth_hz_->GetCachedSize(), target,
@@ -1057,7 +1060,7 @@ PROTOBUF_NOINLINE void Signal::Clear() {
             default:
               break;
           }
-          // repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];
+          // repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];
           for (unsigned i = 0, n = static_cast<unsigned>(
                                    this_._internal_emitter_notations_size());
                i < n; i++) {
@@ -1068,14 +1071,14 @@ PROTOBUF_NOINLINE void Signal::Clear() {
                     target, stream);
           }
 
-          // .google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS"];
+          // .google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS", (.anduril.entitymanager.v1.overridable) = true];
           if (cached_has_bits & 0x00000004u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 8, *this_._impl_.pulse_width_s_, this_._impl_.pulse_width_s_->GetCachedSize(), target,
                 stream);
           }
 
-          // .anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];
+          // .anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval", (.anduril.entitymanager.v1.overridable) = true];
           if (cached_has_bits & 0x00000008u) {
             target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
                 9, *this_._impl_.pulse_repetition_interval_, this_._impl_.pulse_repetition_interval_->GetCachedSize(), target,
@@ -1114,7 +1117,7 @@ PROTOBUF_NOINLINE void Signal::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations"];
+            // repeated .anduril.entitymanager.v1.EmitterNotation emitter_notations = 7 [json_name = "emitterNotations", (.anduril.entitymanager.v1.overridable) = true];
             {
               total_size += 1UL * this_._internal_emitter_notations_size();
               for (const auto& msg : this_._internal_emitter_notations()) {
@@ -1124,7 +1127,7 @@ PROTOBUF_NOINLINE void Signal::Clear() {
           }
           cached_has_bits = this_._impl_._has_bits_[0];
           if (cached_has_bits & 0x0000001fu) {
-            // .google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz"];
+            // .google.protobuf.DoubleValue bandwidth_hz = 3 [json_name = "bandwidthHz", (.anduril.entitymanager.v1.overridable) = true];
             if (cached_has_bits & 0x00000001u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.bandwidth_hz_);
@@ -1134,12 +1137,12 @@ PROTOBUF_NOINLINE void Signal::Clear() {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.signal_to_noise_ratio_);
             }
-            // .google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS"];
+            // .google.protobuf.DoubleValue pulse_width_s = 8 [json_name = "pulseWidthS", (.anduril.entitymanager.v1.overridable) = true];
             if (cached_has_bits & 0x00000004u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.pulse_width_s_);
             }
-            // .anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval"];
+            // .anduril.entitymanager.v1.PulseRepetitionInterval pulse_repetition_interval = 9 [json_name = "pulseRepetitionInterval", (.anduril.entitymanager.v1.overridable) = true];
             if (cached_has_bits & 0x00000008u) {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.pulse_repetition_interval_);
@@ -1151,13 +1154,13 @@ PROTOBUF_NOINLINE void Signal::Clear() {
             }
           }
           switch (this_.frequency_measurement_case()) {
-            // .anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter"];
+            // .anduril.entitymanager.v1.Frequency frequency_center = 1 [json_name = "frequencyCenter", (.anduril.entitymanager.v1.overridable) = true];
             case kFrequencyCenter: {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.frequency_measurement_.frequency_center_);
               break;
             }
-            // .anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange"];
+            // .anduril.entitymanager.v1.FrequencyRange frequency_range = 2 [json_name = "frequencyRange", (.anduril.entitymanager.v1.overridable) = true];
             case kFrequencyRange: {
               total_size += 1 +
                             ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.frequency_measurement_.frequency_range_);

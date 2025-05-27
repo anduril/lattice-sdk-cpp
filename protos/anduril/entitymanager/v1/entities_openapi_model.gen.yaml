@@ -649,6 +649,10 @@ components:
                     allOf:
                         - $ref: '#/components/schemas/TaskCatalog'
                     description: A catalog of tasks that can be performed by an entity.
+                media:
+                    allOf:
+                        - $ref: '#/components/schemas/Media'
+                    description: Media associated with an entity, such as videos, images, or thumbnails.
                 relationships:
                     allOf:
                         - $ref: '#/components/schemas/Relationships'
@@ -1270,6 +1274,27 @@ components:
                     description: Estimated one standard deviation in same unit as the value.
                     format: double
             description: A component that describes some measured value with error.
+        Media:
+            type: object
+            properties:
+                media:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/MediaItem'
+            description: Media associated with an entity.
+        MediaItem:
+            type: object
+            properties:
+                type:
+                    enum:
+                        - MEDIA_TYPE_INVALID
+                        - MEDIA_TYPE_IMAGE
+                        - MEDIA_TYPE_VIDEO
+                    type: string
+                    format: enum
+                relativePath:
+                    type: string
+                    description: The path, relative to the environment base URL, where media related to an entity can be accessed
         MergedFrom:
             type: object
             properties: {}

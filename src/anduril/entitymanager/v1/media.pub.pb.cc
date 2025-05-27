@@ -30,10 +30,7 @@ namespace v1 {
 
 inline constexpr MediaItem::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : url_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        relative_path_(
+      : relative_path_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         type_{static_cast< ::anduril::entitymanager::v1::MediaType >(0)},
@@ -109,7 +106,6 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::MediaItem, _impl_.url_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::MediaItem, _impl_.type_),
         PROTOBUF_FIELD_OFFSET(::anduril::entitymanager::v1::MediaItem, _impl_.relative_path_),
 };
@@ -129,20 +125,19 @@ const char descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fmedia_2epub_
     "to\022\030anduril.entitymanager.v1\032*anduril/en"
     "titymanager/v1/options.pub.proto\"G\n\005Medi"
     "a\022>\n\005media\030\001 \003(\0132#.anduril.entitymanager"
-    ".v1.MediaItemB\003\310>\001R\005media\"{\n\tMediaItem\022\020"
-    "\n\003url\030\001 \001(\tR\003url\0227\n\004type\030\002 \001(\0162#.anduril"
-    ".entitymanager.v1.MediaTypeR\004type\022#\n\rrel"
-    "ative_path\030\003 \001(\tR\014relativePath*\206\001\n\tMedia"
-    "Type\022\026\n\022MEDIA_TYPE_INVALID\020\000\022\030\n\024MEDIA_TY"
-    "PE_THUMBNAIL\020\001\022\024\n\020MEDIA_TYPE_IMAGE\020\002\022\024\n\020"
-    "MEDIA_TYPE_VIDEO\020\003\022\033\n\027MEDIA_TYPE_SLIPPY_"
-    "TILES\020\004B\376\001\n\034com.anduril.entitymanager.v1"
-    "B\rMediaPubProtoP\001ZMghe.anduril.dev/andur"
-    "il/andurilapis-go/anduril/entitymanager/"
-    "v1;entitymanager\242\002\003AEX\252\002\030Anduril.Entitym"
-    "anager.V1\312\002\030Anduril\\Entitymanager\\V1\342\002$A"
-    "nduril\\Entitymanager\\V1\\GPBMetadata\352\002\032An"
-    "duril::Entitymanager::V1b\006proto3"
+    ".v1.MediaItemB\003\310>\001R\005media\"o\n\tMediaItem\0227"
+    "\n\004type\030\002 \001(\0162#.anduril.entitymanager.v1."
+    "MediaTypeR\004type\022#\n\rrelative_path\030\003 \001(\tR\014"
+    "relativePathJ\004\010\001\020\002*[\n\tMediaType\022\026\n\022MEDIA"
+    "_TYPE_INVALID\020\000\022\024\n\020MEDIA_TYPE_IMAGE\020\002\022\024\n"
+    "\020MEDIA_TYPE_VIDEO\020\003\"\004\010\001\020\001\"\004\010\004\020\004B\376\001\n\034com."
+    "anduril.entitymanager.v1B\rMediaPubProtoP"
+    "\001ZMghe.anduril.dev/anduril/andurilapis-g"
+    "o/anduril/entitymanager/v1;entitymanager"
+    "\242\002\003AEX\252\002\030Anduril.Entitymanager.V1\312\002\030Andu"
+    "ril\\Entitymanager\\V1\342\002$Anduril\\Entityman"
+    "ager\\V1\\GPBMetadata\352\002\032Anduril::Entityman"
+    "ager::V1b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_anduril_2fentitymanager_2fv1_2fmedia_2epub_2eproto_deps[1] =
     {
@@ -152,7 +147,7 @@ static ::absl::once_flag descriptor_table_anduril_2fentitymanager_2fv1_2fmedia_2
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_anduril_2fentitymanager_2fv1_2fmedia_2epub_2eproto = {
     false,
     false,
-    712,
+    656,
     descriptor_table_protodef_anduril_2fentitymanager_2fv1_2fmedia_2epub_2eproto,
     "anduril/entitymanager/v1/media.pub.proto",
     &descriptor_table_anduril_2fentitymanager_2fv1_2fmedia_2epub_2eproto_once,
@@ -173,9 +168,9 @@ const ::google::protobuf::EnumDescriptor* MediaType_descriptor() {
   return file_level_enum_descriptors_anduril_2fentitymanager_2fv1_2fmedia_2epub_2eproto[0];
 }
 PROTOBUF_CONSTINIT const uint32_t MediaType_internal_data_[] = {
-    327680u, 0u, };
+    65536u, 32u, 6u, };
 bool MediaType_IsValid(int value) {
-  return 0 <= value && value <= 4;
+  return 0 <= value && value <= 3 && ((13u >> value) & 1) != 0;
 }
 // ===================================================================
 
@@ -437,8 +432,7 @@ MediaItem::MediaItem(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE MediaItem::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::anduril::entitymanager::v1::MediaItem& from_msg)
-      : url_(arena, from.url_),
-        relative_path_(arena, from.relative_path_),
+      : relative_path_(arena, from.relative_path_),
         _cached_size_{0} {}
 
 MediaItem::MediaItem(
@@ -461,8 +455,7 @@ MediaItem::MediaItem(
 inline PROTOBUF_NDEBUG_INLINE MediaItem::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : url_(arena),
-        relative_path_(arena),
+      : relative_path_(arena),
         _cached_size_{0} {}
 
 inline void MediaItem::SharedCtor(::_pb::Arena* arena) {
@@ -477,7 +470,6 @@ inline void MediaItem::SharedDtor(MessageLite& self) {
   MediaItem& this_ = static_cast<MediaItem&>(self);
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
-  this_._impl_.url_.Destroy();
   this_._impl_.relative_path_.Destroy();
   this_._impl_.~Impl_();
 }
@@ -518,15 +510,15 @@ const ::google::protobuf::internal::ClassData* MediaItem::GetClassData() const {
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 0, 59, 2> MediaItem::_table_ = {
+const ::_pbi::TcParseTable<1, 2, 0, 56, 2> MediaItem::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    3, 24,  // max_field_number, fast_idx_mask
+    3, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967288,  // skipmap
+    4294967289,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    3,  // num_field_entries
+    2,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     _class_data_.base(),
@@ -536,10 +528,6 @@ const ::_pbi::TcParseTable<2, 3, 0, 59, 2> MediaItem::_table_ = {
     ::_pbi::TcParser::GetTable<::anduril::entitymanager::v1::MediaItem>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    {::_pbi::TcParser::MiniParse, {}},
-    // string url = 1 [json_name = "url"];
-    {::_pbi::TcParser::FastUS1,
-     {10, 63, 0, PROTOBUF_FIELD_OFFSET(MediaItem, _impl_.url_)}},
     // .anduril.entitymanager.v1.MediaType type = 2 [json_name = "type"];
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(MediaItem, _impl_.type_), 63>(),
      {16, 63, 0, PROTOBUF_FIELD_OFFSET(MediaItem, _impl_.type_)}},
@@ -549,9 +537,6 @@ const ::_pbi::TcParseTable<2, 3, 0, 59, 2> MediaItem::_table_ = {
   }}, {{
     65535, 65535
   }}, {{
-    // string url = 1 [json_name = "url"];
-    {PROTOBUF_FIELD_OFFSET(MediaItem, _impl_.url_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // .anduril.entitymanager.v1.MediaType type = 2 [json_name = "type"];
     {PROTOBUF_FIELD_OFFSET(MediaItem, _impl_.type_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
@@ -561,9 +546,8 @@ const ::_pbi::TcParseTable<2, 3, 0, 59, 2> MediaItem::_table_ = {
   }},
   // no aux_entries
   {{
-    "\42\3\0\15\0\0\0\0"
+    "\42\0\15\0\0\0\0\0"
     "anduril.entitymanager.v1.MediaItem"
-    "url"
     "relative_path"
   }},
 };
@@ -575,7 +559,6 @@ PROTOBUF_NOINLINE void MediaItem::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.url_.ClearToEmpty();
   _impl_.relative_path_.ClearToEmpty();
   _impl_.type_ = 0;
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
@@ -595,14 +578,6 @@ PROTOBUF_NOINLINE void MediaItem::Clear() {
           // @@protoc_insertion_point(serialize_to_array_start:anduril.entitymanager.v1.MediaItem)
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
-
-          // string url = 1 [json_name = "url"];
-          if (!this_._internal_url().empty()) {
-            const std::string& _s = this_._internal_url();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "anduril.entitymanager.v1.MediaItem.url");
-            target = stream->WriteStringMaybeAliased(1, _s, target);
-          }
 
           // .anduril.entitymanager.v1.MediaType type = 2 [json_name = "type"];
           if (this_._internal_type() != 0) {
@@ -644,11 +619,6 @@ PROTOBUF_NOINLINE void MediaItem::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // string url = 1 [json_name = "url"];
-            if (!this_._internal_url().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_url());
-            }
             // string relative_path = 3 [json_name = "relativePath"];
             if (!this_._internal_relative_path().empty()) {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -672,9 +642,6 @@ void MediaItem::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::googl
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_url().empty()) {
-    _this->_internal_set_url(from._internal_url());
-  }
   if (!from._internal_relative_path().empty()) {
     _this->_internal_set_relative_path(from._internal_relative_path());
   }
@@ -697,7 +664,6 @@ void MediaItem::InternalSwap(MediaItem* PROTOBUF_RESTRICT other) {
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.url_, &other->_impl_.url_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.relative_path_, &other->_impl_.relative_path_, arena);
   swap(_impl_.type_, other->_impl_.type_);
 }

@@ -8,6 +8,7 @@ import "anduril/entitymanager/v1/geoentity.pub.proto";
 import "anduril/entitymanager/v1/group.pub.proto";
 import "anduril/entitymanager/v1/health_status.pub.proto";
 import "anduril/entitymanager/v1/location.pub.proto";
+import "anduril/entitymanager/v1/media.pub.proto";
 import "anduril/entitymanager/v1/ontology.pub.proto";
 import "anduril/entitymanager/v1/options.pub.proto";
 import "anduril/entitymanager/v1/orbit.pub.proto";
@@ -103,6 +104,8 @@ message Entity {
   Classification data_classification = 29;
   // A catalog of tasks that can be performed by an entity.
   anduril.tasks.v2.TaskCatalog task_catalog = 31 [(anduril.entitymanager.v1.overridable) = true];
+  // Media associated with an entity, such as videos, images, or thumbnails.
+  Media media = 32;
   // The relationships between this entity and other entities in the common operational picture (COP).
   Relationships relationships = 33;
   // Visual details associated with the display of an entity in the client.
@@ -122,8 +125,8 @@ message Entity {
   // Orbit information for space objects.
   Orbit orbit = 46;
 
-  reserved 9, 16, 17, 18, 27, 28, 32, 41, 43;
-  reserved "correlated", "original_data", "geopolygon", "media", "contact", "team_status", "no_expiry";
+  reserved 9, 16, 17, 18, 27, 28, 41, 43;
+  reserved "correlated", "original_data", "geopolygon", "contact", "team_status", "no_expiry";
 }
 
 // Contains status of entities.
